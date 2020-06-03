@@ -8,6 +8,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedProject", "SharedProject\SharedProject.vcxitems", "{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedProject\SharedProject.vcxitems*{d90edf43-61f9-4706-bc37-b8a0664acec6}*SharedItemsImports = 9
+		SharedProject\SharedProject.vcxitems*{f555ffee-b5e6-49b6-a9c9-e4d1f25e1bfc}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
