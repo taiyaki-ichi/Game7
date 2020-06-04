@@ -48,9 +48,9 @@ int main() {
 
 		GameLib::DrawStart();
 
-		GameLib::GraphicsDrawTexture(texture, 400, 300, 0.f, scale,0);
-		GameLib::GraphicsDrawTexture(texture, 500, 300, 0.5f, 1.f, 1);
-		GameLib::GraphicsDrawTexture(texture, 300, 300, 0.f, 0.5f, 2);
+		GameLib::GraphicsDrawTexture(texture, 400, 300, 0.f, scale);
+		GameLib::GraphicsDrawTexture(texture, 500, 300, 0.5f, 1.f);
+		GameLib::GraphicsDrawTexture(texture, 300, 300, 0.f, 0.5f);
 
 		GameLib::DrawEnd();
 		

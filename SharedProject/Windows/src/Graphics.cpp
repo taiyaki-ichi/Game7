@@ -59,6 +59,15 @@ namespace GameLib
 		g_D3DDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 		g_D3DDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
+		g_D3DDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+		g_D3DDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+		g_D3DDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_CURRENT);
+
+		// ◆テクスチャステージ：アルファ要素の設定
+		g_D3DDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+		g_D3DDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+		g_D3DDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_CURRENT);
+
 		// ビューポートパラメータ
 		D3DVIEWPORT9 view_port;
 
@@ -171,20 +180,25 @@ namespace GameLib
 	struct CUSTOM_VERTEX3
 	{
 		float x, y, z, rhw;
+
+		DWORD color;
+
 		// テクスチャ座標(横)
 		float tu;
 		// テクスチャ座標(縦)
 		float tv;
 
-		DWORD color;
+		
 
 	};
 
 
-	void GraphicsDrawTexture(const std::shared_ptr<Texture>& texture, float posX, float posY, float rot, float scale, int flip)
+	void GraphicsDrawTexture(const std::shared_ptr<Texture>& texture, float posX, float posY, float rot, float scale, int alpha, int flip)
 	{
 		if (texture)
 		{
+			auto color = D3DCOLOR_ARGB(alpha, 255, 255, 255);
+
 			float halfWidth = texture->GetWidth() * scale / 2.f;
 			float halfHeigth = texture->GetHeight() * scale / 2.f;
 
@@ -203,21 +217,22 @@ namespace GameLib
 
 			bool h = flip == 1 || flip == 3;
 			bool v = flip == 2 || flip == 3;
-			CUSTOM_VERTEX TriangleFan[] = {
-				{ rotAndMovePoint[0][0], rotAndMovePoint[0][1],0.f, 1.f ,(h ? 1.f : 0.f),(v ? 1.f : 0.f)},
-				{ rotAndMovePoint[1][0], rotAndMovePoint[1][1],0.f, 1.f ,(h ? 0.f : 1.f),(v ? 1.f : 0.f)},
-				{ rotAndMovePoint[2][0], rotAndMovePoint[2][1],0.f, 1.f ,(h ? 0.f : 1.f),(v ? 0.f : 1.f)},
-				{ rotAndMovePoint[3][0], rotAndMovePoint[3][1],0.f, 1.f ,(h ? 1.f : 0.f),(v ? 0.f : 1.f)},
+			CUSTOM_VERTEX3 TriangleFan[] = {
+				{ rotAndMovePoint[0][0], rotAndMovePoint[0][1],0.f, 1.f ,color,(h ? 1.f : 0.f),(v ? 1.f : 0.f)},
+				{ rotAndMovePoint[1][0], rotAndMovePoint[1][1],0.f, 1.f ,color,(h ? 0.f : 1.f),(v ? 1.f : 0.f)},
+				{ rotAndMovePoint[2][0], rotAndMovePoint[2][1],0.f, 1.f ,color,(h ? 0.f : 1.f),(v ? 0.f : 1.f)},
+				{ rotAndMovePoint[3][0], rotAndMovePoint[3][1],0.f, 1.f ,color,(h ? 1.f : 0.f),(v ? 0.f : 1.f)},
 			};
 
 			// 頂点構造の指定
-			g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_TEX1);
+			g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE| D3DFVF_TEX1 );
 			g_D3DDevice->SetTexture(0, texture->GetPtr());
-			g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, TriangleFan, sizeof(CUSTOM_VERTEX));
+			g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, TriangleFan, sizeof(CUSTOM_VERTEX3));
 
 
 		}
 	}
+
 
 	void GraphicsDrawLine(float aX, float aY, float bX, float bY, int r, int g, int b, int alpha)
 	{

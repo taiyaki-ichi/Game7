@@ -28,4 +28,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Windows\Window.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Windows\src\WindowClassName.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="$(MSBuildThisFileDirectory)Assets\icon.png" />
+  </ItemGroup>
 </Project>
