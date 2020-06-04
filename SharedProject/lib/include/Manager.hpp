@@ -35,7 +35,7 @@ namespace GameLib
 			mNodes.insert(iter, node);
 		}
 
-		//w’è‚µ‚È‚¢ê‡‡”Ô‚Í0
+		//w’è‚µ‚È‚¢ê‡A‡”Ô‚Í0
 		void Add(T* ptr) {
 			Add({ ptr,0 });
 		}
