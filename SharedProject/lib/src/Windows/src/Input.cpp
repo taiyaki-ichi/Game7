@@ -1,7 +1,6 @@
-#include"Windows/Input.hpp"
+#include"../Input.hpp"
 #include"WindowClassName.hpp"
 #include<Windows.h>
-#include "..\Input.hpp"
 
 #pragma comment(lib, "dinput8.lib")
 #pragma comment(lib, "dxguid.lib")

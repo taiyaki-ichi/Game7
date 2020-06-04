@@ -1,4 +1,4 @@
-#include"Windows/Graphics.hpp"
+#include"../Graphics.hpp"
 #include"WindowClassName.hpp"
 
 #include<Windows.h>

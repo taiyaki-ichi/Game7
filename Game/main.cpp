@@ -1,10 +1,7 @@
 #include<iostream>
-#include"Windows/Window.hpp"
-#include"Windows/Time.hpp"
-#include"Windows/Event.hpp"
-#include"Windows/Graphics.hpp"
-#include"Windows/Input.hpp"
-
+#include<string>
+#include<memory>
+#include"lib/include/Manager.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -12,52 +9,35 @@
 #define new ::new(_NORMAL_BLOCK, __FILE__, __LINE__)
 
 
+struct Print {
+	static void function(std::string* ptr) {
+		std::cout << *ptr << "\n";
+	}
+};
+
 int main() {
 
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
 
+	
+	auto manager = std::make_unique<GameLib::Manager<std::string>>();
 
-	GameLib::CreateAppWindow("window", 800.f, 600.f);
-	GameLib::InitGraphics();
-	GameLib::InitInput();
+	auto aaa = new std::string("aaa");
+	manager->Add(aaa);
 
-	auto time = GameLib::GetTime();
-	auto waitTime = 1000 / 60;
+	auto bbb = new std::string("bbb");
+	manager->Add(bbb);
 
-	bool isRunning = true;
+	auto ccc = new std::string("ccc");
+	manager->Add({ ccc,5 });
 
-	auto texture = GameLib::LoadTexture("../Assets/icon.png");
-	if (!texture) {
-		std::cout << "texture load faild\n";
-		isRunning = false;
-	}
+	auto ddd = new std::string("ddd");
+	manager->Add({ ddd,-1 });
 
-	auto keyBoard = std::make_unique<GameLib::Keyboard>();
-	float scale = 0.5f;
+	manager->Remove(aaa);
+	delete aaa;
 
-	while (isRunning)
-	{
-		GameLib::Wait(time, waitTime);
-		isRunning = GameLib::PollEvent();
-
-		keyBoard->Update();
-
-		//スペース
-		if (keyBoard->GetKeyState(0x39) == 1)
-			scale += 0.1f;
-
-		GameLib::DrawStart();
-
-		GameLib::GraphicsDrawTexture(texture, 400, 300, 0.f, scale);
-		GameLib::GraphicsDrawTexture(texture, 500, 300, 0.5f, 1.f);
-		GameLib::GraphicsDrawTexture(texture, 300, 300, 0.f, 0.5f);
-
-		GameLib::DrawEnd();
-		
-	}
-
-	GameLib::ShutdownGraphics();
-	GameLib::ShutdownInput();
+	manager->Invoke<Print>();
 
 	return 0;
 	

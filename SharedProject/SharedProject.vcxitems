@@ -14,19 +14,20 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Windows\src\Event.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Windows\src\Graphics.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Windows\src\Input.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Windows\src\Time.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Windows\src\Window.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Windows\src\Event.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Windows\src\Graphics.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Windows\src\Input.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Windows\src\Time.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Windows\src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Windows\Event.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Windows\Graphics.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Windows\Input.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Windows\Time.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Windows\Window.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Windows\src\WindowClassName.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Event.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Graphics.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Input.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Time.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Window.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\src\WindowClassName.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="$(MSBuildThisFileDirectory)Assets\icon.png" />
