@@ -15,8 +15,10 @@
 namespace GameLib
 {
 
-	static LPDIRECT3D9 g_D3DInterface;						
-	static LPDIRECT3DDEVICE9 g_D3DDevice;
+	namespace {
+		LPDIRECT3D9 g_D3DInterface;
+		LPDIRECT3DDEVICE9 g_D3DDevice;
+	}
 
 
 	bool InitGraphics()

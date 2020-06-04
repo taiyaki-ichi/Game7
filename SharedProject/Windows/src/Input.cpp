@@ -9,9 +9,12 @@
 namespace GameLib
 {
 
-	static LPDIRECTINPUT8 g_pInputInterface;
-	static LPDIRECTINPUTDEVICE8 g_pKeyDevice;
-	static LPDIRECTINPUTDEVICE8 g_MouseDevice;
+	namespace {
+
+		LPDIRECTINPUT8 g_pInputInterface;
+		LPDIRECTINPUTDEVICE8 g_pKeyDevice;
+		LPDIRECTINPUTDEVICE8 g_MouseDevice;
+	}
 
 	bool CreateInputInterface();
 	bool CreateKeyboardDevice();
@@ -20,6 +23,7 @@ namespace GameLib
 	BOOL SetUpCooperativeLevel(LPDIRECTINPUTDEVICE8 device);
 	//!< マウスの制御起動
 	BOOL StartMouseControl();
+	
 	
 
 	bool InitInput()
