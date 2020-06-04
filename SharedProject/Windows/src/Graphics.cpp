@@ -159,17 +159,8 @@ namespace GameLib
 
 	}
 
-	struct CUSTOM_VERTEX
-	{
-		float x, y, z, rhw;
-		// テクスチャ座標(横)
-		float tu;
-		// テクスチャ座標(縦)
-		float tv;
-
-	};
-
-	struct CUSTOM_VERTEX2
+	//主に図形用
+	struct SIMPLE_VERTEX
 	{
 		float x, y, z, rhw;
 
@@ -177,7 +168,8 @@ namespace GameLib
 
 	};
 
-	struct CUSTOM_VERTEX3
+	//テクスチャ用
+	struct TEXTURE_VERTEX
 	{
 		float x, y, z, rhw;
 
@@ -187,8 +179,6 @@ namespace GameLib
 		float tu;
 		// テクスチャ座標(縦)
 		float tv;
-
-		
 
 	};
 
@@ -217,7 +207,7 @@ namespace GameLib
 
 			bool h = flip == 1 || flip == 3;
 			bool v = flip == 2 || flip == 3;
-			CUSTOM_VERTEX3 TriangleFan[] = {
+			TEXTURE_VERTEX TriangleFan[] = {
 				{ rotAndMovePoint[0][0], rotAndMovePoint[0][1],0.f, 1.f ,color,(h ? 1.f : 0.f),(v ? 1.f : 0.f)},
 				{ rotAndMovePoint[1][0], rotAndMovePoint[1][1],0.f, 1.f ,color,(h ? 0.f : 1.f),(v ? 1.f : 0.f)},
 				{ rotAndMovePoint[2][0], rotAndMovePoint[2][1],0.f, 1.f ,color,(h ? 0.f : 1.f),(v ? 0.f : 1.f)},
@@ -227,7 +217,7 @@ namespace GameLib
 			// 頂点構造の指定
 			g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE| D3DFVF_TEX1 );
 			g_D3DDevice->SetTexture(0, texture->GetPtr());
-			g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, TriangleFan, sizeof(CUSTOM_VERTEX3));
+			g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, TriangleFan, sizeof(TEXTURE_VERTEX));
 
 
 		}
@@ -237,20 +227,20 @@ namespace GameLib
 	void GraphicsDrawLine(float aX, float aY, float bX, float bY, int r, int g, int b, int alpha)
 	{
 		auto color = D3DCOLOR_ARGB(alpha, r, g, b);
-		CUSTOM_VERTEX2 p[] = {
+		SIMPLE_VERTEX p[] = {
 			{aX,aY,0.f,1,color},
 			{bX,bY,0.f,1,color},
 		};
 
 		g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
 		g_D3DDevice->SetTexture(0, nullptr);
-		g_D3DDevice->DrawPrimitiveUP(D3DPT_LINELIST, 1, p, sizeof(CUSTOM_VERTEX2));
+		g_D3DDevice->DrawPrimitiveUP(D3DPT_LINELIST, 1, p, sizeof(SIMPLE_VERTEX));
 	}
 
 	void GraphicsDrawFillTriangle(float aX, float aY, float bX, float bY, float cX, float cY, int r, int g, int b, int alpha)
 	{
 		auto color = D3DCOLOR_ARGB(alpha, r, g, b);
-		CUSTOM_VERTEX2 p[] = {
+		SIMPLE_VERTEX p[] = {
 			{aX,aY,0.f,1,color},
 			{bX,bY,0.f,1,color},
 			{cX,cY,0.f,1,color}
@@ -258,7 +248,7 @@ namespace GameLib
 
 		g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
 		g_D3DDevice->SetTexture(0, nullptr);
-		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLELIST, 1, p, sizeof(CUSTOM_VERTEX2));
+		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLELIST, 1, p, sizeof(SIMPLE_VERTEX));
 	}
 
 	void DrawStart()
