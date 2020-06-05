@@ -23,7 +23,7 @@ namespace GameLib
     }
 
 
-	bool CreateAppWindow(const std::string& windowName, float windowWidth, float windowHeigth)
+	bool CreateAppWindow(std::string&& windowName, float windowWidth, float windowHeigth)
 	{
 
 		HWND hwnd;
@@ -70,24 +70,6 @@ namespace GameLib
         if (!hwnd)
             return false;
         
-        /*
-        RECT window_rect;
-        RECT client_rect;
-
-        GetWindowRect(hwnd, &window_rect);
-        GetClientRect(hwnd, &client_rect);
-
-        int frame_size_x = (window_rect.right - window_rect.left) - (client_rect.right - client_rect.left);
-        int frame_size_y = (window_rect.bottom - window_rect.top) - (client_rect.bottom - client_rect.top);
-
-        SetWindowPos(hwnd, NULL, CW_USEDEFAULT, CW_USEDEFAULT,
-            frame_size_x + static_cast<int>(windowData.WindowWidth),
-            frame_size_y + static_cast<int>(windowData.WindowHeight),
-            SWP_NOMOVE);
-
-
-        */
-
         ShowWindow(hwnd, SW_SHOW);
         UpdateWindow(hwnd);
        

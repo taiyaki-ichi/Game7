@@ -8,7 +8,7 @@ namespace GameLib
 	struct OwnerManagerDestructorPolicy {
 		void operator()(std::vector<Node<T>>&& nodes) {
 			while (!nodes.empty()) {
-				auto ptr = nodes.back().ptr;
+				auto ptr = nodes.back().Ptr;
 				nodes.pop_back();
 				delete ptr;
 			}

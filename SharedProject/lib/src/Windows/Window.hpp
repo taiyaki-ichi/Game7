@@ -5,5 +5,5 @@
 namespace GameLib
 {
 	//ウィンドウの生成
-	bool CreateAppWindow(const std::string& windowName,float windowWidth,float windowHeigth);
+	bool CreateAppWindow(std::string&& windowName,float windowWidth,float windowHeigth);
 }

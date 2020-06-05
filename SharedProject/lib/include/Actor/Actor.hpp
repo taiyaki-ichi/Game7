@@ -1,7 +1,7 @@
 #pragma once
 #include<memory>
 #include<type_traits>
-#include"Manager/Manager.hpp"
+#include"lib/include/Manager/Manager.hpp"
 #include"Component.hpp"
 
 namespace GameLib
@@ -68,7 +68,7 @@ namespace GameLib
 		Actor* mOwner;
 		int mUpdateOrder;
 
-		
+
 	};
 
 }

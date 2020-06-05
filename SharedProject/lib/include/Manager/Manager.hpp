@@ -39,7 +39,7 @@ namespace GameLib
 
 			auto iter = mNodes.begin();
 			for (; iter != mNodes.end(); iter++)
-				if (node.order < iter->order)
+				if (node.Order < iter->Order)
 					break;
 			mNodes.insert(iter, node);
 		}
@@ -52,7 +52,7 @@ namespace GameLib
 		void Remove(T* ptr) {
 			auto iter = mNodes.begin();
 			for (; iter != mNodes.end(); iter++)
-				if (ptr == iter->ptr)
+				if (ptr == iter->Ptr)
 					break;
 			if (iter!=mNodes.end())
 				mNodes.erase(iter);
@@ -61,8 +61,8 @@ namespace GameLib
 		template<typename Policy>
 		void Invoke() {
 			for (auto iter = mNodes.begin(); iter != mNodes.end(); iter++) {
-				if (iter->ptr)
-					Policy()(iter->ptr);
+				if (iter->Ptr)
+					Policy()(iter->Ptr);
 				else
 					mNodes.erase(iter);
 			}
