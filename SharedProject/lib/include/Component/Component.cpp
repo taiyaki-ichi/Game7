@@ -1,5 +1,5 @@
 #include"Component.hpp"
-#include"Actor.hpp"
+#include"lib/include/Actor/Actor.hpp"
 
 namespace GameLib
 {

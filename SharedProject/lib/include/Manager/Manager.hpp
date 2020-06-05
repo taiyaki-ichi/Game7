@@ -10,14 +10,13 @@ namespace GameLib
 	template<typename T,typename Policy>
 	class ManagerBase;
 
-	//ポインタを所有しており、Managerのデストラクタ内でポインタを開放
+	//このManagerのデストラクタが呼ばれた際コンテナ内にあるポインタの開放も担う
 	template<typename T>
 	using OwnerManager = ManagerBase<T, OwnerManagerDestructorPolicy<T>>;
 
-	//ポインタを所有していない、参照のみ
-	//デストラクタが呼び出されてもポインタは開放されない
+	//このManagerのデストラクタが呼ばれてもコンテナにあるポインタは開放されない
 	template<typename T>
-	using WekManager = ManagerBase<T, WeakManagerDestructorPolicy<T>>;
+	using WeakManager = ManagerBase<T, WeakManagerDestructorPolicy<T>>;
 
 
 
@@ -34,7 +33,7 @@ namespace GameLib
 			DestructorPolicy()(std::move(mNodes));
 		}
 
-		//順番付き
+		//順番指定
 		void Add(Node<T>&& node) {
 
 			auto iter = mNodes.begin();

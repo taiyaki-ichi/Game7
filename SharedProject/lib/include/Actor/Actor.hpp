@@ -2,11 +2,11 @@
 #include<memory>
 #include<type_traits>
 #include"lib/include/Manager/Manager.hpp"
-#include"Component.hpp"
+#include"lib/include/Component/Component.hpp"
+
 
 namespace GameLib
 {
-
 
 	class Actor
 	{
@@ -15,6 +15,7 @@ namespace GameLib
 			:mOwner(owner)
 			, mUpdateOrder(updateOrder)
 		{
+
 			mOwnedActors = std::make_unique<OwnerManager<Actor>>();
 			mComponents = std::make_unique<OwnerManager<Component>>();
 
@@ -49,8 +50,6 @@ namespace GameLib
 			return mUpdateOrder;
 		}
 
-		//
-		//
 		template<typename Policy>
 		void InvokeOwnedActors() {
 			mOwnedActors->Invoke<Policy>();
