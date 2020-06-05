@@ -1,37 +1,20 @@
 #pragma once
-#include<type_traits>
-#include"Actor.hpp"
 
 namespace GameLib
 {
-
 	class Actor;
 
 	class Component
 	{
 	public:
-		Component(Actor* actor,int updateOrder=0)
-			:mOwnerActor(actor)
-			,mUpdateOrder(updateOrder)
-		{
-			mOwnerActor->Add({ this,updateOrder });
-		}
-		virtual ~Component() {
-			mOwnerActor->Remove(this);
-		}
+		Component(Actor* owner, int updateOrder = 0);
+		virtual ~Component();
 
-		virtual void Update() {
-
-		}
-
-		int GetUpdateOrder() const noexcept {
-			return mUpdateOrder;
-		}
+		virtual void Update();
 
 	private:
-		Actor* mOwnerActor;
+		Actor* mOwner;
 		int mUpdateOrder;
-
 	};
 
 }

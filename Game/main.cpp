@@ -3,6 +3,7 @@
 #include<memory>
 #include"lib/include/Manager/Manager.hpp"
 #include"lib/include/Actor.hpp"
+#include"lib/include/Component.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -29,11 +30,15 @@ int main() {
 
 	
 	auto aaa = new GameLib::Actor(root, 100);
-	
-	auto bbb = new GameLib::Actor(aaa, 50);
-	auto ccc = new GameLib::Actor(aaa, 150);
+	auto aaaComponent = new GameLib::Component(aaa, 100);
+
+	auto bbb = new GameLib::Actor(root, 50);
+	auto ccc = new GameLib::Actor(root, 150);
 
 	root->InvokeOwnedActors<Print>();
+
+	delete bbb;
+
 	root->InvokeOwnedActors<Print>();
 	
 	delete root;

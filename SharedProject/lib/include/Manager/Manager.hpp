@@ -55,9 +55,13 @@ namespace GameLib
 
 		template<typename Policy>
 		void Invoke() {
-			for (auto node : mNodes)
-				//Policy::func(node.ptr);
-				Policy()(node.ptr);
+			for (auto iter = mNodes.begin(); iter != mNodes.end(); iter++) {
+				if (iter->ptr)
+					Policy()(iter->ptr);
+				else
+					mNodes.erase(iter);
+			}
+			
 		}
 
 		void SetOrder(T* ptr, int order) {

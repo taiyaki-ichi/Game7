@@ -7,10 +7,6 @@
 namespace GameLib
 {
 
-	class Component;
-
-	template<typename T>
-	class Manager;
 
 	class Actor
 	{
@@ -27,14 +23,11 @@ namespace GameLib
 
 		}
 		virtual ~Actor() {
-
 			if (mOwner)
 				mOwner->Remove(this);
 		}
 
-		virtual void Update() {
-
-		}
+		virtual void Update() {}
 
 
 
@@ -61,6 +54,10 @@ namespace GameLib
 		template<typename Policy>
 		void InvokeOwnedActors() {
 			mOwnedActors->Invoke<Policy>();
+		}
+		template<typename Policy>
+		void InvokeComponents() {
+			mComponents->Invoke<Policy>();
 		}
 
 	protected:
