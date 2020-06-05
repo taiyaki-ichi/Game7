@@ -1,5 +1,7 @@
 #pragma once
 #include<vector>
+#include<algorithm>
+#include<iostream>
 
 namespace GameLib
 {
@@ -18,11 +20,13 @@ namespace GameLib
 
 
 	public:
-
-		~Manager() {
-			for (auto node : mNodes)
-				delete node.ptr;
-			mNodes.clear();
+		Manager() = default;
+		virtual ~Manager() {
+			while (!mNodes.empty()) {
+				auto ptr = mNodes.back().ptr;
+				mNodes.pop_back();
+				delete ptr;
+			}
 		}
 
 		//èáî‘ïtÇ´
@@ -52,8 +56,15 @@ namespace GameLib
 		template<typename Policy>
 		void Invoke() {
 			for (auto node : mNodes)
-				Policy::function(node.ptr);
+				//Policy::func(node.ptr);
+				Policy()(node.ptr);
 		}
+
+		void SetOrder(T* ptr, int order) {
+			Remove(ptr);
+			Add({ ptr,order });
+		}
+
 	};
 
 }
