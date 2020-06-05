@@ -24,7 +24,9 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\DestructorPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Manager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Node.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\StanderdInvokeFunc.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Event.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Graphics.hpp" />

@@ -2,31 +2,36 @@
 #include<vector>
 #include<algorithm>
 #include<iostream>
+#include"DestructorPolicy.hpp"
 
 namespace GameLib
 {
 
-	template<typename T>
-	struct Node {
-		T* ptr;
-		int order;
-	};
+	template<typename T,typename Policy>
+	class ManagerBase;
 
+	//ポインタを所有しており、Managerのデストラクタ内でポインタを開放
 	template<typename T>
-	class Manager
+	using OwnerManager = ManagerBase<T, OwnerManagerDestructorPolicy<T>>;
+
+	//ポインタを所有していない、参照のみ
+	//デストラクタが呼び出されてもポインタは開放されない
+	template<typename T>
+	using WekManager = ManagerBase<T, WeakManagerDestructorPolicy<T>>;
+
+
+
+	template<typename T,typename DestructorPolicy>
+	class ManagerBase
 	{
 
 		std::vector<Node<T>> mNodes;
 
 
 	public:
-		Manager() = default;
-		virtual ~Manager() {
-			while (!mNodes.empty()) {
-				auto ptr = mNodes.back().ptr;
-				mNodes.pop_back();
-				delete ptr;
-			}
+		ManagerBase() = default;
+		virtual ~ManagerBase() {
+			DestructorPolicy()(std::move(mNodes));
 		}
 
 		//順番付き
@@ -70,5 +75,6 @@ namespace GameLib
 		}
 
 	};
+
 
 }

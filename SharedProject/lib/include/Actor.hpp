@@ -15,8 +15,8 @@ namespace GameLib
 			:mOwner(owner)
 			, mUpdateOrder(updateOrder)
 		{
-			mOwnedActors = std::make_unique<Manager<Actor>>();
-			mComponents = std::make_unique<Manager<Component>>();
+			mOwnedActors = std::make_unique<OwnerManager<Actor>>();
+			mComponents = std::make_unique<OwnerManager<Component>>();
 
 			if (mOwner)
 				mOwner->Add({ this,mUpdateOrder });
@@ -61,8 +61,8 @@ namespace GameLib
 		}
 
 	protected:
-		std::unique_ptr<Manager<Actor>> mOwnedActors;
-		std::unique_ptr<Manager<Component>> mComponents;
+		std::unique_ptr<OwnerManager<Actor>> mOwnedActors;
+		std::unique_ptr<OwnerManager<Component>> mComponents;
 
 	private:
 		Actor* mOwner;
