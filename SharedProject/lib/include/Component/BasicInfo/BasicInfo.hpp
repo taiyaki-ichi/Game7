@@ -7,7 +7,7 @@ namespace GameLib
 {
 	
 
-	class BasicActorInfo : public Component
+	class BasicInfo : public Component
 	{
 		Vector2 mPosition;
 		float mScale;
@@ -15,42 +15,42 @@ namespace GameLib
 
 
 	public:
-		BasicActorInfo(Actor* owner, int updateOeder = 0)
+		BasicInfo(Actor* owner, int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition()
 			,mScale(1.f)
 			,mRotation(1.f)
 		{}
 
-		BasicActorInfo(Actor* owner,const Vector2& pos ,int updateOeder = 0)
+		BasicInfo(Actor* owner,const Vector2& pos ,int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition(pos)
 			, mScale(1.f)
 			, mRotation(1.f)
 		{}
 
-		BasicActorInfo(Actor* owner, Vector2&& pos, int updateOeder = 0)
+		BasicInfo(Actor* owner, Vector2&& pos, int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition(std::move(pos))
 			, mScale(1.f)
 			, mRotation(1.f)
 		{}
 
-		BasicActorInfo(Actor* owner,const Vector2& pos ,float scale=1.f,float rot=1.f,int updateOeder = 0)
+		BasicInfo(Actor* owner,const Vector2& pos ,float scale=1.f,float rot=1.f,int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition(pos)
 			, mScale(scale)
 			, mRotation(rot)
 		{}
 
-		BasicActorInfo(Actor* owner, Vector2&& pos, float scale = 1.f, float rot = 1.f, int updateOeder = 0)
+		BasicInfo(Actor* owner, Vector2&& pos, float scale = 1.f, float rot = 1.f, int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition(std::move(pos))
 			, mScale(scale)
 			, mRotation(scale)
 		{}
 
-		virtual ~BasicActorInfo() = default;
+		virtual ~BasicInfo() = default;
 
 
 		const Vector2& GetPosition() const { return mPosition; }

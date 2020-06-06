@@ -59,11 +59,14 @@ namespace GameLib
 
 		template<typename Policy>
 		void Invoke() {
-			for (auto iter = mNodes.begin(); iter != mNodes.end(); iter++) {
-				if (iter->Ptr)
+			auto iter = mNodes.begin();
+			while (iter != mNodes.end()) {
+				if (iter->Ptr) {
 					Policy()(iter->Ptr);
+					iter++;
+				}
 				else
-					mNodes.erase(iter);
+					iter = mNodes.erase(iter);
 			}
 			
 		}

@@ -5,6 +5,7 @@
 #include"lib/src/Windows/Input.hpp"
 #include"lib/src/Windows/Event.hpp"
 #include"lib/include/Actor/RootActor.hpp"
+#include"lib/src/DrawManager/DrawManager.hpp"
 
 
 namespace GameLib
@@ -62,9 +63,9 @@ namespace GameLib
 
 		mRootActor->Update();
 
-		//
-		//Draw‚Ìˆ—
-		//
+		DrawStart();
+		DrawManager::Draw();
+		DrawEnd();
 	}
 
 
