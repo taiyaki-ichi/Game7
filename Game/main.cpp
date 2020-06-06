@@ -3,7 +3,8 @@
 #include<memory>
 #include"lib/include/Actor/RootActor.hpp"
 #include"lib/include/App.hpp"
-#include"lib/include/Component/Draw/SpriteCompoent.hpp"
+#include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
+#include"lib/include/Component/Draw/TextureComponent/Texturecomponent.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -16,11 +17,12 @@ int main() {
 
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
 
+	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 
 	auto root = new GameLib::RootActor();
-	auto spr = new GameLib::SpriteComponent(root);
+	auto rootInfo = new GameLib::BasicActorInfo(root, { 400,300 },1.f);
+	auto texture = new GameLib::TextureComponent(rootInfo, "../Assets/icon.png");
 
-	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 	app->Start(root);
 
 	return 0;

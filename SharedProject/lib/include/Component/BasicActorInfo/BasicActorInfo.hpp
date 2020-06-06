@@ -1,56 +1,41 @@
 #pragma once
 #include<utility>
+#include<type_traits>
 #include"lib/include/Component/Component.hpp"
 #include"lib/include/Math/Vector2.hpp"
 
 namespace GameLib
 {
-	
 
-	class BasicInfo : public Component
+	class BasicActorInfo : public Component
 	{
 		Vector2 mPosition;
 		float mScale;
 		float mRotation;
 
-
 	public:
-		BasicInfo(Actor* owner, int updateOeder = 0)
+		BasicActorInfo(Actor* owner, int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition()
 			,mScale(1.f)
-			,mRotation(1.f)
+			,mRotation(0.f)
 		{}
 
-		BasicInfo(Actor* owner,const Vector2& pos ,int updateOeder = 0)
-			:Component(owner, updateOeder)
-			, mPosition(pos)
-			, mScale(1.f)
-			, mRotation(1.f)
-		{}
-
-		BasicInfo(Actor* owner, Vector2&& pos, int updateOeder = 0)
-			:Component(owner, updateOeder)
-			, mPosition(std::move(pos))
-			, mScale(1.f)
-			, mRotation(1.f)
-		{}
-
-		BasicInfo(Actor* owner,const Vector2& pos ,float scale=1.f,float rot=1.f,int updateOeder = 0)
+		BasicActorInfo(Actor* owner,const Vector2& pos ,float scale=1.f,float rot=0.f,int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition(pos)
 			, mScale(scale)
 			, mRotation(rot)
 		{}
 
-		BasicInfo(Actor* owner, Vector2&& pos, float scale = 1.f, float rot = 1.f, int updateOeder = 0)
+		BasicActorInfo(Actor* owner, Vector2&& pos, float scale = 1.f, float rot = 0.f, int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition(std::move(pos))
 			, mScale(scale)
-			, mRotation(scale)
+			, mRotation(rot)
 		{}
 
-		virtual ~BasicInfo() = default;
+		virtual ~BasicActorInfo() = default;
 
 
 		const Vector2& GetPosition() const { return mPosition; }
@@ -62,5 +47,7 @@ namespace GameLib
 
 		float GetRotation() const { return mRotation; }
 		void SetRotation(float rotation) { mRotation = rotation; }
+
+	
 	};
 }

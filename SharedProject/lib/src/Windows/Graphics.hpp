@@ -2,6 +2,7 @@
 #include<string>
 #include<memory>
 #include<d3d9.h>
+#include"lib/include/Resource/Texture.hpp"
 
 
 namespace GameLib
@@ -10,18 +11,18 @@ namespace GameLib
 	bool InitGraphics();
 	void ShutdownGraphics();
 
-	class Texture
+	class TextureImpl : public Texture
 	{
 	public:
-		Texture(LPDIRECT3DTEXTURE9 ptr,float w,float h);
-		~Texture();
+		TextureImpl(LPDIRECT3DTEXTURE9 ptr,float w,float h);
+		~TextureImpl();
 
-		Texture operator=(Texture&) = delete;
-		Texture(Texture&) = delete;
+		TextureImpl operator=(TextureImpl&) = delete;
+		TextureImpl(TextureImpl&) = delete;
 
 		LPDIRECT3DTEXTURE9 GetPtr() const { return mPtr; }
-		float GetWidth() const { return mWidth; }
-		float GetHeight() const { return mHeight; }
+		float GetWidth() const noexcept override { return mWidth; }
+		float GetHeight() const noexcept override { return mHeight; }
 
 	private:
 		LPDIRECT3DTEXTURE9 mPtr;
@@ -30,11 +31,11 @@ namespace GameLib
 	};
 
 
-	std::shared_ptr<Texture> LoadTexture(const std::string& fileName);
+	Texture* LoadTexture(const std::string& fileName);
 
 
 	//flip=1　水平に反転　flip=2 垂直に反転 filp=3は両方
-	void GraphicsDrawTexture(const std::shared_ptr<Texture>& texture, float posX, float posY, float rot, float scale, int alpha = 255, int flip = 0);
+	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float rot, float scale, int alpha = 255, int flip = 0);
 	//二点の座標、RGBとアルファは0-255
 	void GraphicsDrawLine(float aX, float aY, float bX, float bY, int r, int g, int b, int alpha = 255);
 

@@ -103,21 +103,22 @@ namespace GameLib
 	}
 
 
-	Texture::Texture(LPDIRECT3DTEXTURE9 ptr, float w, float h)
-		:mPtr(std::move(ptr))
+	TextureImpl::TextureImpl(LPDIRECT3DTEXTURE9 ptr, float w, float h)
+		:Texture()
+		,mPtr(std::move(ptr))
 		,mWidth(w)
 		,mHeight(h)
 	{
 	}
 
-	Texture::~Texture()
+	TextureImpl::~TextureImpl()
 	{
 		if (mPtr)
 			mPtr->Release();
 	}
 
 
-	std::shared_ptr<Texture> LoadTexture(const std::string& fileName)
+	Texture* LoadTexture(const std::string& fileName)
 	{
 		
 		LPDIRECT3DTEXTURE9 tex;
@@ -156,7 +157,7 @@ namespace GameLib
 				return nullptr;
 			}
 
-			return std::make_shared<Texture>(tex, static_cast<float>(desc.Width), static_cast<float>(desc.Height));
+			return new TextureImpl(tex, static_cast<float>(desc.Width), static_cast<float>(desc.Height));
 		}
 
 	}
@@ -185,7 +186,7 @@ namespace GameLib
 	};
 
 
-	void GraphicsDrawTexture(const std::shared_ptr<Texture>& texture, float posX, float posY, float rot, float scale, int alpha, int flip)
+	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float rot, float scale, int alpha, int flip)
 	{
 		if (texture)
 		{
@@ -216,9 +217,10 @@ namespace GameLib
 				{ rotAndMovePoint[3][0], rotAndMovePoint[3][1],0.f, 1.f ,color,(h ? 1.f : 0.f),(v ? 0.f : 1.f)},
 			};
 
+			TextureImpl* tex = (TextureImpl*)(texture);
 			// ’¸“_\‘¢‚ÌŽw’è
 			g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE| D3DFVF_TEX1 );
-			g_D3DDevice->SetTexture(0, texture->GetPtr());
+			g_D3DDevice->SetTexture(0, tex->GetPtr());
 			g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, TriangleFan, sizeof(TEXTURE_VERTEX));
 
 

@@ -6,6 +6,7 @@
 #include"lib/src/Windows/Event.hpp"
 #include"lib/include/Actor/RootActor.hpp"
 #include"lib/src/DrawManager/DrawManager.hpp"
+#include"lib/include/Resource/ResourceManager.hpp"
 
 
 namespace GameLib
@@ -76,6 +77,8 @@ namespace GameLib
 
 		if (mRootActor)
 			delete mRootActor;
+
+		ResourceManager::ReleaseResources();
 	}
 
 
