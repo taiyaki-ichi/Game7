@@ -4,7 +4,7 @@
 #include"lib/include/Actor/RootActor.hpp"
 #include"lib/include/App.hpp"
 #include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
-#include"lib/include/Component/Draw/TextureComponent/Texturecomponent.hpp"
+#include"lib/include/Component/Draw/AnimComponent/AnimComponent.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -20,8 +20,9 @@ int main() {
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 
 	auto root = new GameLib::RootActor();
-	auto rootInfo = new GameLib::BasicActorInfo(root, { 400,300 },1.f);
-	auto texture = new GameLib::TextureComponent(rootInfo, "../Assets/icon.png");
+	auto rootInfo = new GameLib::BasicActorInfo(root, { 400,300 },0.5f);
+	auto texture = new GameLib::AnimComponent(rootInfo, { "../Assets/run001.png","../Assets/run002.png","../Assets/run003.png","../Assets/run002.png" });
+	//auto te = new GameLib::TextureComponent(rootInfo, "../Assets/run001.png");
 
 	app->Start(root);
 

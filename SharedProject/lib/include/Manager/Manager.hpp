@@ -7,7 +7,7 @@
 namespace GameLib
 {
 
-	template<typename T,typename Policy>
+	template<typename T,typename DestructorPolicy>
 	class ManagerBase;
 
 	//このManagerのデストラクタが呼ばれた際コンテナ内にあるポインタの開放も担う

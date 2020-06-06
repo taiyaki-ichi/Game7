@@ -3,7 +3,7 @@
 #include<type_traits>
 #include"lib/include/Manager/Manager.hpp"
 #include"lib/include/Component/Component.hpp"
-
+#include"lib/include/Manager/StanderdInvokeFunc.hpp"
 
 namespace GameLib
 {
@@ -28,7 +28,10 @@ namespace GameLib
 				mOwner->Remove(this);
 		}
 
-		virtual void Update() {}
+		virtual void Update() {
+			mOwnedActors->Invoke<UpdatePolicy<Actor>>();
+			mComponents->Invoke<UpdatePolicy<Component>>();
+		}
 
 
 
