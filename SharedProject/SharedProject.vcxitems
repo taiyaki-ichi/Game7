@@ -27,6 +27,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\Actor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\RootActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\App.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\BasicActorInfo\BasicActorInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\DestructorPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Manager.hpp" />

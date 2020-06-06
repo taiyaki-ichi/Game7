@@ -3,6 +3,7 @@
 #include<memory>
 #include"lib/include/Actor/RootActor.hpp"
 #include"lib/include/App.hpp"
+#include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -17,6 +18,7 @@ int main() {
 
 
 	auto root = new GameLib::RootActor();
+	auto actInfo = new GameLib::BasicActorInfo(root);
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 	app->Start(root);
 
