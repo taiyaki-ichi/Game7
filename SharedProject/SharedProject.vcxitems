@@ -17,6 +17,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\AnimComponent\AnimComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\TextureComponent\TextureComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Viewport\Viewport.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Component\Draw\SpriteComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\DrawManager\DrawManager.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Math\Vector2.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Resource\Texture.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Resource\ResourceManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Viewport\Viewport.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\DrawManager\DrawManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\DrawManager\DrawPolicy.hpp" />
