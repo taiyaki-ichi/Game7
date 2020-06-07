@@ -204,8 +204,8 @@ namespace GameLib
 
 			float rotAndMovePoint[4][2];
 			for (int i = 0; i < 4; i++) {
-				rotAndMovePoint[i][0] = point[i][0] * std::cos(rot) - point[i][1] * std::sin(rot) + posX;
-				rotAndMovePoint[i][1] = point[i][0] * std::sin(rot) + point[i][1] * std::cos(rot) + posY;
+				rotAndMovePoint[i][0] = point[i][0] * std::cos(-rot) - point[i][1] * std::sin(-rot) + posX;
+				rotAndMovePoint[i][1] = point[i][0] * std::sin(-rot) + point[i][1] * std::cos(-rot) + posY;
 			}
 
 			bool h = flip == 1 || flip == 3;

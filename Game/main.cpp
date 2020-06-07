@@ -21,10 +21,9 @@ int main() {
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 
 	auto root = new GameLib::RootActor();
-	auto rootInfo = new GameLib::BasicActorInfo(root, { 400,300 },0.5f);
+	auto rootInfo = new GameLib::BasicActorInfo(root, { 0,0 },0.5f);
 	auto texture = new GameLib::AnimComponent(rootInfo, { "../Assets/run001.png","../Assets/run002.png","../Assets/run003.png","../Assets/run002.png" },1.0);
 
-	std::cout << GameLib::GetWindowWidth() << "," << GameLib::GetWindowHeigth();
 
 	app->Start(root);
 
