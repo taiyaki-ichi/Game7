@@ -78,5 +78,23 @@ namespace GameLib
         return true;
 	}
 
+    float GetWindowWidth()
+    {
+
+      
+        RECT rec;
+        HWND hDeskWnd = FindWindowA(WINDOW_CLASS_NAME, nullptr);
+        GetWindowRect(hDeskWnd, &rec); 
+        return static_cast<float>(rec.right - rec.left);
+    }
+
+    float GetWindowHeigth()
+    {
+        RECT rec;
+        HWND hDeskWnd = FindWindowA(WINDOW_CLASS_NAME, nullptr);
+        GetWindowRect(hDeskWnd, &rec);
+        return static_cast<float>(rec.bottom - rec.top);
+    }
+
  
 }

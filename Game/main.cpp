@@ -5,6 +5,7 @@
 #include"lib/include/App.hpp"
 #include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
 #include"lib/include/Component/Draw/AnimComponent/AnimComponent.hpp"
+#include"lib/src/Windows/Window.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -23,7 +24,10 @@ int main() {
 	auto rootInfo = new GameLib::BasicActorInfo(root, { 400,300 },0.5f);
 	auto texture = new GameLib::AnimComponent(rootInfo, { "../Assets/run001.png","../Assets/run002.png","../Assets/run003.png","../Assets/run002.png" },1.0);
 
+	std::cout << GameLib::GetWindowWidth() << "," << GameLib::GetWindowHeigth();
+
 	app->Start(root);
+
 
 	return 0;
 	
