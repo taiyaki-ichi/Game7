@@ -45,6 +45,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Node.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\StanderdInvokeFunc.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Math\Vector2.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Math\Vector2Func.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Resource\Texture.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Resource\ResourceManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Viewport\Viewport.hpp" />

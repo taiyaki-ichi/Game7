@@ -52,6 +52,10 @@ namespace GameLib
 		{
 			return  { vec.x / scalar, vec.y * scalar };
 		}
+		friend Vector2 operator-(const Vector2& vec)
+		{
+			return  { -vec.x , -vec.y };
+		}
 
 		Vector2& operator+=(const Vector2& right)
 		{
