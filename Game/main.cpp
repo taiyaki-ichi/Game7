@@ -21,8 +21,7 @@ int main() {
 
 	auto root = new GameLib::RootActor();
 	auto rootInfo = new GameLib::BasicActorInfo(root, { 400,300 },0.5f);
-	auto texture = new GameLib::AnimComponent(rootInfo, { "../Assets/run001.png","../Assets/run002.png","../Assets/run003.png","../Assets/run002.png" });
-	//auto te = new GameLib::TextureComponent(rootInfo, "../Assets/run001.png");
+	auto texture = new GameLib::AnimComponent(rootInfo, { "../Assets/run001.png","../Assets/run002.png","../Assets/run003.png","../Assets/run002.png" },1.0);
 
 	app->Start(root);
 

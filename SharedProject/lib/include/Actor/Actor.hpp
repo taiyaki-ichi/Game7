@@ -1,6 +1,4 @@
 #pragma once
-#include<memory>
-#include<type_traits>
 #include"lib/include/Manager/Manager.hpp"
 #include"lib/include/Component/Component.hpp"
 #include"lib/include/Manager/StanderdInvokeFunc.hpp"
@@ -14,10 +12,9 @@ namespace GameLib
 		Actor(Actor* owner, int updateOrder = 0)
 			:mOwner(owner)
 			, mUpdateOrder(updateOrder)
+			,mOwnedActors()
+			,mComponents()
 		{
-
-			mOwnedActors = std::make_unique<OwnerManager<Actor>>();
-			mComponents = std::make_unique<OwnerManager<Component>>();
 
 			if (mOwner)
 				mOwner->Add({ this,mUpdateOrder });
@@ -29,23 +26,23 @@ namespace GameLib
 		}
 
 		virtual void Update() {
-			mOwnedActors->Invoke<UpdatePolicy<Actor>>();
-			mComponents->Invoke<UpdatePolicy<Component>>();
+			mOwnedActors.Invoke<UpdatePolicy<Actor>>();
+			mComponents.Invoke<UpdatePolicy<Component>>();
 		}
 
 
 
 		void Add(Node<Actor>&& node) {
-			mOwnedActors->Add(std::move(node));
+			mOwnedActors.Add(std::move(node));
 		}
 		void Add(Node<Component>&& node) {
-			mComponents->Add(std::move(node));
+			mComponents.Add(std::move(node));
 		}
 		void Remove(Actor* actor) {
-			mOwnedActors->Remove(actor);
+			mOwnedActors.Remove(actor);
 		}
 		void Remove(Component* component) {
-			mComponents->Remove(component);
+			mComponents.Remove(component);
 		}
 
 
@@ -63,8 +60,8 @@ namespace GameLib
 		}
 
 	protected:
-		std::unique_ptr<OwnerManager<Actor>> mOwnedActors;
-		std::unique_ptr<OwnerManager<Component>> mComponents;
+		OwnerManager<Actor> mOwnedActors;
+		OwnerManager<Component> mComponents;
 
 	private:
 		Actor* mOwner;
