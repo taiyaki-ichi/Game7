@@ -8,6 +8,7 @@
 #include"lib/src/Windows/Window.hpp"
 #include"lib/include/CollisionDetection/MortonNumber.hpp"
 #include"lib/include/Component/Collider/ColliderComponent.hpp"
+#include"lib/include/Math/Vector2Func.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -20,7 +21,7 @@ int main() {
 
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	
+	/*
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 
 	auto root = new GameLib::RootActor();
@@ -29,8 +30,15 @@ int main() {
 	auto collder = new ColliderComponent(rootInfo, "", 200.f, 300.f, { 255,0,0,255 });
 
 	app->Start(root);
-	
+	*/
 
+	auto vecs1 = GetRectangleVectors({ 0,0 }, 3.f, 1.f, 0.f);
+	auto vecs2 = GetRectangleVectors({ 0,0 }, 1.f, 3.f, 1.f);
+	if (CollisionDetection(vecs1,vecs2))
+		std::cout << "in\n";
+	else 
+		std::cout << "no\n";
+	
 	return 0;
 	
 }
