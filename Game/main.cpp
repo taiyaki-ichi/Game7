@@ -6,18 +6,20 @@
 #include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
 #include"lib/include/Component/Draw/AnimComponent/AnimComponent.hpp"
 #include"lib/src/Windows/Window.hpp"
+#include"lib/include/CollisionDetection/MortonNumber.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
 #define malloc(X) _malloc_dbg(X,_NORMAL_BLOCK,__FILE__,__LINE__) 
 #define new ::new(_NORMAL_BLOCK, __FILE__, __LINE__)
 
-
+using namespace GameLib;
 
 int main() {
 
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
 
+	/*
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 
 	auto root = new GameLib::RootActor();
@@ -26,7 +28,18 @@ int main() {
 
 
 	app->Start(root);
+	*/
 
+	CollisionDetectionSetting::SetWidth(20.f);
+	CollisionDetectionSetting::SetHeigth(20.f);
+	CollisionDetectionSetting::SetPos({ 10.f,0.f });
+	CollisionDetectionSetting::SetLevel(2);
+	CollisionDetectionSetting::ColcMembers();
+
+	std::cout << GetMortonNumber(-8.f, -8.f, -7.f, -7.f) << "\n";
+	std::cout << GetMortonNumber(2.f, 2.f, 8.f, 8.f) << "\n";
+	std::cout << GetMortonNumber(-20.f, 20.f, 25.f, 25.f) << "\n";
+	std::cout << GetMortonNumber(-2.f, -2.f, 2.f, 2.f) << "\n";
 
 	return 0;
 	

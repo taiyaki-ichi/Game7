@@ -14,6 +14,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\AnimComponent\AnimComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\TextureComponent\TextureComponent.cpp" />
@@ -33,6 +34,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\Actor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\RootActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\App.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\MortonNumber.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\SpaceDivisionTree.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\BasicActorInfo\BasicActorInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\AnimComponent\AnimComponent.hpp" />
