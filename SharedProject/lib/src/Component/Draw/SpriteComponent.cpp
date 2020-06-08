@@ -22,7 +22,7 @@ namespace GameLib
 
 
 	//y*-1,(x,y)+(windowWidth/2.f,windowHeigth/2.f)Ç≈WindowsÇÃç¿ïWånÇ÷ïœä∑
-	Vector2&& ToWindowsPoint(Vector2&& vec) {
+	Vector2 ToWindowsPoint(Vector2&& vec) {
 		return { vec.x + GetWindowWidth() / 2.f,-vec.y + GetWindowHeigth()/2.f };
 	}
 

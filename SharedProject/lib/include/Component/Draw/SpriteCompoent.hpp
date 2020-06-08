@@ -16,7 +16,7 @@ namespace GameLib
 		SpriteComponent(Actor* actor,int drawOrder = 0, int updateOrde = 0);
 		virtual ~SpriteComponent();
 
-		virtual void Draw() {}
+		virtual void Draw(){}
 
 		int GetDrawOrder() const noexcept {
 			return mDrawOrder;

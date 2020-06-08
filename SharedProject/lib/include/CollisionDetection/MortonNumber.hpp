@@ -54,7 +54,7 @@ namespace GameLib
 		DWORD AddNum = (CollisionDetectionSetting::GetPowerOfFour(level - HiLevel) - 1) / 3;
 		SpaceNum += AddNum;
 
-		if (SpaceNum > (CollisionDetectionSetting::GetPowerOfFour(level + 1) - 1) / 3)
+		if (SpaceNum > static_cast<DWORD>((CollisionDetectionSetting::GetPowerOfFour(level + 1) - 1) / 3))
 			return 0xffffffff;
 
 		return SpaceNum;

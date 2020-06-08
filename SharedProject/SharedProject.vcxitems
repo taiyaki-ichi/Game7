@@ -15,6 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Collider\ColliderComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\AnimComponent\AnimComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\TextureComponent\TextureComponent.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\MortonNumber.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\SpaceDivisionTree.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\BasicActorInfo\BasicActorInfo.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Collider\ColliderComponent.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\AnimComponent\AnimComponent.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\Color.hpp" />
