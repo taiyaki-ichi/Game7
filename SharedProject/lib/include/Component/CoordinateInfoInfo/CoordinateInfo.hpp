@@ -7,35 +7,35 @@
 namespace GameLib
 {
 
-	class BasicActorInfo : public Component
+	class CoordinteInfo : public Component
 	{
 		Vector2 mPosition;
 		float mScale;
 		float mRotation;
 
 	public:
-		BasicActorInfo(Actor* owner, int updateOeder = 0)
+		CoordinteInfo(Actor* owner, int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition()
 			,mScale(1.f)
 			,mRotation(0.f)
 		{}
 
-		BasicActorInfo(Actor* owner,const Vector2& pos ,float scale=1.f,float rot=0.f,int updateOeder = 0)
+		CoordinteInfo(Actor* owner,const Vector2& pos ,float scale=1.f,float rot=0.f,int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition(pos)
 			, mScale(scale)
 			, mRotation(rot)
 		{}
 
-		BasicActorInfo(Actor* owner, Vector2&& pos, float scale = 1.f, float rot = 0.f, int updateOeder = 0)
+		CoordinteInfo(Actor* owner, Vector2&& pos, float scale = 1.f, float rot = 0.f, int updateOeder = 0)
 			:Component(owner, updateOeder)
 			, mPosition(std::move(pos))
 			, mScale(scale)
 			, mRotation(rot)
 		{}
 
-		virtual ~BasicActorInfo() = default;
+		virtual ~CoordinteInfo() = default;
 
 
 		const Vector2& GetPosition() const { return mPosition; }

@@ -3,7 +3,7 @@
 #include<memory>
 #include"lib/include/Actor/RootActor.hpp"
 #include"lib/include/App.hpp"
-#include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
+#include"lib/include/Component/CoordinateInfoInfo/CoordinateInfo.hpp"
 #include"lib/include/Component/Draw/AnimComponent/AnimComponent.hpp"
 #include"lib/src/Windows/Window.hpp"
 #include"lib/include/CollisionDetection/MortonNumber.hpp"

@@ -7,7 +7,7 @@ namespace GameLib
 	class AnimComponent : public TextureComponent
 	{
 	public:
-		AnimComponent(BasicActorInfo* info, std::vector<std::string>&& fileNames, double animFPS = 16.0, int drawOrder = 0, int updateOrder = 0);
+		AnimComponent(CoordinteInfo* info, std::vector<std::string>&& fileNames, double animFPS = 16.0, int drawOrder = 0, int updateOrder = 0);
 		virtual ~AnimComponent();
 
 		void Update() override;

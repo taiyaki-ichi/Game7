@@ -1,6 +1,6 @@
 
 #include"ColliderComponent.hpp"
-#include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
+#include"lib/include/Component/CoordinateInfoInfo/CoordinateInfo.hpp"
 #include"lib/include/Math/Vector2Func.hpp"
 #include<algorithm>
 
@@ -9,7 +9,7 @@ namespace GameLib
 
 	bool ColliderComponent::mIsDrawing = true;
 
-	ColliderComponent::ColliderComponent(BasicActorInfo* info,std::string&& name, float width, float heigth, Color&& color, int updateOrder)
+	ColliderComponent::ColliderComponent(CoordinteInfo* info,std::string&& name, float width, float heigth, Color&& color, int updateOrder)
 		:SpriteComponent(info->GetOwner(), 1000, updateOrder)
 		,mBasicActorInfo(info)
 		,mName(std::move(name))

@@ -3,7 +3,7 @@
 namespace GameLib
 {
 
-	AnimComponent::AnimComponent(BasicActorInfo* info, std::vector<std::string>&& fileNames, double animFPS, int drawOrder, int updateOrder)
+	AnimComponent::AnimComponent(CoordinteInfo* info, std::vector<std::string>&& fileNames, double animFPS, int drawOrder, int updateOrder)
 		:TextureComponent(info, drawOrder, updateOrder)
 		, mIsPlaying(true)
 		,mAnimFPS(animFPS)

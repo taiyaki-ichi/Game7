@@ -10,12 +10,12 @@
 
 namespace GameLib
 {
-	class BasicActorInfo;
+	class CoordinteInfo;
 
 	class ColliderComponent : public SpriteComponent
 	{
 		//Šî–{î•ñ
-		BasicActorInfo* mBasicActorInfo;
+		CoordinteInfo* mBasicActorInfo;
 		float mWidth;
 		float mHeight;
 		Vector2 mAdjust;
@@ -34,7 +34,7 @@ namespace GameLib
 
 
 	public:
-		ColliderComponent(BasicActorInfo* info,std::string&& name, float width, float heigth, Color&& color = { 0,0,0,255 }, int updateOrder = 0);
+		ColliderComponent(CoordinteInfo* info,std::string&& name, float width, float heigth, Color&& color = { 0,0,0,255 }, int updateOrder = 0);
 		virtual ~ColliderComponent();
 
 		//‚ ‚éColliderComponent‚ÆÕ“Ë‚·‚é‰Â”\«‚ª‚ ‚éê‡A‚·‚È‚í‚¿“¯‚¶•ªŠ„‚³‚ê‚½‹óŠÔ“à‚É‚É‚ ‚é‚Æ‚«

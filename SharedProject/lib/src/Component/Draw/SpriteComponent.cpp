@@ -1,6 +1,6 @@
 #include"lib/include/Component/Draw/SpriteCompoent.hpp"
 #include"lib/src/DrawManager/DrawManager.hpp"
-#include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
+#include"lib/include/Component/CoordinateInfoInfo/CoordinateInfo.hpp"
 #include"lib/src/Windows/Graphics.hpp"
 #include"lib/src/Windows/Window.hpp"
 #include"lib/include/Viewport/Viewport.hpp"
@@ -26,7 +26,7 @@ namespace GameLib
 		return { vec.x + GetWindowWidth() / 2.f,-vec.y + GetWindowHeigth()/2.f };
 	}
 
-	void SpriteComponent::DrawTexture(Texture* texture, BasicActorInfo* info,int alpha,const TextureFlip& flip)
+	void SpriteComponent::DrawTexture(Texture* texture, CoordinteInfo* info,int alpha,const TextureFlip& flip)
 	{
 		Vector2 affinedPos = Affine(info->GetPosition(), Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
 		Vector2 pos = ToWindowsPoint(std::move(affinedPos));

@@ -5,14 +5,14 @@
 
 namespace GameLib
 {
-	class BasicActorInfo;
+	class CoordinteInfo;
 	class Texture;
 
 	class TextureComponent : public SpriteComponent
 	{
 	public:
-		TextureComponent(BasicActorInfo* info, const std::string& fileName, int drawOrder = 0, int updateOrder = 0);
-		TextureComponent(BasicActorInfo* info, int drawOrder = 0, int updateOrder = 0);
+		TextureComponent(CoordinteInfo* info, const std::string& fileName, int drawOrder = 0, int updateOrder = 0);
+		TextureComponent(CoordinteInfo* info, int drawOrder = 0, int updateOrder = 0);
 		virtual ~TextureComponent() = default;
 
 		virtual void Draw() override;
@@ -33,7 +33,7 @@ namespace GameLib
 
 	private:
 		Texture* mTexture;
-		BasicActorInfo* mBasicActorInfo;
+		CoordinteInfo* mBasicActorInfo;
 
 		int mAlpha;
 
