@@ -19,6 +19,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionImpl.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawFillTriangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawLine.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawManager.cpp" />
