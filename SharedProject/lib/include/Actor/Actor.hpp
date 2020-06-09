@@ -1,6 +1,5 @@
 #pragma once
 #include"lib/include/Manager/Manager.hpp"
-#include"lib/include/Component/Component.hpp"
 #include"lib/include/Manager/StanderdInvokeFunc.hpp"
 
 namespace GameLib
@@ -13,7 +12,6 @@ namespace GameLib
 			:mOwner(owner)
 			, mUpdateOrder(updateOrder)
 			,mOwnedActors()
-			,mComponents()
 		{
 
 			if (mOwner)
@@ -27,7 +25,6 @@ namespace GameLib
 
 		virtual void Update() {
 			mOwnedActors.Invoke<UpdatePolicy<Actor>>();
-			mComponents.Invoke<UpdatePolicy<Component>>();
 		}
 
 
@@ -35,14 +32,8 @@ namespace GameLib
 		void Add(Node<Actor>&& node) {
 			mOwnedActors.Add(std::move(node));
 		}
-		void Add(Node<Component>&& node) {
-			mComponents.Add(std::move(node));
-		}
 		void Remove(Actor* actor) {
 			mOwnedActors.Remove(actor);
-		}
-		void Remove(Component* component) {
-			mComponents.Remove(component);
 		}
 
 
@@ -54,14 +45,10 @@ namespace GameLib
 		void InvokeOwnedActors() {
 			mOwnedActors->Invoke<Policy>();
 		}
-		template<typename Policy>
-		void InvokeComponents() {
-			mComponents->Invoke<Policy>();
-		}
 
 	protected:
 		OwnerManager<Actor> mOwnedActors;
-		OwnerManager<Component> mComponents;
+
 
 	private:
 		Actor* mOwner;

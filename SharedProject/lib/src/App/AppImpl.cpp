@@ -5,7 +5,7 @@
 #include"lib/src/Windows/Input.hpp"
 #include"lib/src/Windows/Event.hpp"
 #include"lib/include/Actor/RootActor.hpp"
-#include"lib/src/DrawManager/DrawManager.hpp"
+#include"lib/src/Draw/Manager/DrawManager.hpp"
 #include"lib/include/Resource/ResourceManager.hpp"
 
 

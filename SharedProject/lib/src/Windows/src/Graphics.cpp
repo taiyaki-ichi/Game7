@@ -186,7 +186,7 @@ namespace GameLib
 	};
 
 
-	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float rot, float scale, int alpha, int flip)
+	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float scale, float rot, int alpha, int flip)
 	{
 		if (texture)
 		{

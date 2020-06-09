@@ -1,27 +1,27 @@
 #pragma once
 #include<memory>
-#include"lib/include/Manager/Manager.hpp"
-#include"lib/include/Component/Draw/SpriteCompoent.hpp"
+#include"lib/src/Draw/DrawBase.hpp"
 #include"DrawPolicy.hpp"
-
+#include"lib/include/Manager/Manager.hpp"
 
 namespace GameLib
 {
+
 	class DrawManager
 	{
 	private:
-		static WeakManager<SpriteComponent> mSprites;
+		static WeakManager<DrawBase> mSprites;
 
 	public:
 		static void Draw() {
 			mSprites.Invoke<DrawPolicy>();
 		}
 
-		static void Add(SpriteComponent* sprite) {
+		static void Add(DrawBase* sprite) {
 			mSprites.Add({ sprite,sprite->GetDrawOrder() });
 		}
 
-		static void Remove(SpriteComponent* sprite) {
+		static void Remove(DrawBase* sprite) {
 			mSprites.Remove(sprite);
 		}
 
