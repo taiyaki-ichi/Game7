@@ -2,6 +2,7 @@
 
 namespace GameLib
 {
+	//‚»‚ê‚¼‚ê‚ÌŠî’êƒNƒ‰ƒX
 	class DrawBase
 	{
 		int mDrawOrder;
@@ -12,8 +13,7 @@ namespace GameLib
 
 		virtual void Draw() = 0;
 
-		int GetDrawOrder()const noexcept {
-			return mDrawOrder;
-		}
+		int GetDrawOrder()const noexcept;
+		void SetDrawOrder(int order);
 	};
 }

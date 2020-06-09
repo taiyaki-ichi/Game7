@@ -37,6 +37,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\App.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\Color.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawFillTriangle.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawLine.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawTexture.hpp" />
@@ -54,7 +55,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionSettingImpl.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\MortonNumber.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceDivisionTree.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Event.hpp" />

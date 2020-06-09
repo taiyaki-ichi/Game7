@@ -1,6 +1,6 @@
 #pragma once
 #include<string>
-#include"lib/src/Draw/DrawBase.hpp"
+#include"DrawBase.hpp"
 #include"lib/include/Math/Vector2.hpp"
 #include"TextureFlip.hpp"
 

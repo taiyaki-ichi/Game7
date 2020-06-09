@@ -33,6 +33,7 @@ int main() {
 
 	DrawTexture tex("../Assets/run001.png", { 0.f,0.f }, 0.5f, 0.f, 10);
 	Viewport::SetScale(0.5f);
+	Viewport::SetRotation(0.2f);
 	auto root = new GameLib::RootActor();
 
 	app->Start(root);
