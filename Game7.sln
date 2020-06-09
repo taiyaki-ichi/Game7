@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AutoGenNamecae37272104745c1aade808b6117b148", "..\..\AppData\Local\Temp\AutoGenNamecae37272104745c1aade808b6117b148", "{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedProject", "SharedProject\SharedProject.vcxitems", "{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedProject\SharedProject.vcxitems*{d90edf43-61f9-4706-bc37-b8a0664acec6}*SharedItemsImports = 9
+		SharedProject\SharedProject.vcxitems*{f555ffee-b5e6-49b6-a9c9-e4d1f25e1bfc}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -23,13 +27,6 @@ Global
 		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x64.Build.0 = Release|x64
 		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x86.ActiveCfg = Release|Win32
 		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x86.Build.0 = Release|Win32
-		{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}.Debug|x64.ActiveCfg = Debug|Win32
-		{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}.Debug|x86.ActiveCfg = Debug|Win32
-		{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}.Debug|x86.Build.0 = Debug|Win32
-		{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}.Release|x64.ActiveCfg = Debug|Win32
-		{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}.Release|x64.Build.0 = Debug|Win32
-		{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}.Release|x86.ActiveCfg = Debug|Win32
-		{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}.Release|x86.Build.0 = Debug|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
