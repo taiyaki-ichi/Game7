@@ -29,9 +29,12 @@ int main() {
 	auto collder = new ColliderComponent(rootInfo, "", 200.f, 300.f, { 255,0,0,255 });
 
 	app->Start(root);
-	
-	
-	//aaa
+
+<<<<<<< HEAD
+	//fff
+=======
+
+>>>>>>> add1
 	return 0;
 	
 }
