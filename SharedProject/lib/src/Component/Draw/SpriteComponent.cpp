@@ -26,7 +26,7 @@ namespace GameLib
 		return { vec.x + GetWindowWidth() / 2.f,-vec.y + GetWindowHeigth()/2.f };
 	}
 
-	void SpriteComponent::DrawTexture(Texture* texture, CoordinteInfo* info,int alpha,const TextureFlip& flip)
+	void SpriteComponent::DrawTexture(Texture* texture, CoordinateInfo* info,int alpha,const TextureFlip& flip)
 	{
 		Vector2 affinedPos = Affine(info->GetPosition(), Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
 		Vector2 pos = ToWindowsPoint(std::move(affinedPos));

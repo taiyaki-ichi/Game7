@@ -33,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\Actor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\CoordinateActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\RootActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\App.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.hpp" />

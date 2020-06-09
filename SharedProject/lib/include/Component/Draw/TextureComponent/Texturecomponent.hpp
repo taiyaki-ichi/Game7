@@ -5,14 +5,17 @@
 
 namespace GameLib
 {
-	class CoordinteInfo;
+	class CoordinateInfo;
+	class CoordinateActor;
 	class Texture;
 
 	class TextureComponent : public SpriteComponent
 	{
 	public:
-		TextureComponent(CoordinteInfo* info, const std::string& fileName, int drawOrder = 0, int updateOrder = 0);
-		TextureComponent(CoordinteInfo* info, int drawOrder = 0, int updateOrder = 0);
+		TextureComponent(CoordinateInfo* info, const std::string& fileName, int drawOrder = 0, int updateOrder = 0);
+		TextureComponent(CoordinateInfo* info, int drawOrder = 0, int updateOrder = 0);
+		TextureComponent(CoordinateActor* owner, int drawOrder = 0, int updateOrder = 0);
+		TextureComponent(CoordinateActor* owner, const std::string& fileName, int drawOrdr = 0, int update = 0);
 		virtual ~TextureComponent() = default;
 
 		virtual void Draw() override;
@@ -33,7 +36,7 @@ namespace GameLib
 
 	private:
 		Texture* mTexture;
-		CoordinteInfo* mBasicActorInfo;
+		CoordinateInfo* mBasicActorInfo;
 
 		int mAlpha;
 

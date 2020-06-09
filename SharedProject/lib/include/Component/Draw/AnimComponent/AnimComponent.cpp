@@ -1,9 +1,10 @@
 #include"AnimComponent.hpp"
 #include"lib/include/Resource/ResourceManager.hpp"
+#include"lib/include/Actor/CoordinateActor.hpp"
 namespace GameLib
 {
 
-	AnimComponent::AnimComponent(CoordinteInfo* info, std::vector<std::string>&& fileNames, double animFPS, int drawOrder, int updateOrder)
+	AnimComponent::AnimComponent(CoordinateInfo* info, std::vector<std::string>&& fileNames, double animFPS, int drawOrder, int updateOrder)
 		:TextureComponent(info, drawOrder, updateOrder)
 		, mIsPlaying(true)
 		,mAnimFPS(animFPS)
@@ -12,6 +13,11 @@ namespace GameLib
 		for (auto& name : fileNames)
 			mTextures.emplace_back(ResourceManager::GetTexture(std::move(name)));
 		SetTexture(mTextures[0]);
+	}
+
+	AnimComponent::AnimComponent(CoordinateActor* owner, std::vector<std::string>&& fileNames, double animFPS, int drawOrder, int updateOrder)
+		:AnimComponent(owner->GetCoordinateInfo(),std::move(fileNames),animFPS,drawOrder,updateOrder)
+	{
 	}
 
 	AnimComponent::~AnimComponent()
