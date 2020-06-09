@@ -1,6 +1,5 @@
 #include"lib/include/Component/Draw/SpriteCompoent.hpp"
 #include"lib/src/DrawManager/DrawManager.hpp"
-#include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
 #include"lib/src/Windows/Graphics.hpp"
 #include"lib/src/Windows/Window.hpp"
 #include"lib/include/Viewport/Viewport.hpp"
@@ -26,12 +25,12 @@ namespace GameLib
 		return { vec.x + GetWindowWidth() / 2.f,-vec.y + GetWindowHeigth()/2.f };
 	}
 
-	void SpriteComponent::DrawTexture(Texture* texture, BasicActorInfo* info,int alpha,const TextureFlip& flip)
+	void SpriteComponent::DrawTexture(Texture* texture, const Vector2& pos, float rot, float scale, int alpha, const TextureFlip& flip)
 	{
-		Vector2 affinedPos = Affine(info->GetPosition(), Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
-		Vector2 pos = ToWindowsPoint(std::move(affinedPos));
-		GraphicsDrawTexture(texture, pos.x, pos.y
-			, info->GetRotation() + Viewport::GetRotation(), info->GetScale() * Viewport::GetScale(), alpha, static_cast<int>(flip));
+		Vector2 affinedPos = Affine(pos, Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
+		Vector2 p = ToWindowsPoint(std::move(affinedPos));
+		GraphicsDrawTexture(texture, p.x, p.y
+			, rot + Viewport::GetRotation(), scale * Viewport::GetScale(), alpha, static_cast<int>(flip));
 	}
 
 	void SpriteComponent::DrawLine(const Vector2& p1, const Vector2& p2, const Color& color)

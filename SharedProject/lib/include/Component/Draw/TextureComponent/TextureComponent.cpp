@@ -1,12 +1,12 @@
 #include "Texturecomponent.hpp"
 #include"lib/include/Resource/ResourceManager.hpp"
-#include"lib/include/Component/BasicActorInfo/BasicActorInfo.hpp"
+#include"lib/include/Actor/CoordinateActor.hpp"
 
 namespace GameLib
 {
-	TextureComponent::TextureComponent(BasicActorInfo* info, const std::string& fileName, int drawOrder, int updateOrder)
-		:SpriteComponent(info->GetOwner(), drawOrder, updateOrder)
-		, mBasicActorInfo(info)
+	TextureComponent::TextureComponent(CoordinateActor* owner, const std::string& fileName, int drawOrder, int updateOrder)
+		:SpriteComponent(owner, drawOrder, updateOrder)
+		, mCoordinateActor(owner)
 		, mAlpha(255)
 		, mTextureFlip(TextureFlip::None)
 		,mIsDrawing(true)
@@ -14,9 +14,9 @@ namespace GameLib
 		mTexture = ResourceManager::GetTexture(fileName);
 	}
 
-	TextureComponent::TextureComponent(BasicActorInfo* info, int drawOrder, int updateOrder)
-		:SpriteComponent(info->GetOwner(), drawOrder, updateOrder)
-		, mBasicActorInfo(info)
+	TextureComponent::TextureComponent(CoordinateActor* owner, int drawOrder, int updateOrder)
+		:SpriteComponent(owner, drawOrder, updateOrder)
+		, mCoordinateActor(owner)
 		, mTexture(nullptr)
 		, mAlpha(255)
 		, mTextureFlip(TextureFlip::None)
@@ -26,7 +26,8 @@ namespace GameLib
 
 	void TextureComponent::Draw() {
 		if (mIsDrawing)
-			DrawTexture(mTexture, mBasicActorInfo, mAlpha, mTextureFlip);
+			DrawTexture(mTexture, mCoordinateActor->GetPosition(),mCoordinateActor->GetRotation(),
+				mCoordinateActor->GetScale(), mAlpha, mTextureFlip);
 	}
 	
 }

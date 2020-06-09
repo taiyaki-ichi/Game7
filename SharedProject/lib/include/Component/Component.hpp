@@ -12,10 +12,6 @@ namespace GameLib
 
 		virtual void Update();
 
-		Actor* GetOwner() const noexcept {
-			return mOwner;
-		}
-
 	private:
 		Actor* mOwner;
 		int mUpdateOrder;

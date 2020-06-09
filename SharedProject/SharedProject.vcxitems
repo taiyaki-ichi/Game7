@@ -33,12 +33,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\Actor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\CoordinateActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\RootActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\App.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\MortonNumber.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\SpaceDivisionTree.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\BasicActorInfo\BasicActorInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Collider\ColliderComponent.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\AnimComponent\AnimComponent.hpp" />
