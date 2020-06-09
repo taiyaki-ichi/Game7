@@ -6,6 +6,7 @@
 #include"lib/src/Windows/Window.hpp"
 #include"lib/include/Math/Vector2Func.hpp"
 #include"lib/include/Draw/DrawTexture.hpp"
+#include"lib/include/Draw/DrawLine.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -20,7 +21,8 @@ int main() {
 
 	
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
-	DrawTexture tex("../Assets/run001.png");
+	DrawLine line({ -400,-300 }, { 400,300 }, { 255,0,0,255 }, 15);
+	DrawTexture tex("../Assets/run001.png", { 0.f,0.f }, 0.5f, 0.f, 10);
 	auto root = new GameLib::RootActor();
 
 	app->Start(root);
