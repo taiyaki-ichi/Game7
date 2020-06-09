@@ -69,6 +69,15 @@ namespace GameLib
 
         if (!hwnd)
             return false;
+
+        RECT rc1;
+        RECT rc2;
+
+        GetWindowRect(hwnd, &rc1);
+        GetClientRect(hwnd, &rc2);
+        windowWidth += ((rc1.right - rc1.left) - (rc2.right - rc2.left));
+        windowHeigth += ((rc1.bottom - rc1.top) - (rc2.bottom - rc2.top));
+        SetWindowPos(hwnd, NULL, 0, 0, windowWidth, windowHeigth, (SWP_NOZORDER | SWP_NOOWNERZORDER | SWP_NOMOVE));
         
         ShowWindow(hwnd, SW_SHOW);
         UpdateWindow(hwnd);
@@ -84,7 +93,7 @@ namespace GameLib
       
         RECT rec;
         HWND hDeskWnd = FindWindowA(WINDOW_CLASS_NAME, nullptr);
-        GetWindowRect(hDeskWnd, &rec); 
+        GetClientRect(hDeskWnd, &rec);
         return static_cast<float>(rec.right - rec.left);
     }
 
@@ -92,7 +101,7 @@ namespace GameLib
     {
         RECT rec;
         HWND hDeskWnd = FindWindowA(WINDOW_CLASS_NAME, nullptr);
-        GetWindowRect(hDeskWnd, &rec);
+        GetClientRect(hDeskWnd, &rec);
         return static_cast<float>(rec.bottom - rec.top);
     }
 

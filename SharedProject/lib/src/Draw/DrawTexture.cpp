@@ -17,7 +17,6 @@ namespace GameLib
 		,mTextureFlip(TextureFlip::None)
 	{
 		mTexture = ResourceManager::GetTexture(std::move(fileName));
-		DrawManager::Add(this);
 	}
 
 	void DrawTexture::Draw()

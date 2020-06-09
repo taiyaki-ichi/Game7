@@ -6,6 +6,8 @@
 #include"lib/src/Windows/Graphics.hpp"
 #include"Manager/DrawManager.hpp"
 
+#include<iostream>
+
 namespace GameLib
 {
 	DrawLine::DrawLine(const Vector2& p1, const Vector2& p2, Color&& color, int drawOrder)
@@ -14,7 +16,6 @@ namespace GameLib
 		, mPoint2(p2)
 		, mColor(std::move(color))
 	{
-		DrawManager::Add(this);
 	}
 
 	DrawLine::~DrawLine()

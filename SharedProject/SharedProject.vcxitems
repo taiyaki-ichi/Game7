@@ -36,6 +36,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\App.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\Color.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawFillTriangle.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawLine.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawTexture.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\TextureFlip.hpp" />
