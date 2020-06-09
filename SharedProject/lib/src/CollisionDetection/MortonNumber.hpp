@@ -1,7 +1,7 @@
 #pragma once
 #include<Windows.h>
 #include<cmath>
-#include"CollisionDetectionSetting.hpp"
+#include"CollisionDetectionSettingImpl.hpp"
 
 namespace GameLib
 {
@@ -24,10 +24,10 @@ namespace GameLib
 	// À•W¨üŒ`4•ª–Ø—v‘f”Ô†•ÏŠ·ŠÖ”
 	DWORD GetPointElem(float pos_x, float pos_y)
 	{
-		float left = CollisionDetectionSetting::GetLeft();
-		float top = CollisionDetectionSetting::GetTop();
-		float unitW = CollisionDetectionSetting::GetUnitWidth();
-		float unitH = CollisionDetectionSetting::GetUnitHeigth();
+		float left = CollisionDetectionSettingImpl::GetLeft();
+		float top = CollisionDetectionSettingImpl::GetTop();
+		float unitW = CollisionDetectionSettingImpl::GetUnitWidth();
+		float unitH = CollisionDetectionSettingImpl::GetUnitHeigth();
 		return Get2DMortonNumber((WORD)((pos_x - left) / unitW), (WORD)((pos_y - top) / unitH));
 	}
 
@@ -51,10 +51,10 @@ namespace GameLib
 				HiLevel = i + 1;
 		}
 		DWORD SpaceNum = RB >> (HiLevel * 2);
-		DWORD AddNum = (CollisionDetectionSetting::GetPowerOfFour(level - HiLevel) - 1) / 3;
+		DWORD AddNum = (CollisionDetectionSettingImpl::GetPowerOfFour(level - HiLevel) - 1) / 3;
 		SpaceNum += AddNum;
 
-		if (SpaceNum > static_cast<DWORD>((CollisionDetectionSetting::GetPowerOfFour(level + 1) - 1) / 3))
+		if (SpaceNum > static_cast<DWORD>((CollisionDetectionSettingImpl::GetPowerOfFour(level + 1) - 1) / 3))
 			return 0xffffffff;
 
 		return SpaceNum;

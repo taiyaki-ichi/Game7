@@ -1,5 +1,4 @@
-
-#include"ColliderComponent.hpp"
+#include"lib/include/Component/Collider/ColliderComponent.hpp"
 #include"lib/include/Component/CoordinateInfoInfo/CoordinateInfo.hpp"
 #include"lib/include/Math/Vector2Func.hpp"
 #include"lib/include/Actor/CoordinateActor.hpp"
@@ -10,10 +9,10 @@ namespace GameLib
 
 	bool ColliderComponent::mIsDrawing = true;
 
-	ColliderComponent::ColliderComponent(CoordinateInfo* info,std::string&& name, float width, float heigth, Color&& color, int updateOrder)
+	ColliderComponent::ColliderComponent(CoordinateInfo* info, std::string&& name, float width, float heigth, Color&& color, int updateOrder)
 		:SpriteComponent(info->GetOwner(), 1000, updateOrder)
-		,mBasicActorInfo(info)
-		,mName(std::move(name))
+		, mBasicActorInfo(info)
+		, mName(std::move(name))
 		, mWidth(width)
 		, mHeight(heigth)
 		, mColor(std::move(color))
@@ -21,7 +20,7 @@ namespace GameLib
 	}
 
 	ColliderComponent::ColliderComponent(CoordinateActor* owner, std::string&& name, float width, float heigth, Color&& color, int updateOrder)
-		:ColliderComponent(owner->GetCoordinateInfo(),std::move(name),width,heigth,std::move(color),updateOrder)
+		:ColliderComponent(owner->GetCoordinateInfo(), std::move(name), width, heigth, std::move(color), updateOrder)
 	{
 	}
 
@@ -43,7 +42,7 @@ namespace GameLib
 		if (mIsDrawing)
 		{
 			float s = mBasicActorInfo->GetScale();
-			auto vecs = GetRectangleVectors(mBasicActorInfo->GetPosition(), mWidth*s, mHeight*s, mBasicActorInfo->GetRotation());
+			auto vecs = GetRectangleVectors(mBasicActorInfo->GetPosition(), mWidth * s, mHeight * s, mBasicActorInfo->GetRotation());
 			for (int i = 0; i < 3; i++)
 				DrawLine(vecs[i], vecs[i + 1], mColor);
 			DrawLine(vecs[3], vecs[0], mColor);
