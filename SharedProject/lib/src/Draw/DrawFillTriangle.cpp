@@ -14,6 +14,8 @@ namespace GameLib
 		,mPoint3(p3)
 		,mColor(std::move(color))
 	{
+		if (Vector2::Cross(mPoint2 - mPoint1, mPoint3 - mPoint1))
+			std::swap(mPoint2, mPoint3);
 	}
 
 	void DrawFillTriangle::Draw()
@@ -34,5 +36,7 @@ namespace GameLib
 		mPoint1 = p1;
 		mPoint2 = p2;
 		mPoint3 = p3;
+		if (Vector2::Cross(mPoint2 - mPoint1, mPoint3 - mPoint1))
+			std::swap(mPoint2, mPoint3);
 	}
 }

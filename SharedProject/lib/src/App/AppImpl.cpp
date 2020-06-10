@@ -7,6 +7,7 @@
 #include"lib/include/Actor/RootActor.hpp"
 #include"lib/src/Draw/Manager/DrawManager.hpp"
 #include"lib/include/Resource/ResourceManager.hpp"
+#include"lib/include/InputState/InputState.hpp"
 
 
 namespace GameLib
@@ -54,14 +55,11 @@ namespace GameLib
 	void AppImpl::GameLoop()
 	{
 		mIsRunning = PollEvent();
-
-		//
-		//キーボードとマウスの更新
-		//
+		InputState::Update();
 
 		Wait(mTime, WAIT_TIME);
 		mTime = GetTime();
-
+		
 		mRootActor->Update();
 
 		DrawStart();

@@ -26,6 +26,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawLine.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\InputState\InputState.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\InputState\Keyboard.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\InputState\Mouse.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Resource\ResourceManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\RootActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Windows\src\Event.cpp" />
@@ -46,6 +49,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawLine.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawTexture.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\TextureFlip.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\InputState\InputState.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\InputState\InputStateInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\ManagerPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Manager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Node.hpp" />
@@ -63,6 +68,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceDivisionTree.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\InputState\Keyboard.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\InputState\Mouse.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Event.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Graphics.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Input.hpp" />

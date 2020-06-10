@@ -2,6 +2,7 @@
 #include"DrawBase.hpp"
 #include"lib/include/Math/Vector2.hpp"
 #include"Color.hpp"
+#include<utility>
 
 namespace GameLib
 {
@@ -21,6 +22,8 @@ namespace GameLib
 		void Draw() override final;
 
 		void SetPoints(const Vector2& p1, const Vector2& p2, const Vector2& p3);
-
+		void SetColor(Color&& color) {
+			mColor = std::move(color);
+		}
 	};
 }
