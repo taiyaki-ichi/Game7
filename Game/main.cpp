@@ -48,6 +48,7 @@ public:
 
 	void HitCollider(const Collider& c) override {
 		auto nameTag = c.GetNameTag();
+		std::cout << "hit Collider called\n";
 		if (nameTag == "Red")
 			mCollider.SetColor({ 255,0,0,255 });
 	}

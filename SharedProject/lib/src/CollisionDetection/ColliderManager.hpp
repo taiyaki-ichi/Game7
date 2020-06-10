@@ -8,8 +8,10 @@ namespace GameLib
 {
 	struct ColliderManagerRemove {
 		bool operator()(Collider* removePtr, LinerObject* checkPtr) {
-			if (removePtr == checkPtr->GetCollider())
+			if (removePtr == checkPtr->GetCollider()) {
+				delete checkPtr;
 				return true;
+			}
 			else
 				return false;
 		}
