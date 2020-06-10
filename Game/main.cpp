@@ -9,6 +9,7 @@
 #include"lib/include/Draw/DrawLine.hpp"
 #include"lib/include/Viewport/Viewport.hpp"
 #include"lib/include/Draw/DrawFillTriangle.hpp"
+#include"lib/include/CollisionDetection/Collider.hpp"
 
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -32,13 +33,17 @@ int main() {
 	DrawFillTriangle tri({ -200.f,-300.f }, { 50.f,100.f }, { 300.f,-100.f } ,{ 0,255,0,255 }, 0);
 
 	DrawTexture tex("../Assets/run001.png", { 0.f,0.f }, 0.5f, 0.f, 10);
+
 	Viewport::SetScale(0.5f);
 	Viewport::SetRotation(0.2f);
 	auto root = new GameLib::RootActor();
 
+	Collider collider(root, "", { 0.f,0.f }, 300.f, 100.f, 1.f, 0.f, {0,0,255,255});
+
+	//collider.Set({0.f,0.f}, 100, 100, 1.f, 0.f);
+
 	app->Start(root);
 
-	//asasas
 
 	return 0;
 	

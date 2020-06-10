@@ -8,13 +8,15 @@
 
 #include<iostream>
 
+
 namespace GameLib
 {
-	DrawLine::DrawLine(const Vector2& p1, const Vector2& p2, Color&& color, int drawOrder)
+
+	DrawLine::DrawLine(const Vector2& p1, const Vector2& p2, const Color& color, int drawOrder)
 		:DrawBase(drawOrder)
 		, mPoint1(p1)
 		, mPoint2(p2)
-		, mColor(std::move(color))
+		, mColor(color)
 	{
 	}
 
@@ -43,5 +45,9 @@ namespace GameLib
 	void DrawLine::SetColor(Color&& color)
 	{
 		mColor = std::move(color);
+	}
+	void DrawLine::SetColor(const Color& color)
+	{
+		mColor = color;
 	}
 }

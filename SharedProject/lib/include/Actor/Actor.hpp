@@ -4,16 +4,22 @@
 
 namespace GameLib
 {
+	class Collider;
 
 	class Actor
 	{
+		Actor* mOwner;
+		int mUpdateOrder;
+
+	protected:
+		OwnerManager<Actor> mOwnedActors;
+
 	public:
 		Actor(Actor* owner, int updateOrder = 0)
 			:mOwner(owner)
 			, mUpdateOrder(updateOrder)
 			,mOwnedActors()
 		{
-
 			if (mOwner)
 				mOwner->Add({ this,mUpdateOrder });
 
@@ -27,7 +33,8 @@ namespace GameLib
 			mOwnedActors.Invoke<UpdatePolicy<Actor>>();
 		}
 
-
+		//Š—L‚·‚éCollider‚ª•Ê‚ÌCollider‚É“–‚½‚Á‚½‚Ì’Ê’m
+		virtual void HitCollider(Collider* collider){}
 
 		void Add(Node<Actor>&& node) {
 			mOwnedActors.Add(std::move(node));
@@ -36,24 +43,9 @@ namespace GameLib
 			mOwnedActors.Remove(actor);
 		}
 
-
 		int GetUpdateOrder() const noexcept {
 			return mUpdateOrder;
 		}
-
-		template<typename Policy>
-		void InvokeOwnedActors() {
-			mOwnedActors->Invoke<Policy>();
-		}
-
-	protected:
-		OwnerManager<Actor> mOwnedActors;
-
-
-	private:
-		Actor* mOwner;
-		int mUpdateOrder;
-
 
 	};
 

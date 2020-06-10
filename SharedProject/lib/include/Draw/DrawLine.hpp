@@ -14,7 +14,7 @@ namespace GameLib
 		Color mColor;
 
 	public:
-		DrawLine(const Vector2& p1 = { 0.f,0.f }, const Vector2& p2 = { 0.f,0.f }, Color&& color = { 0,0,0,255 }, int drawOrder = 0);
+		DrawLine(const Vector2& p1 = { 0.f,0.f }, const Vector2& p2 = { 0.f,0.f }, const Color& color = { 0,0,0,255 }, int drawOrder = 0);
 		virtual ~DrawLine();
 
 		void Draw() override final;
@@ -23,6 +23,7 @@ namespace GameLib
 		void SetPoints(Vector2&& p1, Vector2&& p2);
 
 		void SetColor(Color&& color);
+		void SetColor(const Color& color);
 	};
 
 }
