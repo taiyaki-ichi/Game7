@@ -34,7 +34,7 @@ namespace GameLib
 		}
 
 		//Š—L‚·‚éCollider‚ª•Ê‚ÌCollider‚É“–‚½‚Á‚½‚Ì’Ê’m
-		virtual void HitCollider(Collider* collider){}
+		virtual void HitCollider(const Collider& collider){}
 
 		void Add(Node<Actor>&& node) {
 			mOwnedActors.Add(std::move(node));

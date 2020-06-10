@@ -1,6 +1,6 @@
 #include"lib/include/CollisionDetection/Collider.hpp"
 #include"lib/include/Math/Vector2Func.hpp"
-#include "..\..\include\CollisionDetection\Collider.hpp"
+#include"Manager/ColliderManager.hpp"
 
 namespace GameLib
 {
@@ -36,6 +36,13 @@ namespace GameLib
 		mLine2.SetColor(mColor);
 		mLine3.SetColor(mColor);
 		mLine4.SetColor(mColor);
+
+		ColliderManager::Add(this);
+	}
+
+	Collider::~Collider()
+	{
+		ColliderManager::Remove(this);
 	}
 
 	void Collider::Set(const Vector2& pos, float width, float heigth, float scale, float rot)

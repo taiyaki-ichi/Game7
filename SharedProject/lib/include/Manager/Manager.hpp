@@ -2,7 +2,7 @@
 #include<vector>
 #include<algorithm>
 #include<iostream>
-#include"DestructorPolicy.hpp"
+#include"ManagerPolicy.hpp"
 
 namespace GameLib
 {
@@ -48,10 +48,11 @@ namespace GameLib
 			Add({ ptr,0 });
 		}
 
-		void Remove(T* ptr) {
+		template<typename U,typename RemovePolicy=DefaltRemovePolicy<U>>
+		void Remove(U* ptr) {
 			auto iter = mNodes.begin();
 			for (; iter != mNodes.end(); iter++)
-				if (ptr == iter->Ptr)
+				if (RemovePolicy()(ptr,iter->Ptr))
 					break;
 			if (iter!=mNodes.end())
 				mNodes.erase(iter);

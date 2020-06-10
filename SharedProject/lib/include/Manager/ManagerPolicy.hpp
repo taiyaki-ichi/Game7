@@ -15,11 +15,20 @@ namespace GameLib
 		}
 	};
 
-
 	template<typename T>
 	struct WeakManagerDestructorPolicy {
 		void operator()(std::vector<Node<T>>&& nodes) {
 			nodes.clear();
+		}
+	};
+
+	template<typename T>
+	struct DefaltRemovePolicy {
+		bool operator()(T* removePtr, T* checkPtr) {
+			if (removePtr == checkPtr)
+				return true;
+			else
+				return false;
 		}
 	};
 }

@@ -9,6 +9,10 @@ namespace GameLib
 	{
 		DrawManager::Add(this);
 	}
+	DrawBase::~DrawBase()
+	{
+		DrawManager::Remove(this);
+	}
 	int DrawBase::GetDrawOrder() const noexcept
 	{
 		return mDrawOrder;

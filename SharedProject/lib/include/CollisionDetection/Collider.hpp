@@ -34,10 +34,10 @@ namespace GameLib
 	public:
 		Collider(Actor* owner, std::string&& nameTag = "", const Vector2& pos = { 0.f,0.f }, float width = 0.f, float heigth = 0.f
 			, float scale = 1.f, float rot = 0.f, Color&& color = { 0,0,0,0 });
-		virtual ~Collider() = default;
+		virtual ~Collider();
 
 		//Actor‚Ö‚Ì’Ê’m—p
-		void HitCollider(Collider* collider) {
+		void HitCollider(const Collider& collider) {
 			mOwner->HitCollider(collider);
 		}
 

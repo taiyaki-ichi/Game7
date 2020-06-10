@@ -9,7 +9,7 @@ namespace GameLib
 
 	public:
 		DrawBase(int drawOrder = 0);
-		virtual ~DrawBase() = default;
+		virtual ~DrawBase();
 
 		virtual void Draw() = 0;
 

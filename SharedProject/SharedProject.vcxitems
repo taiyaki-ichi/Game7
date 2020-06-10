@@ -19,6 +19,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\Collider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionImpl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\Manager\ColliderManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawFillTriangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawLine.cpp" />
@@ -44,7 +45,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawLine.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawTexture.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\TextureFlip.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\DestructorPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\ManagerPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Manager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Node.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\StanderdInvokeFunc.hpp" />
@@ -55,7 +56,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Viewport\Viewport.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionSettingImpl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\Manager\ColliderManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\MortonNumber.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\LinerObject.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceDivisionTree.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawPolicy.hpp" />
