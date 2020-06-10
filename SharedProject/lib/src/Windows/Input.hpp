@@ -36,7 +36,7 @@ namespace GameLib
 		void Update();
 
 		float GetPositionX() const { return mMousePosX; }
-		float GetPositionY() const{ return mMousePosX; }
+		float GetPositionY() const{ return mMousePosY; }
 
 
 		float GetRelativePosX() const { return mRelativeMousePosX; }

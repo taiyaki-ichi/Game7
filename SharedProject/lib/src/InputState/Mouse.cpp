@@ -1,5 +1,6 @@
 #include"Mouse.hpp"
 #include"lib/src/Windows/Input.hpp"
+#include"lib/src/Windows/Window.hpp"
 
 namespace GameLib
 {
@@ -19,12 +20,12 @@ namespace GameLib
 
 	Vector2 Mouse::GetMousePos()
 	{
-		return { mInputMouse->GetPositionX(), mInputMouse->GetPositionY() };
+		return { mInputMouse->GetPositionX()-GetWindowWidth()/2.f, -mInputMouse->GetPositionY()+GetWindowHeigth()/2.f };
 	}
 
 	Vector2 Mouse::GetRerativeMousePos()
 	{
-		return { mInputMouse->GetRelativePosX(), mInputMouse->GetRelativePosY() };
+		return { mInputMouse->GetRelativePosX() - GetWindowWidth() / 2.f, -mInputMouse->GetRelativePosY() + GetWindowHeigth() };
 	}
 
 	bool Mouse::GetValue(MouseButton&& mouseButton)

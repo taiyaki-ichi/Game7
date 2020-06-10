@@ -20,27 +20,56 @@
 using namespace GameLib;
 
 
+class Red : public Actor
+{
+	Collider mCollider;
+
+public:
+	Red(Actor* owner)
+		:Actor(owner)
+		, mCollider(this, "Red", { 200.f,200.f }, 50.f, 50.f, 1.f, 0.f, {255,0,0,255})
+	{}
+};
+
+class Move :public Actor
+{
+	Collider mCollider;
+
+public:
+	Move(Actor* owner)
+		:Actor(owner)
+		, mCollider(this, "Move", { 0.f,0.f }, 20.f, 20.f, 1.f, 0.f, { 0,0,0,255 })
+	{}
+
+	void Update() override {
+		mCollider.SetColor({ 0,0,0,255 });
+		mCollider.Set(InputState::GetMousePos(), 20.f, 20.f, 1.f,0.f);
+	}
+
+	void HitCollider(const Collider& c) override {
+		auto nameTag = c.GetNameTag();
+		if (nameTag == "Red")
+			mCollider.SetColor({ 255,0,0,255 });
+	}
+};
+
 class MyActor : public RootActor
 {
 public:
 	MyActor()
 		:RootActor()
-		, mTriangle( { -300.f,300.f }, { 0.f,-300.f }, { 300.f,300.f }, {255,0,0,255})
 	{
+		mRed = new Red(this);
+		mMove = new Move(this);
 	}
 
 	virtual void Update() override{
-		if (InputState::GetState(Key::R) == ButtonState::Pressed)
-			mTriangle.SetColor({ 255,0,0,255 });
-		if (InputState::GetState(Key::G) == ButtonState::Pressed)
-			mTriangle.SetColor({ 0,255,0,255 });
-		if (InputState::GetState(Key::B) == ButtonState::Pressed)
-			mTriangle.SetColor({ 0,0,255,255 });
-
+		mRed->Update();
+		mMove->Update();
 	}
-
 private:
-	DrawFillTriangle mTriangle;
+	Red* mRed;
+	Move* mMove;
 
 };
 

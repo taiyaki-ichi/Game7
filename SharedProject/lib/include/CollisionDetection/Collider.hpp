@@ -71,5 +71,8 @@ namespace GameLib
 		float GetRotation() const noexcept {
 			return mRotation;
 		}
+		void SetColor(Color&& color) {
+			mColor = std::move(color);
+		}
 	};
 }
