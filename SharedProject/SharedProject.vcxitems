@@ -17,9 +17,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Viewport\Viewport.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\Collider.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionImpl.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\Manager\ColliderManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\Collider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\ColliderManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\CollisionDetectionImpl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\SpeaceDivisionTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawFillTriangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawLine.cpp" />
@@ -55,8 +56,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Resource\ResourceManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Viewport\Viewport.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\ColliderManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionSettingImpl.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\Manager\ColliderManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\MortonNumber.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\LinerObject.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceDivisionTree.hpp" />

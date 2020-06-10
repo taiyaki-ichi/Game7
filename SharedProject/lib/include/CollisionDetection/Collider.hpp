@@ -55,5 +55,21 @@ namespace GameLib
 		const std::string& GetNameTag() const noexcept {
 			return mNameTag;
 		}
+
+		float GetWidth()const noexcept {
+			return mWidth;
+		}
+		float GetHeigth() const noexcept {
+			return mHeigth;
+		}
+		float GetScale() const noexcept {
+			return mScale;
+		}
+		const Vector2& GetPosition() const noexcept {
+			return mPosition;
+		}
+		float GetRotation() const noexcept {
+			return mRotation;
+		}
 	};
 }

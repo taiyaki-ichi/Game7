@@ -1,25 +1,25 @@
 #include"lib/include/CollisionDetection/Collider.hpp"
 #include"lib/include/Math/Vector2Func.hpp"
-#include"Manager/ColliderManager.hpp"
+#include"lib/src/CollisionDetection/ColliderManager.hpp"
 
 namespace GameLib
 {
 
 
-	Collider::Collider(Actor* owner, std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot,Color&& color)
+	Collider::Collider(Actor* owner, std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot, Color&& color)
 		:mOwner(owner)
-		,mNameTag(std::move(nameTag))
-		,mPosition(pos)
-		,mWidth(width)
-		,mHeigth(heigth)
-		,mScale(scale)
-		,mRotation(rot)
-		,mColor(std::move(color))
-		,mLine1()
+		, mNameTag(std::move(nameTag))
+		, mPosition(pos)
+		, mWidth(width)
+		, mHeigth(heigth)
+		, mScale(scale)
+		, mRotation(rot)
+		, mColor(std::move(color))
+		, mLine1()
 		, mLine2()
 		, mLine3()
 		, mLine4()
-		
+
 	{
 		auto vecs = GetRectangleVectors(mPosition, mWidth * mScale, mHeigth * mScale, mRotation);
 		mLine1.SetPoints(vecs[0], vecs[1]);

@@ -14,7 +14,7 @@ namespace GameLib
 				return false;
 		}
 	};
-	
+
 	class ColliderManager
 	{
 	private:
@@ -28,13 +28,13 @@ namespace GameLib
 		}
 
 		static void Remove(Collider* collder) {
-			mColliders.Remove<Collider,ColliderManagerRemove>(collder);
+			mColliders.Remove<Collider, ColliderManagerRemove>(collder);
 		}
 
 
 
 	};
-	
+
 
 
 

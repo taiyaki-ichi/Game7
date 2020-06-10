@@ -1,4 +1,4 @@
-#include"CollisionDetectionSettingImpl.hpp"
+#include"lib/src/CollisionDetection/CollisionDetectionSettingImpl.hpp"
 
 namespace GameLib
 {

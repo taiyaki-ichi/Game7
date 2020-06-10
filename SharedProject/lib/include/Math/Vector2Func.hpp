@@ -120,4 +120,35 @@ namespace GameLib
 		return false;
 
 	}
+
+	inline bool CollisionDetection(std::vector<Vector2>&& rect1, std::vector<Vector2>&& rect2) {
+		//“_‚ªŠÜ‚Ü‚ê‚Ä‚¢‚é‚©
+		for (const auto& p : rect1)
+			if (IsInsideRect(p, rect2))
+				return true;
+		for (const auto& p : rect2)
+			if (IsInsideRect(p, rect1))
+				return true;
+
+		//ü‚ªŒğ·‚µ‚Ä‚¢‚é‚©
+		bool flag = false;
+		for (int i = 0; i < 4; i++)
+			for (int j = 0; j < 4; j++)
+			{
+				if (i == 3 && j == 3)
+					flag = CrossingDetection(rect1[3], rect1[0], rect2[3], rect2[0]);
+				else if (i == 3)
+					flag = CrossingDetection(rect1[3], rect1[0], rect2[j], rect2[j + 1]);
+				else if (j == 3)
+					flag = CrossingDetection(rect1[i], rect1[i + 1], rect2[3], rect2[0]);
+				else
+					flag = CrossingDetection(rect1[i], rect1[i + 1], rect2[j], rect2[j + 1]);
+
+				if (flag)
+					return true;
+			}
+
+		return false;
+
+	}
 }
