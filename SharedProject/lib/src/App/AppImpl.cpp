@@ -8,7 +8,7 @@
 #include"lib/src/Draw/Manager/DrawManager.hpp"
 #include"lib/include/Resource/ResourceManager.hpp"
 #include"lib/include/InputState/InputState.hpp"
-
+#include"lib/src/CollisionDetection/SpaceDivisionTree.hpp"
 
 namespace GameLib
 {
@@ -18,11 +18,15 @@ namespace GameLib
 		,mRootActor(nullptr)
 	{
 		mIsRunning = Init(std::move(windowData));
+		mSpaceDivisionTree = new SpaceDivisionTree();
 
 	}
 
 	AppImpl::~AppImpl()
 	{
+		delete mSpaceDivisionTree;
+		if (mRootActor)
+			delete mRootActor;
 	}
 
 	void AppImpl::Start(RootActor* rootActor)
@@ -62,6 +66,9 @@ namespace GameLib
 		
 		mRootActor->Update();
 
+		mSpaceDivisionTree->DeleteSpaceCell(0);
+		
+
 		DrawStart();
 		DrawManager::Draw();
 		DrawEnd();
@@ -73,10 +80,8 @@ namespace GameLib
 		ShutdownGraphics();
 		ShutdownInput();
 
-		if (mRootActor)
-			delete mRootActor;
-
 		ResourceManager::ReleaseResources();
+
 	}
 
 

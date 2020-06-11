@@ -1,5 +1,6 @@
 #pragma once
 #include<memory>
+#include<list>
 #include"lib/include/CollisionDetection/Collider.hpp"
 #include"lib/include/Manager/Manager.hpp"
 #include"lib/src/CollisionDetection/LinerObject.hpp"

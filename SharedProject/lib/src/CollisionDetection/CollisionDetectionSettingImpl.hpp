@@ -17,7 +17,7 @@ namespace GameLib
 		static float mTop;
 		static float mBottom;
 
-		static const int mPow[10];
+		static const int mPow[11];
 
 	public:
 		//当たり判定の行う前に呼び出してそれぞれの値を計算しておく

@@ -10,5 +10,5 @@ namespace GameLib
 	float CollisionDetectionSettingImpl::mRight;
 	float CollisionDetectionSettingImpl::mTop;
 	float CollisionDetectionSettingImpl::mBottom;
-	const int CollisionDetectionSettingImpl::mPow[10] = { 1,4,16,64,256,1024,4096,16384,65536,262144 };
+	const int CollisionDetectionSettingImpl::mPow[11] = { 1,4,16,64,256,1024,4096,16384,65536,262144,1048576 };
 }

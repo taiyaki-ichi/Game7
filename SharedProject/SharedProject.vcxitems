@@ -20,6 +20,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\Collider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\ColliderManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\CollisionDetectionImpl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\SpaceCell.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\SpeaceDivisionTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawFillTriangle.cpp" />
@@ -66,6 +67,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\MortonNumber.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\LinerObject.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceDivisionTree.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceCell.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\InputState\Keyboard.hpp" />

@@ -12,11 +12,6 @@
 #include"lib/include/CollisionDetection/Collider.hpp"
 #include"lib/include/InputState/InputState.hpp"
 
-#include <stdlib.h>
-#include <crtdbg.h>
-#define malloc(X) _malloc_dbg(X,_NORMAL_BLOCK,__FILE__,__LINE__) 
-#define new ::new(_NORMAL_BLOCK, __FILE__, __LINE__)
-
 using namespace GameLib;
 
 
@@ -74,6 +69,11 @@ private:
 
 };
 
+
+#include <stdlib.h>
+#include <crtdbg.h>
+#define malloc(X) _malloc_dbg(X,_NORMAL_BLOCK,__FILE__,__LINE__) 
+#define new ::new(_NORMAL_BLOCK, __FILE__, __LINE__)
 
 int main() {
 

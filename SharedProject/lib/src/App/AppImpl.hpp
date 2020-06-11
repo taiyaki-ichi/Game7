@@ -8,6 +8,8 @@ namespace GameLib
 	//ŒÅ’è60FPS
 	constexpr unsigned long WAIT_TIME = static_cast<unsigned long>(1000.f / 60.f);
 
+	class SpaceDivisionTree;
+
 	class AppImpl : public App
 	{
 	public:
@@ -27,5 +29,7 @@ namespace GameLib
 		RootActor* mRootActor;
 
 		unsigned long mTime;
+
+		SpaceDivisionTree* mSpaceDivisionTree;
 	};
 }

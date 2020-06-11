@@ -4,6 +4,9 @@
 #include"lib/include/CollisionDetection/Collider.hpp"
 #include"lib/src/CollisionDetection/MortonNumber.hpp"
 #include"lib/include/Math/Vector2Func.hpp"
+#include"lib/src/CollisionDetection/SpaceCell.hpp"
+
+#include<iostream>
 
 namespace GameLib
 {
@@ -30,15 +33,21 @@ namespace GameLib
 
 	SpaceDivisionTree::SpaceDivisionTree()
 	{
-		mAllSpeaceCellNum = (CollisionDetectionSettingImpl::GetPowerOfFour(TREE_MAX_LEVEL + 1) - 1) / 3;
-		mSpeaceCellArray = new LinerObject * [mAllSpeaceCellNum];
-		Reset();
+		mAllSpaceCellNum = (CollisionDetectionSettingImpl::GetPowerOfFour(TREE_MAX_LEVEL+1) - 1) / 3;
+		mSpaceCellArray = new SpaceCell * [mAllSpaceCellNum];
+		mSpaceCellArray[0] = new SpaceCell(0);
+		for (int i = 1; i < mAllSpaceCellNum; i++) {
+			mSpaceCellArray[i] = nullptr;
+		}
+		
 	}
 
 	SpaceDivisionTree::~SpaceDivisionTree()
 	{
-		//LinerObjectはCollderManager内で処理される
-		delete[] mSpeaceCellArray;
+		DeleteSpaceCell(0);
+		delete mSpaceCellArray[0];
+		delete[] mSpaceCellArray;
+	
 	}
 
 	bool SpaceDivisionTree::Resist(LinerObject* linerObj)
@@ -55,14 +64,15 @@ namespace GameLib
 		//squrt使って精密にやるか？？
 		float halfUnitSize = (width * scale + heigth * scale) / 2.f;
 
-		int speaceCellNum = GetMortonNumber(pos.x - halfUnitSize, pos.y + halfUnitSize, pos.x + halfUnitSize, pos.y - halfUnitSize);
+		int spaceCellNum = GetMortonNumber(pos.x - halfUnitSize, pos.y + halfUnitSize, pos.x + halfUnitSize, pos.y - halfUnitSize);
 
-		if (speaceCellNum < mAllSpeaceCellNum)
+		if (spaceCellNum < mAllSpaceCellNum)
 		{
-			if (mSpeaceCellArray[speaceCellNum] == nullptr)
-				mSpeaceCellArray[speaceCellNum] = linerObj;
-			else
-				ResistListTail(linerObj, mSpeaceCellArray[speaceCellNum]);
+			//空間オブジェクトがない場合作成
+			if (!mSpaceCellArray[spaceCellNum])
+				CreateNewSpaceCell(spaceCellNum);
+
+			mSpaceCellArray[spaceCellNum]->Push(linerObj);
 
 			return true;
 		}
@@ -76,16 +86,36 @@ namespace GameLib
 		RecursionSearchTree(std::move(collisionStack), 0);
 	}
 
-	void SpaceDivisionTree::Reset()
+	void SpaceDivisionTree::CreateNewSpaceCell(int spaceNum)
 	{
-		for (int i = 0; i < mAllSpeaceCellNum; i++) {
-			mSpeaceCellArray[i] = nullptr;
+		while (mSpaceCellArray[spaceNum] == nullptr)
+		{
+			mSpaceCellArray[spaceNum] = new SpaceCell(spaceNum);
+
+			//親空間へ
+			spaceNum = (spaceNum - 1) >> 2;
+			if (spaceNum >= mAllSpaceCellNum)
+				break;
 		}
 	}
 
+	void SpaceDivisionTree::DeleteSpaceCell(int spaceNum)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			int childNum = spaceNum * 4 + 1 + i;
+			if (childNum < mAllSpaceCellNum && !mSpaceCellArray[childNum]) {
+				DeleteSpaceCell(childNum);
+				delete mSpaceCellArray[childNum];
+			}
+		}
+
+	}
+
+
 	std::list<LinerObject*> SpaceDivisionTree::RecursionSearchTree(std::list<LinerObject*>&& collisionStack, int speaceCellNum)
 	{
-		LinerObject* linerObj1 = mSpeaceCellArray[0];
+		LinerObject* linerObj1 = mSpaceCellArray[0]->GetFirstLinerObject();
 		LinerObject* linerObj2 = nullptr;
 
 		while (linerObj1)
@@ -119,15 +149,16 @@ namespace GameLib
 		//子空間のオブジェクトの数
 		unsigned int objNum = 0;
 		unsigned int i;
-		unsigned int nextSpeaceCellNum;
+		unsigned int nextSpaceCellNum;
 
 		for (int i = 0; i < 4; i++)
 		{
-			nextSpeaceCellNum = speaceCellNum * 4 + 1 + i;
-			if (nextSpeaceCellNum < CollisionDetectionSetting::GetLevel())
+			nextSpaceCellNum = speaceCellNum * 4 + 1 + i;
+			//
+			if (nextSpaceCellNum < CollisionDetectionSetting::GetLevel()&&mSpaceCellArray[nextSpaceCellNum])
 			{
 				if (childFlag == false) {
-					linerObj1 = mSpeaceCellArray[speaceCellNum];
+					linerObj1 = mSpaceCellArray[speaceCellNum]->GetFirstLinerObject();
 					while (linerObj1) {
 						collisionStack.emplace_back(linerObj1);
 						objNum++;
@@ -136,7 +167,7 @@ namespace GameLib
 				}
 
 				childFlag = true;
-				collisionStack = RecursionSearchTree(std::move(collisionStack), nextSpeaceCellNum);
+				collisionStack = RecursionSearchTree(std::move(collisionStack), nextSpaceCellNum);
 			}
 		}
 
@@ -148,13 +179,6 @@ namespace GameLib
 		return std::move(collisionStack);
 	}
 
-	void SpaceDivisionTree::ResistListTail(LinerObject* resistObj, LinerObject* listObj)
-	{
-		if (listObj->mNextObject == nullptr)
-			listObj->mNextObject = resistObj;
-		else
-			ResistListTail(resistObj, listObj->mNextObject);
-	}
 
 
 

@@ -1,15 +1,17 @@
 #pragma once
 #include<list>
+#include"CollisionDetectionSettingImpl.hpp"
 
 namespace GameLib
 {
 
 	class LinerObject;
-
+	class SpaceCell;
+		
 	class SpaceDivisionTree
 	{
-		LinerObject** mSpeaceCellArray;
-		int mAllSpeaceCellNum;
+		SpaceCell** mSpaceCellArray;
+		int mAllSpaceCellNum;
 
 	public:
 		SpaceDivisionTree();
@@ -21,15 +23,15 @@ namespace GameLib
 		//木を操作し、当たり判定を実行
 		void SearchTree();
 
-		//木をリセット
-		void Reset();
+		void CreateNewSpaceCell(int spaceNum);
+		//spaceNumよりも子空間をdelete
+		void DeleteSpaceCell(int spaceNum = 0);
 
 	private:
 		//SearcheTreeで再帰的に使用
 		std::list<LinerObject*> RecursionSearchTree(std::list<LinerObject*>&& collisionStack, int speaceCellNum);
 
-		//リストに登録
-		void ResistListTail(LinerObject* resistObj, LinerObject* listObj);
+		
 
 	};
 }
