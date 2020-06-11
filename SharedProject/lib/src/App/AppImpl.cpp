@@ -9,6 +9,8 @@
 #include"lib/include/Resource/ResourceManager.hpp"
 #include"lib/include/InputState/InputState.hpp"
 #include"lib/src/CollisionDetection/SpaceDivisionTree.hpp"
+#include"lib/src/CollisionDetection/ColliderManager.hpp"
+#include"lib/src/CollisionDetection/CollisionDetectionSettingImpl.hpp"
 
 namespace GameLib
 {
@@ -66,8 +68,10 @@ namespace GameLib
 		
 		mRootActor->Update();
 
+		CollisionDetectionSettingImpl::ColcMembers();
 		mSpaceDivisionTree->DeleteSpaceCell(0);
-		
+		ColliderManager::RegistSpaceDivisionTree(mSpaceDivisionTree);
+		mSpaceDivisionTree->SearchTree();
 
 		DrawStart();
 		DrawManager::Draw();

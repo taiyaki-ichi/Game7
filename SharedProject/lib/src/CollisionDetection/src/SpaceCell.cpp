@@ -1,5 +1,6 @@
 #include"lib/src/CollisionDetection/SpaceCell.hpp"
 #include"lib/src/CollisionDetection/LinerObject.hpp"
+#include "..\SpaceCell.hpp"
 
 namespace GameLib
 {
@@ -26,5 +27,9 @@ namespace GameLib
 		}
 
 		return true;
+	}
+	LinerObject* SpaceCell::GetFirstLinerObject() const noexcept
+	{
+		return mFirstLinerObject;
 	}
 }

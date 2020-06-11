@@ -17,8 +17,7 @@ namespace GameLib
 		//この分割空間にオブジェクトを追加
 		bool Push(LinerObject* obj);
 
-		LinerObject* GetFirstLinerObject() const noexcept {
-			return mFirstLinerObject;
-		}
+		LinerObject* GetFirstLinerObject() const noexcept;
+
 	};
 }

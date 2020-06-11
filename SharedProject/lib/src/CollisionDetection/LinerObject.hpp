@@ -1,8 +1,8 @@
 #pragma once
+#include"lib/include/CollisionDetection/Collider.hpp"
 
 namespace GameLib
 {
-	class Collider;
 
 	//空間オブジェクトに紐づけるよう
 	class LinerObject

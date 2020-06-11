@@ -46,6 +46,11 @@ namespace GameLib
 	{
 		DeleteSpaceCell(0);
 		delete mSpaceCellArray[0];
+		/*
+		for (int i = 0; i < mAllSpaceCellNum; i++)
+			if (mSpaceCellArray[i])
+				delete mSpaceCellArray[i];
+				*/
 		delete[] mSpaceCellArray;
 	
 	}
@@ -53,7 +58,7 @@ namespace GameLib
 	bool SpaceDivisionTree::Resist(LinerObject* linerObj)
 	{
 		linerObj->mNextObject = nullptr;
-		linerObj->mNextObject = nullptr;
+		linerObj->mPreObject = nullptr;
 
 		auto collider = linerObj->GetCollider();
 		float scale = collider->GetScale();
@@ -72,9 +77,7 @@ namespace GameLib
 			if (!mSpaceCellArray[spaceCellNum])
 				CreateNewSpaceCell(spaceCellNum);
 
-			mSpaceCellArray[spaceCellNum]->Push(linerObj);
-
-			return true;
+			//return mSpaceCellArray[spaceCellNum]->Push(linerObj);
 		}
 
 		return false;
@@ -88,7 +91,7 @@ namespace GameLib
 
 	void SpaceDivisionTree::CreateNewSpaceCell(int spaceNum)
 	{
-		while (mSpaceCellArray[spaceNum] == nullptr)
+		while (!mSpaceCellArray[spaceNum])
 		{
 			mSpaceCellArray[spaceNum] = new SpaceCell(spaceNum);
 
@@ -104,7 +107,7 @@ namespace GameLib
 		for (int i = 0; i < 4; i++)
 		{
 			int childNum = spaceNum * 4 + 1 + i;
-			if (childNum < mAllSpaceCellNum && !mSpaceCellArray[childNum]) {
+			if (childNum < mAllSpaceCellNum && mSpaceCellArray[childNum]) {
 				DeleteSpaceCell(childNum);
 				delete mSpaceCellArray[childNum];
 			}
@@ -150,16 +153,15 @@ namespace GameLib
 		unsigned int objNum = 0;
 		unsigned int i;
 		unsigned int nextSpaceCellNum;
-
+		int levelNum = (CollisionDetectionSettingImpl::GetPowerOfFour(CollisionDetectionSetting::GetLevel() + 1) - 1) / 3;
 		for (int i = 0; i < 4; i++)
 		{
 			nextSpaceCellNum = speaceCellNum * 4 + 1 + i;
-			//
-			if (nextSpaceCellNum < CollisionDetectionSetting::GetLevel()&&mSpaceCellArray[nextSpaceCellNum])
+			if (nextSpaceCellNum < levelNum&&mSpaceCellArray[nextSpaceCellNum])
 			{
 				if (childFlag == false) {
 					linerObj1 = mSpaceCellArray[speaceCellNum]->GetFirstLinerObject();
-					while (linerObj1) {
+					while (linerObj1!) {
 						collisionStack.emplace_back(linerObj1);
 						objNum++;
 						linerObj1 = linerObj1->mNextObject;
