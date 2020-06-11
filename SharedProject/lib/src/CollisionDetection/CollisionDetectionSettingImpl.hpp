@@ -3,6 +3,8 @@
 
 namespace GameLib
 {
+	constexpr int POWER_OF_FOUR[11] = { 1,4,16,64,256,1024,4096,16384,65536,262144,1048576 };
+	constexpr int MAX_SPACECELL_NUM = (POWER_OF_FOUR[TREE_MAX_LEVEL + 1] - 1) / 3;
 
 	class CollisionDetectionSettingImpl : public CollisionDetectionSetting
 	{
@@ -17,7 +19,7 @@ namespace GameLib
 		static float mTop;
 		static float mBottom;
 
-		static const int mPow[11];
+		static int mNowLevelCellNum;
 
 	public:
 		//当たり判定の行う前に呼び出してそれぞれの値を計算しておく
@@ -29,6 +31,8 @@ namespace GameLib
 
 			mUnitWidth = (mRight - mLeft) / (1 << mLevel);
 			mUnitHeigth = (mBottom - mTop) / (1 << mLevel);
+
+			mNowLevelCellNum = (POWER_OF_FOUR[mLevel + 1] - 1) / 3;
 		}
 
 		static float GetLeft() noexcept {
@@ -44,11 +48,9 @@ namespace GameLib
 			return mUnitHeigth;
 		}
 
-		static int GetPowerOfFour(int num) {
-			return mPow[num];
+		static int GetNowLevelCellNum() noexcept {
+			return mNowLevelCellNum;
 		}
-
-
 	};
 
 }

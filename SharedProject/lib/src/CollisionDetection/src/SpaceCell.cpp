@@ -6,7 +6,7 @@ namespace GameLib
 {
 	SpaceCell::SpaceCell(int spaceNum)
 		:mThisSpaceNumber(spaceNum)
-		,mFirstLinerObject(nullptr)
+		,mFirstLinerObject(std::nullopt)
 	{
 	}
 	SpaceCell::~SpaceCell()
@@ -22,13 +22,13 @@ namespace GameLib
 		else 
 		{
 			obj->mNextObject = mFirstLinerObject;
-			mFirstLinerObject->mPreObject = obj;
+			mFirstLinerObject.value()->mPreObject = obj;
 			mFirstLinerObject = obj;
 		}
 
 		return true;
 	}
-	LinerObject* SpaceCell::GetFirstLinerObject() const noexcept
+	const std::optional<LinerObject*>& SpaceCell::GetFirstLinerObject() const noexcept
 	{
 		return mFirstLinerObject;
 	}

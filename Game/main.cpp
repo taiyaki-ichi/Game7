@@ -37,13 +37,13 @@ public:
 	{}
 
 	void Update() override {
-		mCollider.SetColor({ 0,0,0,255 });
+		//mCollider.SetColor({ 0,0,0,255 });
 		mCollider.Set(InputState::GetMousePos(), 20.f, 20.f, 1.f,0.f);
 	}
 
 	void HitCollider(const Collider& c) override {
 		auto nameTag = c.GetNameTag();
-		std::cout << "hit Collider called\n";
+		//std::cout << "hit Collider called\n";
 		if (nameTag == "Red")
 			mCollider.SetColor({ 255,0,0,255 });
 	}

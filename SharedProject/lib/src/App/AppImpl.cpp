@@ -69,7 +69,9 @@ namespace GameLib
 		mRootActor->Update();
 
 		CollisionDetectionSettingImpl::ColcMembers();
+		std::cout << "pre:" << mSpaceDivisionTree->GetCellNum()<<"\n";
 		mSpaceDivisionTree->DeleteSpaceCell(0);
+		std::cout << "next:" << mSpaceDivisionTree->GetCellNum() << "\n";
 		ColliderManager::RegistSpaceDivisionTree(mSpaceDivisionTree);
 		mSpaceDivisionTree->SearchTree();
 

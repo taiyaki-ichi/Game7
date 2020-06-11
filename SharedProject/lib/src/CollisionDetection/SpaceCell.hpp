@@ -1,12 +1,12 @@
 #pragma once
+#include<optional>
 
 namespace GameLib
 {
 	class LinerObject;
-
 	class SpaceCell
 	{
-		LinerObject* mFirstLinerObject;
+		std::optional<LinerObject*> mFirstLinerObject;
 		int mThisSpaceNumber;
 
 	public:
@@ -17,7 +17,7 @@ namespace GameLib
 		//この分割空間にオブジェクトを追加
 		bool Push(LinerObject* obj);
 
-		LinerObject* GetFirstLinerObject() const noexcept;
+		const std::optional<LinerObject*>& GetFirstLinerObject() const noexcept;
 
 	};
 }

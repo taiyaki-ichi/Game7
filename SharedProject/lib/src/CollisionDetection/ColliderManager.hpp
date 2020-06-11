@@ -36,7 +36,8 @@ namespace GameLib
 		}
 
 		static void RegistSpaceDivisionTree(SpaceDivisionTree* tree) {
-			for (const auto& obj : mColliders)
+			std::cout << "collide num  :" << mColliders.size() << "\n";
+			for (auto obj : mColliders)
 				tree->Resist(obj);
 		}
 

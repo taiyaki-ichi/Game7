@@ -51,10 +51,10 @@ namespace GameLib
 				HiLevel = i + 1;
 		}
 		DWORD SpaceNum = RB >> (HiLevel * 2);
-		DWORD AddNum = (CollisionDetectionSettingImpl::GetPowerOfFour(level - HiLevel) - 1) / 3;
+		DWORD AddNum = (POWER_OF_FOUR[level - HiLevel] - 1) / 3;
 		SpaceNum += AddNum;
 
-		if (SpaceNum > static_cast<DWORD>((CollisionDetectionSettingImpl::GetPowerOfFour(level + 1) - 1) / 3))
+		if (SpaceNum > static_cast<DWORD>((POWER_OF_FOUR[level + 1] - 1) / 3))
 			return 0xffffffff;
 
 		return SpaceNum;

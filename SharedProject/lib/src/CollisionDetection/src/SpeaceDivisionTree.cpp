@@ -7,6 +7,7 @@
 #include"lib/src/CollisionDetection/SpaceCell.hpp"
 
 #include<iostream>
+#include "..\SpaceDivisionTree.hpp"
 
 namespace GameLib
 {
@@ -32,12 +33,11 @@ namespace GameLib
 
 
 	SpaceDivisionTree::SpaceDivisionTree()
+		:mSpaceCellArray()
 	{
-		mAllSpaceCellNum = (CollisionDetectionSettingImpl::GetPowerOfFour(TREE_MAX_LEVEL+1) - 1) / 3;
-		mSpaceCellArray = new SpaceCell * [mAllSpaceCellNum];
 		mSpaceCellArray[0] = new SpaceCell(0);
-		for (int i = 1; i < mAllSpaceCellNum; i++) {
-			mSpaceCellArray[i] = nullptr;
+		for (int i = 1; i < MAX_SPACECELL_NUM; i++) {
+			mSpaceCellArray[i] = std::nullopt;
 		}
 		
 	}
@@ -45,20 +45,16 @@ namespace GameLib
 	SpaceDivisionTree::~SpaceDivisionTree()
 	{
 		DeleteSpaceCell(0);
-		delete mSpaceCellArray[0];
-		/*
-		for (int i = 0; i < mAllSpaceCellNum; i++)
-			if (mSpaceCellArray[i])
-				delete mSpaceCellArray[i];
-				*/
-		delete[] mSpaceCellArray;
+		if (mSpaceCellArray[0].has_value()) 
+			delete mSpaceCellArray[0].value();
+			
 	
 	}
 
 	bool SpaceDivisionTree::Resist(LinerObject* linerObj)
 	{
-		linerObj->mNextObject = nullptr;
-		linerObj->mPreObject = nullptr;
+		linerObj->mNextObject = std::nullopt;
+		linerObj->mPreObject = std::nullopt;
 
 		auto collider = linerObj->GetCollider();
 		float scale = collider->GetScale();
@@ -69,22 +65,21 @@ namespace GameLib
 		//squrt使って精密にやるか？？
 		float halfUnitSize = (width * scale + heigth * scale) / 2.f;
 
-		int spaceCellNum = GetMortonNumber(pos.x - halfUnitSize, pos.y + halfUnitSize, pos.x + halfUnitSize, pos.y - halfUnitSize);
-
-		if (spaceCellNum < mAllSpaceCellNum)
+		int spaceCellNum = GetMortonNumber(pos.x - halfUnitSize, pos.y - halfUnitSize, pos.x + halfUnitSize, pos.y + halfUnitSize);
+		if (spaceCellNum < CollisionDetectionSettingImpl::GetNowLevelCellNum())
 		{
 			//空間オブジェクトがない場合作成
 			if (!mSpaceCellArray[spaceCellNum])
 				CreateNewSpaceCell(spaceCellNum);
 
-			//return mSpaceCellArray[spaceCellNum]->Push(linerObj);
+			return mSpaceCellArray[spaceCellNum].value()->Push(linerObj);
 		}
 
 		return false;
 	}
 
 	void SpaceDivisionTree::SearchTree()
-	{
+	{		
 		std::list<LinerObject*> collisionStack;
 		RecursionSearchTree(std::move(collisionStack), 0);
 	}
@@ -97,39 +92,54 @@ namespace GameLib
 
 			//親空間へ
 			spaceNum = (spaceNum - 1) >> 2;
-			if (spaceNum >= mAllSpaceCellNum)
+			if (spaceNum >=CollisionDetectionSettingImpl::GetNowLevelCellNum());
 				break;
 		}
 	}
 
 	void SpaceDivisionTree::DeleteSpaceCell(int spaceNum)
 	{
+		
 		for (int i = 0; i < 4; i++)
 		{
 			int childNum = spaceNum * 4 + 1 + i;
-			if (childNum < mAllSpaceCellNum && mSpaceCellArray[childNum]) {
+			if (childNum < MAX_SPACECELL_NUM && mSpaceCellArray[childNum]) {
 				DeleteSpaceCell(childNum);
-				delete mSpaceCellArray[childNum];
+				delete mSpaceCellArray[childNum].value();
+				mSpaceCellArray[childNum] = std::nullopt;
+				std::cout << "a";
 			}
 		}
+		
 
+	}
+
+	int SpaceDivisionTree::GetCellNum()
+	{
+		int sum = 0;
+		for (int i = 0; i < CollisionDetectionSettingImpl::GetNowLevelCellNum(); i++) 
+			if (mSpaceCellArray[i])
+				sum++;
+
+		return sum;
 	}
 
 
 	std::list<LinerObject*> SpaceDivisionTree::RecursionSearchTree(std::list<LinerObject*>&& collisionStack, int speaceCellNum)
 	{
-		LinerObject* linerObj1 = mSpaceCellArray[0]->GetFirstLinerObject();
-		LinerObject* linerObj2 = nullptr;
+		std::optional<LinerObject*> linerObj1 = mSpaceCellArray[0].value()->GetFirstLinerObject();
+		std::optional<LinerObject*> linerObj2 = std::nullopt;
 
 		while (linerObj1)
 		{
 			//mSpeaceCellArrayに連なる線形リストとの当たり判定(linerObj1以降の線形リスト)
 			//すなわち同じ分割された空間内のColliderとの当たり判定
-			linerObj2 = linerObj1->mNextObject;
+			linerObj2 = linerObj1.value()->mNextObject;
 			while (linerObj2)
 			{
-				DoCollisionDetection(linerObj1, linerObj2);
-				linerObj2 = linerObj2->mNextObject;
+				DoCollisionDetection(linerObj1.value(), linerObj2.value());
+				linerObj2 = linerObj2.value()->mNextObject;
+				
 			}
 
 			//collisionStackにあるColliderとの当たり判定、つまり
@@ -139,32 +149,31 @@ namespace GameLib
 			{
 				for (auto linerObj : collisionStack)
 				{
-					DoCollisionDetection(linerObj1, linerObj);
+					DoCollisionDetection(linerObj1.value(), linerObj);
 				}
 			}
 
-			linerObj1 = linerObj1->mNextObject;
+			linerObj1 = linerObj1.value()->mNextObject;
 		}
-		
 		//speaceCellNumの子空間の処理
 		//子空間に井熊にこのspeaceCellNum番目の空間のLinerObjectをCollisionStackに入れたかどうか
 		bool childFlag = false;
 		//子空間のオブジェクトの数
 		unsigned int objNum = 0;
-		unsigned int i;
+		//unsigned int i;
 		unsigned int nextSpaceCellNum;
-		int levelNum = (CollisionDetectionSettingImpl::GetPowerOfFour(CollisionDetectionSetting::GetLevel() + 1) - 1) / 3;
+		int levelNum = CollisionDetectionSettingImpl::GetNowLevelCellNum();
 		for (int i = 0; i < 4; i++)
 		{
 			nextSpaceCellNum = speaceCellNum * 4 + 1 + i;
 			if (nextSpaceCellNum < levelNum&&mSpaceCellArray[nextSpaceCellNum])
 			{
 				if (childFlag == false) {
-					linerObj1 = mSpaceCellArray[speaceCellNum]->GetFirstLinerObject();
-					while (linerObj1!) {
-						collisionStack.emplace_back(linerObj1);
+					linerObj1 = mSpaceCellArray[speaceCellNum].value()->GetFirstLinerObject();
+					while (linerObj1) {
+						collisionStack.emplace_back(linerObj1.value());
 						objNum++;
-						linerObj1 = linerObj1->mNextObject;
+						linerObj1 = linerObj1.value()->mNextObject;
 					}
 				}
 

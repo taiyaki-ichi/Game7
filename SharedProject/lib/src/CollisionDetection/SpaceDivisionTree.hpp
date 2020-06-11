@@ -1,5 +1,7 @@
 #pragma once
 #include<list>
+#include<array>
+#include<optional>
 #include"CollisionDetectionSettingImpl.hpp"
 
 namespace GameLib
@@ -10,8 +12,7 @@ namespace GameLib
 		
 	class SpaceDivisionTree
 	{
-		SpaceCell** mSpaceCellArray;
-		int mAllSpaceCellNum;
+		std::array<std::optional<SpaceCell*>, MAX_SPACECELL_NUM> mSpaceCellArray;
 
 	public:
 		SpaceDivisionTree();
@@ -25,7 +26,10 @@ namespace GameLib
 
 		void CreateNewSpaceCell(int spaceNum);
 		//spaceNumよりも子空間をdelete
-		void DeleteSpaceCell(int spaceNum = 0);
+		void DeleteSpaceCell(int spaceNum);
+
+		//
+		int GetCellNum();
 
 	private:
 		//SearcheTreeで再帰的に使用

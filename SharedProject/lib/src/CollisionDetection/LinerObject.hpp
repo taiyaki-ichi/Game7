@@ -1,5 +1,6 @@
 #pragma once
 #include"lib/include/CollisionDetection/Collider.hpp"
+#include<optional>
 
 namespace GameLib
 {
@@ -12,14 +13,14 @@ namespace GameLib
 	public:
 		LinerObject(Collider* collidr)
 			:mCollider(collidr)
-			,mPreObject(nullptr)
-			,mNextObject(nullptr)
+			,mPreObject(std::nullopt)
+			,mNextObject(std::nullopt)
 		{}
 		~LinerObject() = default;
 
 		//‘O‚ÆŒã‚ë
-		LinerObject* mPreObject;
-		LinerObject* mNextObject;
+		std::optional<LinerObject*> mPreObject;
+		std::optional<LinerObject*> mNextObject;
 
 		Collider* GetCollider() const noexcept {
 			return mCollider;
