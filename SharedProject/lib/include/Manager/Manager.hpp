@@ -1,5 +1,5 @@
 #pragma once
-#include<vector>
+#include<list>
 #include<algorithm>
 #include<iostream>
 #include"ManagerPolicy.hpp"
@@ -24,7 +24,7 @@ namespace GameLib
 	class ManagerBase
 	{
 
-		std::vector<Node<T>> mNodes;
+		std::list<Node<T>> mNodes;
 
 
 	public:

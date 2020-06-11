@@ -6,7 +6,7 @@ namespace GameLib
 
 	template<typename T>
 	struct OwnerManagerDestructorPolicy {
-		void operator()(std::vector<Node<T>>&& nodes) {
+		void operator()(std::list<Node<T>>&& nodes) {
 			while (!nodes.empty()) {
 				auto ptr = nodes.back().Ptr;
 				nodes.pop_back();
@@ -17,7 +17,7 @@ namespace GameLib
 
 	template<typename T>
 	struct WeakManagerDestructorPolicy {
-		void operator()(std::vector<Node<T>>&& nodes) {
+		void operator()(std::list<Node<T>>&& nodes) {
 			nodes.clear();
 		}
 	};
