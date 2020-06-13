@@ -73,6 +73,10 @@ namespace GameLib
 		}
 		void SetColor(Color&& color) {
 			mColor = std::move(color);
+			mLine1.SetColor(mColor);
+			mLine2.SetColor(mColor);
+			mLine3.SetColor(mColor);
+			mLine4.SetColor(mColor);
 		}
 	};
 }

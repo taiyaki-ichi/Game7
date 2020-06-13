@@ -58,5 +58,10 @@ namespace GameLib
 		mLine2.SetPoints(vecs[1], vecs[2]);
 		mLine3.SetPoints(vecs[2], vecs[3]);
 		mLine4.SetPoints(vecs[3], vecs[0]);
+
+		mLine1.SetColor(mColor);
+		mLine2.SetColor(mColor);
+		mLine3.SetColor(mColor);
+		mLine4.SetColor(mColor);
 	}
 }

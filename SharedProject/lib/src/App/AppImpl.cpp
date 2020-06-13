@@ -11,6 +11,7 @@
 #include"lib/src/CollisionDetection/SpaceDivisionTree.hpp"
 #include"lib/src/CollisionDetection/ColliderManager.hpp"
 #include"lib/src/CollisionDetection/CollisionDetectionSettingImpl.hpp"
+#include"lib/src/CollisionDetection/CollisionDetectinPolicy.hpp"
 
 namespace GameLib
 {
@@ -20,13 +21,12 @@ namespace GameLib
 		,mRootActor(nullptr)
 	{
 		mIsRunning = Init(std::move(windowData));
-		mSpaceDivisionTree = new SpaceDivisionTree();
+		mSpaceDivisionTree = std::make_unique<SpaceDivisionTree<Collider>>();
 
 	}
 
 	AppImpl::~AppImpl()
 	{
-		delete mSpaceDivisionTree;
 		if (mRootActor)
 			delete mRootActor;
 	}
@@ -68,12 +68,12 @@ namespace GameLib
 		
 		mRootActor->Update();
 
+	
 		CollisionDetectionSettingImpl::ColcMembers();
-		std::cout << "pre:" << mSpaceDivisionTree->GetCellNum()<<"\n";
 		mSpaceDivisionTree->DeleteSpaceCell(0);
-		std::cout << "next:" << mSpaceDivisionTree->GetCellNum() << "\n";
-		ColliderManager::RegistSpaceDivisionTree(mSpaceDivisionTree);
-		mSpaceDivisionTree->SearchTree();
+		ColliderManager::RegistSpaceDivisionTree(*mSpaceDivisionTree);
+		mSpaceDivisionTree->SearchTree<ColiisionDetectionPolicy>();
+		
 
 		DrawStart();
 		DrawManager::Draw();

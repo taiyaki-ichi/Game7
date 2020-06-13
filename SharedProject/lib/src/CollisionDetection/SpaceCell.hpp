@@ -1,23 +1,32 @@
 #pragma once
-#include<optional>
+#include"LinerObject.hpp"
 
 namespace GameLib
 {
-	class LinerObject;
+	template<typename T>
 	class SpaceCell
 	{
-		std::optional<LinerObject*> mFirstLinerObject;
-		int mThisSpaceNumber;
+		LinerObject<T>* mFirstLinerObject;
 
 	public:
-		SpaceCell(int spaceNum);
-		~SpaceCell();
+		SpaceCell()
+			:mFirstLinerObject(nullptr)
+		{}
+		~SpaceCell() = default;
 
+		void Push(LinerObject<T>* obj) {
+			if (!mFirstLinerObject)
+				mFirstLinerObject = obj;
+			else
+			{
+				obj->mNextLinerObject = mFirstLinerObject;
+				mFirstLinerObject->mPreLinerObject = obj;
+				mFirstLinerObject = obj;
+			}
+		}
 
-		//この分割空間にオブジェクトを追加
-		bool Push(LinerObject* obj);
-
-		const std::optional<LinerObject*>& GetFirstLinerObject() const noexcept;
-
+		LinerObject<T>* GetFirstLinerObject() const noexcept {
+			return mFirstLinerObject;
+		}
 	};
 }

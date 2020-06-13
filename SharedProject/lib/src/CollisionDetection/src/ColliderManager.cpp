@@ -1,5 +1,5 @@
 #include"lib/src/CollisionDetection/ColliderManager.hpp"
 namespace GameLib
 {
-	std::list<LinerObject*> ColliderManager::mColliders;
+	std::list<LinerObject<Collider>> ColliderManager::mColliders;
 }

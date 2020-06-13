@@ -1,14 +1,17 @@
 #pragma once
 #include<string>
+#include<memory>
 #include"lib/include/App.hpp"
 
 namespace GameLib
 {
 
 	//ŒÅ’è60FPS
-	constexpr unsigned long WAIT_TIME = static_cast<unsigned long>(1000.f / 60.f);
+	constexpr unsigned long WAIT_TIME = static_cast<unsigned long>(1000.f / 50.f);
 
+	template<typename T>
 	class SpaceDivisionTree;
+	class Collider;
 
 	class AppImpl : public App
 	{
@@ -30,6 +33,6 @@ namespace GameLib
 
 		unsigned long mTime;
 
-		SpaceDivisionTree* mSpaceDivisionTree;
+		std::unique_ptr<SpaceDivisionTree<Collider>> mSpaceDivisionTree;
 	};
 }

@@ -1,30 +1,26 @@
 #pragma once
-#include"lib/include/CollisionDetection/Collider.hpp"
-#include<optional>
 
 namespace GameLib
 {
-
-	//空間オブジェクトに紐づけるよう
+	template<typename T>
 	class LinerObject
 	{
-		Collider* mCollider;
+		T* mPtr;
 
 	public:
-		LinerObject(Collider* collidr)
-			:mCollider(collidr)
-			,mPreObject(std::nullopt)
-			,mNextObject(std::nullopt)
+		LinerObject<T>* mPreLinerObject;
+		LinerObject<T>* mNextLinerObject;
+
+		LinerObject(T* obj)
+			:mPtr(obj)
+			, mPreLinerObject(nullptr)
+			, mNextLinerObject(nullptr)
 		{}
 		~LinerObject() = default;
 
-		//前と後ろ
-		std::optional<LinerObject*> mPreObject;
-		std::optional<LinerObject*> mNextObject;
-
-		Collider* GetCollider() const noexcept {
-			return mCollider;
+		T* GetPtr() const noexcept {
+			return mPtr;
 		}
-	};
 
+	};
 }

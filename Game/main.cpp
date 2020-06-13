@@ -18,12 +18,19 @@ using namespace GameLib;
 class Red : public Actor
 {
 	Collider mCollider;
+	float mRot;
 
 public:
 	Red(Actor* owner)
 		:Actor(owner)
-		, mCollider(this, "Red", { 200.f,200.f }, 50.f, 50.f, 1.f, 0.f, {255,0,0,255})
+		, mCollider(this, "Red", { 200.f,200.f }, 100.f, 50.f, 1.f, 0.f, {255,0,0,255})
+		,mRot(0.f)
 	{}
+	void Update() override {
+		mRot += 0.01f;
+		mCollider.Set({ 200.f,200.f }, 100.f, 50.f, 1.f, mRot);
+	}
+
 };
 
 class Move :public Actor
@@ -37,13 +44,12 @@ public:
 	{}
 
 	void Update() override {
-		//mCollider.SetColor({ 0,0,0,255 });
+		mCollider.SetColor({ 0,0,0,255 });
 		mCollider.Set(InputState::GetMousePos(), 50.f, 50.f, 1.f,0.f);
 	}
 
 	void HitCollider(const Collider& c) override {
 		auto nameTag = c.GetNameTag();
-		//std::cout << "hit Collider called\n";
 		if (nameTag == "Red")
 			mCollider.SetColor({ 255,0,0,255 });
 	}
@@ -83,8 +89,10 @@ int main() {
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 	auto root = new MyActor();
 	app->Start(root);
+	
 
-
+	
+	
 	return 0;
 	
 }

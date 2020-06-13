@@ -6,23 +6,27 @@ namespace dev
 	template<typename T>
 	class SpaceCell
 	{
-		std::optional<LinerObject<T>> mFirstObject;
+		LinerObject<T>* mFirstLinerObject;
 
 	public:
 		SpaceCell()
-			:mFirstObject(std::nullopt)
+			:mFirstLinerObject(nullptr)
 		{}
 		~SpaceCell() = default;
 
-		void Push(LinerObject<T>&& obj) {
-			if (mFirstObject)
-				mFirstObject = std::move(obj);
+		void Push(LinerObject<T>* obj) {
+			if (!mFirstLinerObject)
+				mFirstLinerObject = obj;
 			else
 			{
-				obj.mNextLinerObject = &(mFirstObject.value());
-				mFirstObject.value().mPreLinerObject = &obj;
-				mFirstObject = std::move(obj);
+				obj->mNextLinerObject = mFirstLinerObject;
+				mFirstLinerObject->mPreLinerObject = obj;
+				mFirstLinerObject = obj;
 			}
+		}
+
+		LinerObject<T>* GetFirstLinerObject() const noexcept {
+			return mFirstLinerObject;
 		}
 	};
 }

@@ -4,7 +4,7 @@
 
 namespace GameLib
 {	
-	constexpr unsigned int TREE_MAX_LEVEL = 9;
+	constexpr unsigned int TREE_MAX_LEVEL = 6;
 
 	//“–‚½‚è”»’è‚ğs‚¤”ÍˆÍ‚Æ‚»‚Ì’†S‚ÌÀ•W
 	class CollisionDetectionSetting
