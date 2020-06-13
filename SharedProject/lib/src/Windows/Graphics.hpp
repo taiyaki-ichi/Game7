@@ -35,7 +35,7 @@ namespace GameLib
 
 
 	//flip=1　水平に反転　flip=2 垂直に反転 filp=3は両方
-	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float rot, float scale, int alpha = 255, int flip = 0);
+	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float scale, float rot, int alpha = 255, int flip = 0);
 	//二点の座標、RGBとアルファは0-255
 	void GraphicsDrawLine(float aX, float aY, float bX, float bY, int r, int g, int b, int alpha = 255);
 

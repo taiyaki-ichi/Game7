@@ -8,11 +8,11 @@ namespace GameLib
 	bool InitInput();
 	void ShutdownInput();
 
-	class Keyboard
+	class KeyboardBase
 	{
 	public:
-		Keyboard();
-		~Keyboard();
+		KeyboardBase();
+		~KeyboardBase();
 
 		void Update();
 
@@ -26,17 +26,17 @@ namespace GameLib
 		unsigned char mPrevState[256];
 	};
 
-	class Mouse
+	class MouseBase
 	{
 	public:
 
-		Mouse();
-		~Mouse();
+		MouseBase();
+		~MouseBase();
 
 		void Update();
 
 		float GetPositionX() const { return mMousePosX; }
-		float GetPositionY() const{ return mMousePosX; }
+		float GetPositionY() const{ return mMousePosY; }
 
 
 		float GetRelativePosX() const { return mRelativeMousePosX; }

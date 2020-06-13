@@ -183,24 +183,24 @@ namespace GameLib
 		return true;
 	}
 
-	Keyboard::Keyboard()
+	KeyboardBase::KeyboardBase()
 	{
 		memset(mCurrState, 0, 256);
 		memset(mPrevState, 0, 256);
 	}
 
-	Keyboard::~Keyboard()
+	KeyboardBase::~KeyboardBase()
 	{
 	}
 
-	void Keyboard::Update()
+	void KeyboardBase::Update()
 	{
 		memcpy(mPrevState, mCurrState, 256);
 		if (g_pKeyDevice)
 			g_pKeyDevice->GetDeviceState(256, mCurrState);
 	}
 
-	bool Keyboard::GetKeyValue(unsigned char key ) const
+	bool KeyboardBase::GetKeyValue(unsigned char key ) const
 	{
 
 		if (mCurrState[key] & 0x80)
@@ -210,7 +210,7 @@ namespace GameLib
 		
 	}
 
-	int Keyboard::GetKeyState(unsigned char key) const
+	int KeyboardBase::GetKeyState(unsigned char key) const
 	{
 	
 		if (mPrevState[key] & 0x80)
@@ -230,7 +230,7 @@ namespace GameLib
 		
 	}
 
-	Mouse::Mouse()
+	MouseBase::MouseBase()
 		:mMousePosX()
 		,mMousePosY()
 		,mRelativeMousePosX()
@@ -240,11 +240,11 @@ namespace GameLib
 		ZeroMemory(&mPrevState, sizeof(DIMOUSESTATE));
 	}
 
-	Mouse::~Mouse()
+	MouseBase::~MouseBase()
 	{
 	}
 
-	void Mouse::Update()
+	void MouseBase::Update()
 	{
 		if (g_MouseDevice == nullptr)
 			return;
@@ -274,7 +274,7 @@ namespace GameLib
 		
 	}
 
-	bool Mouse::GetMouseButtonValue(int mouseButton) const
+	bool MouseBase::GetMouseButtonValue(int mouseButton) const
 	{
 		if (mouseButton < 0 || 2 < mouseButton)
 			return false;
@@ -285,7 +285,7 @@ namespace GameLib
 			return false;
 	}
 
-	int Mouse::GetMouseButtonState(int mouseButton) const
+	int MouseBase::GetMouseButtonState(int mouseButton) const
 	{
 
 		if (mPrevState.rgbButtons[mouseButton] & 0x80)

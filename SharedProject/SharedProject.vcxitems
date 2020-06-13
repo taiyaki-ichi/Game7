@@ -15,15 +15,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\AnimComponent\AnimComponent.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\TextureComponent\TextureComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\include\Viewport\Viewport.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionImpl.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Component\Collider\ColliderComponent.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Component\Draw\SpriteComponent.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\DrawManager\DrawManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\Collider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\ColliderManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\CollisionDetectionSettingImpl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawFillTriangle.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawLine.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\InputState\InputState.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\InputState\Keyboard.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\InputState\Mouse.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Resource\ResourceManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\RootActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Windows\src\Event.cpp" />
@@ -34,19 +38,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\Actor.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\CoordinateActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Actor\RootActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\App.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\Collider.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\CollisionDetection\CollisionDetectionSetting.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\CoordinateInfoInfo\CoordinateInfo.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Collider\ColliderComponent.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Component.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\AnimComponent\AnimComponent.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\Color.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\SpriteCompoent.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\TextureComponent\Texturecomponent.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Component\Draw\TextureFlip.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\DestructorPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\Color.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawFillTriangle.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawLine.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\DrawTexture.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Draw\TextureFlip.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\InputState\InputState.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\InputState\InputStateInfo.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\ManagerPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Manager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\Node.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Manager\StanderdInvokeFunc.hpp" />
@@ -56,11 +60,17 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Resource\ResourceManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\include\Viewport\Viewport.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\App\AppImpl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\ColliderManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectinPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionSettingImpl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\LinerObject.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\MortonNumber.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceCell.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceDivisionTree.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\DrawManager\DrawManager.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\DrawManager\DrawPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Draw\Manager\DrawPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\InputState\Keyboard.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\InputState\Mouse.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Event.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Graphics.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\Windows\Input.hpp" />

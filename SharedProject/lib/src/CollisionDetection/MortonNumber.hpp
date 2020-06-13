@@ -7,7 +7,7 @@ namespace GameLib
 {
 
 	// ビット分割
-	DWORD BitSeparate32(DWORD n)
+	inline DWORD BitSeparate32(DWORD n)
 	{
 		n = (n | (n << 8)) & 0x00ff00ff;
 		n = (n | (n << 4)) & 0x0f0f0f0f;
@@ -16,13 +16,13 @@ namespace GameLib
 	}
 
 	// 2Dモートン空間番号算出関数
-	WORD Get2DMortonNumber(WORD x, WORD y)
+	inline WORD Get2DMortonNumber(WORD x, WORD y)
 	{
 		return (WORD)(BitSeparate32(x) | (BitSeparate32(y) << 1));
 	}
 
 	// 座標→線形4分木要素番号変換関数
-	DWORD GetPointElem(float pos_x, float pos_y)
+	inline DWORD GetPointElem(float pos_x, float pos_y)
 	{
 		float left = CollisionDetectionSettingImpl::GetLeft();
 		float top = CollisionDetectionSettingImpl::GetTop();
@@ -32,7 +32,7 @@ namespace GameLib
 	}
 
 	// 座標から空間番号を算出
-	DWORD GetMortonNumber(float left, float top, float right, float bottom)
+	inline DWORD GetMortonNumber(float left, float top, float right, float bottom)
 	{
 		// 最小レベルにおける各軸位置を算出
 		DWORD LT = GetPointElem(left, top);
@@ -43,18 +43,17 @@ namespace GameLib
 		DWORD Def = RB ^ LT;
 		unsigned int HiLevel = 0;
 		unsigned int i;
-		unsigned int level = CollisionDetectionSetting::GetLevel();
-		for (i = 0; i < level; i++)
+		for (i = 0; i < LEVEL; i++)
 		{
 			DWORD Check = (Def >> (i * 2)) & 0x3;
 			if (Check != 0)
 				HiLevel = i + 1;
 		}
 		DWORD SpaceNum = RB >> (HiLevel * 2);
-		DWORD AddNum = (CollisionDetectionSettingImpl::GetPowerOfFour(level - HiLevel) - 1) / 3;
+		DWORD AddNum = (POWER_OF_FOUR[LEVEL - HiLevel] - 1) / 3;
 		SpaceNum += AddNum;
 
-		if (SpaceNum > static_cast<DWORD>((CollisionDetectionSettingImpl::GetPowerOfFour(level + 1) - 1) / 3))
+		if (SpaceNum > MAX_SPACECELL_NUM)
 			return 0xffffffff;
 
 		return SpaceNum;

@@ -3,7 +3,7 @@
 #include<cmath>
 #include<utility>
 #include<algorithm>
-
+#include<vector>
 
 namespace GameLib
 {
@@ -68,7 +68,8 @@ namespace GameLib
 
 	//p1とp2からなる直線とq1とq2からなる直線の交差判定
 	inline bool CrossingDetection(const Vector2& p1, const Vector2& p2, const Vector2& q1, const Vector2& q2) {
-		if (Vector2::Cross(p2 - p1, q1 - p1) * Vector2::Cross(p2 - p1, q2 - p1) < 0)
+		if (Vector2::Cross(p2 - p1, q1 - p1) * Vector2::Cross(p2 - p1, q2 - p1) < 0&&
+			Vector2::Cross(q2 - q1, p1 - q1) * Vector2::Cross(q2 - q1, p2 - q1) < 0)
 			return true;
 		else
 			return false;
@@ -76,20 +77,23 @@ namespace GameLib
 
 	//ある点が四角形の内側かどうか、4つの点は反時計回り
 	inline bool IsInsideRect(const Vector2& p, const std::vector<Vector2>& point) {
-		if (Vector2::Cross(point[0] - point[3], p - point[0]) < 0)
+		if (Vector2::Cross(point[3] - point[0], p - point[3]) > 0)
 			return false;
-		if (Vector2::Cross(point[1] - point[0], p - point[1]) < 0)
+		if (Vector2::Cross(point[2] - point[3], p - point[2]) > 0)
 			return false;
-		if (Vector2::Cross(point[2] - point[1], p - point[2]) < 0)
+		if (Vector2::Cross(point[1] - point[2], p - point[1]) > 0)
 			return false;
-		if (Vector2::Cross(point[3] - point[2], p - point[3]) < 0)
+		if (Vector2::Cross(point[0] - point[1], p - point[0]) > 0)
 			return false;
 
 		return true;
 	}
 
-	//rect1とrect2の当たり判定
-	inline bool CollisionDetection(const std::vector<Vector2>& rect1, const std::vector<Vector2>& rect2) {
+
+
+	inline bool CollisionDetection(std::vector<Vector2>&& rect1, std::vector<Vector2>&& rect2) 
+	{
+
 		//点が含まれているか
 		for (const auto& p : rect1)
 			if (IsInsideRect(p, rect2))
@@ -97,10 +101,12 @@ namespace GameLib
 		for (const auto& p : rect2)
 			if (IsInsideRect(p, rect1))
 				return true;
-
+		
+		/*
+		
 		//線が交差しているか
 		bool flag = false;
-		for(int i=0;i<4;i++)
+		for (int i = 0; i < 4; i++)
 			for (int j = 0; j < 4; j++)
 			{
 				if (i == 3 && j == 3)
@@ -115,7 +121,8 @@ namespace GameLib
 				if (flag)
 					return true;
 			}
-
+			
+			*/
 		return false;
 
 	}
