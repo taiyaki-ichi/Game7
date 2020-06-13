@@ -1,5 +1,8 @@
 #pragma once
 #include<string>
+#include<unordered_map>
+#include<functional>
+#include<optional>
 #include"lib/include/Math/Vector2.hpp"
 #include"lib/include/Draw/DrawLine.hpp"
 #include"lib/include/Actor/Actor.hpp"
@@ -20,7 +23,10 @@ namespace GameLib
 
 		std::string mNameTag;
 
+		//通知する用
 		Actor* mOwner;
+
+		std::unordered_map<std::string, std::function<void(const Collider&)>> mHitFunctions;
 
 		//当たり判定の領域の可視化用
 		Color mColor;
@@ -36,11 +42,17 @@ namespace GameLib
 			, float scale = 1.f, float rot = 0.f, Color&& color = { 0,0,0,0 });
 		virtual ~Collider();
 
-		//Actorへの通知用
-		void HitCollider(const Collider& collider) {
-			mOwner->HitCollider(collider);
+		void AddHitFunction(std::string&& nameTag, std::function<void(const Collider&)>&& hitFunc) {
+			mHitFunctions.emplace(std::move(nameTag), std::move(hitFunc));
 		}
 
+		std::optional<std::function<void(const Collider&)>> GetHitFunction(const std::string& nameTag) {
+			auto iter = mHitFunctions.find(nameTag);
+			if (iter != mHitFunctions.end())
+				return iter->second;
+			else
+				return std::nullopt;
+		}
 
 		static void SetIsDrawing(bool d) {
 			mIsDrawing = d;

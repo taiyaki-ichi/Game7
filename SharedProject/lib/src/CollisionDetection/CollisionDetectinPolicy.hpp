@@ -9,16 +9,26 @@ namespace GameLib
 	struct ColiisionDetectionPolicy {
 		void operator()(Collider* collider1,Collider* collider2) {
 
-			float s1 = collider1->GetScale();
-			float s2 = collider2->GetScale();
+			auto hitFunc1 = collider1->GetHitFunction(collider2->GetNameTag());
+			auto hitFunc2 = collider2->GetHitFunction(collider1->GetNameTag());
 
-			auto vecs1 = GetRectangleVectors(collider1->GetPosition(), collider1->GetWidth() * s1, collider1->GetHeigth() * s1, collider1->GetRotation());
-			auto vecs2 = GetRectangleVectors(collider2->GetPosition(), collider2->GetWidth() * s2, collider2->GetHeigth() * s2, collider2->GetRotation());
-
-			if (CollisionDetection(std::move(vecs1), std::move(vecs2)))
+			if (hitFunc1 || hitFunc2)
 			{
-				collider1->HitCollider(*collider2);
-				collider2->HitCollider(*collider1);
+
+				float s1 = collider1->GetScale();
+				float s2 = collider2->GetScale();
+
+				auto vecs1 = GetRectangleVectors(collider1->GetPosition(), collider1->GetWidth() * s1, collider1->GetHeigth() * s1, collider1->GetRotation());
+				auto vecs2 = GetRectangleVectors(collider2->GetPosition(), collider2->GetWidth() * s2, collider2->GetHeigth() * s2, collider2->GetRotation());
+
+				if (CollisionDetection(std::move(vecs1), std::move(vecs2)))
+				{
+					if (hitFunc1)
+						hitFunc1.value()(*collider2);
+
+					if(hitFunc2)
+						hitFunc2.value()(*collider1);
+				}
 			}
 			
 		}

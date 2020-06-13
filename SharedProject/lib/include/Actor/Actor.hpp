@@ -33,9 +33,6 @@ namespace GameLib
 			mOwnedActors.Invoke<UpdatePolicy<Actor>>();
 		}
 
-		//Š—L‚·‚éCollider‚ª•Ê‚ÌCollider‚É“–‚½‚Á‚½‚Ì’Ê’m
-		virtual void HitCollider(const Collider& collider){}
-
 		void Add(Node<Actor>&& node) {
 			mOwnedActors.Add(std::move(node));
 		}
