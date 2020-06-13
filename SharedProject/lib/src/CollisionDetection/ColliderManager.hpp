@@ -37,8 +37,7 @@ namespace GameLib
 
 		static void RegistSpaceDivisionTree(SpaceDivisionTree<Collider>& tree) {
 			for (auto& linerObj : mColliders) {
-				linerObj.mNextLinerObject = nullptr;
-				linerObj.mPreLinerObject = nullptr;
+				linerObj.RemoveSpaceCell();
 
 				auto collider = linerObj.GetPtr();
 				float scale = collider->GetScale();
@@ -53,7 +52,7 @@ namespace GameLib
 
 				//std::cout << collider->GetNameTag() << " : " << spaceCellNum << "\n";
 
-				if (spaceCellNum < MAX_SPACECELL_NUM)
+				if (0 <= spaceCellNum && spaceCellNum < MAX_SPACECELL_NUM)
 					tree.Regist(&linerObj, spaceCellNum);
 			}
 		}

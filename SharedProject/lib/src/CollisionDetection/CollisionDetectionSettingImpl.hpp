@@ -4,8 +4,6 @@
 
 namespace GameLib
 {
-	constexpr int POWER_OF_FOUR[11] = { 1,4,16,64,256,1024,4096,16384,65536,262144,1048576 };
-	constexpr int MAX_SPACECELL_NUM = (POWER_OF_FOUR[LEVEL + 1] - 1) / 3;
 
 	class CollisionDetectionSettingImpl : public CollisionDetectionSetting
 	{
@@ -29,8 +27,8 @@ namespace GameLib
 			mTop = mPos.y - mHeigth / 2.f;
 			mBottom = mPos.y + mHeigth / 2.f;
 
-			mUnitWidth = (mRight - mLeft) / (1 << LEVEL);
-			mUnitHeigth = (mBottom - mTop) / (1 << LEVEL);
+			mUnitWidth = (mRight - mLeft) / (1 << TREE_LEVEL);
+			mUnitHeigth = (mBottom - mTop) / (1 << TREE_LEVEL);
 
 		}
 

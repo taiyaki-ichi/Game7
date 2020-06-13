@@ -66,14 +66,13 @@ namespace GameLib
 		InputState::Update();
 
 		Wait(mTime, WAIT_TIME);
-		//std::cout << 1000.0 / (static_cast<double>(GetTime()) - static_cast<double>(mTime)) << "\n";
 		mTime = GetTime();
 		
 		mRootActor->Update();
 
 	
 		CollisionDetectionSettingImpl::ColcMembers();
-		mSpaceDivisionTree->DeleteAllSpaceCell();
+		mSpaceDivisionTree->ResetHasLinerObject(0);
 		ColliderManager::RegistSpaceDivisionTree(*mSpaceDivisionTree);
 		mSpaceDivisionTree->SearchTree<ColiisionDetectionPolicy>();
 		

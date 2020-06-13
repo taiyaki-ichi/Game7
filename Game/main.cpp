@@ -22,7 +22,6 @@ std::uniform_real_distribution<> myRand(-300.0, 300.0);
 
 class Tama : public Actor
 {
-
 	Collider mCollider;
 	Vector2 mPosition;
 	Vector2 mVelocity;
@@ -32,9 +31,10 @@ public:
 		:Actor(owner)
 		, mPosition({myRand(mt),myRand(mt)})
 		, mVelocity({myRand(mt)/60.f,myRand(mt)/60.f})
-		, mCollider(this, "Tama", mPosition, 10.f, 10.f, 1.f, 0.f)
+		, mCollider(this, "Tama", mPosition, 50.f, 50.f, 1.f, 0.f)
 	{
 		mCollider.AddHitFunction("Move", [this](const Collider& c) {mCollider.SetColor({ 255,0,0,255 }); });
+		mCollider.AddHitFunction("Tama", [this](const Collider& c) {mCollider.SetColor({ 0,0,255,255 }); });
 	}
 
 	void Update()override {
@@ -66,7 +66,7 @@ public:
 	void Update() override {
 		mRotation += 0.01f;
 		mCollider.SetColor({ 0,255,0,255 });
-		mCollider.Set(InputState::GetMousePos(), 50.f, 50.f, 1.f, mRotation);
+		mCollider.Set(InputState::GetMousePos(), 100.f, 100.f, 1.f, mRotation);
 	}
 	
 };
@@ -101,9 +101,6 @@ int main() {
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 	auto root = new MyActor();
 	app->Start(root);
-	
-
-	
 	
 	return 0;
 	

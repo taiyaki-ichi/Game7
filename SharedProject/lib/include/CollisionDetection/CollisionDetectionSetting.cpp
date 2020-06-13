@@ -3,8 +3,8 @@
 namespace GameLib
 {
 	//èâä˙íl
-	float CollisionDetectionSetting::mHeigth = 1000.f;
-	float CollisionDetectionSetting::mWidth = 800.f;
+	float CollisionDetectionSetting::mHeigth = 900.f;
+	float CollisionDetectionSetting::mWidth = 700.f;
 	Vector2 CollisionDetectionSetting::mPos = Vector2();
 
 }

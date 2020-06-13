@@ -1,22 +1,25 @@
 #pragma once
-#include<list>
+#include<vector>
 #include"SpaceCell.hpp"
 #include"CollisionDetectinPolicy.hpp"
 
 namespace GameLib
 {
-	constexpr int LEVEL = 6;
-	constexpr int SPACECELL_NUM = 5461;
 
+	constexpr int TREE_LEVEL = 4;
+	constexpr int POWER_OF_FOUR[11] = { 1,4,16,64,256,1024,4096,16384,65536,262144,1048576 };
+	constexpr int MAX_SPACECELL_NUM = (POWER_OF_FOUR[TREE_LEVEL + 1] - 1) / 3;
+
+	
 	template<typename T>
 	class SpaceDivisionTree
 	{
-		SpaceCell<T>* mSpaceCellArray[SPACECELL_NUM];
-
+		SpaceCell<T>* mSpaceCellArray[MAX_SPACECELL_NUM];
+		std::vector<LinerObject<T>*> mCollisionStack;
 
 		//SerchTreeの再帰用
 		template<typename Policy>
-		std::list<LinerObject<T>*> RecursionSearchTree(std::list<LinerObject<T>*>&& collisionStack, int speaceCellNum) {
+		std::vector<LinerObject<T>*> RecursionSearchTree(std::vector<LinerObject<T>*>&& collisionStack, int speaceCellNum) {
 			LinerObject<T>* linerObj1 = mSpaceCellArray[speaceCellNum]->GetFirstLinerObject();
 			LinerObject<T>* linerObj2 = nullptr;
 
@@ -25,13 +28,18 @@ namespace GameLib
 				linerObj2 = linerObj1->mNextLinerObject;
 				while (linerObj2)
 				{
+					//////////////////////////////////////////////////////////////////////////////
+					collisionDetectionNum++;
 					Policy()(linerObj1->GetPtr(), linerObj2->GetPtr());
 					linerObj2 = linerObj2->mNextLinerObject;
 				}
 
 				if (!collisionStack.empty())
-					for (auto linerObj : collisionStack)
+					for (auto& linerObj : collisionStack) {
+						///////////////////////////////////////////////////////////////////////////
+						collisionDetectionNum++;
 						Policy()(linerObj1->GetPtr(), linerObj->GetPtr());
+					}
 
 				linerObj1 = linerObj1->mNextLinerObject;
 			}
@@ -42,7 +50,7 @@ namespace GameLib
 			for (int i = 0; i < 4; i++)
 			{
 				int nextSpaceCellNum = speaceCellNum * 4 + 1 + i;
-				if (nextSpaceCellNum < SPACECELL_NUM && mSpaceCellArray[nextSpaceCellNum])
+				if (nextSpaceCellNum < MAX_SPACECELL_NUM && mSpaceCellArray[nextSpaceCellNum]->mHasLinerObject)
 				{
 					if (!isAddThisSpaceLinerObject) {
 						linerObj1 = mSpaceCellArray[speaceCellNum]->GetFirstLinerObject();
@@ -65,63 +73,66 @@ namespace GameLib
 			return std::move(collisionStack);
 		}
 
+		//SpaceCellのhasLinerObjectFlagを立てる
+		void ConveyResidtLinerObject(int spaceNum) {
+			while (!mSpaceCellArray[spaceNum]->mHasLinerObject) {
+				mSpaceCellArray[spaceNum]->mHasLinerObject = true;
 
-		void DeleteChildSpaceCell(int spaceNum) {
-			for (int i = 0; i < 4; i++) {
-				int childNum = spaceNum * 4 + 1 + i;
-				if (mSpaceCellArray[childNum] && childNum < SPACECELL_NUM) {
-					DeleteChildSpaceCell(childNum);
-					delete mSpaceCellArray[childNum];
-					mSpaceCellArray[childNum] = nullptr;
-				}
-			}
-		}
-	public:
-		SpaceDivisionTree()
-			:mSpaceCellArray()
-		{
-			mSpaceCellArray[0] = new SpaceCell<T>();
-			for (int i = 1; i < SPACECELL_NUM; i++)
-				mSpaceCellArray[i] = nullptr;
-		}
-		~SpaceDivisionTree() {
-			for (int i = 0; i < SPACECELL_NUM; i++)
-				if (mSpaceCellArray[i])
-					delete mSpaceCellArray[i];
-		}
-
-		template<typename Policy>
-		void SearchTree() {
-			std::list<LinerObject<T>*> collsionStack;
-			RecursionSearchTree<Policy>(std::move(collsionStack), 0);
-		}
-
-		void Regist(LinerObject<T>* obj, int num) {
-			if (!mSpaceCellArray[num])
-				CreateNewSpaceCell(num);
-
-			mSpaceCellArray[num]->Push(obj);
-		}
-
-		void CreateNewSpaceCell(int spaceNum) {
-			while (!mSpaceCellArray[spaceNum])
-			{
-				mSpaceCellArray[spaceNum] = new SpaceCell<T>();
-				//親空間へ
 				spaceNum = (spaceNum - 1) >> 2;
 				if (spaceNum < 0)
 					break;
 			}
 		}
 
-		void DeleteAllSpaceCell() {
-			DeleteChildSpaceCell(0);
-			delete mSpaceCellArray[0];
-			mSpaceCellArray[0] = nullptr;
+	public:
+
+		//デバック用
+		int collisionDetectionNum;
+
+		SpaceDivisionTree()
+			:mSpaceCellArray()
+			,mCollisionStack()
+		{
+			for (int i = 0; i < MAX_SPACECELL_NUM; i++)
+				mSpaceCellArray[i] = new SpaceCell<Collider>();
+
+			mCollisionStack.reserve(30);
+		}
+		~SpaceDivisionTree() {
+			for (int i = 0; i < MAX_SPACECELL_NUM; i++)
+				if (mSpaceCellArray[i])
+					delete mSpaceCellArray[i];
+		}
+
+		template<typename Policy>
+		void SearchTree() {
+			collisionDetectionNum = 0;
+			//std::cout << mCollisionStack.capacity() << "\n";
+			mCollisionStack.clear();
+			mCollisionStack = RecursionSearchTree<Policy>(std::move(mCollisionStack), 0);
+			std::cout << "collisiodetectiionnum : " << collisionDetectionNum << "\n";
+		}
+
+		void Regist(LinerObject<T>* obj, int num) {
+			ConveyResidtLinerObject(num);
+			mSpaceCellArray[num]->Push(obj);
+		}
+
+		//SpacecellのHasLinerObjectFlagを全部下げる
+		void ResetHasLinerObject(int spaceNum) {
+
+			if (mSpaceCellArray[spaceNum]->mHasLinerObject) {
+				mSpaceCellArray[spaceNum]->mHasLinerObject = false;
+				for (int i = 0; i < 4; i++) {
+					int childNum = spaceNum * 4 + 1 + i;
+					if (childNum < MAX_SPACECELL_NUM && mSpaceCellArray[childNum]->mHasLinerObject)
+						ResetHasLinerObject(childNum);
+					
+				}
+			}
+			
 		}
 		
-
-
 	};
 
 

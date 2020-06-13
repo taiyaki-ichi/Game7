@@ -7,7 +7,7 @@ namespace GameLib
 {
 
 	//ŒÅ’è60FPS
-	constexpr unsigned long WAIT_TIME = static_cast<unsigned long>(1000.f / 20.f);
+	constexpr unsigned long WAIT_TIME = static_cast<unsigned long>(1000.f / 30.f);
 
 	template<typename T>
 	class SpaceDivisionTree;
