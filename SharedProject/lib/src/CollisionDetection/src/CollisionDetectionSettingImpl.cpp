@@ -11,6 +11,5 @@ namespace GameLib
 	float CollisionDetectionSettingImpl::mTop;
 	float CollisionDetectionSettingImpl::mBottom;
 
-	int CollisionDetectionSettingImpl::mNowLevelCellNum;
 
 }

@@ -13,6 +13,8 @@
 #include"lib/src/CollisionDetection/CollisionDetectionSettingImpl.hpp"
 #include"lib/src/CollisionDetection/CollisionDetectinPolicy.hpp"
 
+#include<iostream>
+
 namespace GameLib
 {
 	AppImpl::AppImpl(WindowData&& windowData)
@@ -63,14 +65,15 @@ namespace GameLib
 		mIsRunning = PollEvent();
 		InputState::Update();
 
-		Wait(mTime, WAIT_TIME);
+		//Wait(mTime, WAIT_TIME);
+		std::cout << 1000.0 / (static_cast<double>(GetTime()) - static_cast<double>(mTime)) << "\n";
 		mTime = GetTime();
 		
 		mRootActor->Update();
 
 	
 		CollisionDetectionSettingImpl::ColcMembers();
-		mSpaceDivisionTree->DeleteSpaceCell(0);
+		mSpaceDivisionTree->DeleteAllSpaceCell();
 		ColliderManager::RegistSpaceDivisionTree(*mSpaceDivisionTree);
 		mSpaceDivisionTree->SearchTree<ColiisionDetectionPolicy>();
 		

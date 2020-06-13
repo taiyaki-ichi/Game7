@@ -6,7 +6,7 @@
 namespace GameLib
 {
 	constexpr int LEVEL = 6;
-	constexpr int SPACECELL_NUM = 1365;
+	constexpr int SPACECELL_NUM = 5461;
 
 	template<typename T>
 	class SpaceDivisionTree
@@ -65,6 +65,17 @@ namespace GameLib
 			return std::move(collisionStack);
 		}
 
+
+		void DeleteChildSpaceCell(int spaceNum) {
+			for (int i = 0; i < 4; i++) {
+				int childNum = spaceNum * 4 + 1 + i;
+				if (mSpaceCellArray[childNum] && childNum < SPACECELL_NUM) {
+					DeleteChildSpaceCell(childNum);
+					delete mSpaceCellArray[childNum];
+					mSpaceCellArray[childNum] = nullptr;
+				}
+			}
+		}
 	public:
 		SpaceDivisionTree()
 			:mSpaceCellArray()
@@ -81,8 +92,6 @@ namespace GameLib
 
 		template<typename Policy>
 		void SearchTree() {
-			delete mSpaceCellArray[0];
-			mSpaceCellArray[0] = new SpaceCell<T>();
 			std::list<LinerObject<T>*> collsionStack;
 			RecursionSearchTree<Policy>(std::move(collsionStack), 0);
 		}
@@ -100,21 +109,17 @@ namespace GameLib
 				mSpaceCellArray[spaceNum] = new SpaceCell<T>();
 				//e‹óŠÔ‚Ö
 				spaceNum = (spaceNum - 1) >> 2;
-				if (spaceNum >= SPACECELL_NUM)
+				if (spaceNum < 0)
 					break;
 			}
 		}
 
-		void DeleteSpaceCell(int spaceNum = 0) {
-			for (int i = 0; i < 4; i++) {
-				int childNum = spaceNum * 4 + 1 + i;
-				if (mSpaceCellArray[childNum]) {
-					DeleteSpaceCell(childNum);
-					delete mSpaceCellArray[childNum];
-					mSpaceCellArray[childNum] = nullptr;
-				}
-			}
+		void DeleteAllSpaceCell() {
+			DeleteChildSpaceCell(0);
+			delete mSpaceCellArray[0];
+			mSpaceCellArray[0] = nullptr;
 		}
+		
 
 
 	};

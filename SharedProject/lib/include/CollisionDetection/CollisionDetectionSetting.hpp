@@ -3,8 +3,7 @@
 #include"lib/include/Math/Vector2.hpp"
 
 namespace GameLib
-{	
-	constexpr unsigned int TREE_MAX_LEVEL = 6;
+{
 
 	//当たり判定を行う範囲とその中心の座標
 	class CollisionDetectionSetting
@@ -14,8 +13,6 @@ namespace GameLib
 		static float mWidth;
 		static float mHeigth;
 		static Vector2 mPos;
-		//最大値はは9で10層の空間に分割できる
-		static unsigned int mLevel;
 
 
 	public:
@@ -41,18 +38,7 @@ namespace GameLib
 		static void SetPos(Vector2&& pos) noexcept {
 			mPos = std::move(pos);
 		}
-		static unsigned int GetLevel()noexcept {
-			return mLevel;
-		}
-		static void SetLevel(unsigned int l)noexcept {
-			if (l < 0)
-				mLevel = 0;
-			else if (TREE_MAX_LEVEL < l)
-				mLevel = TREE_MAX_LEVEL;
-			else
-				mLevel = l;
-
-		}
+		
 
 	};
 

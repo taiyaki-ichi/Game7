@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<memory>
+#include<random>
 #include"lib/include/Actor/RootActor.hpp"
 #include"lib/include/App.hpp"
 #include"lib/src/Windows/Window.hpp"
@@ -11,48 +12,70 @@
 #include"lib/include/Draw/DrawFillTriangle.hpp"
 #include"lib/include/CollisionDetection/Collider.hpp"
 #include"lib/include/InputState/InputState.hpp"
+#include"lib/include/Manager/StanderdInvokeFunc.hpp"
 
 using namespace GameLib;
 
+std::random_device rnd;     
+std::mt19937 mt(rnd());     
+std::uniform_real_distribution<> myRand(-300.0, 300.0);
 
-class Red : public Actor
+class Tama : public Actor
 {
+
 	Collider mCollider;
-	float mRot;
+	Vector2 mPosition;
+	Vector2 mVelocity;
 
 public:
-	Red(Actor* owner)
+	Tama(Actor* owner)
 		:Actor(owner)
-		, mCollider(this, "Red", { 200.f,200.f }, 100.f, 50.f, 1.f, 0.f, {255,0,0,255})
-		,mRot(0.f)
+		, mPosition({myRand(mt),myRand(mt)})
+		, mVelocity({myRand(mt)/60.f,myRand(mt)/60.f})
+		, mCollider(this, "Tama", mPosition, 10.f, 10.f, 1.f, 0.f)
 	{}
-	void Update() override {
-		mRot += 0.01f;
-		mCollider.Set({ 200.f,200.f }, 100.f, 50.f, 1.f, mRot);
+
+	void Update()override {
+		mPosition += mVelocity;
+		if (mPosition.x < -400.f || 400.f < mPosition.x)
+			mVelocity.x *= -1.f;
+		if (mPosition.y < -300.f || 300.f < mPosition.y)
+			mVelocity.y *= -1.f;
+		mCollider.SetColor({ 0,0,0,255 });
+		mCollider.Set(mPosition, 10.f, 10.f, 1.f, 0.f);
 	}
 
+	void HitCollider(const Collider& c) override {
+		auto nameTag = c.GetNameTag();
+		if (nameTag == "Move")
+			mCollider.SetColor({ 255,0,0,255 });
+	}
 };
+
 
 class Move :public Actor
 {
 	Collider mCollider;
+	float mRotation;
 
 public:
 	Move(Actor* owner)
 		:Actor(owner)
-		, mCollider(this, "Move", { 0.f,0.f }, 500.f, 500.f, 1.f, 0.f, { 0,0,0,255 })
+		, mCollider(this, "Move", { 0.f,0.f }, 50.f, 50.f, 1.f, 0.f, { 0,0,0,255 })
+		,mRotation(0.f)
 	{}
 
 	void Update() override {
-		mCollider.SetColor({ 0,0,0,255 });
-		mCollider.Set(InputState::GetMousePos(), 50.f, 50.f, 1.f,0.f);
+		mRotation += 0.01f;
+		mCollider.SetColor({ 0,255,0,255 });
+		mCollider.Set(InputState::GetMousePos(), 100.f, 100.f, 1.f, mRotation);
 	}
-
 	void HitCollider(const Collider& c) override {
 		auto nameTag = c.GetNameTag();
 		if (nameTag == "Red")
 			mCollider.SetColor({ 255,0,0,255 });
 	}
+	
 };
 
 class MyActor : public RootActor
@@ -61,18 +84,14 @@ public:
 	MyActor()
 		:RootActor()
 	{
-		mRed = new Red(this);
 		mMove = new Move(this);
+		for (int i = 0; i < 20; i++)
+			new Tama(this);
 	}
 
-	virtual void Update() override{
-		mRed->Update();
-		mMove->Update();
-	}
 private:
-	Red* mRed;
 	Move* mMove;
-
+	
 };
 
 

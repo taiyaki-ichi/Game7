@@ -7,6 +7,9 @@
 #include"lib/src/CollisionDetection/LinerObject.hpp"
 #include"SpaceDivisionTree.hpp"
 #include"MortonNumber.hpp"
+
+#include<iostream>
+
 namespace GameLib
 {
 
@@ -18,8 +21,7 @@ namespace GameLib
 	public:
 
 		static void Add(Collider* collider) {
-			auto obj = LinerObject(collider);
-			mColliders.emplace_back(obj);
+			mColliders.emplace_back(LinerObject(collider));
 		}
 
 		static void Remove(Collider* collder) {
@@ -49,7 +51,9 @@ namespace GameLib
 
 				int spaceCellNum = GetMortonNumber(pos.x - halfUnitSize, pos.y - halfUnitSize, pos.x + halfUnitSize, pos.y + halfUnitSize);
 
-				if (spaceCellNum < CollisionDetectionSettingImpl::GetNowLevelCellNum())
+				//std::cout << collider->GetNameTag() << " : " << spaceCellNum << "\n";
+
+				if (spaceCellNum < MAX_SPACECELL_NUM)
 					tree.Regist(&linerObj, spaceCellNum);
 			}
 		}

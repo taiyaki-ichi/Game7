@@ -5,7 +5,7 @@
 
 namespace dev
 {
-	constexpr int LEVEL = 6;
+	constexpr int TREE_LEVEL = 6;
 	constexpr int SPACECELL_NUM = 1365;
 
 	template<typename T>
