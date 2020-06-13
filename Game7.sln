@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedProject", "SharedProject\SharedProject.vcxitems", "{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Liner4Tree", "Liner4Tree\Liner4Tree.vcxproj", "{AE37524A-2398-4F38-9007-69F8534AD9A3}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		SharedProject\SharedProject.vcxitems*{d90edf43-61f9-4706-bc37-b8a0664acec6}*SharedItemsImports = 9
@@ -27,6 +29,14 @@ Global
 		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x64.Build.0 = Release|x64
 		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x86.ActiveCfg = Release|Win32
 		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x86.Build.0 = Release|Win32
+		{AE37524A-2398-4F38-9007-69F8534AD9A3}.Debug|x64.ActiveCfg = Debug|x64
+		{AE37524A-2398-4F38-9007-69F8534AD9A3}.Debug|x64.Build.0 = Debug|x64
+		{AE37524A-2398-4F38-9007-69F8534AD9A3}.Debug|x86.ActiveCfg = Debug|Win32
+		{AE37524A-2398-4F38-9007-69F8534AD9A3}.Debug|x86.Build.0 = Debug|Win32
+		{AE37524A-2398-4F38-9007-69F8534AD9A3}.Release|x64.ActiveCfg = Release|x64
+		{AE37524A-2398-4F38-9007-69F8534AD9A3}.Release|x64.Build.0 = Release|x64
+		{AE37524A-2398-4F38-9007-69F8534AD9A3}.Release|x86.ActiveCfg = Release|Win32
+		{AE37524A-2398-4F38-9007-69F8534AD9A3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -33,12 +33,12 @@ class Move :public Actor
 public:
 	Move(Actor* owner)
 		:Actor(owner)
-		, mCollider(this, "Move", { 0.f,0.f }, 20.f, 20.f, 1.f, 0.f, { 0,0,0,255 })
+		, mCollider(this, "Move", { 0.f,0.f }, 500.f, 500.f, 1.f, 0.f, { 0,0,0,255 })
 	{}
 
 	void Update() override {
 		//mCollider.SetColor({ 0,0,0,255 });
-		mCollider.Set(InputState::GetMousePos(), 20.f, 20.f, 1.f,0.f);
+		mCollider.Set(InputState::GetMousePos(), 50.f, 50.f, 1.f,0.f);
 	}
 
 	void HitCollider(const Collider& c) override {

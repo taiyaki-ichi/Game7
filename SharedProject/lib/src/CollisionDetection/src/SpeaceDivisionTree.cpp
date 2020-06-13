@@ -35,7 +35,7 @@ namespace GameLib
 	SpaceDivisionTree::SpaceDivisionTree()
 		:mSpaceCellArray()
 	{
-		mSpaceCellArray[0] = new SpaceCell(0);
+		mSpaceCellArray[0] = SpaceCell(0);
 		for (int i = 1; i < MAX_SPACECELL_NUM; i++) {
 			mSpaceCellArray[i] = std::nullopt;
 		}
@@ -44,11 +44,6 @@ namespace GameLib
 
 	SpaceDivisionTree::~SpaceDivisionTree()
 	{
-		DeleteSpaceCell(0);
-		if (mSpaceCellArray[0].has_value()) 
-			delete mSpaceCellArray[0].value();
-			
-	
 	}
 
 	bool SpaceDivisionTree::Resist(LinerObject* linerObj)
@@ -72,7 +67,7 @@ namespace GameLib
 			if (!mSpaceCellArray[spaceCellNum])
 				CreateNewSpaceCell(spaceCellNum);
 
-			return mSpaceCellArray[spaceCellNum].value()->Push(linerObj);
+			return mSpaceCellArray[spaceCellNum].value().Push(linerObj);
 		}
 
 		return false;
@@ -88,7 +83,7 @@ namespace GameLib
 	{
 		while (!mSpaceCellArray[spaceNum])
 		{
-			mSpaceCellArray[spaceNum] = new SpaceCell(spaceNum);
+			mSpaceCellArray[spaceNum] = SpaceCell(spaceNum);
 
 			//e‹óŠÔ‚Ö
 			spaceNum = (spaceNum - 1) >> 2;
@@ -100,6 +95,7 @@ namespace GameLib
 	void SpaceDivisionTree::DeleteSpaceCell(int spaceNum)
 	{
 		
+		/*
 		for (int i = 0; i < 4; i++)
 		{
 			int childNum = spaceNum * 4 + 1 + i;
@@ -110,7 +106,10 @@ namespace GameLib
 				std::cout << "a";
 			}
 		}
-		
+		*/
+		for(int i=1;i< MAX_SPACECELL_NUM;i++)
+			if (mSpaceCellArray[i]) 
+				mSpaceCellArray[i] = std::nullopt;
 
 	}
 
@@ -127,7 +126,7 @@ namespace GameLib
 
 	std::list<LinerObject*> SpaceDivisionTree::RecursionSearchTree(std::list<LinerObject*>&& collisionStack, int speaceCellNum)
 	{
-		std::optional<LinerObject*> linerObj1 = mSpaceCellArray[0].value()->GetFirstLinerObject();
+		std::optional<LinerObject*> linerObj1 = mSpaceCellArray[0].value().GetFirstLinerObject();
 		std::optional<LinerObject*> linerObj2 = std::nullopt;
 
 		while (linerObj1)
@@ -139,6 +138,7 @@ namespace GameLib
 			{
 				DoCollisionDetection(linerObj1.value(), linerObj2.value());
 				linerObj2 = linerObj2.value()->mNextObject;
+				//std::cout << "a";
 				
 			}
 
@@ -169,7 +169,7 @@ namespace GameLib
 			if (nextSpaceCellNum < levelNum&&mSpaceCellArray[nextSpaceCellNum])
 			{
 				if (childFlag == false) {
-					linerObj1 = mSpaceCellArray[speaceCellNum].value()->GetFirstLinerObject();
+					linerObj1 = mSpaceCellArray[speaceCellNum].value().GetFirstLinerObject();
 					while (linerObj1) {
 						collisionStack.emplace_back(linerObj1.value());
 						objNum++;

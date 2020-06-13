@@ -3,6 +3,7 @@
 #include<array>
 #include<optional>
 #include"CollisionDetectionSettingImpl.hpp"
+#include"SpaceCell.hpp"
 
 namespace GameLib
 {
@@ -12,7 +13,7 @@ namespace GameLib
 		
 	class SpaceDivisionTree
 	{
-		std::array<std::optional<SpaceCell*>, MAX_SPACECELL_NUM> mSpaceCellArray;
+		std::array<std::optional<SpaceCell>, MAX_SPACECELL_NUM> mSpaceCellArray;
 
 	public:
 		SpaceDivisionTree();
