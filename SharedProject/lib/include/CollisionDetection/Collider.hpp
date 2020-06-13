@@ -6,6 +6,7 @@
 #include"lib/include/Math/Vector2.hpp"
 #include"lib/include/Draw/DrawLine.hpp"
 #include"lib/include/Actor/Actor.hpp"
+#include"lib/include/Math/Vector2Func.hpp"
 
 namespace GameLib
 {
@@ -37,11 +38,20 @@ namespace GameLib
 		//•`ŽÊ‚·‚é‚©‚Ç‚¤‚©
 		static bool mIsDrawing;
 
+		void CalcLinesPoint() {
+			auto vecs = GetRectangleVectors(mPosition, mWidth * mScale, mHeigth * mScale, mRotation);
+			mLine1.SetPoints(vecs[0], vecs[1]);
+			mLine2.SetPoints(vecs[1], vecs[2]);
+			mLine3.SetPoints(vecs[2], vecs[3]);
+			mLine4.SetPoints(vecs[3], vecs[0]);
+		}
+
 	public:
 		Collider(Actor* owner, std::string&& nameTag = "", const Vector2& pos = { 0.f,0.f }, float width = 0.f, float heigth = 0.f
 			, float scale = 1.f, float rot = 0.f, Color&& color = { 0,0,0,0 });
 		virtual ~Collider();
 
+		//“–‚½‚Á‚½Žž‚ÉŒÄ‚Î‚ê‚é
 		void AddHitFunction(std::string&& nameTag, std::function<void(const Collider&)>&& hitFunc) {
 			mHitFunctions.emplace(std::move(nameTag), std::move(hitFunc));
 		}
@@ -59,6 +69,22 @@ namespace GameLib
 		}
 
 		void Set(const Vector2& pos, float width, float heigth, float scale, float rot);
+
+		void SetPosition(const Vector2& pos) {
+			mPosition = pos;
+			CalcLinesPoint();
+		}
+
+		void SetWidthAndHeith(float w, float h) {
+			mWidth = w;
+			mHeigth = h;
+			CalcLinesPoint();
+		}
+
+		void SetRotation(float rot) {
+			mRotation = rot;
+			CalcLinesPoint();
+		}
 
 		void SetNameTag(std::string&& nameTag) {
 			mNameTag = std::move(nameTag);

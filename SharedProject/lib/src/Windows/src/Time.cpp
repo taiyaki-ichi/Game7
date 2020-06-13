@@ -12,11 +12,11 @@ namespace GameLib
 
 	void Wait(unsigned long preTime, unsigned long waitTime)
 	{
-		while (timeGetTime()<preTime+waitTime)
+		while (timeGetTime() < preTime + waitTime)
 		{
 			timeBeginPeriod(1);
-			Sleep(1); 
-			timeEndPeriod(1);  
+			Sleep(1);
+			timeEndPeriod(1);
 		}
 	}
 }

@@ -44,7 +44,7 @@ public:
 		if (mPosition.y < -300.f || 300.f < mPosition.y)
 			mVelocity.y *= -1.f;
 		mCollider.SetColor({ 0,0,0,255 });
-		mCollider.Set(mPosition, 10.f, 10.f, 1.f, 0.f);
+		mCollider.SetPosition(mPosition);
 	}
 
 
@@ -61,14 +61,12 @@ public:
 		:Actor(owner)
 		, mCollider(this, "Move", { 0.f,0.f }, 50.f, 50.f, 1.f, 0.f, { 0,0,0,255 })
 		,mRotation(0.f)
-	{
-	
-	}
+	{}
 
 	void Update() override {
 		mRotation += 0.01f;
 		mCollider.SetColor({ 0,255,0,255 });
-		mCollider.Set(InputState::GetMousePos(), 100.f, 100.f, 1.f, mRotation);
+		mCollider.Set(InputState::GetMousePos(), 50.f, 50.f, 1.f, mRotation);
 	}
 	
 };

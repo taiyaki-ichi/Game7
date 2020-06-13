@@ -21,11 +21,7 @@ namespace GameLib
 		, mLine4()
 
 	{
-		auto vecs = GetRectangleVectors(mPosition, mWidth * mScale, mHeigth * mScale, mRotation);
-		mLine1.SetPoints(vecs[0], vecs[1]);
-		mLine2.SetPoints(vecs[1], vecs[2]);
-		mLine3.SetPoints(vecs[2], vecs[3]);
-		mLine4.SetPoints(vecs[3], vecs[0]);
+		CalcLinesPoint();
 
 		mLine1.SetDrawOrder(COLLIDER_DRAWORDER);
 		mLine2.SetDrawOrder(COLLIDER_DRAWORDER);
