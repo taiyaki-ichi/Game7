@@ -24,9 +24,6 @@ namespace GameLib
 
 		std::string mNameTag;
 
-		//’Ê’m‚·‚é—p
-		Actor* mOwner;
-
 		std::unordered_map<std::string, std::function<void(const Collider&)>> mHitFunctions;
 
 		//“–‚½‚è”»’è‚Ì—Ìˆæ‚Ì‰ÂŽ‹‰»—p
@@ -47,7 +44,7 @@ namespace GameLib
 		}
 
 	public:
-		Collider(Actor* owner, std::string&& nameTag = "", const Vector2& pos = { 0.f,0.f }, float width = 0.f, float heigth = 0.f
+		Collider(std::string&& nameTag = "", const Vector2& pos = { 0.f,0.f }, float width = 0.f, float heigth = 0.f
 			, float scale = 1.f, float rot = 0.f, Color&& color = { 0,0,0,0 });
 		virtual ~Collider();
 

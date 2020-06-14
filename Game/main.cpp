@@ -3,7 +3,7 @@
 #include<memory>
 #include<random>
 #include"GameLib/include/App.hpp"
-#include"GameLib/include/Actor/RootActor.hpp"
+#include"Game/StartActor.hpp"
 
 using namespace GameLib;
 
@@ -19,7 +19,7 @@ int main() {
 
 	
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
-	app->Start<RootActor>();
+	app->Start<Game::StartActor>();
 	
 	return 0;
 	

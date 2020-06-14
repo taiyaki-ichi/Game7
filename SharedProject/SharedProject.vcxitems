@@ -81,6 +81,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Time.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Window.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\WindowClassName.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Player.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\StartActor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="$(MSBuildThisFileDirectory)Assets\icon.png" />

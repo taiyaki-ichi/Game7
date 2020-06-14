@@ -1,13 +1,13 @@
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"GameLib/include/Draw/DrawLine.hpp"
 #include"GameLib/src/CollisionDetection/ColliderManager.hpp"
+#include "..\..\..\include\CollisionDetection\Collider.hpp"
 
 
 namespace GameLib
 {
-	Collider::Collider(Actor* owner, std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot, Color&& color)
-		:mOwner(owner)
-		, mNameTag(std::move(nameTag))
+	Collider::Collider(std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot, Color&& color)
+		: mNameTag(std::move(nameTag))
 		, mPosition(pos)
 		, mWidth(width)
 		, mHeigth(heigth)

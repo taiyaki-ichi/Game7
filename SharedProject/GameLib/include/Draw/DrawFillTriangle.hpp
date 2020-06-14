@@ -16,7 +16,9 @@ namespace GameLib
 
 	public:
 		//3“_‚ÍŽžŒv‰ñ‚è
-		DrawFillTriangle(const Vector2& p1 , const Vector2& p2, const Vector2& p3, Color&& color = { 0,0,0,255 }, int drawOrder = 0);
+		DrawFillTriangle(const Vector2& p1 = { 0.f,0.f }, const Vector2& p2 = { 0.f,0.f }, const Vector2& p3 = {0.f,0.f},
+			Color&& color = { 0,0,0,255 }, int drawOrder = 0);
+
 		virtual ~DrawFillTriangle() = default;
 
 		void Draw() override final;
