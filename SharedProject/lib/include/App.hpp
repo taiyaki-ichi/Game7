@@ -1,12 +1,10 @@
 #pragma once
 #include<string>
 #include<memory>
-
+#include<type_traits>
+#include"Actor/RootActor.hpp"
 namespace GameLib
 {
-
-	class RootActor;
-
 	struct WindowData {
 		std::string WindowName;
 		float WindowWidth;
@@ -22,11 +20,19 @@ namespace GameLib
 	public:
 		virtual ~App() = default;
 
-		//RootActorのポインタを渡しAppを開始さす
-		virtual void Start(RootActor* rootActor) = 0;
+		//RootActorの型を渡しAppスタート
+		template<typename StartActor,typename ...Args>
+		void Start(Args&& ...args) {
+			static_assert(std::is_base_of_v<RootActor,StartActor>, "RootActor is not base of StartActor");
+			RootActor* rootActor = new StartActor(std::forward<Args>(args)...);
+			StartImpl(rootActor);
+		}
+
+	private:
+		virtual void StartImpl(RootActor* rootActor) = 0;
 	};
 
-	//Appのポイントはここから入手	
+	//Appのポインタはここから入手	
 	std::unique_ptr<App> CreatAppPtr(WindowData&& windowData);
 
 }

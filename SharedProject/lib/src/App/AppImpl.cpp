@@ -30,7 +30,7 @@ namespace GameLib
 			delete mRootActor;
 	}
 
-	void AppImpl::Start(RootActor* rootActor)
+	void AppImpl::StartImpl(RootActor* rootActor)
 	{
 		mRootActor = rootActor;
 

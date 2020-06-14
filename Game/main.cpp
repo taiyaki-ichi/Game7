@@ -73,7 +73,7 @@ public:
 class MyActor : public RootActor
 {
 public:
-	MyActor()
+	MyActor(int i)
 		:RootActor()
 	{
 		mMove = new Move(this);
@@ -98,8 +98,7 @@ int main() {
 
 	
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
-	auto root = new MyActor();
-	app->Start(root);
+	app->Start<MyActor>(1);
 	
 	return 0;
 	

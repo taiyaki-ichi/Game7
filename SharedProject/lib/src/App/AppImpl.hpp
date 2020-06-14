@@ -19,9 +19,9 @@ namespace GameLib
 		AppImpl(WindowData&& windowData);
 		~AppImpl();
 
-		void Start(RootActor* rootActor) override;
-
 	private:
+
+		void StartImpl(RootActor* rootActor) override;
 
 		bool mIsRunning;
 
