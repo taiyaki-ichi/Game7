@@ -98,7 +98,7 @@ int main() {
 
 	
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
-	app->Start<MyActor>(1);
+	app->Start<RootActor>();
 	
 	return 0;
 	

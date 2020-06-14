@@ -23,7 +23,9 @@ namespace GameLib
 		//RootActorの型を渡しAppスタート
 		template<typename StartActor,typename ...Args>
 		void Start(Args&& ...args) {
+			//RootActorを継承してなければえっらー
 			static_assert(std::is_base_of_v<RootActor,StartActor>, "RootActor is not base of StartActor");
+
 			RootActor* rootActor = new StartActor(std::forward<Args>(args)...);
 			StartImpl(rootActor);
 		}
@@ -32,7 +34,8 @@ namespace GameLib
 		virtual void StartImpl(RootActor* rootActor) = 0;
 	};
 
-	//Appのポインタはここから入手	
+
+	//Appのポインタはここから入手、一度のみ呼び出し可
 	std::unique_ptr<App> CreatAppPtr(WindowData&& windowData);
 
 }

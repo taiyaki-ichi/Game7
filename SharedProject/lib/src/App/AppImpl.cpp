@@ -9,11 +9,13 @@
 #include"lib/include/Resource/ResourceManager.hpp"
 #include"lib/include/InputState/InputState.hpp"
 #include"lib/src/CollisionDetection/SpaceDivisionTree.hpp"
+#include<cassert>
 
 #include<iostream>
 
 namespace GameLib
 {
+
 	AppImpl::AppImpl(WindowData&& windowData)
 		:mIsRunning(true)
 		,mTime(0)
@@ -86,6 +88,8 @@ namespace GameLib
 
 
 	std::unique_ptr<App> CreatAppPtr(WindowData&& windowData) {
-		return std::make_unique<AppImpl>(std::move(windowData));
+		static std::unique_ptr<App> SingletonAppPtr = std::make_unique<AppImpl>(std::move(windowData));
+		assert(SingletonAppPtr!=nullptr);
+		return std::move(SingletonAppPtr);
 	}
 }
