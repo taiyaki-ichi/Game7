@@ -1,6 +1,6 @@
 #pragma once
 #include"lib/include/Manager/Manager.hpp"
-#include"lib/include/Manager/StanderdInvokeFunc.hpp"
+#include"ActorPolicy.hpp"
 
 namespace GameLib
 {
@@ -8,8 +8,18 @@ namespace GameLib
 
 	class Actor
 	{
+	public:
+		enum class State {
+			Active,
+			Pause,
+			Dead
+		};
+
+
+	private:
 		Actor* mOwner;
 		int mUpdateOrder;
+		State mState;
 
 	protected:
 		OwnerManager<Actor> mOwnedActors;
@@ -19,6 +29,7 @@ namespace GameLib
 			:mOwner(owner)
 			, mUpdateOrder(updateOrder)
 			,mOwnedActors()
+			,mState(State::Active)
 		{
 			if (mOwner)
 				mOwner->Add({ this,mUpdateOrder });
@@ -29,9 +40,14 @@ namespace GameLib
 				mOwner->Remove(this);
 		}
 
-		virtual void Update() {
+		void Update() {
 			mOwnedActors.Invoke<UpdatePolicy<Actor>>();
+			CustomizeUpdate();
+			mOwnedActors.Invoke<DeadObjectDeletePolicy<Actor>>();
 		}
+
+		
+		virtual void CustomizeUpdate() {}
 
 		void Add(Node<Actor>&& node) {
 			mOwnedActors.Add(std::move(node));
@@ -44,6 +60,15 @@ namespace GameLib
 			return mUpdateOrder;
 		}
 
+		void SetState(State&& state) {
+			mState = std::move(state);
+		}
+		void SetState(const State& state) {
+			mState = state;
+		}
+		const State& GetState() const noexcept {
+			return mState;
+		}
 	};
 
 }

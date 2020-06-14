@@ -12,7 +12,6 @@
 #include"lib/include/Draw/DrawFillTriangle.hpp"
 #include"lib/include/CollisionDetection/Collider.hpp"
 #include"lib/include/InputState/InputState.hpp"
-#include"lib/include/Manager/StanderdInvokeFunc.hpp"
 
 using namespace GameLib;
 
@@ -37,7 +36,7 @@ public:
 		mCollider.AddHitFunction("Tama", [this](const Collider& c) {mCollider.SetColor({ 0,0,255,255 }); });
 	}
 
-	void Update()override {
+	void CustomizeUpdate()override {
 		mPosition += mVelocity;
 		if (mPosition.x < -400.f || 400.f < mPosition.x)
 			mVelocity.x *= -1.f;
@@ -63,7 +62,7 @@ public:
 		,mRotation(0.f)
 	{}
 
-	void Update() override {
+	void CustomizeUpdate() override {
 		mRotation += 0.01f;
 		mCollider.SetColor({ 0,255,0,255 });
 		mCollider.Set(InputState::GetMousePos(), 100.f, 100.f, 1.f, mRotation);
@@ -77,13 +76,13 @@ public:
 	MyActor()
 		:RootActor()
 	{
-		//mMove = new Move(this);
+		mMove = new Move(this);
 		for (int i = 0; i < 20; i++)
 			new Tama(this);
 	}
 
 private:
-	//Move* mMove;
+	Move* mMove;
 	
 };
 

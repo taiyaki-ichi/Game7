@@ -10,6 +10,5 @@ namespace GameLib
 	public:
 		RootActor();
 		virtual ~RootActor();
-
 	};
 }
