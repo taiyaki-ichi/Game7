@@ -73,16 +73,16 @@ public:
 class MyActor : public RootActor
 {
 public:
-	MyActor(int i)
+	MyActor()
 		:RootActor()
 	{
-		mMove = new Move(this);
-		for (int i = 0; i < 20; i++)
+		//mMove = new Move(this);
+		for (int i = 0; i < 10; i++)
 			new Tama(this);
 	}
 
 private:
-	Move* mMove;
+	//Move* mMove;
 	
 };
 
@@ -97,8 +97,8 @@ int main() {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	
-	auto app = GameLib::CreatAppPtr({ "window",800,600 });
-	app->Start<RootActor>();
+	auto app = GameLib::CreatAppPtr({ "window",800,600 },60.f);
+	app->Start<MyActor>();
 	
 	return 0;
 	

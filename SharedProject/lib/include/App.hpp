@@ -36,6 +36,6 @@ namespace GameLib
 
 
 	//Appのポインタはここから入手、一度のみ呼び出し可
-	std::unique_ptr<App> CreatAppPtr(WindowData&& windowData);
+	std::unique_ptr<App> CreatAppPtr(WindowData&& windowData, float fps = 60.f);
 
 }

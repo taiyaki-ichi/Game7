@@ -6,9 +6,6 @@
 namespace GameLib
 {
 
-	//ŒÅ’è60FPS
-	constexpr unsigned long WAIT_TIME = static_cast<unsigned long>(1000.f / 30.f);
-
 	template<typename T>
 	class SpaceDivisionTree;
 	class Collider;
@@ -16,7 +13,7 @@ namespace GameLib
 	class AppImpl : public App
 	{
 	public:
-		AppImpl(WindowData&& windowData);
+		AppImpl(WindowData&& windowData, float fps);
 		~AppImpl();
 
 	private:
@@ -32,6 +29,7 @@ namespace GameLib
 		RootActor* mRootActor;
 
 		unsigned long mTime;
+		unsigned long mWaitTime;
 
 		std::unique_ptr<SpaceDivisionTree<Collider>> mSpaceDivisionTree;
 	};
