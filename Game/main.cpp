@@ -2,102 +2,10 @@
 #include<string>
 #include<memory>
 #include<random>
-#include"lib/include/Actor/RootActor.hpp"
-#include"lib/include/App.hpp"
-#include"lib/src/Windows/Window.hpp"
-#include"lib/include/Math/Vector2Func.hpp"
-#include"lib/include/Draw/DrawTexture.hpp"
-#include"lib/include/Draw/DrawFillTriangle.hpp"
-#include"lib/include/Viewport/Viewport.hpp"
-#include"lib/include/Draw/DrawFillTriangle.hpp"
-#include"lib/include/CollisionDetection/Collider.hpp"
-#include"lib/include/InputState/InputState.hpp"
-#include"lib/include/Draw/DrawAnimation.hpp"
+#include"GameLib/include/App.hpp"
+#include"GameLib/include/Actor/RootActor.hpp"
 
 using namespace GameLib;
-
-std::random_device rnd;     
-std::mt19937 mt(rnd());     
-std::uniform_real_distribution<> myRand(-300.0, 300.0);
-
-class Tama : public Actor
-{
-	Collider mCollider;
-	Vector2 mPosition;
-	Vector2 mVelocity;
-
-public:
-	Tama(Actor* owner)
-		:Actor(owner)
-		, mPosition({myRand(mt),myRand(mt)})
-		, mVelocity({myRand(mt)/60.f,myRand(mt)/60.f})
-		, mCollider(this, "Tama", mPosition, 20.f, 20.f, 1.f, 0.f)
-	{
-		mCollider.AddHitFunction("Move", [this](const Collider& c) {mCollider.SetColor({ 255,0,0,255 }); });
-		mCollider.AddHitFunction("Tama", [this](const Collider& c) {mCollider.SetColor({ 0,0,255,255 }); });
-	}
-
-	void CustomizeUpdate()override {
-		mPosition += mVelocity;
-		if (mPosition.x < -400.f || 400.f < mPosition.x)
-			mVelocity.x *= -1.f;
-		if (mPosition.y < -300.f || 300.f < mPosition.y)
-			mVelocity.y *= -1.f;
-		mCollider.SetColor({ 0,0,0,255 });
-		mCollider.SetPosition(mPosition);
-	}
-
-
-};
-
-
-class Move :public Actor
-{
-	Collider mCollider;
-	float mRotation;
-
-public:
-	Move(Actor* owner)
-		:Actor(owner)
-		, mCollider(this, "Move", { 0.f,0.f }, 50.f, 50.f, 1.f, 0.f, { 0,0,0,255 })
-		,mRotation(0.f)
-	{}
-
-	void CustomizeUpdate() override {
-		mRotation += 0.01f;
-		mCollider.SetColor({ 0,255,0,255 });
-		mCollider.Set(InputState::GetMousePos(), 100.f, 100.f, 1.f, mRotation);
-	}
-	
-};
-
-class MyActor : public RootActor
-{
-public:
-	MyActor()
-		:RootActor()
-		,mAnimation(10)
-	{
-		mAnimation.AddAnimation(
-			{ "../Assets/run001.png","../Assets/run002.png", "../Assets/run002.png", });
-		mAnimation.AddAnimation({ "../Assets/icon.png" });
-		mAnimation.SetScale(0.5f);
-	}
-
-	void CustomizeUpdate() override {
-		mAnimation.Update(60);
-
-		if (InputState::GetState(Key::A) == ButtonState::Pressed)
-			mAnimation.SetChannel(0);
-		if (InputState::GetState(Key::B) == ButtonState::Pressed)
-			mAnimation.SetChannel(1);
-
-	}
-
-private:
-	DrawAnimation mAnimation;
-	
-};
 
 
 #include <stdlib.h>
@@ -111,7 +19,7 @@ int main() {
 
 	
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
-	app->Start<MyActor>();
+	app->Start<RootActor>();
 	
 	return 0;
 	
