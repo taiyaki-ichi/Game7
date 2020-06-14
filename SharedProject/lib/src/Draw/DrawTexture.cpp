@@ -5,6 +5,7 @@
 #include"lib/include/Math/Vector2Func.hpp"
 #include"lib/include/Viewport/Viewport.hpp"
 #include"lib/src/Windows/Window.hpp"
+#include "..\..\include\Draw\DrawTexture.hpp"
 
 namespace GameLib
 {
@@ -17,6 +18,28 @@ namespace GameLib
 		,mTextureFlip(TextureFlip::None)
 	{
 		mTexture = ResourceManager::GetTexture(std::move(fileName));
+	}
+
+	DrawTexture::DrawTexture(const Vector2& pos, float scale, float rot, int drawOrder)
+		:DrawBase(drawOrder)
+		, mPosition(pos)
+		, mScale(scale)
+		, mRotation(rot)
+		, mAlpha(255)
+		, mTextureFlip(TextureFlip::None)
+		,mTexture(nullptr)
+	{
+	}
+
+	DrawTexture::DrawTexture(int drawOrder)
+		:DrawBase(drawOrder)
+		, mPosition({0.f,0.f})
+		,mScale(1.f)
+		,mRotation(0.f)
+		,mAlpha(255)
+		,mTextureFlip(TextureFlip::None)
+		,mTexture(nullptr)
+	{
 	}
 
 	void DrawTexture::Draw()
@@ -47,6 +70,18 @@ namespace GameLib
 	{
 		mPosition = std::move(pos);
 		mScale = scale;
+		mRotation = rot;
+	}
+	void DrawTexture::SetPosition(const Vector2& pos)
+	{
+		mPosition = pos;
+	}
+	void DrawTexture::SetScale(float scale)
+	{
+		mScale = scale;
+	}
+	void DrawTexture::SetRotation(float rot)
+	{
 		mRotation = rot;
 	}
 	void DrawTexture::SetAlpha(int a)

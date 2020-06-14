@@ -12,6 +12,7 @@
 #include"lib/include/Draw/DrawFillTriangle.hpp"
 #include"lib/include/CollisionDetection/Collider.hpp"
 #include"lib/include/InputState/InputState.hpp"
+#include"lib/include/Draw/DrawAnimation.hpp"
 
 using namespace GameLib;
 
@@ -75,14 +76,26 @@ class MyActor : public RootActor
 public:
 	MyActor()
 		:RootActor()
+		,mAnimation(10)
 	{
-		//mMove = new Move(this);
-		for (int i = 0; i < 10; i++)
-			new Tama(this);
+		mAnimation.AddAnimation(
+			{ "../Assets/run001.png","../Assets/run002.png", "../Assets/run002.png", });
+		mAnimation.AddAnimation({ "../Assets/icon.png" });
+		mAnimation.SetScale(0.5f);
+	}
+
+	void CustomizeUpdate() override {
+		mAnimation.Update(60);
+
+		if (InputState::GetState(Key::A) == ButtonState::Pressed)
+			mAnimation.SetChannel(0);
+		if (InputState::GetState(Key::B) == ButtonState::Pressed)
+			mAnimation.SetChannel(1);
+
 	}
 
 private:
-	//Move* mMove;
+	DrawAnimation mAnimation;
 	
 };
 
@@ -97,7 +110,7 @@ int main() {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF | _CRTDBG_CHECK_ALWAYS_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	
-	auto app = GameLib::CreatAppPtr({ "window",800,600 },60.f);
+	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 	app->Start<MyActor>();
 	
 	return 0;

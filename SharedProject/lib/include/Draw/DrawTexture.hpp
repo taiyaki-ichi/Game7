@@ -27,6 +27,8 @@ namespace GameLib
 
 	public:
 		DrawTexture(std::string&& fileName, const Vector2& pos = { 0.f,0.f }, float scale = 1.f, float rot = 0.f, int drawOrder = 0);
+		DrawTexture(const Vector2& pos = { 0.f,0.f }, float scale = 1.f, float rot = 0.f, int drawOrder = 0);
+		DrawTexture(int drawOrder = 0);
 		virtual ~DrawTexture() = default;
 
 		void Draw() override final;
@@ -36,6 +38,10 @@ namespace GameLib
 
 		void Set(const Vector2& pos, float scale, float rot);
 		void Set(Vector2&& pos, float scale, float rot);
+
+		void SetPosition(const Vector2& pos);
+		void SetScale(float scale);
+		void SetRotation(float rot);
 
 		void SetAlpha(int a);
 		void SetTextureFlip(TextureFlip&& flip);
