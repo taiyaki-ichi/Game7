@@ -9,9 +9,6 @@
 #include"lib/include/Resource/ResourceManager.hpp"
 #include"lib/include/InputState/InputState.hpp"
 #include"lib/src/CollisionDetection/SpaceDivisionTree.hpp"
-#include"lib/src/CollisionDetection/ColliderManager.hpp"
-#include"lib/src/CollisionDetection/CollisionDetectionSettingImpl.hpp"
-#include"lib/src/CollisionDetection/CollisionDetectinPolicy.hpp"
 
 #include<iostream>
 
@@ -70,13 +67,8 @@ namespace GameLib
 		
 		mRootActor->Update();
 
-	
-		CollisionDetectionSettingImpl::ColcMembers();
-		mSpaceDivisionTree->ResetHasLinerObject(0);
-		ColliderManager::RegistSpaceDivisionTree(*mSpaceDivisionTree);
-		mSpaceDivisionTree->SearchTree<ColiisionDetectionPolicy>();
+		mSpaceDivisionTree->SearchTree();
 		
-
 		DrawStart();
 		DrawManager::Draw();
 		DrawEnd();

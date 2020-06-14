@@ -2,15 +2,15 @@
 #include<vector>
 #include"SpaceCell.hpp"
 #include"CollisionDetectinPolicy.hpp"
+#include"ColliderManager.hpp"
+#include"CollsionDetectionData.hpp"
+#include"CollisionDetectionSettingImpl.hpp"
 
 namespace GameLib
 {
+	class ColliderManager;
+	class CollisionDetectionSettingImpl;
 
-	constexpr int TREE_LEVEL = 4;
-	constexpr int POWER_OF_FOUR[11] = { 1,4,16,64,256,1024,4096,16384,65536,262144,1048576 };
-	constexpr int MAX_SPACECELL_NUM = (POWER_OF_FOUR[TREE_LEVEL + 1] - 1) / 3;
-
-	
 	template<typename T>
 	class SpaceDivisionTree
 	{
@@ -28,16 +28,12 @@ namespace GameLib
 				linerObj2 = linerObj1->mNextLinerObject;
 				while (linerObj2)
 				{
-					//////////////////////////////////////////////////////////////////////////////
-					collisionDetectionNum++;
 					Policy()(linerObj1->GetPtr(), linerObj2->GetPtr());
 					linerObj2 = linerObj2->mNextLinerObject;
 				}
 
 				if (!collisionStack.empty())
 					for (auto& linerObj : collisionStack) {
-						///////////////////////////////////////////////////////////////////////////
-						collisionDetectionNum++;
 						Policy()(linerObj1->GetPtr(), linerObj->GetPtr());
 					}
 
@@ -85,10 +81,6 @@ namespace GameLib
 		}
 
 	public:
-
-		//デバック用
-		int collisionDetectionNum;
-
 		SpaceDivisionTree()
 			:mSpaceCellArray()
 			,mCollisionStack()
@@ -104,13 +96,15 @@ namespace GameLib
 					delete mSpaceCellArray[i];
 		}
 
-		template<typename Policy>
 		void SearchTree() {
-			collisionDetectionNum = 0;
-			//std::cout << mCollisionStack.capacity() << "\n";
+
+			CollisionDetectionSettingImpl::ColcMembers();
+			ResetHasLinerObject(0);
+			ColliderManager::RegistSpaceDivisionTree(*this);
+			
 			mCollisionStack.clear();
-			mCollisionStack = RecursionSearchTree<Policy>(std::move(mCollisionStack), 0);
-			std::cout << "collisiodetectiionnum : " << collisionDetectionNum << "\n";
+			mCollisionStack = RecursionSearchTree<ColiisionDetectionPolicy>(std::move(mCollisionStack), 0);
+			
 		}
 
 		void Regist(LinerObject<T>* obj, int num) {

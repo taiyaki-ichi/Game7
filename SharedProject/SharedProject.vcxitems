@@ -20,6 +20,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\Collider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\ColliderManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\CollisionDetectionSettingImpl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\src\MortonNumber.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawFillTriangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)lib\src\Draw\DrawLine.cpp" />
@@ -63,6 +64,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\ColliderManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectinPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollisionDetectionSettingImpl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\CollsionDetectionData.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\LinerObject.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\MortonNumber.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)lib\src\CollisionDetection\SpaceCell.hpp" />

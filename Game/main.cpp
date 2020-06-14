@@ -31,7 +31,7 @@ public:
 		:Actor(owner)
 		, mPosition({myRand(mt),myRand(mt)})
 		, mVelocity({myRand(mt)/60.f,myRand(mt)/60.f})
-		, mCollider(this, "Tama", mPosition, 50.f, 50.f, 1.f, 0.f)
+		, mCollider(this, "Tama", mPosition, 20.f, 20.f, 1.f, 0.f)
 	{
 		mCollider.AddHitFunction("Move", [this](const Collider& c) {mCollider.SetColor({ 255,0,0,255 }); });
 		mCollider.AddHitFunction("Tama", [this](const Collider& c) {mCollider.SetColor({ 0,0,255,255 }); });
@@ -77,13 +77,13 @@ public:
 	MyActor()
 		:RootActor()
 	{
-		mMove = new Move(this);
+		//mMove = new Move(this);
 		for (int i = 0; i < 20; i++)
 			new Tama(this);
 	}
 
 private:
-	Move* mMove;
+	//Move* mMove;
 	
 };
 

@@ -102,7 +102,7 @@ namespace GameLib
 			if (IsInsideRect(p, rect1))
 				return true;
 		
-		/*
+		
 		
 		//ü‚ªŒğ·‚µ‚Ä‚¢‚é‚©
 		bool flag = false;
@@ -122,7 +122,7 @@ namespace GameLib
 					return true;
 			}
 			
-			*/
+		
 		return false;
 
 	}

@@ -27,8 +27,8 @@ namespace GameLib
 			mTop = mPos.y - mHeigth / 2.f;
 			mBottom = mPos.y + mHeigth / 2.f;
 
-			mUnitWidth = (mRight - mLeft) / (1 << TREE_LEVEL);
-			mUnitHeigth = (mBottom - mTop) / (1 << TREE_LEVEL);
+			mUnitWidth = (mRight - mLeft) / (1 << GameLib::TREE_LEVEL);
+			mUnitHeigth = (mBottom - mTop) / (1 << GameLib::TREE_LEVEL);
 
 		}
 
