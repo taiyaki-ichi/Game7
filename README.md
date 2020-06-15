@@ -1,4 +1,4 @@
 # Game7
-ゲームを完成させよう！！！
+ゲームつくりたい。
 
-win32とdirectx9とか
+win32とdirectx9とかで
