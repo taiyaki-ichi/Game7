@@ -21,6 +21,7 @@ int main() {
 	auto app = GameLib::CreatAppPtr({ "window",800,600 });
 	app->Start<Game::StartActor>();
 	
+
 	return 0;
 	
 }

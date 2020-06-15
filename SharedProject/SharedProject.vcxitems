@@ -37,6 +37,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\GravityActor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\Actor.hpp" />
@@ -51,7 +52,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawFillTriangle.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawLine.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawTexture.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\TextureFlip.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\InputState\InputState.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\InputState\InputStateInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Manager\ManagerPolicy.hpp" />
@@ -81,9 +81,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Time.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Window.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\WindowClassName.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\GravityActor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhisicModel.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Player.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\StartActor.hpp" />
   </ItemGroup>

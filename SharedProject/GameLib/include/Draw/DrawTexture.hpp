@@ -2,7 +2,6 @@
 #include<string>
 #include"DrawBase.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
-#include"TextureFlip.hpp"
 
 namespace GameLib
 {
@@ -22,7 +21,8 @@ namespace GameLib
 		//透明度
 		int mAlpha;
 		//フリップ
-		TextureFlip mTextureFlip;
+		bool mHorizontalFlip;
+		bool mVerticalFlip;
 
 
 	public:
@@ -44,7 +44,8 @@ namespace GameLib
 		void SetRotation(float rot);
 
 		void SetAlpha(int a);
-		void SetTextureFlip(TextureFlip&& flip);
+		void SetHorizontalFlip(bool h);
+		void SetVerticalFlip(bool v);
 
 	};
 }

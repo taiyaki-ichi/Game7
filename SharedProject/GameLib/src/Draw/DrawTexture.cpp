@@ -5,6 +5,7 @@
 #include"GameLib/include/Math/Vector2Func.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"GameLib/src/Windows/Window.hpp"
+#include "..\..\include\Draw\DrawTexture.hpp"
 
 
 namespace GameLib
@@ -15,7 +16,8 @@ namespace GameLib
 		,mScale(scale)
 		,mRotation(rot)
 		,mAlpha(255)
-		,mTextureFlip(TextureFlip::None)
+		, mHorizontalFlip(false)
+		, mVerticalFlip(false)
 	{
 		mTexture = ResourceManager::GetTexture(std::move(fileName));
 	}
@@ -26,8 +28,9 @@ namespace GameLib
 		, mScale(scale)
 		, mRotation(rot)
 		, mAlpha(255)
-		, mTextureFlip(TextureFlip::None)
 		,mTexture(nullptr)
+		, mHorizontalFlip(false)
+		, mVerticalFlip(false)
 	{
 	}
 
@@ -37,17 +40,26 @@ namespace GameLib
 		,mScale(1.f)
 		,mRotation(0.f)
 		,mAlpha(255)
-		,mTextureFlip(TextureFlip::None)
 		,mTexture(nullptr)
+		,mHorizontalFlip(false)
+		,mVerticalFlip(false)
 	{
 	}
 
 	void DrawTexture::Draw()
 	{
+		int flip = 0;
+		if (mHorizontalFlip && mVerticalFlip)
+			flip = 3;
+		else if (mHorizontalFlip)
+			flip = 1;
+		else if (mVerticalFlip)
+			flip = 2;
+
 		Vector2 affinedPos = Affine(mPosition, Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
 		Vector2 pos = { affinedPos.x + GetWindowWidth() / 2.f,-affinedPos.y + GetWindowHeigth() / 2.f };
 		GraphicsDrawTexture(mTexture, pos.x, pos.y, mScale * Viewport::GetScale(), mRotation + Viewport::GetRotation(),
-			mAlpha, static_cast<int>(mTextureFlip));
+			mAlpha, flip);
 	}
 
 	void DrawTexture::SetTexture(std::string&& fileName)
@@ -88,8 +100,13 @@ namespace GameLib
 	{
 		mAlpha = a;
 	}
-	void DrawTexture::SetTextureFlip(TextureFlip&& flip)
+	void DrawTexture::SetHorizontalFlip(bool h)
 	{
-		mTextureFlip = std::move(flip);
+		mHorizontalFlip = h;
 	}
+	void DrawTexture::SetVerticalFlip(bool v)
+	{
+		mVerticalFlip = v;
+	}
+
 }

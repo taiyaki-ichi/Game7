@@ -5,10 +5,11 @@
 
 namespace Game::Stage
 {
-	using GameLib::Vector2;
-	using GameLib::Collider;
 
-	inline Vector2 GetParallelRectAdjustVec(const Collider& character, const Collider& ground, float round = 0.f) {
+	inline GameLib::Vector2 GetParallelRectAdjustVec(const GameLib::Collider& character, const GameLib::Collider& ground, float round = 0.f) {
+
+		using GameLib::Vector2;
+		using GameLib::Collider;
 
 		Vector2 characterPos = character.GetPosition();
 		Vector2 groundPos = ground.GetPosition();

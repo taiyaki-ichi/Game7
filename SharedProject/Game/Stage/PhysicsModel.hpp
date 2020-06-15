@@ -4,8 +4,9 @@
 
 namespace Game::Stage
 {
-	class PhysicModel
+	class PhysicsModel
 	{
+
 		GameLib::Vector2 mPosiotion;
 		GameLib::Vector2 mVelocity;
 
@@ -13,13 +14,13 @@ namespace Game::Stage
 		float mMaxVelocityY;
 
 	public:
-		PhysicModel(GameLib::Vector2&& pos, GameLib::Vector2&& velocity = {0.f,0.f},float maxVelocityX=-1.f,float maxVelocityY=-1.f)
+		PhysicsModel(GameLib::Vector2&& pos, GameLib::Vector2&& velocity = {0.f,0.f},float maxVelocityX=-1.f,float maxVelocityY=-1.f)
 			:mPosiotion(std::move(pos))
 			,mVelocity(std::move(velocity))
 			,mMaxVelocityX(maxVelocityX)
 			,mMaxVelocityY(maxVelocityY)
 		{}
-		virtual ~PhysicModel() = default;
+		virtual ~PhysicsModel() = default;
 
 		void Update(const GameLib::Vector2& power) {
 			mVelocity += power;
@@ -35,7 +36,7 @@ namespace Game::Stage
 		const GameLib::Vector2& GetPosition() const noexcept {
 			return mPosiotion;
 		}
-		void AdjustPosiotion(const Vector2& pos) {
+		void AdjustPosiotion(const GameLib::Vector2& pos) {
 			mPosiotion += pos;
 		}
 
@@ -49,6 +50,10 @@ namespace Game::Stage
 		void Friction(float xRate, float yRate) {
 			mVelocity.x *= xRate;
 			mVelocity.y *= yRate;
+		}
+
+		const GameLib::Vector2& GetVelocity() const noexcept {
+			return mVelocity;
 		}
 	};
 }
