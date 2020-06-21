@@ -6,6 +6,7 @@
 #include"GameLib/include/Math/Vector2Func.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"Game/Stage/UtilityVectorFunction.hpp"
+#include"GameLib/include/Math/Numbers.hpp"
 
 
 namespace Game::Stage
@@ -13,9 +14,8 @@ namespace Game::Stage
 	class Player : public GravityActor
 	{
 		constexpr static float MAX_SPEED = 5.5f;
-		//constexpr static  float JUMP_POWER_MAX = 11.5f;
-		constexpr static  float JUMP_POWER_MAX = 21.5f;
-		constexpr static  float JUMP_POWER_MIN = 9.5f;
+		constexpr static  float JUMP_POWER_MAX = 9.f;
+		constexpr static  float JUMP_POWER_MIN = 7.f;
 		constexpr static  float RUN_POWER = 0.2f;
 
 
@@ -33,7 +33,7 @@ namespace Game::Stage
 			:GravityActor(owner, updateOrder)
 			, mAnimation(10)
 			, mCollider("Player", { 0.f,-12.f }, 250.f, 500.f, 0.1f, 0.f, { 255,0,0,255 })
-			, mPhisicsModel({ 0.f,200.f }, { 0.f,0.f }, MAX_SPEED, 10.f)
+			, mPhisicsModel({ 0.f,200.f }, { 0.f,0.f }, MAX_SPEED)
 			, mFlags(0)
 		{
 			using namespace GameLib;
@@ -46,28 +46,49 @@ namespace Game::Stage
 
 			mCollider.AddHitFunction("Ground", [this](const GameLib::Collider& c) {
 				auto adjust = GetParallelRectAdjustVec(mCollider, c);
+				auto dir4Vec = GetRoundedDir4Vec(adjust);
+
 				mPhisicsModel.AdjustPosiotion(adjust);
-				if (std::abs(adjust.x) > 0.f)
+
+				
+				if (adjust.x * mPhisicsModel.GetVelocity().x < 0.f)
 					mPhisicsModel.ResetVelocityX();
-				if (std::abs(adjust.y) > 0.f) {
+				else if (adjust.y * mPhisicsModel.GetVelocity().y < 0.f)
 					mPhisicsModel.ResetVelocityY();
+					
+				if (dir4Vec.mDir4 == Dir4::Up) {
 					mFlags |= JUMP_FLAG_1;
 					mFlags |= ON_GROUND_FLAG;
 				}
 
+				
 				if ((InputState::GetState(Key::A) == ButtonState::None &&
 					InputState::GetState(Key::D) == ButtonState::None) ||
 					(InputState::GetState(Key::A) == ButtonState::Held &&
 						InputState::GetState(Key::D) == ButtonState::Held))
 
 				{
-					if (adjust.y > 0.f)
-						mPhisicsModel.Friction(0.8, 0.f);
-					else
-						mPhisicsModel.Friction(0.98, 0.f);
+					if (dir4Vec.mDir4 == Dir4::Up) {
+						if (mGravityDir4 == Dir4::Up || mGravityDir4 == Dir4::Down)
+							mPhisicsModel.Friction(0.8f, 1.f);
+						else
+							mPhisicsModel.Friction(1.f, 0.8f);
+					}
 				}
+			
 
-				mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ 0.f, -12.f });
+				if (mGravityDir4 == Dir4::Down) {
+					mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ 0.f, -12.f });
+				}
+				else if (mGravityDir4 == Dir4::Up) {
+					mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ 0.f, 12.f });
+				}
+				else if (mGravityDir4 == Dir4::Right) {
+					mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ 12.f, 0.f });
+				}
+				else {
+					mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ -12.f, 0.f });
+				}
 				mAnimation.SetPosition(mPhisicsModel.GetPosition());
 				}
 			);
@@ -78,11 +99,27 @@ namespace Game::Stage
 			auto power = GetPowerPerFrame();
 			mPhisicsModel.Update(power);
 
-			mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ 0.f, -12.f });
+			if (mGravityDir4 == Dir4::Down) {
+				mCollider.SetWidthAndHeith(250.f, 500.f);
+				mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ 0.f, -12.f });
+			}
+			else if (mGravityDir4 == Dir4::Up) {
+				mCollider.SetWidthAndHeith(250.f, 500.f);
+				mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ 0.f, 12.f });
+			}
+			else if (mGravityDir4 == Dir4::Right) {
+				mCollider.SetWidthAndHeith(500.f, 250.f);
+				mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ 12.f, 0.f });
+			}
+			else {
+				mCollider.SetWidthAndHeith(500.f, 250.f);
+				mCollider.SetPosition(mPhisicsModel.GetPosition() + GameLib::Vector2{ -12.f, 0.f });
+			}
 
 			UpdateAnimation(power);
 
 			mFlags &= ~ON_GROUND_FLAG;
+			mFlags &= ~JUMP_FLAG_1;
 		}
 
 	private:
@@ -92,6 +129,15 @@ namespace Game::Stage
 
 			//d—ÍAŒã‚Å•ÏX
 			power += GetGravityVec();
+
+			if (InputState::GetState(Key::Left) == ButtonState::Pressed)
+				mGravityDir4 = Dir4::Left;
+			if (InputState::GetState(Key::Right) == ButtonState::Pressed)
+				mGravityDir4 = Dir4::Right;
+			if (InputState::GetState(Key::Up) == ButtonState::Pressed)
+				mGravityDir4 = Dir4::Up;
+			if (InputState::GetState(Key::Down) == ButtonState::Pressed)
+				mGravityDir4 = Dir4::Down;
 
 			if (InputState::GetState(Key::A) == ButtonState::Pressed ||
 				InputState::GetState(Key::A) == ButtonState::Held)
@@ -103,11 +149,12 @@ namespace Game::Stage
 			if (InputState::GetState(Key::Space) == ButtonState::Pressed &&
 				(mFlags & JUMP_FLAG_1)) {
 
-				auto velocityX = mPhisicsModel.GetVelocity() * GetSubjectiveDirVec(Dir4::Right, 1.f);
-				float v= (std::abs(velocityX.x) > std::abs(velocityX.y)) ? velocityX.x : velocityX.y;
-				float rate = std::abs(v) / MAX_SPEED;
+				
+				auto v = GetRoundedDir4Vec(mPhisicsModel.GetVelocity());
+				float rate = std::abs(v.mSize) / MAX_SPEED;
 				power += GetSubjectiveDirVec(Dir4::Up, (JUMP_POWER_MAX - JUMP_POWER_MIN) * rate + JUMP_POWER_MIN);
-
+				
+				power += GetSubjectiveDirVec(Dir4::Up, JUMP_POWER_MAX);
 				mFlags &= ~JUMP_FLAG_1;
 			}
 
@@ -117,24 +164,33 @@ namespace Game::Stage
 		void UpdateAnimation(const GameLib::Vector2& power) {
 			mAnimation.Update();
 
-			auto gravity = mPhisicsModel.GetVelocity() * GetSubjectiveDirVec(Dir4::Up, 1.f);
-			float dir = (std::abs(gravity.x) > std::abs(gravity.y)) ? gravity.x : gravity.y;
-			if (!(mFlags & ON_GROUND_FLAG) && dir < 0.f)
+			mAnimation.SetPosition(mPhisicsModel.GetPosition());
+
+			if (mGravityDir4 == Dir4::Down)
+				mAnimation.SetRotation(0.f);
+			else if (mGravityDir4 == Dir4::Right)
+				mAnimation.SetRotation(GameLib::PI / 2.f);
+			else if (mGravityDir4 == Dir4::Up)
+				mAnimation.SetRotation(GameLib::PI);
+			else
+				mAnimation.SetRotation(-GameLib::PI / 2.f);
+
+
+			float horizonPowerDir = GetDir4Size(power, Dir4::Right);
+			float verticalDir = GetDir4Size(mPhisicsModel.GetVelocity(), Dir4::Up);
+			if (!(mFlags & ON_GROUND_FLAG) && verticalDir < 0.f)
 				mAnimation.SetChannel(3);
-			else if (!(mFlags & ON_GROUND_FLAG) && dir > 0.f)
+			else if (!(mFlags & ON_GROUND_FLAG) && verticalDir > 0.f)
 				mAnimation.SetChannel(2);
-			else if (power.x == 0.f)
+			else if (horizonPowerDir == 0.f)
 				mAnimation.SetChannel(0);
 			else
 				mAnimation.SetChannel(1);
-
-			if (power.x < 0.f)
-				mAnimation.SetHorizontalFlip(true);
-			else if (power.x > 0.f)
+			
+			if (horizonPowerDir > 0.f)
 				mAnimation.SetHorizontalFlip(false);
-
-
-			mAnimation.SetPosition(mPhisicsModel.GetPosition());
+			else if (horizonPowerDir < 0.f)
+				mAnimation.SetHorizontalFlip(true);
 		}
 
 

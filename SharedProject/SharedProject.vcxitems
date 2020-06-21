@@ -57,6 +57,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Manager\ManagerPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Manager\Manager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Manager\Node.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Numbers.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Vector2.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Vector2Func.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Resource\Texture.hpp" />
@@ -82,6 +83,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Window.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\WindowClassName.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4Vec.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\GravityActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />

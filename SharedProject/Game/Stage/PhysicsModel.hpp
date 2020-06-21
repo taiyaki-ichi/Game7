@@ -10,26 +10,16 @@ namespace Game::Stage
 		GameLib::Vector2 mPosiotion;
 		GameLib::Vector2 mVelocity;
 
-		float mMaxVelocityX;
-		float mMaxVelocityY;
-
 	public:
 		PhysicsModel(GameLib::Vector2&& pos, GameLib::Vector2&& velocity = {0.f,0.f},float maxVelocityX=-1.f,float maxVelocityY=-1.f)
 			:mPosiotion(std::move(pos))
 			,mVelocity(std::move(velocity))
-			,mMaxVelocityX(maxVelocityX)
-			,mMaxVelocityY(maxVelocityY)
 		{}
 		virtual ~PhysicsModel() = default;
 
 		void Update(const GameLib::Vector2& power) {
 			mVelocity += power;
-
-			if (mMaxVelocityX > 0.f && std::abs(mVelocity.x) > mMaxVelocityX)
-				mVelocity.x = (mVelocity.x > 0) ? mMaxVelocityX : -mMaxVelocityX;
-			if (mMaxVelocityY > 0.f && std::abs(mVelocity.y) > mMaxVelocityY)
-				mVelocity.y = (mVelocity.y > 0) ? mMaxVelocityY : -mMaxVelocityY;
-
+				
 			mPosiotion += mVelocity;
 		}
 

@@ -2,8 +2,7 @@
 #include"GameLib/include/Actor/Actor.hpp"
 #include"Game/Dir4.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
-
-#include<iostream>
+#include"Game/Dir4Vec.hpp"
 
 namespace Game::Stage
 {
@@ -32,6 +31,45 @@ namespace Game::Stage
 				vec = rot(std::move(vec));
 			}
 			return vec;
+		}
+
+		Dir4Vec GetRoundedDir4Vec(const GameLib::Vector2& vec) {
+			Dir4 dir;
+			float size;
+
+			if (std::abs(vec.y) > std::abs(vec.x)) {
+				if (vec.y > 0.f) {
+					dir = Dir4::Up;
+					size = vec.y;
+				}
+				else {
+					dir = Dir4::Down;
+					size = -vec.y;
+				}
+			}
+			else {
+				if (vec.x > 0.f) {
+					dir = Dir4::Right;
+					size = vec.x;
+				}
+				else {
+					dir = Dir4::Left;
+					size = -vec.x;
+				}
+			}
+			int d = static_cast<int>(dir) - static_cast<int>(mGravityDir4);
+			if (d < 0)
+				d += 4;
+
+			return Dir4Vec{ static_cast<Dir4>(d),size };
+		}
+
+		float GetDir4Size(const GameLib::Vector2& vec, const Dir4& dir) {
+			auto dirVec = vec * GetSubjectiveDirVec(dir, 1.f);
+			if (std::abs(dirVec.x) > std::abs(dirVec.y))
+				return dirVec.x;
+			else
+				return dirVec.y;
 		}
 
 	public:

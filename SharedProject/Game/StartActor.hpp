@@ -11,8 +11,10 @@ namespace Game
 		StartActor()
 			:RootActor()
 		{
-			new Stage::Ground(this,{ 0.f,-200.f }, 600.f, 100.f);
-			new Stage::Ground(this, { -200.f,0.f }, 100.f, 600.f);
+			new Stage::Ground(this,{ 0.f,-200.f }, 500.f, 100.f);
+			new Stage::Ground(this, { -200.f,0.f }, 100.f, 500.f);
+			new Stage::Ground(this, { 0.f,200.f }, 500.f, 100.f);
+			new Stage::Ground(this, { 200.f,0.f }, 100.f, 500.f);
 			new Stage::Player(this);
 		}
 

@@ -2,6 +2,6 @@
 
 namespace Game::Stage
 {
-	float GravityActor::mGravity = 0.5f;
-	Dir4 GravityActor::mGravityDir4=Dir4::Down;
+	float GravityActor::mGravity = 1.f;
+	Dir4 GravityActor::mGravityDir4 = Dir4::Down;
 }
