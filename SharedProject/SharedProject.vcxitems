@@ -85,6 +85,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\WindowClassName.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4Vec.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Triple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\GravityActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />
