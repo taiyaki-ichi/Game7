@@ -60,18 +60,14 @@ namespace Game::Stage
 	void Player::CustomizeUpdate() 
 	{
 		auto power = GetPowerPerFrame();
-
-		if (mGravityDir4 == Dir4::Up || mGravityDir4 == Dir4::Down)
-			mPhisicsModel.Update(power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
-		else
-			mPhisicsModel.Update(power, MAX_VERTICAL_SPEED, MAX_HORIZON_SPEED);
-
+		UpdatePhysicsModel(power);
 		UpdateCollider();
 		UpdateAnimation(power);
 
 		mFlags &= ~ON_GROUND_FLAG;
 		mFlags &= ~JUMP_FLAG_1;
 	}
+
 
 	GameLib::Vector2 Player::GetPowerPerFrame()
 	{
@@ -125,17 +121,8 @@ namespace Game::Stage
 		mAnimation.Update();
 
 		mAnimation.SetPosition(mPhisicsModel.mPosiotion);
-
-		//èdóÕÇÃâeãø
-		if (mGravityDir4 == Dir4::Down)
-			mAnimation.SetRotation(0.f);
-		else if (mGravityDir4 == Dir4::Right)
-			mAnimation.SetRotation(GameLib::PI / 2.f);
-		else if (mGravityDir4 == Dir4::Up)
-			mAnimation.SetRotation(GameLib::PI);
-		else
-			mAnimation.SetRotation(-GameLib::PI / 2.f);
-
+		mAnimation.SetRotation(mPhisicsModel.mRotation);
+		
 		float horizonPowerDir = GetDir4Size(power, Dir4::Right);
 		float verticalDir = GetDir4Size(mPhisicsModel.mVelocity, Dir4::Up);
 		if (!(mFlags & ON_GROUND_FLAG) && verticalDir < 0.f)
@@ -155,22 +142,26 @@ namespace Game::Stage
 
 	void Player::UpdateCollider()
 	{
-		if (mGravityDir4 == Dir4::Down) {
-			mCollider.SetWidthAndHeith(250.f, 500.f);
-			mCollider.SetPosition(mPhisicsModel.mPosiotion + GameLib::Vector2{ 0.f, -12.f });
-		}
-		else if (mGravityDir4 == Dir4::Up) {
-			mCollider.SetWidthAndHeith(250.f, 500.f);
-			mCollider.SetPosition(mPhisicsModel.mPosiotion + GameLib::Vector2{ 0.f, 12.f });
-		}
-		else if (mGravityDir4 == Dir4::Right) {
-			mCollider.SetWidthAndHeith(500.f, 250.f);
-			mCollider.SetPosition(mPhisicsModel.mPosiotion + GameLib::Vector2{ 12.f, 0.f });
-		}
-		else {
-			mCollider.SetWidthAndHeith(500.f, 250.f);
-			mCollider.SetPosition(mPhisicsModel.mPosiotion + GameLib::Vector2{ -12.f, 0.f });
-		}
+		mCollider.SetRotation(mPhisicsModel.mRotation);
+		mCollider.SetPosition(mPhisicsModel.mPosiotion + GetSubjectiveDirVec(Dir4::Down, 12.f));
+	}
+
+	void Player::UpdatePhysicsModel(const GameLib::Vector2& power)
+	{
+		if (mGravityDir4 == Dir4::Up || mGravityDir4 == Dir4::Down)
+			mPhisicsModel.Update(power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
+		else
+			mPhisicsModel.Update(power, MAX_VERTICAL_SPEED, MAX_HORIZON_SPEED);
+
+		if (mGravityDir4 == Dir4::Down)
+			mPhisicsModel.mRotation = 0.f;
+		else if (mGravityDir4 == Dir4::Up)
+			mPhisicsModel.mRotation = GameLib::PI;
+		else if (mGravityDir4 == Dir4::Right)
+			mPhisicsModel.mRotation = GameLib::PI / 2.f;
+		else
+			mPhisicsModel.mRotation = GameLib::PI * 3.f / 2.f;
+
 	}
 
 

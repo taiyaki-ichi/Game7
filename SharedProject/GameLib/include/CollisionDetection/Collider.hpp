@@ -7,6 +7,7 @@
 #include"GameLib/include/Draw/DrawLine.hpp"
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/Math/Vector2Func.hpp"
+#include"GameLib/include/Math/Numbers.hpp"
 
 namespace GameLib
 {
@@ -80,6 +81,10 @@ namespace GameLib
 
 		void SetRotation(float rot) {
 			mRotation = rot;
+			while (mRotation < 0.f)
+				mRotation += PI * 2.f;
+			while (mRotation >= PI * 2.f)
+				mRotation -= PI * 2.f;
 			CalcLinesPoint();
 		}
 

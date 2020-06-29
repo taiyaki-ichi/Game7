@@ -2,10 +2,11 @@
 #include<cmath>
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
+#include"GameLib/include/Math/Numbers.hpp"
 
 namespace Game::Stage
 {
-	//‰ñ“]‚µ‚Ä‚È‚¢’·•ûŒ`“¯m‚Ì‚ß‚è‚İ•â³
+	//•½s‚È’·•ûŒ`“¯m‚Ì‚ß‚è‚İ•â³
 	inline GameLib::Vector2 GetParallelRectAdjustVec(const GameLib::Collider& character, const GameLib::Collider& ground, float round = 0.f) {
 
 		using GameLib::Vector2;
@@ -18,9 +19,19 @@ namespace Game::Stage
 		float characterWidth = character.GetWidth() * characterScale;
 		float characterHeigth = character.GetHeigth() * characterScale;
 
+		float characterRot = character.GetRotation();
+		if ((GameLib::PI / 4.f <= characterRot && characterRot < GameLib::PI * 3.f / 4.f) ||
+			(GameLib::PI * 5.f / 4.f <= characterRot && characterRot < GameLib::PI * 7.f / 4.f))
+			std::swap(characterWidth, characterHeigth);
+
 		float groundScale = ground.GetScale();
 		float groundWidth = ground.GetWidth() * groundScale;
 		float groundHeigth = ground.GetHeigth() * groundScale;
+
+		float groundRot = ground.GetRotation();
+		if ((GameLib::PI / 4.f <= groundRot && groundRot < GameLib::PI * 3.f / 4.f) ||
+			(GameLib::PI * 5.f / 4.f <= groundRot && groundRot < GameLib::PI * 7.f / 4.f))
+			std::swap(groundWidth, groundHeigth);
 
 		float idealX = characterWidth / 2.f + groundWidth / 2.f;
 		float idealY = characterHeigth / 2.f + groundHeigth / 2.f;
