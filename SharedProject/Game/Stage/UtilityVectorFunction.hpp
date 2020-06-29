@@ -5,7 +5,7 @@
 
 namespace Game::Stage
 {
-
+	//‰ñ“]‚µ‚Ä‚È‚¢’·•ûŒ`“¯m‚Ì‚ß‚è‚İ•â³
 	inline GameLib::Vector2 GetParallelRectAdjustVec(const GameLib::Collider& character, const GameLib::Collider& ground, float round = 0.f) {
 
 		using GameLib::Vector2;

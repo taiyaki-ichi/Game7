@@ -30,6 +30,18 @@ namespace GameLib
 			mUnitWidth = (mRight - mLeft) / (1 << GameLib::TREE_LEVEL);
 			mUnitHeigth = (mBottom - mTop) / (1 << GameLib::TREE_LEVEL);
 
+			/*
+			std::cout << "mleft : " << mLeft << "\n";
+			std::cout << "mright : " << mRight << "\n";
+			std::cout << "mtop : " << mTop << "\n";
+			std::cout << "mbottom : " << mBottom << "\n";
+
+			std::cout << "munitW : " << mUnitWidth << "\n";
+			std::cout << "mUnitHei : " << mUnitHeigth << "\n";
+
+			system("PAUSE");
+			*/
+
 		}
 
 		static float GetLeft() noexcept {
