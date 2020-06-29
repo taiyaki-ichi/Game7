@@ -22,7 +22,6 @@ namespace Game::Stage
 
 			mPhisicsModel.mPosiotion += adjust;
 
-
 			if (adjust.x * mPhisicsModel.mVelocity.x < 0.f)
 				mPhisicsModel.mVelocity.x = 0.f;
 			else if (adjust.y * mPhisicsModel.mVelocity.y < 0.f)
@@ -33,7 +32,6 @@ namespace Game::Stage
 				mFlags |= ON_GROUND_FLAG;
 			}
 
-			
 			if ((InputState::GetState(Key::A) == ButtonState::None &&
 				InputState::GetState(Key::D) == ButtonState::None) ||
 				(InputState::GetState(Key::A) == ButtonState::Held &&
@@ -53,7 +51,6 @@ namespace Game::Stage
 				}
 			}
 			
-			
 			UpdateCollider();
 			mAnimation.SetPosition(mPhisicsModel.mPosiotion);
 			}
@@ -62,13 +59,12 @@ namespace Game::Stage
 
 	void Player::CustomizeUpdate() 
 	{
-
 		auto power = GetPowerPerFrame();
 
 		if (mGravityDir4 == Dir4::Up || mGravityDir4 == Dir4::Down)
-			mPhisicsModel.Update(power, MAX_SPEED, -1.f);
+			mPhisicsModel.Update(power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
 		else
-			mPhisicsModel.Update(power, -1.f, MAX_SPEED);
+			mPhisicsModel.Update(power, MAX_VERTICAL_SPEED, MAX_HORIZON_SPEED);
 
 		UpdateCollider();
 		UpdateAnimation(power);
@@ -86,7 +82,7 @@ namespace Game::Stage
 		if (~(mFlags & ON_GROUND_FLAG) &&
 			GetDir4Size(mPhisicsModel.mVelocity, Dir4::Up) > 0.f &&
 			InputState::GetState(Key::Space) == ButtonState::Held)
-			power += GetGravityVec() * 0.9f;
+			power += GetGravityVec() * JUMPING_GRAVITY_RATE;
 		else
 			power += GetGravityVec();
 
@@ -114,7 +110,7 @@ namespace Game::Stage
 			(mFlags & JUMP_FLAG_1)) {
 
 			auto v = GetRoundedDir4Vec(mPhisicsModel.mVelocity);
-			float rate = std::abs(v.mSize) / MAX_SPEED;
+			float rate = std::abs(v.mSize) / MAX_HORIZON_SPEED;
 			power += GetSubjectiveDirVec(Dir4::Up, (JUMP_POWER_MAX - JUMP_POWER_MIN) * rate + JUMP_POWER_MIN);
 
 			power += GetSubjectiveDirVec(Dir4::Up, JUMP_POWER_MAX);
