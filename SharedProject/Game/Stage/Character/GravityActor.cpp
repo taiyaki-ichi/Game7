@@ -95,4 +95,14 @@ namespace Game::Stage
 			return { vec.x,-vec.y };
 	}
 
+	void GravityActor::UpdatePhysicsModel(PhysicsModel& model, const GameLib::Vector2& power, float horizonMaxSpeed, float virticalMaxSpeed)
+	{
+		if (mGravityDir4 == Dir4::Up || mGravityDir4 == Dir4::Down)
+			model.Update(power, horizonMaxSpeed, virticalMaxSpeed);
+		else
+			model.Update(power, virticalMaxSpeed, horizonMaxSpeed);
+
+		model.mRotation = GetGravityRotation();
+	}
+
 }

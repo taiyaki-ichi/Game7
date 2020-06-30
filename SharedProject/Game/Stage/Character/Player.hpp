@@ -38,7 +38,6 @@ namespace Game::Stage
 		GameLib::Vector2 GetPowerPerFrame();
 		void UpdateAnimation(const GameLib::Vector2& power);
 		void UpdateCollider();
-		void UpdatePhysicsModel(const GameLib::Vector2& power);
 
 	};
 }

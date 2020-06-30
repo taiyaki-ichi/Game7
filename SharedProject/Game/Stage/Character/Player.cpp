@@ -62,7 +62,7 @@ namespace Game::Stage
 	void Player::CustomizeUpdate() 
 	{
 		auto power = GetPowerPerFrame();
-		UpdatePhysicsModel(power);
+		UpdatePhysicsModel(mPhysicsModel, power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
 		UpdateCollider();
 		UpdateAnimation(power);
 
@@ -146,17 +146,6 @@ namespace Game::Stage
 	{
 		mCollider.SetRotation(mPhysicsModel.mRotation);
 		mCollider.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Down, 12.f));
-	}
-
-	void Player::UpdatePhysicsModel(const GameLib::Vector2& power)
-	{
-		if (mGravityDir4 == Dir4::Up || mGravityDir4 == Dir4::Down)
-			mPhysicsModel.Update(power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
-		else
-			mPhysicsModel.Update(power, MAX_VERTICAL_SPEED, MAX_HORIZON_SPEED);
-
-		mPhysicsModel.mRotation = GetGravityRotation();
-
 	}
 
 

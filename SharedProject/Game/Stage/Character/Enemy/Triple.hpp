@@ -29,6 +29,7 @@ namespace Game::Stage::Triple
 
 		GameLib::Collider mBody;
 		GameLib::Collider mWeakness;
+		GameLib::Collider mStrength;
 
 		PhysicsModel mPhysicsModel;
 

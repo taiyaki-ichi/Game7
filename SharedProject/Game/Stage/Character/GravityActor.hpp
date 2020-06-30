@@ -3,6 +3,7 @@
 #include"Game/Dir4.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
 #include"Game/Dir4Vec.hpp"
+#include"Game/Stage/PhysicsModel.hpp"
 
 namespace Game::Stage
 {
@@ -29,6 +30,9 @@ namespace Game::Stage
 		//垂直、水平方向の反転
 		GameLib::Vector2 GetVerticalFlippedVector2(const GameLib::Vector2& vec);
 		GameLib::Vector2 GetHolizonalFlippedVector2(const GameLib::Vector2& vec);
+
+		//フレーム当たりの力の合計や重力の方向を踏まえて更新
+		void UpdatePhysicsModel(PhysicsModel& model,const GameLib::Vector2& power, float horizonMaxSpeed = -1.f, float virticalMaxSpeed = -1.f);
 
 
 	public:

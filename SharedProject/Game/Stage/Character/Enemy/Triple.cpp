@@ -31,20 +31,21 @@ namespace Game::Stage::Triple
 
 	Active::Active(Actor* owner,GameLib::Vector2&& pos)
 		:GravityActor{owner}
-		, mBody{ "",pos + GameLib::Vector2{0.f,-16.f}, 350.f,400.f,0.1f,0.f,{0,0,255,255} }
-		, mWeakness{"",pos + GameLib::Vector2{0.f,14.f}, 350.f,200.f,0.1f,0.f,{255,0,0,255} }
+		, mBody{ "",pos + GameLib::Vector2{0.f,-2.f}, 350.f,600.f,0.1f,0.f,{0,0,255,255} }
+		, mWeakness{"EnemyTripleWeakness",pos + GameLib::Vector2{0.f,14.f}, 350.f,200.f,0.1f,0.f,{255,0,0,255} }
+		, mStrength{"EnemyTripleStrength",pos+ GameLib::Vector2{0.f,-16.f}, 350.f,400.f,0.1f,0.f,{0,0,255,255} }
 		, mPhysicsModel{ std::move(pos),GameLib::Vector2{-2.f,0.f},0.1f,0.f }
 		, mDir4{Dir4::Left}
 	{
 
-		mBody.AddHitFunction("Ground", [this](const GameLib::Collider& c) {
+		auto hitGround = [this](const GameLib::Collider& c) {
 			auto adjust = GetParallelRectAdjustVec(mBody, c);
 			mPhysicsModel.mPosiotion += adjust;
 
 			auto dir4Adjust = GetRoundedDir4Vec(adjust);
 			auto velocityDr4 = GetRoundedDir4Vec(mPhysicsModel.mVelocity);
-			if (dir4Adjust.mDir4 == Dir4::Up)
-				mPhysicsModel.mVelocity += GetDir4Vec(Dir4::Up, velocityDr4.mSize);
+			if (dir4Adjust.mDir4 == Dir4::Up || dir4Adjust.mDir4 == Dir4::Down)
+				mPhysicsModel.mVelocity += GetDir4Vec(dir4Adjust.mDir4, velocityDr4.mSize);
 			else if (dir4Adjust.mDir4 == Dir4::Right && velocityDr4.mDir4 == Dir4::Left) {
 				mPhysicsModel.mVelocity = GetHolizonalFlippedVector2(mPhysicsModel.mVelocity);
 				mDir4 = Dir4::Right;
@@ -57,7 +58,9 @@ namespace Game::Stage::Triple
 			ReflectAnimation();
 
 			ReflectCollider();
-		});
+		};
+
+		mBody.AddHitFunction("Ground", hitGround);
 
 		ReflectCollider();
 	}
@@ -65,12 +68,7 @@ namespace Game::Stage::Triple
 	void Active::CustomizeUpdate()
 	{
 
-		//TODO
-		if (mGravityDir4 == Dir4::Down || mGravityDir4 == Dir4::Up)
-			mPhysicsModel.Update(GetPowerPerFrame(), MAX_SPEED, 20.f);
-		else
-			mPhysicsModel.Update(GetPowerPerFrame(), 20.f, MAX_SPEED);
-		mPhysicsModel.mRotation = GetGravityRotation();
+		UpdatePhysicsModel(mPhysicsModel, GetPowerPerFrame(), MAX_SPEED, 20.f);
 
 		ReflectCollider();
 
@@ -80,10 +78,13 @@ namespace Game::Stage::Triple
 	void Active::ReflectCollider()
 	{
 		mBody.SetRotation(mPhysicsModel.mRotation);
-		mBody.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Down, 16));
+		mBody.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Down, 6));
 
 		mWeakness.SetRotation(mPhysicsModel.mRotation);
 		mWeakness.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Up, 14));
+
+		mStrength.SetRotation(mPhysicsModel.mRotation);
+		mStrength.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Down, 16));
 	}
 
 	void Active::ReflectAnimation()

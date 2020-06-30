@@ -53,6 +53,9 @@ namespace GameLib
 		void AddHitFunction(std::string&& nameTag, std::function<void(const Collider&)>&& hitFunc) {
 			mHitFunctions.emplace(std::move(nameTag), std::move(hitFunc));
 		}
+		void AddHitFunction(std::string&& nameTag,const std::function<void(const Collider&)>& hitFunc) {
+			mHitFunctions.emplace(std::move(nameTag), hitFunc);
+		}
 
 		std::optional<std::function<void(const Collider&)>> GetHitFunction(const std::string& nameTag) {
 			auto iter = mHitFunctions.find(nameTag);
