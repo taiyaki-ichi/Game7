@@ -58,11 +58,13 @@ namespace GameLib
 		}
 
 		std::optional<std::function<void(const Collider&)>> GetHitFunction(const std::string& nameTag) {
+			
 			auto iter = mHitFunctions.find(nameTag);
 			if (iter != mHitFunctions.end())
 				return iter->second;
 			else
 				return std::nullopt;
+			
 		}
 
 		static void SetIsDrawing(bool d) {

@@ -18,7 +18,7 @@ namespace Game::Stage
 		else if (mGravityDir4 == Dir4::Left)
 			return { -mGravity,0.f };
 	}
-	GameLib::Vector2 GravityActor::GetDir4Vec(const Dir4& dir, float size)
+	GameLib::Vector2 GravityActor::GetVector2(const Dir4& dir, float size)
 	{
 		auto rot = [](GameLib::Vector2&& vec) {return GameLib::Vector2{ -vec.y,vec.x }; };
 		GameLib::Vector2 vec{ 0.f,-size };
@@ -60,7 +60,7 @@ namespace Game::Stage
 	}
 	float GravityActor::GetDir4Size(const GameLib::Vector2& vec, const Dir4& dir)
 	{
-		auto dirVec = vec * GetDir4Vec(dir, 1.f);
+		auto dirVec = vec * GetVector2(dir, 1.f);
 		if (std::abs(dirVec.x) > std::abs(dirVec.y))
 			return dirVec.x;
 		else

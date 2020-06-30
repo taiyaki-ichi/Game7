@@ -23,9 +23,8 @@ namespace GameLib
 	template<typename T,typename DestructorPolicy>
 	class ManagerBase
 	{
-
+	protected:
 		std::list<Node<T>> mNodes;
-
 
 	public:
 		ManagerBase() = default;
@@ -69,7 +68,6 @@ namespace GameLib
 				else
 					iter = mNodes.erase(iter);
 			}
-			
 		}
 
 		void SetOrder(T* ptr, int order) {

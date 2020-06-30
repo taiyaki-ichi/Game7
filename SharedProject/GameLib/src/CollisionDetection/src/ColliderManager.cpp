@@ -8,10 +8,9 @@ namespace GameLib
 
 	void ColliderManager::Add(Collider* collider)
 	{
-		
 		mColliders.emplace_back(LinerObject(collider));
-		
 	}
+
 	void ColliderManager::Remove(Collider* collder)
 	{
 		auto iter = mColliders.begin();
@@ -19,11 +18,15 @@ namespace GameLib
 			if (iter->GetPtr() == collder)
 				break;
 
-		if (iter != mColliders.end())
+		if (iter != mColliders.end()) {
+			iter->RemoveSpaceCell();
 			mColliders.erase(iter);
+		}
 	}
+
 	void ColliderManager::RegistSpaceDivisionTree(SpaceDivisionTree<Collider>& tree)
 	{
+		//std::cout << mColliders.size() << std::endl;
 		for (auto& linerObj : mColliders) {
 			linerObj.RemoveSpaceCell();
 
@@ -33,13 +36,14 @@ namespace GameLib
 			float heigth = collider->GetHeigth() * scale;
 			auto pos = collider->GetPosition();
 
-			//squrtégÇ¡Çƒê∏ñßÇ…Ç‚ÇÈÇ©ÅHÅH
 			float halfUnitSize = std::sqrt(width * width + heigth * heigth) / 2.f;
 
 			int spaceCellNum = GetMortonNumber(pos.x - halfUnitSize, pos.y - halfUnitSize, pos.x + halfUnitSize, pos.y + halfUnitSize);
 
 			//std::cout << collider->GetNameTag() << " : " << spaceCellNum << "\n";
-
+			linerObj.mPreLinerObject = nullptr;
+			linerObj.mNextLinerObject = nullptr;
+			
 			if (0 <= spaceCellNum && spaceCellNum < MAX_SPACECELL_NUM)
 				tree.Regist(&linerObj, spaceCellNum);
 		}

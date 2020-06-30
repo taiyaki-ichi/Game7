@@ -1,5 +1,5 @@
 #pragma once
-#include"GameLib/include/Manager/Manager.hpp"
+#include"ActorsManager.hpp"
 #include"ActorPolicy.hpp"
 #include<vector>
 
@@ -19,10 +19,12 @@ namespace GameLib
 
 	protected:
 		Actor* mOwner;
+
+	private:
 		int mUpdateOrder;
 		State mState;
 
-		OwnerManager<Actor> mOwnedActors;
+		ActorsManager<Actor> mOwnedActors;
 		//UpdateíÜÇ…í«â¡Ç≥ÇÍÇΩèÍçáÇ±Ç±Ç…àÍéûï€ë∂
 		std::vector<Node<Actor>> mPendingActors;
 		bool mIsUpdating;
@@ -55,7 +57,7 @@ namespace GameLib
 				mOwnedActors.Add(std::move(actor));
 			}
 			mPendingActors.clear();
-			mOwnedActors.Invoke<DeadObjectDeletePolicy<Actor>>();
+			mOwnedActors.DeleteDeadActors();
 		}
 
 		

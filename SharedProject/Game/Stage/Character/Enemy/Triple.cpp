@@ -1,12 +1,13 @@
 #include"Triple.hpp"
 #include"Game/Stage/UtilityVectorFunction.hpp"
 
+#include"GameLib/include/InputState/InputState.hpp"
+
 namespace Game::Stage::Triple
 {
 	Actor::Actor(GameLib::Actor* owner,GameLib::Vector2&& pos, int updateOrder)
 		:GameLib::Actor(owner,updateOrder)
 		, mAnimation{10}
-		, mState{nullptr}
 	{
 		mAnimation.AddAnimation({ "../Assets/Enemy/Triple/left001.png","../Assets/Enemy/Triple/left002.png" });
 		mAnimation.AddAnimation({ "../Assets/Enemy/Triple/right001.png","../Assets/Enemy/Triple/right002.png" });
@@ -14,7 +15,7 @@ namespace Game::Stage::Triple
 		mAnimation.AddAnimation({ "../Assets/Enemy/Triple/death-right.png" });
 		mAnimation.SetScale(0.1f);
 		mAnimation.SetDrawOrder(10);
-		mState = new Active{ this ,std::move(pos) };
+		new Active{ this ,std::move(pos) };
 	}
 
 	void Actor::CustomizeUpdate() 
@@ -31,11 +32,12 @@ namespace Game::Stage::Triple
 
 	Active::Active(Actor* owner,GameLib::Vector2&& pos)
 		:GravityActor{owner}
-		, mBody{ "",pos + GameLib::Vector2{0.f,-2.f}, 350.f,600.f,0.1f,0.f,{0,0,255,255} }
+		, mBody{ "a",pos + GameLib::Vector2{0.f,-2.f}, 350.f,600.f,0.1f,0.f,{0,0,255,255} }
 		, mWeakness{"EnemyTripleWeakness",pos + GameLib::Vector2{0.f,14.f}, 350.f,200.f,0.1f,0.f,{255,0,0,255} }
 		, mStrength{"EnemyTripleStrength",pos+ GameLib::Vector2{0.f,-16.f}, 350.f,400.f,0.1f,0.f,{0,0,255,255} }
 		, mPhysicsModel{ std::move(pos),GameLib::Vector2{-2.f,0.f},0.1f,0.f }
 		, mDir4{Dir4::Left}
+		, mFlatDeathFlag{false}
 	{
 
 		auto hitGround = [this](const GameLib::Collider& c) {
@@ -45,7 +47,7 @@ namespace Game::Stage::Triple
 			auto dir4Adjust = GetRoundedDir4Vec(adjust);
 			auto velocityDr4 = GetRoundedDir4Vec(mPhysicsModel.mVelocity);
 			if (dir4Adjust.mDir4 == Dir4::Up || dir4Adjust.mDir4 == Dir4::Down)
-				mPhysicsModel.mVelocity += GetDir4Vec(dir4Adjust.mDir4, velocityDr4.mSize);
+				mPhysicsModel.mVelocity += GetVector2(dir4Adjust.mDir4, velocityDr4.mSize);
 			else if (dir4Adjust.mDir4 == Dir4::Right && velocityDr4.mDir4 == Dir4::Left) {
 				mPhysicsModel.mVelocity = GetHolizonalFlippedVector2(mPhysicsModel.mVelocity);
 				mDir4 = Dir4::Right;
@@ -60,8 +62,13 @@ namespace Game::Stage::Triple
 			ReflectCollider();
 		};
 
-		mBody.AddHitFunction("Ground", hitGround);
+		auto hitPlayer = [this](const GameLib::Collider& c) {
+			mFlatDeathFlag = true;
+		};
 
+		mBody.AddHitFunction("Ground", hitGround);
+		mWeakness.AddHitFunction("Player", hitPlayer);
+		
 		ReflectCollider();
 	}
 
@@ -69,22 +76,27 @@ namespace Game::Stage::Triple
 	{
 
 		UpdatePhysicsModel(mPhysicsModel, GetPowerPerFrame(), MAX_SPEED, 20.f);
-
 		ReflectCollider();
-
 		ReflectAnimation();
+
+		if (mFlatDeathFlag) {
+			SetState(Actor::State::Dead);
+			auto actor = static_cast<Triple::Actor*>(mOwner);
+			//new FlatDead(actor, mPhysicsModel, mDir4);
+		}
+
 	}
 
 	void Active::ReflectCollider()
 	{
 		mBody.SetRotation(mPhysicsModel.mRotation);
-		mBody.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Down, 6));
+		mBody.SetPosition(mPhysicsModel.mPosiotion + GetVector2(Dir4::Down, 6));
 
 		mWeakness.SetRotation(mPhysicsModel.mRotation);
-		mWeakness.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Up, 14));
+		mWeakness.SetPosition(mPhysicsModel.mPosiotion + GetVector2(Dir4::Up, 14));
 
 		mStrength.SetRotation(mPhysicsModel.mRotation);
-		mStrength.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Down, 16));
+		mStrength.SetPosition(mPhysicsModel.mPosiotion + GetVector2(Dir4::Down, 16));
 	}
 
 	void Active::ReflectAnimation()
@@ -96,17 +108,23 @@ namespace Game::Stage::Triple
 
 	GameLib::Vector2 Active::GetPowerPerFrame()
 	{
-		return GetGravityVector2() + GetDir4Vec(mDir4, RUN_POWER);
+		return GetGravityVector2() + GetVector2(mDir4, RUN_POWER);
 	}
 
-	FlatDead::FlatDead(Actor* owner, PhysicsModel&& model)
+	FlatDead::FlatDead(Actor* owner, PhysicsModel& model, Dir4& dir)
 		:GravityActor{owner}
-		, mPhysicsModel{ GameLib::Vector2{0.f,0.f} }
+		, mCnt{0}
 	{
+		int channel = (dir == Dir4::Left) ? 2 : 3;
+		auto actor = static_cast<Triple::Actor*>(mOwner);
+		actor->ReflectAnimation(model.mPosiotion, model.mScale, model.mRotation, channel);
 	}
 
 	void FlatDead::CustomizeUpdate()
 	{
+		if (mCnt > DEATH_CNT)
+			SetState(Actor::State::Dead);
+		mCnt++;
 	}
 
 }

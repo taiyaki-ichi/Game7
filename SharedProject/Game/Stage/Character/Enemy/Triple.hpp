@@ -9,7 +9,6 @@ namespace Game::Stage::Triple
 	
 	class Actor : public GameLib::Actor
 	{
-		GravityActor* mState;
 		GameLib::DrawAnimation mAnimation;
 
 	public:
@@ -35,6 +34,8 @@ namespace Game::Stage::Triple
 
 		Dir4 mDir4;
 
+		bool mFlatDeathFlag;
+
 	public:
 		Active(Actor* owner,GameLib::Vector2&& pos);
 		~Active() = default;
@@ -50,12 +51,12 @@ namespace Game::Stage::Triple
 
 	class FlatDead : public GravityActor
 	{
+		constexpr static int DEATH_CNT = 30;
+
 		int mCnt;
 
-		PhysicsModel mPhysicsModel;
-
 	public:
-		FlatDead(Actor* owner,PhysicsModel&& model);
+		FlatDead(Actor* owner,PhysicsModel& model,Dir4& dir);
 		~FlatDead() = default;
 		
 		void CustomizeUpdate() override;

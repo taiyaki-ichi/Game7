@@ -97,11 +97,11 @@ namespace Game::Stage
 		//ƒˆƒR‚Ì—Í
 		if (InputState::GetState(Key::A) == ButtonState::Pressed ||
 			InputState::GetState(Key::A) == ButtonState::Held) {
-			power += GetDir4Vec(Dir4::Left, RUN_POWER);
+			power += GetVector2(Dir4::Left, RUN_POWER);
 		}
 		if (InputState::GetState(Key::D) == ButtonState::Pressed ||
 			InputState::GetState(Key::D) == ButtonState::Held)
-			power += GetDir4Vec(Dir4::Right, RUN_POWER);
+			power += GetVector2(Dir4::Right, RUN_POWER);
 
 		//ƒWƒƒƒ“ƒv
 		if (InputState::GetState(Key::Space) == ButtonState::Pressed &&
@@ -109,9 +109,9 @@ namespace Game::Stage
 
 			auto v = GetRoundedDir4Vec(mPhysicsModel.mVelocity);
 			float rate = std::abs(v.mSize) / MAX_HORIZON_SPEED;
-			power += GetDir4Vec(Dir4::Up, (JUMP_POWER_MAX - JUMP_POWER_MIN) * rate + JUMP_POWER_MIN);
+			power += GetVector2(Dir4::Up, (JUMP_POWER_MAX - JUMP_POWER_MIN) * rate + JUMP_POWER_MIN);
 
-			power += GetDir4Vec(Dir4::Up, JUMP_POWER_MAX);
+			power += GetVector2(Dir4::Up, JUMP_POWER_MAX);
 			mFlags &= ~JUMP_FLAG_1;
 		}
 
@@ -145,7 +145,7 @@ namespace Game::Stage
 	void Player::UpdateCollider()
 	{
 		mCollider.SetRotation(mPhysicsModel.mRotation);
-		mCollider.SetPosition(mPhysicsModel.mPosiotion + GetDir4Vec(Dir4::Down, 12.f));
+		mCollider.SetPosition(mPhysicsModel.mPosiotion + GetVector2(Dir4::Down, 12.f));
 	}
 
 

@@ -16,7 +16,7 @@ namespace Game::Stage
 		GameLib::Vector2 GetGravityVector2();
 
 		//重力の方向を下としたときの、大きさsizeの向きdirなベクトル
-		GameLib::Vector2 GetDir4Vec(const Dir4& dir, float size);
+		GameLib::Vector2 GetVector2(const Dir4& dir, float size);
 
 		//Vector2をDir4Vecに丸め込む
 		Dir4Vec GetRoundedDir4Vec(const GameLib::Vector2& vec);

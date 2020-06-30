@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\Actor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\ActorsManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\RootActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\ActorPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\App.hpp" />

@@ -5,6 +5,8 @@
 #include<algorithm>
 #include<vector>
 
+#include<iostream>
+
 namespace GameLib
 {
 
@@ -47,18 +49,21 @@ namespace GameLib
 
 	//反時計回りの4っつのベクトルみたいな
 	inline std::vector<Vector2> GetCounterclockwise4Vec() {
-		std::vector<Vector2> vecs = {
-			{1.f,1.f},
-			{-1.f,1.f},
-			{-1.f,-1.f},
-			{1.f,-1.f}
+		
+		std::vector<Vector2> v = {
+			Vector2{1.f,1.f},
+			Vector2{-1.f,1.f},
+			Vector2{-1.f,-1.f},
+			Vector2{1.f,-1.f}
 		};
-		return vecs;
+		
+		//std::cout << "a" << std::endl;
+		return v;
 	}
 
 
 	inline std::vector<Vector2> GetRectangleVectors(const Vector2& center,float width,float heigth,float rot) {
-		auto vecs = GetCounterclockwise4Vec();
+		std::vector<Vector2> vecs = GetCounterclockwise4Vec();
 		std::vector<Vector2> result;
 		std::transform(vecs.begin(), vecs.end(), std::back_inserter(result),
 			[center, width, heigth, rot](const Vector2& vec) {return Rotation(Vector2{ vec.x * width / 2.f,vec.y * heigth / 2.f }, rot) + center; });
