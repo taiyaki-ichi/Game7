@@ -32,7 +32,7 @@ namespace Game::Stage
 		GameLib::Vector2 GetHolizonalFlippedVector2(const GameLib::Vector2& vec);
 
 		//フレーム当たりの力の合計や重力の方向を踏まえて更新
-		void UpdatePhysicsModel(PhysicsModel& model,const GameLib::Vector2& power, float horizonMaxSpeed = -1.f, float virticalMaxSpeed = -1.f);
+		void UpdatePhysicsModel(PhysicsModel& model, const GameLib::Vector2& power, float horizonMaxSpeed = -1.f, float virticalMaxSpeed = -1.f, bool isRotaion = true);
 
 
 	public:
