@@ -25,9 +25,10 @@ namespace Game::Stage
 
 		PhysicsModel mPhysicsModel;
 
-		constexpr static char JUMP_FLAG_1 = 0b00000001;
-		constexpr static char ON_GROUND_FLAG = 0b00000010;
+		constexpr static char ON_GROUND_FLAG = 0b00000001;
 		char mFlags;
+
+		int mJumpFlag;
 
 	public:
 		Player(Actor* owner, int updateOrder = 0);

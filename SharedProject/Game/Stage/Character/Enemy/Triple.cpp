@@ -82,7 +82,7 @@ namespace Game::Stage::Triple
 		if (mFlatDeathFlag) {
 			SetState(Actor::State::Dead);
 			auto actor = static_cast<Triple::Actor*>(mOwner);
-			//new FlatDead(actor, mPhysicsModel, mDir4);
+			new FlatDead(actor, mPhysicsModel, mDir4);
 		}
 
 	}
@@ -117,13 +117,14 @@ namespace Game::Stage::Triple
 	{
 		int channel = (dir == Dir4::Left) ? 2 : 3;
 		auto actor = static_cast<Triple::Actor*>(mOwner);
-		actor->ReflectAnimation(model.mPosiotion, model.mScale, model.mRotation, channel);
+		actor->ReflectAnimation(model.mPosiotion + GetVector2(Dir4::Down, 20.f), model.mScale, model.mRotation, channel);
 	}
 
 	void FlatDead::CustomizeUpdate()
 	{
-		if (mCnt > DEATH_CNT)
-			SetState(Actor::State::Dead);
+		if (mCnt > DEATH_CNT) {
+			mOwner->SetState(Actor::State::Dead);
+		}
 		mCnt++;
 	}
 

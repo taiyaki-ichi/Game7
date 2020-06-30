@@ -8,6 +8,7 @@ namespace Game::Stage
 		, mCollider("Player", { 0.f,-12.f }, 250.f, 500.f, 0.1f, 0.f, { 255,0,0,255 })
 		, mPhysicsModel({ 0.f,200.f }, { 0.f,0.f })
 		, mFlags(0)
+		, mJumpFlag{0}
 	{
 		using namespace GameLib;
 
@@ -18,7 +19,7 @@ namespace Game::Stage
 		mAnimation.SetScale(0.1f);
 		mAnimation.SetDrawOrder(50);
 
-		mCollider.AddHitFunction("Ground", [this](const GameLib::Collider& c) {
+		auto hitGround = [this](const GameLib::Collider& c) {
 			auto adjust = GetParallelRectAdjustVec(mCollider, c);
 			auto dir4Vec = GetRoundedDir4Vec(adjust);
 
@@ -30,19 +31,19 @@ namespace Game::Stage
 				mPhysicsModel.mVelocity.y = 0.f;
 
 			if (dir4Vec.mDir4 == Dir4::Up) {
-				mFlags |= JUMP_FLAG_1;
 				mFlags |= ON_GROUND_FLAG;
+				mJumpFlag = 1;
 			}
 
 			if ((InputState::GetState(Key::A) == ButtonState::None &&
 				InputState::GetState(Key::D) == ButtonState::None) ||
 				(InputState::GetState(Key::A) == ButtonState::Held &&
-					InputState::GetState(Key::D) == ButtonState::Held)||
-				(InputState::GetState(Key::A) == ButtonState::Held&&
-					GetDir4Size(mPhysicsModel.mVelocity,Dir4::Right)>0.f)||
-				(InputState::GetState(Key::D) == ButtonState::Held&&
+					InputState::GetState(Key::D) == ButtonState::Held) ||
+				(InputState::GetState(Key::A) == ButtonState::Held &&
+					GetDir4Size(mPhysicsModel.mVelocity, Dir4::Right) > 0.f) ||
+				(InputState::GetState(Key::D) == ButtonState::Held &&
 					GetDir4Size(mPhysicsModel.mVelocity, Dir4::Left) > 0.f
-				))
+					))
 
 			{
 				if (dir4Vec.mDir4 == Dir4::Up) {
@@ -52,11 +53,21 @@ namespace Game::Stage
 						mPhysicsModel.Friction(1.f, 0.8f);
 				}
 			}
-			
+
 			UpdateCollider();
 			mAnimation.SetPosition(mPhysicsModel.mPosiotion);
-			}
-		);
+		};
+
+		auto hitEnemyWeakness = [this](const GameLib::Collider& c) {
+			float upSize = GetDir4Size(mPhysicsModel.mVelocity, Dir4::Up);
+			mPhysicsModel.mVelocity += GetVector2(Dir4::Up, -upSize + 3.f);
+
+			//4フレームの間はジャンプできる
+			mJumpFlag = 4;
+		};
+
+		mCollider.AddHitFunction("Ground", std::move(hitGround));
+		mCollider.AddHitFunction("EnemyTripleWeakness", std::move(hitEnemyWeakness));
 	}
 
 	void Player::CustomizeUpdate() 
@@ -67,7 +78,9 @@ namespace Game::Stage
 		UpdateAnimation(power);
 
 		mFlags &= ~ON_GROUND_FLAG;
-		mFlags &= ~JUMP_FLAG_1;
+		
+		if (mJumpFlag > 0)
+			mJumpFlag--;
 	}
 
 
@@ -105,14 +118,15 @@ namespace Game::Stage
 
 		//ジャンプ
 		if (InputState::GetState(Key::Space) == ButtonState::Pressed &&
-			(mFlags & JUMP_FLAG_1)) {
+			(mJumpFlag>0)) {
 
 			auto v = GetRoundedDir4Vec(mPhysicsModel.mVelocity);
 			float rate = std::abs(v.mSize) / MAX_HORIZON_SPEED;
 			power += GetVector2(Dir4::Up, (JUMP_POWER_MAX - JUMP_POWER_MIN) * rate + JUMP_POWER_MIN);
 
 			power += GetVector2(Dir4::Up, JUMP_POWER_MAX);
-			mFlags &= ~JUMP_FLAG_1;
+
+			mJumpFlag = 0;
 		}
 
 		return power;
