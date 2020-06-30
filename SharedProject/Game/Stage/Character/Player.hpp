@@ -23,7 +23,7 @@ namespace Game::Stage
 		GameLib::DrawAnimation mAnimation;
 		GameLib::Collider mCollider;
 
-		PhysicsModel mPhisicsModel;
+		PhysicsModel mPhysicsModel;
 
 		constexpr static char JUMP_FLAG_1 = 0b00000001;
 		constexpr static char ON_GROUND_FLAG = 0b00000010;

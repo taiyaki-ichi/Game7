@@ -37,6 +37,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Triple.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\GravityActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.cpp" />
   </ItemGroup>

@@ -21,7 +21,7 @@ namespace Game::Stage
 		virtual ~PhysicsModel() = default;
 
 		//１フレームのかかる力から速度と位置の更新,maxSpeedは<0.fの時無効
-		void Update(const GameLib::Vector2& power, float maxSpeedX = -1.f, float maxSpeedY = -1.f) {
+		void Update(const GameLib::Vector2& power = { 0.f,0.f }, float maxSpeedX = -1.f, float maxSpeedY = -1.f) {
 			mVelocity += power;
 
 			if (maxSpeedX > 0.f && std::abs(mVelocity.x) > maxSpeedX)

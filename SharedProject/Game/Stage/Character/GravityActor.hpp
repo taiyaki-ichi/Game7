@@ -12,65 +12,24 @@ namespace Game::Stage
 		static float mGravity;
 		static Dir4 mGravityDir4;
 
-		GameLib::Vector2 GetGravityVec() {
-			if (mGravityDir4 == Dir4::Down)
-				return { 0.f,-mGravity };
-			else if (mGravityDir4 == Dir4::Up)
-				return { 0.f,mGravity };
-			else if (mGravityDir4 == Dir4::Right)
-				return { mGravity,0.f };
-			else if(mGravityDir4 == Dir4::Left)
-				return { -mGravity,0.f };
-		}
+		GameLib::Vector2 GetGravityVector2();
 
 		//重力の方向を下としたときの、大きさsizeの向きdirなベクトル
-		GameLib::Vector2 GetSubjectiveDirVec(const Dir4& dir, float size) {
-			auto rot = [](GameLib::Vector2&& vec) {return GameLib::Vector2{ -vec.y,vec.x }; };
-			GameLib::Vector2 vec{ 0.f,-size };
-			for (int i = 0; i < static_cast<int>(dir) + static_cast<int>(mGravityDir4); ++i) {
-				vec = rot(std::move(vec));
-			}
-			return vec;
-		}
+		GameLib::Vector2 GetDir4Vec(const Dir4& dir, float size);
 
-		Dir4Vec GetRoundedDir4Vec(const GameLib::Vector2& vec) {
-			Dir4 dir;
-			float size;
+		//Vector2をDir4Vecに丸め込む
+		Dir4Vec GetRoundedDir4Vec(const GameLib::Vector2& vec);
 
-			if (std::abs(vec.y) > std::abs(vec.x)) {
-				if (vec.y > 0.f) {
-					dir = Dir4::Up;
-					size = vec.y;
-				}
-				else {
-					dir = Dir4::Down;
-					size = -vec.y;
-				}
-			}
-			else {
-				if (vec.x > 0.f) {
-					dir = Dir4::Right;
-					size = vec.x;
-				}
-				else {
-					dir = Dir4::Left;
-					size = -vec.x;
-				}
-			}
-			int d = static_cast<int>(dir) - static_cast<int>(mGravityDir4);
-			if (d < 0)
-				d += 4;
+		//ベクトルの向きDir4の大きさ
+		float GetDir4Size(const GameLib::Vector2& vec, const Dir4& dir);
 
-			return Dir4Vec{ static_cast<Dir4>(d),size };
-		}
+		//Gravityの角度
+		float GetGravityRotation();
 
-		float GetDir4Size(const GameLib::Vector2& vec, const Dir4& dir) {
-			auto dirVec = vec * GetSubjectiveDirVec(dir, 1.f);
-			if (std::abs(dirVec.x) > std::abs(dirVec.y))
-				return dirVec.x;
-			else
-				return dirVec.y;
-		}
+		//垂直、水平方向の反転
+		GameLib::Vector2 GetVerticalFlippedVector2(const GameLib::Vector2& vec);
+		GameLib::Vector2 GetHolizonalFlippedVector2(const GameLib::Vector2& vec);
+
 
 	public:
 		GravityActor(Actor* owner,int udpateOder=0)

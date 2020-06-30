@@ -6,34 +6,64 @@
 
 namespace Game::Stage::Triple
 {
-	class State;
-
-	class Actor : public GravityActor
+	
+	class Actor : public GameLib::Actor
 	{
-		State* mState;
+		GravityActor* mState;
 		GameLib::DrawAnimation mAnimation;
-		GameLib::Collider mBody;
-		GameLib::Collider mWeakness;
-		PhysicsModel mPhysicsModel;
 
 	public:
-		Actor(Actor* owenr, int updateOrder = 0);
+		Actor(GameLib::Actor* owenr,GameLib::Vector2&& pos, int updateOrder = 0);
 		virtual ~Actor() = default;
 
 		void CustomizeUpdate() override;
+		
+		//physicsModelの更新をアニメーションに反映
+		void ReflectAnimation(const GameLib::Vector2& pos, float scale, float rot, int cannel = -1);
 	};
 
-	class State
+	class Active : public GravityActor
 	{
+		constexpr static float RUN_POWER = 0.1f;
+		constexpr static float MAX_SPEED = 1.f;
+
+		GameLib::Collider mBody;
+		GameLib::Collider mWeakness;
+
+		PhysicsModel mPhysicsModel;
+
+		Dir4 mDir4;
+
 	public:
-		virtual PhysicsModel Update(PhysicsModel&&) = 0;
+		Active(Actor* owner,GameLib::Vector2&& pos);
+		~Active() = default;
+		
+		void CustomizeUpdate() override;
+
+	private:
+		void ReflectCollider();
+		void ReflectAnimation();
+
+		GameLib::Vector2 GetPowerPerFrame();
 	};
 
-	class Active : public State
+	class FlatDead : public GravityActor
 	{
+		int mCnt;
+
+		PhysicsModel mPhysicsModel;
+
 	public:
-		PhysicsModel Update(PhysicsModel&& model) override;
+		FlatDead(Actor* owner,PhysicsModel&& model);
+		~FlatDead() = default;
+		
+		void CustomizeUpdate() override;
+
 	};
+
+	
+
+
 
 
 }

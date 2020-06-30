@@ -41,10 +41,11 @@ namespace Game::Stage
 		float adX = (reativeVec.x > 0.f) ? reativeVec.x - idealX : idealX + reativeVec.x;
 		float adY = (reativeVec.y > 0.f) ? reativeVec.y - idealY : idealY + reativeVec.y;
 
+		//TODO
 		if (std::fabs(adX) < std::fabs(adY) && std::fabs(adX) > std::fabs(round))
-			return { adX,0.f };
+			return { adX+0.1f,0.f };
 		else if (std::fabs(adY) < std::fabs(adX) && std::fabs(adY) > std::fabs(round))
-			return { 0.f,adY };
+			return { 0.f,adY+0.1f };
 		else
 			return { 0.f,0.f };
 	}
