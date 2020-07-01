@@ -1,5 +1,5 @@
 #pragma once
-#include"Game/Stage/Character/GravityActor.hpp"
+#include"Game/Stage/GravityActor.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Game/Stage/PhysicsModel.hpp"

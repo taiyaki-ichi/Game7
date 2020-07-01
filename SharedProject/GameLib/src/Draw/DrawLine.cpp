@@ -25,8 +25,8 @@ namespace GameLib
 
 	void DrawLine::Draw()
 	{
-		Vector2 affinedPos1 = Affine(mPoint1, Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
-		Vector2 affinedPos2 = Affine(mPoint2, Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
+		Vector2 affinedPos1 = Affine(mPoint1, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
+		Vector2 affinedPos2 = Affine(mPoint2, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
 		Vector2 pos1 = { affinedPos1.x + GetWindowWidth() / 2.f,-affinedPos1.y + GetWindowHeigth() / 2.f };
 		Vector2 pos2 = { affinedPos2.x + GetWindowWidth() / 2.f,-affinedPos2.y + GetWindowHeigth() / 2.f };
 		GraphicsDrawLine(pos1.x, pos1.y, pos2.x, pos2.y, mColor.R, mColor.G, mColor.B, mColor.A);

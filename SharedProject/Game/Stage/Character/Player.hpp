@@ -1,12 +1,8 @@
 #pragma once
-#include"GravityActor.hpp"
+#include"Game/Stage/GravityActor.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Game/Stage/PhysicsModel.hpp"
-#include"GameLib/include/Math/Vector2Func.hpp"
-#include"GameLib/include/InputState/InputState.hpp"
-#include"Game/Stage/UtilityVectorFunction.hpp"
-#include"GameLib/include/Math/Numbers.hpp"
 
 
 namespace Game::Stage

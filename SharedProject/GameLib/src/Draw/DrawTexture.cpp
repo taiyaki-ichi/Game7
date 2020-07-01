@@ -56,9 +56,9 @@ namespace GameLib
 		else if (mVerticalFlip)
 			flip = 2;
 
-		Vector2 affinedPos = Affine(mPosition, Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
+		Vector2 affinedPos = Affine(mPosition, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
 		Vector2 pos = { affinedPos.x + GetWindowWidth() / 2.f,-affinedPos.y + GetWindowHeigth() / 2.f };
-		GraphicsDrawTexture(mTexture, pos.x, pos.y, mScale * Viewport::GetScale(), mRotation + Viewport::GetRotation(),
+		GraphicsDrawTexture(mTexture, pos.x, pos.y, mScale * Viewport::GetScale(), mRotation - Viewport::GetRotation(),
 			mAlpha, flip);
 	}
 

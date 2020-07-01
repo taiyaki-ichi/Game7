@@ -39,8 +39,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Toge.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Triple.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\GravityActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\StartActor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\Actor.hpp" />
@@ -90,8 +92,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4Vec.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Toge.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Triple.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\GravityActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\GravityManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.hpp" />

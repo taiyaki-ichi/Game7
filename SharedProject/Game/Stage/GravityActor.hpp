@@ -36,8 +36,8 @@ namespace Game::Stage
 
 
 	public:
-		GravityActor(Actor* owner,int udpateOder=0)
-			:Actor(owner,udpateOder)
+		GravityActor(Actor* owner, int udpateOder = 0)
+			:Actor(owner, udpateOder)
 		{}
 		virtual ~GravityActor() = default;
 
@@ -53,7 +53,7 @@ namespace Game::Stage
 		static void SetGraviyuDir4(Dir4&& d) noexcept {
 			mGravityDir4 = std::move(d);
 		}
-		static void SeGravityDir4(const Dir4& g) noexcept {
+		static void SetGravityDir4(const Dir4& g) noexcept {
 			mGravityDir4 = g;
 		}
 

@@ -1,4 +1,9 @@
 #include"Player.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
+#include"GameLib/include/InputState/InputState.hpp"
+#include"Game/Stage/UtilityVectorFunction.hpp"
+#include"GameLib/include/Math/Numbers.hpp"
+
 
 namespace Game::Stage
 {
@@ -96,16 +101,6 @@ namespace Game::Stage
 			power += GetGravityVector2() * JUMPING_GRAVITY_RATE;
 		else
 			power += GetGravityVector2();
-
-		//Œü‚«
-		if (InputState::GetState(Key::Left) == ButtonState::Pressed)
-			mGravityDir4 = Dir4::Left;
-		if (InputState::GetState(Key::Right) == ButtonState::Pressed)
-			mGravityDir4 = Dir4::Right;
-		if (InputState::GetState(Key::Up) == ButtonState::Pressed)
-			mGravityDir4 = Dir4::Up;
-		if (InputState::GetState(Key::Down) == ButtonState::Pressed)
-			mGravityDir4 = Dir4::Down;
 
 		//ƒˆƒR‚Ì—Í
 		if (InputState::GetState(Key::A) == ButtonState::Pressed ||
