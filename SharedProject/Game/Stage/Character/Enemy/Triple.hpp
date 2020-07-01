@@ -37,7 +37,7 @@ namespace Game::Stage::Triple
 		bool mFlatDeathFlag;
 
 	public:
-		Active(Actor* owner,GameLib::Vector2&& pos);
+		Active(GameLib::Actor* owner,GameLib::Vector2&& pos);
 		~Active() = default;
 		
 		void CustomizeUpdate() override;
@@ -56,7 +56,7 @@ namespace Game::Stage::Triple
 		int mCnt;
 
 	public:
-		FlatDead(Actor* owner,PhysicsModel& model,Dir4& dir);
+		FlatDead(GameLib::Actor* owner,PhysicsModel& model,Dir4& dir);
 		~FlatDead() = default;
 		
 		void CustomizeUpdate() override;

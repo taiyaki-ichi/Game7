@@ -91,6 +91,25 @@ namespace Game::Stage::Player
 		void UpdateCollider();
 	};
 
+	class Death : GravityActor
+	{
+		constexpr static int DEATH_CNT = 180;
 
+		int mCnt;
+		
+		GameLib::Vector2 mPosition;
+		float mScale;
+		float mRotation;
+
+		//アニメーションへの参照
+		GameLib::DrawAnimation* mAnimation;
+
+	public:
+		Death(Actor* player, const PhysicsModel& model,GameLib::DrawAnimation* anim);
+		virtual ~Death() = default;
+
+		void CustomizeUpdate() override;
+
+	};
 
 }

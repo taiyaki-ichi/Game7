@@ -81,10 +81,8 @@ namespace Game::Stage::Triple
 
 		if (mFlatDeathFlag) {
 			SetState(Actor::State::Dead);
-			auto actor = static_cast<Triple::Actor*>(mOwner);
-			new FlatDead(actor, mPhysicsModel, mDir4);
+			new FlatDead(mOwner, mPhysicsModel, mDir4);
 		}
-
 	}
 
 	void Active::ReflectCollider()

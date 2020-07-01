@@ -6,6 +6,7 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Stage/GravityManager.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
+#include"Game/Stage/Character/Enemy/Triple.hpp"
 
 namespace Game
 {
@@ -21,7 +22,7 @@ namespace Game
 		new Stage::Player::Actor(this, { 0.f,0.f });
 
 		//new Stage::Triple::Actor{ this ,GameLib::Vector2{200.f,0.f} };
-		//new Stage::Triple::Actor{ this ,GameLib::Vector2{-100.f,0.f} };
+		new Stage::Triple::Actor{ this ,GameLib::Vector2{-100.f,0.f} };
 
 		new Stage::Toge::Actor(this, { 100.f,0.f });
 

@@ -34,7 +34,7 @@ namespace GameLib
 		virtual void StartImpl(RootActor* rootActor) = 0;
 	};
 
-	constexpr float DEFAULT_FPS = 50.f;
+	constexpr float DEFAULT_FPS = 60.f;
 
 	//Appのポインタはここから入手、一度のみ呼び出し可
 	std::unique_ptr<App> CreatAppPtr(WindowData&& windowData, float fps = DEFAULT_FPS);

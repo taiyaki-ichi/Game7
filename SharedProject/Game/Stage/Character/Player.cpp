@@ -177,6 +177,7 @@ namespace Game::Stage::Player
 		mAnimation.AddAnimation({ "../Assets/Player/run001.png","../Assets/Player/run002.png" ,"../Assets/Player/run003.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/up.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/down.png" });
+		mAnimation.AddAnimation({ "../Assets/Player/death.png" });
 		mAnimation.SetScale(0.1f);
 		mAnimation.SetDrawOrder(50);
 		mAnimation.SetPosition(pos);
@@ -199,8 +200,8 @@ namespace Game::Stage::Player
 
 	Active::Active(Actor* player,GameLib::Vector2&& pos,GameLib::DrawAnimation* anim)
 		:GravityActor(player)
-		, mCollider{}
-		, mPhysicsModel{std::move(pos)}
+		, mCollider{"Player"}
+		, mPhysicsModel{ std::move(pos),GameLib::Vector2{0.f,0.f},0.1f,0.f }
 		, mFlags{0}
 		, mJumpFlag{ 0 }
 		, mAnimation{ anim }
@@ -258,10 +259,16 @@ namespace Game::Stage::Player
 			mJumpFlag = 4;
 		};
 
-		mCollider.AddHitFunction("Ground", std::move(hitGround));
-		mCollider.AddHitFunction("EnemyTripleWeakness", std::move(hitEnemyWeakness));
-		
+		auto hitEnemyStrength = [this](const GameLib::Collider& c) {
+			SetState(Actor::State::Dead);
+			new Death(mOwner, mPhysicsModel, mAnimation);
+		};
 
+		mCollider.AddHitFunction("Ground", std::move(hitGround));
+		mCollider.AddHitFunction("EnemyTripleWeakness", hitEnemyWeakness);
+		mCollider.AddHitFunction("EnemyTripleStrength", hitEnemyStrength);
+		mCollider.AddHitFunction("EnemyTogeStrength", hitEnemyStrength);
+		
 	}
 
 	void Active::CustomizeUpdate()
@@ -275,7 +282,9 @@ namespace Game::Stage::Player
 
 		if (mJumpFlag > 0)
 			mJumpFlag--;
+
 	}
+
 
 	GameLib::Vector2 Active::GetPowerPerFrame()
 	{
@@ -344,5 +353,30 @@ namespace Game::Stage::Player
 	{
 		mCollider.SetRotation(mPhysicsModel.mRotation);
 		mCollider.SetPosition(mPhysicsModel.mPosiotion + GetVector2(Dir4::Down, 12.f));
+	}
+
+	Death::Death(Actor* player,const PhysicsModel& model, GameLib::DrawAnimation* anim)
+		:GravityActor{player}
+		, mCnt{0}
+		, mPosition{model.mPosiotion}
+		, mScale{ model.mScale }
+		, mRotation{model.mRotation}
+		, mAnimation{anim}
+	{
+		mAnimation->SetChannel(4);
+	}
+
+	void Death::CustomizeUpdate()
+	{
+		mCnt++;
+		if (mCnt > DEATH_CNT)
+			mOwner->SetState(Actor::State::Dead);
+
+		mPosition += GetVector2(Dir4::Up, 4.f);
+		mScale *= 0.99f;
+		mRotation += 0.3f;
+
+		mAnimation->Set(mPosition, mScale, mRotation);
+
 	}
 }
