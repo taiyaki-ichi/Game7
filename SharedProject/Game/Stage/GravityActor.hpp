@@ -9,9 +9,10 @@ namespace Game::Stage
 {
 	class GravityActor : public GameLib::Actor
 	{
-	protected:
 		static float mGravity;
 		static Dir4 mGravityDir4;
+
+	protected:
 
 		GameLib::Vector2 GetGravityVector2();
 

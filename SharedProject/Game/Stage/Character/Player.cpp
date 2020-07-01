@@ -52,7 +52,7 @@ namespace Game::Stage
 
 			{
 				if (dir4Vec.mDir4 == Dir4::Up) {
-					if (mGravityDir4 == Dir4::Up || mGravityDir4 == Dir4::Down)
+					if (GetGravityDir4() == Dir4::Up || GetGravityDir4() == Dir4::Down)
 						mPhysicsModel.Friction(0.8f, 1.f);
 					else
 						mPhysicsModel.Friction(1.f, 0.8f);

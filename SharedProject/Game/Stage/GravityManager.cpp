@@ -38,19 +38,19 @@ namespace Game::Stage
 			};
 
 			if (InputState::GetState(Key::Left) == ButtonState::Pressed) {
-				mGravityDir4 = Dir4::Left;
+				SetGravityDir4(Dir4::Left);
 				rotaion();
 			}
 			if (InputState::GetState(Key::Right) == ButtonState::Pressed) {
-				mGravityDir4 = Dir4::Right;
+				SetGravityDir4(Dir4::Right);
 				rotaion();
 			}
 			if (InputState::GetState(Key::Up) == ButtonState::Pressed) {
-				mGravityDir4 = Dir4::Up;
+				SetGravityDir4(Dir4::Up);
 				rotaion();
 			}
 			if (InputState::GetState(Key::Down) == ButtonState::Pressed) {
-				mGravityDir4 = Dir4::Down;
+				SetGravityDir4(Dir4::Down);
 				rotaion();
 			}
 			

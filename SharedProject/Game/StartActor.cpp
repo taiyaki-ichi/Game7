@@ -33,33 +33,33 @@ namespace Game
 		if (InputState::GetState(Key::O) == ButtonState::Held) {
 			float scale = Viewport::GetScale();
 			if (scale - 0.1f > 0.f)
-				scale -= 0.01f;
+				scale -= 0.05f;
 			Viewport::SetScale(scale);
 		}
 		if (InputState::GetState(Key::P) == ButtonState::Held)
-			Viewport::SetScale(Viewport::GetScale() + 0.01f);
+			Viewport::SetScale(Viewport::GetScale() + 0.05f);
 
 		if (InputState::GetState(Key::I) == ButtonState::Held) {
 			auto pos=Viewport::GetPos();
-			pos.y += 2.f;
+			pos.y += 5.f;
 			Viewport::SetPos(pos);
 		}
 
 		if (InputState::GetState(Key::K) == ButtonState::Held) {
 			auto pos = Viewport::GetPos();
-			pos.y -= 2.f;
-			Viewport::SetPos(pos);
-		}
-
-		if (InputState::GetState(Key::J) == ButtonState::Held) {
-			auto pos = Viewport::GetPos();
-			pos.x += 2.f;
+			pos.y -= 5.f;
 			Viewport::SetPos(pos);
 		}
 
 		if (InputState::GetState(Key::L) == ButtonState::Held) {
 			auto pos = Viewport::GetPos();
-			pos.x -= 2.f;
+			pos.x += 5.f;
+			Viewport::SetPos(pos);
+		}
+
+		if (InputState::GetState(Key::J) == ButtonState::Held) {
+			auto pos = Viewport::GetPos();
+			pos.x -= 5.f;
 			Viewport::SetPos(pos);
 		}
 

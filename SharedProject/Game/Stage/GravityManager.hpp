@@ -5,7 +5,7 @@ namespace Game::Stage
 {
 	class GravityManager : public GravityActor
 	{
-		constexpr static int ROTATION_FLAME = 40;
+		constexpr static int ROTATION_FLAME = 20;
 
 		float mDeltRotation;
 		int mCnt;
