@@ -6,6 +6,8 @@ namespace GameLib
 	class DrawBase
 	{
 		int mDrawOrder;
+		//•`‰æ‚·‚é‚©‚Ç‚¤‚©
+		bool  mIsDrawing;
 
 	public:
 		DrawBase(int drawOrder = 0);
@@ -15,5 +17,8 @@ namespace GameLib
 
 		int GetDrawOrder()const noexcept;
 		void SetDrawOrder(int order);
+
+		bool GetIsDrawing();
+		void SetIsDrawing(bool i);
 	};
 }

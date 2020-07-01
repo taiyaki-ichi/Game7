@@ -5,6 +5,7 @@
 #include"GameLib/include/InputState/InputState.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Stage/GravityManager.hpp"
+#include"GameLib/include/CollisionDetection/Collider.hpp"
 
 namespace Game
 {
@@ -17,7 +18,7 @@ namespace Game
 		new Stage::Ground(this, { -350.f,0.f }, 100.f, 600.f);
 		new Stage::Ground(this, { 0.f,-150.f }, 100.f, 100.f);
 
-		new Stage::Player(this);
+		new Stage::Player::Actor(this, { 0.f,0.f });
 
 		//new Stage::Triple::Actor{ this ,GameLib::Vector2{200.f,0.f} };
 		//new Stage::Triple::Actor{ this ,GameLib::Vector2{-100.f,0.f} };
@@ -32,8 +33,9 @@ namespace Game
 
 		if (InputState::GetState(Key::O) == ButtonState::Held) {
 			float scale = Viewport::GetScale();
-			if (scale - 0.1f > 0.f)
-				scale -= 0.05f;
+			scale -= 0.05f;
+			if (scale < 0.f)
+				scale = 0.f;
 			Viewport::SetScale(scale);
 		}
 		if (InputState::GetState(Key::P) == ButtonState::Held)
@@ -63,6 +65,8 @@ namespace Game
 			Viewport::SetPos(pos);
 		}
 
-
+		if (InputState::GetState(Key::U) == ButtonState::Pressed) {
+			Collider::SwitchAllColliderDraw();
+		}
 	}
 }

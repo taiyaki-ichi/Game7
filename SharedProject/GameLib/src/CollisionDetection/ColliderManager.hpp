@@ -12,6 +12,7 @@ namespace GameLib
 	class SpaceDivisionTree;
 
 	class Collider;
+	struct SwitchDrawing;
 
 	class ColliderManager
 	{
@@ -26,8 +27,9 @@ namespace GameLib
 
 		static void RegistSpaceDivisionTree(SpaceDivisionTree<Collider>& tree);
 
-	};
+		static void SwitchAllColliderDraw();
 
+	};
 
 
 

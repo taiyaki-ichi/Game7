@@ -26,16 +26,12 @@ namespace GameLib
 		std::string mNameTag;
 
 		std::unordered_map<std::string, std::function<void(const Collider&)>> mHitFunctions;
-
-		//“–‚½‚è”»’è‚Ì—Ìˆæ‚Ì‰ÂŽ‹‰»—p
-		Color mColor;
+		
 		DrawLine mLine1;
 		DrawLine mLine2;
 		DrawLine mLine3;
 		DrawLine mLine4;
-		//•`ŽÊ‚·‚é‚©‚Ç‚¤‚©
-		static bool mIsDrawing;
-
+		
 		void CalcLinesPoint() {
 			auto vecs = GetRectangleVectors(mPosition, mWidth * mScale, mHeigth * mScale, mRotation);
 			mLine1.SetPoints(vecs[0], vecs[1]);
@@ -67,9 +63,8 @@ namespace GameLib
 			
 		}
 
-		static void SetIsDrawing(bool d) {
-			mIsDrawing = d;
-		}
+		static void SwitchAllColliderDraw();
+		void SwitchDraw();
 
 		void Set(const Vector2& pos, float width, float heigth, float scale, float rot);
 
@@ -116,12 +111,14 @@ namespace GameLib
 		float GetRotation() const noexcept {
 			return mRotation;
 		}
+		
 		void SetColor(Color&& color) {
-			mColor = std::move(color);
-			mLine1.SetColor(mColor);
-			mLine2.SetColor(mColor);
-			mLine3.SetColor(mColor);
-			mLine4.SetColor(mColor);
+			
+			mLine1.SetColor(color);
+			mLine2.SetColor(color);
+			mLine3.SetColor(color);
+			mLine4.SetColor(color);
 		}
+		
 	};
 }

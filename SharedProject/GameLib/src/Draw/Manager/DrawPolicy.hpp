@@ -6,7 +6,8 @@ namespace GameLib
 
 	struct DrawPolicy {
 		void operator()(DrawBase* sprite) {
-			sprite->Draw();
+			if (sprite->GetIsDrawing())
+				sprite->Draw();
 		}
 	};
 

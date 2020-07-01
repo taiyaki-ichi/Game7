@@ -1,6 +1,7 @@
 #include"GameLib/src/CollisionDetection/ColliderManager.hpp"
 #include"GameLib/src/CollisionDetection/MortonNumber.hpp"
 #include"GameLib/src/CollisionDetection/SpaceDivisionTree.hpp"
+#include "..\ColliderManager.hpp"
 
 namespace GameLib
 {
@@ -47,5 +48,10 @@ namespace GameLib
 			if (0 <= spaceCellNum && spaceCellNum < MAX_SPACECELL_NUM)
 				tree.Regist(&linerObj, spaceCellNum);
 		}
+	}
+	void ColliderManager::SwitchAllColliderDraw()
+	{
+		std::for_each(mColliders.begin(), mColliders.end(), [](LinerObject<Collider>& l)
+			{l.GetPtr()->SwitchDraw(); });
 	}
 }

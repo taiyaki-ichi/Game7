@@ -5,6 +5,7 @@ namespace GameLib
 {
 	DrawBase::DrawBase(int drawOrder)
 		:mDrawOrder(drawOrder)
+		,mIsDrawing(true)
 	{
 		DrawManager::Add(this);
 	}
@@ -24,5 +25,13 @@ namespace GameLib
 			DrawManager::Remove(this);
 			DrawManager::Add(this);
 		}
+	}
+	bool DrawBase::GetIsDrawing()
+	{
+		return mIsDrawing;
+	}
+	void DrawBase::SetIsDrawing(bool i)
+	{
+		mIsDrawing = i;
 	}
 }

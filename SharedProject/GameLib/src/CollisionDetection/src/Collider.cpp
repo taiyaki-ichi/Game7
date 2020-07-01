@@ -6,14 +6,14 @@
 
 namespace GameLib
 {
-	Collider::Collider(std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot, Color&& color)
+
+	Collider::Collider(std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot,Color&& color )
 		: mNameTag(std::move(nameTag))
 		, mPosition(pos)
 		, mWidth(width)
 		, mHeigth(heigth)
 		, mScale(scale)
 		, mRotation(rot)
-		, mColor(std::move(color))
 		, mLine1()
 		, mLine2()
 		, mLine3()
@@ -27,10 +27,7 @@ namespace GameLib
 		mLine3.SetDrawOrder(COLLIDER_DRAWORDER);
 		mLine4.SetDrawOrder(COLLIDER_DRAWORDER);
 
-		mLine1.SetColor(mColor);
-		mLine2.SetColor(mColor);
-		mLine3.SetColor(mColor);
-		mLine4.SetColor(mColor);
+		SetColor(std::move(color));
 
 		ColliderManager::Add(this);
 	}
@@ -38,6 +35,20 @@ namespace GameLib
 	Collider::~Collider()
 	{
 		ColliderManager::Remove(this);
+	}
+
+	void Collider::SwitchAllColliderDraw()
+	{
+		ColliderManager::SwitchAllColliderDraw();
+	}
+
+	void Collider::SwitchDraw()
+	{
+		bool b = mLine1.GetIsDrawing();
+		mLine1.SetIsDrawing(!b);
+		mLine2.SetIsDrawing(!b);
+		mLine3.SetIsDrawing(!b);
+		mLine4.SetIsDrawing(!b);
 	}
 
 	void Collider::Set(const Vector2& pos, float width, float heigth, float scale, float rot)
@@ -53,10 +64,5 @@ namespace GameLib
 		mLine2.SetPoints(vecs[1], vecs[2]);
 		mLine3.SetPoints(vecs[2], vecs[3]);
 		mLine4.SetPoints(vecs[3], vecs[0]);
-
-		mLine1.SetColor(mColor);
-		mLine2.SetColor(mColor);
-		mLine3.SetColor(mColor);
-		mLine4.SetColor(mColor);
 	}
 }

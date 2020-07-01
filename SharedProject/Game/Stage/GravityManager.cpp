@@ -55,8 +55,7 @@ namespace Game::Stage
 			}
 			
 		}
-
-		if (mCnt>=0)
+		else
 		{
 			mCnt++;
 

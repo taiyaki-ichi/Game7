@@ -1,6 +1,7 @@
 #pragma once
 #include<vector>
 #include"DrawTexture.hpp"
+#include"GameLib/include/App.hpp"
 
 namespace GameLib
 {
@@ -23,7 +24,7 @@ namespace GameLib
 		void AddAnimation(std::vector<std::string>&& fileNames);
 
 		//Actor‚ÌCusutomUpdate‚Å–ˆƒtƒŒ[ƒ€ŒÄ‚Ño‚·
-		void Update(float gameFPS = 60.f);
+		void Update(float gameFPS = DEFAULT_FPS);
 
 		void SetChannel(int channel);
 		void SetAnimationFPS(float animFPS);
