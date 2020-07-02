@@ -45,6 +45,10 @@ namespace GameLib
 		// スワップエフェクト => バックバッファとフロントバッファへの切り替え方法
 		present_param.SwapEffect = D3DSWAPEFFECT_DISCARD;
 
+		//ステンシルバッファ
+		present_param.EnableAutoDepthStencil = TRUE;
+		present_param.AutoDepthStencilFormat = D3DFMT_D24S8;
+
 		// DirectDeviceの作成
 		if (FAILED(g_D3DInterface->CreateDevice(D3DADAPTER_DEFAULT,
 			D3DDEVTYPE_HAL,
@@ -60,6 +64,10 @@ namespace GameLib
 		g_D3DDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
 		g_D3DDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 		g_D3DDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+
+		g_D3DDevice->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+		g_D3DDevice->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
+		g_D3DDevice->SetRenderState(D3DRS_ALPHAREF, 0x01);
 
 		g_D3DDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
 		g_D3DDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
@@ -253,6 +261,58 @@ namespace GameLib
 		g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
 		g_D3DDevice->SetTexture(0, nullptr);
 		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLELIST, 1, p, sizeof(SIMPLE_VERTEX));
+	}
+
+	void ClearStencilBuffer(DWORD num)
+	{
+		g_D3DDevice->Clear(0, nullptr, D3DCLEAR_STENCIL, D3DCOLOR_ARGB(255, 255, 255, 255), 1.0f, num);
+	}
+
+	void SetMaskStencilBufferState(DWORD num)
+	{
+		// ステンシルバッファ設定 => 有効
+		g_D3DDevice->SetRenderState(D3DRS_STENCILENABLE, TRUE);
+
+		// ステンシルバッファへ描き込む参照値設定
+		g_D3DDevice->SetRenderState(D3DRS_STENCILREF, num);
+
+		// マスク設定 => 0xff(全て真)
+		g_D3DDevice->SetRenderState(D3DRS_STENCILMASK, 0xff);
+
+		// ステンシルテスト比較設定 => 必ず成功する
+		g_D3DDevice->SetRenderState(D3DRS_STENCILFUNC, D3DCMPFUNC::D3DCMP_EQUAL);
+
+		// ステンシルテストのテスト設定
+		g_D3DDevice->SetRenderState(D3DRS_STENCILFAIL, D3DSTENCILOP_ZERO);
+		g_D3DDevice->SetRenderState(D3DRS_STENCILZFAIL, D3DSTENCILOP_REPLACE);
+		g_D3DDevice->SetRenderState(D3DRS_STENCILPASS, D3DSTENCILOP_ZERO);
+
+		// Zバッファ設定 => 有効
+		g_D3DDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
+		// ZBUFFER比較設定変更 => 必ず失敗する
+		g_D3DDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_NEVER);
+	}
+
+	void SetStanderdStencilBufferState()
+	{
+		// Zバッファ設定 => 有効
+		g_D3DDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
+		// ZBUFFER比較設定変更 => (参照値 <= バッファ値)
+		g_D3DDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_LESSEQUAL);
+
+		// ステンシルバッファ => 有効
+		g_D3DDevice->SetRenderState(D3DRS_STENCILENABLE, TRUE);
+		// ステンシルバッファと比較する参照値設定 => ref
+		g_D3DDevice->SetRenderState(D3DRS_STENCILREF, 1);
+		// ステンシルバッファの値に対してのマスク設定 => 0xff(全て真)
+		g_D3DDevice->SetRenderState(D3DRS_STENCILMASK, 0xff);
+		// ステンシルテストの比較方法設定 => 
+		//		この描画での参照値 >= ステンシルバッファの参照値なら合格
+		g_D3DDevice->SetRenderState(D3DRS_STENCILFUNC, D3DCMPFUNC::D3DCMP_EQUAL);
+		// ステンシルテストの結果に対しての反映設定
+		g_D3DDevice->SetRenderState(D3DRS_STENCILPASS, D3DSTENCILOP_REPLACE);
+		g_D3DDevice->SetRenderState(D3DRS_STENCILFAIL, D3DSTENCILOP_KEEP);
+		g_D3DDevice->SetRenderState(D3DRS_STENCILZFAIL, D3DSTENCILOP_KEEP);
 	}
 
 	void DrawStart()

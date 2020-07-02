@@ -41,7 +41,14 @@ namespace GameLib
 
 	void GraphicsDrawFillTriangle(float aX, float aY, float bX, float bY, float cX, float cY, int r, int g, int b, int alpha = 255);
 
+	//ステンシルバッファの初期化,numで初期化、基本的には１かな
+	void ClearStencilBuffer(DWORD num);
 
+	//くりぬく範囲を描写する前に使用
+	void SetMaskStencilBufferState(DWORD num);
+
+	//普通に描写する前に使用
+	void SetStanderdStencilBufferState();
 
 	//描写の開始と終了時に使用
 	void DrawStart();
