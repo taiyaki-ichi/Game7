@@ -15,7 +15,7 @@ namespace Game::Stage::Player
 		using namespace GameLib;
 
 		mAnimation.AddAnimation({ "../Assets/Player/stay001.png" });
-		mAnimation.AddAnimation({ "../Assets/Player/run001.png","../Assets/Player/run002.png" ,"../Assets/Player/run003.png" });
+		mAnimation.AddAnimation({ "../Assets/Player/run001.png","../Assets/Player/run002.png" ,"../Assets/Player/run003.png","../Assets/Player/run002.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/up.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/down.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/death.png" });
@@ -156,8 +156,6 @@ namespace Game::Stage::Player
 			auto v = GetRoundedDir4Vec(mPhysicsModel.mVelocity);
 			float rate = std::abs(v.mSize) / MAX_HORIZON_SPEED;
 			power += GetVector2(Dir4::Up, (JUMP_POWER_MAX - JUMP_POWER_MIN) * rate + JUMP_POWER_MIN);
-
-			power += GetVector2(Dir4::Up, JUMP_POWER_MAX);
 
 			mJumpFlag = 0;
 		}

@@ -43,7 +43,7 @@ namespace GameLib
 	inline Vector2 Affine(const Vector2& vec, const Vector2& center, float rot, float scale) {
 		Vector2 unitVecX = Rotation({ 1.f,0.f }, rot) * scale;
 		Vector2 unitVecY = Rotation({ 0.f,1.f }, rot) * scale;
-		return Affine(vec, std::move(unitVecX), std::move(unitVecY), -center);
+		return Affine(vec, std::move(unitVecX), std::move(unitVecY), -center*scale);
 	}
 
 

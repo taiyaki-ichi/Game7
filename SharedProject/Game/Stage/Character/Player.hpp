@@ -23,11 +23,11 @@ namespace Game::Stage::Player
 
 	class Active : public GravityActor
 	{
-		constexpr static float MAX_HORIZON_SPEED = 5.5f;
+		constexpr static float MAX_HORIZON_SPEED = 7.f;
 		constexpr static float MAX_VERTICAL_SPEED = 21.f;
-		constexpr static float JUMP_POWER_MAX = 9.f;
-		constexpr static float JUMP_POWER_MIN = 7.f;
-		constexpr static float RUN_POWER = 0.2f;
+		constexpr static float JUMP_POWER_MAX = 17.f;
+		constexpr static float JUMP_POWER_MIN = 14.f;
+		constexpr static float RUN_POWER = 0.3f;
 		constexpr static float JUMPING_GRAVITY_RATE = 0.85f;
 
 		GameLib::Collider mCollider;
