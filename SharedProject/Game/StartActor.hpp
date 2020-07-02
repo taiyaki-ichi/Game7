@@ -1,5 +1,6 @@
 #pragma once
 #include"GameLib/include/Actor/RootActor.hpp"
+#include"Tohoho.hpp"
 
 namespace Game
 {
@@ -10,5 +11,8 @@ namespace Game
 		virtual ~StartActor() = default;
 
 		void CustomizeUpdate() override;
+
+	private:
+		Tohoho mTohoho;
 	};
 }

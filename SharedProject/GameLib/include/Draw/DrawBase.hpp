@@ -1,4 +1,6 @@
 #pragma once
+#include<vector>
+#include<memory>
 
 namespace GameLib
 {
@@ -6,19 +8,20 @@ namespace GameLib
 	class DrawBase
 	{
 		int mDrawOrder;
-		//•`‰æ‚·‚é‚©‚Ç‚¤‚©
-		bool  mIsDrawing;
+		//Ž©“®‚Å•`‰æ‚·‚é‚©‚Ç‚¤‚©
+		bool  mIsAutoDrawing;
 
 	public:
 		DrawBase(int drawOrder = 0);
 		virtual ~DrawBase();
 
+		virtual void SetUpDraw() {};
 		virtual void Draw() = 0;
 
 		int GetDrawOrder()const noexcept;
 		void SetDrawOrder(int order);
 
-		bool GetIsDrawing();
-		void SetIsDrawing(bool i);
+		bool GetIsAutoDrawing();
+		void SetIsAutoDrawing(bool i);
 	};
 }

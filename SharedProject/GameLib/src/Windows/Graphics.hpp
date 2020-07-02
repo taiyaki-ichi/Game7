@@ -43,10 +43,8 @@ namespace GameLib
 
 	//ステンシルバッファの初期化,numで初期化、基本的には１かな
 	void ClearStencilBuffer(DWORD num);
-
 	//くりぬく範囲を描写する前に使用
 	void SetMaskStencilBufferState(DWORD num);
-
 	//普通に描写する前に使用
 	void SetStanderdStencilBufferState();
 

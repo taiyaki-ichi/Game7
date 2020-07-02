@@ -27,6 +27,8 @@ namespace Game
 		new Stage::Toge::Actor(this, { 100.f,0.f });
 
 		new Stage::GravityManager(this);
+
+		mTohoho = Tohoho{};
 	}
 	void StartActor::CustomizeUpdate()
 	{
@@ -68,6 +70,16 @@ namespace Game
 
 		if (InputState::GetState(Key::U) == ButtonState::Pressed) {
 			Collider::SwitchAllColliderDraw();
+		}
+
+		if (InputState::GetState(Key::T) == ButtonState::Held) {
+			float r = mTohoho.GetRadius()-5.f;
+			if (r < 0.f)
+				r = 0.f;
+			mTohoho.SetRadius(r);
+		}
+		if (InputState::GetState(Key::Y) == ButtonState::Held) {
+			mTohoho.SetRadius(mTohoho.GetRadius() + 5.f);
 		}
 	}
 }

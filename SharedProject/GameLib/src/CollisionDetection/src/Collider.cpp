@@ -44,11 +44,11 @@ namespace GameLib
 
 	void Collider::SwitchDraw()
 	{
-		bool b = mLine1.GetIsDrawing();
-		mLine1.SetIsDrawing(!b);
-		mLine2.SetIsDrawing(!b);
-		mLine3.SetIsDrawing(!b);
-		mLine4.SetIsDrawing(!b);
+		bool b = mLine1.GetIsAutoDrawing();
+		mLine1.SetIsAutoDrawing(!b);
+		mLine2.SetIsAutoDrawing(!b);
+		mLine3.SetIsAutoDrawing(!b);
+		mLine4.SetIsAutoDrawing(!b);
 	}
 
 	void Collider::Set(const Vector2& pos, float width, float heigth, float scale, float rot)

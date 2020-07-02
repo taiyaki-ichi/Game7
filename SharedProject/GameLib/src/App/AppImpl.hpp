@@ -32,5 +32,8 @@ namespace GameLib
 		unsigned long mWaitTime;
 
 		std::unique_ptr<SpaceDivisionTree<Collider>> mSpaceDivisionTree;
+
+		unsigned long mSumTime;
+		int mCnt;
 	};
 }

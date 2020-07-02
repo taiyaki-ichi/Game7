@@ -5,7 +5,7 @@ namespace GameLib
 {
 	DrawBase::DrawBase(int drawOrder)
 		:mDrawOrder(drawOrder)
-		,mIsDrawing(true)
+		,mIsAutoDrawing(true)
 	{
 		DrawManager::Add(this);
 	}
@@ -26,12 +26,12 @@ namespace GameLib
 			DrawManager::Add(this);
 		}
 	}
-	bool DrawBase::GetIsDrawing()
+	bool DrawBase::GetIsAutoDrawing()
 	{
-		return mIsDrawing;
+		return mIsAutoDrawing;
 	}
-	void DrawBase::SetIsDrawing(bool i)
+	void DrawBase::SetIsAutoDrawing(bool i)
 	{
-		mIsDrawing = i;
+		mIsAutoDrawing = i;
 	}
 }

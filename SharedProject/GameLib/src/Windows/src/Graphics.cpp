@@ -280,7 +280,7 @@ namespace GameLib
 		g_D3DDevice->SetRenderState(D3DRS_STENCILMASK, 0xff);
 
 		// ステンシルテスト比較設定 => 必ず成功する
-		g_D3DDevice->SetRenderState(D3DRS_STENCILFUNC, D3DCMPFUNC::D3DCMP_EQUAL);
+		g_D3DDevice->SetRenderState(D3DRS_STENCILFUNC, D3DCMPFUNC::D3DCMP_ALWAYS);
 
 		// ステンシルテストのテスト設定
 		g_D3DDevice->SetRenderState(D3DRS_STENCILFAIL, D3DSTENCILOP_ZERO);

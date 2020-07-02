@@ -21,6 +21,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\ColliderManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\CollisionDetectionSettingImpl.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\MortonNumber.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\CustomizeDrawBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawFillTriangle.cpp" />
@@ -43,6 +44,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\StartActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Tohoho.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\Actor.hpp" />
@@ -53,6 +55,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\Collider.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\CollisionDetectionSetting.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\Color.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\CustomizeDrawBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawAnimation.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawFillTriangle.hpp" />
@@ -99,6 +102,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\StartActor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Tohoho.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="$(MSBuildThisFileDirectory)Assets\icon.png" />

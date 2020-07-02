@@ -20,6 +20,8 @@ namespace GameLib
 		,mTime(0)
 		,mRootActor(nullptr)
 		,mWaitTime(static_cast<unsigned long>(1000.f / fps))
+		, mSumTime{0}
+		, mCnt{0}
 	{
 		mIsRunning = Init(std::move(windowData));
 		mSpaceDivisionTree = std::make_unique<SpaceDivisionTree<Collider>>();
@@ -65,8 +67,19 @@ namespace GameLib
 		InputState::Update();
 
 		Wait(mTime, mWaitTime);
+
+		/*
+		mSumTime += GetTime() - mTime;
+		mCnt++;
+		if (mSumTime >= 1000) {
+			std::cout << mCnt << std::endl;
+			mSumTime = 0;
+			mCnt = 0;
+		}
+		*/
+
 		mTime = GetTime();
-		
+
 		mRootActor->Update();
 
 		mSpaceDivisionTree->SearchTree();
