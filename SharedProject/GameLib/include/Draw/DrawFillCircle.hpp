@@ -5,34 +5,28 @@
 
 namespace GameLib
 {
-	class DrawFillRect : public DrawBase
+	class DrawFillCircle : public DrawBase
 	{
 		Vector2 mPosition;
 		float mScale;
-		float mRotation;
 
-		float mWidth;
-		float mHeight;
+		float mRadius;
 
 		Color mColor;
 
 	public:
-		DrawFillRect(int drawOrder = 0);
-		virtual ~DrawFillRect() = default;
+		DrawFillCircle(int drawOrder = 0);
+		virtual ~DrawFillCircle() = default;
 
 		void Draw() override final;
 
-		void Set(const Vector2& pos, float scale, float rot);
-		void SetWidthAndHeight(float w, float h);
 		void SetPosition(const Vector2& pos);
 		void SetScale(float scale);
-		void SetRotation(float rot);
+		void SetRadius(float radius);
 		void SetColor(Color&& color);
 
 		const Vector2& GetPosition() const noexcept;
 		float GetScale() const noexcept;
-		float GetRotation() const noexcept;
-		float GetWidth() const noexcept;
-		float GetHeight() const noexcept;
+		float GetRadius() const noexcept;
 	};
 }

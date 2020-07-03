@@ -1,7 +1,7 @@
 #pragma once
 #include"GameLib/include/Draw/CustomizeDrawBase.hpp"
 #include"GameLib/include/Draw/DrawFillRect.hpp"
-#include"GameLib/include/Draw/DrawFillTriangle.hpp"
+#include"GameLib/include/Draw/DrawFillCircle.hpp"
 #include<vector>
 
 namespace Game
@@ -18,15 +18,15 @@ namespace Game
 		void Draw() override;
 
 		void SetRadius(float r) noexcept{
-			mRadius = r;
+			mCircle.SetRadius(r);
 		}
 		float GetRadius() const noexcept {
-			return mRadius;
+			return mCircle.GetRadius();
 		}
 
 	private:
 		float mRadius;
-		std::vector<GameLib::DrawFillTriangle> mTriangles;
 		GameLib::DrawFillRect mRect;
+		GameLib::DrawFillCircle mCircle;
 	};
 }
