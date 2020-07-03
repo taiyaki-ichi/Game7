@@ -6,6 +6,7 @@ namespace Game
 	Tohoho::Tohoho()
 		:CustomizeDrawBase(100)
 		, mRadius{100.f}
+		, mRect{100}
 	{
 		using namespace GameLib;
 
@@ -15,12 +16,10 @@ namespace Game
 			mTriangles.emplace_back(std::move(t));
 		}
 
-		mRect1 = DrawFillTriangle{ Vector2{-800.f,600.f},Vector2{800.f,-600.f},Vector2{800.f,600.f} };
-		mRect1.SetDrawOrder(100);
-		mRect1.SetIsAutoDrawing(false);
-		mRect2 = DrawFillTriangle{ Vector2{800.f,-600.f},Vector2{-800.f,600.f},Vector2{-800.f,-600.f} };
-		mRect2.SetDrawOrder(100);
-		mRect2.SetIsAutoDrawing(false);
+		mRect.Set(Vector2{ 0.f,0.f }, 1.f, 0.f);
+		mRect.SetWidthAndHeight(800.f, 600.f);
+		mRect.SetIsAutoDrawing(false);
+
 	}
 	void Tohoho::Draw()
 	{
@@ -46,10 +45,10 @@ namespace Game
 		for (int i = 0; i < TRIANGLE_NUM; i++)
 			mTriangles[i].Draw();
 
-
+		mRect.SetPosition(Viewport::GetPos());
+		mRect.SetScale(1.f/Viewport::GetScale());
 
 		SetUpStanderdDraw();
-		mRect1.Draw();
-		mRect2.Draw();
+		mRect.Draw();
 	}
 }

@@ -72,6 +72,7 @@ namespace Game
 			Collider::SwitchAllColliderDraw();
 		}
 
+		
 		if (InputState::GetState(Key::T) == ButtonState::Held) {
 			float r = mTohoho.GetRadius()-5.f;
 			if (r < 0.f)
@@ -81,5 +82,6 @@ namespace Game
 		if (InputState::GetState(Key::Y) == ButtonState::Held) {
 			mTohoho.SetRadius(mTohoho.GetRadius() + 5.f);
 		}
+		
 	}
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include"GameLib/include/Draw/CustomizeDrawBase.hpp"
+#include"GameLib/include/Draw/DrawFillRect.hpp"
 #include"GameLib/include/Draw/DrawFillTriangle.hpp"
 #include<vector>
 
@@ -26,7 +27,6 @@ namespace Game
 	private:
 		float mRadius;
 		std::vector<GameLib::DrawFillTriangle> mTriangles;
-		GameLib::DrawFillTriangle mRect1;
-		GameLib::DrawFillTriangle mRect2;
+		GameLib::DrawFillRect mRect;
 	};
 }

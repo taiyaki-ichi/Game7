@@ -179,7 +179,7 @@ namespace GameLib
 
 	};
 
-	//テクスチャ用
+	//テクスチャとか用
 	struct TEXTURE_VERTEX
 	{
 		float x, y, z, rhw;
@@ -193,6 +193,24 @@ namespace GameLib
 
 	};
 
+	void GetRectPoints(float points[4][2],float centerX, float centerY, float width, float heiht, float scale, float rot)
+	{
+		float halfWidth = width * scale / 2.f;
+		float halfHeigth = heiht * scale / 2.f;
+
+		float point[4][2] = {
+			{ -halfWidth, -halfHeigth},
+			{ halfWidth, -halfHeigth},
+			{ halfWidth, halfHeigth},
+			{ -halfWidth, halfHeigth}
+		};
+
+		for (int i = 0; i < 4; i++) {
+			points[i][0] = point[i][0] * std::cos(-rot) - point[i][1] * std::sin(-rot) + centerX;
+			points[i][1] = point[i][0] * std::sin(-rot) + point[i][1] * std::cos(-rot) + centerY;
+		}
+
+	}
 
 	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float scale, float rot, int alpha, int flip)
 	{
@@ -200,21 +218,8 @@ namespace GameLib
 		{
 			auto color = D3DCOLOR_ARGB(alpha, 255, 255, 255);
 
-			float halfWidth = texture->GetWidth() * scale / 2.f;
-			float halfHeigth = texture->GetHeight() * scale / 2.f;
-
-			float point[4][2] = {
-				{ -halfWidth, -halfHeigth},
-				{ halfWidth, -halfHeigth},
-				{ halfWidth, halfHeigth},
-				{ -halfWidth, halfHeigth}
-			};
-
 			float rotAndMovePoint[4][2];
-			for (int i = 0; i < 4; i++) {
-				rotAndMovePoint[i][0] = point[i][0] * std::cos(-rot) - point[i][1] * std::sin(-rot) + posX;
-				rotAndMovePoint[i][1] = point[i][0] * std::sin(-rot) + point[i][1] * std::cos(-rot) + posY;
-			}
+			GetRectPoints(rotAndMovePoint, posX, posY, texture->GetWidth(), texture->GetHeight(), scale, rot);
 
 			bool h = flip == 1 || flip == 3;
 			bool v = flip == 2 || flip == 3;
@@ -261,6 +266,21 @@ namespace GameLib
 		g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
 		g_D3DDevice->SetTexture(0, nullptr);
 		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLELIST, 1, p, sizeof(SIMPLE_VERTEX));
+	}
+
+	void GraphycsDrawFillRect(float centerX, float centerY, float width, float heiht, float scale, float rot, int r, int g, int b, int alpha)
+	{
+		float points[4][2];
+		GetRectPoints(points, centerX, centerY, width, heiht, scale, rot);
+
+		auto color = D3DCOLOR_ARGB(alpha, r, g, b);
+		SIMPLE_VERTEX p[4];
+		for (int i = 0; i < 4; i++)
+			p[i] = SIMPLE_VERTEX{ points[i][0],points[i][1],0.f,1,color };
+
+		g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
+		g_D3DDevice->SetTexture(0, nullptr);
+		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, p, sizeof(SIMPLE_VERTEX));
 	}
 
 	void ClearStencilBuffer(DWORD num)
