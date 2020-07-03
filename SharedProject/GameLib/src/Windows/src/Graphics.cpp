@@ -284,21 +284,24 @@ namespace GameLib
 		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, p, sizeof(SIMPLE_VERTEX));
 	}
 
-	void GraphycsDrawFillCircle(float centerX, float centerY, float radius, int r, int g, int b, int alpha)
+	void GraphycsDrawCircle(float centerX, float centerY, float radius, int r, int g, int b, int alpha, bool isFill)
 	{
 		auto color = D3DCOLOR_ARGB(alpha, r, g, b);
 
 		const int pointNum = 50;
 		SIMPLE_VERTEX p[pointNum];
 
-		p[0] = SIMPLE_VERTEX{ radius * std::cos(-3.1415f * 2.f / pointNum) + centerX, radius * std::sin(-3.1415f * 2.f / pointNum) + centerY,0.f,1,color };
-		for (int i = 1; i < 50; i++)
+		
+		//p[0] = SIMPLE_VERTEX{ radius * std::cos(-3.1415f * 2.f / pointNum) + centerX, radius * std::sin(-3.1415f * 2.f / pointNum) + centerY,0.f,1,color };
+		for (int i = 0; i < pointNum-1; i++)
 			p[i] = SIMPLE_VERTEX{ radius * std::cos(3.1415f * 2.f / pointNum * i) + centerX, radius * std::sin(3.1415f * 2.f / pointNum * i) + centerY,0.f,1,color };
-
-
+		p[pointNum - 1] = SIMPLE_VERTEX{ radius + centerX,centerY,0.f,1,color };
 		g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
 		g_D3DDevice->SetTexture(0, nullptr);
-		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, pointNum - 2, p, sizeof(SIMPLE_VERTEX));
+		if (isFill)
+			g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, pointNum - 2, p, sizeof(SIMPLE_VERTEX));
+		else
+			g_D3DDevice->DrawPrimitiveUP(D3DPT_LINESTRIP, pointNum - 1, p, sizeof(SIMPLE_VERTEX));
 		
 	}
 

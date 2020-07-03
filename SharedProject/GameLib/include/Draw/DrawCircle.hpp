@@ -5,7 +5,7 @@
 
 namespace GameLib
 {
-	class DrawFillCircle : public DrawBase
+	class DrawCircle : public DrawBase
 	{
 		Vector2 mPosition;
 		float mScale;
@@ -14,9 +14,11 @@ namespace GameLib
 
 		Color mColor;
 
+		bool mIsFill;
+
 	public:
-		DrawFillCircle(int drawOrder = 0);
-		virtual ~DrawFillCircle() = default;
+		DrawCircle(int drawOrder = 0);
+		virtual ~DrawCircle() = default;
 
 		void Draw() override final;
 
@@ -24,6 +26,7 @@ namespace GameLib
 		void SetScale(float scale);
 		void SetRadius(float radius);
 		void SetColor(Color&& color);
+		void SetIsFill(bool isFill);
 
 		const Vector2& GetPosition() const noexcept;
 		float GetScale() const noexcept;

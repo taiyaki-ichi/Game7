@@ -42,7 +42,7 @@ namespace GameLib
 	void GraphicsDrawFillTriangle(float aX, float aY, float bX, float bY, float cX, float cY, int r, int g, int b, int alpha = 255);
 	void GraphycsDrawFillRect(float centerX, float centerY, float width, float heiht, float scale, float rot, int r, int g, int b, int alpha = 255);
 
-	void GraphycsDrawFillCircle(float centerX, float centerY, float radius, int r, int g, int b, int alpha = 255);
+	void GraphycsDrawCircle(float centerX, float centerY, float radius, int r, int g, int b, int alpha, bool isFill);
 
 	//ステンシルバッファの初期化,numで初期化、基本的には１かな
 	void ClearStencilBuffer(DWORD num);

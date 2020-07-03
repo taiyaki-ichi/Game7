@@ -1,7 +1,7 @@
 #pragma once
 #include"GameLib/include/Draw/CustomizeDrawBase.hpp"
 #include"GameLib/include/Draw/DrawFillRect.hpp"
-#include"GameLib/include/Draw/DrawFillCircle.hpp"
+#include"GameLib/include/Draw/DrawCircle.hpp"
 #include<vector>
 
 namespace Game
@@ -27,6 +27,6 @@ namespace Game
 	private:
 		float mRadius;
 		GameLib::DrawFillRect mRect;
-		GameLib::DrawFillCircle mCircle;
+		GameLib::DrawCircle mCircle;
 	};
 }
