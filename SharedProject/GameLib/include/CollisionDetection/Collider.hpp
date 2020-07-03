@@ -9,6 +9,8 @@
 #include"GameLib/include/Math/Vector2Func.hpp"
 #include"GameLib/include/Math/Numbers.hpp"
 
+#include"GameLib/include/Draw/DrawRect.hpp"
+
 namespace GameLib
 {
 	class Actor;
@@ -26,99 +28,40 @@ namespace GameLib
 		std::string mNameTag;
 
 		std::unordered_map<std::string, std::function<void(const Collider&)>> mHitFunctions;
-		
-		DrawLine mLine1;
-		DrawLine mLine2;
-		DrawLine mLine3;
-		DrawLine mLine4;
-		
-		void CalcLinesPoint() {
-			auto vecs = GetRectangleVectors(mPosition, mWidth * mScale, mHeigth * mScale, mRotation);
-			mLine1.SetPoints(vecs[0], vecs[1]);
-			mLine2.SetPoints(vecs[1], vecs[2]);
-			mLine3.SetPoints(vecs[2], vecs[3]);
-			mLine4.SetPoints(vecs[3], vecs[0]);
-		}
+
+		DrawRect mDrawRect;
+
+		void SetDrawRect();
 
 	public:
 		Collider(std::string&& nameTag = "", const Vector2& pos = { 0.f,0.f }, float width = 0.f, float heigth = 0.f
 			, float scale = 1.f, float rot = 0.f, Color&& color = { 0,0,0,0 });
 		virtual ~Collider();
 
-		//ìñÇΩÇ¡ÇΩéûÇ…åƒÇŒÇÍÇÈ
-		void AddHitFunction(std::string&& nameTag, std::function<void(const Collider&)>&& hitFunc) {
-			mHitFunctions.emplace(std::move(nameTag), std::move(hitFunc));
-		}
-		void AddHitFunction(std::string&& nameTag,const std::function<void(const Collider&)>& hitFunc) {
-			mHitFunctions.emplace(std::move(nameTag), hitFunc);
-		}
+		//ìñÇΩÇ¡ÇΩéûÇ…åƒÇŒÇÍÇÈä÷êîÇìoò^Ç∑ÇÈ
+		void AddHitFunction(std::string&& nameTag, std::function<void(const Collider&)>&& hitFunc);
+		void AddHitFunction(std::string&& nameTag, const std::function<void(const Collider&)>& hitFunc);
 
-		std::optional<std::function<void(const Collider&)>> GetHitFunction(const std::string& nameTag) {
-			
-			auto iter = mHitFunctions.find(nameTag);
-			if (iter != mHitFunctions.end())
-				return iter->second;
-			else
-				return std::nullopt;
-			
-		}
+		std::optional<std::function<void(const Collider&)>> GetHitFunction(const std::string& nameTag);
 
 		static void SwitchAllColliderDraw();
 		void SwitchDraw();
 
 		void Set(const Vector2& pos, float width, float heigth, float scale, float rot);
+		void SetPosition(const Vector2& pos);
+		void SetWidthAndHeith(float w, float h);
+		void SetRotation(float rot);
+		void SetNameTag(std::string&& nameTag);
 
-		void SetPosition(const Vector2& pos) {
-			mPosition = pos;
-			CalcLinesPoint();
-		}
+		void SetColor(Color&& color);
 
-		void SetWidthAndHeith(float w, float h) {
-			mWidth = w;
-			mHeigth = h;
-			CalcLinesPoint();
-		}
+		const std::string& GetNameTag() const noexcept;
+		float GetWidth()const noexcept;
+		float GetHeigth() const noexcept;
+		float GetScale() const noexcept;
+		const Vector2& GetPosition() const noexcept;
+		float GetRotation() const noexcept;
 
-		void SetRotation(float rot) {
-			mRotation = rot;
-			while (mRotation < 0.f)
-				mRotation += PI * 2.f;
-			while (mRotation >= PI * 2.f)
-				mRotation -= PI * 2.f;
-			CalcLinesPoint();
-		}
-
-		void SetNameTag(std::string&& nameTag) {
-			mNameTag = std::move(nameTag);
-		}
-
-		const std::string& GetNameTag() const noexcept {
-			return mNameTag;
-		}
-
-		float GetWidth()const noexcept {
-			return mWidth;
-		}
-		float GetHeigth() const noexcept {
-			return mHeigth;
-		}
-		float GetScale() const noexcept {
-			return mScale;
-		}
-		const Vector2& GetPosition() const noexcept {
-			return mPosition;
-		}
-		float GetRotation() const noexcept {
-			return mRotation;
-		}
-		
-		void SetColor(Color&& color) {
-			
-			mLine1.SetColor(color);
-			mLine2.SetColor(color);
-			mLine3.SetColor(color);
-			mLine4.SetColor(color);
-		}
 		
 	};
 }

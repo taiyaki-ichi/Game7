@@ -26,7 +26,7 @@ namespace Game
 
 	private:
 		float mRadius;
-		GameLib::DrawRect mRect;
+		GameLib::DrawRect mDrawRect;
 		GameLib::DrawCircle mCircle;
 	};
 }

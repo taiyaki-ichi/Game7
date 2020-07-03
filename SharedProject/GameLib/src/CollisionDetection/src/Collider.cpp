@@ -6,7 +6,11 @@
 
 namespace GameLib
 {
-
+	void Collider::SetDrawRect()
+	{
+		mDrawRect.Set(mPosition, mScale, mRotation);
+		mDrawRect.SetWidthAndHeight(mWidth, mHeigth);
+	}
 	Collider::Collider(std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot,Color&& color )
 		: mNameTag(std::move(nameTag))
 		, mPosition(pos)
@@ -14,19 +18,11 @@ namespace GameLib
 		, mHeigth(heigth)
 		, mScale(scale)
 		, mRotation(rot)
-		, mLine1()
-		, mLine2()
-		, mLine3()
-		, mLine4()
+		, mDrawRect{ COLLIDER_DRAWORDER }
 
 	{
-		CalcLinesPoint();
-
-		mLine1.SetDrawOrder(COLLIDER_DRAWORDER);
-		mLine2.SetDrawOrder(COLLIDER_DRAWORDER);
-		mLine3.SetDrawOrder(COLLIDER_DRAWORDER);
-		mLine4.SetDrawOrder(COLLIDER_DRAWORDER);
-
+		SetDrawRect();
+		mDrawRect.SetIsFill(false);
 		SetColor(std::move(color));
 
 		ColliderManager::Add(this);
@@ -37,6 +33,27 @@ namespace GameLib
 		ColliderManager::Remove(this);
 	}
 
+	void Collider::AddHitFunction(std::string&& nameTag, std::function<void(const Collider&)>&& hitFunc)
+	{
+		mHitFunctions.emplace(std::move(nameTag), std::move(hitFunc));
+	}
+
+	void Collider::AddHitFunction(std::string&& nameTag, const std::function<void(const Collider&)>& hitFunc)
+	{
+		mHitFunctions.emplace(std::move(nameTag), hitFunc);
+	}
+
+	std::optional<std::function<void(const Collider&)>> Collider::GetHitFunction(const std::string& nameTag)
+	{
+
+		auto iter = mHitFunctions.find(nameTag);
+		if (iter != mHitFunctions.end())
+			return iter->second;
+		else
+			return std::nullopt;
+
+	}
+
 	void Collider::SwitchAllColliderDraw()
 	{
 		ColliderManager::SwitchAllColliderDraw();
@@ -44,11 +61,8 @@ namespace GameLib
 
 	void Collider::SwitchDraw()
 	{
-		bool b = mLine1.GetIsAutoDrawing();
-		mLine1.SetIsAutoDrawing(!b);
-		mLine2.SetIsAutoDrawing(!b);
-		mLine3.SetIsAutoDrawing(!b);
-		mLine4.SetIsAutoDrawing(!b);
+		bool a = mDrawRect.GetIsAutoDrawing();
+		mDrawRect.SetIsAutoDrawing(!a);
 	}
 
 	void Collider::Set(const Vector2& pos, float width, float heigth, float scale, float rot)
@@ -59,10 +73,58 @@ namespace GameLib
 		mScale = scale;
 		mRotation = rot;
 
-		auto vecs = GetRectangleVectors(mPosition, mWidth * mScale, mHeigth * mScale, mRotation);
-		mLine1.SetPoints(vecs[0], vecs[1]);
-		mLine2.SetPoints(vecs[1], vecs[2]);
-		mLine3.SetPoints(vecs[2], vecs[3]);
-		mLine4.SetPoints(vecs[3], vecs[0]);
+		SetDrawRect();
+	}
+	void Collider::SetPosition(const Vector2& pos)
+	{
+		mPosition = pos;
+		SetDrawRect();
+	}
+	void Collider::SetWidthAndHeith(float w, float h)
+	{
+		mWidth = w;
+		mHeigth = h;
+		SetDrawRect();
+	}
+	void Collider::SetRotation(float rot)
+	{
+		mRotation = rot;
+		while (mRotation < 0.f)
+			mRotation += PI * 2.f;
+		while (mRotation >= PI * 2.f)
+			mRotation -= PI * 2.f;
+		SetDrawRect();
+	}
+	void Collider::SetNameTag(std::string&& nameTag)
+	{
+		mNameTag = std::move(nameTag);
+	}
+	void Collider::SetColor(Color&& color)
+	{
+		mDrawRect.SetColor(std::move(color));
+	}
+	const std::string& Collider::GetNameTag() const noexcept
+	{
+		return mNameTag;
+	}
+	float Collider::GetWidth() const noexcept
+	{
+		return mWidth;
+	}
+	float Collider::GetHeigth() const noexcept
+	{
+		return mHeigth;
+	}
+	float Collider::GetScale() const noexcept
+	{
+		return mScale;
+	}
+	const Vector2& Collider::GetPosition() const noexcept
+	{
+		return mPosition;
+	}
+	float Collider::GetRotation() const noexcept
+	{
+		return mRotation;
 	}
 }

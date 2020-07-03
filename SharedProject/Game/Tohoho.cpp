@@ -6,14 +6,14 @@ namespace Game
 	Tohoho::Tohoho()
 		:CustomizeDrawBase(100)
 		, mRadius{100.f}
-		, mRect{100}
+		, mDrawRect{100}
 		, mCircle{100}
 	{
 		using namespace GameLib;
 
-		mRect.Set(Vector2{ 0.f,0.f }, 1.f, 0.f);
-		mRect.SetWidthAndHeight(800.f, 600.f);
-		mRect.SetIsAutoDrawing(false);
+		mDrawRect.Set(Vector2{ 0.f,0.f }, 1.f, 0.f);
+		mDrawRect.SetWidthAndHeight(800.f, 600.f);
+		mDrawRect.SetIsAutoDrawing(false);
 
 		mCircle.SetRadius(100.f);
 		mCircle.SetPosition(Vector2{ 0.f,0.f });
@@ -31,10 +31,10 @@ namespace Game
 		mCircle.SetPosition(Viewport::GetPos());
 		mCircle.Draw();
 
-		mRect.SetPosition(Viewport::GetPos());
-		mRect.SetScale(1.f/Viewport::GetScale());
+		mDrawRect.SetPosition(Viewport::GetPos());
+		mDrawRect.SetScale(1.f/Viewport::GetScale());
 
 		SetUpStanderdDraw();
-		mRect.Draw();
+		mDrawRect.Draw();
 	}
 }

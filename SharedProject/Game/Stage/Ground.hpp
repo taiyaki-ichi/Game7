@@ -9,7 +9,7 @@ namespace Game::Stage
 	class Ground : public GameLib::Actor
 	{
 		GameLib::Collider mCollider;
-		GameLib::DrawRect mRect;
+		GameLib::DrawRect mDrawRect;
 
 		GameLib::Vector2 mPosition;
 		float mWidth;
@@ -22,13 +22,13 @@ namespace Game::Stage
 			, mWidth(width)
 			, mHeigth(heigth)
 			, mCollider("Ground")
-			, mRect{}
+			, mDrawRect{}
 		{
 			mCollider.Set(mPosition, mWidth, mHeigth, 1.f, 0.f);
 
-			mRect.Set(mPosition, 1.f, 0.f);
-			mRect.SetWidthAndHeight(mWidth, mHeigth);
-			mRect.SetColor({ 50,50,50,255 });
+			mDrawRect.Set(mPosition, 1.f, 0.f);
+			mDrawRect.SetWidthAndHeight(mWidth, mHeigth);
+			mDrawRect.SetColor({ 50,50,50,255 });
 		}
 	};
 }
