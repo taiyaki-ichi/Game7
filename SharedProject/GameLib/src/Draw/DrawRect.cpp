@@ -1,4 +1,4 @@
-#include"GameLib/include/Draw/DrawFillRect.hpp"
+#include"GameLib/include/Draw/DrawRect.hpp"
 #include"GameLib/src/Windows/Graphics.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"GameLib/include/Math/Vector2Func.hpp"
@@ -6,7 +6,7 @@
 
 namespace GameLib
 {
-	DrawFillRect::DrawFillRect(int drawOrder)
+	DrawRect::DrawRect(int drawOrder)
 		:DrawBase{ drawOrder }
 		, mPosition{ 0.f,0.f }
 		, mScale{ 1.f }
@@ -14,62 +14,67 @@ namespace GameLib
 		, mWidth{ 0.f }
 		, mHeight{0.f}
 		, mColor{ 0,0,0,255 }
+		, mIsFill{true}
 	{
 	}
-	void DrawFillRect::Draw()
+	void DrawRect::Draw()
 	{
 		float wHalf = GetWindowWidth() / 2.f;
 		float hHalf = GetWindowHeigth() / 2.f;
 		float viewRot = Viewport::GetRotation();
 		float viewSca = Viewport::GetScale();
 		Vector2 affinedPos = Affine(mPosition, Viewport::GetPos(), -viewRot, viewSca);
-		GraphycsDrawFillRect(affinedPos.x + wHalf, -affinedPos.y + hHalf, mWidth, mHeight, mScale * viewSca, mRotation - viewRot,
-			mColor.R, mColor.G, mColor.B, mColor.A);
+		GraphycsDrawRect(affinedPos.x + wHalf, -affinedPos.y + hHalf, mWidth, mHeight, mScale * viewSca, mRotation - viewRot,
+			mColor.R, mColor.G, mColor.B, mColor.A, mIsFill);
 	}
-	void DrawFillRect::Set(const Vector2& pos, float scale, float rot)
+	void DrawRect::Set(const Vector2& pos, float scale, float rot)
 	{
 		mPosition = pos;
 		mScale = scale;
 		mRotation = rot;
 	}
-	void DrawFillRect::SetWidthAndHeight(float w, float h)
+	void DrawRect::SetWidthAndHeight(float w, float h)
 	{
 		mWidth = w;
 		mHeight = h;
 	}
-	void DrawFillRect::SetPosition(const Vector2& pos)
+	void DrawRect::SetPosition(const Vector2& pos)
 	{
 		mPosition = pos;
 	}
-	void DrawFillRect::SetScale(float scale)
+	void DrawRect::SetScale(float scale)
 	{
 		mScale = scale;
 	}
-	void DrawFillRect::SetRotation(float rot)
+	void DrawRect::SetRotation(float rot)
 	{
 		mRotation = rot;
 	}
-	void DrawFillRect::SetColor(Color&& color)
+	void DrawRect::SetColor(Color&& color)
 	{
 		mColor = std::move(color);
 	}
-	const Vector2& DrawFillRect::GetPosition() const noexcept
+	void DrawRect::SetIsFill(bool isFill)
+	{
+		mIsFill = isFill;
+	}
+	const Vector2& DrawRect::GetPosition() const noexcept
 	{
 		return mPosition;
 	}
-	float DrawFillRect::GetScale() const noexcept
+	float DrawRect::GetScale() const noexcept
 	{
 		return mScale;
 	}
-	float DrawFillRect::GetRotation() const noexcept
+	float DrawRect::GetRotation() const noexcept
 	{
 		return mRotation;
 	}
-	float DrawFillRect::GetWidth() const noexcept
+	float DrawRect::GetWidth() const noexcept
 	{
 		return mWidth;
 	}
-	float DrawFillRect::GetHeight() const noexcept
+	float DrawRect::GetHeight() const noexcept
 	{
 		return mHeight;
 	}

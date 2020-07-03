@@ -269,19 +269,24 @@ namespace GameLib
 		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLELIST, 1, p, sizeof(SIMPLE_VERTEX));
 	}
 
-	void GraphycsDrawFillRect(float centerX, float centerY, float width, float heiht, float scale, float rot, int r, int g, int b, int alpha)
+	void GraphycsDrawRect(float centerX, float centerY, float width, float heiht, float scale, float rot, int r, int g, int b, int alpha,bool isFill)
 	{
 		float points[4][2];
 		GetRectPoints(points, centerX, centerY, width, heiht, scale, rot);
 
 		auto color = D3DCOLOR_ARGB(alpha, r, g, b);
-		SIMPLE_VERTEX p[4];
+		SIMPLE_VERTEX p[5];
 		for (int i = 0; i < 4; i++)
 			p[i] = SIMPLE_VERTEX{ points[i][0],points[i][1],0.f,1,color };
+		p[4] = p[0];
 
 		g_D3DDevice->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
 		g_D3DDevice->SetTexture(0, nullptr);
-		g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, p, sizeof(SIMPLE_VERTEX));
+
+		if (isFill)
+			g_D3DDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, p, sizeof(SIMPLE_VERTEX));
+		else
+			g_D3DDevice->DrawPrimitiveUP(D3DPT_LINESTRIP, 4, p, sizeof(SIMPLE_VERTEX));
 	}
 
 	void GraphycsDrawCircle(float centerX, float centerY, float radius, int r, int g, int b, int alpha, bool isFill)

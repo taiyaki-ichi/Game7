@@ -40,7 +40,7 @@ namespace GameLib
 	void GraphicsDrawLine(float aX, float aY, float bX, float bY, int r, int g, int b, int alpha = 255);
 
 	void GraphicsDrawFillTriangle(float aX, float aY, float bX, float bY, float cX, float cY, int r, int g, int b, int alpha = 255);
-	void GraphycsDrawFillRect(float centerX, float centerY, float width, float heiht, float scale, float rot, int r, int g, int b, int alpha = 255);
+	void GraphycsDrawRect(float centerX, float centerY, float width, float heiht, float scale, float rot, int r, int g, int b, int alpha, bool isFill);
 
 	void GraphycsDrawCircle(float centerX, float centerY, float radius, int r, int g, int b, int alpha, bool isFill);
 

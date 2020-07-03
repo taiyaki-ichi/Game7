@@ -2,14 +2,14 @@
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"GameLib/include/Math/Vector2Func.hpp"
-#include"GameLib/include/Draw/DrawFillRect.hpp"
+#include"GameLib/include/Draw/DrawRect.hpp"
 
 namespace Game::Stage
 {
 	class Ground : public GameLib::Actor
 	{
 		GameLib::Collider mCollider;
-		GameLib::DrawFillRect mRect;
+		GameLib::DrawRect mRect;
 
 		GameLib::Vector2 mPosition;
 		float mWidth;

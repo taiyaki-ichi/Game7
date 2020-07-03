@@ -5,7 +5,7 @@
 
 namespace GameLib
 {
-	class DrawFillRect : public DrawBase
+	class DrawRect : public DrawBase
 	{
 		Vector2 mPosition;
 		float mScale;
@@ -16,9 +16,11 @@ namespace GameLib
 
 		Color mColor;
 
+		bool mIsFill;
+
 	public:
-		DrawFillRect(int drawOrder = 0);
-		virtual ~DrawFillRect() = default;
+		DrawRect(int drawOrder = 0);
+		virtual ~DrawRect() = default;
 
 		void Draw() override final;
 
@@ -28,6 +30,7 @@ namespace GameLib
 		void SetScale(float scale);
 		void SetRotation(float rot);
 		void SetColor(Color&& color);
+		void SetIsFill(bool isFill);
 
 		const Vector2& GetPosition() const noexcept;
 		float GetScale() const noexcept;

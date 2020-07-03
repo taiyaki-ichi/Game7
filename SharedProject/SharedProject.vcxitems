@@ -25,7 +25,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawCircle.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawFillRect.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawRect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawFillTriangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawLine.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawTexture.cpp" />
@@ -61,7 +61,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawAnimation.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawCircle.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawFillRect.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawRect.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawFillTriangle.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawLine.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawTexture.hpp" />
