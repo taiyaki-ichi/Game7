@@ -2,10 +2,18 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Console\Display.cpp" />
+    <ClCompile Include="Console\ConsoleMessage.cpp" />
+    <ClCompile Include="EditingActor\Info\Vector2Info.cpp" />
+    <ClCompile Include="EditingActor\Info\FloatInfo.cpp" />
+    <ClCompile Include="EditingActor\EditingActorBase.cpp" />
+    <ClCompile Include="EditingActor\Info\InfoBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
-    <ClInclude Include="Console\Display.hpp" />
+    <ClInclude Include="Console\ConsoleMessage.hpp" />
+    <ClInclude Include="EditingActor\EditingActorBase.hpp" />
+    <ClInclude Include="EditingActor\Info\InfoBase.hpp" />
+    <ClInclude Include="EditingActor\Info\Vector2Info.hpp" />
+    <ClInclude Include="EditingActor\Info\FloatInfo.hpp" />
   </ItemGroup>
 </Project>

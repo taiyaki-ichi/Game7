@@ -73,12 +73,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(SolutionDir)/;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(SolutionDir)/;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,11 +146,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Console\Display.hpp" />
+    <ClInclude Include="Console\ConsoleMessage.hpp" />
+    <ClInclude Include="EditingActor\EditingActorBase.hpp" />
+    <ClInclude Include="EditingActor\Info\FloatInfo.hpp" />
+    <ClInclude Include="EditingActor\Info\InfoBase.hpp" />
+    <ClInclude Include="EditingActor\Info\Vector2Info.hpp" />
     <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Console\Display.cpp" />
+    <ClCompile Include="Console\ConsoleMessage.cpp" />
+    <ClCompile Include="EditingActor\EditingActorBase.cpp" />
+    <ClCompile Include="EditingActor\Info\FloatInfo.cpp" />
+    <ClCompile Include="EditingActor\Info\InfoBase.cpp" />
+    <ClCompile Include="EditingActor\Info\Vector2Info.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

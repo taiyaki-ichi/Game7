@@ -1,6 +1,6 @@
 #pragma once
 #include"GameLib/include/Actor/RootActor.hpp"
-#include"Console/Display.hpp"
+#include"Console/ConsoleMessage.hpp"
 #include"GameLib/include/Draw/DrawCircle.hpp"
 
 namespace StageEditor
@@ -14,7 +14,7 @@ namespace StageEditor
 			, mCircle{0}
 
 		{
-			new Display{ this };
+			new ConsoleMessage{ this };
 			mCircle.SetRadius(200.f);
 		}
 		virtual ~StartActor() = default;
