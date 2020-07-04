@@ -1,10 +1,10 @@
 #include"StartActor.hpp"
-#include"Stage/Ground.hpp"
-#include"Stage/Character/Player.hpp"
+#include"Game/Stage/Ground.hpp"
+#include"Game/Stage/Character/Player.hpp"
 #include"Game/Stage/Character/Enemy/Toge.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
-#include"Stage/GravityManager.hpp"
+#include"Game/Stage/GravityManager.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Game/Stage/Character/Enemy/Triple.hpp"
 
@@ -45,7 +45,7 @@ namespace Game
 			Viewport::SetScale(Viewport::GetScale() + 0.05f);
 
 		if (InputState::GetState(Key::I) == ButtonState::Held) {
-			auto pos=Viewport::GetPos();
+			auto pos = Viewport::GetPos();
 			pos.y += 5.f;
 			Viewport::SetPos(pos);
 		}
@@ -72,9 +72,9 @@ namespace Game
 			Collider::SwitchAllColliderDraw();
 		}
 
-		
+
 		if (InputState::GetState(Key::T) == ButtonState::Held) {
-			float r = mTohoho.GetRadius()-5.f;
+			float r = mTohoho.GetRadius() - 5.f;
 			if (r < 0.f)
 				r = 0.f;
 			mTohoho.SetRadius(r);
@@ -82,6 +82,6 @@ namespace Game
 		if (InputState::GetState(Key::Y) == ButtonState::Held) {
 			mTohoho.SetRadius(mTohoho.GetRadius() + 5.f);
 		}
-		
+
 	}
 }

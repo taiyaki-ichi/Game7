@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f555ffee-b5e6-49b6-a9c9-e4d1f25e1bfc}</ProjectGuid>
-    <RootNamespace>Game</RootNamespace>
+    <ProjectGuid>{8a840fc4-7073-4777-b5d9-5cebb4cfaac6}</ProjectGuid>
+    <RootNamespace>StageEditor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -146,11 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="StartActor.cpp" />
+    <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StartActor.hpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

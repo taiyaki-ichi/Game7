@@ -45,7 +45,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Game\StartActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Tohoho.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -105,7 +104,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Game\StartActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Tohoho.hpp" />
   </ItemGroup>
   <ItemGroup>

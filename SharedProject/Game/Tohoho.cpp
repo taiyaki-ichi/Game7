@@ -12,7 +12,7 @@ namespace Game
 		using namespace GameLib;
 
 		mDrawRect.Set(Vector2{ 0.f,0.f }, 1.f, 0.f);
-		mDrawRect.SetWidthAndHeight(800.f, 600.f);
+		mDrawRect.SetWidthAndHeight(800.f, 800.f);
 		mDrawRect.SetIsAutoDrawing(false);
 
 		mCircle.SetRadius(100.f);
@@ -33,6 +33,7 @@ namespace Game
 
 		mDrawRect.SetPosition(Viewport::GetPos());
 		mDrawRect.SetScale(1.f/Viewport::GetScale());
+		mDrawRect.SetRotation(Viewport::GetRotation());
 
 		SetUpStanderdDraw();
 		mDrawRect.Draw();
