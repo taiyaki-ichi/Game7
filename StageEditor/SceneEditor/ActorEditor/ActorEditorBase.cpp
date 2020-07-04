@@ -4,6 +4,10 @@
 
 namespace StageEditor
 {
+	const std::vector<PosInfo*>& ActorEditorBase::GetPosInfos()
+	{
+		return mPosInfos;
+	}
 	ActorEditorBase::ActorEditorBase(SceneEditor* owner, std::string&& nameTag, int posInfoNum)
 		:GameLib::Actor{ owner }
 		, mActorName{ std::move(nameTag) }

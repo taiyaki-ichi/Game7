@@ -30,5 +30,8 @@ namespace StageEditor
 
 		void Active();
 		void Pause();
+
+		//Œ»İActor‚ğ•ÒW’†‚©‚Ç‚¤‚©
+		bool IsNowEditingActor();
 	};
 }

@@ -11,17 +11,19 @@ namespace StageEditor
 	public:
 		StartActor()
 			:GameLib::RootActor{}
-			, mDeltaRadius{1.f}
-			, mCircle{0}
+			//, mDeltaRadius{1.f}
+			//, mCircle{0}
 
 		{
 			new ConsoleMessage{ this };
-			mCircle.SetRadius(200.f);
+			//mCircle.SetRadius(200.f);
 			new StageEditor(this);
 		}
 		virtual ~StartActor() = default;
 
 		void CustomizeUpdate() override {
+			
+			/*
 			float r = mCircle.GetRadius();
 			r += mDeltaRadius;
 			if (r > 300.f) {
@@ -33,11 +35,13 @@ namespace StageEditor
 				mDeltaRadius *= -1.f;
 			}
 			mCircle.SetRadius(r);
+			*/
+			
 		}
 
 	private:
-		float mDeltaRadius;
-		GameLib::DrawCircle mCircle;
+		//float mDeltaRadius;
+		//GameLib::DrawCircle mCircle;
 
 	};
 }

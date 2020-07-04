@@ -19,6 +19,9 @@ namespace StageEditor
 		std::vector<PosInfo*> mPosInfos;
 		int mPosInfoNum;
 
+	protected:
+		const std::vector<PosInfo*>& GetPosInfos();
+
 	public:
 		//posNumÇÕÇPà»è„
 		ActorEditorBase(SceneEditor* owner, std::string&& nameTag, int posInfoNum);

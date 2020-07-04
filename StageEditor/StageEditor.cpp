@@ -43,7 +43,7 @@ namespace StageEditor
 	void StageEditor::ChangeScene(const std::string& sceneName)
 	{
 		auto i = mScenes.find(sceneName);
-		if (i != mScenes.end()) {
+		if (i != mScenes.end() && !mNowEditingScene->IsNowEditingActor()) {
 			mNowEditingScene->Pause();
 			mNowEditingScene = i->second;
 			mNowEditingScene->Active();
