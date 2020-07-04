@@ -146,9 +146,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Console\Display.hpp" />
     <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Console\Display.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
