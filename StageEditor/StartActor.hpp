@@ -2,6 +2,7 @@
 #include"GameLib/include/Actor/RootActor.hpp"
 #include"Console/ConsoleMessage.hpp"
 #include"GameLib/include/Draw/DrawCircle.hpp"
+#include"StageEditor.hpp"
 
 namespace StageEditor
 {
@@ -16,6 +17,7 @@ namespace StageEditor
 		{
 			new ConsoleMessage{ this };
 			mCircle.SetRadius(200.f);
+			new StageEditor(this);
 		}
 		virtual ~StartActor() = default;
 

@@ -33,6 +33,9 @@ namespace GameLib
 
 		void SetDrawRect();
 
+		//ìñÇΩÇËîªíËÇçsÇ¢Ç©Ç«Ç§Ç©
+		bool mDoCollisionDetection;
+
 	public:
 		Collider(std::string&& nameTag = "", const Vector2& pos = { 0.f,0.f }, float width = 0.f, float heigth = 0.f
 			, float scale = 1.f, float rot = 0.f, Color&& color = { 0,0,0,0 });
@@ -52,6 +55,7 @@ namespace GameLib
 		void SetWidthAndHeith(float w, float h);
 		void SetRotation(float rot);
 		void SetNameTag(std::string&& nameTag);
+		void SetDoCollisionDetection(bool a);
 
 		void SetColor(Color&& color);
 
@@ -61,7 +65,11 @@ namespace GameLib
 		float GetScale() const noexcept;
 		const Vector2& GetPosition() const noexcept;
 		float GetRotation() const noexcept;
+		bool GetDoCollisionDetection();
 
+
+		void Active();
+		void Pause();
 		
 	};
 }

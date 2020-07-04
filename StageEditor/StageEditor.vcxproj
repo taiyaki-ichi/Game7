@@ -147,19 +147,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Console\ConsoleMessage.hpp" />
-    <ClInclude Include="EditingActor\EditingActorBase.hpp" />
-    <ClInclude Include="EditingActor\Info\FloatInfo.hpp" />
-    <ClInclude Include="EditingActor\Info\InfoBase.hpp" />
-    <ClInclude Include="EditingActor\Info\Vector2Info.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfo.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.hpp" />
+    <ClInclude Include="SceneEditor\SceneEditor.hpp" />
+    <ClInclude Include="StageEditor.hpp" />
+    <ClInclude Include="StageInfo.hpp" />
     <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Console\ConsoleMessage.cpp" />
-    <ClCompile Include="EditingActor\EditingActorBase.cpp" />
-    <ClCompile Include="EditingActor\Info\FloatInfo.cpp" />
-    <ClCompile Include="EditingActor\Info\InfoBase.cpp" />
-    <ClCompile Include="EditingActor\Info\Vector2Info.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\PosInfo\PosInfo.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.cpp" />
+    <ClCompile Include="SceneEditor\SceneEditor.cpp" />
+    <ClCompile Include="StageEditor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

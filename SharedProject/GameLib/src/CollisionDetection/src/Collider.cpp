@@ -99,6 +99,10 @@ namespace GameLib
 	{
 		mNameTag = std::move(nameTag);
 	}
+	void Collider::SetDoCollisionDetection(bool a)
+	{
+		mDoCollisionDetection = a;
+	}
 	void Collider::SetColor(Color&& color)
 	{
 		mDrawRect.SetColor(std::move(color));
@@ -126,5 +130,19 @@ namespace GameLib
 	float Collider::GetRotation() const noexcept
 	{
 		return mRotation;
+	}
+	bool Collider::GetDoCollisionDetection()
+	{
+		return mDoCollisionDetection;
+	}
+	void Collider::Active()
+	{
+		mDoCollisionDetection = true;
+		mDrawRect.SetIsAutoDrawing(true);
+	}
+	void Collider::Pause()
+	{
+		mDoCollisionDetection = false;
+		mDrawRect.SetIsAutoDrawing(false);
 	}
 }
