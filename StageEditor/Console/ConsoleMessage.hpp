@@ -10,7 +10,7 @@ namespace StageEditor
 	class ConsoleMessage : public GameLib::Actor
 	{
 		static std::vector<std::string> mStrings;
-
+		int mReadCnt;
 	public:
 		ConsoleMessage(GameLib::Actor* owner);
 		virtual ~ConsoleMessage() = default;

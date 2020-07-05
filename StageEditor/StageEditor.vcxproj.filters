@@ -9,6 +9,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
+    <ClCompile Include="Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -20,5 +21,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfo.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
+    <ClInclude Include="Camera.hpp" />
   </ItemGroup>
 </Project>

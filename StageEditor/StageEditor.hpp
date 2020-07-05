@@ -5,6 +5,7 @@
 namespace StageEditor
 {
 	class SceneEditor;
+	class Camera;
 
 	class StageEditor : public GameLib::Actor
 	{
@@ -13,6 +14,8 @@ namespace StageEditor
 		
 		SceneEditor* mNowEditingScene;
 		std::unordered_map<std::string, SceneEditor*> mScenes;
+
+		Camera* mCamera;
 
 		void AddScene(const std::string& sceneName);
 		void DeleteScene(const std::string& sceneName);

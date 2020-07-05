@@ -68,6 +68,8 @@ namespace GameLib
 		Comma = 0x33,
 		Period = 0x34,
 
+		Slash = 0x35,
+
 	};
 
 	enum class MouseButton

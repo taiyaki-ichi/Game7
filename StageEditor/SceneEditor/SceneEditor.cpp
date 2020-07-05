@@ -16,15 +16,16 @@ namespace StageEditor
 	void SceneEditor::CustomizeUpdate()
 	{
 
-		if (mNowEditingActor == nullptr && GameLib::InputState::GetState(GameLib::Key::Enter) == GameLib::ButtonState::Pressed)
+		if (mNowEditingActor == nullptr)
 		{
 			auto strings = ConsoleMessage::GetStrings();
 
-			if (strings.size() == 2 && strings[0] == "create") {
-				if (strings[1] == "Ground")
+			if (strings.size() == 1) {
+				if (strings[0] == "Ground")
 					mNowEditingActor = new GroundEditor(this);
 			}
 		}
+
 
 		if (mNowEditingActor && mNowEditingActor->IsOk())
 			mNowEditingActor = nullptr;
