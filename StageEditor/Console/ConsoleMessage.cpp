@@ -71,7 +71,8 @@ namespace StageEditor
 
 			mReadCnt = -1;
 
-			std::system("cls");
+			if (mStrings.size() > 0)
+				std::system("cls");
 		}
 
 

@@ -9,7 +9,9 @@
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Utility\Camera.cpp" />
+    <ClCompile Include="Utility\ClickManager.cpp" />
+    <ClCompile Include="Utility\Cursor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -21,6 +23,9 @@
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfo.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
-    <ClInclude Include="Camera.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
+    <ClInclude Include="Utility\Camera.hpp" />
+    <ClInclude Include="Utility\ClickManager.hpp" />
+    <ClInclude Include="Utility\Cursor.hpp" />
   </ItemGroup>
 </Project>

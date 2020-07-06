@@ -2,7 +2,9 @@
 #include"SceneEditor/SceneEditor.hpp"
 #include"Console/ConsoleMessage.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
-#include"Camera.hpp"
+#include"Utility/Camera.hpp"
+#include"Utility/ClickManager.hpp"
+#include"Utility/Cursor.hpp"
 
 namespace StageEditor
 {
@@ -15,6 +17,8 @@ namespace StageEditor
 	{
 		PrintStageInfo();
 		mCamera = new Camera(this);
+		new Cursor(this);
+		new ClickManager(this);
 	}
 
 	void StageEditor::AddScene(const std::string& sceneName)

@@ -1,6 +1,9 @@
 #include"ActorEditorBase.hpp"
 #include"PosInfo/PosInfo.hpp"
 #include"StageEditor/SceneEditor/SceneEditor.hpp"
+#include"StageEditor/Utility/ClickManager.hpp"
+
+#include<iostream>
 
 namespace StageEditor
 {
@@ -13,9 +16,20 @@ namespace StageEditor
 		, mActorName{ std::move(nameTag) }
 		, mPosInfos{}
 		, mPosInfoNum{ posInfoNum }
+		, mDefaultCollider{}
 	{
 		owner->AddActorEditor(this);
 		mPosInfos.emplace_back(new PosInfo(this));
+
+		mDefaultCollider.SetColor({ 0,255,0,255 });
+
+		auto deleteFunc = [this](const GameLib::Collider c) {
+			if (ClickManager::DoubleClicked())
+				SetState(Actor::State::Dead);
+		};
+		
+		mDefaultCollider.AddHitFunction("Cursor", std::move(deleteFunc));
+		mDefaultCollider.Active();
 	}
 
 	ActorEditorBase::~ActorEditorBase()

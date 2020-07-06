@@ -7,10 +7,8 @@ namespace StageEditor
 {
 	GroundEditor::GroundEditor(SceneEditor* owner)
 		:ActorEditorBase{ owner,std::string{"Ground"},2 }
-		, mCollider{}
 		, mRect{}
 	{
-		mCollider.SetColor({ 0,255,0,255 });
 		mRect.SetColor({ 50,50,50,255 });
 	}
 
@@ -21,7 +19,7 @@ namespace StageEditor
 			auto center = GetCenter(pos[0], pos[1]);
 			float w = GetWidth(pos[0], pos[1]);
 			float h = GetHeight(pos[0], pos[1]);
-			mCollider.Set(center, w, h, 1.f, 0.f);
+			mDefaultCollider.Set(center, w, h, 1.f, 0.f);
 			mRect.Set(center, 1.f, 0.f);
 			mRect.SetWidthAndHeight(w, h);
 		}
@@ -29,13 +27,13 @@ namespace StageEditor
 
 	void GroundEditor::Active()
 	{
-		mCollider.Active();
+		mDefaultCollider.Active();
 		mRect.SetIsAutoDrawing(true);
 	}
 
 	void GroundEditor::Pause()
 	{
-		mCollider.Pause();
+		mDefaultCollider.Pause();
 		mRect.SetIsAutoDrawing(false);
 	}
 

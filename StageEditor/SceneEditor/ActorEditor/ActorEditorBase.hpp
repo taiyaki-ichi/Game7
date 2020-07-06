@@ -1,5 +1,6 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
+#include"GameLib/include/CollisionDetection/Collider.hpp"
 #include<unordered_map>
 
 namespace StageEditor
@@ -21,6 +22,9 @@ namespace StageEditor
 
 	protected:
 		const std::vector<PosInfo*>& GetPosInfos();
+
+		//íœ‚·‚é‚Æ‚«‚Æ‚©‚Ég‚¤
+		GameLib::Collider mDefaultCollider;
 
 	public:
 		//posNum‚Í‚PˆÈã

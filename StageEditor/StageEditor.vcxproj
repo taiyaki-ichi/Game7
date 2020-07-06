@@ -146,19 +146,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.hpp" />
     <ClInclude Include="Console\ConsoleMessage.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfo.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.hpp" />
     <ClInclude Include="SceneEditor\SceneEditor.hpp" />
     <ClInclude Include="StageEditor.hpp" />
     <ClInclude Include="StageInfo.hpp" />
     <ClInclude Include="StartActor.hpp" />
+    <ClInclude Include="Utility\Camera.hpp" />
+    <ClInclude Include="Utility\ClickManager.hpp" />
+    <ClInclude Include="Utility\Cursor.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Console\ConsoleMessage.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
@@ -167,6 +169,9 @@
     <ClCompile Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="StageEditor.cpp" />
+    <ClCompile Include="Utility\Camera.cpp" />
+    <ClCompile Include="Utility\ClickManager.cpp" />
+    <ClCompile Include="Utility\Cursor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

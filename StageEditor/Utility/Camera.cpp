@@ -5,7 +5,7 @@
 namespace StageEditor
 {
 	Camera::Camera(GameLib::Actor* owner)
-		:GameLib::Actor{owner}
+		:GameLib::Actor{ owner }
 	{
 	}
 	void Camera::CustomizeUpdate()

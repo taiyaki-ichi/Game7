@@ -7,7 +7,6 @@ namespace StageEditor
 {
 	class GroundEditor : public ActorEditorBase
 	{
-		GameLib::Collider mCollider;
 		GameLib::DrawRect mRect;
 
 	public:
