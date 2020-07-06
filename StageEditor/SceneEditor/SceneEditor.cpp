@@ -3,6 +3,7 @@
 #include"GameLib/include/InputState/InputState.hpp"
 #include"StageEditor/Console/ConsoleMessage.hpp"
 #include"ActorEditor/GroundEditor.hpp"
+#include"ActorEditor/PlayerEditor.hpp"
 
 namespace StageEditor
 {
@@ -23,6 +24,8 @@ namespace StageEditor
 			if (strings.size() == 1) {
 				if (strings[0] == "Ground")
 					mNowEditingActor = new GroundEditor(this);
+				if (strings[0] == "Player")
+					mNowEditingActor = new PlayerEditor(this);
 			}
 		}
 
@@ -44,11 +47,12 @@ namespace StageEditor
 			mActorEditors.erase(i);
 	}
 
-	std::vector<ActorData> SceneEditor::GetActorDataObject()
+	ActorData SceneEditor::GetData()
 	{
-		std::vector<ActorData> actorDatas;
-		for (int i = 0; i < mActorEditors.size(); i++)
-			actorDatas.emplace_back(mActorEditors[i]->GetDateObject());
+		ActorData actorDatas;
+		for (auto iter = mActorEditors.begin(); iter != mActorEditors.end(); iter++)
+			actorDatas.emplace((*iter)->GetActorName(), (*iter)->GetData());
+
 		return actorDatas;
 	}
 	void SceneEditor::Active()

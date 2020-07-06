@@ -37,8 +37,19 @@ namespace StageEditor
 		mRect.SetIsAutoDrawing(false);
 	}
 
-	ActorData GroundEditor::GetDateObject()
+	std::unordered_map<std::string, float> GroundEditor::GetData()
 	{
-		return ActorData();
+		std::unordered_map<std::string, float> tmp;
+		auto posInfos = GetPosInfos();
+		auto pos=GetCenter(posInfos[0], posInfos[1]);
+		tmp.emplace("PosX", pos.x);
+		tmp.emplace("PosY", pos.y);
+
+		tmp.emplace("Width", GetWidth(posInfos[0], posInfos[1]));
+		tmp.emplace("Height", GetHeight(posInfos[0], posInfos[1]));
+
+		return tmp;
 	}
+
+
 }

@@ -51,12 +51,18 @@ namespace StageEditor
 		return mPosInfoNum >= mPosInfos.size();
 	}
 
-	ActorData ActorEditorBase::GetDateObject()
+	std::unordered_map<std::string, float> ActorEditorBase::GetData()
 	{
 		std::unordered_map<std::string, float> data = {
 			{"PosX",mPosInfos[0]->GetPosition().x},
 			{"PosY",mPosInfos[0]->GetPosition().y}
 		};
-		return { mActorName,data };
+		return data;
 	}
+
+	const std::string& ActorEditorBase::GetActorName() const noexcept
+	{
+		return mActorName;
+	}
+
 }

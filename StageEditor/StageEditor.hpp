@@ -1,6 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include<unordered_map>
+#include"SceneEditor/SceneEditor.hpp"
 
 namespace StageEditor
 {

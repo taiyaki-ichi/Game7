@@ -1,11 +1,13 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include<unordered_map>
+#include"ActorEditor/ActorEditorBase.hpp"
 
 namespace StageEditor
 {
 	class ActorEditorBase;
-	struct ActorData;
+
+	using ActorData = std::unordered_map<std::string, Datas>;
 
 	class SceneEditor : public GameLib::Actor
 	{
@@ -26,7 +28,7 @@ namespace StageEditor
 		void AddActorEditor(ActorEditorBase* actor);
 		void RemoveActorEditor(ActorEditorBase* actor);
 
-		std::vector<ActorData> GetActorDataObject();
+		ActorData GetData();
 
 		void Active();
 		void Pause();

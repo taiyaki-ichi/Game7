@@ -8,10 +8,7 @@ namespace StageEditor
 	class PosInfo;
 	class SceneEditor;
 
-	struct ActorData {
-		std::string mActorName;
-		std::unordered_map<std::string, float> mDatas;
-	};
+	using Datas = std::unordered_map<std::string, float>;
 
 	class ActorEditorBase : public GameLib::Actor
 	{
@@ -44,6 +41,8 @@ namespace StageEditor
 		virtual void Active() = 0;
 
 		//json‚É‘‚«‚Ş‚æ‚¤
-		virtual ActorData GetDateObject();
+		virtual Datas GetData();
+
+		const std::string& GetActorName() const noexcept;
 	};
 }

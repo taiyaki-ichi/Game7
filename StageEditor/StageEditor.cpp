@@ -5,6 +5,7 @@
 #include"Utility/Camera.hpp"
 #include"Utility/ClickManager.hpp"
 #include"Utility/Cursor.hpp"
+#include"FileFunc.hpp"
 
 namespace StageEditor
 {
@@ -98,6 +99,14 @@ namespace StageEditor
 
 		if (strings.size() > 0)
 			PrintStageInfo();
+
+		if (GameLib::InputState::GetState(GameLib::Key::RightShift) == GameLib::ButtonState::Pressed) {
+			std::unordered_map<std::string, ActorData> tmp{};
+			for (auto iter = mScenes.begin(); iter != mScenes.end(); iter++)
+				tmp.emplace(iter->first, iter->second->GetData());
+			SaveStageData(mStageName, std::move(tmp), "test.json");
+		}
+			
 
 	}
 }

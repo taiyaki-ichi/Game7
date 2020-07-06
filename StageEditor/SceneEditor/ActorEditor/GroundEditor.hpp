@@ -18,6 +18,6 @@ namespace StageEditor
 		void Active();
 		void Pause();
 
-		virtual ActorData GetDateObject() override;
+		virtual std::unordered_map<std::string,float> GetData() override;
 	};
 }

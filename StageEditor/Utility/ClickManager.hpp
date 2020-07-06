@@ -8,7 +8,7 @@ namespace StageEditor
 	{
 		//フレーム数いないに2回クリックされたらDoubleClickとして認識
 		//しっかりクリック!!!!
-		constexpr static int DOUBLE_CLICK_TIME = 40;
+		constexpr static int DOUBLE_CLICK_TIME = 60;
 		static int mCnt;
 
 		static bool mClickedFlag;
