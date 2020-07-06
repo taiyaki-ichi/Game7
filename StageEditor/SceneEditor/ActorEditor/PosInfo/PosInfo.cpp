@@ -19,7 +19,7 @@ namespace StageEditor
 		if (!mIsOK)
 		{
 			//•ÏŠ·‚³‚ê‚Ä‚¢‚é•ª‚ð–ß‚·
-			mPosition = Affine(InputState::GetMousePos(), -Viewport::GetPos(), 0.f, 1.f);
+			mPosition = AffineInv(InputState::GetMousePos(), Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
 			if (GameLib::InputState::GetState(GameLib::MouseButton::Middle) == GameLib::ButtonState::Pressed)
 				mIsOK = true;
 		}

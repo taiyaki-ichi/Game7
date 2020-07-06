@@ -12,6 +12,16 @@ namespace StageEditor
 	{
 		using namespace GameLib;
 
+		if (InputState::GetState(Key::Period) == ButtonState::Held) {
+			float scale = Viewport::GetScale();
+			scale -= 0.05f;
+			if (scale < 0.f)
+				scale = 0.f;
+			Viewport::SetScale(scale);
+		}
+		if (InputState::GetState(Key::Slash) == ButtonState::Held)
+			Viewport::SetScale(Viewport::GetScale() + 0.05f);
+
 		if (InputState::GetState(Key::Up) == ButtonState::Held) {
 			auto pos = Viewport::GetPos();
 			pos.y += 10.f;

@@ -39,6 +39,12 @@ namespace GameLib
 		return { x,y };
 	}
 
+	inline Vector2 AffineInv(const Vector2& vec, Vector2&& unitVecX, Vector2&& unitVecY, const Vector2& origin) {
+		float x = -unitVecY.y * vec.x + unitVecY.x * vec.x - unitVecY.x * origin.y + origin.x * unitVecY.y;
+		float y = unitVecX.y * vec.y - unitVecX.x * vec.y - origin.x * unitVecX.y + unitVecX.x * origin.y;
+		float waru = unitVecY.x * unitVecX.y - unitVecX.x * unitVecY.y;
+		return { x / waru,y / waru };
+	}
 
 	//座標形の中心と倍率と角度からアフィン変換
 	inline Vector2 Affine(const Vector2& vec, const Vector2& center, float rot, float scale) {
@@ -47,6 +53,11 @@ namespace GameLib
 		return Affine(vec, std::move(unitVecX), std::move(unitVecY), -center * scale);
 	}
 
+	inline Vector2 AffineInv(const Vector2& vec, const Vector2& center, float rot, float scale) {
+		Vector2 unitVecX = Rotation({ 1.f,0.f }, rot) * scale;
+		Vector2 unitVecY = Rotation({ 0.f,1.f }, rot) * scale;
+		return AffineInv(vec, std::move(unitVecX), std::move(unitVecY), -center * scale);
+	}
 
 	//反時計回りの4っつのベクトルみたいな
 	inline std::vector<Vector2> GetCounterclockwise4Vec() {
