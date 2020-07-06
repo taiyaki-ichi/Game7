@@ -17,7 +17,5 @@ namespace StageEditor
 
 		void Active();
 		void Pause();
-
-		virtual std::unordered_map<std::string,float> GetData() override;
 	};
 }

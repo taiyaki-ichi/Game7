@@ -1,14 +1,14 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
-#include<unordered_map>
+#include<vector>
 
 namespace StageEditor
 {
 	class PosInfo;
 	class SceneEditor;
 
-	using Datas = std::unordered_map<std::string, float>;
+	using Datas = std::vector<float>;
 
 	class ActorEditorBase : public GameLib::Actor
 	{
@@ -41,7 +41,7 @@ namespace StageEditor
 		virtual void Active() = 0;
 
 		//jsonÇ…èëÇ´çûÇﬁÇÊÇ§
-		virtual Datas GetData();
+		Datas GetData();
 
 		const std::string& GetActorName() const noexcept;
 	};

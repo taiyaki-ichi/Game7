@@ -13,10 +13,10 @@ namespace StageEditor
 			for (auto& actorData : iter->second)
 			{
 				picojson::object dataActor;
-				for (auto& posInfo : actorData.second)
-				{
-					dataActor.insert(std::make_pair(posInfo.first, static_cast<double>(posInfo.second)));
+				for (int i = 0; i < actorData.second.size(); i++) {
+					dataActor.insert(std::make_pair(std::to_string(i), static_cast<double>(actorData.second[i])));
 				}
+
 				dataActor.insert(std::make_pair("ActorName", actorData.first));
 				actorsData.push_back(picojson::value(dataActor));
 			}

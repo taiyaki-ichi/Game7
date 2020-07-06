@@ -1,28 +1,7 @@
 [
   {
-    "ActorsData": [
-      {
-        "ActorName": "Ground",
-        "Height": 235,
-        "PosX": 26.5,
-        "PosY": -101.5,
-        "Width": 491
-      },
-      {
-        "ActorName": "Player",
-        "PosX": -16,
-        "PosY": 92
-      }
-    ],
+    "ActorsData": [],
     "SceneName": "a"
-  },
-  {
-    "ActorsData": [],
-    "SceneName": "b"
-  },
-  {
-    "ActorsData": [],
-    "SceneName": "c"
   }
 ]
 
