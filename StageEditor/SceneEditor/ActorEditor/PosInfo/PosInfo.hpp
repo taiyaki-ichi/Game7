@@ -14,6 +14,7 @@ namespace StageEditor
 
 	public:
 		PosInfo(GameLib::Actor* owner);
+		PosInfo(GameLib::Actor* owner, GameLib::Vector2&& vec);
 		virtual ~PosInfo() = default;
 
 		void CustomizeUpdate() override;

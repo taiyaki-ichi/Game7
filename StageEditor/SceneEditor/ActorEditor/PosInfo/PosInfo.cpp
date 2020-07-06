@@ -12,6 +12,12 @@ namespace StageEditor
 	{
 		
 	}
+	PosInfo::PosInfo(GameLib::Actor* owner, GameLib::Vector2&& vec)
+		:GameLib::Actor{owner}
+		, mPosition{std::move(vec)}
+		, mIsOK{true}
+	{
+	}
 	void PosInfo::CustomizeUpdate()
 	{
 		using namespace GameLib;

@@ -66,4 +66,18 @@ namespace StageEditor
 		return mActorName;
 	}
 
+	void ActorEditorBase::SetData(std::vector<float>&& data)
+	{
+		if (data.size() / 2 == mPosInfoNum) {
+			mPosInfos.clear();
+			for (int i = 0; i < mPosInfoNum; i++) {
+				GameLib::Vector2 vec{ data[i * 2],data[i * 2 + 1] };
+				auto posInfo = new PosInfo(this, std::move(vec));
+				mPosInfos.emplace_back(posInfo);
+			}
+		}
+		else
+			SetState(GameLib::Actor::State::Dead);
+	}
+
 }

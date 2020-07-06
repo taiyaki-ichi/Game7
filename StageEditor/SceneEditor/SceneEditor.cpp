@@ -2,8 +2,7 @@
 #include"ActorEditor/ActorEditorBase.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"StageEditor/Console/ConsoleMessage.hpp"
-#include"ActorEditor/GroundEditor.hpp"
-#include"ActorEditor/PlayerEditor.hpp"
+#include"CreateActorEditor.hpp"
 
 namespace StageEditor
 {
@@ -22,10 +21,7 @@ namespace StageEditor
 			auto strings = ConsoleMessage::GetStrings();
 
 			if (strings.size() == 1) {
-				if (strings[0] == "Ground")
-					mNowEditingActor = new GroundEditor(this);
-				if (strings[0] == "Player")
-					mNowEditingActor = new PlayerEditor(this);
+				mNowEditingActor = CreateActorEditor(this, strings[0]);
 			}
 		}
 

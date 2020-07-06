@@ -14,6 +14,7 @@
     <ClCompile Include="Utility\Cursor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
     <ClCompile Include="FileFunc.cpp" />
+    <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -30,5 +31,6 @@
     <ClInclude Include="Utility\ClickManager.hpp" />
     <ClInclude Include="Utility\Cursor.hpp" />
     <ClInclude Include="FileFunc.hpp" />
+    <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
   </ItemGroup>
 </Project>
