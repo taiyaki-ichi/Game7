@@ -1,6 +1,8 @@
 #include"PosInfo.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
-
+#include"GameLib/include/Math/Vector2Func.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
+#include<iostream>
 namespace StageEditor
 {
 	PosInfo::PosInfo(GameLib::Actor* owner)
@@ -12,9 +14,12 @@ namespace StageEditor
 	}
 	void PosInfo::CustomizeUpdate()
 	{
+		using namespace GameLib;
+
 		if (!mIsOK)
 		{
-			mPosition = GameLib::InputState::GetMousePos();
+			//•ÏŠ·‚³‚ê‚Ä‚¢‚é•ª‚ð–ß‚·
+			mPosition = Affine(InputState::GetMousePos(), -Viewport::GetPos(), 0.f, 1.f);
 			if (GameLib::InputState::GetState(GameLib::MouseButton::Middle) == GameLib::ButtonState::Pressed)
 				mIsOK = true;
 		}

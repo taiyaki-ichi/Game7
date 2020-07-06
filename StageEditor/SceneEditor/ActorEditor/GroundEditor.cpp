@@ -1,6 +1,7 @@
 #include"GroundEditor.hpp"
 #include"PosInfo/PosInfo.hpp"
 #include"PosInfo/PosInfoUtility.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
 
 namespace StageEditor
 {

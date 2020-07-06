@@ -72,6 +72,13 @@ namespace GameLib
 			return *this;
 		}
 
+		Vector2& operator/=(float sca)
+		{
+			x -= sca;
+			y -= sca;
+			return *this;
+		}
+
 		//ƒxƒNƒgƒ‹‚Ì’·‚³‚Ì“ñæ
 		float LengthSq() const
 		{

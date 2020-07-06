@@ -39,11 +39,12 @@ namespace GameLib
 		return { x,y };
 	}
 
+
 	//座標形の中心と倍率と角度からアフィン変換
 	inline Vector2 Affine(const Vector2& vec, const Vector2& center, float rot, float scale) {
 		Vector2 unitVecX = Rotation({ 1.f,0.f }, rot) * scale;
 		Vector2 unitVecY = Rotation({ 0.f,1.f }, rot) * scale;
-		return Affine(vec, std::move(unitVecX), std::move(unitVecY), -center*scale);
+		return Affine(vec, std::move(unitVecX), std::move(unitVecY), -center * scale);
 	}
 
 

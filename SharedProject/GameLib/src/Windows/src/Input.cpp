@@ -1,5 +1,6 @@
 #include"../Input.hpp"
 #include"WindowClassName.hpp"
+#include"GameLib/src/Windows/Window.hpp"
 #include<Windows.h>
 
 #pragma comment(lib, "dinput8.lib")
