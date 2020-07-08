@@ -5,6 +5,7 @@
 #include"StageEditor.hpp"
 #include"Game/Stage/Stage.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
 
 namespace StageEditor
 {
@@ -29,11 +30,19 @@ namespace StageEditor
 					mStageEditor->SetState(GameLib::Actor::State::Dead);
 					mStageEditor = nullptr;
 					mStage = new Game::Stage::Stage{ this,"test.json" };
+
+					GameLib::Viewport::SetPos(GameLib::Vector2{ 0.f,0.f });
+					GameLib::Viewport::SetScale(1.f);
+					GameLib::Viewport::SetRotation(0.f);
 				}
 				else {
 					mStage->SetState(GameLib::Actor::State::Dead);
 					mStage = nullptr;
 					mStageEditor = new StageEditor{ this };
+
+					GameLib::Viewport::SetPos(GameLib::Vector2{ 0.f,0.f });
+					GameLib::Viewport::SetScale(1.f);
+					GameLib::Viewport::SetRotation(0.f);
 				}
 			}
 			

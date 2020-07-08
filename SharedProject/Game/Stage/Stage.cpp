@@ -5,14 +5,17 @@
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Player.hpp"
 #include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
+#include"Gravity.hpp"
 
 namespace Game::Stage
 {
 	Stage::Stage(GameLib::Actor* owner,std::string&& fileName)
 		:GameLib::Actor{owner}
 		, mStageScenes{}
+		, mPlayer{nullptr}
 	{
 		CreateStage(this, std::move(fileName));
+		new Gravity{ this };
 	}
 	void Stage::CustomizeUpdate()
 	{

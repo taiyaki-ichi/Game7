@@ -64,9 +64,9 @@ namespace Game::Stage
 				size = -vec.x;
 			}
 		}
-		int d = static_cast<int>(dir) - static_cast<int>(mSize);
-		if (d < 0)
-			d += 4;
+		int d = static_cast<int>(dir) + static_cast<int>(mDir4);
+		if (d > 3)
+			d -= 4;
 
 		return Dir4Vec{ static_cast<Dir4>(d),size };
 	}
@@ -119,16 +119,17 @@ namespace Game::Stage
 			model.mRotation = GetGravityRotation();
 	}
 
-	float Gravity::GetSize() noexcept
+	float Gravity::GetGravitySize() noexcept
 	{
 		return mSize;
 	}
 
-	const Dir4& Gravity::GetDir4() noexcept
+	const Dir4& Gravity::GetGravityDir4() noexcept
 	{
 		return mDir4;
 	}
 
+	/*
 	void Gravity::SetSize(float s)
 	{
 		mSize = s;
@@ -144,5 +145,6 @@ namespace Game::Stage
 		mSize = dir4Vec.mSize;
 		mDir4 = dir4Vec.mDir4;
 	}
+	*/
 
 }

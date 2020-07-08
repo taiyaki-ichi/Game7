@@ -36,11 +36,13 @@ namespace Game::Stage
 		//フレーム当たりの力の合計や重力の方向を踏まえて更新
 		static void UpdatePhysicsModel(PhysicsModel& model, const GameLib::Vector2& power, float horizonMaxSpeed = -1.f, float virticalMaxSpeed = -1.f, bool isRotaion = true);
 
-		static float GetSize() noexcept;
-		static const Dir4& GetDir4() noexcept;
-
+		
+		static float GetGravitySize() noexcept;
+		static const Dir4& GetGravityDir4() noexcept;
+		/*
 		static void SetSize(float s);
 		static void SetDir4(const Dir4& dir4);
 		static void SetDir4Vec(const Dir4Vec& dir4Vec);
+		*/
 	};
 }

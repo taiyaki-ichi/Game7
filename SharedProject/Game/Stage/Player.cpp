@@ -3,6 +3,8 @@
 #include"UtilityVectorFunction.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 
+#include<iostream>
+
 namespace Game::Stage::Player
 {
 
@@ -68,6 +70,19 @@ namespace Game::Stage::Player
 				mPhysicsModel.mVelocity.x = 0.f;
 			else if (adjust.y * mPhysicsModel.mVelocity.y < 0.f)
 				mPhysicsModel.mVelocity.y = 0.f;
+			/*
+			std::cout << "adjust: " << adjust.x << "," << adjust.y << "\n";
+			std::cout << "Dir4Vec: ";
+			if (dir4Vec.mDir4 == Dir4::Up)
+				std::cout << "up";
+			else if (dir4Vec.mDir4 == Dir4::Down)
+				std::cout << "down";
+			else if (dir4Vec.mDir4 == Dir4::Right)
+				std::cout << "right";
+			else
+				std::cout << "left";
+			std::cout << "\n";
+			*/
 
 			if (dir4Vec.mDir4 == Dir4::Up) {
 				mFlags |= ON_GROUND_FLAG;
@@ -86,7 +101,7 @@ namespace Game::Stage::Player
 
 			{
 				if (dir4Vec.mDir4 == Dir4::Up) {
-					if (Gravity::GetDir4() == Dir4::Up || Gravity::GetDir4() == Dir4::Down)
+					if (Gravity::GetGravityDir4() == Dir4::Up || Gravity::GetGravityDir4() == Dir4::Down)
 						mPhysicsModel.Friction(0.8f, 1.f);
 					else
 						mPhysicsModel.Friction(1.f, 0.8f);
@@ -119,6 +134,7 @@ namespace Game::Stage::Player
 
 	void Active::CustomizeUpdate()
 	{
+		
 		auto power = GetPowerPerFrame();
 		Gravity::UpdatePhysicsModel(mPhysicsModel, power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
 		UpdateCollider();
@@ -126,8 +142,11 @@ namespace Game::Stage::Player
 
 		mFlags &= ~ON_GROUND_FLAG;
 
+		std::cout << "jumpFlag: " << mJumpFlag << "\n";
+
 		if (mJumpFlag > 0)
 			mJumpFlag--;
+			
 
 	}
 
@@ -165,6 +184,7 @@ namespace Game::Stage::Player
 			mJumpFlag = 0;
 		}
 
+		//std::cout << "power: "<<power.x << "," << power.y << "\n";
 		return power;
 	}
 	void Active::UpdateAnimation(const GameLib::Vector2& power)
