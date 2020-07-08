@@ -1,5 +1,5 @@
 #pragma once
-#include"StageActorBase.hpp"
+#include"ActorBase.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"GameLib/include/Draw/DrawRect.hpp"
 
@@ -16,8 +16,11 @@ namespace Game::Stage
 		float mHeigth;
 
 	public:
-		Ground(Scene* scene, GameLib::Vector2&& pos, float width, float height);
+		Ground(Scene* scene, std::vector<float>&& initData);
 		virtual ~Ground() = default;
+
+		void Active() override;
+		void Pause()override;
 
 	};
 

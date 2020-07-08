@@ -1,0 +1,19 @@
+#include"CreateActor.hpp"
+#include"Actor/Ground.hpp"
+
+namespace Game::Stage
+{
+	void CreateActor(Scene* scene, std::string&& actorName, std::vector<float>&& data)
+	{
+
+
+		////////////////////////////////////////////////////////////////////////////////////////////////
+		//‚±‚±‚É’Ç‰Á‚µ‚Ä‚¢‚­
+		////////////////////////////////////////////////////////////////////////////////////////////////
+		
+
+		if (actorName == "Ground")
+			new Ground{ scene,std::move(data) };
+
+	}
+}

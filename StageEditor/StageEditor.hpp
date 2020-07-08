@@ -21,7 +21,11 @@ namespace StageEditor
 		void DeleteScene(const std::string& sceneName);
 		void ChangeScene(const std::string& sceneName);
 
+		int mPlayerNum;
+
 		void PrintStageInfo();
+
+		bool mReDrawFlag;
 
 	public:
 		StageEditor(GameLib::Actor* owner);
@@ -30,6 +34,11 @@ namespace StageEditor
 		//セーブ、ロード、Sceneの追加削除、現在編集中のシーンの変更
 		void CustomizeUpdate() override;
 
+
 		SceneEditor* AddScene(const std::string& sceneName);
+
+		void IncrementSumNum(const std::string& actorName);
+		void DecrementSumNum(const std::string& actorName);
+		void ResetSumNum();
 	};
 }

@@ -8,7 +8,7 @@ namespace Game::Stage
 	class ActorBase : public GameLib::Actor
 	{
 	public:
-		ActorBase(Scene* scene, int updateOrder = 0);
+		ActorBase(Scene* scene, std::vector<float>&& initData = {}, int updateOrder = 0);
 		virtual ~ActorBase();
 
 		//Collider‚âDrawŒn‚ÌƒIƒ“ƒIƒt

@@ -1,6 +1,6 @@
-#include"StageScene.hpp"
+#include"Scene.hpp"
 #include"Game/Stage/Stage.hpp"
-#include"Actor/StageActorBase.hpp"
+#include"Actor/ActorBase.hpp"
 
 namespace Game::Stage
 {

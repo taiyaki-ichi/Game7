@@ -2,6 +2,7 @@
 #include"PosInfo/PosInfo.hpp"
 #include"StageEditor/SceneEditor/SceneEditor.hpp"
 #include"StageEditor/Utility/ClickManager.hpp"
+#include"StageEditor/StageEditor.hpp"
 
 #include<iostream>
 
@@ -30,12 +31,18 @@ namespace StageEditor
 		
 		mDefaultCollider.AddHitFunction("Cursor", std::move(deleteFunc));
 		mDefaultCollider.Active();
+
+		auto stageEditorPtr = static_cast<StageEditor*>(mOwner->GetOwner());
+		stageEditorPtr->IncrementSumNum(mActorName);
 	}
 
 	ActorEditorBase::~ActorEditorBase()
 	{
 		auto sceneEditor = static_cast<SceneEditor*>(mOwner);
 		sceneEditor->RemoveActorEditor(this);
+
+		auto stageEditorPtr = static_cast<StageEditor*>(mOwner->GetOwner());
+		stageEditorPtr->DecrementSumNum(mActorName);
 	}
 
 	void ActorEditorBase::CustomizeUpdate()

@@ -1,5 +1,5 @@
 #include"Stage.hpp"
-#include"Scene/StageScene.hpp"
+#include"Scene/Scene.hpp"
 
 namespace Game::Stage
 {
@@ -24,8 +24,11 @@ namespace Game::Stage
 		if (i != mStageScenes.end())
 			i->second->Pause();
 	}
-	void Stage::AddScene(std::string&& sceneName, Scene* scenePtr)
+	Scene* Stage::AddScene(std::string&& sceneName)
 	{
-		mStageScenes.emplace(std::move(sceneName), scenePtr);
+		auto ptr = new Scene(this);
+		mStageScenes.emplace(std::move(sceneName), ptr);
+		ptr->Pause();
+		return ptr;
 	}
 }

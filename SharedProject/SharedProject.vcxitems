@@ -48,8 +48,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\StageActorBase.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\StageScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\ActorBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Tohoho.cpp" />
   </ItemGroup>
@@ -112,8 +113,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\StageActorBase.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\StageScene.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\ActorBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Scene.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Tohoho.hpp" />

@@ -15,6 +15,9 @@ namespace StageEditor
 		, mNowEditingScene{nullptr}
 		,mStageScenes{}
 		, mStageName{""}
+		, mPlayerNum{0}
+		, mReDrawFlag{false}
+		, mStartSceneName{"---"}
 	{
 
 		mCamera = new Camera(this);
@@ -36,6 +39,29 @@ namespace StageEditor
 		}
 
 		return ptr;
+
+	}
+
+	void StageEditor::IncrementSumNum(const std::string& actorName)
+	{
+		if (actorName == "Player")
+			mPlayerNum++;
+
+
+		mReDrawFlag = true;
+	}
+	void StageEditor::DecrementSumNum(const std::string& actorName)
+	{
+		if (actorName == "Player")
+			mPlayerNum--;
+
+		mReDrawFlag = true;
+	}
+	void StageEditor::ResetSumNum()
+	{
+		mPlayerNum = 0;
+
+		mReDrawFlag = true;
 
 	}
 	void StageEditor::DeleteScene(const std::string& sceneName)
@@ -69,6 +95,8 @@ namespace StageEditor
 	}
 	void StageEditor::PrintStageInfo()
 	{
+		std::system("cls");
+
 		std::cout << "Stage\n";
 		if (mStageName.size() == 0)
 			std::cout << " Name: --- \n";
@@ -83,7 +111,10 @@ namespace StageEditor
 				std::cout << " <-Now!!!";
 			std::cout << "\n";
 		}
-		std::cout << "\n\n";
+		std::cout << "\n";
+
+		std::cout << "PlayerNum: " << mPlayerNum << "\n";
+
 		std::cout << ">";
 	}
 
@@ -105,7 +136,7 @@ namespace StageEditor
 			mStageName = strings[2];
 			
 
-		if (strings.size() > 0)
+		if (strings.size() > 0 || mReDrawFlag)
 			PrintStageInfo();
 
 		
@@ -116,7 +147,7 @@ namespace StageEditor
 			SaveStageData(mStageName, std::move(tmp), "test.json");
 		}
 		
-			
+		mReDrawFlag = false;
 
 	}
 }

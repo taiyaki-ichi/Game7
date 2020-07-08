@@ -86,6 +86,10 @@ namespace GameLib
 		const State& GetState() const noexcept {
 			return mState;
 		}
+
+		Actor* GetOwner() const noexcept {
+			return mOwner;
+		}
 	};
 
 }

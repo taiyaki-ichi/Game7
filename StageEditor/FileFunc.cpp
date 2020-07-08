@@ -39,6 +39,8 @@ namespace StageEditor
 
 	bool LoadStageData(StageEditor* stageEditorPtr, std::string&& fileName)
 	{
+		stageEditorPtr->ResetSumNum();
+
 		// JSONデータの読み込み。
 		std::ifstream ifs(fileName, std::ios::in);
 		if (ifs.fail()) {
