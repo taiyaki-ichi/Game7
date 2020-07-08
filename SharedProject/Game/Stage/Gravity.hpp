@@ -38,7 +38,6 @@ namespace Game::Stage
 
 		static float GetSize() noexcept;
 		static const Dir4& GetDir4() noexcept;
-		static Dir4Vec GetDir4Vec();
 
 		static void SetSize(float s);
 		static void SetDir4(const Dir4& dir4);

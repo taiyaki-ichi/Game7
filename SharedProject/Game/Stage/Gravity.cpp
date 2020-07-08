@@ -129,11 +129,6 @@ namespace Game::Stage
 		return mDir4;
 	}
 
-	Dir4Vec Gravity::GetDir4Vec()
-	{
-		return { mDir4,mSize };
-	}
-
 	void Gravity::SetSize(float s)
 	{
 		mSize = s;

@@ -19,6 +19,7 @@ namespace Game::Stage
 		mHeigth = std::abs(initData[1] - initData[3]);
 
 		mCollider.Set(mPosition, mWidth, mHeigth, 1.f, 0.f);
+		mCollider.SetColor({ 0,0,0,255 });
 
 		mDrawRect.Set(mPosition, 1.f, 0.f);
 		mDrawRect.SetWidthAndHeight(mWidth, mHeigth);

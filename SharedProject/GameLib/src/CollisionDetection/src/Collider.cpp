@@ -19,6 +19,7 @@ namespace GameLib
 		, mScale(scale)
 		, mRotation(rot)
 		, mDrawRect{ COLLIDER_DRAWORDER }
+		, mDoCollisionDetection{true}
 
 	{
 		SetDrawRect();

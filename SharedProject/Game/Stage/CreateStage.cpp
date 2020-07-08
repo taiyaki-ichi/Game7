@@ -4,6 +4,7 @@
 #include"Stage.hpp"
 #include"Scene/CreateActor.hpp"
 #include"Scene/Scene.hpp"
+#include"Player.hpp"
 
 namespace Game::Stage
 {
@@ -52,10 +53,13 @@ namespace Game::Stage
 
 				std::string actorName = actorData["ActorName"].get<std::string>();
 
-				if (actorName == "Player")
+				if (actorName == "Player") {
 					startSceneFlag = true;
+					stagePtr->SetPlayer(new Player::Actor{ scenePtr,std::move(floatData) });
 
-				CreateActor(scenePtr, std::move(actorName), std::move(floatData));
+				}
+				else
+					CreateActor(scenePtr, std::move(actorName), std::move(floatData));
 
 			}
 

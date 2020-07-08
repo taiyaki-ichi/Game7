@@ -15,17 +15,17 @@
           "2": -46,
           "3": -158,
           "ActorName": "Ground"
+        },
+        {
+          "0": -82,
+          "1": 195,
+          "ActorName": "Player"
         }
       ],
       "SceneName": "a"
     },
     {
       "ActorsData": [
-        {
-          "0": 14,
-          "1": 141,
-          "ActorName": "Player"
-        },
         {
           "0": -204,
           "1": 46,

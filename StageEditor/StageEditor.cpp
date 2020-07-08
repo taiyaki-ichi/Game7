@@ -6,6 +6,8 @@
 #include"Utility/ClickManager.hpp"
 #include"Utility/Cursor.hpp"
 #include"FileFunc.hpp"
+#include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
 
 namespace StageEditor
 {
@@ -17,10 +19,10 @@ namespace StageEditor
 		, mStageName{""}
 		, mPlayerNum{0}
 		, mReDrawFlag{false}
-		, mStartSceneName{"---"}
 	{
 
 		mCamera = new Camera(this);
+		mCamera->Reset();
 		new Cursor(this);
 		new ClickManager(this);
 
@@ -120,7 +122,8 @@ namespace StageEditor
 
 	void StageEditor::CustomizeUpdate()
 	{
-		
+		GameLib::CollisionDetectionSetting::SetPos(GameLib::Viewport::GetPos());
+
 		auto strings = ConsoleMessage::GetStrings();
 
 		if (strings.size() == 3 && strings[1] == "scene") {

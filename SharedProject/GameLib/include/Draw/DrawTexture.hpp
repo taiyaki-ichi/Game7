@@ -47,5 +47,6 @@ namespace GameLib
 		void SetHorizontalFlip(bool h);
 		void SetVerticalFlip(bool v);
 
+		const Vector2& GetPosition() const noexcept;
 	};
 }

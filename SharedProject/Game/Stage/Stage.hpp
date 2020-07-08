@@ -5,14 +5,19 @@
 namespace Game::Stage
 {
 	class Scene;
+	namespace Player {
+		class Actor;
+	}
 
 	class Stage : public GameLib::Actor
 	{
 		//Stageに所属するSceneへの参照
 		std::unordered_map<std::string, Scene*> mStageScenes;
 
+		Player::Actor* mPlayer;
+
 	public:
-		Stage(GameLib::Actor* owner);
+		Stage(GameLib::Actor* owner,std::string&& fileName);
 		virtual ~Stage() = default;
 
 		void CustomizeUpdate() override;
@@ -22,5 +27,8 @@ namespace Game::Stage
 
 		//CreateStageで使用
 		Scene* AddScene(std::string&& sceneName);
+
+		//CreateStageで使用
+		void SetPlayer(Player::Actor* player);
 	};
 }

@@ -109,4 +109,9 @@ namespace GameLib
 		mVerticalFlip = v;
 	}
 
+	const Vector2& DrawTexture::GetPosition() const noexcept
+	{
+		return mPosition;
+	}
+
 }

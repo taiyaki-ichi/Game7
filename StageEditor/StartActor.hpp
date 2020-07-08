@@ -3,6 +3,8 @@
 #include"Console/ConsoleMessage.hpp"
 #include"GameLib/include/Draw/DrawCircle.hpp"
 #include"StageEditor.hpp"
+#include"Game/Stage/Stage.hpp"
+#include"GameLib/include/InputState/InputState.hpp"
 
 namespace StageEditor
 {
@@ -11,37 +13,35 @@ namespace StageEditor
 	public:
 		StartActor()
 			:GameLib::RootActor{}
-			//, mDeltaRadius{1.f}
-			//, mCircle{0}
-
+			,mStageEditor{nullptr}
+			, mStage{nullptr}
 		{
-			new StageEditor(this);
+			mStageEditor = new StageEditor{ this };
 			new ConsoleMessage{ this };
-			//mCircle.SetRadius(200.f);
+			
 		}
 		virtual ~StartActor() = default;
 
 		void CustomizeUpdate() override {
 			
-			/*
-			float r = mCircle.GetRadius();
-			r += mDeltaRadius;
-			if (r > 300.f) {
-				r = 300.f;
-				mDeltaRadius *= -1.f;
+			if (GameLib::InputState::GetState(GameLib::Key::no0) == GameLib::ButtonState::Pressed) {
+				if (mStageEditor) {
+					mStageEditor->SetState(GameLib::Actor::State::Dead);
+					mStageEditor = nullptr;
+					mStage = new Game::Stage::Stage{ this,"test.json" };
+				}
+				else {
+					mStage->SetState(GameLib::Actor::State::Dead);
+					mStage = nullptr;
+					mStageEditor = new StageEditor{ this };
+				}
 			}
-			if (r < 100.f) {
-				r = 100.f;
-				mDeltaRadius *= -1.f;
-			}
-			mCircle.SetRadius(r);
-			*/
 			
 		}
 
 	private:
-		//float mDeltaRadius;
-		//GameLib::DrawCircle mCircle;
+		StageEditor* mStageEditor;
+		Game::Stage::Stage* mStage;
 
 	};
 }
