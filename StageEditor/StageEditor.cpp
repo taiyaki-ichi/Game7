@@ -8,6 +8,7 @@
 #include"FileFunc.hpp"
 #include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
+#include"Game/Window.hpp"
 
 namespace StageEditor
 {
@@ -123,6 +124,12 @@ namespace StageEditor
 	void StageEditor::CustomizeUpdate()
 	{
 		GameLib::CollisionDetectionSetting::SetPos(GameLib::Viewport::GetPos());
+		float scale = GameLib::Viewport::GetScale();
+		GameLib::CollisionDetectionSetting::SetWidth(Game::WINDOW_WIDTH *2.f/ scale);
+		GameLib::CollisionDetectionSetting::SetHeigth(Game::WINDOW_HEIGHT*2.f / scale);
+
+		//std::cout << "w: " << GameLib::CollisionDetectionSetting::GetWidth() << "  h: " << GameLib::CollisionDetectionSetting::GetHeight() << "  ";
+		//std::cout << "pos: " << GameLib::CollisionDetectionSetting::GetPos().x << "," << GameLib::CollisionDetectionSetting::GetPos().y << "\n";
 
 		auto strings = ConsoleMessage::GetStrings();
 

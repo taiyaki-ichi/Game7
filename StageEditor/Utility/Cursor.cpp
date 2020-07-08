@@ -7,7 +7,7 @@ namespace StageEditor
 		:GameLib::Actor(owner)
 		, mCollider{"Cursor"}
 	{
-		mCollider.SetWidthAndHeith(1.f, 1.f);
+		mCollider.SetWidthAndHeith(2.f, 2.f);
 		mCollider.SetPosition(GameLib::InputState::GetMousePos());
 		mCollider.Active();
 	}

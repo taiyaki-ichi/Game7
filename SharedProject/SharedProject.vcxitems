@@ -112,6 +112,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Tohoho.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Window.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Json\picojson.hpp" />
   </ItemGroup>
   <ItemGroup>

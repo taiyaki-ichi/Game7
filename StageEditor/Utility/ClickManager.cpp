@@ -23,7 +23,7 @@ namespace StageEditor
 		mClickedFlag = false;
 		mDoubleClickedFlag = false;
 
-		if (InputState::GetState(MouseButton::Middle) == ButtonState::Pressed) {
+		if (InputState::GetState(MouseButton::Middle) == ButtonState::Released) {
 			if (mCnt < 0)
 				mCnt = DOUBLE_CLICK_TIME;
 			else if (mCnt >= 0) {
