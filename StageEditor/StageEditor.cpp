@@ -16,19 +16,27 @@ namespace StageEditor
 		,mStageScenes{}
 		, mStageName{""}
 	{
-		PrintStageInfo();
+
 		mCamera = new Camera(this);
 		new Cursor(this);
 		new ClickManager(this);
+
+		LoadStageData(this, "test.json");
+		PrintStageInfo();
+
 	}
 
-	void StageEditor::AddScene(const std::string& sceneName)
+	SceneEditor* StageEditor::AddScene(const std::string& sceneName)
 	{
-		mStageScenes.emplace(sceneName, new SceneEditor(this));
+		auto ptr = new SceneEditor(this);
+		mStageScenes.emplace(sceneName, ptr);
 		if (mNowEditingScene == nullptr) {
 			mNowEditingScene = mStageScenes.begin()->second;
 			mNowEditingScene->Active();
 		}
+
+		return ptr;
+
 	}
 	void StageEditor::DeleteScene(const std::string& sceneName)
 	{

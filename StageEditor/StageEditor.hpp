@@ -18,7 +18,6 @@ namespace StageEditor
 
 		Camera* mCamera;
 
-		void AddScene(const std::string& sceneName);
 		void DeleteScene(const std::string& sceneName);
 		void ChangeScene(const std::string& sceneName);
 
@@ -30,5 +29,7 @@ namespace StageEditor
 
 		//セーブ、ロード、Sceneの追加削除、現在編集中のシーンの変更
 		void CustomizeUpdate() override;
+
+		SceneEditor* AddScene(const std::string& sceneName);
 	};
 }

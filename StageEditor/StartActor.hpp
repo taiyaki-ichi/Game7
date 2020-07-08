@@ -15,9 +15,9 @@ namespace StageEditor
 			//, mCircle{0}
 
 		{
+			new StageEditor(this);
 			new ConsoleMessage{ this };
 			//mCircle.SetRadius(200.f);
-			new StageEditor(this);
 		}
 		virtual ~StartActor() = default;
 
