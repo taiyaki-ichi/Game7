@@ -24,4 +24,8 @@ namespace Game::Stage
 		if (i != mStageScenes.end())
 			i->second->Pause();
 	}
+	void Stage::AddScene(std::string&& sceneName, Scene* scenePtr)
+	{
+		mStageScenes.emplace(std::move(sceneName), scenePtr);
+	}
 }

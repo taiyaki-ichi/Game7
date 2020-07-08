@@ -8,7 +8,10 @@ namespace StageEditor
 	class PosInfo;
 	class SceneEditor;
 
-	using Datas = std::vector<float>;
+	struct ActorData {
+		std::string mActorName;
+		std::vector<float> mData;
+	};
 
 	class ActorEditorBase : public GameLib::Actor
 	{
@@ -41,8 +44,7 @@ namespace StageEditor
 		virtual void Active() = 0;
 
 		//json‚É‘‚«‚Ş‚æ‚¤
-		Datas GetData();
-		const std::string& GetActorName() const noexcept;
+		ActorData GetData();
 
 		//json‚©‚ç“Ç‚İ‚Ş‚Æ‚«—p
 		void SetData(std::vector<float>&& data);

@@ -19,5 +19,8 @@ namespace Game::Stage
 
 		void SceneActive(std::string& sceneName);
 		void ScenePause(std::string& sceneName);
+
+		//CreateStage‚ÅŽg—p
+		void AddScene(std::string&& sceneName, Scene* scenePtr);
 	};
 }

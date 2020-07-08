@@ -6,6 +6,6 @@
 
 namespace StageEditor
 {
-	void SaveStageData(const std::string& stageName, std::unordered_map<std::string, ActorData>&& stageData, const std::string& fileName);
+	void SaveStageData(const std::string& stageName, std::unordered_map<std::string, std::vector<ActorData>>&& stageData, const std::string& fileName);
 
 }

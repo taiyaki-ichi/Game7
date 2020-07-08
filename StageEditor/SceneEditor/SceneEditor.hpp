@@ -7,7 +7,7 @@ namespace StageEditor
 {
 	class ActorEditorBase;
 
-	using ActorData = std::unordered_map<std::string, Datas>;
+	using SceneData = std::vector<ActorData>;
 
 	class SceneEditor : public GameLib::Actor
 	{
@@ -28,7 +28,7 @@ namespace StageEditor
 		void AddActorEditor(ActorEditorBase* actor);
 		void RemoveActorEditor(ActorEditorBase* actor);
 
-		ActorData GetData();
+		SceneData GetData();
 
 		void Active();
 		void Pause();

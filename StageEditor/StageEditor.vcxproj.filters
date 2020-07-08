@@ -32,5 +32,6 @@
     <ClInclude Include="Utility\Cursor.hpp" />
     <ClInclude Include="FileFunc.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
+    <ClInclude Include="TestJson.hpp" />
   </ItemGroup>
 </Project>

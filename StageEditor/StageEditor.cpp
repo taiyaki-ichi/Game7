@@ -102,7 +102,7 @@ namespace StageEditor
 
 		
 		if (GameLib::InputState::GetState(GameLib::Key::RightShift) == GameLib::ButtonState::Pressed) {
-			std::unordered_map<std::string, ActorData> tmp{};
+			std::unordered_map<std::string, std::vector<ActorData>> tmp{};
 			for (auto iter = mStageScenes.begin(); iter != mStageScenes.end(); iter++)
 				tmp.emplace(iter->first, iter->second->GetData());
 			SaveStageData(mStageName, std::move(tmp), "test.json");

@@ -43,13 +43,13 @@ namespace StageEditor
 			mActorEditors.erase(i);
 	}
 
-	ActorData SceneEditor::GetData()
+	SceneData SceneEditor::GetData()
 	{
-		ActorData actorDatas;
+		SceneData actorData;
 		for (auto iter = mActorEditors.begin(); iter != mActorEditors.end(); iter++)
-			actorDatas.emplace((*iter)->GetActorName(), (*iter)->GetData());
+			actorData.emplace_back((*iter)->GetData());
 
-		return actorDatas;
+		return actorData;
 	}
 	void SceneEditor::Active()
 	{

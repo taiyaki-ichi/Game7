@@ -51,20 +51,16 @@ namespace StageEditor
 		return mPosInfoNum >= mPosInfos.size();
 	}
 
-	std::vector<float> ActorEditorBase::GetData()
+	ActorData ActorEditorBase::GetData()
 	{
 		std::vector<float> data{};
 		for (auto iter = mPosInfos.begin(); iter != mPosInfos.end(); iter++) {
 			data.emplace_back((*iter)->GetPosition().x);
 			data.emplace_back((*iter)->GetPosition().y);
 		}
-		return data;
+		return { mActorName,data };
 	}
 
-	const std::string& ActorEditorBase::GetActorName() const noexcept
-	{
-		return mActorName;
-	}
 
 	void ActorEditorBase::SetData(std::vector<float>&& data)
 	{

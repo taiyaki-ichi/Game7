@@ -43,9 +43,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Toge.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Triple.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\CreateStage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Gravity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\StageActorBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\StageScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.cpp" />
@@ -103,11 +105,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Toge.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Enemy\Triple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Character\Player.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\CreateStage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Gravity.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\GravityManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\StageActorBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\StageScene.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.hpp" />
