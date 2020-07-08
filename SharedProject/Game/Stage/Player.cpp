@@ -142,7 +142,7 @@ namespace Game::Stage::Player
 
 		mFlags &= ~ON_GROUND_FLAG;
 
-		std::cout << "jumpFlag: " << mJumpFlag << "\n";
+		//std::cout << "jumpFlag: " << mJumpFlag << "\n";
 
 		if (mJumpFlag > 0)
 			mJumpFlag--;

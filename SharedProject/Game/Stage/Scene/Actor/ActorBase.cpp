@@ -13,4 +13,8 @@ namespace Game::Stage
 		auto scene = static_cast<Scene*>(mOwner);
 		scene->Remove(this);
 	}
+	Scene* ActorBase::GetScene()
+	{
+		return static_cast<Scene*>(mOwner);
+	}
 }

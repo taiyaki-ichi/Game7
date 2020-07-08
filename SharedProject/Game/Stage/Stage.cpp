@@ -19,8 +19,7 @@ namespace Game::Stage
 	}
 	void Stage::CustomizeUpdate()
 	{
-		GameLib::Viewport::SetPos(mPlayer->GetPositon());
-		GameLib::CollisionDetectionSetting::SetPos(mPlayer->GetPositon());
+		GameLib::CollisionDetectionSetting::SetPos(GameLib::Viewport::GetPos());
 	}
 
 	void Stage::SceneActive(std::string& sceneName)
@@ -45,5 +44,9 @@ namespace Game::Stage
 	void Stage::SetPlayer(Player::Actor* player)
 	{
 		mPlayer = player;
+	}
+	const GameLib::Vector2& Stage::GetPlayerPos()
+	{
+		return mPlayer->GetPositon();
 	}
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
+#include"GameLib/include/Math/Vector2.hpp"
 #include<unordered_map>
 
 namespace Game::Stage
@@ -30,5 +31,7 @@ namespace Game::Stage
 
 		//CreateStage‚ÅŽg—p
 		void SetPlayer(Player::Actor* player);
+
+		const GameLib::Vector2& GetPlayerPos();
 	};
 }

@@ -1,7 +1,7 @@
 #include"CreateActorEditor.hpp"
 #include"ActorEditor/GroundEditor.hpp"
 #include"ActorEditor/PlayerEditor.hpp"
-
+#include"ActorEditor/CameraEditor.hpp"
 
 
 namespace StageEditor
@@ -16,10 +16,11 @@ namespace StageEditor
 		////////////////////////////////////////////////////////////////////
 
 		if (actorName == "Ground")
-			ptr = new GroundEditor(sceneEditor);
+			ptr = new GroundEditor{ sceneEditor };
 		if (actorName == "Player")
-			ptr = new PlayerEditor(sceneEditor);
-
+			ptr = new PlayerEditor{ sceneEditor };
+		if (actorName == "Camera")
+			ptr = new CameraEditor{ sceneEditor };
 
 
 		///////////////////////////////////////////////////////////////////

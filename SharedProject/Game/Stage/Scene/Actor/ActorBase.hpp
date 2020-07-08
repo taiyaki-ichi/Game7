@@ -14,5 +14,7 @@ namespace Game::Stage
 		//Collider‚âDrawŒn‚ÌƒIƒ“ƒIƒt
 		virtual void Active() = 0;
 		virtual void Pause() = 0;
+
+		Scene* GetScene();
 	};
 }

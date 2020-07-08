@@ -43,6 +43,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\CreateStage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Gravity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Player.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\ActorBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.cpp" />
@@ -103,6 +104,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Gravity.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Player.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Camera.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\ActorBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.hpp" />

@@ -74,8 +74,14 @@ namespace GameLib
 
 		Vector2& operator/=(float sca)
 		{
-			x -= sca;
-			y -= sca;
+			x /= sca;
+			y /= sca;
+			return *this;
+		}
+		Vector2& operator*=(float sca)
+		{
+			x *= sca;
+			y *= sca;
 			return *this;
 		}
 

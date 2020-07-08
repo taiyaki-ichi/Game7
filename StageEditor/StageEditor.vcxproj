@@ -149,6 +149,7 @@
     <ClInclude Include="Console\ConsoleMessage.hpp" />
     <ClInclude Include="FileFunc.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfo.hpp" />
@@ -159,7 +160,7 @@
     <ClInclude Include="StageInfo.hpp" />
     <ClInclude Include="StartActor.hpp" />
     <ClInclude Include="TestJson.hpp" />
-    <ClInclude Include="Utility\Camera.hpp" />
+    <ClInclude Include="Utility\EditorCamera.hpp" />
     <ClInclude Include="Utility\ClickManager.hpp" />
     <ClInclude Include="Utility\Cursor.hpp" />
   </ItemGroup>
@@ -168,6 +169,7 @@
     <ClCompile Include="FileFunc.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PosInfo\PosInfo.cpp" />
@@ -175,7 +177,7 @@
     <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="StageEditor.cpp" />
-    <ClCompile Include="Utility\Camera.cpp" />
+    <ClCompile Include="Utility\EditorCamera.cpp" />
     <ClCompile Include="Utility\ClickManager.cpp" />
     <ClCompile Include="Utility\Cursor.cpp" />
   </ItemGroup>

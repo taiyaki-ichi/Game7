@@ -37,4 +37,9 @@ namespace Game::Stage
 			mStageActors.erase(i);
 	}
 
+	Stage* Scene::GetStage()
+	{
+		return static_cast<Stage*>(mOwner);
+	}
+
 }

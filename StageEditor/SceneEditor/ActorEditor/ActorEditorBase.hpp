@@ -1,6 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
+#include"PosInfo/PosInfoUtility.hpp"
 #include<vector>
 
 namespace StageEditor

@@ -1,5 +1,7 @@
 #include"CreateActor.hpp"
 #include"Actor/Ground.hpp"
+#include"Actor/Camera.hpp"
+
 
 namespace Game::Stage
 {
@@ -14,6 +16,9 @@ namespace Game::Stage
 
 		if (actorName == "Ground")
 			new Ground{ scene,std::move(data) };
+
+		if (actorName == "Camera")
+			new Camera{ scene,std::move(data) };
 
 	}
 }

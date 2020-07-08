@@ -9,12 +9,13 @@
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
-    <ClCompile Include="Utility\Camera.cpp" />
     <ClCompile Include="Utility\ClickManager.cpp" />
     <ClCompile Include="Utility\Cursor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
     <ClCompile Include="FileFunc.cpp" />
     <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
+    <ClCompile Include="Utility\EditorCamera.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -27,11 +28,12 @@
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
-    <ClInclude Include="Utility\Camera.hpp" />
     <ClInclude Include="Utility\ClickManager.hpp" />
     <ClInclude Include="Utility\Cursor.hpp" />
     <ClInclude Include="FileFunc.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
     <ClInclude Include="TestJson.hpp" />
+    <ClInclude Include="Utility\EditorCamera.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
   </ItemGroup>
 </Project>

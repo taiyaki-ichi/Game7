@@ -21,5 +21,7 @@ namespace Game::Stage
 
 		void AddStageActor(ActorBase* actor);
 		void RemoveStageActor(ActorBase* actor);
+
+		Stage* GetStage();
 	};
 }

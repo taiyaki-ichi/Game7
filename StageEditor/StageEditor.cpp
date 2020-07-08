@@ -2,7 +2,7 @@
 #include"SceneEditor/SceneEditor.hpp"
 #include"Console/ConsoleMessage.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
-#include"Utility/Camera.hpp"
+#include"Utility/EditorCamera.hpp"
 #include"Utility/ClickManager.hpp"
 #include"Utility/Cursor.hpp"
 #include"FileFunc.hpp"
@@ -21,7 +21,7 @@ namespace StageEditor
 		, mReDrawFlag{false}
 	{
 
-		mCamera = new Camera(this);
+		mCamera = new EditorCamera(this);
 		mCamera->Reset();
 		new Cursor(this);
 		new ClickManager(this);
