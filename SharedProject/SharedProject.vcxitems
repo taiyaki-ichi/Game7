@@ -46,6 +46,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Gravity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\StageActorBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\StageScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Tohoho.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +108,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\GravityActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\StageActorBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\StageScene.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Tohoho.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Json\picojson.hpp" />

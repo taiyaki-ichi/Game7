@@ -14,7 +14,7 @@ namespace StageEditor
 		std::string mStageName;
 		
 		SceneEditor* mNowEditingScene;
-		std::unordered_map<std::string, SceneEditor*> mScenes;
+		std::unordered_map<std::string, SceneEditor*> mStageScenes;
 
 		Camera* mCamera;
 

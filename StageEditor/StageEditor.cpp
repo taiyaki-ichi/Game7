@@ -13,7 +13,7 @@ namespace StageEditor
 	StageEditor::StageEditor(GameLib::Actor* owner)
 		:GameLib::Actor{owner}
 		, mNowEditingScene{nullptr}
-		,mScenes{}
+		,mStageScenes{}
 		, mStageName{""}
 	{
 		PrintStageInfo();
@@ -24,23 +24,23 @@ namespace StageEditor
 
 	void StageEditor::AddScene(const std::string& sceneName)
 	{
-		mScenes.emplace(sceneName, new SceneEditor(this));
+		mStageScenes.emplace(sceneName, new SceneEditor(this));
 		if (mNowEditingScene == nullptr) {
-			mNowEditingScene = mScenes.begin()->second;
+			mNowEditingScene = mStageScenes.begin()->second;
 			mNowEditingScene->Active();
 		}
 	}
 	void StageEditor::DeleteScene(const std::string& sceneName)
 	{
-		auto i = mScenes.find(sceneName);
-		if (i != mScenes.end()) {
+		auto i = mStageScenes.find(sceneName);
+		if (i != mStageScenes.end()) {
 			i->second->SetState(GameLib::Actor::State::Dead);
 			auto ptr = i->second;
-			mScenes.erase(i);
+			mStageScenes.erase(i);
 
 			if (ptr == mNowEditingScene) {
-				if (mScenes.size() > 0) {
-					mNowEditingScene = mScenes.begin()->second;
+				if (mStageScenes.size() > 0) {
+					mNowEditingScene = mStageScenes.begin()->second;
 					mNowEditingScene->Active();
 					mCamera->Reset();
 				}
@@ -51,8 +51,8 @@ namespace StageEditor
 	}
 	void StageEditor::ChangeScene(const std::string& sceneName)
 	{
-		auto i = mScenes.find(sceneName);
-		if (i != mScenes.end() && !mNowEditingScene->IsNowEditingActor()) {
+		auto i = mStageScenes.find(sceneName);
+		if (i != mStageScenes.end() && !mNowEditingScene->IsNowEditingActor()) {
 			mNowEditingScene->Pause();
 			mNowEditingScene = i->second;
 			mNowEditingScene->Active();
@@ -69,7 +69,7 @@ namespace StageEditor
 
 
 		std::cout << " Scene:\n";
-		for (auto iter = mScenes.begin(); iter != mScenes.end(); iter++) {
+		for (auto iter = mStageScenes.begin(); iter != mStageScenes.end(); iter++) {
 			std::cout << "  |- " << iter->first;
 			if (iter->second == mNowEditingScene)
 				std::cout << " <-Now!!!";
@@ -103,7 +103,7 @@ namespace StageEditor
 		
 		if (GameLib::InputState::GetState(GameLib::Key::RightShift) == GameLib::ButtonState::Pressed) {
 			std::unordered_map<std::string, ActorData> tmp{};
-			for (auto iter = mScenes.begin(); iter != mScenes.end(); iter++)
+			for (auto iter = mStageScenes.begin(); iter != mStageScenes.end(); iter++)
 				tmp.emplace(iter->first, iter->second->GetData());
 			SaveStageData(mStageName, std::move(tmp), "test.json");
 		}
