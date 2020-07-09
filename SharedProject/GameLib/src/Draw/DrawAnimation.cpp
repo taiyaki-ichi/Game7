@@ -1,6 +1,7 @@
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"GameLib/include/Resource/ResourceManager.hpp"
 #include<algorithm>
+#include "..\..\include\Draw\DrawAnimation.hpp"
 
 namespace GameLib
 {
@@ -9,7 +10,7 @@ namespace GameLib
 		,mAnimationFPS(animFPS)
 		,mAnimations()
 		,mCurrentChannel(0)
-		,mCurrectFrame(0.0)
+		,mCurrentFrame(0.0)
 	{
 	}
 
@@ -25,12 +26,12 @@ namespace GameLib
 	{
 		if (0 <= mCurrentChannel && mCurrentChannel < mAnimations.size())
 		{
-			mCurrectFrame += static_cast<double>(mAnimationFPS / gameFPS);
+			mCurrentFrame += static_cast<double>(mAnimationFPS / gameFPS);
 
-			while (mCurrectFrame >= mAnimations[mCurrentChannel].size())
-				mCurrectFrame -= mAnimations[mCurrentChannel].size();
+			while (mCurrentFrame >= mAnimations[mCurrentChannel].size())
+				mCurrentFrame -= mAnimations[mCurrentChannel].size();
 			
-			SetTexture(mAnimations[mCurrentChannel][static_cast<int>(mCurrectFrame)]);
+			SetTexture(mAnimations[mCurrentChannel][static_cast<int>(mCurrentFrame)]);
 		}
 	}
 
@@ -38,7 +39,7 @@ namespace GameLib
 	{
 		if (mCurrentChannel != channel&& 0 <= channel && channel < mAnimations.size()) {
 			mCurrentChannel = channel;
-			mCurrectFrame = 0.0;
+			mCurrentFrame = 0.0;
 			SetTexture(mAnimations[mCurrentChannel][0]);
 		}
 	}
@@ -46,5 +47,9 @@ namespace GameLib
 	void DrawAnimation::SetAnimationFPS(float animFPS)
 	{
 		mAnimationFPS = animFPS;
+	}
+	int DrawAnimation::GetChannel() const noexcept
+	{
+		return mCurrentChannel;
 	}
 }

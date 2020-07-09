@@ -26,7 +26,7 @@ namespace GameLib
 		static float GetHeight() noexcept {
 			return mHeigth;
 		}
-		static void SetHeigth(float h) noexcept {
+		static void SetHeight(float h) noexcept {
 			mHeigth = h;
 		}
 		static const Vector2& GetPos() noexcept {

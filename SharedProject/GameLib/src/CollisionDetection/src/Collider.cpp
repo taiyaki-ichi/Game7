@@ -96,6 +96,11 @@ namespace GameLib
 			mRotation -= PI * 2.f;
 		SetDrawRect();
 	}
+	void Collider::SetScale(float s)
+	{
+		mScale = s;
+		SetDrawRect();
+	}
 	void Collider::SetNameTag(std::string&& nameTag)
 	{
 		mNameTag = std::move(nameTag);

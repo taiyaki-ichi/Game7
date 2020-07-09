@@ -7,13 +7,13 @@ namespace Game::Stage
 	struct PhysicsModel
 	{
 
-		GameLib::Vector2 mPosiotion;
+		GameLib::Vector2 mPosition;
 		GameLib::Vector2 mVelocity;
 		float mScale;
 		float mRotation;
 
 		PhysicsModel(GameLib::Vector2&& pos = {0.f,0.f}, GameLib::Vector2&& velocity = { 0.f,0.f }, float scale = 1.f, float rot = 0.f)
-			:mPosiotion(std::move(pos))
+			:mPosition(std::move(pos))
 			,mVelocity(std::move(velocity))
 			, mScale(scale)
 			,mRotation(rot)
@@ -29,7 +29,7 @@ namespace Game::Stage
 			if (maxSpeedY > 0.f && std::abs(mVelocity.y) > maxSpeedY)
 				mVelocity.y = (mVelocity.y < 0.f) ? -maxSpeedY : maxSpeedY;
 
-			mPosiotion += mVelocity;
+			mPosition += mVelocity;
 		}
 
 		//–€ŽC‚Ý‚½‚¢‚È

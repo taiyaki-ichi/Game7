@@ -35,5 +35,6 @@
     <ClInclude Include="TestJson.hpp" />
     <ClInclude Include="Utility\EditorCamera.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />
   </ItemGroup>
 </Project>

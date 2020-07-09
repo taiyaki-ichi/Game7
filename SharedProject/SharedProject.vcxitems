@@ -46,6 +46,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\ActorBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\State\StateManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Triple.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.cpp" />
@@ -100,7 +102,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\WindowClassName.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4Vec.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\ColliderScope.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\CollisionDetectionScope.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\CreateStage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Gravity.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
@@ -108,6 +110,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Camera.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\ActorBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\State\StateBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\State\StateManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Triple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Scene.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.hpp" />

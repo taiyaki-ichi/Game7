@@ -54,6 +54,7 @@ namespace GameLib
 		void SetPosition(const Vector2& pos);
 		void SetWidthAndHeith(float w, float h);
 		void SetRotation(float rot);
+		void SetScale(float s);
 		void SetNameTag(std::string&& nameTag);
 		void SetDoCollisionDetection(bool a);
 

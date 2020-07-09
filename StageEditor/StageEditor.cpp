@@ -126,7 +126,7 @@ namespace StageEditor
 		GameLib::CollisionDetectionSetting::SetPos(GameLib::Viewport::GetPos());
 		float scale = GameLib::Viewport::GetScale();
 		GameLib::CollisionDetectionSetting::SetWidth(Game::WINDOW_WIDTH *2.f/ scale);
-		GameLib::CollisionDetectionSetting::SetHeigth(Game::WINDOW_HEIGHT*2.f / scale);
+		GameLib::CollisionDetectionSetting::SetHeight(Game::WINDOW_HEIGHT*2.f / scale);
 
 		//std::cout << "w: " << GameLib::CollisionDetectionSetting::GetWidth() << "  h: " << GameLib::CollisionDetectionSetting::GetHeight() << "  ";
 		//std::cout << "pos: " << GameLib::CollisionDetectionSetting::GetPos().x << "," << GameLib::CollisionDetectionSetting::GetPos().y << "\n";

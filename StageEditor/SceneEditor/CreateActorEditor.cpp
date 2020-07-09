@@ -2,7 +2,7 @@
 #include"ActorEditor/GroundEditor.hpp"
 #include"ActorEditor/PlayerEditor.hpp"
 #include"ActorEditor/CameraEditor.hpp"
-
+#include"ActorEditor/TripleEditor.hpp"
 
 namespace StageEditor
 {
@@ -21,6 +21,8 @@ namespace StageEditor
 			ptr = new PlayerEditor{ sceneEditor };
 		if (actorName == "Camera")
 			ptr = new CameraEditor{ sceneEditor };
+		if (actorName == "Triple")
+			ptr = new TripleEditor{ sceneEditor };
 
 
 		///////////////////////////////////////////////////////////////////

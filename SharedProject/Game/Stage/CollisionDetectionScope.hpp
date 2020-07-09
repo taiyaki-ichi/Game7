@@ -3,7 +3,7 @@
 
 namespace Game::Stage
 {
-	namespace ColliderScope {
+	namespace CollisionDetectionScope {
 
 		//当たり判定を行う範囲をウィンドウのサイズより400.f余裕を持たす
 		//対角線の長さが400.f以下の物体なら、画面内にあるとき確実に当たり判定が行われる

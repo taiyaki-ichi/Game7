@@ -56,7 +56,7 @@ namespace Game::Stage::Player
 	{
 		using namespace GameLib;
 
-		mCollider.Set(mPhysicsModel.mPosiotion, 250.f, 500.f, 0.1f, 0.f);
+		mCollider.Set(mPhysicsModel.mPosition, 250.f, 500.f, 0.1f, 0.f);
 		mCollider.SetColor({ 255,0,0,255 });
 		UpdateCollider();
 
@@ -64,7 +64,7 @@ namespace Game::Stage::Player
 			auto adjust = GetParallelRectAdjustVec(mCollider, c);
 			auto dir4Vec = Gravity::GetDir4Vec(adjust);
 
-			mPhysicsModel.mPosiotion += adjust;
+			mPhysicsModel.mPosition += adjust;
 
 			if (adjust.x * mPhysicsModel.mVelocity.x < 0.f)
 				mPhysicsModel.mVelocity.x = 0.f;
@@ -109,7 +109,7 @@ namespace Game::Stage::Player
 			}
 
 			UpdateCollider();
-			mAnimation->SetPosition(mPhysicsModel.mPosiotion);
+			mAnimation->SetPosition(mPhysicsModel.mPosition);
 		};
 
 		auto hitEnemyWeakness = [this](const GameLib::Collider& c) {
@@ -126,15 +126,15 @@ namespace Game::Stage::Player
 		};
 
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
-		mCollider.AddHitFunction("EnemyTripleWeakness", hitEnemyWeakness);
-		mCollider.AddHitFunction("EnemyTripleStrength", hitEnemyStrength);
-		mCollider.AddHitFunction("EnemyTogeStrength", hitEnemyStrength);
+		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
+		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
+		mCollider.AddHitFunction("TogeStrength", hitEnemyStrength);
 
 	}
 
 	void Active::CustomizeUpdate()
 	{
-		
+
 		auto power = GetPowerPerFrame();
 		Gravity::UpdatePhysicsModel(mPhysicsModel, power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
 		UpdateCollider();
@@ -146,7 +146,7 @@ namespace Game::Stage::Player
 
 		if (mJumpFlag > 0)
 			mJumpFlag--;
-			
+
 
 	}
 
@@ -192,7 +192,7 @@ namespace Game::Stage::Player
 
 		mAnimation->Update();
 
-		mAnimation->SetPosition(mPhysicsModel.mPosiotion);
+		mAnimation->SetPosition(mPhysicsModel.mPosition);
 		mAnimation->SetRotation(mPhysicsModel.mRotation);
 
 		float horizonPowerDir = Gravity::GetDir4Size(power, Dir4::Right);
@@ -216,13 +216,13 @@ namespace Game::Stage::Player
 	void Active::UpdateCollider()
 	{
 		mCollider.SetRotation(mPhysicsModel.mRotation);
-		mCollider.SetPosition(mPhysicsModel.mPosiotion + Gravity::GetVector2(Dir4::Down, 12.f));
+		mCollider.SetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Down, 12.f));
 	}
 
 	Death::Death(Actor* player, const PhysicsModel& model, GameLib::DrawAnimation* anim)
 		:GameLib::Actor{player}
 		, mCnt{ 0 }
-		, mPosition{ model.mPosiotion }
+		, mPosition{ model.mPosition }
 		, mScale{ model.mScale }
 		, mRotation{ model.mRotation }
 		, mAnimation{ anim }

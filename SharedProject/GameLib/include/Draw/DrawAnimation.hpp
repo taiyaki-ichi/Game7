@@ -14,10 +14,10 @@ namespace GameLib
 
 		float mAnimationFPS;
 
-		double mCurrectFrame;
+		double mCurrentFrame;
 
 	public:
-		DrawAnimation(float animFPS, const Vector2& pos = { 0.f,0.f }, float scale = 1.f, float rot = 0.f, int drawOrder = 0);
+		DrawAnimation(float animFPS = 24, const Vector2& pos = { 0.f,0.f }, float scale = 1.f, float rot = 0.f, int drawOrder = 0);
 		virtual ~DrawAnimation() = default;
 
 		//’Ç‰Á‚µ‚½‡‚Éƒ`ƒƒƒ“ƒlƒ‹‚ª“–‚Ä‚ç‚ê‚é
@@ -28,6 +28,8 @@ namespace GameLib
 
 		void SetChannel(int channel);
 		void SetAnimationFPS(float animFPS);
+
+		int GetChannel() const noexcept;
 
 	};
 }
