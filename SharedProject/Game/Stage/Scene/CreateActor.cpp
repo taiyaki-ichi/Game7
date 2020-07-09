@@ -17,7 +17,7 @@ namespace Game::Stage
 		
 
 		if (actorName == "Ground")
-			new Ground{ scene,std::move(data) };
+			CreateGround(scene, std::move(data));
 		if (actorName == "Camera")
 			new Camera{ scene,std::move(data) };
 		if (actorName == "Triple") 
