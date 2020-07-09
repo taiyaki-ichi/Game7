@@ -39,6 +39,8 @@ namespace Game::Stage
 		
 		static float GetGravitySize() noexcept;
 		static const Dir4& GetGravityDir4() noexcept;
+
+		static void SetGravityDir4(const Dir4& dir4);
 		/*
 		static void SetSize(float s);
 		static void SetDir4(const Dir4& dir4);

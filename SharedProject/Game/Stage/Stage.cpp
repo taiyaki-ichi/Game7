@@ -7,6 +7,7 @@
 #include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
 #include"Gravity.hpp"
 #include"CollisionDetectionScope.hpp"
+#include"GravityRotation.hpp"
 
 namespace Game::Stage
 {
@@ -17,9 +18,12 @@ namespace Game::Stage
 	{
 		CreateStage(this, std::move(fileName));
 		new Gravity{ this };
+		Gravity::SetGravityDir4(Dir4::Down);
 
 		GameLib::CollisionDetectionSetting::SetWidth(CollisionDetectionScope::WIDTH);
 		GameLib::CollisionDetectionSetting::SetHeight(CollisionDetectionScope::HEIGHT);
+
+		new GravityRotaion{ this };
 	}
 	void Stage::CustomizeUpdate()
 	{

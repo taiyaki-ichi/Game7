@@ -3,8 +3,9 @@
 #include"Game/Stage/Stage.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Game/Window.hpp"
-#include<iostream>
+#include"GameLib/include/Math/Vector2Func.hpp"
 
+#include"GameLib/include/InputState/InputState.hpp"
 
 namespace Game::Stage
 {
@@ -36,9 +37,18 @@ namespace Game::Stage
 	}
 	void Camera::UpdateActor()
 	{
-		
+		using namespace GameLib;
+
 		auto playerPos = GetScene()->GetStage()->GetPlayerPos();
 		auto cameraPos = GameLib::Viewport::GetPos();
+		cameraPos = AffineInv(cameraPos, Vector2{}, -Viewport::GetRotation(), Viewport::GetScale());
+		if (GameLib::InputState::GetState(GameLib::Key::no9) == GameLib::ButtonState::Pressed) {
+			std::cout << "playerPos: " << playerPos.x << "," << playerPos.y << "\n";
+			std::cout << "cameraPos: " << cameraPos.x << "," << cameraPos.y << "\n";
+			auto vec = cameraPos - playerPos;
+			std::cout << "vec: " << vec.x << "," << vec.y << "\n";
+			std::cout << "vec.len: " << vec.Length() <<"\n";
+		}
 
 		if ((cameraPos - playerPos).Length() > MAX_DISTANCE) {
 			auto vec = cameraPos - playerPos;
@@ -47,6 +57,7 @@ namespace Game::Stage
 			cameraPos = vec + playerPos;
 		}
 
+		
 		if (cameraPos.x - WINDOW_WIDTH / 2.f < mLeft)
 			cameraPos.x = mLeft + WINDOW_WIDTH / 2.f;
 		else if (mRight < cameraPos.x + WINDOW_WIDTH / 2.f)
@@ -56,9 +67,10 @@ namespace Game::Stage
 			cameraPos.y = mBottom + WINDOW_HEIGHT / 2.f;
 		else if (mTop < cameraPos.y + WINDOW_HEIGHT / 2.f)
 			cameraPos.y = mTop - WINDOW_HEIGHT / 2.f;
-
+			
+		cameraPos= Affine(cameraPos, Vector2{}, -Viewport::GetRotation(), Viewport::GetScale());
 		GameLib::Viewport::SetPos(std::move(cameraPos));
-		
+
 
 	}
 }

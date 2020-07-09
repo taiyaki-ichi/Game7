@@ -129,6 +129,11 @@ namespace Game::Stage
 		return mDir4;
 	}
 
+	void Gravity::SetGravityDir4(const Dir4& dir4)
+	{
+		mDir4 = dir4;
+	}
+
 	/*
 	void Gravity::SetSize(float s)
 	{

@@ -62,7 +62,7 @@ namespace Game::Stage::Triple
 	{
 
 		mBody.AddHitFunction("Ground", [this](const GameLib::Collider& c) {
-			auto adjust = GetParallelRectAdjustVec(mBody, c);
+			auto adjust = GetParallelRectAdjustVec(mBody, c, 1.f);
 			mPhysicsModel.mPosition += adjust;
 
 			auto dir4Adjust = Gravity::GetDir4Vec(adjust);
