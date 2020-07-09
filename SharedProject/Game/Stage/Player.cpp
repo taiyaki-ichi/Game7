@@ -61,7 +61,7 @@ namespace Game::Stage::Player
 		UpdateCollider();
 
 		auto hitGround = [this](const GameLib::Collider& c) {
-			auto adjust = GetParallelRectAdjustVec(mCollider, c);
+			auto adjust = GetParallelRectAdjustVec(mCollider, c, 0.5f);
 			auto dir4Vec = Gravity::GetDir4Vec(adjust);
 
 			mPhysicsModel.mPosition += adjust;
@@ -70,19 +70,6 @@ namespace Game::Stage::Player
 				mPhysicsModel.mVelocity.x = 0.f;
 			else if (adjust.y * mPhysicsModel.mVelocity.y < 0.f)
 				mPhysicsModel.mVelocity.y = 0.f;
-			/*
-			std::cout << "adjust: " << adjust.x << "," << adjust.y << "\n";
-			std::cout << "Dir4Vec: ";
-			if (dir4Vec.mDir4 == Dir4::Up)
-				std::cout << "up";
-			else if (dir4Vec.mDir4 == Dir4::Down)
-				std::cout << "down";
-			else if (dir4Vec.mDir4 == Dir4::Right)
-				std::cout << "right";
-			else
-				std::cout << "left";
-			std::cout << "\n";
-			*/
 
 			if (dir4Vec.mDir4 == Dir4::Up) {
 				mFlags |= ON_GROUND_FLAG;
