@@ -2,6 +2,8 @@
 #include"Game/Stage/UtilityVectorFunction.hpp"
 #include"Game/Stage/Gravity.hpp"
 #include"Game/Stage/PhysicsModel.hpp"
+#include"Utility/IsInScope.hpp"
+#include"Game/Window.hpp"
 
 namespace Game::Stage::Triple
 {
@@ -24,7 +26,9 @@ namespace Game::Stage::Triple
 	}
 	bool Actor::UpdateOrNot()
 	{
-		return true;
+		auto pos = mAnimation.GetPosition();
+
+		return IsInScope(pos, WINDOW_WIDTH + 200.f, WINDOW_WIDTH + 200.f);
 	}
 	void Actor::UpdateActor()
 	{
@@ -140,7 +144,7 @@ namespace Game::Stage::Triple
 		int c = anim->GetChannel();
 		anim->SetChannel(c + 2);
 		auto aniPos = anim->GetPosition();
-		anim->SetPosition(aniPos + Gravity::GetVector2(Dir4::Down, 10.f));
+		anim->SetPosition(aniPos + Gravity::GetVector2(Dir4::Down, 20.f));
 	}
 
 	StateBase* FlatDeath::Update()

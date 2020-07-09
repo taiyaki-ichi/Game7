@@ -11,7 +11,7 @@ namespace Game::Stage
 		float mBottom;
 
 		//‚¨ŽŽ‚µ
-		constexpr static float MAX_DISTANCE = 100.f;
+		constexpr static float MAX_DISTANCE = 200.f;
 
 	public:
 		Camera(Scene* scene, std::vector<float>&& data);
