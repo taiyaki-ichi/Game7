@@ -34,7 +34,7 @@ namespace Game::Stage
 		}
 		
 	}
-	void Camera::CustomizeUpdate()
+	void Camera::UpdateActor()
 	{
 		
 		auto playerPos = GetScene()->GetStage()->GetPlayerPos();

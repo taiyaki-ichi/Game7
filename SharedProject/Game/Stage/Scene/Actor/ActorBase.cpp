@@ -13,6 +13,16 @@ namespace Game::Stage
 		auto scene = static_cast<Scene*>(mOwner);
 		scene->Remove(this);
 	}
+	void ActorBase::CustomizeUpdate()
+	{
+		if (UpdateOrNot())
+			UpdateActor();
+	}
+
+	bool ActorBase::UpdateOrNot()
+	{
+		return true;
+	}
 	Scene* ActorBase::GetScene()
 	{
 		return static_cast<Scene*>(mOwner);

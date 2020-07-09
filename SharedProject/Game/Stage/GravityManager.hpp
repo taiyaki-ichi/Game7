@@ -15,5 +15,6 @@ namespace Game::Stage
 		virtual ~GravityManager() = default;
 
 		void CustomizeUpdate() override;
+
 	};
 }
