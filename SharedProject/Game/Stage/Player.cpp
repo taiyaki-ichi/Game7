@@ -64,6 +64,20 @@ namespace Game::Stage::Player
 			auto adjust = GetParallelRectAdjustVec(mCollider, c, 0.5f);
 			auto dir4Vec = Gravity::GetDir4Vec(adjust);
 
+			/*
+			std::cout << "adjust: " << adjust.x << "," << adjust.y << "\n";
+			std::cout << "dir: ";
+			if (dir4Vec.mDir4 == Dir4::Left)
+				std::cout << "left";
+			if (dir4Vec.mDir4 == Dir4::Right)
+				std::cout << "right";
+			if (dir4Vec.mDir4 == Dir4::Down)
+				std::cout << "down";
+			if (dir4Vec.mDir4 == Dir4::Up)
+				std::cout << "up";
+			std::cout << "\n";
+			*/
+
 			mPhysicsModel.mPosition += adjust;
 
 			if (adjust.x * mPhysicsModel.mVelocity.x < 0.f)

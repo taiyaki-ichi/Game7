@@ -64,9 +64,9 @@ namespace Game::Stage
 				size = -vec.x;
 			}
 		}
-		int d = static_cast<int>(dir) + static_cast<int>(mDir4);
-		if (d > 3)
-			d -= 4;
+		int d = static_cast<int>(dir) - static_cast<int>(mDir4);
+		if (d < 0)
+			d += 4;
 
 		return Dir4Vec{ static_cast<Dir4>(d),size };
 	}

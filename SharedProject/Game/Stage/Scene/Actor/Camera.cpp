@@ -42,6 +42,7 @@ namespace Game::Stage
 		auto playerPos = GetScene()->GetStage()->GetPlayerPos();
 		auto cameraPos = GameLib::Viewport::GetPos();
 		cameraPos = AffineInv(cameraPos, Vector2{}, -Viewport::GetRotation(), Viewport::GetScale());
+		/*
 		if (GameLib::InputState::GetState(GameLib::Key::no9) == GameLib::ButtonState::Pressed) {
 			std::cout << "playerPos: " << playerPos.x << "," << playerPos.y << "\n";
 			std::cout << "cameraPos: " << cameraPos.x << "," << cameraPos.y << "\n";
@@ -49,6 +50,7 @@ namespace Game::Stage
 			std::cout << "vec: " << vec.x << "," << vec.y << "\n";
 			std::cout << "vec.len: " << vec.Length() <<"\n";
 		}
+		*/
 
 		if ((cameraPos - playerPos).Length() > MAX_DISTANCE) {
 			auto vec = cameraPos - playerPos;
