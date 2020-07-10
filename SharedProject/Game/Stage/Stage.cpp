@@ -8,6 +8,8 @@
 #include"Gravity.hpp"
 #include"CollisionDetectionScope.hpp"
 #include"GravityRotation.hpp"
+#include"ChangeScene/ChangeScene.hpp"
+#include"Scene/Actor/WarpBase.hpp"
 
 namespace Game::Stage
 {
@@ -15,6 +17,8 @@ namespace Game::Stage
 		:GameLib::Actor{owner}
 		, mStageScenes{}
 		, mPlayer{nullptr}
+		, mWarpGates{}
+		, mNowScene{nullptr}
 	{
 		CreateStage(this, std::move(fileName));
 		new Gravity{ this };
@@ -24,9 +28,14 @@ namespace Game::Stage
 		GameLib::CollisionDetectionSetting::SetHeight(CollisionDetectionScope::HEIGHT);
 
 		new GravityRotaion{ this };
+
 	}
 	void Stage::CustomizeUpdate()
 	{
+
+
+
+
 		//マイナスrot???
 		auto pos = GameLib::AffineInv(GameLib::Vector2{},GameLib::Viewport::GetPos(), -GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
 		
@@ -34,31 +43,64 @@ namespace Game::Stage
 		GameLib::CollisionDetectionSetting::SetPos(pos);
 	}
 
-	void Stage::SceneActive(std::string& sceneName)
-	{
-		auto i = mStageScenes.find(sceneName);
-		if (i != mStageScenes.end())
-			i->second->Active();
-	}
-	void Stage::ScenePause(std::string& sceneName)
-	{
-		auto i = mStageScenes.find(sceneName);
-		if (i != mStageScenes.end())
-			i->second->Pause();
-	}
 	Scene* Stage::AddScene(std::string&& sceneName)
 	{
 		auto ptr = new Scene(this);
-		mStageScenes.emplace(std::move(sceneName), ptr);
+		mStageScenes.emplace_back(ptr);
 		ptr->Pause();
 		return ptr;
 	}
-	void Stage::SetPlayer(Player::Actor* player)
+
+	void Stage::SetPlayerAndNowScene(Player::Actor* player,Scene* scene)
 	{
 		mPlayer = player;
+		mNowScene = scene;
+		mNowScene->Active();
 	}
 	const GameLib::Vector2& Stage::GetPlayerPos()
 	{
 		return mPlayer->GetPositon();
 	}
+
+	void Stage::SetPlayerPos(const GameLib::Vector2& pos)
+	{
+		mPlayer->SetPosition(pos);
+	}
+
+	void Stage::AddWarpGate(WarpBase* warp)
+	{
+		mWarpGates.emplace_back(warp);
+	}
+	void Stage::RemoveWarpGate(WarpBase* warp)
+	{
+		auto i = std::find(mWarpGates.begin(), mWarpGates.end(), warp);
+		if (i != mWarpGates.end())
+			mWarpGates.erase(i);
+	}
+
+	void Stage::PlayerWarp(const std::string& destinationNameTag)
+	{
+
+		auto i = mWarpGates.begin();
+		for (; i != mWarpGates.end(); i++) {
+			if ((*i)->GetNameTag() == destinationNameTag)
+				break;
+		}
+		if (i != mWarpGates.end()) {
+			mNowScene->SetState(GameLib::Actor::State::Pause);
+			new ChangeScene{ this,mNowScene,*i };
+		}
+
+	}
+
+	void Stage::PlayerAcitve()
+	{
+		mPlayer->SetState(GameLib::Actor::State::Active);
+	}
+
+	void Stage::PlayerPause()
+	{
+		mPlayer->SetState(GameLib::Actor::State::Pause);
+	}
+
 }

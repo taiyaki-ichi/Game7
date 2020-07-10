@@ -48,5 +48,6 @@ namespace GameLib
 		void SetVerticalFlip(bool v);
 
 		const Vector2& GetPosition() const noexcept;
+		float GetRotation() const noexcept;
 	};
 }

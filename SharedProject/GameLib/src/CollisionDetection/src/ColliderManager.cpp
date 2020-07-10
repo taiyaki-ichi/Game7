@@ -52,9 +52,10 @@ namespace GameLib
 			}
 		}
 	}
-	void ColliderManager::SwitchAllColliderDraw()
+	void ColliderManager::SetAllIsDrawing(bool b)
 	{
-		std::for_each(mColliders.begin(), mColliders.end(), [](LinerObject<Collider>& l)
-			{l.GetPtr()->SwitchDraw(); });
+		std::for_each(mColliders.begin(), mColliders.end(), [b](LinerObject<Collider>& l)
+			{l.GetPtr()->SetIsDrawing(b); });
 	}
+
 }

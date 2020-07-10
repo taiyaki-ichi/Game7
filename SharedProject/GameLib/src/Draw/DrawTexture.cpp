@@ -114,4 +114,9 @@ namespace GameLib
 		return mPosition;
 	}
 
+	float DrawTexture::GetRotation() const noexcept
+	{
+		return mRotation;
+	}
+
 }

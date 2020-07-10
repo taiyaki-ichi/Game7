@@ -55,15 +55,14 @@ namespace GameLib
 
 	}
 
-	void Collider::SwitchAllColliderDraw()
+	void Collider::SetAllIsDrawing(bool b)
 	{
-		ColliderManager::SwitchAllColliderDraw();
+		ColliderManager::SetAllIsDrawing(b);
 	}
 
-	void Collider::SwitchDraw()
+	void Collider::SetIsDrawing(bool b)
 	{
-		bool a = mDrawRect.GetIsAutoDrawing();
-		mDrawRect.SetIsAutoDrawing(!a);
+		mDrawRect.SetIsAutoDrawing(b);
 	}
 
 	void Collider::Set(const Vector2& pos, float width, float heigth, float scale, float rot)

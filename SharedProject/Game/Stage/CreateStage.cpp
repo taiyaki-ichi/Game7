@@ -5,6 +5,9 @@
 #include"Scene/CreateActor.hpp"
 #include"Scene/Scene.hpp"
 #include"Player.hpp"
+#include"Scene/CreateWarp.hpp"
+#include"Scene/Actor/WarpBase.hpp"
+#include"GameLib/include/CollisionDetection/Collider.hpp"
 
 namespace Game::Stage
 {
@@ -28,6 +31,7 @@ namespace Game::Stage
 
 		//そのシーンにPlayerがいたらスタートシーンとする
 		bool startSceneFlag;
+
 
 		picojson::object& stageObj = v.get<picojson::object>();
 		picojson::array& sceneDataArray = stageObj["SceneData"].get<picojson::array>();
@@ -53,14 +57,17 @@ namespace Game::Stage
 
 				std::string actorName = actorData["ActorName"].get<std::string>();
 
-				//
-				//
-				//
-
 				if (actorName == "Player") {
 					startSceneFlag = true;
-					stagePtr->SetPlayer(new Player::Actor{ scenePtr,std::move(floatData) });
-
+					stagePtr->SetPlayerAndNowScene(new Player::Actor{ stagePtr,std::move(floatData) }, scenePtr);
+				}
+				else if (actorName == "Warp") {
+					std::string warpGateType = actorData["WarpType"].get<std::string>();
+					std::string nameTag = actorData["NameTag"].get<std::string>();
+					std::string d = actorData["DestinationNameTag"].get<std::string>();
+					auto ptr = CreateWarp(scenePtr, std::move(warpGateType), std::move(floatData));
+					if (ptr)
+						ptr->SetStringInfo(std::move(nameTag), std::move(d));
 				}
 				else
 					CreateActor(scenePtr, std::move(actorName), std::move(floatData));
@@ -71,7 +78,10 @@ namespace Game::Stage
 				scenePtr->Active();
 			else
 				scenePtr->Pause();
+
 		}
+
+		GameLib::Collider::SetAllIsDrawing(false);
 
 		return true;
 	}

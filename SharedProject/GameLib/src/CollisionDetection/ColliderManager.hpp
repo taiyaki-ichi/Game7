@@ -27,7 +27,7 @@ namespace GameLib
 
 		static void RegistSpaceDivisionTree(SpaceDivisionTree<Collider>& tree);
 
-		static void SwitchAllColliderDraw();
+		static void SetAllIsDrawing(bool b);
 
 	};
 

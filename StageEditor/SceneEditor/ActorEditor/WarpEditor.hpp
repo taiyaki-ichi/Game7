@@ -3,15 +3,15 @@
 
 namespace StageEditor
 {
-	class WorpGateEditor : public ActorEditorBase
+	class WarpEditor : public ActorEditorBase
 	{
 		std::string mThisWorpGateType;
 		std::string mThisNameTag;
 		std::string mDestinationNameTag;
 
 	public:
-		WorpGateEditor(SceneEditor* scene);
-		virtual ~WorpGateEditor() = default;
+		WarpEditor(SceneEditor* scene);
+		virtual ~WarpEditor() = default;
 
 		void ActorEditorUpdate() override;
 

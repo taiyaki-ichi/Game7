@@ -11,6 +11,7 @@ namespace Game::Stage::Player
 	Actor::Actor(GameLib::Actor* owner, std::vector<float>&& data)
 		:GameLib::Actor{owner}
 		, mAnimation{ 10 }
+		, mNowState{nullptr}
 	{
 		using namespace GameLib;
 
@@ -25,7 +26,7 @@ namespace Game::Stage::Player
 		mAnimation.SetDrawOrder(50);
 		mAnimation.SetPosition(pos);
 
-		new Active(this, std::move(pos), &mAnimation);
+		mNowState = new Active(this, std::move(pos), &mAnimation);
 	}
 
 	void Actor::CustomizeUpdate()
@@ -45,9 +46,21 @@ namespace Game::Stage::Player
 		return mAnimation.GetPosition();
 	}
 
+	void Actor::SetPosition(const GameLib::Vector2& pos)
+	{
+		mNowState->SetPosition(pos);
+		mAnimation.SetPosition(pos);
+	}
+
+	void Actor::SetPlayerState(PlayerState* state)
+	{
+		mNowState->SetState(GameLib::Actor::State::Dead);
+		mNowState = state;
+	}
+
 
 	Active::Active(Actor* player, GameLib::Vector2&& pos, GameLib::DrawAnimation* anim)
-		:GameLib::Actor{player}
+		:PlayerState{player}
 		, mCollider{ "Player" }
 		, mPhysicsModel{ std::move(pos),GameLib::Vector2{0.f,0.f},0.1f,0.f }
 		, mFlags{ 0 }
@@ -122,8 +135,7 @@ namespace Game::Stage::Player
 		};
 
 		auto hitEnemyStrength = [this](const GameLib::Collider& c) {
-			SetState(Actor::State::Dead);
-			new Death(mOwner, mPhysicsModel, mAnimation);
+			GetPlayer()->SetPlayerState(new Death(mOwner, mPhysicsModel, mAnimation));
 		};
 
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
@@ -149,6 +161,17 @@ namespace Game::Stage::Player
 			mJumpFlag--;
 
 
+	}
+
+	const GameLib::Vector2& Active::GetPosition()
+	{
+		return mPhysicsModel.mPosition;
+	}
+
+	void Active::SetPosition(const GameLib::Vector2& pos)
+	{
+		mPhysicsModel.mPosition = pos;
+		UpdateCollider();
 	}
 
 
@@ -220,8 +243,18 @@ namespace Game::Stage::Player
 		mCollider.SetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Down, 12.f));
 	}
 
+	const GameLib::Vector2& Death::GetPosition()
+	{
+		return mPosition;
+	}
+
+	void Death::SetPosition(const GameLib::Vector2& pos)
+	{
+		mPosition = pos;
+	}
+
 	Death::Death(Actor* player, const PhysicsModel& model, GameLib::DrawAnimation* anim)
-		:GameLib::Actor{player}
+		:PlayerState{player}
 		, mCnt{ 0 }
 		, mPosition{ model.mPosition }
 		, mScale{ model.mScale }
@@ -243,5 +276,14 @@ namespace Game::Stage::Player
 
 		mAnimation->Set(mPosition, mScale, mRotation);
 
+	}
+	PlayerState::PlayerState(Actor* actor)
+		:GameLib::Actor{actor}
+	{
+	}
+
+	Player::Actor* PlayerState::GetPlayer()
+	{
+		return static_cast<Player::Actor*>(mOwner);
 	}
 }
