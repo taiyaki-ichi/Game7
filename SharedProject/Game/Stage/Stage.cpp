@@ -27,8 +27,9 @@ namespace Game::Stage
 	}
 	void Stage::CustomizeUpdate()
 	{
+		//マイナスrot???
 		auto pos = GameLib::AffineInv(GameLib::Vector2{},GameLib::Viewport::GetPos(), -GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
-		//pos= GameLib::Affine(pos, GameLib::Vector2{}, -GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
+		
 		//std::cout << pos.x << "," << pos.y << "\n";
 		GameLib::CollisionDetectionSetting::SetPos(pos);
 	}

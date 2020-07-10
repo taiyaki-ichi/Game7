@@ -53,6 +53,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\UtilityVectorFunction.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Tohoho.cpp" />
   </ItemGroup>
   <ItemGroup>

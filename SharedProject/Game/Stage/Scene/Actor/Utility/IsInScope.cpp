@@ -1,5 +1,6 @@
 #include"IsInScope.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
 
 namespace Game::Stage
 {
@@ -8,8 +9,7 @@ namespace Game::Stage
 
 	bool IsInScope(const GameLib::Vector2& pos, float left, float right, float bottom, float top)
 	{
-		auto center = GameLib::Viewport::GetPos();
-		auto p = pos - center;
+		auto p = GameLib::Affine(pos, GameLib::Viewport::GetPos(), -GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
 
 		if (p.x < left || right < p.x || p.y < bottom || top < p.y)
 			return false;

@@ -62,7 +62,12 @@ namespace Game::Stage::Triple
 	{
 
 		mBody.AddHitFunction("Ground", [this](const GameLib::Collider& c) {
-			auto adjust = GetParallelRectAdjustVec(mBody, c, 1.f);
+			auto gravityDir4 = Gravity::GetGravityDir4();
+			GameLib::Vector2 adjust;
+			if (gravityDir4 == Dir4::Down || gravityDir4 == Dir4::Up)
+				adjust = GetParallelRectAdjustVec(mBody, c, MAX_SPEED / 2.f, Gravity::GetGravitySize() / 2.f);
+			else
+				adjust = GetParallelRectAdjustVec(mBody, c, Gravity::GetGravitySize() / 2.f, MAX_SPEED / 2.f);
 			mPhysicsModel.mPosition += adjust;
 
 			auto dir4Adjust = Gravity::GetDir4Vec(adjust);
@@ -79,7 +84,6 @@ namespace Game::Stage::Triple
 			}
 
 			ReflectAnimation();
-
 			ReflectCollider();
 		});
 
@@ -93,6 +97,8 @@ namespace Game::Stage::Triple
 
 	StateBase* TripleActive::Update()
 	{
+		auto vec = Gravity::GetVector2(mDir4, RUN_POWER);
+		//std::cout << vec.x << "," << vec.y << "\n";
 		Gravity::UpdatePhysicsModel(mPhysicsModel, Gravity::GetVector2(mDir4, RUN_POWER) + Gravity::GetGravityVector2(), MAX_SPEED, 20.f, true);
 		ReflectCollider();
 		ReflectAnimation();

@@ -30,7 +30,7 @@ namespace Game::Stage::Triple
 
 	class TripleActive : public StateBase
 	{
-		constexpr static float RUN_POWER = 0.1f;
+		constexpr static float RUN_POWER = 0.2f;
 		constexpr static float MAX_SPEED = 1.f;
 
 		//アニメーションへの参照
