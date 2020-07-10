@@ -3,6 +3,7 @@
 #include"ActorEditor/PlayerEditor.hpp"
 #include"ActorEditor/CameraEditor.hpp"
 #include"ActorEditor/TripleEditor.hpp"
+#include"ActorEditor/WorpGateEditor.hpp"
 
 namespace StageEditor
 {
@@ -23,7 +24,8 @@ namespace StageEditor
 			ptr = new CameraEditor{ sceneEditor };
 		if (actorName == "Triple")
 			ptr = new TripleEditor{ sceneEditor };
-
+		if (actorName == "WorpGate")
+			ptr = new WorpGateEditor{ sceneEditor };
 
 		///////////////////////////////////////////////////////////////////
 

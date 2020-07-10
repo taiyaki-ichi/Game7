@@ -40,5 +40,8 @@ namespace StageEditor
 		void IncrementSumNum(const std::string& actorName);
 		void DecrementSumNum(const std::string& actorName);
 		void ResetSumNum();
+
+		//ReDrawFlag‚ð—§‚Ä‚é
+		void ReDraw();
 	};
 }

@@ -2,6 +2,7 @@
 #include"Json/picojson.hpp"
 #include <fstream>
 #include"SceneEditor/CreateActorEditor.hpp"
+#include"SceneEditor/ActorEditor/WorpGateEditor.hpp"
 
 namespace StageEditor
 {
@@ -18,9 +19,12 @@ namespace StageEditor
 					dataActor.insert(std::make_pair(std::to_string(i), static_cast<double>(actorData.mData[i])));
 				}
 
-				//
-				//
-				//
+				if (actorData.mActorName == "WorpGate") {
+					auto worpGatePtr = static_cast<WorpGateEditor*>(actorData.mPtr);
+					dataActor.insert(std::make_pair("WorpGateType", worpGatePtr->GetWorpGateType()));
+					dataActor.insert(std::make_pair("NameTag", worpGatePtr->GetNameTag()));
+					dataActor.insert(std::make_pair("DestinamtionNameTag", worpGatePtr->GetDestinationNameGag()));
+				}
 
 
 				dataActor.insert(std::make_pair("ActorName", actorData.mActorName));
@@ -84,11 +88,17 @@ namespace StageEditor
 					i++;
 				}
 
-				//
-				//
-				//
+				auto ptr = CreateActorEditor(scenePtr, actorData["ActorName"].get<std::string>(), std::move(floatData));
 
-				CreateActorEditor(scenePtr, actorData["ActorName"].get<std::string>(), std::move(floatData));
+
+				if (actorData["ActorName"].get<std::string>() == "WorpGate") {
+					auto worpGatePtr = static_cast<WorpGateEditor*>(ptr);
+					std::string type = actorData["WorpGateType"].get<std::string>();
+					std::string nameTag = actorData["NameTag"].get<std::string>();
+					std::string destinationNameTag = actorData["DestinamtionNameTag"].get<std::string>();
+					worpGatePtr->SetStringInfo(std::move(type), std::move(nameTag), std::move(destinationNameTag));
+				}
+
 			}
 
 			if (numZeroFlag) {

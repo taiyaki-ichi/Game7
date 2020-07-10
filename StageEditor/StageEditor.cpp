@@ -67,6 +67,10 @@ namespace StageEditor
 		mReDrawFlag = true;
 
 	}
+	void StageEditor::ReDraw()
+	{
+		mReDrawFlag = true;
+	}
 	void StageEditor::DeleteScene(const std::string& sceneName)
 	{
 		auto i = mStageScenes.find(sceneName);
@@ -119,6 +123,9 @@ namespace StageEditor
 		std::cout << "PlayerNum: " << mPlayerNum << "\n";
 
 		std::cout << ">";
+		
+		if (mNowEditingScene)
+			mNowEditingScene->PrintSceneInfo();
 	}
 
 	void StageEditor::CustomizeUpdate()

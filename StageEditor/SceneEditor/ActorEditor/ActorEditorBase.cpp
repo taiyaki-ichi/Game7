@@ -65,7 +65,7 @@ namespace StageEditor
 			data.emplace_back((*iter)->GetPosition().x);
 			data.emplace_back((*iter)->GetPosition().y);
 		}
-		return { mActorName,data };
+		return { mActorName,data ,this };
 	}
 
 
@@ -86,6 +86,10 @@ namespace StageEditor
 	int ActorEditorBase::GetPosInfoNum() const noexcept
 	{
 		return mPosInfoNum;
+	}
+
+	void ActorEditorBase::PrintActorInfo()
+	{
 	}
 
 }

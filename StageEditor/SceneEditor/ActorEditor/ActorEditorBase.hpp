@@ -8,10 +8,13 @@ namespace StageEditor
 {
 	class PosInfo;
 	class SceneEditor;
+	class ActorEditorBase;
 
 	struct ActorData {
 		std::string mActorName;
 		std::vector<float> mData;
+
+		ActorEditorBase* mPtr;
 	};
 
 	class ActorEditorBase : public GameLib::Actor
@@ -51,5 +54,7 @@ namespace StageEditor
 		void SetData(std::vector<float>&& data);
 
 		int GetPosInfoNum() const noexcept;
+
+		virtual void PrintActorInfo();
 	};
 }

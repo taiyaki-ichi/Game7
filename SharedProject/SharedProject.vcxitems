@@ -50,6 +50,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\State\StateManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Triple.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Utility\IsInScope.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\WorpGateBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.cpp" />
@@ -118,6 +119,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\State\StateManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Triple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Utility\IsInScope.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\WorpGateBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\CreateActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Scene.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Stage.hpp" />

@@ -46,6 +46,14 @@
           "0": 347.27273559570313,
           "1": -76.363670349121094,
           "ActorName": "Triple"
+        },
+        {
+          "0": 101,
+          "1": 150,
+          "ActorName": "WorpGate",
+          "DestinamtionNameTag": "c",
+          "NameTag": "b",
+          "WorpGateType": "a"
         }
       ],
       "SceneName": "a"

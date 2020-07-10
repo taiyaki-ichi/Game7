@@ -35,5 +35,7 @@ namespace StageEditor
 
 		//Œ»İActor‚ğ•ÒW’†‚©‚Ç‚¤‚©
 		bool IsNowEditingActor();
+
+		void PrintSceneInfo();
 	};
 }

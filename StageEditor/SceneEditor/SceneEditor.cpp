@@ -3,6 +3,7 @@
 #include"GameLib/include/InputState/InputState.hpp"
 #include"StageEditor/Console/ConsoleMessage.hpp"
 #include"CreateActorEditor.hpp"
+#include"StageEditor/StageEditor.hpp"
 
 namespace StageEditor
 {
@@ -26,8 +27,11 @@ namespace StageEditor
 		}
 
 
-		if (mNowEditingActor && mNowEditingActor->IsOK())
+		if (mNowEditingActor && mNowEditingActor->IsOK()) {
+			auto ptr = static_cast<StageEditor*>(mOwner);
+			ptr->ReDraw();
 			mNowEditingActor = nullptr;
+		}
 
 	}
 
@@ -67,6 +71,14 @@ namespace StageEditor
 	bool SceneEditor::IsNowEditingActor()
 	{
 		return mNowEditingActor != nullptr;
+	}
+
+	void SceneEditor::PrintSceneInfo()
+	{
+		if (mNowEditingActor) {
+			std::cout << "\n";
+			mNowEditingActor->PrintActorInfo();
+		}
 	}
 	
 }
