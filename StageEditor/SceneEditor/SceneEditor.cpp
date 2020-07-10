@@ -26,7 +26,7 @@ namespace StageEditor
 		}
 
 
-		if (mNowEditingActor && mNowEditingActor->IsOk())
+		if (mNowEditingActor && mNowEditingActor->IsOK())
 			mNowEditingActor = nullptr;
 
 	}

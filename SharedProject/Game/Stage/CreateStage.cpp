@@ -53,6 +53,10 @@ namespace Game::Stage
 
 				std::string actorName = actorData["ActorName"].get<std::string>();
 
+				//
+				//
+				//
+
 				if (actorName == "Player") {
 					startSceneFlag = true;
 					stagePtr->SetPlayer(new Player::Actor{ scenePtr,std::move(floatData) });

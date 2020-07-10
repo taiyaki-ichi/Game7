@@ -38,7 +38,7 @@ namespace StageEditor
 		virtual void ActorEditorUpdate() {}
 
 		//PosInfoが有効な値を持ったかどうか
-		bool IsOk();
+		virtual bool IsOK();
 
 		//Colliderと描画のコントロール
 		virtual void Pause() = 0;
@@ -49,5 +49,7 @@ namespace StageEditor
 
 		//jsonから読み込むとき用
 		void SetData(std::vector<float>&& data);
+
+		int GetPosInfoNum() const noexcept;
 	};
 }

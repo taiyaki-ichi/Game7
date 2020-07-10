@@ -53,9 +53,9 @@ namespace StageEditor
 		ActorEditorUpdate();
 	}
 
-	bool ActorEditorBase::IsOk()
+	bool ActorEditorBase::IsOK()
 	{
-		return mPosInfoNum >= mPosInfos.size();
+		return (mPosInfoNum >= mPosInfos.size()) && (mPosInfos.back()->IsOK());
 	}
 
 	ActorData ActorEditorBase::GetData()
@@ -81,6 +81,11 @@ namespace StageEditor
 		}
 		else
 			SetState(GameLib::Actor::State::Dead);
+	}
+
+	int ActorEditorBase::GetPosInfoNum() const noexcept
+	{
+		return mPosInfoNum;
 	}
 
 }

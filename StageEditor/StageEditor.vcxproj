@@ -155,6 +155,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfo.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\WorpGate.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
     <ClInclude Include="SceneEditor\SceneEditor.hpp" />
     <ClInclude Include="StageEditor.hpp" />
@@ -175,6 +176,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PosInfo\PosInfo.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\WorpGate.cpp" />
     <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="StageEditor.cpp" />

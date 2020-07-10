@@ -16,6 +16,7 @@
     <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
     <ClCompile Include="Utility\EditorCamera.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\WorpGate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -36,5 +37,6 @@
     <ClInclude Include="Utility\EditorCamera.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\WorpGate.hpp" />
   </ItemGroup>
 </Project>

@@ -18,6 +18,11 @@ namespace StageEditor
 					dataActor.insert(std::make_pair(std::to_string(i), static_cast<double>(actorData.mData[i])));
 				}
 
+				//
+				//
+				//
+
+
 				dataActor.insert(std::make_pair("ActorName", actorData.mActorName));
 				actorsData.push_back(picojson::value(dataActor));
 			}
@@ -78,6 +83,10 @@ namespace StageEditor
 					floatData.emplace_back(static_cast<float>(actorData[std::to_string(i)].get<double>()));
 					i++;
 				}
+
+				//
+				//
+				//
 
 				CreateActorEditor(scenePtr, actorData["ActorName"].get<std::string>(), std::move(floatData));
 			}
