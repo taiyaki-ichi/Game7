@@ -13,8 +13,8 @@ namespace Game::Stage
 		mCollder.SetColor({ 0,255,0,255 });
 
 		auto pos = GameLib::Vector2{ data[0],data[1] };
-		mTexture.ResetPosition(pos);
-		mCollder.ResetPosition(pos);
+		mTexture.SetPosition(pos);
+		mCollder.SetPosition(pos);
 		mCollder.Active();
 
 		auto hitPlayer = [this](const GameLib::Collider& c) {

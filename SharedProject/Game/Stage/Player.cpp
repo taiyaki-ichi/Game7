@@ -24,7 +24,7 @@ namespace Game::Stage::Player
 		mAnimation.AddAnimation({ "../Assets/Player/death.png" });
 		mAnimation.SetScale(0.1f);
 		mAnimation.SetDrawOrder(50);
-		mAnimation.ResetPosition(pos);
+		mAnimation.SetPosition(pos);
 
 		mNowState = new Active(this, std::move(pos), &mAnimation);
 	}
@@ -46,10 +46,10 @@ namespace Game::Stage::Player
 		return mAnimation.GetPosition();
 	}
 
-	void Actor::ResetPosition(const GameLib::Vector2& pos)
+	void Actor::SetPosition(const GameLib::Vector2& pos)
 	{
-		mNowState->ResetPosition(pos);
-		mAnimation.ResetPosition(pos);
+		mNowState->SetPosition(pos);
+		mAnimation.SetPosition(pos);
 	}
 
 	void Actor::SetPlayerState(PlayerState* state)
@@ -123,7 +123,7 @@ namespace Game::Stage::Player
 			}
 
 			UpdateCollider();
-			mAnimation->ResetPosition(mPhysicsModel.mPosition);
+			mAnimation->SetPosition(mPhysicsModel.mPosition);
 		};
 
 		auto hitEnemyWeakness = [this](const GameLib::Collider& c) {
@@ -168,7 +168,7 @@ namespace Game::Stage::Player
 		return mPhysicsModel.mPosition;
 	}
 
-	void Active::ResetPosition(const GameLib::Vector2& pos)
+	void Active::SetPosition(const GameLib::Vector2& pos)
 	{
 		mPhysicsModel.mPosition = pos;
 		mPhysicsModel.mVelocity = GameLib::Vector2{};
@@ -217,7 +217,7 @@ namespace Game::Stage::Player
 
 		mAnimation->Update();
 
-		mAnimation->ResetPosition(mPhysicsModel.mPosition);
+		mAnimation->SetPosition(mPhysicsModel.mPosition);
 		mAnimation->SetRotation(mPhysicsModel.mRotation);
 
 		float horizonPowerDir = Gravity::GetDir4Size(power, Dir4::Right);
@@ -241,7 +241,7 @@ namespace Game::Stage::Player
 	void Active::UpdateCollider()
 	{
 		mCollider.SetRotation(mPhysicsModel.mRotation);
-		mCollider.ResetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Down, 12.f));
+		mCollider.SetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Down, 12.f));
 	}
 
 	const GameLib::Vector2& Death::GetPosition()
@@ -249,7 +249,7 @@ namespace Game::Stage::Player
 		return mPosition;
 	}
 
-	void Death::ResetPosition(const GameLib::Vector2& pos)
+	void Death::SetPosition(const GameLib::Vector2& pos)
 	{
 		mPosition = pos;
 	}

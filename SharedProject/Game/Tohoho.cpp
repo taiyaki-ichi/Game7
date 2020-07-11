@@ -16,7 +16,7 @@ namespace Game
 		mDrawRect.SetIsAutoDrawing(false);
 
 		mCircle.SetRadius(100.f);
-		mCircle.ResetPosition(Vector2{ 0.f,0.f });
+		mCircle.SetPosition(Vector2{ 0.f,0.f });
 		mCircle.SetIsAutoDrawing(false);
 
 	}
@@ -28,10 +28,10 @@ namespace Game
 		//SetUpAndDrawRange();
 
 		SetUpNotDrawRange();
-		mCircle.ResetPosition(Viewport::GetPos());
+		mCircle.SetPosition(Viewport::GetPos());
 		mCircle.Draw();
 
-		mDrawRect.ResetPosition(Viewport::GetPos());
+		mDrawRect.SetPosition(Viewport::GetPos());
 		mDrawRect.SetScale(1.f/Viewport::GetScale());
 		mDrawRect.SetRotation(Viewport::GetRotation());
 

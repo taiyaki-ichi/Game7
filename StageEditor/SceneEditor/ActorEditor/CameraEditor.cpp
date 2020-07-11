@@ -17,14 +17,14 @@ namespace StageEditor
 	void CameraEditor::ActorEditorUpdate()
 	{
 		auto posInfo = GetPosInfos();
-		mDefaultCollider.ResetPosition(posInfo[0]->GetPosition());
+		mDefaultCollider.SetPosition(posInfo[0]->GetPosition());
 		if (posInfo.size() == 2) {
 
 			auto center = GetCenter(posInfo[0], posInfo[1]);
 			float w = GetWidth(posInfo[0], posInfo[1]);
 			float h = GetHeight(posInfo[0], posInfo[1]);
 
-			mRect.ResetPosition(std::move(center));
+			mRect.SetPosition(std::move(center));
 			mRect.SetWidthAndHeight(w, h);
 		}
 	}

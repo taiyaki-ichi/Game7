@@ -84,7 +84,7 @@ namespace GameLib
 		mScale = scale;
 		mRotation = rot;
 	}
-	void DrawTexture::ResetPosition(const Vector2& pos)
+	void DrawTexture::SetPosition(const Vector2& pos)
 	{
 		mPosition = pos;
 	}

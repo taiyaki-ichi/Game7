@@ -10,6 +10,9 @@
 #include"GravityRotation.hpp"
 #include"ChangeScene/ChangeScene.hpp"
 #include"Scene/Actor/WarpBase.hpp"
+#include"BackGround/Basis.hpp"
+
+#include"BackGround/CreateFallObject.hpp"
 
 namespace Game::Stage
 {
@@ -28,6 +31,11 @@ namespace Game::Stage
 		GameLib::CollisionDetectionSetting::SetHeight(CollisionDetectionScope::HEIGHT);
 
 		new GravityRotaion{ this };
+
+		new BackGround::Basis{ this };
+
+		BackGround::CreateFallLeaf(this);
+
 
 	}
 	void Stage::CustomizeUpdate()
@@ -64,7 +72,7 @@ namespace Game::Stage
 
 	void Stage::ResetPlayerPos(const GameLib::Vector2& pos)
 	{
-		mPlayer->ResetPosition(pos);
+		mPlayer->SetPosition(pos);
 	}
 
 	void Stage::AddWarpGate(WarpBase* warp)

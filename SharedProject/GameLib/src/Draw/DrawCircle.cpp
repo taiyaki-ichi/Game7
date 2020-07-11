@@ -25,7 +25,7 @@ namespace GameLib
 
 		GraphycsDrawCircle(affinedPos.x + wHalf, -affinedPos.y + hHalf, mRadius * mScale * viewSca, mColor.R, mColor.G, mColor.B, mColor.A, mIsFill);
 	}
-	void DrawCircle::ResetPosition(const Vector2& pos)
+	void DrawCircle::SetPosition(const Vector2& pos)
 	{
 		mPosition = pos;
 	}

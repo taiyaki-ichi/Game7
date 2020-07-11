@@ -22,8 +22,8 @@ namespace StageEditor
 
 		void ActorEditorUpdate() override {
 			auto pos = GetPosInfos();
-			mDefaultCollider.ResetPosition(pos[0]->GetPosition() + GameLib::Vector2{ 0.f,-6.f });
-			mTexture.ResetPosition(pos[0]->GetPosition());
+			mDefaultCollider.SetPosition(pos[0]->GetPosition() + GameLib::Vector2{ 0.f,-6.f });
+			mTexture.SetPosition(pos[0]->GetPosition());
 		}
 
 		void Active() override {

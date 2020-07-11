@@ -38,7 +38,7 @@ namespace GameLib
 		mWidth = w;
 		mHeight = h;
 	}
-	void DrawRect::ResetPosition(const Vector2& pos)
+	void DrawRect::SetPosition(const Vector2& pos)
 	{
 		mPosition = pos;
 	}

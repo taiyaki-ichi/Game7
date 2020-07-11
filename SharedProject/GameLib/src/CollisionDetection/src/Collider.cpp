@@ -84,7 +84,7 @@ namespace GameLib
 
 		SetDrawRect();
 	}
-	void Collider::ResetPosition(const Vector2& pos)
+	void Collider::SetPosition(const Vector2& pos)
 	{
 		mPosition = pos;
 		SetDrawRect();

@@ -17,7 +17,7 @@ namespace Game::Stage
 	{
 		SetDrawOrder(100);
 	
-		mCircle.ResetPosition(mNowPlayerPos);
+		mCircle.SetPosition(mNowPlayerPos);
 		mCircle.SetRadius(mRadius);
 
 		mRect.SetWidthAndHeight(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -44,7 +44,7 @@ namespace Game::Stage
 	void CircleCurtain::Open()
 	{
 		mMode = 1;
-		mCircle.ResetPosition(mNextPlayerPos);
+		mCircle.SetPosition(mNextPlayerPos);
 	}
 	bool CircleCurtain::IsOpened()
 	{
@@ -64,7 +64,7 @@ namespace Game::Stage
 		SetUpNotDrawRange();
 		mCircle.Draw();
 
-		mRect.ResetPosition(Viewport::GetPos());
+		mRect.SetPosition(Viewport::GetPos());
 		mRect.SetScale(1.f / Viewport::GetScale());
 		mRect.SetRotation(Viewport::GetRotation());
 

@@ -22,7 +22,7 @@ namespace GameLib
 
 		void Draw() override final;
 
-		void ResetPosition(const Vector2& pos);
+		void SetPosition(const Vector2& pos);
 		void SetScale(float scale);
 		void SetRadius(float radius);
 		void SetColor(Color&& color);

@@ -54,7 +54,7 @@ namespace GameLib
 		static void SetIsDebug(bool b);
 
 		void Set(const Vector2& pos, float width, float heigth, float scale, float rot);
-		void ResetPosition(const Vector2& pos);
+		void SetPosition(const Vector2& pos);
 		void SetWidthAndHeith(float w, float h);
 		void SetRotation(float rot);
 		void SetScale(float s);
