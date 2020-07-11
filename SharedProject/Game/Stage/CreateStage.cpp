@@ -84,8 +84,6 @@ namespace Game::Stage
 
 		}
 
-		GameLib::Collider::SetAllIsDrawing(false);
-
 		return true;
 	}
 }

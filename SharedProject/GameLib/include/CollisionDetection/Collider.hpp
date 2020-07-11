@@ -50,9 +50,7 @@ namespace GameLib
 
 		std::optional<std::function<void(const Collider&)>> GetHitFunction(const std::string& nameTag);
 
-		static void SetAllIsDrawing(bool b);
 		void SetIsDrawing(bool b);
-
 		static void SetIsDebug(bool b);
 
 		void Set(const Vector2& pos, float width, float heigth, float scale, float rot);

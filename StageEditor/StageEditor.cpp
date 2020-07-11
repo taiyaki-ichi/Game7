@@ -9,7 +9,7 @@
 #include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Game/Window.hpp"
-
+#include"Console/ConsoleMessage.hpp"
 
 namespace StageEditor
 {
@@ -22,6 +22,7 @@ namespace StageEditor
 		, mPlayerNum{0}
 		, mReDrawFlag{false}
 	{
+		new ConsoleMessage{ this };
 
 		mCamera = new EditorCamera(this);
 		mCamera->Reset();

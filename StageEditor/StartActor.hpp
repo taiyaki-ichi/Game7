@@ -1,6 +1,5 @@
 #pragma once
 #include"GameLib/include/Actor/RootActor.hpp"
-#include"Console/ConsoleMessage.hpp"
 #include"GameLib/include/Draw/DrawCircle.hpp"
 #include"StageEditor.hpp"
 #include"Game/Stage/Stage.hpp"
@@ -21,7 +20,6 @@ namespace StageEditor
 			GameLib::Collider::SetIsDebug(true);
 
 			mStageEditor = new StageEditor{ this };
-			new ConsoleMessage{ this };
 
 			
 		}
