@@ -18,7 +18,7 @@ namespace Game::Stage
 	{
 		mCurtain = std::make_unique<CircleCurtain>(stage->GetPlayerPos(), mNextWarpBase->GetPosition());
 		stage->PlayerPause();
-
+		mNextWarpBase->PlayerWarpHere();
 	}
 	void ChangeScene::CustomizeUpdate()
 	{
@@ -39,6 +39,8 @@ namespace Game::Stage
 				//std::cout << "next pos: " << mNextWarpBase->GetPosition().x << "," << mNextWarpBase->GetPosition().y << "\n";
 				stage->ResetPlayerPos(mNextWarpBase->GetPosition());
 				stage->PlayerPause();
+
+				scene->AdjustCameraPos();
 
 				mCurtain->Open();
 				mCnt = 0;

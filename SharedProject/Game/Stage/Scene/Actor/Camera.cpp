@@ -34,45 +34,40 @@ namespace Game::Stage
 			mTop = data[1];
 		}
 		
+		scene->SetCamera(this);
 	}
 	void Camera::UpdateActor()
+	{
+		AdjustCameraPos();
+	}
+
+	void Camera::AdjustCameraPos()
 	{
 		using namespace GameLib;
 
 		auto playerPos = GetScene()->GetStage()->GetPlayerPos();
 		auto cameraPos = GameLib::Viewport::GetPos();
 		cameraPos = AffineInv(cameraPos, Vector2{}, -Viewport::GetRotation(), Viewport::GetScale());
-		/*
-		if (GameLib::InputState::GetState(GameLib::Key::no9) == GameLib::ButtonState::Pressed) {
-			std::cout << "playerPos: " << playerPos.x << "," << playerPos.y << "\n";
-			std::cout << "cameraPos: " << cameraPos.x << "," << cameraPos.y << "\n";
-			auto vec = cameraPos - playerPos;
-			std::cout << "vec: " << vec.x << "," << vec.y << "\n";
-			std::cout << "vec.len: " << vec.Length() <<"\n";
-		}
-		*/
 
-		if ((cameraPos - playerPos).Length() > MAX_DISTANCE) {
-			auto vec = cameraPos - playerPos;
-			vec.Normalize();
-			vec *= MAX_DISTANCE;
-			cameraPos = vec + playerPos;
-		}
+		cameraPos.x = playerPos.x;
 
-		
+		if (cameraPos.y - WINDOW_HEIGHT / 2.f + MARGIN_Y > playerPos.y)
+			cameraPos.y = playerPos.y + WINDOW_HEIGHT / 2.f - MARGIN_Y;
+		if (cameraPos.y + WINDOW_HEIGHT / 2.f - MARGIN_Y < playerPos.y)
+			cameraPos.y = playerPos.y - WINDOW_HEIGHT / 2.f + MARGIN_Y;
+
 		if (cameraPos.x - WINDOW_WIDTH / 2.f < mLeft)
 			cameraPos.x = mLeft + WINDOW_WIDTH / 2.f;
 		else if (mRight < cameraPos.x + WINDOW_WIDTH / 2.f)
 			cameraPos.x = mRight - WINDOW_WIDTH / 2.f;
-
+		
 		if (cameraPos.y - WINDOW_HEIGHT / 2.f < mBottom)
 			cameraPos.y = mBottom + WINDOW_HEIGHT / 2.f;
 		else if (mTop < cameraPos.y + WINDOW_HEIGHT / 2.f)
 			cameraPos.y = mTop - WINDOW_HEIGHT / 2.f;
 			
-		cameraPos= Affine(cameraPos, Vector2{}, -Viewport::GetRotation(), Viewport::GetScale());
+		cameraPos = Affine(cameraPos, Vector2{}, -Viewport::GetRotation(), Viewport::GetScale());
 		GameLib::Viewport::SetPos(std::move(cameraPos));
-
-
+		//std::cout << "camera: " << cameraPos.x << "," << cameraPos.y << "\n";
 	}
 }

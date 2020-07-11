@@ -6,11 +6,14 @@ namespace Game::Stage
 {
 	class Stage;
 	class ActorBase;
+	class Camera;
 
 	class Scene : public GameLib::Actor
 	{
 		//Scene‚É‘®‚µ‚Ä‚¢‚éActor‚Ö‚ÌQÆ
 		std::vector<ActorBase*> mStageActors;
+
+		Camera* mCamera;
 
 	public:
 		Scene(Stage* stage, int updateOrder = 0);
@@ -23,5 +26,8 @@ namespace Game::Stage
 		void RemoveStageActor(ActorBase* actor);
 
 		Stage* GetStage();
+
+		void SetCamera(Camera* c);
+		void AdjustCameraPos();
 	};
 }

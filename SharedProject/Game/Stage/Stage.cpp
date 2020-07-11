@@ -89,9 +89,11 @@ namespace Game::Stage
 		if (i != mWarpGates.end()) {
 			mNowScene->SetState(GameLib::Actor::State::Pause);
 			new ChangeScene{ this,mNowScene,*i };
+			mNowScene = static_cast<Scene*>((*i)->GetOwner());
 		}
 
 	}
+
 
 	void Stage::PlayerAcitve()
 	{

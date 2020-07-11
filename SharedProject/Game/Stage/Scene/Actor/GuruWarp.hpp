@@ -10,6 +10,9 @@ namespace Game::Stage
 		GameLib::DrawTexture mTexture;
 		GameLib::Collider mCollder;
 
+		constexpr static int WAIT_TIME = 60;
+		int mCnt;
+
 	public:
 		GuruWarp(Scene* scene, std::vector<float>&& data);
 		virtual ~GuruWarp() = default;
@@ -18,5 +21,8 @@ namespace Game::Stage
 
 		void Active() override;
 		void Pause() override;
+
+		//プレーやがここに飛んでくるとき使用
+		void PlayerWarpHere() override;
 	};
 }

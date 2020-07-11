@@ -9,14 +9,16 @@ namespace StageEditor
 		, mThisNameTag{""}
 		, mDestinationNameTag{""}
 		, mThisWorpGateType{""}
+		, mTexture{ "../Assets/Object/WarpGate/grugru.png" }
 	{
 		mDefaultCollider.SetWidthAndHeith(50.f, 50.f);
+		mTexture.SetScale(0.1f);
 	}
 	void WarpEditor::ActorEditorUpdate()
 	{
 		auto pos = GetPosInfos();
 		mDefaultCollider.ResetPosition(pos[0]->GetPosition());
-
+		mTexture.ResetPosition(pos[0]->GetPosition());
 		auto str = ConsoleMessage::GetStrings();
 		if (str.size() > 0.f) {
 			if (mThisWorpGateType == "")
@@ -37,10 +39,12 @@ namespace StageEditor
 	void WarpEditor::Active()
 	{
 		mDefaultCollider.Active();
+		mTexture.SetIsAutoDrawing(true);
 	}
 	void WarpEditor::Pause()
 	{
 		mDefaultCollider.Pause();
+		mTexture.SetIsAutoDrawing(false);
 	}
 
 	void WarpEditor::PrintActorInfo()

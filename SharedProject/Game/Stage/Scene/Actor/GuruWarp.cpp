@@ -6,9 +6,10 @@ namespace Game::Stage
 		:WarpBase{ scene,GameLib::Vector2{data[0],data[1]} }
 		, mTexture{"../Assets/Object/WarpGate/grugru.png"}
 		, mCollder{}
+		, mCnt{0}
 	{
 		mTexture.SetScale(0.1f);
-		mCollder.SetWidthAndHeith(30.f, 30.f);
+		mCollder.SetWidthAndHeith(20.f, 20.f);
 		mCollder.SetColor({ 0,255,0,255 });
 
 		auto pos = GameLib::Vector2{ data[0],data[1] };
@@ -17,8 +18,10 @@ namespace Game::Stage
 		mCollder.Active();
 
 		auto hitPlayer = [this](const GameLib::Collider& c) {
-			WarpPlayer();
-			mCollder.Pause();
+			if (mCnt == 0) {
+				WarpPlayer();
+				mCollder.Pause();
+			}
 		};
 		mCollder.AddHitFunction("Player", std::move(hitPlayer));
 
@@ -26,6 +29,8 @@ namespace Game::Stage
 
 	void GuruWarp::UpdateActor()
 	{
+		if (mCnt > 0)
+			mCnt--;
 		mTexture.SetRotation(mTexture.GetRotation() + 0.03f);
 	}
 	void GuruWarp::Active()
@@ -37,5 +42,9 @@ namespace Game::Stage
 	{
 		mTexture.SetIsAutoDrawing(false);
 		mCollder.Pause();
+	}
+	void GuruWarp::PlayerWarpHere()
+	{
+		mCnt = WAIT_TIME;
 	}
 }

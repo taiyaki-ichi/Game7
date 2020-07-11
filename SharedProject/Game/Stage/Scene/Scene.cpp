@@ -1,6 +1,7 @@
 #include"Scene.hpp"
 #include"Game/Stage/Stage.hpp"
 #include"Actor/ActorBase.hpp"
+#include"Actor/Camera.hpp"
 
 namespace Game::Stage
 {
@@ -40,6 +41,17 @@ namespace Game::Stage
 	Stage* Scene::GetStage()
 	{
 		return static_cast<Stage*>(mOwner);
+	}
+
+	void Scene::SetCamera(Camera* c)
+	{
+		mCamera = c;
+	}
+
+	void Scene::AdjustCameraPos()
+	{
+		if (mCamera)
+			mCamera->AdjustCameraPos();
 	}
 
 }

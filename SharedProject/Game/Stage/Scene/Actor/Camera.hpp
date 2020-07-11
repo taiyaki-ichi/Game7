@@ -11,8 +11,9 @@ namespace Game::Stage
 		float mBottom;
 
 		//‚¨ŽŽ‚µ
-		constexpr static float MAX_DISTANCE = 100.f;
+		constexpr static float MAX_DISTANCE = 150.f;
 
+		constexpr static float MARGIN_Y = 200.f;
 	public:
 		Camera(Scene* scene, std::vector<float>&& data);
 		virtual ~Camera() = default;
@@ -21,6 +22,8 @@ namespace Game::Stage
 
 		void Active() override {}
 		void Pause() override {}
+
+		void AdjustCameraPos();
 
 	};
 

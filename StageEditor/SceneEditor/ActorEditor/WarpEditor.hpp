@@ -1,5 +1,6 @@
 #pragma once
 #include"ActorEditorBase.hpp"
+#include"GameLib/include/Draw/DrawTexture.hpp"
 
 namespace StageEditor
 {
@@ -8,6 +9,8 @@ namespace StageEditor
 		std::string mThisWorpGateType;
 		std::string mThisNameTag;
 		std::string mDestinationNameTag;
+
+		GameLib::DrawTexture mTexture;
 
 	public:
 		WarpEditor(SceneEditor* scene);

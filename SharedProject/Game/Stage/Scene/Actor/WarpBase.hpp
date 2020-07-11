@@ -23,5 +23,8 @@ namespace Game::Stage
 
 		//DestinationNameTagへワープ
 		void WarpPlayer();
+
+		//プレーやがここに飛んでくるときの通知用
+		virtual void PlayerWarpHere() {};
 	};
 }
