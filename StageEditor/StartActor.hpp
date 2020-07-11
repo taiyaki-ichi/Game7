@@ -6,6 +6,7 @@
 #include"Game/Stage/Stage.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
+#include"GameLib/include/CollisionDetection/Collider.hpp"
 
 namespace StageEditor
 {
@@ -17,8 +18,11 @@ namespace StageEditor
 			,mStageEditor{nullptr}
 			, mStage{nullptr}
 		{
+			GameLib::Collider::SetIsDebug(true);
+
 			mStageEditor = new StageEditor{ this };
 			new ConsoleMessage{ this };
+
 			
 		}
 		virtual ~StartActor() = default;
@@ -27,6 +31,7 @@ namespace StageEditor
 			
 			if (GameLib::InputState::GetState(GameLib::Key::no0) == GameLib::ButtonState::Pressed) {
 				if (mStageEditor) {
+
 					mStageEditor->SetState(GameLib::Actor::State::Dead);
 					mStageEditor = nullptr;
 					mStage = new Game::Stage::Stage{ this,"test.json" };
@@ -36,6 +41,8 @@ namespace StageEditor
 					GameLib::Viewport::SetRotation(0.f);
 				}
 				else {
+					GameLib::Collider::SetIsDebug(true);
+
 					mStage->SetState(GameLib::Actor::State::Dead);
 					mStage = nullptr;
 					mStageEditor = new StageEditor{ this };

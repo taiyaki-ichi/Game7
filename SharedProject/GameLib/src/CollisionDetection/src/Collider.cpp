@@ -6,6 +6,8 @@
 
 namespace GameLib
 {
+	bool Collider::mIsDebug = false;
+
 	void Collider::SetDrawRect()
 	{
 		mDrawRect.Set(mPosition, mScale, mRotation);
@@ -27,6 +29,11 @@ namespace GameLib
 		SetColor(std::move(color));
 
 		ColliderManager::Add(this);
+
+		if (mIsDebug)
+			mDrawRect.SetIsAutoDrawing(true);
+		else
+			mDrawRect.SetIsAutoDrawing(false);
 	}
 
 	Collider::~Collider()
@@ -63,6 +70,11 @@ namespace GameLib
 	void Collider::SetIsDrawing(bool b)
 	{
 		mDrawRect.SetIsAutoDrawing(b);
+	}
+
+	void Collider::SetIsDebug(bool b)
+	{
+		mIsDebug = b;
 	}
 
 	void Collider::Set(const Vector2& pos, float width, float heigth, float scale, float rot)
@@ -143,11 +155,14 @@ namespace GameLib
 	void Collider::Active()
 	{
 		mDoCollisionDetection = true;
-		mDrawRect.SetIsAutoDrawing(true);
+		if (mIsDebug == true)
+			mDrawRect.SetIsAutoDrawing(true);
+
 	}
 	void Collider::Pause()
 	{
 		mDoCollisionDetection = false;
-		mDrawRect.SetIsAutoDrawing(false);
+		if (mIsDebug == true)
+			mDrawRect.SetIsAutoDrawing(false);
 	}
 }

@@ -31,6 +31,7 @@ namespace StageEditor
 		LoadStageData(this, "test.json");
 		PrintStageInfo();
 
+		
 	}
 
 	SceneEditor* StageEditor::AddScene(const std::string& sceneName)

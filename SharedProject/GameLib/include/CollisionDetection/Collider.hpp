@@ -35,6 +35,9 @@ namespace GameLib
 
 		//当たり判定を行いかどうか
 		bool mDoCollisionDetection;
+		
+		//デバックモードかどうか
+		static bool mIsDebug;
 
 	public:
 		Collider(std::string&& nameTag = "", const Vector2& pos = { 0.f,0.f }, float width = 0.f, float heigth = 0.f
@@ -49,6 +52,8 @@ namespace GameLib
 
 		static void SetAllIsDrawing(bool b);
 		void SetIsDrawing(bool b);
+
+		static void SetIsDebug(bool b);
 
 		void Set(const Vector2& pos, float width, float heigth, float scale, float rot);
 		void ResetPosition(const Vector2& pos);

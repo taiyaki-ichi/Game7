@@ -13,6 +13,9 @@ namespace Game::Stage
 {
 	bool CreateStage(Stage* stagePtr, std::string&& fileName)
 	{
+
+		GameLib::Collider::SetIsDebug(false);
+
 		// JSONデータの読み込み。
 		std::ifstream ifs(fileName, std::ios::in);
 		if (ifs.fail()) {
