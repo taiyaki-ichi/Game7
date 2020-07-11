@@ -39,7 +39,7 @@ namespace GameLib
 		void Set(const Vector2& pos, float scale, float rot);
 		void Set(Vector2&& pos, float scale, float rot);
 
-		void SetPosition(const Vector2& pos);
+		void ResetPosition(const Vector2& pos);
 		void SetScale(float scale);
 		void SetRotation(float rot);
 

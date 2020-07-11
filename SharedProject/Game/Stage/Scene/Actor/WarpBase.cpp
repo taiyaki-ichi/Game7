@@ -6,8 +6,9 @@
 
 namespace Game::Stage
 {
-	WarpBase::WarpBase(Scene* scene)
+	WarpBase::WarpBase(Scene* scene,const GameLib::Vector2& pos)
 		:ActorBase{ scene }
+		, mPosition{pos}
 	{
 		scene->GetStage()->AddWarpGate(this);
 	}

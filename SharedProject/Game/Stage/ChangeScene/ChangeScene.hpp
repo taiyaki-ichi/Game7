@@ -15,6 +15,9 @@ namespace Game::Stage
 
 		std::unique_ptr<CurtainBase> mCurtain;
 
+		constexpr static int BLACK_TINE = 30;
+		int mCnt;
+
 	public:
 		ChangeScene(Stage* stage, Scene* prevScene, WarpBase* nextWapeGate);
 		virtual ~ChangeScene() = default;

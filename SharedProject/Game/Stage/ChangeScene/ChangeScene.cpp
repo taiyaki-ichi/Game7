@@ -14,6 +14,7 @@ namespace Game::Stage
 		, mPrevScene{prevScene}
 		, mNextWarpBase{nextWapeGate}
 		, mCurtain{nullptr}
+		, mCnt{0}
 	{
 		mCurtain = std::make_unique<CircleCurtain>(stage->GetPlayerPos(), mNextWarpBase->GetPosition());
 		stage->PlayerPause();
@@ -23,17 +24,27 @@ namespace Game::Stage
 	{
 		mCurtain->Update();
 
+		//std::cout << "called update\n";
 		
 		if (mCurtain->IsClosed()) {
-			mPrevScene->Pause();
-			auto scene = static_cast<Scene*>(mNextWarpBase->GetOwner());
-			scene->Active();
-			scene->SetState(GameLib::Actor::State::Pause);
-			auto stage = static_cast<Stage*>(mOwner);
-			stage->SetPlayerPos(mNextWarpBase->GetPosition());
-			stage->PlayerPause();
+			mCnt++;
+			
+			if (mCnt > BLACK_TINE)
+			{
+				mPrevScene->Pause();
+				auto scene = static_cast<Scene*>(mNextWarpBase->GetOwner());
+				scene->Active();
+				scene->SetState(GameLib::Actor::State::Pause);
+				auto stage = static_cast<Stage*>(mOwner);
+				//std::cout << "next pos: " << mNextWarpBase->GetPosition().x << "," << mNextWarpBase->GetPosition().y << "\n";
+				stage->ResetPlayerPos(mNextWarpBase->GetPosition());
+				stage->PlayerPause();
 
-			mCurtain->Open();
+				mCurtain->Open();
+				mCnt = 0;
+			}
+
+			//std::cout << "closed";
 		}
 
 		if (mCurtain->IsOpened()) {
@@ -42,6 +53,8 @@ namespace Game::Stage
 			scene->Active();
 			scene->GetStage()->PlayerAcitve();
 			SetState(GameLib::Actor::State::Dead);
+
+			//std::cout << "opened";
 		}
 		
 	}

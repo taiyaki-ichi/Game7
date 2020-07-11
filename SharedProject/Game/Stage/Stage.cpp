@@ -62,9 +62,9 @@ namespace Game::Stage
 		return mPlayer->GetPositon();
 	}
 
-	void Stage::SetPlayerPos(const GameLib::Vector2& pos)
+	void Stage::ResetPlayerPos(const GameLib::Vector2& pos)
 	{
-		mPlayer->SetPosition(pos);
+		mPlayer->ResetPosition(pos);
 	}
 
 	void Stage::AddWarpGate(WarpBase* warp)

@@ -19,8 +19,8 @@ namespace StageEditor
 	{
 		auto pos = GetPosInfos();
 
-		mTexture.SetPosition(pos[0]->GetPosition());
-		mDefaultCollider.SetPosition(pos[0]->GetPosition() + GameLib::Vector2{ 0.f,-12.f });
+		mTexture.ResetPosition(pos[0]->GetPosition());
+		mDefaultCollider.ResetPosition(pos[0]->GetPosition() + GameLib::Vector2{ 0.f,-12.f });
 	}
 	void PlayerEditor::Active()
 	{

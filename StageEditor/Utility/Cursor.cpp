@@ -13,7 +13,7 @@ namespace StageEditor
 
 		mCollider.SetWidthAndHeith(2.f, 2.f);
 		auto pos = AffineInv(InputState::GetMousePos(), Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
-		mCollider.SetPosition(pos);
+		mCollider.ResetPosition(pos);
 		mCollider.Active();
 	}
 
@@ -21,6 +21,6 @@ namespace StageEditor
 	{
 		using namespace GameLib;
 		auto pos = AffineInv(InputState::GetMousePos(), Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
-		mCollider.SetPosition(pos);
+		mCollider.ResetPosition(pos);
 	}
 }

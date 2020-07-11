@@ -15,7 +15,7 @@ namespace StageEditor
 	void WarpEditor::ActorEditorUpdate()
 	{
 		auto pos = GetPosInfos();
-		mDefaultCollider.SetPosition(pos[0]->GetPosition());
+		mDefaultCollider.ResetPosition(pos[0]->GetPosition());
 
 		auto str = ConsoleMessage::GetStrings();
 		if (str.size() > 0.f) {

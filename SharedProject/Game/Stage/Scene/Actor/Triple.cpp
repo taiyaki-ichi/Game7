@@ -119,13 +119,13 @@ namespace Game::Stage::Triple
 	void TripleActive::ReflectCollider()
 	{
 		mBody.SetRotation(mPhysicsModel.mRotation);
-		mBody.SetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Down, 6));
+		mBody.ResetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Down, 6));
 
 		mWeakness.SetRotation(mPhysicsModel.mRotation);
-		mWeakness.SetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Up, 14));
+		mWeakness.ResetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Up, 14));
 
 		mStrength.SetRotation(mPhysicsModel.mRotation);
-		mStrength.SetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Down, 16));
+		mStrength.ResetPosition(mPhysicsModel.mPosition + Gravity::GetVector2(Dir4::Down, 16));
 	}
 
 	void TripleActive::Active()
@@ -150,7 +150,7 @@ namespace Game::Stage::Triple
 		int c = anim->GetChannel();
 		anim->SetChannel(c + 2);
 		auto aniPos = anim->GetPosition();
-		anim->SetPosition(aniPos + Gravity::GetVector2(Dir4::Down, 20.f));
+		anim->ResetPosition(aniPos + Gravity::GetVector2(Dir4::Down, 20.f));
 	}
 
 	StateBase* FlatDeath::Update()

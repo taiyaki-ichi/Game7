@@ -13,7 +13,7 @@ namespace Game::Stage
 		GameLib::Vector2 mPosition;
 
 	public:
-		WarpBase(Scene* scene);
+		WarpBase(Scene* scene,const GameLib::Vector2& pos);
 		virtual ~WarpBase();
 
 		void SetStringInfo(std::string&& nameTag, std::string&& destinationNameTag);

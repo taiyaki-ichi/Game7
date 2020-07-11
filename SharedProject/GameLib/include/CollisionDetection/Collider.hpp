@@ -51,7 +51,7 @@ namespace GameLib
 		void SetIsDrawing(bool b);
 
 		void Set(const Vector2& pos, float width, float heigth, float scale, float rot);
-		void SetPosition(const Vector2& pos);
+		void ResetPosition(const Vector2& pos);
 		void SetWidthAndHeith(float w, float h);
 		void SetRotation(float rot);
 		void SetScale(float s);

@@ -36,7 +36,7 @@ namespace Game::Stage
 		void SetPlayerAndNowScene(Player::Actor* player,Scene* scene);
 
 		const GameLib::Vector2& GetPlayerPos();
-		void SetPlayerPos(const GameLib::Vector2& pos);
+		void ResetPlayerPos(const GameLib::Vector2& pos);
 
 		void AddWarpGate(WarpBase* warp);
 		void RemoveWarpGate(WarpBase* warp);

@@ -25,7 +25,7 @@ namespace Game::Stage::Player
 
 		//アニメーションの位置を返す
 		GameLib::Vector2 GetPositon();
-		void SetPosition(const GameLib::Vector2& pos);
+		void ResetPosition(const GameLib::Vector2& pos);
 
 		void SetPlayerState(PlayerState* state);
 	};
@@ -38,7 +38,7 @@ namespace Game::Stage::Player
 		virtual ~PlayerState() = default;
 
 		virtual const GameLib::Vector2& GetPosition() = 0;
-		virtual void SetPosition(const GameLib::Vector2& pos) = 0;
+		virtual void ResetPosition(const GameLib::Vector2& pos) = 0;
 
 		Player::Actor* GetPlayer();
 	};
@@ -70,7 +70,7 @@ namespace Game::Stage::Player
 		void CustomizeUpdate() override;
 
 		const GameLib::Vector2& GetPosition() override;
-		void SetPosition(const GameLib::Vector2& pos) override;
+		void ResetPosition(const GameLib::Vector2& pos) override;
 		
 	private:
 		GameLib::Vector2 GetPowerPerFrame();
@@ -98,7 +98,7 @@ namespace Game::Stage::Player
 		void CustomizeUpdate() override;
 
 		const GameLib::Vector2& GetPosition() override;
-		void SetPosition(const GameLib::Vector2& pos) override;
+		void ResetPosition(const GameLib::Vector2& pos) override;
 
 	};
 }
