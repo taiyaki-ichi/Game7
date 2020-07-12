@@ -42,8 +42,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\Basis.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateFallObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateSlideObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallLeaf.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallObjectBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideObjectBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\ChangeScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\CircleCurtain.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\CreateStage.cpp" />
@@ -117,8 +120,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\BackGroundAdjustPos.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\Basis.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateFallObject.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateSlideObject.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallLeaf.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallObjectBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideObjectBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTree.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\ChangeScene.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\CircleCurtain.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\CurtainBase.hpp" />

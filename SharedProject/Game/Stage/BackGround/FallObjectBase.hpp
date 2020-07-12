@@ -17,11 +17,13 @@ namespace Game::Stage::BackGround
 		GameLib::Vector2 mDeltaPos;
 		float mDeltaRot;
 
-		float mMoveRate;
+		float mMargin;
+		float mMoveRateX;
+		float mMoveRateY;
 
 	public:
 		FallObjectBase(GameLib::Actor* owner, std::string&& fileName, GameLib::Vector2&& startPos, float startRot, float scale,
-			GameLib::Vector2&& deltaPos, float deltaRot, float moveRate,int drawOrder);
+			GameLib::Vector2&& deltaPos, float deltaRot,float margin, float moveRateX, float moveRateY,int drawOrder);
 		virtual ~FallObjectBase() = default;
 
 		void CustomizeUpdate() override;

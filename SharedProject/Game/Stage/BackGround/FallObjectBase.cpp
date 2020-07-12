@@ -9,15 +9,17 @@ namespace Game::Stage::BackGround
 
 
 	//VirwPortÇÃïœçXÇë“Ç¬ÇΩÇﬂUpdateOrderÇÕëÂÇ´Ç¢
-	FallObjectBase::FallObjectBase(GameLib::Actor* owner, std::string&& fileName, GameLib::Vector2&& startPos, float startRot, float scale, GameLib::Vector2&& deltaPos, float deltaRot, float moveRate,int drawOrder)
+	FallObjectBase::FallObjectBase(GameLib::Actor* owner, std::string&& fileName, GameLib::Vector2&& startPos, float startRot, float scale, GameLib::Vector2&& deltaPos, float deltaRot, float margin, float moveRateX, float moveRateY,int drawOrder)
 		:GameLib::Actor{owner,100}
 		, mTexture{std::move(fileName)}
 		, mPosition{std::move(startPos)}
 		, mDeltaPos{std::move(deltaPos)}
 		, mDeltaRot{deltaRot}
-		, mMoveRate{moveRate}
+		, mMoveRateX{moveRateX}
+		, mMoveRateY{moveRateY}
+		, mMargin{margin}
 	{
-		mTexture.SetPosition(mPosition);
+		mTexture.SetPosition(AdjustPos(mPosition, mMargin, mMargin, mMoveRateX, mMoveRateY));
 		mTexture.SetScale(scale);
 		mTexture.SetRotation(startRot);
 		mTexture.SetDrawOrder(drawOrder);
@@ -27,9 +29,9 @@ namespace Game::Stage::BackGround
 	{
 		mPosition += Gravity::GetGravityVector2();
 		mPosition += mDeltaPos;
-		mPosition = AdjustPos(std::move(mPosition));
+		mPosition = AdjustPos(std::move(mPosition), mMargin, mMargin);
 
-		mTexture.SetPosition(AdjustPos(mPosition, mMoveRate));
+		mTexture.SetPosition(AdjustPos(mPosition, mMargin, mMargin, mMoveRateX, mMoveRateY));
 		mTexture.SetRotation(mTexture.GetRotation() + mDeltaRot);
 
 	}

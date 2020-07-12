@@ -13,6 +13,7 @@
 #include"BackGround/Basis.hpp"
 
 #include"BackGround/CreateFallObject.hpp"
+#include"BackGround/CreateSlideObject.hpp"
 
 namespace Game::Stage
 {
@@ -35,7 +36,7 @@ namespace Game::Stage
 		new BackGround::Basis{ this };
 
 		BackGround::CreateFallLeaf(this);
-
+		BackGround::CreateSlideTree(this);
 
 	}
 	void Stage::CustomizeUpdate()
