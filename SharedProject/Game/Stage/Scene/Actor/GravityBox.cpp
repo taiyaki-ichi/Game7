@@ -27,6 +27,7 @@ namespace Game::Stage
 			auto dir4VecAdjust = Gravity::GetDir4Vec(adjust);
 
 			//std::cout << "a\n";
+			
 			/*
 			if (dir4VecAdjust.mDir4 == Dir4::Down)
 				std::cout << "down\n";
@@ -35,6 +36,15 @@ namespace Game::Stage
 			if (dir4VecAdjust.mDir4 == Dir4::Right)
 				std::cout << "right\n";
 			if (dir4VecAdjust.mDir4 == Dir4::Left)
+				std::cout << "left";
+
+			if (Gravity::GetGravityDir4() == Dir4::Down)
+				std::cout << "down\n";
+			if (Gravity::GetGravityDir4() == Dir4::Up)
+				std::cout << "up\n";
+			if (Gravity::GetGravityDir4() == Dir4::Right)
+				std::cout << "right\n";
+			if (Gravity::GetGravityDir4() == Dir4::Left)
 				std::cout << "left";
 				*/
 			if (dir4VecAdjust.mDir4 == Dir4::Up && mRotationCnt==0) {

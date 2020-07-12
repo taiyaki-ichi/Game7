@@ -30,6 +30,7 @@ namespace Game::Stage::BackGround
 		float w;
 		int num;
 
+		
 		num = 5;
 		w = (WINDOW_WIDTH + 200.f) / num;
 		for (int i = 0; i < num; i++)
@@ -44,5 +45,8 @@ namespace Game::Stage::BackGround
 		w = (WINDOW_WIDTH + 400.f) / num;
 		for (int i = 0; i < num; i++)
 			new SlideRoundTree130{ stage,GameLib::Vector2{ w / 2.f + w * i,90.f } };
+			
+	
+		//new SlideRoundTree130{ stage,GameLib::Vector2{ -200.f,90.f } };
 	}
 }

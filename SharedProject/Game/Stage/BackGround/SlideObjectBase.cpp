@@ -1,6 +1,7 @@
 #include"SlideObjectBase.hpp"
 #include"BackGroundAdjustPos.hpp"
 
+
 namespace Game::Stage::BackGround
 {
 	SlideObjectBase::SlideObjectBase(GameLib::Actor* owner,std::string&& fileName,const GameLib::Vector2& pos, float scale, float marginX, float marginY,float moveRateX, float moveRateY,int drawOrder)

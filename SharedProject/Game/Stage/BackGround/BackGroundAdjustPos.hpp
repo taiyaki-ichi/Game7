@@ -3,6 +3,8 @@
 #include"Game/Window.hpp"
 #include<utility>
 #include"GameLib/include/Viewport/Viewport.hpp"
+#include"Game/Stage/Gravity.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
 
 namespace Game::Stage::BackGround
 {
@@ -13,7 +15,7 @@ namespace Game::Stage::BackGround
 
 	//rateはViewPortの移動量から加算する割合
 	//marginがマイナスの場合ループしない
-	inline GameLib::Vector2 AdjustPos(GameLib::Vector2&& vec,float marginX,float marginY) {
+	inline GameLib::Vector2 AdjustPos(GameLib::Vector2&& vec, float marginX, float marginY) {
 
 		float x = WINDOW_WIDTH / 2.f + marginX;
 		float y = WINDOW_HEIGHT / 2.f + marginY;
@@ -29,23 +31,18 @@ namespace Game::Stage::BackGround
 			while (vec.y >= y)
 				vec.y -= y * 2.f;
 		}
-		/*
-		while (vec.x < RANGE_LEFT)
-			vec.x += (RANGE_RIGHT - RANGE_LEFT);
-		while (vec.x >= RANGE_RIGHT)
-			vec.x -= (RANGE_RIGHT - RANGE_LEFT);
-		while (vec.y < RANGE_BOTTOM)
-			vec.y += (RANGE_TOP - RANGE_BOTTOM);
-		while (vec.y >= RANGE_TOP)
-			vec.y -= (RANGE_TOP - RANGE_BOTTOM);
-			*/
 		return std::move(vec);
 	}
 
 
 	inline GameLib::Vector2 AdjustPos(const GameLib::Vector2& vec, float marginX, float marginY, float rateX, float rateY) {
 		
+		
+
+		//std::cout << "pos: " << result.x << "," << result.y << "\n";
+
 		auto viewPortPos = GameLib::Viewport::GetPos();
+		viewPortPos = GameLib::Vector2::Rotation(viewPortPos, Gravity::GetGravityRotation());
 
 		auto result = vec + GameLib::Vector2{ viewPortPos.x * rateX,viewPortPos.y * rateY };
 		result -= viewPortPos;
@@ -53,19 +50,14 @@ namespace Game::Stage::BackGround
 		result += viewPortPos;
 
 		return result;
+
+
 	}
 
 	//ViewPortの影響を考慮するバージョン
 	inline GameLib::Vector2 AdjustPos(const GameLib::Vector2& vec, float marginX, float marginY, float rate) {
 
-		/*
-		auto result = vec + GameLib::Viewport::GetPos() * rate;
-		result -= GameLib::Viewport::GetPos();
-		result = AdjustPos(std::move(result));
-		result += GameLib::Viewport::GetPos();
-
-		return result;
-		*/
+		
 		return AdjustPos(vec, marginX, marginY, rate, rate);
 	}
 }

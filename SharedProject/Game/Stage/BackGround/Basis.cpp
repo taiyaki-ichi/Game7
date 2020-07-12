@@ -1,5 +1,6 @@
 #include"Basis.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
+#include"Game/Stage/Gravity.hpp"
 
 #include<iostream>
 
@@ -12,9 +13,9 @@ namespace Game::Stage::BackGround
 		, mRect2{}
 		, mRect3{}
 	{
-		mRect1.SetWidthAndHeight(800.f, 800.f);
-		mRect2.SetWidthAndHeight(800.f, 800.f);
-		mRect3.SetWidthAndHeight(800.f, 800.f);
+		mRect1.SetWidthAndHeight(1000.f, 1000.f);
+		mRect2.SetWidthAndHeight(1000.f, 1000.f);
+		mRect3.SetWidthAndHeight(1000.f, 1000.f);
 
 		mRect1.SetColor({ 230,230,230,255 });
 		mRect2.SetColor({ 180,180,180,255 });
@@ -32,9 +33,11 @@ namespace Game::Stage::BackGround
 		float rate2 = 0.7f;
 		float rate3 = 0.5f;
 
-		mRect1.SetPosition(GameLib::Vector2{ pos.x,-300.f + pos.y * rate1 });
-		mRect2.SetPosition(GameLib::Vector2{ pos.x,-400.f + pos.y * rate2 });
-		mRect3.SetPosition(GameLib::Vector2{ pos.x,-500.f + pos.y * rate3 });
+		pos = GameLib::Vector2::Rotation(pos, Gravity::GetGravityRotation());
+
+		mRect1.SetPosition(GameLib::Vector2{ pos.x,-400.f + pos.y * rate1 });
+		mRect2.SetPosition(GameLib::Vector2{ pos.x,-500.f + pos.y * rate2 });
+		mRect3.SetPosition(GameLib::Vector2{ pos.x,-600.f + pos.y * rate3 });
 
 	}
 
