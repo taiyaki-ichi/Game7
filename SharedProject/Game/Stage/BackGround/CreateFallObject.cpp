@@ -23,7 +23,7 @@ namespace Game::Stage::BackGround
 	{
 		auto viewPortPos = GameLib::Viewport::GetPos();
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 10; i++) {
 			float x = generateX(engine);
 			float y = generateY(engine);
 			auto pos = GameLib::Vector2{ x,y } + viewPortPos;

@@ -35,7 +35,7 @@ namespace Game::Stage
 
 		new BackGround::Basis{ this };
 
-		BackGround::CreateFallLeaf(this);
+		//BackGround::CreateFallLeaf(this);
 		BackGround::CreateSlideRoundTree(this);
 
 	}
