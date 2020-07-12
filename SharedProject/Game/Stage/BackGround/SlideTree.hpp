@@ -4,27 +4,49 @@
 namespace Game::Stage::BackGround
 {
 
-	class SlideTree230 : public SlideObjectBase
+	class SlideSharpTree230 : public SlideObjectBase
 	{
 	public:
-		SlideTree230(GameLib::Actor* actor, const GameLib::Vector2& pos);
-		virtual ~SlideTree230() = default;
+		SlideSharpTree230(GameLib::Actor* actor, GameLib::Vector2&& pos);
+		virtual ~SlideSharpTree230() = default;
 
 	};
 
-	class SlideTree180 : public SlideObjectBase
+	class SlideSharpTree180 : public SlideObjectBase
 	{
 	public:
-		SlideTree180(GameLib::Actor* actor, const GameLib::Vector2& pos);
-		virtual ~SlideTree180() = default;
+		SlideSharpTree180(GameLib::Actor* actor, GameLib::Vector2&& pos);
+		virtual ~SlideSharpTree180() = default;
 
 	};
 
-	class SlideTree130 : public SlideObjectBase
+	class SlideSharpTree130 : public SlideObjectBase
 	{
 	public:
-		SlideTree130(GameLib::Actor* actor, const GameLib::Vector2& pos);
-		virtual ~SlideTree130() = default;
+		SlideSharpTree130(GameLib::Actor* actor, GameLib::Vector2&& pos);
+		virtual ~SlideSharpTree130() = default;
 
 	};
+
+	class SlideRoundTree230 : public SlideObjectBase
+	{
+	public:
+		SlideRoundTree230(GameLib::Actor* actor, GameLib::Vector2&& pos);
+		virtual ~SlideRoundTree230() = default;
+	};
+
+	class SlideRoundTree180 : public SlideObjectBase
+	{
+	public:
+		SlideRoundTree180(GameLib::Actor* actor, GameLib::Vector2&& pos);
+		virtual ~SlideRoundTree180() = default;
+	};
+
+	class SlideRoundTree130 : public SlideObjectBase
+	{
+	public:
+		SlideRoundTree130(GameLib::Actor* actor, GameLib::Vector2&& pos);
+		virtual ~SlideRoundTree130() = default;
+	};
+
 }

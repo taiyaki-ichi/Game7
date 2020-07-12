@@ -7,5 +7,7 @@ namespace Game::Stage
 
 namespace Game::Stage::BackGround
 {
-	void CreateSlideTree(Stage* stage);
+	void CreateSlideSharpTree(Stage* stage);
+
+	void CreateSlideRoundTree(Stage* stage);
 }
