@@ -30,7 +30,7 @@ namespace Game::Stage::Triple
 
 		return IsInScope(pos, WINDOW_WIDTH + 200.f, WINDOW_WIDTH + 200.f);
 	}
-	void Actor::UpdateActor()
+	void Actor::ActorUpdate()
 	{
 		mAnimation.Update();
 		mStateManager.Update();

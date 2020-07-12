@@ -54,6 +54,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\GravityRotation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Player.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Camera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\GravityBox.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\ActorBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\GuruWarp.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Player.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Camera.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\GravityBox.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\ActorBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\Scene\Actor\GuruWarp.hpp" />

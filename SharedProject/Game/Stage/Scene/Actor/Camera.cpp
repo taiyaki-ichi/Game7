@@ -36,7 +36,7 @@ namespace Game::Stage
 		
 		scene->SetCamera(this);
 	}
-	void Camera::UpdateActor()
+	void Camera::ActorUpdate()
 	{
 		AdjustCameraPos();
 	}

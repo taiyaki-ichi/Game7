@@ -27,7 +27,7 @@ namespace Game::Stage
 
 	}
 
-	void GuruWarp::UpdateActor()
+	void GuruWarp::ActorUpdate()
 	{
 		if (mCnt > 0)
 			mCnt--;

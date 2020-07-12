@@ -19,7 +19,7 @@ namespace Game::Stage
 		Camera(Scene* scene, std::vector<float>&& data);
 		virtual ~Camera() = default;
 
-		void UpdateActor() override;
+		void ActorUpdate() override;
 
 		void Active() override {}
 		void Pause() override {}

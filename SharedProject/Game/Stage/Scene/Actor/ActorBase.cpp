@@ -16,7 +16,7 @@ namespace Game::Stage
 	void ActorBase::CustomizeUpdate()
 	{
 		if (UpdateOrNot())
-			UpdateActor();
+			ActorUpdate();
 	}
 
 	bool ActorBase::UpdateOrNot()

@@ -150,6 +150,7 @@
     <ClInclude Include="FileFunc.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\GravityBoxEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfo.hpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GravityBoxEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PosInfo\PosInfo.cpp" />

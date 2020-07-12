@@ -16,7 +16,7 @@ namespace Game::Stage
 		//更新するかどうか、Actorが画面外で落下しないようにするためなどに使用
 		//デフォルトでtrueを返す
 		virtual bool UpdateOrNot();
-		virtual void UpdateActor() {}
+		virtual void ActorUpdate() {}
 
 		//ColliderやDraw系のオンオフ
 		virtual void Active() = 0;

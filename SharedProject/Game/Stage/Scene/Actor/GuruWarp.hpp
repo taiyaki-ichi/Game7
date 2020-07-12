@@ -17,7 +17,7 @@ namespace Game::Stage
 		GuruWarp(Scene* scene, std::vector<float>&& data);
 		virtual ~GuruWarp() = default;
 
-		void UpdateActor() override;
+		void ActorUpdate() override;
 
 		void Active() override;
 		void Pause() override;

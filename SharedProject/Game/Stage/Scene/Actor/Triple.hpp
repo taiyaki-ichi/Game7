@@ -21,7 +21,7 @@ namespace Game::Stage::Triple
 		//アニメーションの位置で判断
 		bool UpdateOrNot() override;
 		//StateManagerの更新
-		void UpdateActor() override;
+		void ActorUpdate() override;
 
 		void Active() override;
 		void Pause() override;

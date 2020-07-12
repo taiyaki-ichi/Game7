@@ -70,6 +70,11 @@
           "2": 756,
           "3": -142,
           "ActorName": "Ground"
+        },
+        {
+          "0": -52,
+          "1": 38,
+          "ActorName": "GravityBox"
         }
       ],
       "SceneName": "a"

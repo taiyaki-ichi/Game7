@@ -4,6 +4,7 @@
 #include"ActorEditor/CameraEditor.hpp"
 #include"ActorEditor/TripleEditor.hpp"
 #include"ActorEditor/WarpEditor.hpp"
+#include"ActorEditor/GravityBoxEditor.hpp"
 
 namespace StageEditor
 {
@@ -26,6 +27,8 @@ namespace StageEditor
 			ptr = new TripleEditor{ sceneEditor };
 		if (actorName == "Warp")
 			ptr = new WarpEditor{ sceneEditor };
+		if (actorName == "GravityBox")
+			ptr = new GravityBoxEditor{ sceneEditor };
 
 		///////////////////////////////////////////////////////////////////
 
