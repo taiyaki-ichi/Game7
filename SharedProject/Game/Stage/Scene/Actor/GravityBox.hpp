@@ -14,11 +14,10 @@ namespace Game::Stage
 
 
 		int mRotationCnt;
-		GameLib::Vector2 mVec;
 		constexpr static float DELTA_ROT = 0.1f;
-		float mRot;
 
-		Dir4 mDir4;
+		GameLib::Vector2 mPosition;
+		float mRotation;
 
 	public:
 		GravityBox(Scene* scene, std::vector<float>&& data);

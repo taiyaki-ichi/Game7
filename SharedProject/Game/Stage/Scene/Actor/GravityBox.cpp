@@ -15,9 +15,8 @@ namespace Game::Stage
 		, mCollider{}
 		, mCollider2{"Ground"}
 		, mRotationCnt{0}
-		, mVec{}
-		, mRot{0.f}
-		, mDir4{}
+		, mRotation{0.f}
+		, mPosition{}
 	{
 		auto pos = GameLib::Vector2{ data[0],data[1] };
 
@@ -65,11 +64,10 @@ namespace Game::Stage
 				while (dir < 0)
 					dir += 4;
 				Gravity::SetGravityDir4(static_cast<Dir4>(dir));
-				mDir4 = static_cast<Dir4>(dir);
 				mRotationCnt++;
-				mVec = GameLib::Viewport::GetPos();
-				mRot = GameLib::Viewport::GetRotation();
-
+		
+				mRotation = GameLib::Viewport::GetRotation();
+				mPosition = GameLib::Viewport::GetPos();
 			}
 		};
 
@@ -108,7 +106,7 @@ namespace Game::Stage
 				}
 			}
 
-			GameLib::Viewport::SetPos(GameLib::Vector2::Rotation(mVec, -rot + mRot));
+			GameLib::Viewport::SetPos(GameLib::Vector2::Rotation(mPosition, -rot + mRotation));
 
 			GameLib::Viewport::SetRotation(rot);
 
