@@ -1,6 +1,7 @@
 #pragma once
 #include<utility>
 #include"GameLib/include/Math/Vector2.hpp"
+#include"GameLib/include/Math/Numbers.hpp"
 
 namespace GameLib
 {
@@ -25,6 +26,11 @@ namespace GameLib
 		}
 
 		static void SetRotation(float rot) noexcept {
+			while (rot < 0.f)
+				rot += GameLib::PI * 2.f;
+			while (rot >= GameLib::PI * 2.f)
+				rot -= GameLib::PI * 2.f;
+
 			mRotation = rot;
 		}
 

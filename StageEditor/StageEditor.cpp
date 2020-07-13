@@ -169,5 +169,8 @@ namespace StageEditor
 		
 		mReDrawFlag = false;
 
+		//float rot = GameLib::Viewport::GetRotation();
+		//GameLib::Viewport::SetRotation(rot + 0.01f);
+
 	}
 }

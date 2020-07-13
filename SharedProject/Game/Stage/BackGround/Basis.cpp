@@ -1,6 +1,5 @@
 #include"Basis.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
-#include"Game/Stage/Gravity.hpp"
 
 #include<iostream>
 
@@ -33,7 +32,8 @@ namespace Game::Stage::BackGround
 		float rate2 = 0.7f;
 		float rate3 = 0.5f;
 
-		pos = GameLib::Vector2::Rotation(pos, Gravity::GetGravityRotation());
+		//StageÇÃèdóÕÇ≈ÇÕÇ»Ç≠ÅAViewPortÇÃRotàÀë∂Ç…ÇµÇΩ
+		pos = GameLib::Vector2::Rotation(pos, GameLib::Viewport::GetRotation());
 
 		mRect1.SetPosition(GameLib::Vector2{ pos.x,-400.f + pos.y * rate1 });
 		mRect2.SetPosition(GameLib::Vector2{ pos.x,-500.f + pos.y * rate2 });

@@ -4,6 +4,8 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 
 #include<iostream>
+#include"GameLib/include/InputState/InputState.hpp"
+#include"Game/Stage/Scene/Scene.hpp"
 
 namespace Game::Stage
 {
@@ -11,16 +13,23 @@ namespace Game::Stage
 		:ActorBase{scene}
 		, mTexture{"../Assets/Box/001.png"}
 		, mCollider{}
+		, mCollider2{"Ground"}
 		, mRotationCnt{0}
+		, mVec{}
+		, mRot{0.f}
+		, mDir4{}
 	{
 		auto pos = GameLib::Vector2{ data[0],data[1] };
 
 		mTexture.SetScale(0.1f);
 		mTexture.SetPosition(pos);
 
-		mCollider.SetNameTag("Ground");
+		mCollider.SetNameTag("");
 		mCollider.SetWidthAndHeith(76.f, 76.f);
 		mCollider.SetPosition(pos);
+
+		mCollider2.SetWidthAndHeith(74.f, 74.f);
+		mCollider2.SetPosition(pos);
 
 		auto hitPlayer = [this](const GameLib::Collider& c) {
 			auto adjust = GetParallelRectAdjustVec(mCollider, c);
@@ -51,10 +60,16 @@ namespace Game::Stage
 				//std::cout << "b\n";
 				auto gDir = Gravity::GetGravityDir4();
 				int dir = static_cast<int>(gDir) + 1;
-				if (dir > 3)
+				while (dir > 3)
 					dir -= 4;
+				while (dir < 0)
+					dir += 4;
 				Gravity::SetGravityDir4(static_cast<Dir4>(dir));
+				mDir4 = static_cast<Dir4>(dir);
 				mRotationCnt++;
+				mVec = GameLib::Viewport::GetPos();
+				mRot = GameLib::Viewport::GetRotation();
+
 			}
 		};
 
@@ -63,8 +78,13 @@ namespace Game::Stage
 	void GravityBox::ActorUpdate()
 	{
 
+
 		if (mRotationCnt != 0) {
 			float rot = GameLib::Viewport::GetRotation();
+			//std::cout << "rot: " << rot << "\n";
+			auto pos = GameLib::Viewport::GetPos();
+			//std::cout << "pos: "<<pos.x << "," << pos.y << "\n";
+
 			if (mRotationCnt > 0)
 				rot += DELTA_ROT;
 			else
@@ -81,13 +101,27 @@ namespace Game::Stage
 						mRotationCnt--;
 					else
 						mRotationCnt++;
+					
 					rot = GameLib::PI / 2.f * i;
+
+			
 				}
 			}
 
-			GameLib::Viewport::SetRotation(rot);
-		}
+			GameLib::Viewport::SetPos(GameLib::Vector2::Rotation(mVec, -rot + mRot));
 
+			GameLib::Viewport::SetRotation(rot);
+
+			//auto pos = GameLib::AffineInv(mPos, GameLib::Viewport::GetPos(), -GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
+			
+			//GameLib::Viewport::SetPos(mVec - GameLib::Vector2::Rotation(mVec, rot - mRot));
+		}
+		/*
+		float rot = GameLib::Viewport::GetRotation();
+		rot += 0.01f;
+		GameLib::Viewport::SetRotation(rot);
+		*/
+		
 
 	}
 	void GravityBox::Active()
@@ -100,4 +134,5 @@ namespace Game::Stage
 		mTexture.SetIsAutoDrawing(false);
 		mCollider.Pause();
 	}
+
 }

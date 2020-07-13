@@ -3,7 +3,6 @@
 #include"Game/Window.hpp"
 #include<utility>
 #include"GameLib/include/Viewport/Viewport.hpp"
-#include"Game/Stage/Gravity.hpp"
 #include"GameLib/include/Math/Vector2Func.hpp"
 
 namespace Game::Stage::BackGround
@@ -42,7 +41,9 @@ namespace Game::Stage::BackGround
 		//std::cout << "pos: " << result.x << "," << result.y << "\n";
 
 		auto viewPortPos = GameLib::Viewport::GetPos();
-		viewPortPos = GameLib::Vector2::Rotation(viewPortPos, Gravity::GetGravityRotation());
+
+		//Gravity‚Ì•ûŒüˆË‘¶‚Å‚Í‚È‚­ViewPort‚Ì•ûŒüˆË‘¶‚É•ÏX‚µ‚½
+		viewPortPos = GameLib::Vector2::Rotation(viewPortPos, GameLib::Viewport::GetRotation());
 
 		auto result = vec + GameLib::Vector2{ viewPortPos.x * rateX,viewPortPos.y * rateY };
 		result -= viewPortPos;

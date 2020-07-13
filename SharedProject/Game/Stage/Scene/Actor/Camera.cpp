@@ -5,8 +5,8 @@
 #include"Game/Window.hpp"
 #include"GameLib/include/Math/Vector2Func.hpp"
 #include"Game/Stage/Gravity.hpp"
+#include"GameLib/include/Math/Numbers.hpp"
 
-#include"GameLib/include/InputState/InputState.hpp"
 
 namespace Game::Stage
 {
@@ -50,15 +50,36 @@ namespace Game::Stage
 		playerPos = GameLib::Vector2::Rotation(std::move(playerPos), -Gravity::GetGravityRotation());
 		auto cameraPos = GameLib::Viewport::GetPos();
 		
-		
+		//カメラが回転しているときは動かさない,
+		//roundで大まかに判定しているが厳密にやるか？？
+		//SceneにIsRotationとが作るか？？
+		float rot = GameLib::Viewport::GetRotation();
+		constexpr float round = 0.001f;
+
+		for (int i = 0; i < 4; i++)
+			if (std::abs(rot - GameLib::PI / 2.f * i) < round) {
+				
+				cameraPos.x = playerPos.x;
+
+				if (cameraPos.y - WINDOW_HEIGHT / 2.f + MARGIN_Y > playerPos.y)
+					cameraPos.y = playerPos.y + WINDOW_HEIGHT / 2.f - MARGIN_Y;
+				if (cameraPos.y + WINDOW_HEIGHT / 2.f - MARGIN_Y < playerPos.y)
+					cameraPos.y = playerPos.y - WINDOW_HEIGHT / 2.f + MARGIN_Y;
+
+				break;
+			}
+			/*
 		cameraPos.x = playerPos.x;
 
 		if (cameraPos.y - WINDOW_HEIGHT / 2.f + MARGIN_Y > playerPos.y)
 			cameraPos.y = playerPos.y + WINDOW_HEIGHT / 2.f - MARGIN_Y;
 		if (cameraPos.y + WINDOW_HEIGHT / 2.f - MARGIN_Y < playerPos.y)
 			cameraPos.y = playerPos.y - WINDOW_HEIGHT / 2.f + MARGIN_Y;
+			
+		*/
 
 		
+
 		GameLib::Viewport::SetPos(std::move(cameraPos));
 	
 

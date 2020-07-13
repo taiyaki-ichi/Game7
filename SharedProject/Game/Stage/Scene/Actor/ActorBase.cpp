@@ -3,7 +3,7 @@
 
 namespace Game::Stage
 {
-	ActorBase::ActorBase(Scene* scene,std::vector<float>&& initData, int updateOrder)
+	ActorBase::ActorBase(Scene* scene,int updateOrder)
 		:GameLib::Actor{scene,updateOrder}
 	{
 		scene->AddStageActor(this);
