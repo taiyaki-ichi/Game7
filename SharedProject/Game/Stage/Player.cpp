@@ -150,13 +150,6 @@ namespace Game::Stage::Player
 	void Active::CustomizeUpdate()
 	{
 
-		
-		float rot = GameLib::Viewport::GetRotation();
-		constexpr float round = 0.01f;
-		for (int i = 0; i < 4; i++)
-		if (std::abs(rot - GameLib::PI / 2.f * i) < round) {
-			
-		
 
 		auto power = GetPowerPerFrame();
 		Gravity::UpdatePhysicsModel(mPhysicsModel, power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
@@ -170,8 +163,6 @@ namespace Game::Stage::Player
 		if (mJumpFlag > 0)
 			mJumpFlag--;
 
-		break;
-		}
 	}
 
 	const GameLib::Vector2& Active::GetPosition()

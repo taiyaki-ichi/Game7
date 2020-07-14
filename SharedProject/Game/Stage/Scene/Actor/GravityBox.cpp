@@ -6,6 +6,7 @@
 #include<iostream>
 #include"GameLib/include/InputState/InputState.hpp"
 #include"Game/Stage/Scene/Scene.hpp"
+#include"Game/Stage/Stage.hpp"
 
 namespace Game::Stage
 {
@@ -68,6 +69,9 @@ namespace Game::Stage
 		
 				mRotation = GameLib::Viewport::GetRotation();
 				mPosition = GameLib::Viewport::GetPos();
+
+				GetScene()->GetStage()->PlayerPause();
+
 			}
 		};
 
@@ -102,6 +106,8 @@ namespace Game::Stage
 					
 					rot = GameLib::PI / 2.f * i;
 
+					if (mRotationCnt == 0)
+						GetScene()->GetStage()->PlayerAcitve();
 			
 				}
 			}
