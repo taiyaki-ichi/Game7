@@ -23,5 +23,9 @@ namespace Game::Stage
 		virtual void Pause() = 0;
 
 		Scene* GetScene();
+
+	protected:
+		//UpdateOrNotで使用可、ステージが回転中じゃあなければtrue
+		bool StageIsNotRotation();
 	};
 }

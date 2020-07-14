@@ -6,7 +6,7 @@ namespace Game::Stage
 	float Gravity::mSize = 1.f;
 	Dir4 Gravity::mDir4 = Dir4::Down;
 
-
+	bool Gravity::mIsRotation = false;
 
 	Gravity::Gravity(GameLib::Actor* owner)
 		:GameLib::Actor{owner}
@@ -132,6 +132,21 @@ namespace Game::Stage
 	void Gravity::SetGravityDir4(const Dir4& dir4)
 	{
 		mDir4 = dir4;
+	}
+
+	void Gravity::StartRotation()
+	{
+		mIsRotation = true;
+	}
+
+	void Gravity::FnishRotarion()
+	{
+		mIsRotation = false;
+	}
+
+	bool Gravity::IsRotation()
+	{
+		return mIsRotation;
 	}
 
 	/*

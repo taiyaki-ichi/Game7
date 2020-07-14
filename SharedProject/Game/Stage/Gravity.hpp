@@ -10,6 +10,8 @@ namespace Game::Stage
 		static float mSize;
 		static Dir4 mDir4;
 
+		static bool mIsRotation;
+
 	public:
 		Gravity(GameLib::Actor* owner);
 		virtual ~Gravity() = default;
@@ -46,5 +48,9 @@ namespace Game::Stage
 		static void SetDir4(const Dir4& dir4);
 		static void SetDir4Vec(const Dir4Vec& dir4Vec);
 		*/
+
+		static void StartRotation();
+		static void FnishRotarion();
+		static bool IsRotation();
 	};
 }

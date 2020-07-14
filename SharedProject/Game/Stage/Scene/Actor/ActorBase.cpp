@@ -1,5 +1,6 @@
 #include"ActorBase.hpp"
 #include"Game/Stage/Scene/Scene.hpp"
+#include"Game/Stage/Gravity.hpp"
 
 namespace Game::Stage
 {
@@ -26,5 +27,9 @@ namespace Game::Stage
 	Scene* ActorBase::GetScene()
 	{
 		return static_cast<Scene*>(mOwner);
+	}
+	bool ActorBase::StageIsNotRotation()
+	{
+		return !Gravity::IsRotation();
 	}
 }

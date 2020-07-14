@@ -28,7 +28,7 @@ namespace Game::Stage::Triple
 	{
 		auto pos = mAnimation.GetPosition();
 
-		return IsInScope(pos, WINDOW_WIDTH + 200.f, WINDOW_WIDTH + 200.f);
+		return IsInScope(pos, WINDOW_WIDTH + 200.f, WINDOW_WIDTH + 200.f) && StageIsNotRotation();
 	}
 	void Actor::ActorUpdate()
 	{

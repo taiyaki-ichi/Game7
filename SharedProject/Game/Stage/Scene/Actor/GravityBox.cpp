@@ -71,6 +71,7 @@ namespace Game::Stage
 				mPosition = GameLib::Viewport::GetPos();
 
 				GetScene()->GetStage()->PlayerPause();
+				Gravity::StartRotation();
 
 			}
 		};
@@ -79,7 +80,6 @@ namespace Game::Stage
 	}
 	void GravityBox::ActorUpdate()
 	{
-
 
 		if (mRotationCnt != 0) {
 			float rot = GameLib::Viewport::GetRotation();
@@ -106,8 +106,10 @@ namespace Game::Stage
 					
 					rot = GameLib::PI / 2.f * i;
 
-					if (mRotationCnt == 0)
+					if (mRotationCnt == 0) {
 						GetScene()->GetStage()->PlayerAcitve();
+						Gravity::FnishRotarion();
+					}
 			
 				}
 			}
@@ -138,5 +140,6 @@ namespace Game::Stage
 		mTexture.SetIsAutoDrawing(false);
 		mCollider.Pause();
 	}
+
 
 }
