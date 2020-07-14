@@ -65,6 +65,11 @@
           "2": -165,
           "3": 337,
           "ActorName": "Ground"
+        },
+        {
+          "0": 147,
+          "1": 110,
+          "ActorName": "Triple"
         }
       ],
       "SceneName": "a"

@@ -79,7 +79,7 @@ namespace Game::Stage::Player
 			auto adjust = GetParallelRectAdjustVec(mCollider, c, 0.5f);
 			auto dir4Vec = Gravity::GetDir4Vec(adjust);
 
-			/*
+			
 			std::cout << "adjust: " << adjust.x << "," << adjust.y << "\n";
 			std::cout << "dir: ";
 			if (dir4Vec.mDir4 == Dir4::Left)
@@ -91,7 +91,7 @@ namespace Game::Stage::Player
 			if (dir4Vec.mDir4 == Dir4::Up)
 				std::cout << "up";
 			std::cout << "\n";
-			*/
+			
 
 			mPhysicsModel.mPosition += adjust;
 
@@ -100,7 +100,7 @@ namespace Game::Stage::Player
 			else if (adjust.y * mPhysicsModel.mVelocity.y < 0.f)
 				mPhysicsModel.mVelocity.y = 0.f;
 
-			if (dir4Vec.mDir4 == Dir4::Up) {
+			if (dir4Vec.mSize>0.f&& dir4Vec.mDir4 == Dir4::Up) {
 				mFlags |= ON_GROUND_FLAG;
 				mJumpFlag = 1;
 			}
@@ -149,7 +149,7 @@ namespace Game::Stage::Player
 
 	void Active::CustomizeUpdate()
 	{
-
+		//std::cout << (mFlags & ON_GROUND_FLAG);
 
 		auto power = GetPowerPerFrame();
 		Gravity::UpdatePhysicsModel(mPhysicsModel, power, MAX_HORIZON_SPEED, MAX_VERTICAL_SPEED);
