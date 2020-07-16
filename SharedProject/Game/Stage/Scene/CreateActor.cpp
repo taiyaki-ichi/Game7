@@ -3,6 +3,7 @@
 #include"Actor/Camera.hpp"
 #include"Actor/Triple.hpp"
 #include"Actor/GravityBox.hpp"
+#include"Actor/Toge.hpp"
 
 #include<iostream>
 
@@ -25,7 +26,8 @@ namespace Game::Stage
 			new Triple::Actor{ scene,std::move(data) };
 		if (actorName == "GravityBox")
 			new GravityBox{ scene,std::move(data) };
-
+		if (actorName == "Toge")
+			new Toge::Actor{ scene,std::move(data) };
 
 	}
 }

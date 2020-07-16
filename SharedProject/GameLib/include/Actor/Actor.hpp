@@ -22,7 +22,7 @@ namespace GameLib
 
 	private:
 		int mUpdateOrder;
-		State mState;
+		State mStateManager;
 
 		ActorsManager<Actor> mOwnedActors;
 		//Update’†‚É’Ç‰Á‚³‚ê‚½ê‡‚±‚±‚Éˆê•Û‘¶
@@ -34,7 +34,7 @@ namespace GameLib
 			:mOwner(owner)
 			, mUpdateOrder(updateOrder)
 			,mOwnedActors()
-			,mState(State::Active)
+			,mStateManager(State::Active)
 			,mIsUpdating(false)
 		{
 			if (mOwner)
@@ -78,13 +78,13 @@ namespace GameLib
 		}
 
 		void SetState(State&& state) {
-			mState = std::move(state);
+			mStateManager = std::move(state);
 		}
 		void SetState(const State& state) {
-			mState = state;
+			mStateManager = state;
 		}
 		const State& GetState() const noexcept {
-			return mState;
+			return mStateManager;
 		}
 
 		Actor* GetOwner() const noexcept {

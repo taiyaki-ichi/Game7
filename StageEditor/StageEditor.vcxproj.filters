@@ -40,5 +40,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\WarpEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GravityBoxEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\TogeEditor.hpp" />
   </ItemGroup>
 </Project>

@@ -67,9 +67,14 @@
           "ActorName": "Ground"
         },
         {
-          "0": 147,
-          "1": 110,
+          "0": 104,
+          "1": 81,
           "ActorName": "Triple"
+        },
+        {
+          "0": -224,
+          "1": 208,
+          "ActorName": "Toge"
         }
       ],
       "SceneName": "a"

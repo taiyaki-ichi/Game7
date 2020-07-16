@@ -5,6 +5,7 @@
 #include"ActorEditor/TripleEditor.hpp"
 #include"ActorEditor/WarpEditor.hpp"
 #include"ActorEditor/GravityBoxEditor.hpp"
+#include"ActorEditor/TogeEditor.hpp"
 
 namespace StageEditor
 {
@@ -29,6 +30,11 @@ namespace StageEditor
 			ptr = new WarpEditor{ sceneEditor };
 		if (actorName == "GravityBox")
 			ptr = new GravityBoxEditor{ sceneEditor };
+		if (actorName == "Toge")
+			ptr = new TogeEditor{ sceneEditor };
+
+
+
 
 		///////////////////////////////////////////////////////////////////
 

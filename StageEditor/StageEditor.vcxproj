@@ -155,6 +155,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfo.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PosInfo\PosInfoUtility.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\TogeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\WarpEditor.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
