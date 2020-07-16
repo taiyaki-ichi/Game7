@@ -55,7 +55,6 @@ namespace Game::Stage
 		//SceneÇ…IsRotationÇ∆Ç™çÏÇÈÇ©ÅHÅH
 		float rot = GameLib::Viewport::GetRotation();
 		constexpr float round = 0.001f;
-
 		for (int i = 0; i < 4; i++)
 			if (std::abs(rot - GameLib::PI / 2.f * i) < round) {
 				
@@ -68,18 +67,62 @@ namespace Game::Stage
 
 				break;
 			}
-			/*
-		cameraPos.x = playerPos.x;
-
-		if (cameraPos.y - WINDOW_HEIGHT / 2.f + MARGIN_Y > playerPos.y)
-			cameraPos.y = playerPos.y + WINDOW_HEIGHT / 2.f - MARGIN_Y;
-		if (cameraPos.y + WINDOW_HEIGHT / 2.f - MARGIN_Y < playerPos.y)
-			cameraPos.y = playerPos.y - WINDOW_HEIGHT / 2.f + MARGIN_Y;
 			
-		*/
+		
+		float yokoMargin,tateMargin;
+		float left, right, top, bottom;
+		
+		if (Gravity::GetGravityDir4() == Dir4::Down) {
+			yokoMargin = WINDOW_WIDTH / 2.f;
+			tateMargin = WINDOW_HEIGHT / 2.f;
 
+			left = mLeft;
+			right = mRight;
+			bottom = mBottom;
+			top = mTop;
+
+		}
+		else if (Gravity::GetGravityDir4() == Dir4::Up) {
+			yokoMargin = WINDOW_WIDTH / 2.f;
+			tateMargin = WINDOW_HEIGHT / 2.f;
+
+			left = -mRight;
+			right = -mLeft;
+			bottom = -mTop;
+			top = -mBottom;
+		}
+		else if (Gravity::GetGravityDir4() == Dir4::Right) {
+			yokoMargin = WINDOW_HEIGHT / 2.f;
+			tateMargin = WINDOW_WIDTH / 2.f;
+
+			left = mBottom;
+			right = mTop;
+			bottom = -mRight;
+			top = -mLeft;
+		}
+		else {
+			yokoMargin = WINDOW_HEIGHT / 2.f;
+			tateMargin = WINDOW_WIDTH / 2.f;
+
+			left = mBottom;
+			right = mTop;
+			bottom = mLeft;
+			top = mRight;
+		}
+
+
+		if (cameraPos.x - yokoMargin < left)
+			cameraPos.x = left + yokoMargin;
+		if (cameraPos.x + yokoMargin > right)
+			cameraPos.x = right - yokoMargin;
+		if (cameraPos.y - tateMargin < bottom)
+			cameraPos.y = bottom + tateMargin;
+		if (cameraPos.y + tateMargin > top)
+			cameraPos.y = top - tateMargin;
+		
 		
 
+		std::cout << cameraPos.x << "," << cameraPos.y << "\n";
 		GameLib::Viewport::SetPos(std::move(cameraPos));
 	
 

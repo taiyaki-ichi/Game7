@@ -10,9 +10,7 @@ namespace Game::Stage
 		float mTop;
 		float mBottom;
 
-		//お試し
-		constexpr static float MAX_DISTANCE = 150.f;
-
+		//ヨコ方向へはPlayerを追尾、タテに関しては大きく動いた場合追尾
 		constexpr static float MARGIN_Y = 200.f;
 
 	public:
