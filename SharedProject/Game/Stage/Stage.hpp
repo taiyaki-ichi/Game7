@@ -24,7 +24,7 @@ namespace Game::Stage
 		Player::Actor* mPlayer;
 
 	public:
-		Stage(GameLib::Actor* owner,std::string&& fileName);
+		Stage(GameLib::Actor* owner, std::string&& fileName, bool isDebug = false);
 		virtual ~Stage() = default;
 
 		void CustomizeUpdate() override;

@@ -32,7 +32,7 @@ namespace StageEditor
 
 					mStageEditor->SetState(GameLib::Actor::State::Dead);
 					mStageEditor = nullptr;
-					mStage = new Game::Stage::Stage{ this,"test.json" };
+					mStage = new Game::Stage::Stage{ this,"test.json" ,true};
 
 					GameLib::Viewport::SetPos(GameLib::Vector2{ 0.f,0.f });
 					GameLib::Viewport::SetScale(1.f);

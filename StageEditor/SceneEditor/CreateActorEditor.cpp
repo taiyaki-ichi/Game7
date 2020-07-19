@@ -6,6 +6,7 @@
 #include"ActorEditor/WarpEditor.hpp"
 #include"ActorEditor/GravityBoxEditor.hpp"
 #include"ActorEditor/TogeEditor.hpp"
+#include"ActorEditor/BeeEditor.hpp"
 
 namespace StageEditor
 {
@@ -32,7 +33,10 @@ namespace StageEditor
 			ptr = new GravityBoxEditor{ sceneEditor };
 		if (actorName == "Toge")
 			ptr = new TogeEditor{ sceneEditor };
-
+		if (actorName == "StraightBee")
+			ptr = new StraightBeeEditor{ sceneEditor };
+		if (actorName == "CircleBee")
+			ptr = new CircleBeeEditor{ sceneEditor };
 
 
 

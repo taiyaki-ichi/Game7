@@ -18,6 +18,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\WarpEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBoxEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\BeeEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -41,5 +42,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\WarpEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GravityBoxEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TogeEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\BeeEditor.hpp" />
   </ItemGroup>
 </Project>

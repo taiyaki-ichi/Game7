@@ -163,6 +163,7 @@ namespace Game::Stage::Player
 		if (mJumpFlag > 0)
 			mJumpFlag--;
 
+		//std::cout << "player pos: " << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
 	}
 
 	const GameLib::Vector2& Active::GetPosition()

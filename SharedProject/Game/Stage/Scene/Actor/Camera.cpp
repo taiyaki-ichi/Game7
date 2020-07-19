@@ -122,7 +122,7 @@ namespace Game::Stage
 		
 		
 
-		std::cout << cameraPos.x << "," << cameraPos.y << "\n";
+		//std::cout << cameraPos.x << "," << cameraPos.y << "\n";
 		GameLib::Viewport::SetPos(std::move(cameraPos));
 	
 

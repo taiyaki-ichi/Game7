@@ -149,6 +149,7 @@
     <ClInclude Include="Console\ConsoleMessage.hpp" />
     <ClInclude Include="FileFunc.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\BeeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GravityBoxEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
@@ -173,6 +174,7 @@
     <ClCompile Include="FileFunc.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\BeeEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBoxEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />

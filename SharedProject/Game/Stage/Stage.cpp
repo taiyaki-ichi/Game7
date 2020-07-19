@@ -17,13 +17,15 @@
 
 namespace Game::Stage
 {
-	Stage::Stage(GameLib::Actor* owner,std::string&& fileName)
+	Stage::Stage(GameLib::Actor* owner,std::string&& fileName,bool isDebug)
 		:GameLib::Actor{owner}
 		, mStageScenes{}
 		, mPlayer{nullptr}
 		, mWarpGates{}
 		, mNowScene{nullptr}
 	{
+		GameLib::Collider::SetIsDebug(isDebug);
+
 		CreateStage(this, std::move(fileName));
 		new Gravity{ this };
 		Gravity::SetGravityDir4(Dir4::Down);

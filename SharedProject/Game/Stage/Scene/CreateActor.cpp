@@ -4,6 +4,7 @@
 #include"Actor/Triple.hpp"
 #include"Actor/GravityBox.hpp"
 #include"Actor/Toge.hpp"
+#include"Actor/Bee.hpp"
 
 #include<iostream>
 
@@ -28,6 +29,8 @@ namespace Game::Stage
 			new GravityBox{ scene,std::move(data) };
 		if (actorName == "Toge")
 			new Toge::Actor{ scene,std::move(data) };
+		if (actorName == "CircleBee" || actorName == "StraightBee")
+			new Bee::Actor{ scene,std::move(data) };
 
 	}
 }
