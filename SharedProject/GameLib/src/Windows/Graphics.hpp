@@ -1,8 +1,11 @@
 #pragma once
 #include<string>
 #include<memory>
+#include<unordered_map>
 #include<d3d9.h>
+#include<d3dx9.h>
 #include"GameLib/include/Resource/Texture.hpp"
+#include"GameLib/include/Resource/Font.hpp"
 
 
 namespace GameLib
@@ -11,6 +14,7 @@ namespace GameLib
 	bool InitGraphics();
 	void ShutdownGraphics();
 
+	//TextureÇÕincludeÇÃï˚ÇÃResourceÇ…Ç†ÇÈ
 	class TextureImpl : public Texture
 	{
 	public:
@@ -30,9 +34,22 @@ namespace GameLib
 		float mHeight;
 	};
 
-
 	Texture* LoadTexture(const std::string& fileName);
 
+
+	class FontImpl : public Font
+	{
+		std::unordered_map<int, LPD3DXFONT> mFont;
+
+	public:
+		FontImpl(std::unordered_map<int, LPD3DXFONT>&& font);
+		virtual ~FontImpl();
+
+		LPD3DXFONT GetPtr(const Size& size);
+		LPD3DXFONT GetPtr(Size&& size);
+	};
+
+	Font* LoadFont(const std::string& fileName);
 
 	//flip=1Å@êÖïΩÇ…îΩì]Å@flip=2 êÇíºÇ…îΩì] filp=3ÇÕóºï˚
 	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float scale, float rot, int alpha = 255, int flip = 0);

@@ -95,6 +95,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Numbers.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Vector2.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Vector2Func.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Resource\Font.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Resource\Texture.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Resource\ResourceManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Viewport\Viewport.hpp" />

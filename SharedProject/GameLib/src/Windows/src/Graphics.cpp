@@ -171,6 +171,68 @@ namespace GameLib
 
 	}
 
+	FontImpl::FontImpl(std::unordered_map<int, LPD3DXFONT>&& font)
+		:Font{}
+		, mFont{std::move(font)}
+	{
+	}
+
+	FontImpl::~FontImpl()
+	{
+		for (auto ptr : mFont) {
+			ptr.second->Release();
+		}
+	}
+
+	LPD3DXFONT FontImpl::GetPtr(const Size& size)
+	{
+		auto iter = mFont.find(static_cast<int>(size));
+		if (iter != mFont.end())
+			return iter->second;
+		else
+			return nullptr;
+	}
+
+	LPD3DXFONT FontImpl::GetPtr(Size&& size)
+	{
+		auto iter = mFont.find(static_cast<int>(size));
+		if (iter != mFont.end())
+			return iter->second;
+		else
+			return nullptr;
+	}
+
+	Font* LoadFont(const std::string& fileName)
+	{
+
+		std::unordered_map<int, LPD3DXFONT> font;
+		for (auto& size: Font::GetAllSize())
+		{
+			LPD3DXFONT tmp = nullptr;
+			if (FAILED(D3DXCreateFont(
+				g_D3DDevice,                /* デバイス */
+				static_cast<int>(size),                            /* 文字の高さ */
+				0,                            /* 文字幅 */
+				FW_NORMAL,                    /* フォントの太さ */
+				1,                            /* MIPMAPのレベル */
+				FALSE,                        /* イタリックか？ */
+				DEFAULT_CHARSET,            /* 文字セット */
+				OUT_DEFAULT_PRECIS,            /* 出力精度 */
+				DEFAULT_QUALITY,            /* 出力品質 */
+				DEFAULT_PITCH | FF_SWISS,    /* フォントピッチとファミリ */
+				fileName.c_str(),                    /* フォント名 */
+				&tmp))) {        /* Direct3Dフォントへのポインタへのアドレス */
+
+				std::cout << "FontName: " << fileName << "size: " << static_cast<int>(size) << " is failed\n";
+			}
+			else {
+				font.emplace(static_cast<int>(size), tmp);
+			}
+		}
+
+		return new FontImpl{ std::move(font) };
+	}
+
 	//主に図形用
 	struct SIMPLE_VERTEX
 	{
@@ -212,6 +274,8 @@ namespace GameLib
 		}
 
 	}
+
+
 
 	void GraphicsDrawTexture(Texture* texture, float posX, float posY, float scale, float rot, int alpha, int flip)
 	{
@@ -377,6 +441,8 @@ namespace GameLib
 		g_D3DDevice->Present(NULL, NULL, NULL, NULL);
 
 	}
+
+
 
 
 
