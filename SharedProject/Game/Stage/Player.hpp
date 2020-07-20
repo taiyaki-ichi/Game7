@@ -4,6 +4,7 @@
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Game/Stage/PhysicsModel.hpp"
 
+
 namespace Game::Stage::Player
 {
 	class PlayerState;

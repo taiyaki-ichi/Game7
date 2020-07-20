@@ -61,6 +61,8 @@ namespace GameLib
 
 	void GraphycsDrawCircle(float centerX, float centerY, float radius, int r, int g, int b, int alpha, bool isFill);
 
+	void GraphycsDrawText(Font* font, const Font::Size& size, const std::string& tex, float cX, float cY, int r, int g, int b, int alpha);
+
 	//ステンシルバッファの初期化,numで初期化、基本的には１かな
 	void ClearStencilBuffer(DWORD num);
 	//くりぬく範囲を描写する前に使用

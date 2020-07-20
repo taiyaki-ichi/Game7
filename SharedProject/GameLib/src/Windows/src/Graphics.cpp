@@ -374,6 +374,29 @@ namespace GameLib
 		
 	}
 
+	void GraphycsDrawText(Font* font, const Font::Size& size, const std::string& tex, float cX, float cY, int r, int g, int b, int alpha)
+	{
+		auto fontImpl = static_cast<FontImpl*>(font);
+		LPD3DXFONT ptr = fontImpl->GetPtr(size);
+		if (ptr) {
+			int s = static_cast<int>(size);
+
+			float width = s * tex.size();
+			float height = s;
+
+			RECT rect = {
+				static_cast<LONG>(cX - width / 2.f),
+				static_cast<LONG>(cY - height / 2.f),
+				static_cast<LONG>(cX + width / 2.f),
+				static_cast<LONG>(cY + height / 2.f)
+			};
+			auto color = D3DCOLOR_ARGB(alpha, r, g, b);
+			ptr->DrawTextA(NULL, tex.c_str(), -1, &rect, DT_CENTER | DT_NOCLIP, color);
+
+		}
+
+	}
+
 	void ClearStencilBuffer(DWORD num)
 	{
 		g_D3DDevice->Clear(0, nullptr, D3DCLEAR_STENCIL, D3DCOLOR_ARGB(255, 255, 255, 255), 1.0f, num);

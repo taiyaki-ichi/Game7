@@ -28,6 +28,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawRect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawFillTriangle.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawLine.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawFontText.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\Manager\DrawManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\InputState.cpp" />
@@ -86,6 +87,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawRect.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawFillTriangle.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawLine.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawFontText.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawTexture.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\InputState\InputState.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\InputState\InputStateInfo.hpp" />

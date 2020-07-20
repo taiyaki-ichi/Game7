@@ -29,11 +29,12 @@ namespace Game::Stage::Player
 		mAnimation.SetPosition(pos);
 
 		mNowState = new Active(this, std::move(pos), &mAnimation);
+
 	}
 
 	void Actor::CustomizeUpdate()
 	{
-
+		
 	}
 
 	void Actor::SetAnamtion(const GameLib::Vector2& pos, float scale, float rot, int chanel)
