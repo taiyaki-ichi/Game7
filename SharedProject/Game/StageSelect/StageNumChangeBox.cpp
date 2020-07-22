@@ -1,6 +1,7 @@
 #include"StageNumChangeBox.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"StageSelect.hpp"
+#include"Game/Stage/UtilityVectorFunction.hpp"
 
 namespace Game::StageSelect
 {
@@ -36,7 +37,8 @@ namespace Game::StageSelect
 		mStageText.SetPosition(pos + GameLib::Vector2{ 0.f,80.f });
 
 		auto hitPlayer = [this](const GameLib::Collider& c) {
-			if (mCooldownCnt == 0) {
+			auto adjust = Stage::GetParallelRectAdjustVec(mCollider, c);
+			if (mCooldownCnt == 0 && adjust.y > 0.f) {
 
 				int num = std::stoi(mNumText.GetText());
 				num++;

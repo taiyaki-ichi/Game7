@@ -25,6 +25,10 @@ namespace GameLib
 		float mScale;
 		float mRotation;
 
+		//‘O‰ñ‚Ì“–‚½‚è”»’è‚©‚ç‚Ì‘Š‘Î“I‚ÈˆÊ’u
+		Vector2 mRerativePos;
+		Vector2 mPrevPos;
+
 		std::string mNameTag;
 
 		std::unordered_map<std::string, std::function<void(const Collider&)>> mHitFunctions;
@@ -75,6 +79,9 @@ namespace GameLib
 
 		void Active();
 		void Pause();
+
+		const Vector2& GetRerativePos() const;
+		void UpdatePosInfo();
 		
 	};
 }

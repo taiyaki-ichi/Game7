@@ -34,6 +34,9 @@ namespace GameLib
 			if (linerObj.GetPtr()->GetDoCollisionDetection())
 			{
 				auto collider = linerObj.GetPtr();
+
+				collider->UpdatePosInfo();
+
 				float scale = collider->GetScale();
 				float width = collider->GetWidth() * scale;
 				float heigth = collider->GetHeigth() * scale;

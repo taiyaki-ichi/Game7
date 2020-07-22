@@ -22,7 +22,8 @@ namespace GameLib
 		, mRotation(rot)
 		, mDrawRect{ COLLIDER_DRAWORDER }
 		, mDoCollisionDetection{true}
-
+		, mRerativePos{}
+		, mPrevPos{pos}
 	{
 		SetDrawRect();
 		mDrawRect.SetIsFill(false);
@@ -169,5 +170,14 @@ namespace GameLib
 		mDoCollisionDetection = false;
 		if (mIsDebug == true)
 			mDrawRect.SetIsAutoDrawing(false);
+	}
+	const Vector2& Collider::GetRerativePos() const
+	{
+		return mRerativePos;
+	}
+	void Collider::UpdatePosInfo()
+	{
+		mRerativePos = mPosition - mPrevPos;
+		mPrevPos = mPosition;
 	}
 }
