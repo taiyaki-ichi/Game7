@@ -4,6 +4,7 @@
 #include"GameLib/src/Windows/Window.hpp"
 #include"GameLib/include/Math/Vector2Func.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
+#include "..\..\include\Draw\DrawFontText.hpp"
 
 namespace GameLib
 {
@@ -56,5 +57,9 @@ namespace GameLib
 	void DrawFontText::SetColor(Color&& color)
 	{
 		mColor = std::move(color);
+	}
+	const std::string& DrawFontText::GetText() const
+	{
+		return mText;
 	}
 }

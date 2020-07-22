@@ -31,5 +31,6 @@ namespace GameLib
 		void SetColor(const GameLib::Color& color);
 		void SetColor(Color&& color);
 
+		const std::string& GetText() const;
 	};
 }

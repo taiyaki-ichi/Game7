@@ -11,6 +11,7 @@
 #include"Game/Stage/BackGround/SlideObjectBase.hpp"
 #include"MoveBackGround.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
+#include"StageNumChangeBox.hpp"
 
 namespace Game::StageSelect
 {
@@ -51,7 +52,7 @@ namespace Game::StageSelect
 
 		SetStayPosition(mBackGround[1]);
 
-
+		mStageNumChangeBox = new StageNumChangeBox{ this,GameLib::Vector2{-200.f,-50.f} };
 	}
 	void StageSelect::CustomizeUpdate()
 	{
@@ -63,18 +64,21 @@ namespace Game::StageSelect
 		GameLib::Viewport::SetPos(viewPortPos);
 
 
-		if (GameLib::InputState::GetState(GameLib::Key::no1) == GameLib::ButtonState::Pressed) {
-			new DownBackGround{ this,mBackGround[0] };
-			new UpBackGround{ this,mBackGround[1] };
-		}
-		if (GameLib::InputState::GetState(GameLib::Key::no2) == GameLib::ButtonState::Pressed) {
-			new DownBackGround{ this,mBackGround[1] };
-			new UpBackGround{ this,mBackGround[0] };
-		}
-
 	}
 	void StageSelect::GoStage(int stageNum)
 	{
+	}
+
+	void StageSelect::ChangeStageNum(int num)
+	{
+		if (num != 1) {
+			new DownBackGround{ this,mBackGround[num - 2] };
+			new UpBackGround{ this,mBackGround[num - 1] };
+		}
+		else {
+			new DownBackGround{ this,mBackGround[mBackGround.size() - 1] };
+			new UpBackGround{ this,mBackGround[0] };
+		}
 	}
 
 

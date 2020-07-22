@@ -16,6 +16,8 @@ namespace Game::Stage
 
 namespace Game::StageSelect
 {
+	constexpr int STAGE_NUM = 2;
+
 	class WarpBox;
 	class StageNumChangeBox;
 
@@ -42,6 +44,8 @@ namespace Game::StageSelect
 		void CustomizeUpdate() override;
 
 		void GoStage(int stageNum);
+
+		void ChangeStageNum(int num);
 	};
 
 
