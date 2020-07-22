@@ -4,9 +4,14 @@
 #include<array>
 #include<string>
 
-namespace Game::Stage::Player
+namespace Game::Stage
 {
-	class Actor;
+	namespace Player {
+		class Actor;
+	}
+	namespace BackGround {
+		class SlideObjectBase;
+	}
 }
 
 namespace Game::StageSelect
@@ -15,11 +20,12 @@ namespace Game::StageSelect
 	class StageNumChangeBox;
 
 	using StageWarpBoxs = std::vector<WarpBox*>;
+	using BackGrounds = std::vector<Stage::BackGround::SlideObjectBase*>;
 
 	//ゲームの進捗をロードしたり
 	class StageSelect : public GameLib::Actor
 	{
-		//std::vector<BackGrounds> mBackGround;
+		std::vector<BackGrounds> mBackGround;
 		std::vector<StageWarpBoxs> mStageWarpBox;
 
 		StageNumChangeBox* mStageNumChangeBox;

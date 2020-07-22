@@ -8,6 +8,9 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Game/Window.hpp"
 #include"Game/Stage/BackGround/CreateSlideObject.hpp"
+#include"Game/Stage/BackGround/SlideObjectBase.hpp"
+#include"MoveBackGround.hpp"
+#include"GameLib/include/InputState/InputState.hpp"
 
 namespace Game::StageSelect
 {
@@ -25,7 +28,7 @@ namespace Game::StageSelect
 
 	StageSelect::StageSelect(GameLib::Actor* owner)
 		:GameLib::Actor{owner}
-		//, mBackGround{}
+		, mBackGround{}
 		, mStageWarpBox{}
 		, mGoStageFlag{0}
 	{
@@ -43,7 +46,11 @@ namespace Game::StageSelect
 		GameLib::CollisionDetectionSetting::SetHeight(700.f);
 		GameLib::CollisionDetectionSetting::SetPos(GameLib::Vector2{ 800.f,0.f });
 
-		Stage::BackGround::CreateSlideSharpTree(this);
+		mBackGround.emplace_back(Stage::BackGround::CreateSlideSharpTree(this));
+		mBackGround.emplace_back(Stage::BackGround::CreateSlideTotemPole(this));
+
+		SetStayPosition(mBackGround[1]);
+
 
 	}
 	void StageSelect::CustomizeUpdate()
@@ -54,6 +61,16 @@ namespace Game::StageSelect
 		if (viewPortPos.x - WINDOW_WIDTH / 2.f < STAGESELECT_LEFT)
 			viewPortPos.x = STAGESELECT_LEFT + WINDOW_WIDTH / 2.f;
 		GameLib::Viewport::SetPos(viewPortPos);
+
+
+		if (GameLib::InputState::GetState(GameLib::Key::no1) == GameLib::ButtonState::Pressed) {
+			new DownBackGround{ this,mBackGround[0] };
+			new UpBackGround{ this,mBackGround[1] };
+		}
+		if (GameLib::InputState::GetState(GameLib::Key::no2) == GameLib::ButtonState::Pressed) {
+			new DownBackGround{ this,mBackGround[1] };
+			new UpBackGround{ this,mBackGround[0] };
+		}
 
 	}
 	void StageSelect::GoStage(int stageNum)

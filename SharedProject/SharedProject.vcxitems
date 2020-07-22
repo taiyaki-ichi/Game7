@@ -41,6 +41,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\MoveBackGround.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelectGround.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\Basis.cpp" />
@@ -49,6 +50,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallLeaf.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallObjectBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideObjectBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTotemPole.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\ChangeScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\CircleCurtain.cpp" />
@@ -124,6 +126,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\WindowClassName.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4Vec.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\StageSelect\MoveBackGround.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelect.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelectGround.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageWarpBox.hpp" />
@@ -134,6 +137,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallLeaf.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallObjectBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideObjectBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTotemPole.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTree.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\ChangeScene.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\CircleCurtain.hpp" />
