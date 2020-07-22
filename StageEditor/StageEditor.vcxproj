@@ -164,7 +164,6 @@
     <ClInclude Include="StageEditor.hpp" />
     <ClInclude Include="StageInfo.hpp" />
     <ClInclude Include="StartActor.hpp" />
-    <ClInclude Include="TestJson.hpp" />
     <ClInclude Include="Utility\EditorCamera.hpp" />
     <ClInclude Include="Utility\ClickManager.hpp" />
     <ClInclude Include="Utility\Cursor.hpp" />

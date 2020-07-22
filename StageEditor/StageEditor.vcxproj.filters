@@ -35,7 +35,6 @@
     <ClInclude Include="Utility\Cursor.hpp" />
     <ClInclude Include="FileFunc.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
-    <ClInclude Include="TestJson.hpp" />
     <ClInclude Include="Utility\EditorCamera.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />
