@@ -21,4 +21,12 @@ namespace Game::Stage::BackGround
 	{
 		mTexture.SetPosition(AdjustPos(mPosition, mMarginX, mMarginY, mMoveRateX, mMoveRateY));
 	}
+	void SlideObjectBase::SetPosition(const GameLib::Vector2& pos)
+	{
+		mPosition = pos;
+	}
+	const GameLib::Vector2& SlideObjectBase::GetPosition() const
+	{
+		return mPosition;
+	}
 }

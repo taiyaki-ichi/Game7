@@ -23,5 +23,8 @@ namespace Game::Stage::BackGround
 		virtual ~SlideObjectBase() = default;
 
 		void CustomizeUpdate() override;
+
+		void SetPosition(const GameLib::Vector2& pos);
+		const GameLib::Vector2& GetPosition() const;
 	};
 }

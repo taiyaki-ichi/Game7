@@ -1,6 +1,5 @@
 #pragma once
 #include"GameLib/include/Actor/RootActor.hpp"
-#include"Game/Tohoho.hpp"
 
 namespace Game
 {
@@ -13,6 +12,6 @@ namespace Game
 		void CustomizeUpdate() override;
 
 	private:
-		Tohoho mTohoho;
+		
 	};
 }

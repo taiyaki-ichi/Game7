@@ -41,6 +41,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelect.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelectGround.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\Basis.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateFallObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateSlideObject.cpp" />
@@ -122,6 +124,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\WindowClassName.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Dir4Vec.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelect.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelectGround.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageWarpBox.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\BackGroundAdjustPos.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\Basis.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateFallObject.hpp" />

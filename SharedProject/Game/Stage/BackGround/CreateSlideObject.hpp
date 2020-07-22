@@ -1,13 +1,15 @@
 #pragma once
+#include<vector>
 
-namespace Game::Stage
-{
-	class Stage;
+namespace GameLib {
+	class Actor;
 }
 
 namespace Game::Stage::BackGround
 {
-	void CreateSlideSharpTree(Stage* stage);
+	class SlideObjectBase;
 
-	void CreateSlideRoundTree(Stage* stage);
+	std::vector<SlideObjectBase*> CreateSlideSharpTree(GameLib::Actor* stage);
+
+	std::vector<SlideObjectBase*> CreateSlideRoundTree(GameLib::Actor* stage);
 }

@@ -5,48 +5,55 @@
 
 namespace Game::Stage::BackGround
 {
-	void CreateSlideSharpTree(Stage* stage)
+	std::vector<SlideObjectBase*> CreateSlideSharpTree(GameLib::Actor* stage)
 	{
+		std::vector<SlideObjectBase*> slideObjects;
+
 		float w;
 		int num;
 
 		num = 5;
 		w = (WINDOW_WIDTH + 200.f) / num;
 		for (int i = 0; i < num; i++)
-			new SlideSharpTree230{ stage,GameLib::Vector2{ w / 2.f + w * i,200.f } };
+			slideObjects.emplace_back(new SlideSharpTree230{ stage,GameLib::Vector2{ w / 2.f + w * i,200.f } });
 
 		num = 4;
 		w = (WINDOW_WIDTH + 200.f) / num;
 		for (int i = 0; i < num; i++)
-			new SlideSharpTree180{ stage,GameLib::Vector2{ w / 2.f + w * i,140.f } };
+			slideObjects.emplace_back(new SlideSharpTree180{ stage,GameLib::Vector2{ w / 2.f + w * i,140.f } });
 
 		num = 4;
 		w = (WINDOW_WIDTH + 300.f) / num;
 		for (int i = 0; i < num; i++)
-			new SlideSharpTree130{ stage,GameLib::Vector2{ w / 2.f + w * i,90.f } };
+			slideObjects.emplace_back(new SlideSharpTree130{ stage,GameLib::Vector2{ w / 2.f + w * i,90.f } });
+
+		return slideObjects;
 	}
-	void CreateSlideRoundTree(Stage* stage)
+	std::vector<SlideObjectBase*> CreateSlideRoundTree(GameLib::Actor* stage)
 	{
+		std::vector<SlideObjectBase*> slideObject;
+
 		float w;
 		int num;
 
-		
 		num = 5;
 		w = (WINDOW_WIDTH + 200.f) / num;
 		for (int i = 0; i < num; i++)
-			new SlideRoundTree230{ stage,GameLib::Vector2{ w / 2.f + w * i,200.f } };
+			slideObject.emplace_back(new SlideRoundTree230{ stage,GameLib::Vector2{ w / 2.f + w * i,200.f } });
 
 		num = 3;
 		w = (WINDOW_WIDTH + 300.f) / num;
 		for (int i = 0; i < num; i++)
-			new SlideRoundTree180{ stage,GameLib::Vector2{ w / 2.f + w * i,140.f } };
+			slideObject.emplace_back(new SlideRoundTree180{ stage,GameLib::Vector2{ w / 2.f + w * i,140.f } });
 
 		num = 3;
 		w = (WINDOW_WIDTH + 400.f) / num;
 		for (int i = 0; i < num; i++)
-			new SlideRoundTree130{ stage,GameLib::Vector2{ w / 2.f + w * i,90.f } };
+			slideObject.emplace_back(new SlideRoundTree130{ stage,GameLib::Vector2{ w / 2.f + w * i,90.f } });
 			
 	
 		//new SlideRoundTree130{ stage,GameLib::Vector2{ -200.f,90.f } };
+
+		return slideObject;
 	}
 }
