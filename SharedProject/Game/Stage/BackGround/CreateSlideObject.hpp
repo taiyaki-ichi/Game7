@@ -12,4 +12,5 @@ namespace Game::Stage::BackGround
 	std::vector<SlideObjectBase*> CreateSlideSharpTree(GameLib::Actor* stage);
 	std::vector<SlideObjectBase*> CreateSlideRoundTree(GameLib::Actor* stage);
 	std::vector<SlideObjectBase*> CreateSlideTotemPole(GameLib::Actor* stage);
+	std::vector<SlideObjectBase*> CreateSlideTemple(GameLib::Actor* stage);
 }

@@ -47,10 +47,12 @@ namespace Game::StageSelect
 		GameLib::CollisionDetectionSetting::SetHeight(700.f);
 		GameLib::CollisionDetectionSetting::SetPos(GameLib::Vector2{ 800.f,0.f });
 
+		mBackGround.emplace_back(Stage::BackGround::CreateSlideTemple(this));
 		mBackGround.emplace_back(Stage::BackGround::CreateSlideSharpTree(this));
 		mBackGround.emplace_back(Stage::BackGround::CreateSlideTotemPole(this));
 
 		SetStayPosition(mBackGround[1]);
+		SetStayPosition(mBackGround[2]);
 
 		mStageNumChangeBox = new StageNumChangeBox{ this,GameLib::Vector2{-200.f,-50.f} };
 	}
@@ -76,7 +78,7 @@ namespace Game::StageSelect
 			new UpBackGround{ this,mBackGround[num - 1] };
 		}
 		else {
-			new DownBackGround{ this,mBackGround[mBackGround.size() - 1] };
+			new DownBackGround{ this,mBackGround[STAGE_NUM - 1] };
 			new UpBackGround{ this,mBackGround[0] };
 		}
 	}

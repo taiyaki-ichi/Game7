@@ -51,6 +51,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallLeaf.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallObjectBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideObjectBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTemple.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTotemPole.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\ChangeScene.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallLeaf.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\FallObjectBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideObjectBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTemple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTotemPole.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\SlideTree.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Game\Stage\ChangeScene\ChangeScene.hpp" />

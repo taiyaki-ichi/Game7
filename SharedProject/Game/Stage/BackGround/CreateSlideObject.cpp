@@ -3,6 +3,7 @@
 #include"Game/Stage/Stage.hpp"
 #include"Game/Window.hpp"
 #include"SlideTotemPole.hpp"
+#include"SlideTemple.hpp"
 
 namespace Game::Stage::BackGround
 {
@@ -78,6 +79,30 @@ namespace Game::Stage::BackGround
 		w = (WINDOW_WIDTH + 300.f) / num;
 		for (int i = 0; i < num; i++)
 			slideObjects.emplace_back(new SlideTotemPole130{ stage,GameLib::Vector2{ w / 2.f + w * i,70.f } });
+
+		return slideObjects;
+	}
+	std::vector<SlideObjectBase*> CreateSlideTemple(GameLib::Actor* stage)
+	{
+		std::vector<SlideObjectBase*> slideObjects;
+
+		float w;
+		int num;
+
+		num = 3;
+		w = (WINDOW_WIDTH + 300.f) / num;
+		for (int i = 0; i < num; i++)
+			slideObjects.emplace_back(new SlideTemple230{ stage,GameLib::Vector2{ w / 2.f + w * i,180.f } });
+
+		num = 4;
+		w = (WINDOW_WIDTH + 300.f) / num;
+		for (int i = 0; i < num; i++)
+			slideObjects.emplace_back(new SlideTemple180{ stage,GameLib::Vector2{ w / 2.f + w * i,130.f } });
+
+		num = 4;
+		w = (WINDOW_WIDTH + 300.f) / num;
+		for (int i = 0; i < num; i++)
+			slideObjects.emplace_back(new SlideTemple130{ stage,GameLib::Vector2{ w / 2.f + w * i,35.f } });
 
 		return slideObjects;
 	}

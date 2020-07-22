@@ -16,7 +16,7 @@ namespace Game::Stage
 
 namespace Game::StageSelect
 {
-	constexpr int STAGE_NUM = 2;
+	constexpr int STAGE_NUM = 3;
 
 	class WarpBox;
 	class StageNumChangeBox;
