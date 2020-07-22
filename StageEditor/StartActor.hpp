@@ -16,6 +16,7 @@ namespace StageEditor
 			:GameLib::RootActor{}
 			,mStageEditor{nullptr}
 			, mStage{nullptr}
+		, mUpdateStageEditorFlag{ false }
 		{
 			GameLib::Collider::SetIsDebug(true);
 
@@ -27,7 +28,12 @@ namespace StageEditor
 
 		void CustomizeUpdate() override {
 			
-			if (GameLib::InputState::GetState(GameLib::Key::no0) == GameLib::ButtonState::Pressed) {
+			if (mUpdateStageEditorFlag) {
+				mStageEditor->SetState(GameLib::Actor::State::Dead);
+				mStageEditor = new StageEditor{ this };
+			}
+
+			if (GameLib::InputState::GetState(GameLib::Key::RightShift) == GameLib::ButtonState::Pressed) {
 				if (mStageEditor) {
 
 					mStageEditor->SetState(GameLib::Actor::State::Dead);
@@ -50,12 +56,20 @@ namespace StageEditor
 					GameLib::Viewport::SetRotation(0.f);
 				}
 			}
+
+			mUpdateStageEditorFlag = false;
 			
+		}
+
+		void UpdateStageEditor() {
+			mUpdateStageEditorFlag = true;
 		}
 
 	private:
 		StageEditor* mStageEditor;
 		Game::Stage::Stage* mStage;
+
+		bool mUpdateStageEditorFlag;
 
 	};
 }

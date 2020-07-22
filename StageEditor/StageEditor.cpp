@@ -10,6 +10,8 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Game/Window.hpp"
 #include"Console/ConsoleMessage.hpp"
+#include<fstream>
+#include"StartActor.hpp"
 
 namespace StageEditor
 {
@@ -32,7 +34,6 @@ namespace StageEditor
 		LoadStageData(this, "test.json");
 		PrintStageInfo();
 
-		
 	}
 
 	SceneEditor* StageEditor::AddScene(const std::string& sceneName)
@@ -159,12 +160,35 @@ namespace StageEditor
 		if (strings.size() > 0 || mReDrawFlag)
 			PrintStageInfo();
 
-		
-		if (GameLib::InputState::GetState(GameLib::Key::RightShift) == GameLib::ButtonState::Pressed) {
+		if (strings.size() == 1 && strings[0] == "save") {
 			std::unordered_map<std::string, std::vector<ActorData>> tmp{};
 			for (auto iter = mStageScenes.begin(); iter != mStageScenes.end(); iter++)
 				tmp.emplace(iter->first, iter->second->GetData());
 			SaveStageData(mStageName, std::move(tmp), "test.json");
+		}
+
+		if (strings.size() == 3 && strings[0] == "save" && strings[1] == "as") {
+			std::unordered_map<std::string, std::vector<ActorData>> tmp{};
+			for (auto iter = mStageScenes.begin(); iter != mStageScenes.end(); iter++)
+				tmp.emplace(iter->first, iter->second->GetData());
+			SaveStageData(mStageName, std::move(tmp), "../Data/Stage/" + strings[2] + ".json");
+		}
+		
+		if (strings.size() == 2 && strings[0] == "load") {
+			std::ifstream file{ "../Data/Stage/" + strings[1] + ".json" ,std::ios::in };
+			if (file.is_open()) {
+
+				std::ofstream testFile{ "test.json", std::ios::out };
+
+				std::istreambuf_iterator<char> iit(file);
+				std::istreambuf_iterator<char> end;
+				std::ostreambuf_iterator<char> oit(testFile);
+				std::copy(iit, end, oit);
+
+				//SetState(GameLib::Actor::State::Dead);
+				auto startActorPtr = static_cast<StartActor*>(mOwner);
+				startActorPtr->UpdateStageEditor();
+			}
 		}
 		
 		mReDrawFlag = false;
