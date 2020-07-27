@@ -17,6 +17,9 @@ namespace Game::Stage
 namespace Game::StageSelect
 {
 	constexpr int STAGE_NUM = 3;
+	constexpr int STAGE_CHANGE_TIME = 30;
+
+	
 
 	class WarpBox;
 	class StageNumChangeBox;
@@ -35,6 +38,7 @@ namespace Game::StageSelect
 		int mGoStageFlag;
 
 		Stage::Player::Actor* mPlayer;
+
 
 	public:
 		StageSelect(GameLib::Actor* owner);

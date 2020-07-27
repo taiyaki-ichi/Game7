@@ -1,10 +1,10 @@
 #include"MoveBackGround.hpp"
 #include"Game/Stage/BackGround/SlideObjectBase.hpp"
+#include"StageSelect.hpp"
 
 namespace Game::StageSelect
 {
 	constexpr float SPEED = 20.f;
-	constexpr int DEATH_TIME = 30;
 
 	UpBackGround::UpBackGround(GameLib::Actor* owner, const std::vector<Stage::BackGround::SlideObjectBase*>& backGroud)
 		:GameLib::Actor{owner}
@@ -21,7 +21,7 @@ namespace Game::StageSelect
 		}
 
 		mCnt++;
-		if (mCnt >= DEATH_TIME)
+		if (mCnt >= STAGE_CHANGE_TIME)
 			SetState(GameLib::Actor::State::Dead);
 
 	}
@@ -40,7 +40,7 @@ namespace Game::StageSelect
 		}
 
 		mCnt++;
-		if (mCnt >= DEATH_TIME)
+		if (mCnt >= STAGE_CHANGE_TIME)
 			SetState(GameLib::Actor::State::Dead);
 	}
 
@@ -48,7 +48,7 @@ namespace Game::StageSelect
 	{
 		for (auto bg : backGround) {
 			auto pos = bg->GetPosition();
-			pos.y -= SPEED * DEATH_TIME;
+			pos.y -= SPEED * STAGE_CHANGE_TIME;
 			bg->SetPosition(pos);
 		}
 		

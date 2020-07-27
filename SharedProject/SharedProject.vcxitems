@@ -45,6 +45,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageNumChangeBox.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageSelectGround.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Game\StageSelect\StageWarpBox.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\Basis.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateFallObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Game\Stage\BackGround\CreateSlideObject.cpp" />

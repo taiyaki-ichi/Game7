@@ -3,6 +3,7 @@
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"GameLib/include/Draw/DrawTexture.hpp"
 #include"GameLib/include/Draw/DrawRect.hpp"
+#include<variant>
 
 namespace Game::StageSelect
 {
@@ -13,10 +14,10 @@ namespace Game::StageSelect
 		GameLib::Collider mCollider;
 
 		//BoxのTextureは768*768固定
-		GameLib::DrawTexture mTexture;
+		//isVaildがfalseの場合,DrawRect
+		std::variant<GameLib::DrawTexture, GameLib::DrawRect> mBox;
 
-		//isVaildがfalseの場合
-		GameLib::DrawRect mRect;
+		int mStageNum;
 
 	public:
 		//StageNumから位置を決定,
@@ -25,10 +26,8 @@ namespace Game::StageSelect
 
 		void CustomizeUpdate() override;
 
-		//待機位置から出現さす
-		void Up();
-		//待機位置へ
-		void Down();
-
+		void SetPosition(const GameLib::Vector2& pos);
+		const GameLib::Vector2& GetPosiotion() const;
 	};
+
 }
