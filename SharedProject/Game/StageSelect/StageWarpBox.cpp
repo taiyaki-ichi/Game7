@@ -42,6 +42,6 @@ namespace Game::StageSelect
 	}
 	const GameLib::Vector2& WarpBox::GetPosiotion() const
 	{
-		return std::visit([this](auto& box)->const GameLib::Vector2& {box.GetPosition(); }, mBox);
+		return std::visit([this](auto& box)->const GameLib::Vector2& {return box.GetPosition(); }, mBox);
 	}
 }

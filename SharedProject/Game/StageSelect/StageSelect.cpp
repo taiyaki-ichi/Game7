@@ -9,9 +9,9 @@
 #include"Game/Window.hpp"
 #include"Game/Stage/BackGround/CreateSlideObject.hpp"
 #include"Game/Stage/BackGround/SlideObjectBase.hpp"
-#include"MoveBackGround.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"StageNumChangeBox.hpp"
+#include"MoveObject.hpp"
 
 namespace Game::StageSelect
 {
@@ -24,8 +24,11 @@ namespace Game::StageSelect
 	std::vector<StageWarpBoxs> CreateStageWarpBoxs(StageSelect* stageSelect);
 	void CreateStageSelectGrounds(StageSelect* stageSelect);
 
+	//kari
 	constexpr float STAGESELECT_LEFT = -400.f;
 	constexpr float STAGESELECT_RIGHT = 800.f;
+
+	
 
 	StageSelect::StageSelect(GameLib::Actor* owner)
 		:GameLib::Actor{owner}
@@ -51,8 +54,9 @@ namespace Game::StageSelect
 		mBackGround.emplace_back(Stage::BackGround::CreateSlideSharpTree(this));
 		mBackGround.emplace_back(Stage::BackGround::CreateSlideTotemPole(this));
 
-		SetStayPosition(mBackGround[1]);
-		SetStayPosition(mBackGround[2]);
+
+		WarpActors(mBackGround[1].begin(), mBackGround[1].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
+		WarpActors(mBackGround[2].begin(), mBackGround[2].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
 
 		mStageNumChangeBox = new StageNumChangeBox{ this,GameLib::Vector2{-200.f,-50.f} };
 	}
@@ -74,12 +78,21 @@ namespace Game::StageSelect
 	void StageSelect::ChangeStageNum(int num)
 	{
 		if (num != 1) {
-			new DownBackGround{ this,mBackGround[num - 2] };
-			new UpBackGround{ this,mBackGround[num - 1] };
+
+
+			MoveActors(mBackGround[num - 2].begin(), mBackGround[num - 2].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
+			MoveActors(mBackGround[num - 1].begin(), mBackGround[num - 1].end(), GameLib::Vector2{ 0.f,20.f }, STAGE_CHANGE_TIME);
+
+			//new DownBackGround{ this,mBackGround[num - 2] };
+			//new UpBackGround{ this,mBackGround[num - 1] };
 		}
 		else {
-			new DownBackGround{ this,mBackGround[STAGE_NUM - 1] };
-			new UpBackGround{ this,mBackGround[0] };
+
+			MoveActors(mBackGround[STAGE_NUM - 1].begin(), mBackGround[STAGE_NUM - 1].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
+			MoveActors(mBackGround[0].begin(), mBackGround[0].end(), GameLib::Vector2{ 0.f,20.f }, STAGE_CHANGE_TIME);
+
+			//new DownBackGround{ this,mBackGround[STAGE_NUM - 1] };
+			//new UpBackGround{ this,mBackGround[0] };
 		}
 	}
 
