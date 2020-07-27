@@ -12,6 +12,8 @@
 #include"GameLib/include/InputState/InputState.hpp"
 #include"StageNumChangeBox.hpp"
 #include"MoveObject.hpp"
+#include"StageWarpBox.hpp"
+#include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
 
 namespace Game::StageSelect
 {
@@ -26,8 +28,10 @@ namespace Game::StageSelect
 
 	//kari
 	constexpr float STAGESELECT_LEFT = -400.f;
-	constexpr float STAGESELECT_RIGHT = 800.f;
+	constexpr float STAGESELECT_RIGHT = 1600.f;
 
+	constexpr float WARPBOX_LEFT = 200.f;
+	constexpr float WARPBOX_DISTANCE = 250.f;
 	
 
 	StageSelect::StageSelect(GameLib::Actor* owner)
@@ -35,6 +39,7 @@ namespace Game::StageSelect
 		, mBackGround{}
 		, mStageWarpBox{}
 		, mGoStageFlag{0}
+		,mNums{}
 	{
 		mStageWarpBox = CreateStageWarpBoxs(this);
 		CreateStageSelectGrounds(this);
@@ -59,6 +64,29 @@ namespace Game::StageSelect
 		WarpActors(mBackGround[2].begin(), mBackGround[2].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
 
 		mStageNumChangeBox = new StageNumChangeBox{ this,GameLib::Vector2{-200.f,-50.f} };
+
+		for (int stage = 0; stage < STAGE_NUM; stage++) {
+			StageWarpBoxs boxs;
+			for (int cource = 0; cource < COURCE_NUM; cource++) {
+
+				auto box = new WarpBox{ this,"../Assets/Box/001.png",1,true };
+				box->SetPosition(GameLib::Vector2{ WARPBOX_LEFT + cource * WARPBOX_DISTANCE,-30.f });
+				boxs.emplace_back(box);
+			}
+			mStageWarpBox.emplace_back(std::move(boxs));
+		}
+
+		for (int i = 1; i < STAGE_NUM; i++)
+			WarpActors(mStageWarpBox[i].begin(), mStageWarpBox[i].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
+
+		for(int i=0;i<COURCE_NUM;i++){
+			mNums[i] = GameLib::DrawFontText{ "../Assets/Font/mplus-1c-black.ttf" };
+			mNums[i].SetText(std::to_string(i + 1));
+			mNums[i].SetPosition(GameLib::Vector2{ WARPBOX_LEFT + i * WARPBOX_DISTANCE,-250.f });
+			mNums[i].SetColor({ 255,255,255,255 });
+			mNums[i].SetSize(GameLib::Font::Size::Size_72);
+			mNums[i].SetDrawOrder(10);
+		}
 	}
 	void StageSelect::CustomizeUpdate()
 	{
@@ -68,7 +96,7 @@ namespace Game::StageSelect
 		if (viewPortPos.x - WINDOW_WIDTH / 2.f < STAGESELECT_LEFT)
 			viewPortPos.x = STAGESELECT_LEFT + WINDOW_WIDTH / 2.f;
 		GameLib::Viewport::SetPos(viewPortPos);
-
+		GameLib::CollisionDetectionSetting::SetPos(viewPortPos);
 
 	}
 	void StageSelect::GoStage(int stageNum)
@@ -83,16 +111,20 @@ namespace Game::StageSelect
 			MoveActors(mBackGround[num - 2].begin(), mBackGround[num - 2].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
 			MoveActors(mBackGround[num - 1].begin(), mBackGround[num - 1].end(), GameLib::Vector2{ 0.f,20.f }, STAGE_CHANGE_TIME);
 
-			//new DownBackGround{ this,mBackGround[num - 2] };
-			//new UpBackGround{ this,mBackGround[num - 1] };
+			MoveActors(mStageWarpBox[num - 2].begin(), mStageWarpBox[num - 2].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
+			MoveActors(mStageWarpBox[num - 1].begin(), mStageWarpBox[num - 1].end(), GameLib::Vector2{ 0.f,20.f }, STAGE_CHANGE_TIME);
+
+			
 		}
 		else {
 
 			MoveActors(mBackGround[STAGE_NUM - 1].begin(), mBackGround[STAGE_NUM - 1].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
 			MoveActors(mBackGround[0].begin(), mBackGround[0].end(), GameLib::Vector2{ 0.f,20.f }, STAGE_CHANGE_TIME);
 
-			//new DownBackGround{ this,mBackGround[STAGE_NUM - 1] };
-			//new UpBackGround{ this,mBackGround[0] };
+			MoveActors(mStageWarpBox[STAGE_NUM - 1].begin(), mStageWarpBox[STAGE_NUM - 1].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
+			MoveActors(mStageWarpBox[0].begin(), mStageWarpBox[0].end(), GameLib::Vector2{ 0.f,20.f }, STAGE_CHANGE_TIME);
+
+			
 		}
 	}
 

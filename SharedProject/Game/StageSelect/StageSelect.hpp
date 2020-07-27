@@ -1,5 +1,6 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
+#include"GameLib/include/Draw/DrawFontText.hpp"
 #include<vector>
 #include<array>
 #include<string>
@@ -18,9 +19,8 @@ namespace Game::StageSelect
 {
 	constexpr int STAGE_NUM = 3;
 	constexpr int STAGE_CHANGE_TIME = 30;
-
+	constexpr int COURCE_NUM = 5;
 	
-
 	class WarpBox;
 	class StageNumChangeBox;
 
@@ -32,6 +32,8 @@ namespace Game::StageSelect
 	{
 		std::vector<BackGrounds> mBackGround;
 		std::vector<StageWarpBoxs> mStageWarpBox;
+
+		std::array<GameLib::DrawFontText, COURCE_NUM> mNums;
 
 		StageNumChangeBox* mStageNumChangeBox;
 
