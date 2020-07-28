@@ -15,8 +15,8 @@ namespace Game::StageSelect
 
 		//Box‚ÌTexture‚Í768*768ŒÅ’è
 		//isVaild‚ªfalse‚Ìê‡,DrawRect
-		std::variant<GameLib::DrawTexture, GameLib::DrawRect> mBox;
 		GameLib::DrawTexture mTexture;
+		GameLib::DrawRect mRect;
 
 		int mStageNum;
 

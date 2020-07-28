@@ -77,6 +77,7 @@ namespace Game::StageSelect
 	}
 	void StageSelect::CustomizeUpdate()
 	{
+
 		auto viewPortPos = GameLib::Vector2{ mPlayer->GetPositon().x,0.f };
 		if (viewPortPos.x + WINDOW_WIDTH / 2.f > STAGESELECT_RIGHT)
 			viewPortPos.x = STAGESELECT_RIGHT - WINDOW_WIDTH / 2.f;
@@ -85,9 +86,13 @@ namespace Game::StageSelect
 		GameLib::Viewport::SetPos(viewPortPos);
 		GameLib::CollisionDetectionSetting::SetPos(viewPortPos);
 
+
+		//if(flag>0)
+
 	}
 	void StageSelect::GoStage(int stageNum)
 	{
+		mGoStageFlag = stageNum;
 	}
 
 	void StageSelect::ChangeStageNum(int num)
@@ -123,7 +128,7 @@ namespace Game::StageSelect
 			StageWarpBoxs boxs;
 			for (int cource = 0; cource < COURCE_NUM; cource++) {
 
-				auto box = new WarpBox{ stageSelect,"../Assets/Box/001.png",1,true };
+				auto box = new WarpBox{ stageSelect,"../Assets/Box/001.png",cource + stage * COURCE_NUM + 1,true };
 				box->SetPosition(GameLib::Vector2{ WARPBOX_LEFT + cource * WARPBOX_DISTANCE,-30.f });
 				boxs.emplace_back(box);
 			}

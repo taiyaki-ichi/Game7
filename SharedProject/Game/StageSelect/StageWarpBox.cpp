@@ -1,5 +1,6 @@
 #include"StageWarpBox.hpp"
 #include"StageSelect.hpp"
+#include"Game/Stage/UtilityVectorFunction.hpp"
 
 namespace Game::StageSelect
 {
@@ -9,33 +10,42 @@ namespace Game::StageSelect
 	WarpBox::WarpBox(StageSelect* stageSelect, std::string&& textureFileName, int stageNum, bool isVaild)
 		:GameLib::Actor{ stageSelect }
 		, mCollider{}
-		, mBox{ GameLib::DrawRect{} }
 		, mTexture{ std::move(textureFileName) }
+		, mRect{}
 		,mStageNum{stageNum}
 	{
-		/*
-		if (isVaild) {
-			auto texture = GameLib::DrawTexture{ std::move(textureFileName) };
-			texture.SetScale(0.1f);
-			mBox = texture;
-		}
-		else {
-			auto& rect = std::get<GameLib::DrawRect>(mBox);
-			rect.SetWidthAndHeight(768.f, 768.f);
-			rect.SetScale(0.1f);
-		}
-		*/
+
 
 		mTexture.SetScale(0.1f);
 		mTexture.SetDrawOrder(-10);
 
+		mRect.SetWidthAndHeight(768.f, 768.f);
+		mRect.SetScale(0.1f);
+		mRect.SetDrawOrder(-10.f);
+
 		mCollider.SetWidthAndHeith(768.f, 768.f);
 		mCollider.SetScale(0.1f);
 
-		//
-		//
+		if (isVaild) {
+			mRect.SetIsAutoDrawing(false);
+		}
+		else {
+			mTexture.SetIsAutoDrawing(false);
+			mCollider.SetDoCollisionDetection(false);
+		}
+
 		mCollider.SetNameTag("Ground");
-		//
+
+		auto hitPlayer = [this](const GameLib::Collider& c) {
+			auto adjust = Stage::GetParallelRectAdjustVec(mCollider, c);
+			if (adjust.y > 0.f) {
+
+				auto stageSelectPtr = static_cast<StageSelect*>(mOwner);
+				stageSelectPtr->GoStage(mStageNum);
+			}
+		};
+
+		mCollider.AddHitFunction("Player", std::move(hitPlayer));
 
 	}
 	void WarpBox::CustomizeUpdate()
@@ -44,13 +54,12 @@ namespace Game::StageSelect
 	}
 	void WarpBox::SetPosition(const GameLib::Vector2& pos)
 	{
-		//std::visit([this, pos](auto& box) {box.SetPosition(pos); }, mBox);
+		mRect.SetPosition(pos);
 		mTexture.SetPosition(pos);
 		mCollider.SetPosition(pos);
 	}
 	const GameLib::Vector2& WarpBox::GetPosition() const
 	{
-		//return std::visit([this](auto& box)->const GameLib::Vector2& {return box.GetPosition(); }, mBox);
 		return mTexture.GetPosition();
 	}
 	
