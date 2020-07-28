@@ -55,9 +55,9 @@ namespace Game::StageSelect
 		GameLib::CollisionDetectionSetting::SetHeight(700.f);
 		GameLib::CollisionDetectionSetting::SetPos(GameLib::Vector2{ 800.f,0.f });
 
-		mBackGround.emplace_back(Stage::BackGround::CreateSlideTemple(this));
 		mBackGround.emplace_back(Stage::BackGround::CreateSlideSharpTree(this));
 		mBackGround.emplace_back(Stage::BackGround::CreateSlideTotemPole(this));
+		mBackGround.emplace_back(Stage::BackGround::CreateSlideTemple(this));
 
 
 		WarpActors(mBackGround[1].begin(), mBackGround[1].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
@@ -65,19 +65,6 @@ namespace Game::StageSelect
 
 		mStageNumChangeBox = new StageNumChangeBox{ this,GameLib::Vector2{-200.f,-50.f} };
 
-		for (int stage = 0; stage < STAGE_NUM; stage++) {
-			StageWarpBoxs boxs;
-			for (int cource = 0; cource < COURCE_NUM; cource++) {
-
-				auto box = new WarpBox{ this,"../Assets/Box/001.png",1,true };
-				box->SetPosition(GameLib::Vector2{ WARPBOX_LEFT + cource * WARPBOX_DISTANCE,-30.f });
-				boxs.emplace_back(box);
-			}
-			mStageWarpBox.emplace_back(std::move(boxs));
-		}
-
-		for (int i = 1; i < STAGE_NUM; i++)
-			WarpActors(mStageWarpBox[i].begin(), mStageWarpBox[i].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
 
 		for(int i=0;i<COURCE_NUM;i++){
 			mNums[i] = GameLib::DrawFontText{ "../Assets/Font/mplus-1c-black.ttf" };
@@ -131,7 +118,22 @@ namespace Game::StageSelect
 
 	std::vector<StageWarpBoxs> CreateStageWarpBoxs(StageSelect* stageSelect)
 	{
-		return {};
+		std::vector<StageWarpBoxs> result{};
+		for (int stage = 0; stage < STAGE_NUM; stage++) {
+			StageWarpBoxs boxs;
+			for (int cource = 0; cource < COURCE_NUM; cource++) {
+
+				auto box = new WarpBox{ stageSelect,"../Assets/Box/001.png",1,true };
+				box->SetPosition(GameLib::Vector2{ WARPBOX_LEFT + cource * WARPBOX_DISTANCE,-30.f });
+				boxs.emplace_back(box);
+			}
+			result.emplace_back(std::move(boxs));
+		}
+
+		for (int i = 1; i < STAGE_NUM; i++)
+			WarpActors(result[i].begin(), result[i].end(), GameLib::Vector2{ 0.f,-20.f }, STAGE_CHANGE_TIME);
+
+		return result;
 	}
 
 	void CreateStageSelectGrounds(StageSelect* stageSelect)
