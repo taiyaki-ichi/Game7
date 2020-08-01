@@ -6,5 +6,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="GameScene\GameSceneBase.hpp" />
+    <ClInclude Include="GameScene\StageSelect.hpp" />
+    <ClInclude Include="GameScene\Title.hpp" />
+    <ClInclude Include="ChangeScene.hpp" />
   </ItemGroup>
 </Project>

@@ -18,17 +18,19 @@ namespace Game::StageSelect
 		GameLib::DrawTexture mTexture;
 		GameLib::DrawRect mRect;
 
-		int mStageNum;
+		int mFlag;
 
 	public:
 		//StageNum‚©‚çˆÊ’u‚ðŒˆ’è,
-		WarpBox(StageSelect* stageSelect, std::string&& textureFileName, int stageNum, bool isVaild);
+		WarpBox(GameLib::Actor* stageSelect, std::string&& textureFileName, int stageNum, bool isVaild);
 		virtual ~WarpBox() = default;
 
 		void CustomizeUpdate() override;
 
 		void SetPosition(const GameLib::Vector2& pos);
 		const GameLib::Vector2& GetPosition() const;
+
+		int GetFlag();
 	};
 
 

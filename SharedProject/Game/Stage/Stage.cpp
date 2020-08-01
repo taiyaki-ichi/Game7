@@ -116,4 +116,9 @@ namespace Game::Stage
 		mPlayer->SetState(GameLib::Actor::State::Pause);
 	}
 
+	int Stage::GetStateFlag()
+	{
+		return mPlayer->GetFlag();
+	}
+
 }

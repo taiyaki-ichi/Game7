@@ -90,10 +90,7 @@ namespace Game::StageSelect
 		//if(flag>0)
 
 	}
-	void StageSelect::GoStage(int stageNum)
-	{
-		mGoStageFlag = stageNum;
-	}
+
 
 	void StageSelect::ChangeStageNum(int num)
 	{
@@ -118,6 +115,17 @@ namespace Game::StageSelect
 
 			
 		}
+	}
+
+	int StageSelect::GetFlag()
+	{
+		for (int stage = 0; stage < mStageWarpBox.size(); stage++) {
+			for (int cource = 0; mStageWarpBox[stage].size(); cource++) {
+				if (mStageWarpBox[stage][cource]->GetFlag() == 1)
+					return stage * COURCE_NUM + cource;
+			}
+		}
+		return -1;
 	}
 
 

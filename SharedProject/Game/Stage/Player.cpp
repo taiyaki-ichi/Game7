@@ -61,6 +61,11 @@ namespace Game::Stage::Player
 		mNowState = state;
 	}
 
+	int Actor::GetFlag()
+	{
+		return mNowState->GetFlag();
+	}
+
 
 	Active::Active(Actor* player, GameLib::Vector2&& pos, GameLib::DrawAnimation* anim)
 		:PlayerState{player}
@@ -258,6 +263,14 @@ namespace Game::Stage::Player
 		mPosition = pos;
 	}
 
+	int Death::GetFlag()
+	{
+		if (mCnt > DEATH_CNT)
+			return -1;
+		else
+			return 0;
+	}
+
 	Death::Death(Actor* player, const PhysicsModel& model, GameLib::DrawAnimation* anim)
 		:PlayerState{player}
 		, mCnt{ 0 }
@@ -272,7 +285,7 @@ namespace Game::Stage::Player
 	void Death::CustomizeUpdate()
 	{
 		mCnt++;
-		if (mCnt > DEATH_CNT)
+		
 			mOwner->SetState(Actor::State::Dead);
 
 		mPosition += Gravity::GetVector2(Dir4::Up, 4.f);
@@ -290,5 +303,9 @@ namespace Game::Stage::Player
 	Player::Actor* PlayerState::GetPlayer()
 	{
 		return static_cast<Player::Actor*>(mOwner);
+	}
+	int PlayerState::GetFlag()
+	{
+		return 0;
 	}
 }

@@ -1,5 +1,4 @@
 #include"StageWarpBox.hpp"
-#include"StageSelect.hpp"
 #include"Game/Stage/UtilityVectorFunction.hpp"
 
 namespace Game::StageSelect
@@ -7,12 +6,12 @@ namespace Game::StageSelect
 
 
 
-	WarpBox::WarpBox(StageSelect* stageSelect, std::string&& textureFileName, int stageNum, bool isVaild)
+	WarpBox::WarpBox(GameLib::Actor* stageSelect, std::string&& textureFileName, int stageNum, bool isVaild)
 		:GameLib::Actor{ stageSelect }
 		, mCollider{}
 		, mTexture{ std::move(textureFileName) }
 		, mRect{}
-		,mStageNum{stageNum}
+		, mFlag{0}
 	{
 
 
@@ -40,8 +39,9 @@ namespace Game::StageSelect
 			auto adjust = Stage::GetParallelRectAdjustVec(mCollider, c);
 			if (adjust.y > 0.f) {
 
-				auto stageSelectPtr = static_cast<StageSelect*>(mOwner);
-				stageSelectPtr->GoStage(mStageNum);
+				//auto stageSelectPtr = static_cast<StageSelect*>(mOwner);
+				//stageSelectPtr->GoStage(mStageNum);
+				mFlag = 1;
 			}
 		};
 
@@ -61,6 +61,11 @@ namespace Game::StageSelect
 	const GameLib::Vector2& WarpBox::GetPosition() const
 	{
 		return mTexture.GetPosition();
+	}
+
+	int WarpBox::GetFlag()
+	{
+		return mFlag;
 	}
 	
 }

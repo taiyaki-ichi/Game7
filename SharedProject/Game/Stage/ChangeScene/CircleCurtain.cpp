@@ -35,6 +35,8 @@ namespace Game::Stage
 		}
 		else {
 			mRadius += 15.f;
+			if (mRadius > WINDOW_WIDTH)
+				mRadius = WINDOW_WIDTH;
 		}
 	}
 	bool CircleCurtain::IsClosed()

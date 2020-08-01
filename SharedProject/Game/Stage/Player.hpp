@@ -4,7 +4,6 @@
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Game/Stage/PhysicsModel.hpp"
 
-
 namespace Game::Stage::Player
 {
 	class PlayerState;
@@ -22,15 +21,17 @@ namespace Game::Stage::Player
 
 		void CustomizeUpdate() override;
 
-		void SetAnamtion(const GameLib::Vector2 & pos, float scale, float rot, int channel = -1);
+		void SetAnamtion(const GameLib::Vector2& pos, float scale, float rot, int channel = -1);
 
 		//アニメーションの位置を返す
 		GameLib::Vector2 GetPositon();
 		void SetPosition(const GameLib::Vector2& pos);
 
 		void SetPlayerState(PlayerState* state);
-	};
 
+		//-1で死亡あにｍ終了,1でゴールモーション終了
+		int  GetFlag();
+	};
 
 	class PlayerState : public GameLib::Actor
 	{
@@ -42,6 +43,8 @@ namespace Game::Stage::Player
 		virtual void SetPosition(const GameLib::Vector2& pos) = 0;
 
 		Player::Actor* GetPlayer();
+
+		virtual int GetFlag();
 	};
 
 	class Active : public PlayerState
@@ -100,6 +103,8 @@ namespace Game::Stage::Player
 
 		const GameLib::Vector2& GetPosition() override;
 		void SetPosition(const GameLib::Vector2& pos) override;
+
+		virtual int GetFlag() override;
 
 	};
 }

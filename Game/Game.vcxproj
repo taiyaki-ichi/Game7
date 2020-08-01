@@ -150,6 +150,11 @@
     <ClCompile Include="StartActor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="ChangeScene.hpp" />
+    <ClInclude Include="GameScene\GameSceneBase.hpp" />
+    <ClInclude Include="GameScene\StageSelect.hpp" />
+    <ClInclude Include="GameScene\Title.hpp" />
     <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

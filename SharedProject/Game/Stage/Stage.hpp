@@ -23,6 +23,8 @@ namespace Game::Stage
 
 		Player::Actor* mPlayer;
 
+		int mFlag;
+
 	public:
 		Stage(GameLib::Actor* owner, std::string&& fileName, bool isDebug = false);
 		virtual ~Stage() = default;
@@ -46,5 +48,8 @@ namespace Game::Stage
 
 		void PlayerAcitve();
 		void PlayerPause();
+
+		//-1は失敗、1でクリア,2はポーズかな
+		int GetStateFlag();
 	};
 }

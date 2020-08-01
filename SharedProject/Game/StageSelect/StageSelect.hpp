@@ -1,6 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/Draw/DrawFontText.hpp"
+#include"Game/Stage/ChangeScene/CircleCurtain.hpp"
 #include<vector>
 #include<array>
 #include<string>
@@ -41,7 +42,6 @@ namespace Game::StageSelect
 
 		Stage::Player::Actor* mPlayer;
 
-
 	public:
 		StageSelect(GameLib::Actor* owner);
 		virtual ~StageSelect() = default;
@@ -49,9 +49,10 @@ namespace Game::StageSelect
 		//GoStageFlagが0以外の有効な値ならばそのStageへ移動
 		void CustomizeUpdate() override;
 
-		void GoStage(int stageNum);
-
 		void ChangeStageNum(int num);
+
+		//でふぉ-1,コース
+		int GetFlag();
 	};
 
 
