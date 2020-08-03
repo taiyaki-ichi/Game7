@@ -1,16 +1,20 @@
 #pragma once
 #include<vector>
 #include<string>
+#include<unordered_map>
+#include<string>
 
 namespace Stage
 {
 	struct ActorInfo {
 		std::string mName;
-		std::vector<float> mData;
+		std::vector<float> mFloatData;
+		std::unordered_map<std::string, std::string> mStringData;
 
-		ActorInfo(std::string&& name, std::vector<float>&& data)
+		ActorInfo(std::string&& name, std::vector<float>&& data, std::unordered_map<std::string, std::string>&& data2 = {})
 			:mName{ std::move(name) }
-			, mData{ std::move(data) }
+			, mFloatData{ std::move(data) }
+			, mStringData{std::move(data2)}
 		{}
 
 	};

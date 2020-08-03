@@ -27,7 +27,7 @@ namespace Stage
 				ptr = CreateStageActor(this, std::move(info.mName));
 			}
 
-			ptr->LoadData(std::move(info.mData));
+			ptr->LoadData(std::move(info.mFloatData), std::move(info.mStringData));
 		}
 
 		if (startSceneFlag)

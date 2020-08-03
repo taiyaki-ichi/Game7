@@ -44,6 +44,14 @@
           "0": 20,
           "1": 145,
           "ActorName": "Toge"
+        },
+        {
+          "0": 183,
+          "1": 10,
+          "ActorName": "Warp",
+          "DestinationNameTag": "ccc",
+          "NameTag": "bbb",
+          "WarpType": "aaa"
         }
       ],
       "SceneName": "a"
