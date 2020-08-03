@@ -4,6 +4,11 @@
 #include"Json/picojson.hpp"
 #include <fstream>
 #include"SceneManager/Scene/ActorInfo.hpp"
+#include<unordered_map>
+#include<string>
+#include"SceneManager/Scene/Actor/WarpBase.hpp"
+
+#include<iostream>
 
 namespace Stage
 {
@@ -37,6 +42,28 @@ namespace Stage
 		}
 	}
 
+
+	std::unordered_map<std::string, std::string> GetStringData(const std::string& actorName, picojson::object& obj)
+	{
+		std::unordered_map<std::string, std::string> stringData;
+
+		if (actorName == "Warp") {
+
+			std::string warpGateType = obj[WarpBase::TYPE].get<std::string>();
+			std::string nameTag = obj[WarpBase::NAMETAG].get<std::string>();
+			std::string destinationNameTag = obj[WarpBase::DESTINATION_NAMETAG].get<std::string>();
+
+			stringData.emplace(WarpBase::TYPE ,std::move(warpGateType));
+			stringData.emplace(WarpBase::NAMETAG, std::move(nameTag));
+			stringData.emplace(WarpBase::DESTINATION_NAMETAG, std::move(destinationNameTag));
+		}
+		
+
+
+		return stringData;
+	}
+
+
 	SceneManager* LoadStage(Stage* stage, std::string&& fileName)
 	{
 		auto sceneManagerPtr = new SceneManager{ stage };
@@ -63,7 +90,11 @@ namespace Stage
 				std::string actorName = actorData["ActorName"].get<std::string>();
 				std::vector<float> floatData = GetFloatData(std::move(actorData));
 
-				sceneVector.emplace_back(ActorInfo{ std::move(actorName),std::move(floatData) });
+				std::cout << actorName << std::endl;
+
+				auto stringData = GetStringData(actorName, actorData);
+
+				sceneVector.emplace_back(ActorInfo{ std::move(actorName),std::move(floatData),std::move(stringData) });
 
 			}
 

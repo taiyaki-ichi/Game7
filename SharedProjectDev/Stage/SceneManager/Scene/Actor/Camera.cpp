@@ -23,7 +23,7 @@ namespace Stage
 
 	}
 
-	void Camera::LoadData(std::vector<float>&& data,std::unordered_map<std::string, std::string>&& stringData)
+	void Camera::LoadData(std::vector<float>&& data)
 	{
 	}
 

@@ -12,8 +12,13 @@ namespace Stage
 
 
 
+		return nullptr;
 
+	}
 
+	WarpBase* CreateStageWarp(Scene* scene, std::string&& warpType, std::string&& myNameTag, std::string&& destinationNameTag)
+	{
+		return nullptr;
 	}
 
 }

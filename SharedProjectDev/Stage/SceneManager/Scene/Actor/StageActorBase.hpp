@@ -21,7 +21,7 @@ namespace Stage
 		virtual void Active() = 0;
 		virtual void Pause() = 0;
 
-		virtual void LoadData(std::vector<float>&& data, std::unordered_map<std::string, std::string>&& stringData) = 0;
+		virtual void LoadData(std::vector<float>&& data) = 0;
 
 	};
 }

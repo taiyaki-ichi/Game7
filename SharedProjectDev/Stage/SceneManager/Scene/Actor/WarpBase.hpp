@@ -21,6 +21,13 @@ namespace Stage
 
 
 	public:
+
+		//データ取得用
+		constexpr static char TYPE[] = "Type";
+		constexpr static char NAMETAG[] = "NameTag";
+		constexpr static char DESTINATION_NAMETAG[] = "DestinationNameTag";
+
+
 		WarpBase(GameLib::Actor* scene);
 		virtual ~WarpBase();
 

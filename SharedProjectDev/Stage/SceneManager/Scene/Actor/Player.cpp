@@ -17,7 +17,7 @@ namespace Stage
 	{
 	}
 
-	void Player::LoadData(std::vector<float>&& data, std::unordered_map<std::string, std::string>&& stringData)
+	void Player::LoadData(std::vector<float>&& data)
 	{
 	}
 

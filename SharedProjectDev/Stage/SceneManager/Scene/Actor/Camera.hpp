@@ -15,7 +15,7 @@ namespace Stage
 		void Active() override;
 		void Pause() override;
 
-		void LoadData(std::vector<float>&& data, std::unordered_map<std::string, std::string>&& stringData) override;
+		void LoadData(std::vector<float>&& data) override;
 
 		void AdjustCameraPosition();
 	};
