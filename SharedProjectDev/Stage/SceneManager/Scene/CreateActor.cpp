@@ -1,5 +1,6 @@
 #include"CreateActor.hpp"
 #include"StageScene.hpp"
+#include"Actor/Ground.hpp"
 
 
 namespace Stage
@@ -7,8 +8,10 @@ namespace Stage
 
 	ActorBase* CreateStageActor(Scene* scene, std::string&& name)
 	{
-
 		
+		if (name == "Ground")
+			return new GroundGenerator{ scene };
+
 
 
 

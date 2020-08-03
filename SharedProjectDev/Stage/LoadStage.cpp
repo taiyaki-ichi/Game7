@@ -35,17 +35,19 @@ namespace Stage
 
 	std::vector<float> GetFloatData(picojson::object&& obj) {
 		int i = 0;
-		std::vector<float> floatData;
+		std::vector<float> floatData{};
 		while (obj[std::to_string(i)].is<double>()) {
 			floatData.emplace_back(static_cast<float>(obj[std::to_string(i)].get<double>()));
 			i++;
 		}
+
+		return floatData;
 	}
 
 
 	std::unordered_map<std::string, std::string> GetStringData(const std::string& actorName, picojson::object& obj)
 	{
-		std::unordered_map<std::string, std::string> stringData;
+		std::unordered_map<std::string, std::string> stringData{};
 
 		if (actorName == "Warp") {
 
@@ -90,7 +92,7 @@ namespace Stage
 				std::string actorName = actorData["ActorName"].get<std::string>();
 				std::vector<float> floatData = GetFloatData(std::move(actorData));
 
-				std::cout << actorName << std::endl;
+				//std::cout << actorName << std::endl;
 
 				auto stringData = GetStringData(actorName, actorData);
 
@@ -101,6 +103,7 @@ namespace Stage
 			sceneVectorVector.emplace_back(sceneVector);
 		}
 
+		//std::cout << "sceneVectorSize: " << sceneVectorVector.size() << "\n";
 		sceneManagerPtr->CreateScene(std::move(sceneVectorVector));
 
 		return sceneManagerPtr;

@@ -48,11 +48,8 @@ namespace Stage
 	}
 	void SceneManager::CreateScene(std::vector<std::vector<ActorInfo>>&& stageData)
 	{
-		while (!stageData.empty()) {
-
-			auto& sceneData = stageData.back();
-			stageData.pop_back();
-
+		for (auto& sceneData : stageData) {
+			
 			auto scenePtr = new Scene{ this };
 			scenePtr->CreateActors(std::move(sceneData), mPlayer);	
 		}

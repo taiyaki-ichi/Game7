@@ -17,7 +17,6 @@ namespace Stage
 	void Scene::CreateActors(std::vector<ActorInfo>&& actorInfos, Player* player)
 	{
 		bool startSceneFlag = false;
-
 		for (auto& info : actorInfos) {
 			ActorBase* ptr = nullptr;
 			if (info.mName == "Player") {
@@ -25,9 +24,9 @@ namespace Stage
 				ptr = player;
 			}
 			else if (info.mName == "Warp") {
-				auto warpType = info.mStringData[""];
-				auto nameTag = info.mStringData[""];
-				auto destinationNameTag = info.mStringData[""];
+				auto warpType = info.mStringData[WarpBase::TYPE];
+				auto nameTag = info.mStringData[WarpBase::NAMETAG];
+				auto destinationNameTag = info.mStringData[WarpBase::DESTINATION_NAMETAG];
 
 				ptr = CreateStageWarp(this, std::move(warpType), std::move(nameTag), std::move(destinationNameTag));
 			}

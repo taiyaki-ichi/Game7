@@ -70,6 +70,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\ActivePausePolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\ActorInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\WarpBase.hpp" />
@@ -114,6 +115,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\LoadStage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Pause.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Ground.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\WarpBase.cpp" />
