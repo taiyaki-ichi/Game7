@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{b56eeac4-88a7-4348-a460-6c364033770b}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\Actor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\ActorPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\ActorsManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\RootActor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\App.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\Collider.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\CollisionDetectionSetting.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\Color.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\CustomizeDrawBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawAnimation.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawCircle.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawFillTriangle.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawFontText.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawLine.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawRect.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Draw\DrawTexture.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\InputState\InputState.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\InputState\InputStateInfo.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Manager\Manager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Manager\ManagerPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Manager\Node.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Numbers.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Vector2.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Math\Vector2Func.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Resource\Font.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Resource\ResourceManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Resource\Texture.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Viewport\Viewport.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\App\AppImpl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\ColliderManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\CollisionDetectinPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\CollisionDetectionSettingImpl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\CollsionDetectionData.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\LinerObject.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\MortonNumber.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\SpaceCell.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\SpaceDivisionTree.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\Manager\DrawManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\Manager\DrawPolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\Keyboard.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\Mouse.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Event.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Graphics.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Input.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\WindowClassName.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Time.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Window.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Json\picojson.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Gravity\Gravity.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\LoadStage.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Pause.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\ActivePausePolicy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\ActorInfo.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\WarpBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\CreateActor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\StageScene.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Stage.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Dir4Vec.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\CollisionDetectionSetting.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\include\Viewport\Viewport.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\App\AppImpl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\Collider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\ColliderManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\CollisionDetectionSettingImpl.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\MortonNumber.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\CustomizeDrawBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawCircle.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawFillTriangle.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawFontText.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawLine.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawRect.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\Manager\DrawManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\InputState.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\Keyboard.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\Mouse.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Resource\ResourceManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\RootActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Event.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Graphics.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Input.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Time.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Gravity\Gravity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\LoadStage.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Pause.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\WarpBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\CreateActor.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\StageScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Stage.cpp" />
+  </ItemGroup>
+</Project>
