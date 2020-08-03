@@ -1,4 +1,5 @@
 #include"Gravity.hpp"
+#include"GameLib/include/Math/Numbers.hpp"
 
 namespace Stage
 {
@@ -48,6 +49,31 @@ namespace Stage
 	void Gravity::Reset()
 	{
 		mDir4Vec = DEFAULT_GRAVITY;
+	}
+
+	GameLib::Vector2 Gravity::GetVector2()
+	{
+		if (mDir4Vec.mDir4 == Dir4::Down)
+			return { 0.f,-mDir4Vec.mSize };
+		else if (mDir4Vec.mDir4 == Dir4::Up)
+			return { 0.f,mDir4Vec.mSize };
+		else if (mDir4Vec.mDir4 == Dir4::Right)
+			return { mDir4Vec.mSize,0.f };
+		else if (mDir4Vec.mDir4 == Dir4::Left)
+			return { -mDir4Vec.mSize,0.f };
+	}
+
+	float Gravity::GetRotation()
+	{
+		auto gravityDir4 = Gravity::GetDir4();
+		if (gravityDir4 == Dir4::Down)
+			return 0.f;
+		else if (gravityDir4 == Dir4::Up)
+			return GameLib::PI;
+		else if (gravityDir4 == Dir4::Right)
+			return GameLib::PI / 2.f;
+		else
+			return GameLib::PI * 3.f / 2.f;
 	}
 
 }

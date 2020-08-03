@@ -1,5 +1,6 @@
 #pragma once
 #include"Stage/Utilty/Dir4Vec.hpp"
+#include"GameLib/include/Math/Vector2.hpp"
 
 namespace Stage
 {
@@ -22,5 +23,9 @@ namespace Stage
 		static Dir4 GetDir4();
 
 		static void Reset();
+
+		static GameLib::Vector2 GetVector2();
+		static float GetRotation();
+
 	};
 }

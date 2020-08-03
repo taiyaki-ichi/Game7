@@ -79,6 +79,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Stage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Dir4Vec.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\PhysicsModel.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\CollisionDetectionSetting.cpp" />
@@ -109,6 +110,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Gravity\Gravity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\LoadStage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Pause.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.cpp" />
