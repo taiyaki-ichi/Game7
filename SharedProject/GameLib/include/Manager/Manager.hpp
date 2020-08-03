@@ -57,12 +57,12 @@ namespace GameLib
 				mNodes.erase(iter);
 		}
 
-		template<typename Policy>
-		void Invoke() {
+		template<typename Policy,typename... Args>
+		void Invoke(Args&& ...args) {
 			auto iter = mNodes.begin();
 			while (iter != mNodes.end()) {
 				if (iter->Ptr) {
-					Policy()(iter->Ptr);
+					Policy(std::forward(args)...)(iter->Ptr);
 					iter++;
 				}
 				else

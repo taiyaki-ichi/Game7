@@ -90,6 +90,11 @@ namespace GameLib
 		Actor* GetOwner() const noexcept {
 			return mOwner;
 		}
+
+		template<typename Policy,typename... Args>
+		void Invoke(Args&& ...args) {
+			mOwnedActors.Invoke<Policy>(std::forward(args)...);
+		}
 	};
 
 }
