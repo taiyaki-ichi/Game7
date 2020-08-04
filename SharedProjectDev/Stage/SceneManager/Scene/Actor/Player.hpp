@@ -3,12 +3,15 @@
 #include<optional>
 #include<utility>
 #include"GameLib/include/Math/Vector2.hpp"
+#include"Stage/Utilty/State/StageStateManager.hpp"
 
 namespace Stage
 {
 	class Player : public ActorBase
 	{
 		GameLib::Vector2 mPos;
+
+		StateManager mStateManager;
 
 	public:
 		Player(GameLib::Actor* scene);
