@@ -1,0 +1,37 @@
+#include"PlayerDeath.hpp"
+#include"PlayerParam.hpp"
+#include"PlayerFlag.hpp"
+#include"Stage/Gravity/GravityFunc.hpp"
+#include"GameLib/include/Draw/DrawAnimation.hpp"
+
+namespace Stage
+{
+	PlayerDeath::PlayerDeath(StateManager<char>* player, GameLib::DrawAnimation* anim)
+		:PlayerStateBase{player}
+		, mAnimation{anim}
+	{
+		mAnimation->SetChannel(4);
+	}
+	void PlayerDeath::CustomizeUpdate()
+	{
+		mCnt++;
+		if (mCnt > PlayerParam::DEATH_CNT)
+			UpFlag(PlayerFlag::DEATH_MOTION_FINISH_FLAG);
+
+		auto pos = mAnimation->GetPosition();
+		pos += GetVector2(Dir4::Up, 4.f);
+
+		float scale = mAnimation->GetScale();
+		scale *= 0.99f;
+
+		float rot = mAnimation->GetRotation();
+		rot += 0.3f;
+
+		mAnimation->Set(std::move(pos), scale, rot);
+
+	}
+	void PlayerDeath::SetPosition(const GameLib::Vector2& pos)
+	{
+		mAnimation->SetPosition(pos);
+	}
+}

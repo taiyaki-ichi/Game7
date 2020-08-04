@@ -49,5 +49,6 @@ namespace GameLib
 
 		const Vector2& GetPosition() const noexcept;
 		float GetRotation() const noexcept;
+		float GetScale() const noexcept;
 	};
 }

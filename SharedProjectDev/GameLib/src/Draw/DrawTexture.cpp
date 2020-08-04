@@ -119,4 +119,9 @@ namespace GameLib
 		return mRotation;
 	}
 
+	float DrawTexture::GetScale() const noexcept
+	{
+		return mScale;
+	}
+
 }

@@ -20,7 +20,6 @@ namespace Stage
 
 		char mFlags;
 
-		void Warp(const std::string& prev,const std::string& next);
 
 	public:
 
@@ -42,6 +41,8 @@ namespace Stage
 		void RemoveWarpBase(WarpBase* warp);
 
 		const GameLib::Vector2& GetPlayerPos() const;
+
+		void Warp(WarpBase* prevWarpBase, const std::string& nextNameTag);
 
 	};
 }

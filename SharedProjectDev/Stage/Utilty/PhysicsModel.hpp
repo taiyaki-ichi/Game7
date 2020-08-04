@@ -18,6 +18,12 @@ namespace Stage
 			, mScale(scale)
 			, mRotation(rot)
 		{}
+		PhysicsModel(const GameLib::Vector2& pos = { 0.f,0.f }, GameLib::Vector2&& velocity = { 0.f,0.f }, float scale = 1.f, float rot = 0.f)
+			:mPosition(std::move(pos))
+			, mVelocity(std::move(velocity))
+			, mScale(scale)
+			, mRotation(rot)
+		{}
 		virtual ~PhysicsModel() = default;
 
 		//力から速度と位置の更新,maxSpeedは<0.fの時無効

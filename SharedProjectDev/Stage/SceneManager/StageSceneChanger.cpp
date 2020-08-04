@@ -31,7 +31,7 @@ namespace Stage
 
 			mPrevWarp->SetBright();
 
-			mPlayer->Warp(mNextWarp->GetPosiotion());
+			mPlayer->SetPosition(mNextWarp->GetPosiotion());
 		}
 
 		if (mPrevWarp->GetLightState() == WarpBase::LightState::Bright && mNextWarp->GetLightState() == WarpBase::LightState::Bright) {

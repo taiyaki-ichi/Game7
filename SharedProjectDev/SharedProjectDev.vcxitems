@@ -72,7 +72,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Ground.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerActive.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerDeath.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerFlag.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerParam.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerStateBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerStateManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\WarpBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\CreateActor.hpp" />
@@ -81,6 +86,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Stage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Dir4Vec.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateManager.hpp" />
@@ -120,6 +126,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Ground.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerActive.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerDeath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerStateManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\WarpBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\CreateActor.cpp" />
@@ -127,6 +136,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Stage.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.cpp" />
   </ItemGroup>
 </Project>

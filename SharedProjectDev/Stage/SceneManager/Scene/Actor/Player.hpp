@@ -1,17 +1,16 @@
 #pragma once
 #include"StageActorBase.hpp"
-#include<optional>
-#include<utility>
 #include"GameLib/include/Math/Vector2.hpp"
-#include"Stage/Utilty/State/StageStateManager.hpp"
+#include"GameLib/include/Draw/DrawAnimation.hpp"
 
 namespace Stage
 {
+	class PlayerStateManager;
+
 	class Player : public ActorBase
 	{
-		GameLib::Vector2 mPos;
-
-		StateManager mStateManager;
+		GameLib::DrawAnimation mAnimation;
+		PlayerStateManager* mStateManager;
 
 	public:
 		Player(GameLib::Actor* scene);
@@ -22,9 +21,9 @@ namespace Stage
 
 		void LoadData(std::vector<float>&& data) override;
 
-		std::optional<std::pair<std::string,std::string>> GetWarpNameTag();
-		void Warp(const GameLib::Vector2& pos);
+		void SetPosition(const GameLib::Vector2& pos);
 
+		//Animation�̈ʒu
 		const GameLib::Vector2& GetPosition() const;
 	};
 }

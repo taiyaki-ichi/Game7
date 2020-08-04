@@ -1,6 +1,6 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
-#include"StageStateManager.hpp"
+#include"StageStateBase.hpp"
 
 namespace Stage
 {
@@ -8,8 +8,9 @@ namespace Stage
 	class StateBase;
 
 	template<typename T=char>
-	class StateManager : GameLib::Actor
+	class StateManager : public GameLib::Actor
 	{
+	protected:
 		StateBase<T>* mNowState;
 
 	public:
@@ -18,7 +19,7 @@ namespace Stage
 			, mNowState{nullptr}
 		{}
 
-		virtual ~StateManager();
+		virtual ~StateManager() = default;
 
 		void Active()
 		{
@@ -41,7 +42,7 @@ namespace Stage
 		bool CheckFlag(T flag)
 		{
 			if (mNowState)
-				mNowState->CheckFlag(flag);
+				return mNowState->CheckFlag(flag);
 			else
 				return false;
 		}

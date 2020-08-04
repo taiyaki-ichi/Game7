@@ -8,16 +8,16 @@ namespace Stage
 	class StateManager;
 
 	template<typename T=char>
-	class State : public GameLib::Actor
+	class StateBase : public GameLib::Actor
 	{
 		T mFlags;
 
 	public:
-		State(StateManager<T>* manger)
+		StateBase(StateManager<T>* manger)
 			:GameLib::Actor{manger}
 			, mFlags{0}
 		{}
-		virtual ~State() = default;
+		virtual ~StateBase() = default;
 
 		virtual void Active() = 0;
 		virtual void Pause() = 0;

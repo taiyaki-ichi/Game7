@@ -17,30 +17,16 @@ namespace Stage
 		mPlayer = new Player{ this };
 	}
 
-	void SceneManager::Warp(const std::string& prev,const std::string& next)
-	{
-		WarpBase* prevWarpPtr = nullptr;
-		WarpBase* nextWarpPtr = nullptr;
-
-		for (auto ptr : mWarpBases) {
-			if (ptr->GetNameTag() == prev)
-				prevWarpPtr = ptr;
-			if (ptr->GetNameTag() == next)
-				nextWarpPtr = ptr;
-		}
-
-		if (prevWarpPtr && nextWarpPtr) {
-			new SceneChanger{ this,mPlayer,prevWarpPtr,nextWarpPtr };
-		}
-	}
 
 	void SceneManager::CustomizeUpdate()
 	{
+		//kari
+		/*
 		auto warpNameTag = mPlayer->GetWarpNameTag();
 		if (warpNameTag.has_value()) {
 			Warp(warpNameTag.value().first, warpNameTag.value().second);
 		}
-
+		*/
 	}
 	char SceneManager::GetFlags()
 	{
@@ -70,6 +56,19 @@ namespace Stage
 	const GameLib::Vector2& SceneManager::GetPlayerPos() const
 	{
 		return mPlayer->GetPosition();
+	}
+
+	void SceneManager::Warp(WarpBase* prevWarpBase, const std::string& nextNameTag)
+	{
+		WarpBase* nextWarpPtr = nullptr;
+		for (auto ptr : mWarpBases) {
+			if (ptr->GetNameTag() == nextNameTag)
+				nextWarpPtr = ptr;
+		}
+
+		if (prevWarpBase && nextWarpPtr)
+			new SceneChanger{ this,mPlayer,prevWarpBase,nextWarpPtr };
+
 	}
 
 }
