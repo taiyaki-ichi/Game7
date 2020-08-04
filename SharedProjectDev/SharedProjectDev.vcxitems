@@ -90,6 +90,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateManager.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\WindowSize.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\CollisionDetectionSetting.cpp" />
@@ -128,7 +129,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerDeath.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerStateManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\WarpBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\CreateActor.cpp" />

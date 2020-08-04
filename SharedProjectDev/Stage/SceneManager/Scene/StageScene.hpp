@@ -33,6 +33,8 @@ namespace Stage
 			SetState(GameLib::Actor::State::Pause);
 			InvokeActors<PausePolicy>();
 		}
+
+	
 	};
 
 }

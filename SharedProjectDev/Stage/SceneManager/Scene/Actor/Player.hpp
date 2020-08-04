@@ -2,19 +2,21 @@
 #include"StageActorBase.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
+#include"Player/PlayerStateManager.hpp"
 
 namespace Stage
 {
-	class PlayerStateManager;
 
 	class Player : public ActorBase
 	{
 		GameLib::DrawAnimation mAnimation;
-		PlayerStateManager* mStateManager;
+		PlayerState::Manager mStateManager;
 
 	public:
 		Player(GameLib::Actor* scene);
 		virtual ~Player() = default;
+
+		void CustomizeUpdate() override;
 
 		void Active() override;
 		void Pause() override;

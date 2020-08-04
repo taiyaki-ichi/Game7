@@ -4,15 +4,15 @@
 #include"Stage/Gravity/GravityFunc.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 
-namespace Stage
+namespace Stage::PlayerState
 {
-	PlayerDeath::PlayerDeath(StateManager<char>* player, GameLib::DrawAnimation* anim)
-		:PlayerStateBase{player}
-		, mAnimation{anim}
+	Death::Death(GameLib::DrawAnimation* anim)
+		:StateBase{}
+		, mAnimation{ anim }
 	{
 		mAnimation->SetChannel(4);
 	}
-	void PlayerDeath::CustomizeUpdate()
+	Stage::StateBase<char>* Death::Update()
 	{
 		mCnt++;
 		if (mCnt > PlayerParam::DEATH_CNT)
@@ -29,8 +29,10 @@ namespace Stage
 
 		mAnimation->Set(std::move(pos), scale, rot);
 
+		return this;
+
 	}
-	void PlayerDeath::SetPosition(const GameLib::Vector2& pos)
+	void Death::SetPosition(const GameLib::Vector2& pos)
 	{
 		mAnimation->SetPosition(pos);
 	}

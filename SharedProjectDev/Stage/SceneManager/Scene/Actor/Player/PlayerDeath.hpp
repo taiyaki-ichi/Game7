@@ -1,14 +1,16 @@
 #pragma once
 #include"PlayerStateBase.hpp"
 
+
 namespace GameLib
 {
 	class DrawAnimation;
 }
 
-namespace Stage
+namespace Stage::PlayerState
 {
-	class PlayerDeath : public PlayerStateBase
+
+	class Death : public StateBase
 	{
 		int mCnt;
 
@@ -16,15 +18,15 @@ namespace Stage
 		GameLib::DrawAnimation* mAnimation;
 
 	public:
-		PlayerDeath(StateManager<char>* player, GameLib::DrawAnimation* anim);
-		virtual ~PlayerDeath() = default;
+		Death(GameLib::DrawAnimation* anim);
+		virtual ~Death() = default;
 
-		void CustomizeUpdate() override;
+		Stage::StateBase<char>* Update() override;
 
+		void BeginWorking() override {};
+		void BeginToRest() override {};
 
-		void Active() override {};
-		void Pause() override {};
-
-		void SetPosition(const GameLib::Vector2& pos) override;
+		void SetPosition(const GameLib::Vector2 & pos) override;
 	};
+
 }

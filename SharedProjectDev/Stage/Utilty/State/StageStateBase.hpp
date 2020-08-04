@@ -7,20 +7,22 @@ namespace Stage
 	template<typename T>
 	class StateManager;
 
+	//XV‚·‚é‚©‚µ‚È‚¢‚©‚ğ×‚©‚­’²®‚µ‚½‚¢‚Ì‚ÅActor‚©‚ç”h¶‚³‚¹‚È‚¢
 	template<typename T=char>
-	class StateBase : public GameLib::Actor
+	class StateBase
 	{
 		T mFlags;
 
 	public:
-		StateBase(StateManager<T>* manger)
-			:GameLib::Actor{manger}
-			, mFlags{0}
+		StateBase()
+			: mFlags{0}
 		{}
 		virtual ~StateBase() = default;
 
-		virtual void Active() = 0;
-		virtual void Pause() = 0;
+		virtual void BeginWorking() = 0;
+		virtual void BeginToRest() = 0;
+
+		virtual StateBase<T>* Update() { return this; };
 
 		bool CheckFlag(T flag) {
 			return mFlags & flag;

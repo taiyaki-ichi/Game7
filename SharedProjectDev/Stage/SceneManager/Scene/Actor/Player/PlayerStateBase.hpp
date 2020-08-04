@@ -2,15 +2,14 @@
 #include"Stage/Utilty/State/StageStateBase.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
 
-namespace Stage
+
+namespace Stage::PlayerState
 {
-	class PlayerStateBase : public StateBase<char>
+	class StateBase : public Stage::StateBase<char>
 	{
 	public:
-		PlayerStateBase(StateManager<char>* manager)
-			:StateBase<char>{manager}
-		{}
-		virtual ~PlayerStateBase() = default;
+		StateBase() = default;
+		virtual ~StateBase() = default;
 
 		//Warp‚Æ‚©—p
 		virtual void SetPosition(const GameLib::Vector2& pos) = 0;

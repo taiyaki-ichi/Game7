@@ -1,6 +1,6 @@
 #include"Player.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
-#include"Player/PlayerStateManager.hpp"
+#include"Player/PlayerActive.hpp"
 
 namespace Stage
 {
@@ -16,34 +16,39 @@ namespace Stage
 		mAnimation.AddAnimation({ "../Assets/Player/death.png" });
 		mAnimation.SetScale(0.1f);
 		mAnimation.SetDrawOrder(50);
+		mAnimation.SetAnimationFPS(20);
+	}
+
+	void Player::CustomizeUpdate()
+	{
+		mStateManager.Update();
 	}
 
 	void Player::Active()
 	{
-		if (mStateManager)
-			mStateManager->Active();
+		mStateManager.BeginWorking();
 		SetState(GameLib::Actor::State::Active);
 		mAnimation.SetIsAutoDrawing(false);
 	}
 
 	void Player::Pause()
 	{
-		if (mStateManager)
-			mStateManager->Pause();
+		mStateManager.BeginToRest();
 		SetState(GameLib::Actor::State::Pause);
 		mAnimation.SetIsAutoDrawing(true);
 	}
 
 	void Player::LoadData(std::vector<float>&& data)
 	{
+		
 		mAnimation.SetPosition(GameLib::Vector2{ data[0],data[1] });
-		mStateManager = new PlayerStateManager{ this,&mAnimation };
+		mStateManager.SetStartState(new PlayerState::Active{ &mAnimation });
+		
 	}
 
 	void Player::SetPosition(const GameLib::Vector2& pos)
 	{
-		if (mStateManager)
-			mStateManager->SetPosition(pos);
+		mStateManager.SetPosiotion(pos);
 	}
 
 	

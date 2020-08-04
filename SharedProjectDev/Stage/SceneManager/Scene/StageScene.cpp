@@ -3,6 +3,7 @@
 #include"ActorInfo.hpp"
 #include"CreateActor.hpp"
 #include"Actor/WarpBase.hpp"
+#include"Actor/Camera.hpp"
 
 namespace Stage
 {
@@ -30,9 +31,16 @@ namespace Stage
 
 				ptr = CreateStageWarp(this, std::move(warpType), std::move(nameTag), std::move(destinationNameTag));
 			}
+			else if (info.mName == "Camera")
+			{
+				ptr = CreateStageActor(this, std::move(info.mName));
+				mCamera = static_cast<Camera*>(ptr);
+			}
 			else {
 				ptr = CreateStageActor(this, std::move(info.mName));
 			}
+
+			
 
 			if (ptr)
 				ptr->LoadData(std::move(info.mFloatData));
@@ -48,9 +56,10 @@ namespace Stage
 
 	void Scene::AdjustCameraPosiotion()
 	{
-
+		if (mCamera)
+			mCamera->AdjustPos();
 	}
 
 
-
+	
 }

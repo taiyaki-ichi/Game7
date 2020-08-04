@@ -3,17 +3,14 @@
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Stage/Utilty/PhysicsModel.hpp"
 
-
 namespace GameLib
 {
 	class DrawAnimation;
 }
 
-
-namespace Stage
+namespace Stage::PlayerState
 {
-
-	class PlayerActive : public PlayerStateBase
+	class Active : public StateBase
 	{
 		GameLib::Collider mCollider;
 		PhysicsModel mPhysicsModel;
@@ -25,18 +22,18 @@ namespace Stage
 		GameLib::DrawAnimation* mAnimation;
 
 	public:
-		PlayerActive(StateManager<char>* manager, GameLib::DrawAnimation* anim);
-		virtual ~PlayerActive() = default;
+		Active(GameLib::DrawAnimation* anim);
+		virtual ~Active() = default;
 
-		void CustomizeUpdate() override;
+		Stage::StateBase<char>* Update() override;
 
 		//Stageの最中はPlayerがActivePauseを利用することなくね？？
-		void Active() override;
-		void Pause() override;
+		void BeginWorking() override {};
+		void BeginToRest() override {};
 
-		void SetPosition(const GameLib::Vector2& pos) override;
+		void SetPosition(const GameLib::Vector2 & pos) override;
 
-		
+
 	private:
 		//physicsModelに基づいてColliderを更新
 		void AdjustCollider();
@@ -46,7 +43,7 @@ namespace Stage
 
 		//Animの更新、フレーム毎に呼び出し
 		//パワーを引数に向きを変える
-		void UpdateAnimation(GameLib::Vector2&& power);
-	};
+		void UpdateAnimation(GameLib::Vector2 && power);
 
+	};
 }

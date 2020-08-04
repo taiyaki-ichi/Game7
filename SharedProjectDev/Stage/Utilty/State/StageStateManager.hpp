@@ -8,35 +8,55 @@ namespace Stage
 	class StateBase;
 
 	template<typename T=char>
-	class StateManager : public GameLib::Actor
+	class StateManager 
 	{
+		bool mIsWorking;
+
 	protected:
 		StateBase<T>* mNowState;
 
 	public:
-		StateManager(GameLib::Actor* owner)
-			:GameLib::Actor{owner}
-			, mNowState{nullptr}
+		StateManager(StateBase<T>* state)
+			: mNowState{state}
+			, mIsWorking{true}
 		{}
 
-		virtual ~StateManager() = default;
-
-		void Active()
+		virtual ~StateManager()
 		{
 			if (mNowState)
-				mNowState->Active();
-		}
-		void Pause()
-		{
-			if (mNowState)
-				mNowState->Pause();
+				delete mNowState;
 		}
 
-		void SetState(StateBase<T>* state)
+		void Update()
+		{
+			if (mNowState && mIsWorking) {
+				StateBase<T>* state = mNowState->Update();
+				if (state != mNowState) {
+					delete mNowState;
+					mNowState = state;
+				}
+			}	
+		}
+
+		void SetStartState(StateBase<T>* state)
+		{
+			if (!mNowState)
+				mNowState = state;
+			else if (state)
+				delete state;
+		}
+
+		void BeginWorking()
 		{
 			if (mNowState)
-				mNowState->SetState(GameLib::Actor::State::Dead);
-			mNowState = state;
+				mNowState->BeginWorking();
+			mIsWorking = true;
+		}
+		void BeginToRest()
+		{
+			if (mNowState)
+				mNowState->BeginToRest();
+			mIsWorking = false;
 		}
 
 		bool CheckFlag(T flag)

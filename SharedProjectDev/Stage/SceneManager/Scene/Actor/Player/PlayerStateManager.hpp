@@ -1,30 +1,25 @@
 #pragma once
 #include"Stage/Utilty/State/StageStateManager.hpp"
-#include"GameLib/include/Math/Vector2.hpp"
-#include"PlayerActive.hpp"
+#include"PlayerStateBase.hpp"
 
-namespace GameLib
+namespace Stage::PlayerState
 {
-	class DrawAnimation;
-}
 
-namespace Stage
-{
-	class PlayerStateManager : public StateManager<char>
+	class Manager : public StateManager<char>
 	{
-		GameLib::DrawAnimation* mAnim;
-
 	public:
-		PlayerStateManager(GameLib::Actor* player, GameLib::DrawAnimation* anim)
-			:StateManager<char>{ player }
-			, mAnim{ anim }
+		Manager(StateBase* state)
+			:StateManager<char>{state}
+		{}
+		virtual ~Manager() = default;
+
+		void SetPosiotion(const GameLib::Vector2& pos)
 		{
-			SetState(new PlayerActive{ this,mAnim });
+			if (mNowState)
+			{
+				auto playerState = static_cast<StateBase*>(mNowState);
+				playerState->SetPosition(pos);
+			}
 		}
-		virtual ~PlayerStateManager() = default;
-
-		void CustomizeUpdate() override;
-
-		void SetPosition(const GameLib::Vector2& pos);
 	};
 }

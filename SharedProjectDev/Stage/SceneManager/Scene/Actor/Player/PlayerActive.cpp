@@ -1,4 +1,5 @@
 #include"PlayerActive.hpp"
+#include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"Stage/Utilty/Geometry.hpp"
 #include"Stage/Utilty/Dir4Vec.hpp"
@@ -7,11 +8,15 @@
 #include"PlayerParam.hpp"
 #include"PlayerFlag.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
+#include"PlayerDeath.hpp"
 
-namespace Stage
+#include<iostream>
+
+namespace Stage::PlayerState
 {
-	PlayerActive::PlayerActive(StateManager<char>* manager, GameLib::DrawAnimation* anim)
-		:PlayerStateBase{ manager }
+
+	Active::Active(GameLib::DrawAnimation* anim)
+		:StateBase{}
 		, mAnimation{ anim }
 		, mCollider{}
 		, mPhysicsModel{ anim->GetPosition(),GameLib::Vector2{0.f,0.f},0.1f,0.f }
@@ -76,6 +81,7 @@ namespace Stage
 			mAnimation->SetPosition(mPhysicsModel.mPosition);
 		};
 
+
 		auto hitEnemyWeakness = [this](const GameLib::Collider& c) {
 			float upSize = GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Up);
 			//ìGÇì•ÇÒÇæÇÁè≠ÇµÉWÉÉÉìÉv
@@ -94,12 +100,16 @@ namespace Stage
 		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("TogeStrength", hitEnemyStrength);
 
+		std::cout << "s";
 	}
 
-	void PlayerActive::CustomizeUpdate()
+	Stage::StateBase<char>* Active::Update()
 	{
 
 		//std::cout << (mFlags & ON_GROUND_FLAG);
+
+		if (CheckFlag(PlayerFlag::DEATH_FLAG))
+			return new Death{ mAnimation };
 
 		auto power = GetPowerPerFrame();
 		UpdatePhysicsModelWithGravity(mPhysicsModel, power, PlayerParam::MAX_HORIZON_SPEED, PlayerParam::MAX_VERTICAL_SPEED);
@@ -116,25 +126,19 @@ namespace Stage
 
 		//std::cout << "player pos: " << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
 
+
+		return this;
 	}
 
-	void PlayerActive::Active()
-	{
-		
-	}
 
-	void PlayerActive::Pause()
-	{
-	}
-
-	void PlayerActive::SetPosition(const GameLib::Vector2& pos)
+	void Active::SetPosition(const GameLib::Vector2& pos)
 	{
 		mPhysicsModel.mPosition = pos;
 		mAnimation->SetPosition(pos);
 		AdjustCollider();
 	}
 
-	void PlayerActive::AdjustCollider()
+	void Active::AdjustCollider()
 	{
 		mCollider.SetRotation(mPhysicsModel.mRotation);
 
@@ -142,7 +146,8 @@ namespace Stage
 		mCollider.SetPosition(mPhysicsModel.mPosition + GetVector2(Dir4::Down, 12.f));
 	}
 
-	GameLib::Vector2 PlayerActive::GetPowerPerFrame()
+
+	GameLib::Vector2 Active::GetPowerPerFrame()
 	{
 		using namespace GameLib;
 		Vector2 power{ 0.f,0.f };
@@ -179,7 +184,9 @@ namespace Stage
 		return power;
 	}
 
-	void PlayerActive::UpdateAnimation(GameLib::Vector2&& power)
+
+
+	void Active::UpdateAnimation(GameLib::Vector2&& power)
 	{
 		mAnimation->Update();
 
@@ -202,9 +209,6 @@ namespace Stage
 		else if (horizonPowerDir < 0.f)
 			mAnimation->SetHorizontalFlip(true);
 	}
-
-
-
 
 
 
