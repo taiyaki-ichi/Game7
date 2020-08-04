@@ -7,6 +7,8 @@ namespace Stage
 	class Gravity {
 		static Dir4Vec mDir4Vec;
 
+		static bool mIsRotation;
+
 	public:
 
 		constexpr static Dir4Vec DEFAULT_GRAVITY = Dir4Vec{ Dir4::Down,1.f };
@@ -26,6 +28,10 @@ namespace Stage
 
 		static GameLib::Vector2 GetVector2();
 		static float GetRotation();
+
+		static bool IsRotation();
+		static void StartRotation();
+		static void FinishRotation();
 
 	};
 }

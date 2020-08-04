@@ -6,6 +6,7 @@ namespace Stage
 	
 
 	Dir4Vec Gravity::mDir4Vec = Gravity::DEFAULT_GRAVITY;
+	bool Gravity::mIsRotation = false;
 
 	void Gravity::SetDir4Vec(const Dir4Vec& vec)
 	{
@@ -76,4 +77,18 @@ namespace Stage
 			return GameLib::PI * 3.f / 2.f;
 	}
 
+	bool Gravity::IsRotation()
+	{
+		return mIsRotation;
+	}
+
+	void Gravity::StartRotation()
+	{
+		mIsRotation = true;
+	}
+
+	void Gravity::FinishRotation()
+	{
+		mIsRotation = false;
+	}
 }

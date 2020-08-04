@@ -16,7 +16,7 @@ namespace Stage
 
 	}
 
-	void Camera::CustomizeUpdate()
+	void Camera::Update()
 	{
 		AdjustPos();
 	}

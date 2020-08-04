@@ -1,5 +1,6 @@
 #include"StageActorBase.hpp"
 #include"Stage/SceneManager/StageSceneManager.hpp"
+#include"Stage/Gravity/Gravity.hpp"
 
 namespace Stage
 {
@@ -11,5 +12,17 @@ namespace Stage
 	{
 		auto ptr = static_cast<SceneManager*>(mOwner->GetOwner());
 		return ptr->GetPlayerPos();
+	}
+
+
+	void ActorBase::CustomizeUpdate()
+	{
+		if (UpdateOrNot())
+			Update();
+	}
+
+	bool ActorBase::StageIsNotRotation()
+	{
+		return !Gravity::IsRotation();
 	}
 }

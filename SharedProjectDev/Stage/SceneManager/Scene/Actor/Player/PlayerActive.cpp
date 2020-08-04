@@ -100,7 +100,6 @@ namespace Stage::PlayerState
 		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("TogeStrength", hitEnemyStrength);
 
-		std::cout << "s";
 	}
 
 	Stage::StateBase<char>* Active::Update()

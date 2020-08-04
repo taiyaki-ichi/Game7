@@ -16,7 +16,7 @@ namespace Stage
 		Player(GameLib::Actor* scene);
 		virtual ~Player() = default;
 
-		void CustomizeUpdate() override;
+		void Update() override;
 
 		void Active() override;
 		void Pause() override;

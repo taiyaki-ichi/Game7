@@ -19,7 +19,7 @@ namespace Stage
 		mAnimation.SetAnimationFPS(20);
 	}
 
-	void Player::CustomizeUpdate()
+	void Player::Update()
 	{
 		mStateManager.Update();
 	}
