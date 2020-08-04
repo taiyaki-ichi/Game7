@@ -4,6 +4,9 @@
 #include"GameLib/include/InputState/InputState.hpp"
 #include"SceneManager/StageSceneManager.hpp"
 #include"Gravity/Gravity.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
+#include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
 
 namespace Stage
 {
@@ -29,6 +32,12 @@ namespace Stage
 		if (GameLib::InputState::GetState(GameLib::Key::P) == GameLib::ButtonState::Pressed) {
 			new Pause{ this ,mSceneManager };
 		}
+
+		//マイナスrot???
+		auto pos = GameLib::AffineInv(GameLib::Vector2{}, GameLib::Viewport::GetPos(), -GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
+
+		//std::cout << pos.x << "," << pos.y << "\n";
+		GameLib::CollisionDetectionSetting::SetPos(pos);
 
 	}
 
