@@ -1,6 +1,7 @@
 #include"CreateActor.hpp"
 #include"StageScene.hpp"
 #include"Actor/Ground.hpp"
+#include"Actor/Camera.hpp"
 
 
 namespace Stage
@@ -11,7 +12,8 @@ namespace Stage
 		
 		if (name == "Ground")
 			return new GroundGenerator{ scene };
-
+		if (name == "Camera")
+			return new Camera{ scene };
 
 
 

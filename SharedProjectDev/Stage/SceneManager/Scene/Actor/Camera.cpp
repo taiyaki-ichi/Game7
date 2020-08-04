@@ -2,6 +2,7 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Stage/Gravity/Gravity.hpp"
 #include"Stage/WindowSize.hpp"
+#include"Player.hpp"
 
 namespace Stage
 {
@@ -56,7 +57,7 @@ namespace Stage
 	{
 		using namespace GameLib;
 
-		auto playerPos = GetPlayerPos();
+		auto playerPos = Player::GetPosition();
 		playerPos = GameLib::Vector2::Rotation(std::move(playerPos), -Gravity::GetRotation());
 		auto cameraPos = GameLib::Viewport::GetPos();
 

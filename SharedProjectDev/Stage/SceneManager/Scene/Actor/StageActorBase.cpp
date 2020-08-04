@@ -4,16 +4,9 @@
 
 namespace Stage
 {
-	ActorBase::ActorBase(GameLib::Actor* scene)
-		:GameLib::Actor{scene}
+	ActorBase::ActorBase(GameLib::Actor* scene,int updateOrder)
+		:GameLib::Actor{scene,updateOrder}
 	{}
-
-	const GameLib::Vector2& ActorBase::GetPlayerPos() const
-	{
-		auto ptr = static_cast<SceneManager*>(mOwner->GetOwner());
-		return ptr->GetPlayerPos();
-	}
-
 
 	void ActorBase::CustomizeUpdate()
 	{

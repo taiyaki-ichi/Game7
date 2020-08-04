@@ -50,7 +50,7 @@ namespace Stage
 		std::unordered_map<std::string, std::string> stringData{};
 
 		if (actorName == "Warp") {
-
+			
 			std::string warpGateType = obj[WarpBase::TYPE].get<std::string>();
 			std::string nameTag = obj[WarpBase::NAMETAG].get<std::string>();
 			std::string destinationNameTag = obj[WarpBase::DESTINATION_NAMETAG].get<std::string>();
@@ -58,6 +58,7 @@ namespace Stage
 			stringData.emplace(WarpBase::TYPE ,std::move(warpGateType));
 			stringData.emplace(WarpBase::NAMETAG, std::move(nameTag));
 			stringData.emplace(WarpBase::DESTINATION_NAMETAG, std::move(destinationNameTag));
+			
 		}
 		
 

@@ -12,6 +12,9 @@ namespace Stage
 		GameLib::DrawAnimation mAnimation;
 		PlayerState::Manager mStateManager;
 
+
+		static GameLib::Vector2 mPosition;
+
 	public:
 		Player(GameLib::Actor* scene);
 		virtual ~Player() = default;
@@ -26,6 +29,8 @@ namespace Stage
 		void SetPosition(const GameLib::Vector2& pos);
 
 		//Animation�̈ʒu
-		const GameLib::Vector2& GetPosition() const;
+		static const GameLib::Vector2& GetPosition();
+
+	
 	};
 }

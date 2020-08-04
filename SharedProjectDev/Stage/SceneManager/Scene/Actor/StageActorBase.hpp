@@ -9,13 +9,9 @@ namespace Stage
 {
 	class ActorBase : public GameLib::Actor
 	{
-	protected:
-		//コンストラクタ内では使えない
-		const GameLib::Vector2& GetPlayerPos() const;
-
 	public:
 
-		ActorBase(GameLib::Actor* owner);
+		ActorBase(GameLib::Actor* owner, int updateOrder = 0);
 		virtual ~ActorBase() = default;
 
 		void CustomizeUpdate() override final;

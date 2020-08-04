@@ -4,8 +4,10 @@
 
 namespace Stage
 {
+	GameLib::Vector2 Player::mPosition{};
+
 	Player::Player(GameLib::Actor* sceneManager)
-		:ActorBase{ sceneManager }
+		:ActorBase{ sceneManager ,-10}
 		, mAnimation{}
 		, mStateManager{nullptr}
 	{
@@ -17,11 +19,14 @@ namespace Stage
 		mAnimation.SetScale(0.1f);
 		mAnimation.SetDrawOrder(50);
 		mAnimation.SetAnimationFPS(20);
+
+		
 	}
 
 	void Player::Update()
 	{
 		mStateManager.Update();
+		mPosition = mAnimation.GetPosition();
 	}
 
 	void Player::Active()
@@ -52,9 +57,9 @@ namespace Stage
 	}
 
 	
-	const GameLib::Vector2& Player::GetPosition() const
+	const GameLib::Vector2& Player::GetPosition()
 	{
-		return mAnimation.GetPosition();
+		return mPosition;
 	}
 
 }
