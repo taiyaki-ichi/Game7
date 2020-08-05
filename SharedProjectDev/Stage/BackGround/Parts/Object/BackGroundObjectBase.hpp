@@ -27,13 +27,12 @@ namespace Stage::BackGround
 
 		void CustomizeUpdate() override;
 
-		void SetPosition(const GameLib::Vector2 & pos);
-		const GameLib::Vector2& GetPosition() const;
+		void SetMarginXY(float x, float y);
+		void SetPosition(GameLib::Vector2&& pos);
 
 	protected:
 		//派生クラスのコンストラクタ内で使う予定
 		void SetScale(float s);
-		void SetMarginXY(float x, float y);
 		void SetMoveRateXY(float x, float y);
 	};
 }

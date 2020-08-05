@@ -8,7 +8,7 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
 
-
+#include"BackGround/CreateBackGround.hpp"
 
 namespace Stage
 {
@@ -20,6 +20,8 @@ namespace Stage
 	{
 		mSceneManager = LoadStage(this, std::move(fileName));
 		Gravity::Reset();
+
+		BackGround::CreateSharpTreeForest(this);
 	}
 
 	void Stage::CustomizeUpdate()

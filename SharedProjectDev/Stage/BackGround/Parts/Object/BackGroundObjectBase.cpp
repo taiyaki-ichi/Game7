@@ -1,5 +1,5 @@
-#include"ObjectBase.hpp"
-#include"ObjectAdjustPos.hpp"
+#include"BackGroundObjectBase.hpp"
+#include"BackGroundObjectAdjustPos.hpp"
 
 namespace Stage::BackGround
 {
@@ -13,19 +13,10 @@ namespace Stage::BackGround
 		, mMarginY{  }
 	{
 		mTexture.SetDrawOrder(drawOrder);
-		mTexture.SetPosition(AdjustPos(mPosition, mMarginX, mMarginY, mMoveRateX, mMoveRateY));
 	}
 	void ObjectBase::CustomizeUpdate()
 	{
 		mTexture.SetPosition(AdjustPos(mPosition, mMarginX, mMarginY, mMoveRateX, mMoveRateY));
-	}
-	void ObjectBase::SetPosition(const GameLib::Vector2& pos)
-	{
-		mPosition = pos;
-	}
-	const GameLib::Vector2& ObjectBase::GetPosition() const
-	{
-		return mPosition;
 	}
 
 	void ObjectBase::SetScale(float s)
@@ -43,6 +34,12 @@ namespace Stage::BackGround
 	{
 		mMoveRateX = x;
 		mMoveRateY = y;
+	}
+
+	void ObjectBase::SetPosition(GameLib::Vector2&& pos)
+	{
+		mPosition = std::move(pos);
+		mTexture.SetPosition(AdjustPos(mPosition, mMarginX, mMarginY, mMoveRateX, mMoveRateY));
 	}
 
 }
