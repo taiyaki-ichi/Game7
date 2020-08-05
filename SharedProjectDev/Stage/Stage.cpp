@@ -21,7 +21,7 @@ namespace Stage
 		mSceneManager = LoadStage(this, std::move(fileName));
 		Gravity::Reset();
 
-		BackGround::CreateRoundTreeForest(this);
+		BackGround::CreateSanctuary(this);
 	}
 
 	void Stage::CustomizeUpdate()

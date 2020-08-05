@@ -12,4 +12,6 @@ namespace Stage::BackGround
 	void CreateRoundTreeForest(GameLib::Actor* owner);
 
 	void CreateIndianVillage(GameLib::Actor* owner);
+
+	void CreateSanctuary(GameLib::Actor* onwer);
 }
