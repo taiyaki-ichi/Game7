@@ -10,40 +10,53 @@ namespace Stage
 		, mPlayer{player}
 		, mPrevWarp{prev}
 		, mNextWarp{next}
+		, mCircleCurtain{}
+		, mCnt{0}
 	{
 		mPlayer->SetState(GameLib::Actor::State::Pause);
 		mPrevWarp->GetOwner()->SetState(GameLib::Actor::State::Pause);
 
-		mPrevWarp->SetBright();
-		mPrevWarp->ChangeLight();
-		mNextWarp->SetBright();
+		mCircleCurtain.TurnDark(mPrevWarp->GetPosition());
+
+		mNextWarp->PlayerWarpHere();
+
 	}
 	void SceneChanger::CustomizeUpdate()
 	{
-		if (mPrevWarp->GetLightState() == WarpBase::LightState::Dark&&mNextWarp->GetLightState()==WarpBase::LightState::Dark) {
-			auto prevScenePtr = static_cast<Scene*>(mPrevWarp->GetOwner());
-			prevScenePtr->SetState(GameLib::Actor::State::Active);
-			prevScenePtr->BeginToRest();
 
-			auto nextScenePtr = static_cast<Scene*>(mNextWarp->GetOwner());
-			nextScenePtr->BeginWorking();
-			nextScenePtr->SetState(GameLib::Actor::State::Pause);
+		if (mCircleCurtain.IsDark())
+		{
+			mCnt++;
 
-			mPrevWarp->SetBright();
+			if (mCnt > BLACK_TIME)
+			{
 
-			mPlayer->SetPosition(mNextWarp->GetPosiotion());
+				auto prevScenePtr = static_cast<Scene*>(mPrevWarp->GetOwner());
+				prevScenePtr->BeginToRest();
+
+				auto nextScenePtr = static_cast<Scene*>(mNextWarp->GetOwner());
+				nextScenePtr->BeginWorking();
+				nextScenePtr->SetState(GameLib::Actor::State::Pause);
+
+				mPlayer->SetPosition(mNextWarp->GetPosition());
+				mPlayer->SetState(GameLib::Actor::State::Pause);
+
+				nextScenePtr->AdjustCameraPosiotion();
+
+				mCircleCurtain.TurnBright(mNextWarp->GetPosition());
+			}
 		}
 
-		if (mPrevWarp->GetLightState() == WarpBase::LightState::Bright && mNextWarp->GetLightState() == WarpBase::LightState::Bright) {
+		if (mCircleCurtain.IsBright())
+		{
 			auto nextScenePtr = static_cast<Scene*>(mNextWarp->GetOwner());
 			nextScenePtr->SetState(GameLib::Actor::State::Active);
 
 			mPlayer->SetState(GameLib::Actor::State::Active);
 
 			SetState(GameLib::Actor::State::Dead);
-
 		}
 
-
+		mCircleCurtain.Update();
 	}
 }

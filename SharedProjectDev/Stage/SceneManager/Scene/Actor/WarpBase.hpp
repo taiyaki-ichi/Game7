@@ -4,21 +4,12 @@
 
 namespace Stage
 {
+
 	class WarpBase : public ActorBase
 	{
-	public:
-		enum class LightState {
-			Bright,
-			Dark,
-			Changing
-		};
-
 	private:
 		std::string mNameTag;
-
-	protected:
-		LightState mLightState;
-
+		std::string mDestinationNameTag;
 
 	public:
 
@@ -27,27 +18,23 @@ namespace Stage
 		constexpr static char NAMETAG[] = "NameTag";
 		constexpr static char DESTINATION_NAMETAG[] = "DestinationNameTag";
 
-
 		WarpBase(GameLib::Actor* scene);
 		virtual ~WarpBase();
 
 		const std::string& GetNameTag() const;
 
-		//暗いなら明るく、明るいなら暗くする
-		//Changingを経由
-		virtual void ChangeLight() = 0;
+		//Warpの時Playerの移動に使用
+		virtual const GameLib::Vector2& GetPosition() const = 0;
 
-		//一気に暗くまたわ明るく設定
-		//mLightStateも忘れずに変更する
-		virtual void SetDark() = 0;
-		virtual void SetBright() = 0;
+		void SetThisNameTag(std::string&& nameTag);
+		void SetDestinationNameTag(std::string&& nameTag);
 
-		const LightState& GetLightState() const {
-			return mLightState;
-		}
+		//Playerがここに飛んでくるときの通知用
+		virtual void PlayerWarpHere() {};
 
-		//
-		virtual const GameLib::Vector2& GetPosiotion() = 0;
+	protected:
+		//PlayerをWarpさすとき呼び出す
+		void WarpPlayer();
 
 	};
 }

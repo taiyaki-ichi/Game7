@@ -54,6 +54,7 @@ namespace Stage
 	void Player::SetPosition(const GameLib::Vector2& pos)
 	{
 		mStateManager.SetPosiotion(pos);
+		mPosition = pos;
 	}
 
 	

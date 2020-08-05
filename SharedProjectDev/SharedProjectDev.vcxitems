@@ -76,6 +76,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\LoadStage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Pause.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GuruWarp.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\StageActorPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\ActorInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.hpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\CreateActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\StageScene.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger\CircleCurtain.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Stage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Dir4Vec.hpp" />
@@ -141,6 +143,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Pause.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Ground.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GuruWarp.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerDeath.cpp" />
@@ -149,6 +152,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\CreateActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\StageScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger\CircleCurtain.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Stage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.cpp" />

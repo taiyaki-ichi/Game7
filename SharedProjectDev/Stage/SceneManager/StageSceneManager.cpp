@@ -20,13 +20,7 @@ namespace Stage
 
 	void SceneManager::CustomizeUpdate()
 	{
-		//kari
-		/*
-		auto warpNameTag = mPlayer->GetWarpNameTag();
-		if (warpNameTag.has_value()) {
-			Warp(warpNameTag.value().first, warpNameTag.value().second);
-		}
-		*/
+
 	}
 	char SceneManager::GetFlags()
 	{
@@ -60,6 +54,7 @@ namespace Stage
 
 	void SceneManager::Warp(WarpBase* prevWarpBase, const std::string& nextNameTag)
 	{
+
 		WarpBase* nextWarpPtr = nullptr;
 		for (auto ptr : mWarpBases) {
 			if (ptr->GetNameTag() == nextNameTag)

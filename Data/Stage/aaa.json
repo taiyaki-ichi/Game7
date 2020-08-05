@@ -46,12 +46,20 @@
           "ActorName": "Toge"
         },
         {
-          "0": 183,
-          "1": 10,
+          "0": 385.45458984375,
+          "1": 9.0909109115600586,
           "ActorName": "Warp",
-          "DestinationNameTag": "ccc",
+          "DestinationNameTag": "bbb",
+          "NameTag": "aaa",
+          "WarpType": "Guru"
+        },
+        {
+          "0": -294.54550170898438,
+          "1": 67.272743225097656,
+          "ActorName": "Warp",
+          "DestinationNameTag": "aaa",
           "NameTag": "bbb",
-          "WarpType": "aaa"
+          "WarpType": "Guru"
         }
       ],
       "SceneName": "a"

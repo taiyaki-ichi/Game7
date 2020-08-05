@@ -24,6 +24,7 @@ namespace Stage::PlayerState
 	{
 		using namespace GameLib;
 
+		mCollider.SetNameTag("Player");
 		mCollider.Set(mPhysicsModel.mPosition, PlayerParam::WIDTH, PlayerParam::HEIGHT, PlayerParam::SCALE, 0.f);
 		mCollider.SetColor({ 255,0,0,255 });
 		AdjustCollider();

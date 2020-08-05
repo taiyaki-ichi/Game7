@@ -1,6 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/RootActor.hpp"
 #include"Stage/Stage.hpp"
+#include"GameLib/include/CollisionDetection/Collider.hpp"
 
 namespace dev
 {
@@ -11,6 +12,7 @@ namespace dev
 			:GameLib::RootActor{}
 		{
 			new Stage::Stage{ this,"../Data/Stage/aaa.json" };
+			GameLib::Collider::SetIsDebug(true);
 		}
 
 		virtual ~StartActor() = default;
