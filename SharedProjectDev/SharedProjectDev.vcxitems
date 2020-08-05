@@ -68,6 +68,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Horizon.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\BackGroundObjectAdjustPos.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\BackGroundObjectBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\BackGroundTotemPole.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\BackGroundTree.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\CreateSlideObjects.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Gravity\Gravity.hpp" />
@@ -130,6 +131,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\BackGround\CreateBackGround.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Horizon.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\BackGroundObjectBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\BackGroundTotemPole.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\BackGroundTree.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Gravity\Gravity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.cpp" />
