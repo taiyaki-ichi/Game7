@@ -21,13 +21,13 @@ namespace Stage
 		mDrawRect.SetColor({ 50,50,50,255 });
 	}
 
-	void Ground::Active()
+	void Ground::BeginWorking()
 	{
 		mCollider.Active();
 		mDrawRect.SetIsAutoDrawing(true);
 	}
 
-	void Ground::Pause()
+	void Ground::BeginToRest()
 	{
 		mCollider.Pause();
 		mDrawRect.SetIsAutoDrawing(false);

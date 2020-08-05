@@ -47,9 +47,9 @@ namespace Stage
 		}
 
 		if (startSceneFlag)
-			Active();
+			BeginWorking();
 		else
-			Pause();
+			BeginToRest();
 	}
 
 	

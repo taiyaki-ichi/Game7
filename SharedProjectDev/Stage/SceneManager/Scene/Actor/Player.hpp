@@ -21,8 +21,8 @@ namespace Stage
 
 		void Update() override;
 
-		void Active() override;
-		void Pause() override;
+		void BeginWorking() override;
+		void BeginToRest() override;
 
 		void LoadData(std::vector<float>&& data) override;
 

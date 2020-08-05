@@ -29,14 +29,14 @@ namespace Stage
 		mPosition = mAnimation.GetPosition();
 	}
 
-	void Player::Active()
+	void Player::BeginWorking()
 	{
 		mStateManager.BeginWorking();
 		SetState(GameLib::Actor::State::Active);
 		mAnimation.SetIsAutoDrawing(false);
 	}
 
-	void Player::Pause()
+	void Player::BeginToRest()
 	{
 		mStateManager.BeginToRest();
 		SetState(GameLib::Actor::State::Pause);

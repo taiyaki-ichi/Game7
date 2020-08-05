@@ -25,8 +25,8 @@ namespace Stage
 		//UpdateOrNot‚ªtrue‚ÌCustomizeUpdate“à‚ÅŒÄ‚Ño‚³‚ê‚é
 		virtual void Update() {}
 
-		virtual void Active() = 0;
-		virtual void Pause() = 0;
+		virtual void BeginWorking() = 0;
+		virtual void BeginToRest() = 0;
 
 		virtual void LoadData(std::vector<float>&& data) = 0;
 

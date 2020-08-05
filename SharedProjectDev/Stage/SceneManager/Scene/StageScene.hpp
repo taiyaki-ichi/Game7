@@ -1,7 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include"ActorInfo.hpp"
-#include"ActivePausePolicy.hpp"
+#include"StageActorPolicy.hpp"
 
 namespace Stage
 {
@@ -9,6 +9,7 @@ namespace Stage
 	class Camera;
 
 	//èäóLÇ∑ÇÈAcotrÇÕStageActorBaseÇÃîhê∂ÇÃÇ›
+	//StageActorPolicyégÇ¢ÇΩÇ¢Ç©ÇÁ
 	class Scene : public GameLib::Actor
 	{
 
@@ -25,13 +26,13 @@ namespace Stage
 
 		void AdjustCameraPosiotion();
 
-		void Active() {
+		void BeginWorking() {
 			SetState(GameLib::Actor::State::Active);
-			InvokeActors<ActivePolicy>();
+			InvokeActors<BeginWorkingPolicy>();
 		}
-		void Pause() {
+		void BeginToRest() {
 			SetState(GameLib::Actor::State::Pause);
-			InvokeActors<PausePolicy>();
+			InvokeActors<BeginToRestPolicy>();
 		}
 
 	

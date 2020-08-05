@@ -23,10 +23,10 @@ namespace Stage
 		if (mPrevWarp->GetLightState() == WarpBase::LightState::Dark&&mNextWarp->GetLightState()==WarpBase::LightState::Dark) {
 			auto prevScenePtr = static_cast<Scene*>(mPrevWarp->GetOwner());
 			prevScenePtr->SetState(GameLib::Actor::State::Active);
-			prevScenePtr->Pause();
+			prevScenePtr->BeginToRest();
 
 			auto nextScenePtr = static_cast<Scene*>(mNextWarp->GetOwner());
-			nextScenePtr->Active();
+			nextScenePtr->BeginWorking();
 			nextScenePtr->SetState(GameLib::Actor::State::Pause);
 
 			mPrevWarp->SetBright();

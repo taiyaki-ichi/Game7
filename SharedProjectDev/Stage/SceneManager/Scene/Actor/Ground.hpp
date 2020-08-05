@@ -23,8 +23,8 @@ namespace Stage
 		Ground(GameLib::Actor* scene, float left, float right, float bottom, float top);
 		virtual ~Ground() = default;
 
-		void Active() override;
-		void Pause()override;
+		void BeginWorking() override;
+		void BeginToRest()override;
 
 		void LoadData(std::vector<float>&& floatData) override {};
 
@@ -38,8 +38,8 @@ namespace Stage
 		GroundGenerator(GameLib::Actor* scene);
 		virtual ~GroundGenerator() = default;
 
-		void Active() override {};
-		void Pause() override {};
+		void BeginWorking() override {};
+		void BeginToRest() override {};
 
 		//Ç±Ç±Ç≈GroundÇê∂ê¨
 		void LoadData(std::vector<float>&& floatData) override;

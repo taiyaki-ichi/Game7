@@ -22,16 +22,6 @@ namespace Stage
 		AdjustPos();
 	}
 
-	void Camera::Active()
-	{
-
-	}
-
-	void Camera::Pause()
-	{
-
-	}
-
 	void Camera::LoadData(std::vector<float>&& data)
 	{
 		if (data[0] < data[2]) {

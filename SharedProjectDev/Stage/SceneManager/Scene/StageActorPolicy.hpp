@@ -3,17 +3,17 @@
 
 namespace Stage
 {
-	struct ActivePolicy {
+	struct BeginWorkingPolicy {
 		void operator()(GameLib::Actor* actor) {
 			auto stageActorPtr = static_cast<ActorBase*>(actor);
-			stageActorPtr->Active();
+			stageActorPtr->BeginWorking();
 		}
 	};
 
-	struct PausePolicy {
+	struct BeginToRestPolicy {
 		void operator()(GameLib::Actor* actor) {
 			auto stageActorPtr = static_cast<ActorBase*>(actor);
-			stageActorPtr->Pause();
+			stageActorPtr->BeginToRest();
 		}
 	};
 }
