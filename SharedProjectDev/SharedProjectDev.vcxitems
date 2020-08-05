@@ -63,6 +63,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Time.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Window.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Json\picojson.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\BackGroundType.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\CreateBackGround.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Horizon.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\ObjectAdjustPos.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\ObjectBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Gravity\Gravity.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\LoadStage.hpp" />
@@ -120,6 +125,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Time.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Window.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Horizon.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Object\ObjectBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Gravity\Gravity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\LoadStage.cpp" />

@@ -23,6 +23,7 @@ namespace Game::Stage
 		, mPlayer{nullptr}
 		, mWarpGates{}
 		, mNowScene{nullptr}
+		, mFlag{0}
 	{
 		GameLib::Collider::SetIsDebug(isDebug);
 
