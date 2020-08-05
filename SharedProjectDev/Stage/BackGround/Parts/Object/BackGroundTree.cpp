@@ -26,26 +26,23 @@ namespace Stage::BackGround
 	}
 
 	RoundTree230::RoundTree230(GameLib::Actor* actor)
-		:ObjectBase{ actor,"../Assets/BackGround/tree-230.png" ,-210 }
+		:ObjectBase{ actor,"../Assets/BackGround/tree2-230.png" ,-210 }
 	{
 		SetScale(0.3f);
-		//SetMarginXY(100.f, -1.f);
-		SetMoveRateXY(0.9f, 0.9f);
+		SetMoveRateXY(0.95f, 0.95f);
 	}
 
 	RoundTree180::RoundTree180(GameLib::Actor* actor)
-		:ObjectBase{ actor,"../Assets/BackGround/tree-180.png",-160 }
+		:ObjectBase{ actor,"../Assets/BackGround/tree2-180.png",-160 }
 	{
 		SetScale(0.4f);
-		//SetMarginXY(150.f, -1.f);
 		SetMoveRateXY(0.7f, 0.7f);
 	}
 
 	RoundTree130::RoundTree130(GameLib::Actor* actor)
-		:ObjectBase{ actor,"../Assets/BackGround/tree-180.png",-110 }
+		:ObjectBase{ actor,"../Assets/BackGround/tree2-130.png",-110 }
 	{
 		SetScale(0.5f);
-		//SetMarginXY(200.f, -1.f);
 		SetMoveRateXY(0.5f, 0.5f);
 
 	}

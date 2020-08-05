@@ -17,6 +17,15 @@ namespace Stage::BackGround
 		
 	}
 
+	void CreateRoundTreeForest(GameLib::Actor* owner)
+	{
+		new Horizon{ owner };
+
+		CreateSlideObjects<RoundTree230>(owner, 5, 100.f, 200.f);
+		CreateSlideObjects<RoundTree180>(owner, 3, 150.f, 140.f);
+		CreateSlideObjects<RoundTree130>(owner, 3, 200.f, 90.f);
+	}
+
 	void CreateIndianVillage(GameLib::Actor* owner)
 	{
 		new Horizon{ owner };
