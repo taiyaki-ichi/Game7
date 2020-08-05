@@ -24,20 +24,13 @@ namespace Stage
 				startSceneFlag = true;
 				ptr = player;
 			}
-			else if (info.mName == "Warp") {
-				auto warpType = info.mStringData[WarpBase::TYPE];
-				auto nameTag = info.mStringData[WarpBase::NAMETAG];
-				auto destinationNameTag = info.mStringData[WarpBase::DESTINATION_NAMETAG];
-
-				ptr = CreateStageWarp(this, std::move(warpType), std::move(nameTag), std::move(destinationNameTag));
-			}
 			else if (info.mName == "Camera")
 			{
-				ptr = CreateStageActor(this, std::move(info.mName));
+				ptr = CreateStageActor(this, std::move(info.mName),std::move(info.mStringData));
 				mCamera = static_cast<Camera*>(ptr);
 			}
 			else {
-				ptr = CreateStageActor(this, std::move(info.mName));
+				ptr = CreateStageActor(this, std::move(info.mName), std::move(info.mStringData));
 			}
 
 			

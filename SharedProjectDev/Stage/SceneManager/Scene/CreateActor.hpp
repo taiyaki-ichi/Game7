@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#include<unordered_map>
 
 namespace Stage
 {
@@ -8,9 +9,8 @@ namespace Stage
 	class WarpBase;
 
 	//Playerà»äOÇÇ±Ç±Ç≈ê∂ê¨
-	ActorBase* CreateStageActor(Scene* scene, std::string&& nameTag);
+	ActorBase* CreateStageActor(Scene* scene, std::string&& nameTag,std::unordered_map<std::string,std::string>&& staringData);
 
-	//WarpÇÕÇ±Ç±Ç≈
-	WarpBase* CreateStageWarp(Scene* scene, std::string&& warpType, std::string&& myNameTag, std::string&& destinationNameTag);
+
 
 }
