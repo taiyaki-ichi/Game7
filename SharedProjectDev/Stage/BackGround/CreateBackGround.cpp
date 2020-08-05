@@ -2,6 +2,7 @@
 #include"Parts/Horizon.hpp"
 #include"Parts/Object/BackGroundTree.hpp"
 #include"Stage/WindowSize.hpp"
+#include"Parts/Object/CreateSlideObjects.hpp"
 
 namespace Stage::BackGround
 {
@@ -9,43 +10,10 @@ namespace Stage::BackGround
 	{
 		new Horizon{ owner };
 
-		//個数
-		int num;
-		//間隔
-		float w;
-		//ヨコの余白
-		float marginX;
-		//タテの座標
-		float lineY;
+		CreateSlideObjects<SharpTree230>(owner, 5, 100.f, 200.f);
+		CreateSlideObjects<SharpTree180>(owner, 4, 100.f, 140.f);
+		CreateSlideObjects<SharpTree130>(owner, 4, 150.f, 90.f);
 
-		marginX = 100.f;
-		lineY = 200.f;
-		num = 5;
-		w = (WindowSize::WIDTH + marginX * 2.f) / num;
-		for (int i = 0; i < num; i++) {
-			auto ptr = new SharpTree230{ owner };
-			ptr->SetPosition(GameLib::Vector2{ w / 2.f + w * i,lineY });
-			ptr->SetMarginXY(marginX, -1.f);
-		}
-
-		marginX = 100.f;
-		lineY = 140.f;
-		num = 4;
-		w = (WindowSize::WIDTH + marginX * 2.f) / num;
-		for (int i = 0; i < num; i++) {
-			auto ptr = new SharpTree180{ owner };
-			ptr->SetPosition(GameLib::Vector2{ w / 2.f + w * i,lineY });
-			ptr->SetMarginXY(marginX, -1.f);
-		}
-
-		marginX = 150.f;
-		lineY = 90.f;
-		num = 4;
-		w = (WindowSize::WIDTH + marginX * 2.f) / num;
-		for (int i = 0; i < num; i++) {
-			auto ptr = new SharpTree130{ owner };
-			ptr->SetPosition(GameLib::Vector2{ w / 2.f + w * i,lineY });
-			ptr->SetMarginXY(marginX, -1.f);
-		}
+		
 	}
 }

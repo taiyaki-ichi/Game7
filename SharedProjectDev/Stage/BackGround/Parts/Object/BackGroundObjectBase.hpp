@@ -2,6 +2,7 @@
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
 #include"GameLib/include/Draw/DrawTexture.hpp"
+#include"Stage/WindowSize.hpp"
 
 namespace Stage::BackGround
 {
@@ -35,4 +36,5 @@ namespace Stage::BackGround
 		void SetScale(float s);
 		void SetMoveRateXY(float x, float y);
 	};
+
 }
