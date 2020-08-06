@@ -79,6 +79,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox\Apple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GuruWarp.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleActive.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleFlag.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleFlatDeath.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleParam.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\StageActorPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\ActorInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.hpp" />
@@ -100,6 +105,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Stage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Dir4Vec.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\IsInScope.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\PhysicsModel.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateManager.hpp" />
@@ -152,6 +158,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerDeath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleActive.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleFlatDeath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\WarpBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\CreateActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\StageScene.cpp" />
@@ -160,5 +169,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Stage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Utilty\IsInScope.cpp" />
   </ItemGroup>
 </Project>

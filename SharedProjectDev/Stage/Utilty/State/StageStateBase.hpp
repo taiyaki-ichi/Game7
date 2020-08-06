@@ -22,6 +22,17 @@ namespace Stage
 		virtual void BeginWorking() = 0;
 		virtual void BeginToRest() = 0;
 
+		virtual bool UpdateOrNot() {
+			return true;
+		}
+
+		StateBase<T>* UpdateState() {
+			if (UpdateOrNot())
+				return Update();
+			else
+				return this;
+		}
+
 		virtual StateBase<T>* Update() { return this; };
 
 		bool CheckFlag(T flag) {

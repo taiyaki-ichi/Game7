@@ -18,8 +18,8 @@ namespace Stage
 			, mScale(scale)
 			, mRotation(rot)
 		{}
-		PhysicsModel(const GameLib::Vector2& pos = { 0.f,0.f }, GameLib::Vector2&& velocity = { 0.f,0.f }, float scale = 1.f, float rot = 0.f)
-			:mPosition(std::move(pos))
+		PhysicsModel(const GameLib::Vector2& pos, GameLib::Vector2&& velocity = { 0.f,0.f }, float scale = 1.f, float rot = 0.f)
+			:mPosition(pos)
 			, mVelocity(std::move(velocity))
 			, mScale(scale)
 			, mRotation(rot)

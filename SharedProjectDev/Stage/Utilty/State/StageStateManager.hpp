@@ -16,7 +16,7 @@ namespace Stage
 		StateBase<T>* mNowState;
 
 	public:
-		StateManager(StateBase<T>* state)
+		StateManager(StateBase<T>* state=nullptr)
 			: mNowState{state}
 			, mIsWorking{true}
 		{}
@@ -30,7 +30,7 @@ namespace Stage
 		void Update()
 		{
 			if (mNowState && mIsWorking) {
-				StateBase<T>* state = mNowState->Update();
+				StateBase<T>* state = mNowState->UpdateState();
 				if (state != mNowState) {
 					delete mNowState;
 					mNowState = state;

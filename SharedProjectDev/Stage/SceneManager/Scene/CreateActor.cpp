@@ -6,6 +6,7 @@
 #include"Actor/WarpBase.hpp"
 #include"Actor/GuruWarp.hpp"
 #include"Actor/GravityBox.hpp"
+#include"Actor/Triple.hpp"
 
 
 namespace Stage
@@ -18,7 +19,7 @@ namespace Stage
 			{"Ground",[](Scene* scene) {return new GroundGenerator{scene}; }},
 			{"Camera",[](Scene* scene) {return new Camera{scene}; }},
 			{"GravityBox",[](Scene* scene) {return new GravityBox{scene}; }},
-
+			{"Triple",[](Scene* scene) {return new Triple{scene}; }},
 
 		};
 
