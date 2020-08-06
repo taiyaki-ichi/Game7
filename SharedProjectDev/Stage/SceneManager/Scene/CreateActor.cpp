@@ -7,6 +7,7 @@
 #include"Actor/GuruWarp.hpp"
 #include"Actor/GravityBox.hpp"
 #include"Actor/Triple.hpp"
+#include"Actor/Toge.hpp"
 
 
 namespace Stage
@@ -20,6 +21,7 @@ namespace Stage
 			{"Camera",[](Scene* scene) {return new Camera{scene}; }},
 			{"GravityBox",[](Scene* scene) {return new GravityBox{scene}; }},
 			{"Triple",[](Scene* scene) {return new Triple{scene}; }},
+			{"Toge",[](Scene* scene) {return new Toge{scene}; }},
 
 		};
 

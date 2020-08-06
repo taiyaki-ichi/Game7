@@ -79,6 +79,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox\Apple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GuruWarp.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeActive.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeParam.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleActive.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleFlag.hpp" />
@@ -158,6 +161,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerDeath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleFlatDeath.cpp" />
