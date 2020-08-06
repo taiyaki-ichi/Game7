@@ -21,5 +21,14 @@ namespace Stage::PlayerState
 				playerState->SetPosition(pos);
 			}
 		}
+
+		void ResetPotentialPower()
+		{
+			if (mNowState)
+			{
+				auto playerState = static_cast<StateBase*>(mNowState);
+				playerState->ResetPotentialPower();
+			}
+		}
 	};
 }

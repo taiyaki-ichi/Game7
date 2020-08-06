@@ -14,6 +14,7 @@ namespace Stage
 		, mCnt{0}
 	{
 		mPlayer->SetState(GameLib::Actor::State::Pause);
+		mPlayer->ResetPotentialPower();
 		mPrevWarp->GetOwner()->SetState(GameLib::Actor::State::Pause);
 
 		mCircleCurtain.TurnDark(mPrevWarp->GetPosition());

@@ -4,6 +4,7 @@
 #include"Stage/Gravity/Gravity.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"GravityBox/Apple.hpp"
+#include"Player.hpp"
 
 namespace Stage
 {
@@ -21,7 +22,7 @@ namespace Stage
 
 		mTexture.SetScale(0.1f);
 
-		mCollider.SetNameTag("");
+		mCollider.SetNameTag("GravityBox");
 		mCollider.SetWidthAndHeith(76.f, 76.f);
 
 		mCollider2.SetWidthAndHeith(74.f, 74.f);
@@ -51,7 +52,7 @@ namespace Stage
 			if (Gravity::GetGravityDir4() == Dir4::Left)
 				std::cout << "left";
 				*/
-			if (dir4VecAdjust.mDir4 == Dir4::Up && std::fabs(dir4VecAdjust.mSize) > 0.5f && mRotationCnt == 0) {
+			if (dir4VecAdjust.mDir4 == Dir4::Up /*&& std::fabs(dir4VecAdjust.mSize) > 0.5f*/ && mRotationCnt == 0) {
 				//std::cout << "b\n";
 				auto gDir = Gravity::GetDir4();
 

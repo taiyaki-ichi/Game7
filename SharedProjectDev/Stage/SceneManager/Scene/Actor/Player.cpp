@@ -63,4 +63,9 @@ namespace Stage
 		return mPosition;
 	}
 
+	void Player::ResetPotentialPower()
+	{
+		mStateManager.ResetPotentialPower();
+	}
+
 }

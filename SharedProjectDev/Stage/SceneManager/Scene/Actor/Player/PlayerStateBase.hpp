@@ -13,5 +13,8 @@ namespace Stage::PlayerState
 
 		//Warpとか用
 		virtual void SetPosition(const GameLib::Vector2& pos) = 0;
+
+		//速度なんかをリセット
+		virtual void ResetPotentialPower() {};
 	};
 }

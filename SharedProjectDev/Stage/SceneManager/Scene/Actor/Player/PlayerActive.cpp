@@ -96,10 +96,18 @@ namespace Stage::PlayerState
 			UpFlag(PlayerFlag::DEATH_FLAG);
 		};
 
+		auto hitGravituBox = [this](const GameLib::Collider& c) {
+			auto adjust = GetParallelRectAdjustVec(mCollider, c);
+			auto dir4Adjust = GetDir4Vec(std::move(adjust));
+			if (dir4Adjust.mDir4 == Dir4::Down)
+				ResetPotentialPower();
+		};
+
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
 		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
 		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("TogeStrength", hitEnemyStrength);
+		mCollider.AddHitFunction("GravityBox", std::move(hitGravituBox));
 
 	}
 
@@ -136,6 +144,11 @@ namespace Stage::PlayerState
 		mPhysicsModel.mPosition = pos;
 		mAnimation->SetPosition(pos);
 		AdjustCollider();
+	}
+
+	void Active::ResetPotentialPower()
+	{
+		mPhysicsModel.mVelocity = GameLib::Vector2{};
 	}
 
 	void Active::AdjustCollider()

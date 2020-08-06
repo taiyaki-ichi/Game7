@@ -31,6 +31,9 @@ namespace Stage
 		//Animationの位置
 		static const GameLib::Vector2& GetPosition();
 
+		//速度などのリセット
+		void ResetPotentialPower();
+
 	
 	};
 }

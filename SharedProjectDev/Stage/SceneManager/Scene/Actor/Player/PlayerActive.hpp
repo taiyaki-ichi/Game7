@@ -33,6 +33,7 @@ namespace Stage::PlayerState
 
 		void SetPosition(const GameLib::Vector2 & pos) override;
 
+		void ResetPotentialPower() override;
 
 	private:
 		//physicsModel‚ÉŠî‚Ã‚¢‚ÄCollider‚ğXV
