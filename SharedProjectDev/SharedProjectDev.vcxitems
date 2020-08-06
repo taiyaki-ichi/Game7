@@ -115,6 +115,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\IsInScope.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\PhysicsModel.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\FallState.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\State\StageStateManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\WindowSize.hpp" />
