@@ -19,6 +19,10 @@ namespace Stage
 		mDrawRect.Set(mPosition, 1.f, 0.f);
 		mDrawRect.SetWidthAndHeight(mWidth, mHeigth);
 		mDrawRect.SetColor({ 50,50,50,255 });
+
+		//std::cout << "w: " << mWidth << " h: " << mHeigth << "\n";
+		if (mWidth <= 0.f || mHeigth <= 0.f)
+			SetState(Actor::State::Dead);
 	}
 
 	void Ground::BeginWorking()

@@ -33,8 +33,10 @@ namespace Stage::PlayerState
 			auto adjust = GetParallelRectAdjustVec(mCollider, c, 0.5f);
 			auto dir4Vec = GetDir4Vec(adjust);
 
+			//std::cout << "c wigth: " << c.GetWidth() << "\n";
+			//std::cout << "c height: " << c.GetHeigth() << "\n";
+			//std::cout << "adjust: " << adjust.x << "," << adjust.y << "\n";
 			/*
-			std::cout << "adjust: " << adjust.x << "," << adjust.y << "\n";
 			std::cout << "dir: ";
 			if (dir4Vec.mDir4 == Dir4::Left)
 				std::cout << "left";
@@ -116,6 +118,8 @@ namespace Stage::PlayerState
 
 		//std::cout << (mFlags & ON_GROUND_FLAG);
 
+		//std::cout << "player active pos1: " << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
+
 		if (CheckFlag(PlayerFlag::DEATH_FLAG))
 			return new Death{ mAnimation };
 
@@ -131,8 +135,8 @@ namespace Stage::PlayerState
 
 		if (mJumpFlag > 0)
 			mJumpFlag--;
-
-		//std::cout << "player pos: " << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
+			
+		//std::cout << "player active pos2: " << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
 
 
 		return this;
@@ -141,6 +145,7 @@ namespace Stage::PlayerState
 
 	void Active::SetPosition(const GameLib::Vector2& pos)
 	{
+		std::cout << "set pos: " << pos.x << "," << pos.y << "\n";
 		mPhysicsModel.mPosition = pos;
 		mAnimation->SetPosition(pos);
 		AdjustCollider();

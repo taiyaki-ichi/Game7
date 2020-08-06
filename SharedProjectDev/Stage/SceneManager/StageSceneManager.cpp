@@ -20,7 +20,7 @@ namespace Stage
 
 	void SceneManager::CustomizeUpdate()
 	{
-
+		//std::cout << "scene manager player pos: " << mPlayer->GetPosition().x << "\n";
 	}
 	char SceneManager::GetFlags()
 	{

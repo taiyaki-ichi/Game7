@@ -20,6 +20,7 @@ namespace Stage::PlayerState
 				auto playerState = static_cast<StateBase*>(mNowState);
 				playerState->SetPosition(pos);
 			}
+			
 		}
 
 		void ResetPotentialPower()

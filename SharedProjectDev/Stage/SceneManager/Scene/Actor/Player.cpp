@@ -27,7 +27,7 @@ namespace Stage
 	{
 		mStateManager.Update();
 		mPosition = mAnimation.GetPosition();
-		std::cout << mPosition.x << "," << mPosition.y << "\n";
+		//std::cout <<"player pos:"<< mPosition.x << "," << mPosition.y << "\n";
 	}
 
 	void Player::BeginWorking()
