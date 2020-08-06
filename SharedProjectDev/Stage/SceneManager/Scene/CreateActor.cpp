@@ -5,6 +5,7 @@
 #include"Actor/Camera.hpp"
 #include"Actor/WarpBase.hpp"
 #include"Actor/GuruWarp.hpp"
+#include"Actor/GravityBox.hpp"
 
 
 namespace Stage
@@ -15,8 +16,8 @@ namespace Stage
 		const std::unordered_map<std::string, std::function<ActorBase* (Scene*)>> ActorPtrGenerator =
 		{
 			{"Ground",[](Scene* scene) {return new GroundGenerator{scene}; }},
-			{"Camera",[](Scene* scene) {return new Camera{scene}; }}
-
+			{"Camera",[](Scene* scene) {return new Camera{scene}; }},
+			{"GravityBox",[](Scene* scene) {return new GravityBox{scene}; }},
 
 
 		};

@@ -21,7 +21,7 @@ namespace GameLib
 		float wHalf = GetWindowWidth() / 2.f;
 		float hHalf = GetWindowHeigth() / 2.f;
 		float viewSca = Viewport::GetScale();
-		Vector2 affinedPos = Affine(mPosition, Viewport::GetPos(), 0.f, viewSca);
+		Vector2 affinedPos = Affine(mPosition, Viewport::GetPos(), -Viewport::GetRotation(), viewSca);
 
 		GraphycsDrawCircle(affinedPos.x + wHalf, -affinedPos.y + hHalf, mRadius * mScale * viewSca, mColor.R, mColor.G, mColor.B, mColor.A, mIsFill);
 	}

@@ -1,6 +1,7 @@
 #include"CircleCurtain.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Stage/WindowSize.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
 
 namespace Stage
 {
@@ -18,7 +19,7 @@ namespace Stage
 
 		mCircle.SetRadius(MAX_RADIUS);
 
-		mRect.SetWidthAndHeight(WindowSize::WIDTH, WindowSize::HEIGHT);
+		mRect.SetWidthAndHeight(WindowSize::WIDTH*2.f, WindowSize::HEIGHT*2.f);
 		mRect.SetPosition(GameLib::Viewport::GetPos());
 		mRect.SetScale(1.f / GameLib::Viewport::GetScale());
 		mRect.SetRotation(GameLib::Viewport::GetRotation());
@@ -48,7 +49,6 @@ namespace Stage
 
 	void CircleCurtain::Update()
 	{
-
 
 		if (mStateFlag == 1) {
 			float r = mCircle.GetRadius();
