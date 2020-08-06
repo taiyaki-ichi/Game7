@@ -76,6 +76,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\LoadStage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Pause.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee\BeeCircleActive.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee\BeeParam.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee\BeeStraightActive.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox\Apple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GuruWarp.hpp" />
@@ -106,6 +110,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger\CircleCurtain.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Stage.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\AdjustRot.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Dir4Vec.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\IsInScope.hpp" />
@@ -152,6 +157,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\LoadStage.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Pause.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee\BeeCircleActive.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee\BeeStraightActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Camera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox\Apple.cpp" />

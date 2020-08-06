@@ -8,7 +8,7 @@
 #include"Actor/GravityBox.hpp"
 #include"Actor/Triple.hpp"
 #include"Actor/Toge.hpp"
-
+#include"Actor/Bee.hpp"
 
 namespace Stage
 {
@@ -22,6 +22,7 @@ namespace Stage
 			{"GravityBox",[](Scene* scene) {return new GravityBox{scene}; }},
 			{"Triple",[](Scene* scene) {return new Triple{scene}; }},
 			{"Toge",[](Scene* scene) {return new Toge{scene}; }},
+			{"Bee",[](Scene* scene) {return new Bee{scene}; }},
 
 		};
 
