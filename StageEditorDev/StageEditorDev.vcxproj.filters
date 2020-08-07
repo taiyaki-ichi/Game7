@@ -5,6 +5,7 @@
     <ClInclude Include="ConsoleMessage\ConsoleMessage.hpp" />
     <ClInclude Include="StartActor.hpp" />
     <ClInclude Include="SceneEditor\SceneEditor.hpp" />
+    <ClInclude Include="Data\Data.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />

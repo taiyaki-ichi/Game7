@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleMessage\ConsoleMessage.hpp" />
+    <ClInclude Include="Data\Data.hpp" />
     <ClInclude Include="SceneEditor\SceneEditor.hpp" />
     <ClInclude Include="StartActor.hpp" />
     <ClInclude Include="StageEditor.hpp" />
