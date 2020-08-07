@@ -9,7 +9,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
     <ClInclude Include="SceneEditor\BeginPolicy.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorData.hpp" />
-    <ClInclude Include="SaveStage.hpp" />
+    <ClInclude Include="SaveFunc.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />
@@ -17,5 +17,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
+    <ClCompile Include="SaveFunc.cpp" />
   </ItemGroup>
 </Project>

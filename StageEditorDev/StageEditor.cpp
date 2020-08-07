@@ -1,7 +1,7 @@
 #include"StageEditor.hpp"
 #include"ConsoleMessage/ConsoleMessage.hpp"
 #include"SceneEditor/SceneEditor.hpp"
-#include"SaveStage.hpp"
+#include"SaveFunc.hpp"
 
 namespace StageEditor
 {
@@ -48,9 +48,9 @@ namespace StageEditor
 
 	void StageEditor::SaveStage(std::string&& fileName)
 	{
-		std::vector<std::vector<ActorData>> data{};
+		std::unordered_map<std::string,std::vector<ActorData>> data{};
 		for (auto& scene : mSceneEditors)
-			data.emplace_back(scene.second->GetData());
+			data.emplace(scene.first, scene.second->GetData());
 
 		SaveStageData(std::move(fileName), std::move(data));
 	}
