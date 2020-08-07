@@ -23,7 +23,9 @@ namespace StageEditor
 		void CustomizeUpdate() override;
 
 
-
+		//SceneEditorを加える
+		//LoadFuncでも使用
+		SceneEditor* AddScene(std::string&&);
 
 	private:
 		//コンソールへの描写を更新、SceneEditorやActorEditorに伝播さす
@@ -39,9 +41,6 @@ namespace StageEditor
 		//コンソールからのメッセージの処理
 		void ProcessMessage();
 
-
-		//SceneEditorを加える
-		void AddScene(std::string&&);
 		//削除
 		void RemoveScene(std::string&&);
 		//現在表示されているSceneを変える

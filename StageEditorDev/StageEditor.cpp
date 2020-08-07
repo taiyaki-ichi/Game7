@@ -2,6 +2,7 @@
 #include"ConsoleMessage/ConsoleMessage.hpp"
 #include"SceneEditor/SceneEditor.hpp"
 #include"SaveFunc.hpp"
+#include"LoadFunc.hpp"
 
 namespace StageEditor
 {
@@ -55,9 +56,13 @@ namespace StageEditor
 		SaveStageData(std::move(fileName), std::move(data));
 	}
 
-	void StageEditor::LoadStage(std::string&&)
+	void StageEditor::LoadStage(std::string&& fileName)
 	{
+		for (auto& prevScene : mSceneEditors)
+			prevScene.second->SetState(GameLib::Actor::State::Dead);
+		mSceneEditors.clear();
 
+		LoadStageData(this, std::move(fileName));
 	}
 
 	void StageEditor::ProcessMessage()
@@ -100,7 +105,7 @@ namespace StageEditor
 	}
 
 
-	void StageEditor::AddScene(std::string&& name)
+	SceneEditor* StageEditor::AddScene(std::string&& name)
 	{
 		//“¯‚¶–¼‘O‚ÌScene‚Íì‚ç‚È‚¢mNowScene‚ªnullptr‚È‚ç‘ã“ü
 
@@ -115,7 +120,11 @@ namespace StageEditor
 				mNowSceneEditor = scenePtr;
 				mNowSceneEditor->BeginWorking();
 			}
+
+			return scenePtr;
 		}
+
+		return nullptr;
 	}
 
 	void StageEditor::RemoveScene(std::string&& name)

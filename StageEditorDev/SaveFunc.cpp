@@ -16,8 +16,8 @@ namespace StageEditor
 			{
 				picojson::object dataActor;
 				for (int i = 0; i < actorData.mPosData.size(); i++) {
-					dataActor.insert(std::make_pair("FloatData" + std::to_string(i * 2), static_cast<double>(actorData.mPosData[i * 2].x)));
-					dataActor.insert(std::make_pair("FloatData" + std::to_string(i * 2 + 1), static_cast<double>(actorData.mPosData[i * 2 + 1].x)));
+					dataActor.insert(std::make_pair("FloatData" + std::to_string(i * 2), static_cast<double>(actorData.mPosData[i].x)));
+					dataActor.insert(std::make_pair("FloatData" + std::to_string(i * 2 + 1), static_cast<double>(actorData.mPosData[i].y)));
 				}
 				for (int i = 0; i < actorData.mStringData.size(); i++) {
 					dataActor.insert(std::make_pair("StringData" + std::to_string(i), actorData.mStringData[i]));

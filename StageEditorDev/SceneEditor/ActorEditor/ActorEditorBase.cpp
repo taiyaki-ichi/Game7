@@ -57,4 +57,11 @@ namespace StageEditor
 		return { mNameTag,std::move(posData),std::move(stringData) };
 	}
 
+	void ActorEditorBase::SetData(std::vector<float>&& floatData, std::vector<std::string>&& stringData)
+	{
+		for (int i = 0; i < floatData.size() / 2; i++)
+			mPosData.AddData(GameLib::Vector2{ floatData[i * 2],floatData[i * 2 + 1] });
+		for (int i = 0; i < stringData.size(); i++)
+			mStringData.AddData(std::move(stringData[i]));
+	}
 }

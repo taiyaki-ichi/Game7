@@ -32,7 +32,11 @@ namespace StageEditor
 		virtual void BeginWorking() = 0;
 		virtual void BeginToRest() = 0;
 
+		//jsonファイル作成用
 		ActorData GetData();
+
+		//loadStageで初期化の際に使用
+		void SetData(std::vector<float>&& floatData, std::vector<std::string>&& stringData);
 	};
 
 
