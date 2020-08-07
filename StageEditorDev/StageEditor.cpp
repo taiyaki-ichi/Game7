@@ -4,6 +4,7 @@
 #include"SaveFunc.hpp"
 #include"LoadFunc.hpp"
 #include"Cursor/Cursor.hpp"
+#include"SceneEditor/CreateActorEditor.hpp"
 
 namespace StageEditor
 {
@@ -76,6 +77,7 @@ namespace StageEditor
 			if (!mNowSceneEditor || !mNowSceneEditor->IsEdtingActor())
 			{
 
+				//
 				if (strs.size() == 3 && strs[0] == "add" && strs[1] == "scene")
 					AddScene(std::move(strs[2]));
 				if (strs.size() == 3 && strs[0] == "remove" && strs[1] == "scene")
@@ -156,7 +158,19 @@ namespace StageEditor
 
 	void StageEditor::Help()
 	{
+		std::cout << "\nƒRƒ}ƒ“ƒhˆê——\n";
+		std::cout << "add scene SCENE_NAME\n";
+		std::cout << "remove scene SCENE_NAME\n";
+		std::cout << "change scene SCENE_NAME\n";
+		std::cout << "save as FILE_NAME\n";
+		std::cout << "load FILE_NAME\n";
 
+		auto names = GetAllActorEditorName();
+		for (auto& name : names)
+			std::cout << "create " << name << "\n";
+
+		std::cout << "\n";
+		std::cout << ">";
 	}
 
 }

@@ -26,4 +26,11 @@ namespace StageEditor
 
 		return nullptr;
 	}
+
+	std::vector<std::string> GetAllActorEditorName()
+	{
+		std::vector<std::string> names{};
+		for (auto& actor : gActorEditorGenerator)
+			names.emplace_back(actor.first);
+	}
 }

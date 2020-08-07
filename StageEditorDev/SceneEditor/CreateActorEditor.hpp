@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#include<vector>
 
 namespace GameLib
 {
@@ -10,5 +11,8 @@ namespace StageEditor
 {
 	class ActorEditorBase;
 	ActorEditorBase* CreateActorEditor(GameLib::Actor* scene, const std::string& name);
+
+	//helpコマンド用
+	std::vector<std::string> GetAllActorEditorName();
 
 }
