@@ -1,6 +1,7 @@
 #include"StageEditor.hpp"
 #include"ConsoleMessage/ConsoleMessage.hpp"
 #include"SceneEditor/SceneEditor.hpp"
+#include"SaveStage.hpp"
 
 namespace StageEditor
 {
@@ -40,15 +41,18 @@ namespace StageEditor
 			std::cout << ">";
 
 
-
 		if (mNowSceneEditor)
 			mNowSceneEditor->UpdateConsoleScreen();
 	}
 
 
-	void StageEditor::SaveStage(std::string&&)
+	void StageEditor::SaveStage(std::string&& fileName)
 	{
+		std::vector<std::vector<ActorData>> data{};
+		for (auto& scene : mSceneEditors)
+			data.emplace_back(scene.second->GetData());
 
+		SaveStageData(std::move(fileName), std::move(data));
 	}
 
 	void StageEditor::LoadStage(std::string&&)
@@ -86,7 +90,7 @@ namespace StageEditor
 			//•ÒW’†‚Ìê‡‚Í‚»‚ÌActor‚Ö
 			else if(mNowSceneEditor->IsEdtingActor()){
 				for (auto& s : strs)
-					mNowSceneEditor->MessageToActor(std::move(s));
+					mNowSceneEditor->SendToActor(std::move(s));
 			}
 
 			mConsoleMessage->ClearMessage();

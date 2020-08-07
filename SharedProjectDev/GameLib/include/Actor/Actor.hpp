@@ -19,12 +19,12 @@ namespace GameLib
 
 	protected:
 		Actor* mOwner;
+		ActorsManager<Actor> mOwnedActors;
 
 	private:
 		int mUpdateOrder;
 		State mStateManager;
 
-		ActorsManager<Actor> mOwnedActors;
 		//Update’†‚É’Ç‰Á‚³‚ê‚½ê‡‚±‚±‚Éˆê•Û‘¶
 		std::vector<Node<Actor>> mPendingActors;
 		bool mIsUpdating;

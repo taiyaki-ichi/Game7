@@ -1,11 +1,20 @@
 #include"SceneEditor.hpp"
+#include"ActorEditor/ActorEditorBase.hpp"
 
 namespace StageEditor
 {
 
 	SceneEditor::SceneEditor(GameLib::Actor* actor)
 		:GameLib::Actor{actor}
+		, mNowActorEditor{nullptr}
 	{}
+
+
+	void SceneEditor::CustomizeUpdate()
+	{
+		if (mNowActorEditor && mNowActorEditor->IsOK())
+			mNowActorEditor = nullptr;
+	}
 
 	void SceneEditor::CreateActor(std::string&& actorName)
 	{
@@ -14,26 +23,22 @@ namespace StageEditor
 
 	bool SceneEditor::IsEdtingActor()
 	{
-		return false;
+		return mNowActorEditor;
 	}
 
-	void SceneEditor::MessageToActor(std::string&& str)
+	void SceneEditor::SendToActor(std::string&& str)
 	{
-
+		mNowActorEditor->AddData(std::move(str));
 	}
 
-	void SceneEditor::BeginWorking()
+	void SceneEditor::SendToActor(GameLib::Vector2&& pos)
 	{
-
-	}
-
-	void SceneEditor::BeginToRest()
-	{
-
+		mNowActorEditor->AddData(std::move(pos));
 	}
 
 	void SceneEditor::UpdateConsoleScreen()
 	{
-
+		if (mNowActorEditor)
+			mNowActorEditor->PrintStringData();
 	}
 }

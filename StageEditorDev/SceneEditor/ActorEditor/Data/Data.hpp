@@ -1,5 +1,6 @@
 #pragma once
 #include<vector>
+#include<utility>
 
 namespace StageEditor
 {
@@ -12,14 +13,14 @@ namespace StageEditor
 
 	public:
 		Data(int dataNum)
-			:mDataNum{dataNum}
+			:mDataNum{ dataNum }
 			, mData{}
 		{}
 		virtual ~Data() = default;
 
 		void AddData(T&& pos) {
 			if (mData.size() < mDataNum)
-				mData.emplace_back(std::forward(pos));
+				mData.emplace_back(std::move(pos));
 		}
 
 		//データが有効な値で埋められているかどうか

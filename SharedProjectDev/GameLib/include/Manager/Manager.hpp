@@ -3,7 +3,6 @@
 #include<algorithm>
 #include<iostream>
 #include"ManagerPolicy.hpp"
-
 namespace GameLib
 {
 
@@ -73,6 +72,11 @@ namespace GameLib
 		void SetOrder(T* ptr, int order) {
 			Remove(ptr);
 			Add({ ptr,order });
+		}
+
+		template<typename F>
+		void For_Each(F&& fnc) {
+			std::for_each(mNodes.begin(), mNodes.end(), [&fnc](Node<T> node) {fnc(node.Ptr); });
 		}
 
 	};

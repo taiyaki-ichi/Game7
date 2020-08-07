@@ -147,7 +147,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleMessage\ConsoleMessage.hpp" />
-    <ClInclude Include="Data\Data.hpp" />
+    <ClInclude Include="SaveStage.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\ActorData.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
+    <ClInclude Include="SceneEditor\BeginPolicy.hpp" />
     <ClInclude Include="SceneEditor\SceneEditor.hpp" />
     <ClInclude Include="StartActor.hpp" />
     <ClInclude Include="StageEditor.hpp" />
@@ -155,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="StageEditor.cpp" />
   </ItemGroup>
