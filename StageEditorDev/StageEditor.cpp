@@ -3,6 +3,7 @@
 #include"SceneEditor/SceneEditor.hpp"
 #include"SaveFunc.hpp"
 #include"LoadFunc.hpp"
+#include"Cursor/Cursor.hpp"
 
 namespace StageEditor
 {
@@ -14,7 +15,8 @@ namespace StageEditor
 		, mSceneEditors{}
 	{
 		mConsoleMessage = new ConsoleMessage{ this };
-	
+		new Cursor{ this };
+
 		UpdateConsoleScreen();
 	}
 

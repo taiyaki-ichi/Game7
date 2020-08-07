@@ -3,6 +3,7 @@
 #include"Data/Data.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
 #include"ActorData.hpp"
+#include"GameLib/include/CollisionDetection/Collider.hpp"
 
 namespace StageEditor
 {
@@ -13,6 +14,10 @@ namespace StageEditor
 	protected:
 		Data<GameLib::Vector2> mPosData;
 		Data<std::string> mStringData;
+
+		//スペースで削除する用の当たり判定
+		//派生クラスでタテヨコ位置などを設定
+		GameLib::Collider mCollider;
 
 	private:
 		//この名前でJsonに記述される

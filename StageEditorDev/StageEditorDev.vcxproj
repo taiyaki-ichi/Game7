@@ -147,11 +147,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleMessage\ConsoleMessage.hpp" />
+    <ClInclude Include="Cursor\Cursor.hpp" />
     <ClInclude Include="LoadFunc.hpp" />
     <ClInclude Include="SaveFunc.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorData.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
     <ClInclude Include="SceneEditor\BeginPolicy.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
     <ClInclude Include="SceneEditor\SceneEditor.hpp" />
@@ -160,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />
+    <ClCompile Include="Cursor\Cursor.cpp" />
     <ClCompile Include="LoadFunc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SaveFunc.cpp" />

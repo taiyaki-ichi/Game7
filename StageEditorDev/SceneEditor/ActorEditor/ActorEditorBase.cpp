@@ -1,6 +1,7 @@
 #include"ActorEditorBase.hpp"
 #include<iostream>
 #include<string>
+#include"GameLib/include/InputState/InputState.hpp"
 
 namespace StageEditor
 {
@@ -9,7 +10,13 @@ namespace StageEditor
 		, mPosData{posNum}
 		, mStringData{stringNum}
 		, mNameTag{std::move(nameTag)}
+		, mCollider{}
 	{
+		auto deathFunc = [this](const GameLib::Collider& c) {
+			if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
+				SetState(GameLib::Actor::State::Dead);
+		};
+		mCollider.AddHitFunction("Cursor", std::move(deathFunc));
 	}
 
 	bool ActorEditorBase::IsOK()
