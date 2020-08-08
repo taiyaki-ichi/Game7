@@ -11,14 +11,21 @@ namespace StageEditor
 		mCollider.SetWidthAndHeith(Stage::PlayerParam::WIDTH, Stage::PlayerParam::HEIGHT);
 	}
 
-	/*
+
 	void PlayerEditor::Update()
 	{
 		int posNum = mPosData.GetDataNum();
 		if (posNum == 1)
-			mTexture.SetPosition(mPosData[1]);
-
-
+			mTexture.SetPosition(mPosData[0]);
 	}
-	*/
+
+	void PlayerEditor::BeginWorking()
+	{
+		mTexture.SetIsAutoDrawing(true);
+	}
+	
+	void PlayerEditor::BeginToRest()
+	{
+		mTexture.SetIsAutoDrawing(false);
+	}
 }

@@ -6,14 +6,14 @@ namespace StageEditor
 	struct BeginWorkingPolicy {
 		void operator()(GameLib::Actor* actor) {
 			auto actorEditorPtr = static_cast<ActorEditorBase*>(actor);
-			actorEditorPtr->BeginWorking();
+			actorEditorPtr->BeginBeginWorking();
 		}
 	};
 
 	struct BeginToRestPolicy {
 		void operator()(GameLib::Actor* actor) {
 			auto actorEditorPtr = static_cast<ActorEditorBase*>(actor);
-			actorEditorPtr->BeginToRest();
+			actorEditorPtr->BeginBeginToRest();
 		}
 	};
 }

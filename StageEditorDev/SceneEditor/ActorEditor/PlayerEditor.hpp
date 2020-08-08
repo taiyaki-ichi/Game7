@@ -11,9 +11,9 @@ namespace StageEditor
 	public:
 		PlayerEditor(GameLib::Actor*);
 		
-		void Update() override {};
+		void Update() override;
 
-		void BeginWorking() override {};
-		void BeginToRest() override {};
+		void BeginWorking() override;
+		void BeginToRest() override;
 	};
 }

@@ -81,4 +81,16 @@ namespace StageEditor
 		for (int i = 0; i < stringData.size(); i++)
 			mStringData.AddData(std::move(stringData[i]));
 	}
+
+	void ActorEditorBase::BeginBeginWorking()
+	{
+		mCollider.Active();
+		BeginWorking();
+	}
+
+	void ActorEditorBase::BeginBeginToRest()
+	{
+		mCollider.Pause();
+		BeginToRest();
+	}
 }

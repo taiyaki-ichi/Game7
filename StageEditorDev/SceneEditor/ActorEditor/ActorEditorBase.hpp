@@ -40,6 +40,8 @@ namespace StageEditor
 		//PrintStringDataの前に呼び出される、何番目のデータがなんのデータかの説明用
 		void PrintStringDataInfo() {};
 
+		void BeginBeginWorking();
+		void BeginBeginToRest();
 		virtual void BeginWorking() = 0;
 		virtual void BeginToRest() = 0;
 

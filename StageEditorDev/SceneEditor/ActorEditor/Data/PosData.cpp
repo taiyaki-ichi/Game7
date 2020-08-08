@@ -16,7 +16,12 @@ namespace StageEditor
 				mPosData.emplace_back(std::move(pos));
 				mDefinedBackData = false;
 			}
-			else {
+			else if (mPosData.size() == 0)
+			{
+				mPosData.emplace_back(std::move(pos));
+			}
+			else 
+			{
 				mPosData.pop_back();
 				mPosData.emplace_back(std::move(pos));
 			}

@@ -1,6 +1,9 @@
 #include"CreateActorEditor.hpp"
 #include<unordered_map>
 #include<functional>
+#include"ActorEditor/PlayerEditor.hpp"
+
+
 
 namespace StageEditor
 {
@@ -8,7 +11,7 @@ namespace StageEditor
 
 	namespace {
 		std::unordered_map<std::string, std::function<ActorEditorBase* (GameLib::Actor*)>> gActorEditorGenerator = {
-
+			{"Player",[](GameLib::Actor* actor) {return new PlayerEditor{actor}; }},
 		};
 	}
 

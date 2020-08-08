@@ -1,5 +1,6 @@
 #include"SceneEditor.hpp"
 #include"ActorEditor/ActorEditorBase.hpp"
+#include"CreateActorEditor.hpp"
 
 namespace StageEditor
 {
@@ -18,7 +19,7 @@ namespace StageEditor
 
 	void SceneEditor::CreateActor(std::string&& actorName)
 	{
-
+		CreateActorEditor(this, std::move(actorName));
 	}
 
 	bool SceneEditor::IsEdtingActor()
