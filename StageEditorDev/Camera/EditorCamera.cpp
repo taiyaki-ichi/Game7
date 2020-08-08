@@ -2,6 +2,7 @@
 #include"GameLib/include/InputState/InputState.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
+#include"Stage/WindowSize.hpp"
 
 namespace StageEditor
 {
@@ -48,6 +49,9 @@ namespace StageEditor
 		}
 
 		CollisionDetectionSetting::SetPos(Viewport::GetPos());
+		float scale = GameLib::Viewport::GetScale();
+		GameLib::CollisionDetectionSetting::SetWidth(Stage::WindowSize::WIDTH * 2.f / scale);
+		GameLib::CollisionDetectionSetting::SetHeight(Stage::WindowSize::HEIGHT * 2.f / scale);
 	}
 
 	void Camera::Reset()

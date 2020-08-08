@@ -1,5 +1,6 @@
 #include"Cursor.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
 
 namespace StageEditor
 {
@@ -8,13 +9,15 @@ namespace StageEditor
 		, mColiider{}
 	{
 		mColiider.SetNameTag("Cursor");
-		mColiider.SetWidthAndHeith(1.f, 1.f);
+		mColiider.SetWidthAndHeith(2.f, 2.f);
 		mColiider.SetColor({ 0,0,0,0 });
 	}
 
 	void Cursor::CustomizeUpdate()
 	{
-		mColiider.SetPosition(GameLib::InputState::GetMousePos());
+		using namespace GameLib;
+		auto pos = AffineInv(InputState::GetMousePos(), Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
+		mColiider.SetPosition(std::move(pos));
 	}
 
 }
