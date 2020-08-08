@@ -2,6 +2,8 @@
 #include<iostream>
 #include<string>
 #include"GameLib/include/InputState/InputState.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
 
 namespace StageEditor
 {
@@ -25,7 +27,9 @@ namespace StageEditor
 		if (GameLib::InputState::GetState(GameLib::MouseButton::Middle) == GameLib::ButtonState::Pressed)
 			mPosData.DefinePosDataBeck();
 
-		auto pos = GameLib::InputState::GetMousePos();
+		//ÉJÉÅÉâÇÃç¿ïWÇ©ÇÁïœä∑Ç∑ÇÈ
+		using namespace GameLib;
+		auto pos = AffineInv(InputState::GetMousePos(), Viewport::GetPos(), Viewport::GetRotation(), Viewport::GetScale());
 		mPosData.UpdatePosDataBack(std::move(pos));
 
 		Update();
