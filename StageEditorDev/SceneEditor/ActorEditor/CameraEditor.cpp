@@ -10,14 +10,14 @@ namespace StageEditor
 		mRect.SetColor({ 0,0,255,255 });
 		mRect.SetIsFill(false);
 
-		mCollider.SetWidthAndHeith(10.f, 10.f);
+		mCollider.SetWidthAndHeith(20.f, 20.f);
 	}
 
 	void CameraEditor::Update()
 	{
 		int num = mPosData.GetDataNum();
 
-		if (num == 1)
+		if (num >= 1)
 			mCollider.SetPosition(mPosData[0]);
 
 		if (num == 2)

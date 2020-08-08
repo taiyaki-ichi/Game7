@@ -20,6 +20,20 @@
           "FloatData1": -16,
           "StringData0": "aaa",
           "StringData1": "bbb"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 202,
+          "FloatData1": -29,
+          "FloatData2": 628.46160888671875,
+          "FloatData3": -270.00003051757813
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -363.636474609375,
+          "FloatData1": -365.45462036132813,
+          "FloatData2": 701.818359375,
+          "FloatData3": 212.72734069824219
         }
       ],
       "SceneName": "aaa"

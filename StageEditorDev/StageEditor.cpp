@@ -6,6 +6,7 @@
 #include"Cursor/Cursor.hpp"
 #include"SceneEditor/CreateActorEditor.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
+#include"Camera/EditorCamera.hpp"
 
 namespace StageEditor
 {
@@ -16,6 +17,7 @@ namespace StageEditor
 		, mNowSceneEditor{nullptr}
 		, mSceneEditors{}
 		, mCheckFlag{false}
+		, mCamera{nullptr}
 	{
 		GameLib::Collider::SetIsDebug(true);
 
@@ -24,6 +26,8 @@ namespace StageEditor
 
 		LoadStage("tmp.json");
 		UpdateConsoleScreen();
+
+		mCamera = new Camera{ this };
 
 	}
 
@@ -72,6 +76,8 @@ namespace StageEditor
 		mSceneEditors.clear();
 
 		LoadStageData(this, std::move(fileName));
+
+		mCamera->Reset();
 	}
 
 	void StageEditor::ProcessMessage()
@@ -102,8 +108,10 @@ namespace StageEditor
 
 				if(strs.size()==1&&strs[0]=="save")
 					SaveStage("tmp.json");
-				if (strs.size() == 1 && strs[0] == "check")
+				if (strs.size() == 1 && strs[0] == "check") {
 					mCheckFlag = true;
+					mCamera->Reset();
+				}
 
 				if (strs.size() == 1 && strs[0] == "help")
 					helpFlag = true;
@@ -173,6 +181,8 @@ namespace StageEditor
 
 			iter->second->BeginWorking();
 			mNowSceneEditor = iter->second;
+
+			mCamera->Reset();
 		}
 	}
 

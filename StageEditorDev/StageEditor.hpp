@@ -6,6 +6,7 @@ namespace StageEditor
 {
 	class ConsoleMessage;
 	class SceneEditor;
+	class Camera;
 
 	class StageEditor : public GameLib::Actor
 	{
@@ -15,6 +16,8 @@ namespace StageEditor
 		std::unordered_map<std::string, SceneEditor*> mSceneEditors;
 
 		bool mCheckFlag;
+
+		Camera* mCamera;
 
 	public:
 		StageEditor(GameLib::Actor* actor);
