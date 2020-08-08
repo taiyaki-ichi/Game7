@@ -92,8 +92,8 @@ namespace StageEditor
 				if (strs.size() == 3 && strs[0] == "change" && strs[1] == "scene")
 					ChangeScene(std::move(strs[2]));
 
-				if (strs.size() == 2 && strs[0] == "create" && mNowSceneEditor)
-					mNowSceneEditor->CreateActor(std::move(strs[1]));
+				if (strs.size() == 1 && mNowSceneEditor)
+					mNowSceneEditor->CreateActor(std::move(strs[0]));
 
 				if (strs.size() == 3 && strs[0] == "save" && strs[1] == "as")
 					SaveStage("../Data/Stage/" + std::move(strs[2]) + ".json");
@@ -190,7 +190,7 @@ namespace StageEditor
 
 		auto names = GetAllActorEditorName();
 		for (auto& name : names)
-			std::cout << " create " << name << "\n";
+			std::cout << name << "\n";
 
 		std::cout << "\n";
 		std::cout << ">";
