@@ -5,6 +5,7 @@
 #include"LoadFunc.hpp"
 #include"Cursor/Cursor.hpp"
 #include"SceneEditor/CreateActorEditor.hpp"
+#include"GameLib/include/CollisionDetection/Collider.hpp"
 
 namespace StageEditor
 {
@@ -19,6 +20,8 @@ namespace StageEditor
 		new Cursor{ this };
 
 		UpdateConsoleScreen();
+
+		GameLib::Collider::SetIsDebug(true);
 	}
 
 	void StageEditor::CustomizeUpdate()

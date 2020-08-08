@@ -29,5 +29,6 @@
     <ClCompile Include="Cursor\Cursor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
   </ItemGroup>
 </Project>

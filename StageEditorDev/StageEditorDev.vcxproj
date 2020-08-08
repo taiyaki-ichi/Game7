@@ -169,6 +169,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SaveFunc.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
     <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
