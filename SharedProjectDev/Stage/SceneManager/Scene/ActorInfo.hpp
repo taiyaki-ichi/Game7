@@ -16,7 +16,7 @@ namespace Stage
 			, mStringData{std::move(data2)}
 		{
 			for (int i = 0; i < data.size() / 2.f; i++)
-				mPosData.emplace_back(GameLib::Vector2{ i * 2,i * 2 + 1 });
+				mPosData.emplace_back(GameLib::Vector2{ data[i * 2],data[i * 2 + 1] });
 		}
 
 	};

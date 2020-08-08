@@ -11,7 +11,7 @@ namespace dev
 		StartActor()
 			:GameLib::RootActor{}
 		{
-			new Stage::Stage{ this,"../Data/Stage/aaa.json" };
+			new Stage::Stage{ this,"../Data/Stage/bbb.json" };
 			GameLib::Collider::SetIsDebug(true);
 		}
 

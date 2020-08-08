@@ -40,7 +40,6 @@ namespace Stage
 			floatData.emplace_back(static_cast<float>(obj["FloatData" + std::to_string(i)].get<double>()));
 			i++;
 		}
-
 		return floatData;
 	}
 

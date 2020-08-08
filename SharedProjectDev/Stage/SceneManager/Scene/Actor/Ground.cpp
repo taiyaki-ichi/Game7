@@ -23,6 +23,7 @@ namespace Stage
 		//std::cout << "w: " << mWidth << " h: " << mHeigth << "\n";
 		if (mWidth <= 0.f || mHeigth <= 0.f)
 			SetState(Actor::State::Dead);
+
 	}
 
 	void Ground::BeginWorking()
