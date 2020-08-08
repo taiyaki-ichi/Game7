@@ -161,7 +161,7 @@ namespace Stage::PlayerState
 		mCollider.SetRotation(mPhysicsModel.mRotation);
 
 		//Anim‚ÉCollder‚ÌˆÊ’u‚ª‡‚¤‚æ‚¤‚É’²®
-		mCollider.SetPosition(mPhysicsModel.mPosition + GetVector2(Dir4::Down, 12.f));
+		mCollider.SetPosition(mPhysicsModel.mPosition + GetVector2(Dir4::Down, PlayerParam::COLLIDER_ADJUST_DOWN_SIZE));
 	}
 
 

@@ -35,7 +35,7 @@ namespace StageEditor
 
 		//ステージ情報の表示
 
-		std::cout << " Scene\n";
+		std::cout << " Stage\n";
 		for (auto iter = mSceneEditors.begin(); iter != mSceneEditors.end(); iter++) {
 			std::cout << "  |- " << iter->first;
 			if (iter->second == mNowSceneEditor)
@@ -76,6 +76,7 @@ namespace StageEditor
 		auto strs = mConsoleMessage->GetMessage();
 		if (strs.size() > 0)
 		{
+			bool helpFlag = false;
 			//Sceneが一つもない場合、Actorを編集中じゃあない場合
 			if (!mNowSceneEditor || !mNowSceneEditor->IsEdtingActor())
 			{
@@ -92,16 +93,16 @@ namespace StageEditor
 					mNowSceneEditor->CreateActor(std::move(strs[1]));
 
 				if (strs.size() == 3 && strs[0] == "save" && strs[1] == "as")
-					SaveStage(std::move(strs[2]));
+					SaveStage("../Data/Stage/" + std::move(strs[2]) + ".json");
 				if (strs.size() == 2 && strs[0] == "load")
-					LoadStage(std::move(strs[1]));
+					LoadStage("../Data/Stage/" + std::move(strs[1]) + ".json");
 
 				//あとでやる
 				//if(strs.size()==1&&strs[0]=="save")
 				//if (strs.size() == 1 && strs[0] == "check")
 
 				if (strs.size() == 1 && strs[0] == "help")
-					Help();
+					helpFlag = true;
 			}
 			//編集中の場合はそのActorへ
 			else if(mNowSceneEditor->IsEdtingActor()){
@@ -110,8 +111,10 @@ namespace StageEditor
 			}
 
 			mConsoleMessage->ClearMessage();
-
 			UpdateConsoleScreen();
+
+			if (helpFlag)
+				Help();
 		}
 	}
 
@@ -165,19 +168,19 @@ namespace StageEditor
 
 	void StageEditor::Help()
 	{
-		std::cout << "\nコマンド一覧\n";
-		std::cout << "add scene SCENE_NAME\n";
-		std::cout << "remove scene SCENE_NAME\n";
-		std::cout << "change scene SCENE_NAME\n";
-		std::cout << "save as FILE_NAME\n";
-		std::cout << "load FILE_NAME\n";
-		std::cout << "save\n";
-		std::cout << "check\n";
+		std::cout << "\n\ncommand list\n";
+		std::cout << " add scene SCENE_NAME\n";
+		std::cout << " remove scene SCENE_NAME\n";
+		std::cout << " change scene SCENE_NAME\n";
+		std::cout << " save as FILE_NAME\n";
+		std::cout << " load FILE_NAME\n";
+		std::cout << " save\n";
+		std::cout << " check\n";
 
 
 		auto names = GetAllActorEditorName();
 		for (auto& name : names)
-			std::cout << "create " << name << "\n";
+			std::cout << " create " << name << "\n";
 
 		std::cout << "\n";
 		std::cout << ">";

@@ -9,14 +9,17 @@ namespace StageEditor
 	{
 		mTexture.SetScale(Stage::PlayerParam::SCALE);
 		mCollider.SetWidthAndHeith(Stage::PlayerParam::WIDTH, Stage::PlayerParam::HEIGHT);
+		mCollider.SetScale(Stage::PlayerParam::SCALE);
 	}
 
 
 	void PlayerEditor::Update()
 	{
 		int posNum = mPosData.GetDataNum();
-		if (posNum == 1)
+		if (posNum == 1) {
 			mTexture.SetPosition(mPosData[0]);
+			mCollider.SetPosition(mPosData[0] + GameLib::Vector2{ 0.f,-Stage::PlayerParam::COLLIDER_ADJUST_DOWN_SIZE });
+		}
 	}
 
 	void PlayerEditor::BeginWorking()

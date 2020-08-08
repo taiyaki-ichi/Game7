@@ -13,6 +13,7 @@ namespace Stage
 		constexpr float JUMP_POWER_MIN = 14.f;
 		constexpr float RUN_POWER = 0.3f;
 		constexpr float JUMPING_GRAVITY_RATE = 0.85f;
+		constexpr float COLLIDER_ADJUST_DOWN_SIZE = 12.f;
 
 		//Death
 		constexpr static int DEATH_CNT = 180;

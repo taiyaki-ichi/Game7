@@ -51,14 +51,14 @@ namespace StageEditor
 					int i = 0;
 					std::vector<float> floatData;
 					while (actorData["FloatData" + std::to_string(i)].is<double>()) {
-						floatData.emplace_back(static_cast<float>(actorData[std::to_string(i)].get<double>()));
+						floatData.emplace_back(static_cast<float>(actorData["FloatData" + std::to_string(i)].get<double>()));
 						i++;
 					}
 
 					i = 0;
 					std::vector<std::string> stringData;
 					while (actorData["StringData" + std::to_string(i)].is<std::string>()) {
-						stringData.emplace_back(actorData[std::to_string(i)].get<std::string>());
+						stringData.emplace_back(actorData["StringData" + std::to_string(i)].get<std::string>());
 						i++;
 					}
 
