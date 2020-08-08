@@ -175,6 +175,7 @@
     <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
     <ClCompile Include="SceneEditor\SceneEditor.cpp" />
     <ClCompile Include="StageEditor.cpp" />
+    <ClCompile Include="StartActor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

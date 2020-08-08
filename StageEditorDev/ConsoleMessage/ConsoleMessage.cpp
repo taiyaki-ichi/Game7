@@ -49,8 +49,11 @@ namespace StageEditor
 
 			for (auto& s : strs)
 				mMessage.emplace_back(s);
-
-			RunGetMessageThread();
+			/*
+			//Stageに移動しない場合、またメッセいーじを取得
+			if (!(mMessage.size() == 1 && mMessage[0] == "check"))
+				RunGetMessageThread();
+				*/
 		}
 	}
 

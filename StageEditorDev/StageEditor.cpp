@@ -15,13 +15,16 @@ namespace StageEditor
 		, mConsoleMessage{nullptr}
 		, mNowSceneEditor{nullptr}
 		, mSceneEditors{}
+		, mCheckFlag{false}
 	{
 		mConsoleMessage = new ConsoleMessage{ this };
 		new Cursor{ this };
 
+		LoadStage("tmp.json");
 		UpdateConsoleScreen();
 
 		GameLib::Collider::SetIsDebug(true);
+
 	}
 
 	void StageEditor::CustomizeUpdate()
@@ -97,9 +100,10 @@ namespace StageEditor
 				if (strs.size() == 2 && strs[0] == "load")
 					LoadStage("../Data/Stage/" + std::move(strs[1]) + ".json");
 
-				//‚ ‚Æ‚Å‚â‚é
-				//if(strs.size()==1&&strs[0]=="save")
-				//if (strs.size() == 1 && strs[0] == "check")
+				if(strs.size()==1&&strs[0]=="save")
+					SaveStage("tmp.json");
+				if (strs.size() == 1 && strs[0] == "check")
+					mCheckFlag = true;
 
 				if (strs.size() == 1 && strs[0] == "help")
 					helpFlag = true;
@@ -115,6 +119,12 @@ namespace StageEditor
 
 			if (helpFlag)
 				Help();
+
+			if (mCheckFlag)
+				std::system("cls");
+			else
+				mConsoleMessage->RunGetMessageThread();
+
 		}
 	}
 
@@ -186,4 +196,8 @@ namespace StageEditor
 		std::cout << ">";
 	}
 
+	bool StageEditor::GetCheckFlag() const
+	{
+		return mCheckFlag;
+	}
 }

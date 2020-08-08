@@ -8,8 +8,6 @@ namespace StageEditor
 
 		std::vector<std::string> mMessage;
 
-		void RunGetMessageThread();
-
 	public:
 		ConsoleMessage(GameLib::Actor* editor);
 		virtual ~ConsoleMessage() = default;
@@ -21,5 +19,8 @@ namespace StageEditor
 
 		//メッセージをクリア
 		void ClearMessage();
+
+		//メッセージの取得開始
+		void RunGetMessageThread();
 	};
 }

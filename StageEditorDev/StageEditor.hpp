@@ -14,7 +14,7 @@ namespace StageEditor
 		SceneEditor* mNowSceneEditor;
 		std::unordered_map<std::string, SceneEditor*> mSceneEditors;
 
-
+		bool mCheckFlag;
 
 	public:
 		StageEditor(GameLib::Actor* actor);
@@ -26,6 +26,9 @@ namespace StageEditor
 		//SceneEditorを加える
 		//LoadFuncでも使用
 		SceneEditor* AddScene(std::string&&);
+
+		//角煮
+		bool GetCheckFlag() const;
 
 	private:
 		//コンソールへの描写を更新、SceneEditorやActorEditorに伝播さす
