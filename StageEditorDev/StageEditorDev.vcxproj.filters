@@ -15,6 +15,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
     <ClInclude Include="Cursor\Cursor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />

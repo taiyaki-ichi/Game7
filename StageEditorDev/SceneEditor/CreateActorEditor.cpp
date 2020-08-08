@@ -16,8 +16,6 @@ namespace StageEditor
 	}
 
 
-
-
 	ActorEditorBase* CreateActorEditor(GameLib::Actor* scene, const std::string& name)
 	{
 

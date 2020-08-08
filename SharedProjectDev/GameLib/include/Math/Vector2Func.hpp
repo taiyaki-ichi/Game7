@@ -144,4 +144,43 @@ namespace GameLib
 		return false;
 
 	}
+
+	//a,b‚Ì‹——£
+	inline float GetLength(const GameLib::Vector2& a, const GameLib::Vector2& b)
+	{
+		float dx = a.x - b.x;
+		float dy = a.y - b.y;
+		return std::sqrt(dx * dx + dy * dy);
+	}
+
+	//’¼üabc‚ªŒv‰ñ‚è‚©‚Ç‚¤‚©
+	inline bool IsClockwise(const GameLib::Vector2& a, const GameLib::Vector2& b, const GameLib::Vector2& c)
+	{
+		GameLib::Vector2 vec1 = b - a;
+		GameLib::Vector2 vec2 = c - b;
+		return GameLib::Vector2::Cross(vec1, vec2) > 0.f;
+	}
+
+	//a,b‚Ìx•ûŒü‚Ì‹——£
+	inline float GetDistanceX(const GameLib::Vector2& a, const GameLib::Vector2& b)
+	{
+		return std::abs(a.x - b.x);
+	}
+	//y‚Ì‹——£
+	inline float GetDistanceY(const GameLib::Vector2& a, const GameLib::Vector2& b)
+	{
+		return std::abs(a.y - b.y);
+	}
+
+	//a,b‚Ì^‚ñ’†
+	inline GameLib::Vector2 GetCenter(const GameLib::Vector2& a, const GameLib::Vector2& b)
+	{
+		float minX = (a.x < b.x) ? a.x : b.x;
+		float mixY = (a.y < b.y) ? a.y : b.y;
+		float w = GetDistanceX(a, b);
+		float h = GetDistanceY(a, b);
+		return { minX + w / 2.f,mixY + h / 2.f };
+
+	}
+
 }

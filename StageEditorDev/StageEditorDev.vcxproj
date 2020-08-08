@@ -154,6 +154,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
     <ClInclude Include="SceneEditor\BeginPolicy.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
