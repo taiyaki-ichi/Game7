@@ -17,6 +17,18 @@ namespace StageEditor
 				SetState(GameLib::Actor::State::Dead);
 		};
 		mCollider.AddHitFunction("Cursor", std::move(deathFunc));
+		mCollider.SetColor({ 0,255,0,255 });
+	}
+
+	void ActorEditorBase::CustomizeUpdate()
+	{
+		if (GameLib::InputState::GetState(GameLib::MouseButton::Middle) == GameLib::ButtonState::Pressed)
+			mPosData.DefinePosDataBeck();
+
+		auto pos = GameLib::InputState::GetMousePos();
+		mPosData.UpdatePosDataBack(std::move(pos));
+
+		Update();
 	}
 
 	bool ActorEditorBase::IsOK()
@@ -24,20 +36,16 @@ namespace StageEditor
 		return mStringData.IsOK() && mPosData.IsOK();
 	}
 
-	void ActorEditorBase::AddData(std::string&& str)
+	void ActorEditorBase::ForwardStringData(std::string&& str)
 	{
 		mStringData.AddData(std::move(str));
 	}
 
-	void ActorEditorBase::AddData(GameLib::Vector2&& pos)
-	{
-		mPosData.AddData(std::move(pos));
-	}
-
 	void ActorEditorBase::PrintStringData()
 	{
-		int num = mStringData.GetDataNum();
+		PrintStringDataInfo();
 
+		int num = mStringData.GetDataNum();
 		if (num > 0)
 		{
 			for (int i = 0; i <= num; i++) {
@@ -66,8 +74,10 @@ namespace StageEditor
 
 	void ActorEditorBase::SetData(std::vector<float>&& floatData, std::vector<std::string>&& stringData)
 	{
-		for (int i = 0; i < floatData.size() / 2; i++)
-			mPosData.AddData(GameLib::Vector2{ floatData[i * 2],floatData[i * 2 + 1] });
+		for (int i = 0; i < floatData.size() / 2; i++) {
+			mPosData.UpdatePosDataBack(GameLib::Vector2{ floatData[i * 2],floatData[i * 2 + 1] });
+			mPosData.DefinePosDataBeck();
+		}
 		for (int i = 0; i < stringData.size(); i++)
 			mStringData.AddData(std::move(stringData[i]));
 	}

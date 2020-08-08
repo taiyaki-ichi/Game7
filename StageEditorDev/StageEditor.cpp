@@ -93,13 +93,17 @@ namespace StageEditor
 				if (strs.size() == 2 && strs[0] == "load")
 					LoadStage(std::move(strs[1]));
 
+				//‚ ‚Æ‚Å‚â‚é
+				//if(strs.size()==1&&strs[0]=="save")
+				//if (strs.size() == 1 && strs[0] == "check")
+
 				if (strs.size() == 1 && strs[0] == "help")
 					Help();
 			}
 			//•ÒW’†‚Ìê‡‚Í‚»‚ÌActor‚Ö
 			else if(mNowSceneEditor->IsEdtingActor()){
 				for (auto& s : strs)
-					mNowSceneEditor->SendToActor(std::move(s));
+					mNowSceneEditor->ForwardStringData(std::move(s));
 			}
 
 			mConsoleMessage->ClearMessage();
@@ -164,6 +168,9 @@ namespace StageEditor
 		std::cout << "change scene SCENE_NAME\n";
 		std::cout << "save as FILE_NAME\n";
 		std::cout << "load FILE_NAME\n";
+		std::cout << "save\n";
+		std::cout << "check\n";
+
 
 		auto names = GetAllActorEditorName();
 		for (auto& name : names)

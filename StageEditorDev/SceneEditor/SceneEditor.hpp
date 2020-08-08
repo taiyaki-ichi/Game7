@@ -26,8 +26,7 @@ namespace StageEditor
 		bool IsEdtingActor();
 
 		//•ÒW’†‚Ì‚ÉActor‚É•¶š—ñ‚Ìî•ñ‚ğ“n‚·
-		void SendToActor(std::string&&);
-		void SendToActor(GameLib::Vector2&&);
+		void ForwardStringData(std::string&&);
 
 		//Invokeg‚¤
 		void BeginWorking() {

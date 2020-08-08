@@ -26,15 +26,12 @@ namespace StageEditor
 		return mNowActorEditor;
 	}
 
-	void SceneEditor::SendToActor(std::string&& str)
+	void SceneEditor::ForwardStringData(std::string&& str)
 	{
-		mNowActorEditor->AddData(std::move(str));
+		mNowActorEditor->ForwardStringData(std::move(str));
 	}
 
-	void SceneEditor::SendToActor(GameLib::Vector2&& pos)
-	{
-		mNowActorEditor->AddData(std::move(pos));
-	}
+
 
 	void SceneEditor::UpdateConsoleScreen()
 	{

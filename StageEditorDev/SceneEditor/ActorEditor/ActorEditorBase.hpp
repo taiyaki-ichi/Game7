@@ -1,7 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include"Data/Data.hpp"
-#include"GameLib/include/Math/Vector2.hpp"
+#include"Data/PosData.hpp"
 #include"ActorData.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 
@@ -12,7 +12,7 @@ namespace StageEditor
 	class ActorEditorBase : public GameLib::Actor
 	{
 	protected:
-		Data<GameLib::Vector2> mPosData;
+		PosData mPosData;
 		Data<std::string> mStringData;
 
 		//スペースで削除する用の当たり判定
@@ -29,10 +29,16 @@ namespace StageEditor
 
 		bool IsOK();
 
-		void AddData(GameLib::Vector2&& pos);
-		void AddData(std::string&& str);
+		void CustomizeUpdate() override final;
+		virtual void Update() {};
 
+		//SceneEditorから文字列が送られてくる
+		void ForwardStringData(std::string&& str);
+		
+		//入力されたデータ、次のデータが何番目に入力されるかの表示
 		void PrintStringData();
+		//PrintStringDataの前に呼び出される、何番目のデータがなんのデータかの説明用
+		void PrintStringDataInfo() {};
 
 		virtual void BeginWorking() = 0;
 		virtual void BeginToRest() = 0;

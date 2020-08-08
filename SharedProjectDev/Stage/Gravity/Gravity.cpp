@@ -60,7 +60,7 @@ namespace Stage
 			return { 0.f,mDir4Vec.mSize };
 		else if (mDir4Vec.mDir4 == Dir4::Right)
 			return { mDir4Vec.mSize,0.f };
-		else if (mDir4Vec.mDir4 == Dir4::Left)
+		else //if (mDir4Vec.mDir4 == Dir4::Left)
 			return { -mDir4Vec.mSize,0.f };
 	}
 

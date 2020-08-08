@@ -32,5 +32,7 @@ namespace StageEditor
 		std::vector<std::string> names{};
 		for (auto& actor : gActorEditorGenerator)
 			names.emplace_back(actor.first);
+
+		return names;
 	}
 }
