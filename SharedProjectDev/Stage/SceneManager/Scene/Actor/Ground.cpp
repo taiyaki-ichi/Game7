@@ -78,27 +78,27 @@ namespace Stage
 	{
 	}
 
-	void GroundGenerator::LoadData(std::vector<float>&& floatData)
+	void GroundGenerator::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
 
 		float left, right, bottom, top;
 
-		if (floatData[0] < floatData[2]) {
-			left = floatData[0];
-			right = floatData[2];
+		if (data[0].x < data[1].x) {
+			left = data[0].x;
+			right = data[1].x;
 		}
 		else {
-			left = floatData[2];
-			right = floatData[0];
+			left = data[1].x;
+			right = data[0].x;
 		}
 
-		if (floatData[1] < floatData[3]) {
-			bottom = floatData[1];
-			top = floatData[3];
+		if (data[0].y < data[1].y) {
+			bottom = data[0].y;
+			top = data[1].y;
 		}
 		else {
-			bottom = floatData[3];
-			top = floatData[1];
+			bottom = data[1].y;
+			top = data[0].y;
 		}
 
 		CreateGround(mOwner, left, right, bottom, top);

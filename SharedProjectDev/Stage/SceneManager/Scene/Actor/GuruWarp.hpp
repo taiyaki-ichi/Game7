@@ -22,7 +22,8 @@ namespace Stage
 		void BeginWorking() override;
 		void BeginToRest() override;
 
-		void LoadData(std::vector<float>&& data) override;
+		void LoadPosData(std::vector<GameLib::Vector2>&& data) override;
+		void LoadStringData(std::vector<std::string>&& data) override;
 
 		void PlayerWarpHere() override;
 

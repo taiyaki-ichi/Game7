@@ -159,13 +159,12 @@ namespace Stage
 		mCollider2.Pause();
 		mApple->BeginToRest();
 	}
-	void GravityBox::LoadData(std::vector<float>&& data)
+	void GravityBox::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
-		auto pos = GameLib::Vector2{ data[0],data[1] };
-		mTexture.SetPosition(pos);
-		mApple->SetCenter(pos);
-		mCollider.SetPosition(pos);
-		mCollider2.SetPosition(std::move(pos));
+		mTexture.SetPosition(data[0]);
+		mApple->SetCenter(data[0]);
+		mCollider.SetPosition(data[0]);
+		mCollider2.SetPosition(std::move(data[0]));
 	}
 
 	bool GravityBox::UpdateOrNot()

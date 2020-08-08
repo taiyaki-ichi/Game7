@@ -28,8 +28,8 @@ namespace Stage
 		virtual void BeginWorking() = 0;
 		virtual void BeginToRest() = 0;
 
-		virtual void LoadData(std::vector<float>&& data) = 0;
-
+		virtual void LoadPosData(std::vector<GameLib::Vector2>&& data) = 0;
+		virtual void LoadStringData(std::vector<std::string>&& data) {};
 
 	private:
 		//UpdateOrNotで使用可、ステージが回転中じゃあなければtrue

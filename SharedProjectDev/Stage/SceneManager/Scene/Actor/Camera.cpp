@@ -22,24 +22,24 @@ namespace Stage
 		AdjustPos();
 	}
 
-	void Camera::LoadData(std::vector<float>&& data)
+	void Camera::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
-		if (data[0] < data[2]) {
-			mLeft = data[0];
-			mRight = data[2];
+		if (data[0].x < data[1].x) {
+			mLeft = data[0].x;
+			mRight = data[1].x;
 		}
 		else {
-			mLeft = data[2];
-			mRight = data[0];
+			mLeft = data[1].x;
+			mRight = data[0].x;
 		}
 
-		if (data[1] < data[3]) {
-			mBottom = data[1];
-			mTop = data[3];
+		if (data[0].x < data[1].y) {
+			mBottom = data[0].x;
+			mTop = data[1].y;
 		}
 		else {
-			mBottom = data[3];
-			mTop = data[1];
+			mBottom = data[1].y;
+			mTop = data[0].x;
 		}
 	}
 

@@ -44,10 +44,9 @@ namespace Stage
 		mAnimation.SetIsAutoDrawing(true);
 	}
 
-	void Player::LoadData(std::vector<float>&& data)
+	void Player::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
-		
-		mAnimation.SetPosition(GameLib::Vector2{ data[0],data[1] });
+		mAnimation.SetPosition(data[0]);
 		mStateManager.SetStartState(new PlayerState::Active{ &mAnimation });
 		
 	}

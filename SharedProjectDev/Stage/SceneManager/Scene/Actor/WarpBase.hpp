@@ -26,15 +26,14 @@ namespace Stage
 		//Warpの時Playerの移動に使用
 		virtual const GameLib::Vector2& GetPosition() const = 0;
 
-		void SetThisNameTag(std::string&& nameTag);
-		void SetDestinationNameTag(std::string&& nameTag);
-
 		//Playerがここに飛んでくるときの通知用
 		virtual void PlayerWarpHere() {};
 
 	protected:
 		//PlayerをWarpさすとき呼び出す
 		void WarpPlayer();
+
+		void SetNameTags(std::string&& my, std::string&& dedtiantion);
 
 	};
 }

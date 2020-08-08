@@ -33,39 +33,29 @@ namespace Stage
 		return true;
 	}
 
-	std::vector<float> GetFloatData(picojson::object&& obj) {
+	std::vector<float> GetFloatData(picojson::object& obj) {
 		int i = 0;
 		std::vector<float> floatData{};
-		while (obj[std::to_string(i)].is<double>()) {
-			floatData.emplace_back(static_cast<float>(obj[std::to_string(i)].get<double>()));
+		while (obj["FloatData" + std::to_string(i)].is<double>()) {
+			floatData.emplace_back(static_cast<float>(obj["FloatData" + std::to_string(i)].get<double>()));
 			i++;
 		}
 
 		return floatData;
 	}
 
-
-	std::unordered_map<std::string, std::string> GetStringData(const std::string& actorName, picojson::object& obj)
+	std::vector<std::string> GetStringData(picojson::object& obj)
 	{
-		std::unordered_map<std::string, std::string> stringData{};
-
-		if (actorName == "Warp") {
-			
-			std::string warpGateType = obj[WarpBase::TYPE].get<std::string>();
-			std::string nameTag = obj[WarpBase::NAMETAG].get<std::string>();
-			std::string destinationNameTag = obj[WarpBase::DESTINATION_NAMETAG].get<std::string>();
-
-			stringData.emplace(WarpBase::TYPE ,std::move(warpGateType));
-			stringData.emplace(WarpBase::NAMETAG, std::move(nameTag));
-			stringData.emplace(WarpBase::DESTINATION_NAMETAG, std::move(destinationNameTag));
-			
+		int i = 0;
+		std::vector<std::string> stringData{};
+		while(obj["StringData" + std::to_string(i)].is<std::string>())
+		{
+			stringData.emplace_back(obj["StringData" + std::to_string(i)].get<std::string>());
+			i++;
 		}
-		
-
 
 		return stringData;
 	}
-
 
 	SceneManager* LoadStage(Stage* stage, std::string&& fileName)
 	{
@@ -91,11 +81,8 @@ namespace Stage
 				picojson::object& actorData = actorDataValue.get<picojson::object>();
 
 				std::string actorName = actorData["ActorName"].get<std::string>();
-				std::vector<float> floatData = GetFloatData(std::move(actorData));
-
-				//std::cout << actorName << std::endl;
-
-				auto stringData = GetStringData(actorName, actorData);
+				std::vector<float> floatData = GetFloatData(actorData);
+				std::vector<std::string> stringData = GetStringData(actorData);
 
 				sceneVector.emplace_back(ActorInfo{ std::move(actorName),std::move(floatData),std::move(stringData) });
 

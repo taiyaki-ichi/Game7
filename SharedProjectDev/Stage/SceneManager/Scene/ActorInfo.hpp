@@ -1,21 +1,23 @@
 #pragma once
 #include<vector>
 #include<string>
-#include<unordered_map>
-#include<string>
+#include"GameLib/include/Math/Vector2.hpp"
 
 namespace Stage
 {
 	struct ActorInfo {
 		std::string mName;
-		std::vector<float> mFloatData;
-		std::unordered_map<std::string, std::string> mStringData;
+		std::vector<GameLib::Vector2> mPosData;
+		std::vector<std::string> mStringData;
 
-		ActorInfo(std::string&& name, std::vector<float>&& data, std::unordered_map<std::string, std::string>&& data2 = {})
+		ActorInfo(std::string&& name, std::vector<float>&& data, std::vector<std::string>&& data2)
 			:mName{ std::move(name) }
-			, mFloatData{ std::move(data) }
+			, mPosData{ }
 			, mStringData{std::move(data2)}
-		{}
+		{
+			for (int i = 0; i < data.size() / 2.f; i++)
+				mPosData.emplace_back(GameLib::Vector2{ i * 2,i * 2 + 1 });
+		}
 
 	};
 }

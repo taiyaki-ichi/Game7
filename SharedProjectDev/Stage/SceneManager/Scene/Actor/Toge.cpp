@@ -30,11 +30,9 @@ namespace Stage
 		mStateManager.BeginToRest();
 	}
 
-	void Toge::LoadData(std::vector<float>&& data)
+	void Toge::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
-		auto pos = GameLib::Vector2{ data[0],data[1] };
-		mAnimation.SetPosition(pos);
-
+		mAnimation.SetPosition(data[0]);
 		mStateManager.SetStartState(new TogeState::Active{ &mAnimation });
 
 	}

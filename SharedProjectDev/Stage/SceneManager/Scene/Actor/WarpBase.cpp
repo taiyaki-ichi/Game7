@@ -23,18 +23,15 @@ namespace Stage
 		return mNameTag;
 	}
 
-	void WarpBase::SetThisNameTag(std::string&& nameTag)
-	{
-		mNameTag = std::move(nameTag);
-	}
-	void WarpBase::SetDestinationNameTag(std::string&& nameTag)
-	{
-		mDestinationNameTag = std::move(nameTag);
-	}
-
 	void WarpBase::WarpPlayer()
 	{
 		auto ptr = static_cast<SceneManager*>(mOwner->GetOwner());
 		ptr->Warp(this, mDestinationNameTag);
+	}
+
+	void WarpBase::SetNameTags(std::string&& my, std::string&& dedtiantion)
+	{
+		mNameTag = std::move(my);
+		mDestinationNameTag = std::move(dedtiantion);
 	}
 }

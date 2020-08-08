@@ -43,26 +43,22 @@ namespace Stage
 		mStateManager.BeginToRest();
 	}
 
-	void Bee::LoadData(std::vector<float>&& data)
+	void Bee::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
 		//Straight
 		if (data.size() == 4)
 		{
-			auto center = GameLib::Vector2{ data[0],data[1] } / 2.f + GameLib::Vector2{ data[2],data[3] } / 2.f;
-			auto radiusVec = GameLib::Vector2{ data[0],data[1] } / 2.f - GameLib::Vector2{ data[2],data[3] } / 2.f;
+			auto center = data[0] / 2.f + data[1] / 2.f;
+			auto radiusVec = data[0] / 2.f - data[1] / 2.f;
 			mStateManager.SetStartState(new BeeState::StraightActive{ &mAnim,std::move(center),std::move(radiusVec) });
 		}
 		//Circle
 		else
 		{
-			auto center = GameLib::Vector2{ data[0],data[1] };
-			auto radiusVec = GameLib::Vector2{ data[2],data[3] } - GameLib::Vector2{ data[0],data[1] };
+			auto center = data[0];
+			auto radiusVec = data[1] - data[0];
 
-			auto p1 = GameLib::Vector2{ data[0],data[1] };
-			auto p2 = GameLib::Vector2{ data[2],data[3] };
-			auto p3 = GameLib::Vector2{ data[4],data[5] };
-
-			float dir = (GameLib::Vector2::Cross(p2 - p1, p3 - p2) > 0.f) ? 1.f : -1.f;
+			float dir = (GameLib::Vector2::Cross(data[1] - data[0], data[2] - data[1]) > 0.f) ? 1.f : -1.f;
 
 			mStateManager.SetStartState(new BeeState::CircleActive{ &mAnim, std::move(center),std::move(radiusVec),dir });
 		}

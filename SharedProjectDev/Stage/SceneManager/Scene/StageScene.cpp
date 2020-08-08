@@ -26,17 +26,18 @@ namespace Stage
 			}
 			else if (info.mName == "Camera")
 			{
-				ptr = CreateStageActor(this, std::move(info.mName),std::move(info.mStringData));
+				ptr = CreateStageActor(this, std::move(info.mName));
 				mCamera = static_cast<Camera*>(ptr);
 			}
 			else {
-				ptr = CreateStageActor(this, std::move(info.mName), std::move(info.mStringData));
+				ptr = CreateStageActor(this, std::move(info.mName));
 			}
 
 			
-
-			if (ptr)
-				ptr->LoadData(std::move(info.mFloatData));
+			if (ptr) {
+				ptr->LoadPosData(std::move(info.mPosData));
+				ptr->LoadStringData(std::move(info.mStringData));
+			}
 		}
 
 		if (startSceneFlag)

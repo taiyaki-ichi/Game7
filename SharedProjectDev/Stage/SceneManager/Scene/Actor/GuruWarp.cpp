@@ -40,11 +40,15 @@ namespace Stage
 		mTexture.SetIsAutoDrawing(false);
 	}
 
-	void GuruWarp::LoadData(std::vector<float>&& data)
+	void GuruWarp::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
-		auto pos = GameLib::Vector2{ data[0],data[1] };
-		mTexture.SetPosition(pos);
-		mCollder.SetPosition(std::move(pos));
+		mTexture.SetPosition(data[0]);
+		mCollder.SetPosition(std::move(data[0]));
+	}
+
+	void GuruWarp::LoadStringData(std::vector < std::string >&& data)
+	{
+		SetNameTags(std::move(data[0]), std::move(data[1]));
 	}
 
 	void GuruWarp::PlayerWarpHere()

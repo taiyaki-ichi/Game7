@@ -9,7 +9,7 @@ namespace Stage
 	class WarpBase;
 
 	//PlayerˆÈŠO‚ğ‚±‚±‚Å¶¬
-	ActorBase* CreateStageActor(Scene* scene, std::string&& nameTag,std::unordered_map<std::string,std::string>&& staringData);
+	ActorBase* CreateStageActor(Scene* scene, std::string&& nameTag);
 
 
 

@@ -26,7 +26,7 @@ namespace Stage
 		void BeginWorking() override;
 		void BeginToRest()override;
 
-		void LoadData(std::vector<float>&& floatData) override {};
+		void LoadPosData(std::vector<GameLib::Vector2>&& floatData) override {};
 
 	};
 
@@ -42,7 +42,7 @@ namespace Stage
 		void BeginToRest() override {};
 
 		//Ç±Ç±Ç≈GroundÇê∂ê¨
-		void LoadData(std::vector<float>&& floatData) override;
+		void LoadPosData(std::vector<GameLib::Vector2>&&) override;
 	};
 
 }

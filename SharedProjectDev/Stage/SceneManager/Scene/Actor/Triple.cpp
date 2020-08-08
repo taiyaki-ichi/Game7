@@ -39,10 +39,9 @@ namespace Stage
 		mStateManager.BeginToRest();
 	}
 
-	void Triple::LoadData(std::vector<float>&& data)
+	void Triple::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
-		auto pos = GameLib::Vector2{ data[0],data[1] };
-		mAnimation.SetPosition(std::move(pos));
+		mAnimation.SetPosition(std::move(data[0]));
 		mStateManager.SetStartState(new TripleState::Active{ &mAnimation });
 	}
 
