@@ -32,6 +32,10 @@ namespace StageEditor
 			return mData.size();
 		}
 
+		int GetMaxDataNum() const{
+			return mDataNum;
+		}
+
 		const T& operator[](int n) const {
 			return mData[n];
 		}

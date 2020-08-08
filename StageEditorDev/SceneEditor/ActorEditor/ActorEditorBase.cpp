@@ -47,18 +47,17 @@ namespace StageEditor
 
 	void ActorEditorBase::PrintStringData()
 	{
-		PrintStringDataInfo();
-
-		int num = mStringData.GetDataNum();
-		if (num > 0)
+		if (mStringData.GetMaxDataNum() > 0 && !IsOK())
 		{
+			PrintStringDataInfo();
+
+			int num = mStringData.GetDataNum();
 			for (int i = 0; i <= num; i++) {
 				std::cout << "String Data " << std::to_string(i) << ": ";
 
 				if (i != num)
-					std::cout << mStringData[i];
+					std::cout << mStringData[i] << "\n";
 
-				std::cout << "\n";
 			}
 		}
 	}

@@ -3,6 +3,7 @@
 #include<functional>
 #include"ActorEditor/PlayerEditor.hpp"
 #include"ActorEditor/GroundEditor.hpp"
+#include"ActorEditor/GuruWarpEditor.hpp"
 
 
 namespace StageEditor
@@ -13,6 +14,7 @@ namespace StageEditor
 		std::unordered_map<std::string, std::function<ActorEditorBase* (GameLib::Actor*)>> gActorEditorGenerator = {
 			{"Player",[](GameLib::Actor* actor) {return new PlayerEditor{actor}; }},
 			{"Ground",[](GameLib::Actor* actor) {return new GroundEditor{actor}; }},
+			{"GuruWarp",[](GameLib::Actor* actor) {return new GuruWarpEditor{actor}; }},
 		};
 	}
 

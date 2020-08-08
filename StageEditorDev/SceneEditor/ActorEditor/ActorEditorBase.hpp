@@ -38,7 +38,7 @@ namespace StageEditor
 		//入力されたデータ、次のデータが何番目に入力されるかの表示
 		void PrintStringData();
 		//PrintStringDataの前に呼び出される、何番目のデータがなんのデータかの説明用
-		void PrintStringDataInfo() {};
+		virtual void PrintStringDataInfo() {};
 
 		void BeginBeginWorking();
 		void BeginBeginToRest();

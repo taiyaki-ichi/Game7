@@ -47,8 +47,8 @@ namespace StageEditor
 		}
 		std::cout << "\n";
 
-		if (!mNowSceneEditor || !mNowSceneEditor->IsEdtingActor())
-			std::cout << ">";
+		
+		std::cout << ">";
 
 
 		if (mNowSceneEditor)

@@ -19,7 +19,7 @@ namespace StageEditor
 
 	void SceneEditor::CreateActor(std::string&& actorName)
 	{
-		CreateActorEditor(this, std::move(actorName));
+		mNowActorEditor = CreateActorEditor(this, std::move(actorName));
 	}
 
 	bool SceneEditor::IsEdtingActor()
@@ -32,11 +32,10 @@ namespace StageEditor
 		mNowActorEditor->ForwardStringData(std::move(str));
 	}
 
-
-
 	void SceneEditor::UpdateConsoleScreen()
 	{
-		if (mNowActorEditor)
+		if (mNowActorEditor) 
 			mNowActorEditor->PrintStringData();
+		
 	}
 }

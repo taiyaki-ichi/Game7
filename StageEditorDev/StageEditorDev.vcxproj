@@ -155,6 +155,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\GuruWarpEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
     <ClInclude Include="SceneEditor\BeginPolicy.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
@@ -170,6 +171,7 @@
     <ClCompile Include="SaveFunc.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GuruWarpEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
     <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
