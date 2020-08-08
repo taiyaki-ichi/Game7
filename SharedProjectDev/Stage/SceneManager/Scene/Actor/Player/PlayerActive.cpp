@@ -145,7 +145,7 @@ namespace Stage::PlayerState
 
 	void Active::SetPosition(const GameLib::Vector2& pos)
 	{
-		std::cout << "set pos: " << pos.x << "," << pos.y << "\n";
+		//std::cout << "set pos: " << pos.x << "," << pos.y << "\n";
 		mPhysicsModel.mPosition = pos;
 		mAnimation->SetPosition(pos);
 		AdjustCollider();

@@ -17,13 +17,13 @@ namespace StageEditor
 		, mSceneEditors{}
 		, mCheckFlag{false}
 	{
+		GameLib::Collider::SetIsDebug(true);
+
 		mConsoleMessage = new ConsoleMessage{ this };
 		new Cursor{ this };
 
 		LoadStage("tmp.json");
 		UpdateConsoleScreen();
-
-		GameLib::Collider::SetIsDebug(true);
 
 	}
 

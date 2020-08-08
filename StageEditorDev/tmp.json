@@ -13,9 +13,35 @@
           "FloatData1": -93,
           "FloatData2": 246,
           "FloatData3": -213
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 113,
+          "FloatData1": -16,
+          "StringData0": "aaa",
+          "StringData1": "bbb"
         }
       ],
       "SceneName": "aaa"
+    },
+    {
+      "ActorsData": [
+        {
+          "ActorName": "Ground",
+          "FloatData0": -296,
+          "FloatData1": -78,
+          "FloatData2": 318,
+          "FloatData3": -241
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": -188,
+          "FloatData1": 69,
+          "StringData0": "bbb",
+          "StringData1": "aaa"
+        }
+      ],
+      "SceneName": "bbb"
     }
   ]
 }
