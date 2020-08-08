@@ -17,6 +17,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GuruWarpEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />
@@ -33,5 +34,6 @@
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
     <ClCompile Include="StartActor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GuruWarpEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
   </ItemGroup>
 </Project>

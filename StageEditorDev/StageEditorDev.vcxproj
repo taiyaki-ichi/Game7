@@ -152,6 +152,7 @@
     <ClInclude Include="SaveFunc.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorData.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ActorEditorBase.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="LoadFunc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SaveFunc.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GuruWarpEditor.cpp" />

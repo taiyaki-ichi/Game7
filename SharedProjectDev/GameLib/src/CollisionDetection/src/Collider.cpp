@@ -72,7 +72,7 @@ namespace GameLib
 	void Collider::SetIsDebug(bool b)
 	{
 		mIsDebug = b;
-		ColliderManager::SetAllIsDrawing(b);
+		//ColliderManager::SetAllIsDrawing(b);
 	}
 
 	void Collider::Set(const Vector2& pos, float width, float heigth, float scale, float rot)
