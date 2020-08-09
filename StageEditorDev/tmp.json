@@ -22,45 +22,22 @@
           "FloatData3": 324.44454956054688
         },
         {
-          "ActorName": "GuruWarp",
-          "FloatData0": 136,
-          "FloatData1": 57,
-          "StringData0": "aaa",
-          "StringData1": "bbb"
+          "ActorName": "Toge",
+          "FloatData0": -181,
+          "FloatData1": 112
         },
         {
           "ActorName": "Toge",
-          "FloatData0": -31,
-          "FloatData1": 41
+          "FloatData0": 13,
+          "FloatData1": 72
+        },
+        {
+          "ActorName": "Toge",
+          "FloatData0": 243,
+          "FloatData1": 71
         }
       ],
       "SceneName": "1"
-    },
-    {
-      "ActorsData": [
-        {
-          "ActorName": "Ground",
-          "FloatData0": -306,
-          "FloatData1": -83,
-          "FloatData2": 279,
-          "FloatData3": -224
-        },
-        {
-          "ActorName": "GuruWarp",
-          "FloatData0": -184.61541748046875,
-          "FloatData1": 35.384620666503906,
-          "StringData0": "bbb",
-          "StringData1": "aaa"
-        },
-        {
-          "ActorName": "Camera",
-          "FloatData0": -441.53851318359375,
-          "FloatData1": -360.00003051757813,
-          "FloatData2": 435.38467407226563,
-          "FloatData3": 241.53849792480469
-        }
-      ],
-      "SceneName": "2"
     }
   ]
 }

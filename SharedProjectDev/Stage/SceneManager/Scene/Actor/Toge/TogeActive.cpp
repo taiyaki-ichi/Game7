@@ -22,6 +22,7 @@ namespace Stage
 			mCollider.SetColor({ 0,0,255,255 });
 
 			mPhysicsModel.mPosition = mAnim->GetPosition();
+			mPhysicsModel.mScale = TogeParam::SCALE_CENTER;
 
 			auto hitGround = [this](const GameLib::Collider& c) {
 				auto adjust = GetParallelRectAdjustVec(mCollider, c);
@@ -51,6 +52,8 @@ namespace Stage
 		
 		StateBase<>* Active::Update()
 		{
+			//std::cout << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
+
 			mPhysicsModel.mScale = TogeParam::SCALE_CENTER + TogeParam::SCALE_RADIUS * std::sin(mCnt / 100.f);
 			mPhysicsModel.Update(Gravity::GetVector2());
 

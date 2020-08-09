@@ -6,6 +6,7 @@
 #include"ActorEditor/GuruWarpEditor.hpp"
 #include"ActorEditor/CameraEditor.hpp"
 #include"ActorEditor/TogeEditor.hpp"
+#include"ActorEditor/TripleEditor.hpp"
 
 
 namespace StageEditor
@@ -18,7 +19,8 @@ namespace StageEditor
 			{"Ground",[](GameLib::Actor* actor) {return new GroundEditor{actor}; }},
 			{"GuruWarp",[](GameLib::Actor* actor) {return new GuruWarpEditor{actor}; }},
 			{"Camera",[](GameLib::Actor* actor) {return new CameraEditor{actor}; }},
-			{"Toge",[](GameLib::Actor* actor) {return new TogeEditor{actor}; }}
+			{"Toge",[](GameLib::Actor* actor) {return new TogeEditor{actor}; }},
+			{"Triple",[](GameLib::Actor* actor) {return new TripleEditor{actor}; }},
 		};
 	}
 
