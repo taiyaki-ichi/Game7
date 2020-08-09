@@ -11,7 +11,7 @@ namespace Stage
 		, mVelocity{}
 		, mIsRotation{false}
 	{
-		mTexture.SetScale(0.09f);
+		mTexture.SetScale(GravityBoxParam::AppleParam::SCALE);
 	}
 
 	void Apple::CustomizeUpdate()

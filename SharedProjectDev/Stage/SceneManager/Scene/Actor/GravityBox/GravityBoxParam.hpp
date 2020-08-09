@@ -17,6 +17,7 @@ namespace Stage
 			constexpr float MOVE_LENGTH = 15.f;
 			constexpr float MOVE_SPEED = 3.f;
 			constexpr float ROTATION_SPEED = 0.7f;
+			constexpr float SCALE = 0.09f;
 
 		}
 	}

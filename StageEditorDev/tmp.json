@@ -20,21 +20,6 @@
           "FloatData1": -504.44461059570313,
           "FloatData2": 604.44464111328125,
           "FloatData3": 324.44454956054688
-        },
-        {
-          "ActorName": "Toge",
-          "FloatData0": -181,
-          "FloatData1": 112
-        },
-        {
-          "ActorName": "Toge",
-          "FloatData0": 13,
-          "FloatData1": 72
-        },
-        {
-          "ActorName": "Toge",
-          "FloatData0": 243,
-          "FloatData1": 71
         }
       ],
       "SceneName": "1"
