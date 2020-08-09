@@ -1,6 +1,8 @@
 #pragma once
 #include<vector>
 #include<utility>
+#include<optional>
+#include<functional>
 
 namespace StageEditor
 {
@@ -10,17 +12,24 @@ namespace StageEditor
 	{
 		int mDataNum;
 		std::vector<T> mData;
-
+		std::optional<std::function<bool(int, const T&)>> mDataChecker;
 	public:
 		Data(int dataNum)
 			:mDataNum{ dataNum }
 			, mData{}
+			, mDataChecker{std::nullopt}
 		{}
 		virtual ~Data() = default;
 
 		void AddData(T&& pos) {
 			if (mData.size() < mDataNum)
-				mData.emplace_back(std::move(pos));
+				if (!mDataChecker || mDataChecker.value()(mData.size(), pos))
+					mData.emplace_back(std::move(pos));
+		}
+
+		void SetDataCecker(std::optional<std::function<bool(int, const T&)>>&& dataChecker)
+		{
+			mDataChecker = std::move(dataChecker);
 		}
 
 		//データが有効な値で埋められているかどうか

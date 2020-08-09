@@ -49,10 +49,12 @@ namespace StageEditor
 	{
 		if (mStringData.GetMaxDataNum() > 0 && !IsOK())
 		{
+			std::cout << "\n";
 			PrintStringDataInfo();
+			std::cout << "\n";
 
 			int num = mStringData.GetDataNum();
-			for (int i = 0; i <= num; i++) {
+			for (int i = 0; i <= num && i < mStringData.GetMaxDataNum(); i++) {
 				std::cout << "String Data " << std::to_string(i) << ": ";
 
 				if (i != num)

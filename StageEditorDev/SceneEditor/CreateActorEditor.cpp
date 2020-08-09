@@ -7,6 +7,7 @@
 #include"ActorEditor/CameraEditor.hpp"
 #include"ActorEditor/TogeEditor.hpp"
 #include"ActorEditor/TripleEditor.hpp"
+#include"ActorEditor/GravityBoxEditor.hpp"
 
 
 namespace StageEditor
@@ -21,6 +22,7 @@ namespace StageEditor
 			{"Camera",[](GameLib::Actor* actor) {return new CameraEditor{actor}; }},
 			{"Toge",[](GameLib::Actor* actor) {return new TogeEditor{actor}; }},
 			{"Triple",[](GameLib::Actor* actor) {return new TripleEditor{actor}; }},
+			{"GravityBox",[](GameLib::Actor* actor) {return new GravityBoxEditor{actor}; }},
 		};
 	}
 
