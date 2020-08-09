@@ -82,6 +82,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee\BeeStraightActive.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox\Apple.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GravityBox\GravityBoxParam.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\GuruWarp.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeActive.hpp" />

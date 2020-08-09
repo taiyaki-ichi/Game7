@@ -18,7 +18,6 @@ namespace Stage
 		Apple* mApple;
 
 		int mRotationCnt;
-		constexpr static float DELTA_ROT = 0.1f;
 
 		GameLib::Vector2 mPosition;
 		float mRotation;

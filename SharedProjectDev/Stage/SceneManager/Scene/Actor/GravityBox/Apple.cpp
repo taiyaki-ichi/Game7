@@ -1,4 +1,5 @@
 #include"Apple.hpp"
+#include"GravityBoxParam.hpp"
 
 namespace Stage
 {
@@ -15,6 +16,8 @@ namespace Stage
 
 	void Apple::CustomizeUpdate()
 	{
+		using namespace GravityBoxParam::AppleParam;
+
 		if (mIsRotation)
 		{
 			float rot = mTexture.GetRotation();
@@ -53,6 +56,8 @@ namespace Stage
 
 	void Apple::Fall(const Dir4& dir)
 	{
+		using namespace GravityBoxParam::AppleParam;
+
 		if (dir == Dir4::Up)
 			mVelocity = GameLib::Vector2{ 0.f,MOVE_SPEED };
 		else if (dir == Dir4::Down)
@@ -67,6 +72,8 @@ namespace Stage
 
 	void Apple::GoCenter()
 	{
+		using namespace GravityBoxParam::AppleParam;
+
 		auto dirVec = mCenter - mTexture.GetPosition();
 		dirVec.Normalize();
 		mVelocity = dirVec * MOVE_SPEED;

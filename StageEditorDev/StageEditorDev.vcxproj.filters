@@ -22,6 +22,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\TogeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GravityBoxEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\GravityBox2Editor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />
@@ -43,5 +44,6 @@
     <ClCompile Include="SceneEditor\ActorEditor\TogeEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TripleEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBoxEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GravityBox2Editor.cpp" />
   </ItemGroup>
 </Project>

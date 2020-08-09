@@ -11,10 +11,6 @@ namespace Stage
 
 		GameLib::Vector2 mCenter;
 
-		constexpr static float MOVE_LENGTH = 15.f;
-		constexpr static float MOVE_SPEED = 3.f;
-		constexpr static float ROTATION_SPEED = 0.7f;
-
 		GameLib::Vector2 mVelocity;
 		bool mIsRotation;
 

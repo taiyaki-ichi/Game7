@@ -5,6 +5,7 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"GravityBox/Apple.hpp"
 #include"Player.hpp"
+#include"GravityBox/GravityBoxParam.hpp"
 
 namespace Stage
 {
@@ -19,13 +20,14 @@ namespace Stage
 		, mTexture{"../Assets/Object/GravityBox/box4.png"}
 		, mApple{nullptr}
 	{
+		using namespace GravityBoxParam;
 
-		mTexture.SetScale(0.1f);
+		mTexture.SetScale(SCALE);
 
 		mCollider.SetNameTag("GravityBox");
-		mCollider.SetWidthAndHeith(76.f, 76.f);
+		mCollider.SetWidthAndHeith(WIDTH, HEIGHT);
 
-		mCollider2.SetWidthAndHeith(74.f, 74.f);
+		mCollider2.SetWidthAndHeith(WIDTH* SCALE - COLLIDER2_DELTA_LENGTH, HEIGHT* SCALE - COLLIDER2_DELTA_LENGTH);
 
 		auto hitPlayer = [this](const GameLib::Collider& c) {
 			auto adjust = GetParallelRectAdjustVec(mCollider, c);
@@ -98,9 +100,9 @@ namespace Stage
 			//std::cout << "pos: "<<pos.x << "," << pos.y << "\n";
 
 			if (mRotationCnt > 0)
-				rot += DELTA_ROT;
+				rot += GravityBoxParam::CAMERA_DELTA_ROT;
 			else
-				rot -= DELTA_ROT;
+				rot -= GravityBoxParam::CAMERA_DELTA_ROT;
 
 			while (rot < 0.f)
 				rot += GameLib::PI * 2.f;
@@ -108,7 +110,7 @@ namespace Stage
 				rot -= GameLib::PI * 2.f;
 
 			for (int i = 0; i < 4; i++) {
-				if (std::abs(rot - GameLib::PI / 2.f * i) < DELTA_ROT / 2.f) {
+				if (std::abs(rot - GameLib::PI / 2.f * i) < GravityBoxParam::CAMERA_DELTA_ROT / 2.f) {
 					if (mRotationCnt > 0)
 						mRotationCnt--;
 					else
