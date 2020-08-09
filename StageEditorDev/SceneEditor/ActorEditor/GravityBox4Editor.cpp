@@ -1,13 +1,11 @@
-#include"GravityBox2Editor.hpp"
+#include"GravityBox4Editor.hpp"
 #include"Stage/SceneManager/Scene/Actor/GravityBox/GravityBoxParam.hpp"
-#include"GameLib/include/Math/Numbers.hpp"
 
 namespace StageEditor
 {
-	
-	GravityBox2Editor::GravityBox2Editor(GameLib::Actor* actor)
-		:ActorEditorBase{actor,"GravityBox2",1,1}
-		, mBox{ "../Assets/Object/GravityBox/box2.png" }
+	GravityBox4Editor::GravityBox4Editor(GameLib::Actor* actor)
+		:ActorEditorBase{actor,"GravityBox4",1,2}
+		, mBox{ "../Assets/Object/GravityBox/box4.png" }
 		, mApple{ "../Assets/Object/GravityBox/apple.png" }
 	{
 		mApple.SetScale(Stage::GravityBoxParam::AppleParam::SCALE);
@@ -19,7 +17,14 @@ namespace StageEditor
 		mCollider.SetWidthAndHeith(Stage::GravityBoxParam::WIDTH, Stage::GravityBoxParam::HEIGHT);
 
 		auto stringDataChecker = [](int n, const std::string& str)->bool {
-			if (n == 0) {
+			if (n == 0)
+			{
+				if (str == "right" || str == "left")
+					return true;
+				else
+					return false;
+			}
+			if (n == 1) {
 				if (str == "right" || str == "left" || str == "up" || str == "down")
 					return true;
 				else
@@ -31,22 +36,26 @@ namespace StageEditor
 		mStringData.SetDataCecker(std::move(stringDataChecker));
 	}
 
-	void GravityBox2Editor::Update()
+	void GravityBox4Editor::Update()
 	{
+		mCollider.SetPosition(mPosData[0]);
 		mBox.SetPosition(mPosData[0]);
 		mApple.SetPosition(mPosData[0]);
-		mCollider.SetPosition(mPosData[0]);
 
-		if (mStringData.GetDataNum() == 1)
+		if (mStringData.GetDataNum() > 0)
+		{
+			if (mStringData[0] == "right")
+				mBox.SetHorizontalFlip(true);
+		}
+
+		if (mStringData.GetDataNum() == 2)
 		{
 			float d = Stage::GravityBoxParam::AppleParam::MOVE_LENGTH;
 			if (mStringData[0] == "right") {
 				mApple.SetPosition(mPosData[0] + GameLib::Vector2{ d,0.f });
-				mBox.SetRotation(GameLib::PI / 2.f);
 			}
 			else if (mStringData[0] == "left") {
 				mApple.SetPosition(mPosData[0] + GameLib::Vector2{ -d,0.f });
-				mBox.SetRotation(GameLib::PI / 2.f);
 			}
 			else if (mStringData[0] == "up")
 				mApple.SetPosition(mPosData[0] + GameLib::Vector2{ 0.f,d });
@@ -55,21 +64,21 @@ namespace StageEditor
 		}
 	}
 
-	void GravityBox2Editor::BeginWorking()
+	void GravityBox4Editor::BeginWorking()
 	{
 		mBox.SetIsAutoDrawing(true);
 		mApple.SetIsAutoDrawing(true);
 	}
 
-	void GravityBox2Editor::BeginToRest()
+	void GravityBox4Editor::BeginToRest()
 	{
 		mBox.SetIsAutoDrawing(false);
 		mApple.SetIsAutoDrawing(false);
 	}
 
-	void GravityBox2Editor::PrintStringDataInfo()
+	void GravityBox4Editor::PrintStringDataInfo()
 	{
-		std::cout << "0: right or left or up or down (first change dir)\n";
+		std::cout << "0: right or left (rotation dir)\n";
+		std::cout << "1: right or left or up or down (first change dir)\n";
 	}
-	
 }

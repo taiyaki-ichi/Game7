@@ -4,14 +4,15 @@
 
 namespace StageEditor
 {
-	//2•ûŒü‚É‰ñ“]
-	class GravityBox2Editor : public ActorEditorBase
+
+	//4•ûŒü‚É‰ñ“]
+	class GravityBox4Editor : public ActorEditorBase
 	{
 		GameLib::DrawTexture mBox;
 		GameLib::DrawTexture mApple;
 
 	public:
-		GravityBox2Editor(GameLib::Actor*);
+		GravityBox4Editor(GameLib::Actor*);
 
 		void Update() override;
 
@@ -19,6 +20,5 @@ namespace StageEditor
 		void BeginToRest() override;
 
 		void PrintStringDataInfo() override;
-		
 	};
 }
