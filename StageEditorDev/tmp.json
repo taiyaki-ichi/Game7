@@ -3,59 +3,64 @@
     {
       "ActorsData": [
         {
-          "ActorName": "Player",
-          "FloatData0": -61,
-          "FloatData1": -1
+          "ActorName": "Ground",
+          "FloatData0": -408,
+          "FloatData1": -35,
+          "FloatData2": 372,
+          "FloatData3": -332
         },
         {
-          "ActorName": "Ground",
-          "FloatData0": -287,
-          "FloatData1": -93,
-          "FloatData2": 246,
-          "FloatData3": -213
+          "ActorName": "Player",
+          "FloatData0": -265.00003051757813,
+          "FloatData1": 40.000011444091797
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -602.222412109375,
+          "FloatData1": -504.44461059570313,
+          "FloatData2": 604.44464111328125,
+          "FloatData3": 324.44454956054688
         },
         {
           "ActorName": "GuruWarp",
-          "FloatData0": 113,
-          "FloatData1": -16,
+          "FloatData0": 136,
+          "FloatData1": 57,
           "StringData0": "aaa",
           "StringData1": "bbb"
         },
         {
-          "ActorName": "Ground",
-          "FloatData0": 202,
-          "FloatData1": -29,
-          "FloatData2": 628.46160888671875,
-          "FloatData3": -270.00003051757813
-        },
-        {
-          "ActorName": "Camera",
-          "FloatData0": -363.636474609375,
-          "FloatData1": -365.45462036132813,
-          "FloatData2": 701.818359375,
-          "FloatData3": 212.72734069824219
+          "ActorName": "Toge",
+          "FloatData0": -31,
+          "FloatData1": 41
         }
       ],
-      "SceneName": "aaa"
+      "SceneName": "1"
     },
     {
       "ActorsData": [
         {
           "ActorName": "Ground",
-          "FloatData0": -296,
-          "FloatData1": -78,
-          "FloatData2": 318,
-          "FloatData3": -241
+          "FloatData0": -306,
+          "FloatData1": -83,
+          "FloatData2": 279,
+          "FloatData3": -224
         },
         {
           "ActorName": "GuruWarp",
-          "FloatData0": -188,
-          "FloatData1": 69,
+          "FloatData0": -184.61541748046875,
+          "FloatData1": 35.384620666503906,
           "StringData0": "bbb",
           "StringData1": "aaa"
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -441.53851318359375,
+          "FloatData1": -360.00003051757813,
+          "FloatData2": 435.38467407226563,
+          "FloatData3": 241.53849792480469
         }
       ],
-      "SceneName": "bbb"
+      "SceneName": "2"
     }
   ]
 }

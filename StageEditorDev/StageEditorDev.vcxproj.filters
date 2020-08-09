@@ -19,6 +19,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\GuruWarpEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
     <ClInclude Include="Camera\EditorCamera.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\TogeEditor.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />
@@ -37,5 +38,6 @@
     <ClCompile Include="SceneEditor\ActorEditor\GuruWarpEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
     <ClCompile Include="Camera\EditorCamera.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\TogeEditor.cpp" />
   </ItemGroup>
 </Project>

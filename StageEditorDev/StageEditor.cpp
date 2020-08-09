@@ -46,7 +46,7 @@ namespace StageEditor
 		for (auto iter = mSceneEditors.begin(); iter != mSceneEditors.end(); iter++) {
 			std::cout << "  |- " << iter->first;
 			if (iter->second == mNowSceneEditor)
-				std::cout << "  <---Nooooow!!!";
+				std::cout << "  <---Now!!!!!";
 			std::cout << "\n";
 		}
 		std::cout << "\n";
