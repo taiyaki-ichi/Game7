@@ -3,24 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "GameDev\GameDev.vcxproj", "{F753F311-412D-4AAE-B292-5C1A64579173}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedProject", "SharedProject\SharedProject.vcxitems", "{D90EDF43-61F9-4706-BC37-B8A0664ACEC6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedProject", "SharedProjectDev\SharedProjectDev.vcxitems", "{B56EEAC4-88A7-4348-A460-6C364033770B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageEditor", "StageEditor\StageEditor.vcxproj", "{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameDev", "GameDev\GameDev.vcxproj", "{F753F311-412D-4AAE-B292-5C1A64579173}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SharedProjectDev", "SharedProjectDev\SharedProjectDev.vcxitems", "{B56EEAC4-88A7-4348-A460-6C364033770B}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageEditorDev", "StageEditorDev\StageEditorDev.vcxproj", "{FC3E03A7-3473-4BD7-B186-304AAD1B72F5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StageEditor", "StageEditorDev\StageEditorDev.vcxproj", "{FC3E03A7-3473-4BD7-B186-304AAD1B72F5}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		SharedProject\SharedProject.vcxitems*{8a840fc4-7073-4777-b5d9-5cebb4cfaac6}*SharedItemsImports = 4
 		SharedProjectDev\SharedProjectDev.vcxitems*{b56eeac4-88a7-4348-a460-6c364033770b}*SharedItemsImports = 9
-		SharedProject\SharedProject.vcxitems*{d90edf43-61f9-4706-bc37-b8a0664acec6}*SharedItemsImports = 9
-		SharedProject\SharedProject.vcxitems*{f555ffee-b5e6-49b6-a9c9-e4d1f25e1bfc}*SharedItemsImports = 4
 		SharedProjectDev\SharedProjectDev.vcxitems*{f753f311-412d-4aae-b292-5c1a64579173}*SharedItemsImports = 4
 		SharedProjectDev\SharedProjectDev.vcxitems*{fc3e03a7-3473-4bd7-b186-304aad1b72f5}*SharedItemsImports = 4
 	EndGlobalSection
@@ -31,22 +22,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Debug|x64.ActiveCfg = Debug|x64
-		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Debug|x64.Build.0 = Debug|x64
-		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Debug|x86.ActiveCfg = Debug|Win32
-		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Debug|x86.Build.0 = Debug|Win32
-		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x64.ActiveCfg = Release|x64
-		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x64.Build.0 = Release|x64
-		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x86.ActiveCfg = Release|Win32
-		{F555FFEE-B5E6-49B6-A9C9-E4D1F25E1BFC}.Release|x86.Build.0 = Release|Win32
-		{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}.Debug|x64.ActiveCfg = Debug|x64
-		{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}.Debug|x64.Build.0 = Debug|x64
-		{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}.Debug|x86.ActiveCfg = Debug|Win32
-		{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}.Debug|x86.Build.0 = Debug|Win32
-		{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}.Release|x64.ActiveCfg = Release|x64
-		{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}.Release|x64.Build.0 = Release|x64
-		{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}.Release|x86.ActiveCfg = Release|Win32
-		{8A840FC4-7073-4777-B5D9-5CEBB4CFAAC6}.Release|x86.Build.0 = Release|Win32
 		{F753F311-412D-4AAE-B292-5C1A64579173}.Debug|x64.ActiveCfg = Debug|x64
 		{F753F311-412D-4AAE-B292-5C1A64579173}.Debug|x64.Build.0 = Debug|x64
 		{F753F311-412D-4AAE-B292-5C1A64579173}.Debug|x86.ActiveCfg = Debug|Win32

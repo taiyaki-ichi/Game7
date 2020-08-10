@@ -24,6 +24,7 @@
     <ProjectGuid>{fc3e03a7-3473-4bd7-b186-304aad1b72f5}</ProjectGuid>
     <RootNamespace>StageEditorDev</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>StageEditor</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
