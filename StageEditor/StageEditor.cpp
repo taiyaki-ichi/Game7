@@ -27,12 +27,13 @@ namespace StageEditor
 		new ConsoleMessage{ this };
 
 		mCamera = new EditorCamera(this);
-		mCamera->Reset();
 		new Cursor(this);
 		new ClickManager(this);
 
 		LoadStageData(this, "test.json");
 		PrintStageInfo();
+
+		mCamera->Reset();
 
 	}
 

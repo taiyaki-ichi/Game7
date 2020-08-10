@@ -17,6 +17,7 @@ namespace Stage
 		Camera(GameLib::Actor* scene);
 		virtual ~Camera() = default;
 
+		bool UpdateOrNot() override { return true; };
 		void Update() override;
 
 		void BeginWorking() override {};

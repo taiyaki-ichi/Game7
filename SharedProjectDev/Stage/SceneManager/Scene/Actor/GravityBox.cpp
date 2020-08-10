@@ -10,15 +10,18 @@
 namespace Stage
 {
 
-	GravityBox::GravityBox(GameLib::Actor* scene)
+	GravityBox::GravityBox(GameLib::Actor* scene,int dirNum)
 		:ActorBase{ scene }
 		, mCollider{}
 		, mCollider2{ "Ground" }
 		, mRotationCnt{ 0 }
 		, mRotation{ 0.f }
 		, mPosition{}
-		, mTexture{"../Assets/Object/GravityBox/box4.png"}
+		, mTexture{(dirNum==4)?"../Assets/Object/GravityBox/box4.png": "../Assets/Object/GravityBox/box2.png" }
 		, mApple{nullptr}
+		, mNextDir{Dir4::Left}
+		, mDeltaRotDir{1}
+		, mCoolDownCnt{0}
 	{
 		using namespace GravityBoxParam;
 
@@ -26,6 +29,7 @@ namespace Stage
 
 		mCollider.SetNameTag("GravityBox");
 		mCollider.SetWidthAndHeith(WIDTH, HEIGHT);
+		mCollider.SetScale(SCALE);
 
 		mCollider2.SetWidthAndHeith(WIDTH* SCALE - COLLIDER2_DELTA_LENGTH, HEIGHT* SCALE - COLLIDER2_DELTA_LENGTH);
 
@@ -33,42 +37,37 @@ namespace Stage
 			auto adjust = GetParallelRectAdjustVec(mCollider, c);
 			auto dir4VecAdjust = GetDir4Vec(adjust);
 
-			//std::cout << "a\n";
-
-			/*
-			if (dir4VecAdjust.mDir4 == Dir4::Down)
-				std::cout << "down\n";
-			if (dir4VecAdjust.mDir4 == Dir4::Up)
-				std::cout << "up\n";
-			if (dir4VecAdjust.mDir4 == Dir4::Right)
-				std::cout << "right\n";
-			if (dir4VecAdjust.mDir4 == Dir4::Left)
-				std::cout << "left";
-
-			if (Gravity::GetGravityDir4() == Dir4::Down)
-				std::cout << "down\n";
-			if (Gravity::GetGravityDir4() == Dir4::Up)
-				std::cout << "up\n";
-			if (Gravity::GetGravityDir4() == Dir4::Right)
-				std::cout << "right\n";
-			if (Gravity::GetGravityDir4() == Dir4::Left)
-				std::cout << "left";
-				*/
-			if (dir4VecAdjust.mDir4 == Dir4::Up /*&& std::fabs(dir4VecAdjust.mSize) > 0.5f*/ && mRotationCnt == 0) {
-				//std::cout << "b\n";
+			if (dir4VecAdjust.mDir4 == Dir4::Up && mRotationCnt == 0&&mCoolDownCnt==0) {
+				
 				auto gDir = Gravity::GetDir4();
 
-				////////////////////////////////////////////////////////////////////////////////////////
-				//+2とかじゃなく目的のDirと現在のDirを考慮さす
-				//nextDirとかもたすか
-				int dir = static_cast<int>(gDir) + 1;
+				mRotationCnt = static_cast<int>(mNextDir) - static_cast<int>(Gravity::GetDir4());
+
+				while (mRotationCnt < -2)
+					mRotationCnt += 4;
+				while (mRotationCnt > 2)
+					mRotationCnt -= 4;
+
+				//std::cout << "mRotationCnt: " << mRotationCnt << "\n";
+
+				Gravity::SetDir4(mNextDir);
+
+				//これじゃダメ！
+				int dir = static_cast<int>(mNextDir) + mDeltaRotDir;
 				while (dir > 3)
 					dir -= 4;
 				while (dir < 0)
 					dir += 4;
-				Gravity::SetDir4(static_cast<Dir4>(dir));
-				///////////////////////////////////////////////////////////////////////////////////////
-				mRotationCnt += 1;
+				mNextDir = static_cast<Dir4>(dir);
+
+				//回転終了判定に引っかからないようにするため
+				//最初は余分に足しておく
+				float rot = GameLib::Viewport::GetRotation();
+				if (mRotationCnt > 0)
+					rot += GravityBoxParam::CAMERA_DELTA_ROT;
+				else
+					rot -= GravityBoxParam::CAMERA_DELTA_ROT;
+				GameLib::Viewport::SetRotation(rot);
 
 				mRotation = GameLib::Viewport::GetRotation();
 				mPosition = GameLib::Viewport::GetPos();
@@ -86,12 +85,15 @@ namespace Stage
 		mCollider.AddHitFunction("Player", std::move(hitPlayer));
 
 		mApple = new Apple{ this };
-		///////////////////////////////////////////////////////////////////////////////////////////////////
-		mApple->Fall(Dir4::Right);
 		mApple->SetDrawOrder(1);
+
+		
 	}
 	void GravityBox::Update()
 	{
+		if (mCoolDownCnt > 0)
+			mCoolDownCnt--;
+
 
 		if (mRotationCnt != 0) {
 			float rot = GameLib::Viewport::GetRotation();
@@ -110,7 +112,7 @@ namespace Stage
 				rot -= GameLib::PI * 2.f;
 
 			for (int i = 0; i < 4; i++) {
-				if (std::abs(rot - GameLib::PI / 2.f * i) < GravityBoxParam::CAMERA_DELTA_ROT / 2.f) {
+				if (std::abs(rot - GameLib::PI / 2.f * i) <= GravityBoxParam::CAMERA_DELTA_ROT) {
 					if (mRotationCnt > 0)
 						mRotationCnt--;
 					else
@@ -120,33 +122,19 @@ namespace Stage
 
 					if (mRotationCnt == 0) {
 						Gravity::FinishRotation();
-						
-						int dir = static_cast<int>(Gravity::GetDir4());
-
-						//////////////////////////////////////////////////////////////////////////////
-						dir = (dir + 1 > 3) ? 0 : dir + 1;
-						mApple->Fall(static_cast<Dir4>(dir));
-
+						mApple->Fall(mNextDir);
 						mCollider2.SetNameTag("Ground");
+
+						mCoolDownCnt = COOLDOWN_TIME;;
 					}
 
 				}
 			}
 
 			GameLib::Viewport::SetPos(GameLib::Vector2::Rotation(mPosition, -rot + mRotation));
-
 			GameLib::Viewport::SetRotation(rot);
 
-			//auto pos = GameLib::AffineInv(mPos, GameLib::Viewport::GetPos(), -GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
-
-			//GameLib::Viewport::SetPos(mVec - GameLib::Vector2::Rotation(mVec, rot - mRot));
 		}
-		/*
-		float rot = GameLib::Viewport::GetRotation();
-		rot += 0.01f;
-		GameLib::Viewport::SetRotation(rot);
-		*/
-
 
 	}
 	void GravityBox::BeginWorking()
@@ -172,6 +160,42 @@ namespace Stage
 	bool GravityBox::UpdateOrNot()
 	{
 		return true;
+	}
+
+	void GravityBox::LoadStringData(std::vector<std::string>&& data)
+	{
+
+		std::string nextDirString{};
+		//2方向の場合
+		if (data.size() == 1)
+		{
+			if (data[0] == "right" || data[0] == "left")
+				mTexture.SetRotation(GameLib::PI / 2.f);
+
+			mDeltaRotDir = 2;
+			nextDirString = data[0];
+		}
+		else if (data.size() == 2)
+		{
+			if (data[0] == "right") {
+				mTexture.SetHorizontalFlip(true);
+				mDeltaRotDir = -1;
+			}
+
+			nextDirString = data[1];
+		}
+
+
+		if (nextDirString == "right")
+			mNextDir = Dir4::Right;
+		else if (nextDirString == "left")
+			mNextDir = Dir4::Left;
+		else if (nextDirString == "up")
+			mNextDir = Dir4::Up;
+		else if (nextDirString == "down")
+			mNextDir = Dir4::Down;
+
+		mApple->Fall(mNextDir);
 	}
 
 }

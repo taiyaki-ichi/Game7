@@ -10,16 +10,44 @@
           "FloatData3": -332
         },
         {
+          "ActorName": "Ground",
+          "FloatData0": 262,
+          "FloatData1": -57,
+          "FloatData2": 323,
+          "FloatData3": 358
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 286,
+          "FloatData1": 330,
+          "FloatData2": -120,
+          "FloatData3": 291
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -21,
+          "FloatData1": -51,
+          "FloatData2": -90,
+          "FloatData3": 313
+        },
+        {
           "ActorName": "Player",
-          "FloatData0": -265.00003051757813,
-          "FloatData1": 40.000011444091797
+          "FloatData0": 210,
+          "FloatData1": 97
         },
         {
           "ActorName": "Camera",
-          "FloatData0": -602.222412109375,
-          "FloatData1": -504.44461059570313,
-          "FloatData2": 604.44464111328125,
-          "FloatData3": 324.44454956054688
+          "FloatData0": -663.33367919921875,
+          "FloatData1": -523.3336181640625,
+          "FloatData2": 853.33380126953125,
+          "FloatData3": 603.33367919921875
+        },
+        {
+          "ActorName": "GravityBox4",
+          "FloatData0": 106,
+          "FloatData1": 118,
+          "StringData0": "left",
+          "StringData1": "right"
         }
       ],
       "SceneName": "1"

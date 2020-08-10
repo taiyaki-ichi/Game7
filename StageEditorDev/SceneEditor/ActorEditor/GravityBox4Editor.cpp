@@ -51,15 +51,13 @@ namespace StageEditor
 		if (mStringData.GetDataNum() == 2)
 		{
 			float d = Stage::GravityBoxParam::AppleParam::MOVE_LENGTH;
-			if (mStringData[0] == "right") {
+			if (mStringData[1] == "right")
 				mApple.SetPosition(mPosData[0] + GameLib::Vector2{ d,0.f });
-			}
-			else if (mStringData[0] == "left") {
+			else if (mStringData[1] == "left")
 				mApple.SetPosition(mPosData[0] + GameLib::Vector2{ -d,0.f });
-			}
-			else if (mStringData[0] == "up")
+			else if (mStringData[1] == "up")
 				mApple.SetPosition(mPosData[0] + GameLib::Vector2{ 0.f,d });
-			else if (mStringData[0] == "down")
+			else if (mStringData[1] == "down")
 				mApple.SetPosition(mPosData[0] + GameLib::Vector2{ 0.f,-d });
 		}
 	}

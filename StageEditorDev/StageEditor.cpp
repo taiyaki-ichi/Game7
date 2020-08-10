@@ -28,6 +28,7 @@ namespace StageEditor
 		UpdateConsoleScreen();
 
 		mCamera = new Camera{ this };
+		mCamera->Reset();
 
 	}
 

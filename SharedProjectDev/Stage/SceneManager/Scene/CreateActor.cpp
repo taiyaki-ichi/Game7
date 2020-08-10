@@ -19,7 +19,8 @@ namespace Stage
 		{
 			{"Ground",[](Scene* scene) {return new GroundGenerator{scene}; }},
 			{"Camera",[](Scene* scene) {return new Camera{scene}; }},
-			{"GravityBox",[](Scene* scene) {return new GravityBox{scene}; }},
+			{"GravityBox2",[](Scene* scene) {return new GravityBox{scene,2}; }},
+			{"GravityBox4",[](Scene* scene) {return new GravityBox{scene,4}; }},
 			{"Triple",[](Scene* scene) {return new Triple{scene}; }},
 			{"Toge",[](Scene* scene) {return new Toge{scene}; }},
 			{"Bee",[](Scene* scene) {return new Bee{scene}; }},

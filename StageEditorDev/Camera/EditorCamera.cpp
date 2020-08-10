@@ -59,5 +59,6 @@ namespace StageEditor
 		using namespace GameLib;
 		Viewport::SetPos(Vector2{ 0.f,0.f });
 		Viewport::SetScale(1.f);
+		Viewport::SetRotation(0.f);
 	}
 }
