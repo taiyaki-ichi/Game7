@@ -43,7 +43,7 @@ namespace Stage
 
 				mRotationCnt = static_cast<int>(mNextDir) - static_cast<int>(Gravity::GetDir4());
 
-				while (mRotationCnt < -2)
+				while (mRotationCnt <= -2)
 					mRotationCnt += 4;
 				while (mRotationCnt > 2)
 					mRotationCnt -= 4;

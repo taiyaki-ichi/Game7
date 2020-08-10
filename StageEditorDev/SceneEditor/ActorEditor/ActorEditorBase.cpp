@@ -42,7 +42,8 @@ namespace StageEditor
 
 	void ActorEditorBase::ForwardStringData(std::string&& str)
 	{
-		mStringData.AddData(std::move(str));
+		if (mPosData.IsOK())
+			mStringData.AddData(std::move(str));
 	}
 
 	void ActorEditorBase::PrintStringData()
