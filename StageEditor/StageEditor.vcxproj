@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{fc3e03a7-3473-4bd7-b186-304aad1b72f5}</ProjectGuid>
-    <RootNamespace>StageEditorDev</RootNamespace>
+    <ProjectGuid>{520e6bf1-f93c-40cf-b3a9-6482a03a6143}</ProjectGuid>
+    <RootNamespace>StageEditor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>StageEditor</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -57,7 +56,7 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-    <Import Project="..\SharedProjectDev\SharedProjectDev.vcxitems" Label="Shared" />
+    <Import Project="..\SharedProject\SharedProject.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -147,6 +146,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera\EditorCamera.cpp" />
+    <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />
+    <ClCompile Include="Cursor\Cursor.cpp" />
+    <ClCompile Include="LoadFunc.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SaveFunc.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\CircleBeeEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GravityBox2Editor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GravityBox4Editor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GuruWarpEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\StraightBeeEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\TogeEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\TripleEditor.cpp" />
+    <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
+    <ClCompile Include="SceneEditor\SceneEditor.cpp" />
+    <ClCompile Include="StageEditor.cpp" />
+    <ClCompile Include="StartActor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="Camera\EditorCamera.hpp" />
     <ClInclude Include="ConsoleMessage\ConsoleMessage.hpp" />
     <ClInclude Include="Cursor\Cursor.hpp" />
@@ -169,32 +192,8 @@
     <ClInclude Include="SceneEditor\BeginPolicy.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
     <ClInclude Include="SceneEditor\SceneEditor.hpp" />
-    <ClInclude Include="StartActor.hpp" />
     <ClInclude Include="StageEditor.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Camera\EditorCamera.cpp" />
-    <ClCompile Include="ConsoleMessage\ConsoleMessage.cpp" />
-    <ClCompile Include="Cursor\Cursor.cpp" />
-    <ClCompile Include="LoadFunc.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="SaveFunc.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\CircleBeeEditor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\GravityBox2Editor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\GravityBox4Editor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\GuruWarpEditor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\ActorEditorBase.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\StraightBeeEditor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\TogeEditor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\TripleEditor.cpp" />
-    <ClCompile Include="SceneEditor\CreateActorEditor.cpp" />
-    <ClCompile Include="SceneEditor\SceneEditor.cpp" />
-    <ClCompile Include="StageEditor.cpp" />
-    <ClCompile Include="StartActor.cpp" />
+    <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
