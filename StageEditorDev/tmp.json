@@ -48,6 +48,15 @@
           "FloatData1": 118,
           "StringData0": "left",
           "StringData1": "right"
+        },
+        {
+          "ActorName": "Bee",
+          "FloatData0": -205,
+          "FloatData1": 59,
+          "FloatData2": -242,
+          "FloatData3": 219,
+          "FloatData4": -311,
+          "FloatData5": 180
         }
       ],
       "SceneName": "1"
