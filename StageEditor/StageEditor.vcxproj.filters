@@ -42,5 +42,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\GravityBoxEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TogeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\BeeEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\StraightBeeEditor.hpp" />
   </ItemGroup>
 </Project>

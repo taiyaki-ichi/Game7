@@ -5,7 +5,7 @@
 namespace StageEditor
 {
 	CircleBeeEditor::CircleBeeEditor(GameLib::Actor* actor)
-		:ActorEditorBase{actor,"Bee",3,0}
+		:ActorEditorBase{actor,"CircleBee",3,0}
 		, mBee{ "../Assets/Enemy/Bee/active001.png" }
 		, mCircle{}
 	{

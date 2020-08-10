@@ -10,6 +10,9 @@
 #include"ActorEditor/GravityBox2Editor.hpp"
 #include"ActorEditor/GravityBox4Editor.hpp"
 #include"ActorEditor/CircleBeeEditor.hpp"
+#include"ActorEditor/StraightBeeEditor.hpp"
+
+
 
 namespace StageEditor
 {
@@ -26,6 +29,7 @@ namespace StageEditor
 			{"GravityBox2",[](GameLib::Actor* actor) {return new GravityBox2Editor{actor}; }},
 			{"GravityBox4",[](GameLib::Actor* actor) {return new GravityBox4Editor{actor}; }},
 			{"CircleBee",[](GameLib::Actor* actor) {return new CircleBeeEditor{actor}; }},
+			{"StraightBee",[](GameLib::Actor* actor) {return new StraightBeeEditor{actor}; }},
 		};
 	}
 
