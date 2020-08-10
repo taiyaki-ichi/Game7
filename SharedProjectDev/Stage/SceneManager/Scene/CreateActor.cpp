@@ -23,7 +23,8 @@ namespace Stage
 			{"GravityBox4",[](Scene* scene) {return new GravityBox{scene,4}; }},
 			{"Triple",[](Scene* scene) {return new Triple{scene}; }},
 			{"Toge",[](Scene* scene) {return new Toge{scene}; }},
-			{"Bee",[](Scene* scene) {return new Bee{scene}; }},
+			{"StraightBee",[](Scene* scene) {return new Bee{scene}; }},
+			{"CircleBee",[](Scene* scene) {return new Bee{scene}; }},
 			{"GuruWarp",[](Scene* scene) {return new GuruWarp{scene}; }}
 
 		};

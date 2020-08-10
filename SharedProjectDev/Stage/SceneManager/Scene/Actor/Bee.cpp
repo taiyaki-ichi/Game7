@@ -46,7 +46,7 @@ namespace Stage
 	void Bee::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
 		//Straight
-		if (data.size() == 4)
+		if (data.size() == 2)
 		{
 			auto center = data[0] / 2.f + data[1] / 2.f;
 			auto radiusVec = data[0] / 2.f - data[1] / 2.f;

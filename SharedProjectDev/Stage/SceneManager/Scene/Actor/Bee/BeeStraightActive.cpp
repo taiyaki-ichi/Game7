@@ -3,6 +3,7 @@
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"Stage/Gravity/GravityFunc.hpp"
 #include"Stage/Utilty/AdjustRot.hpp"
+#include"Stage/Gravity/Gravity.hpp"
 
 namespace Stage
 {
@@ -38,7 +39,9 @@ namespace Stage
 
 			using namespace BeeParam;
 			mWeakness.SetPosition(pos + GetVector2(Dir4::Up, HEIGHT * WEAKNESS_RATE * SCALE));
+			mWeakness.SetRotation(Gravity::GetRotation());
 			mStrength.SetPosition(pos + GetVector2(Dir4::Down, HEIGHT * STRENGTH_RATE * SCALE));
+			mStrength.SetRotation(Gravity::GetRotation());
 
 			rot = AdjustRot(rot);
 			if (rot < GameLib::PI)

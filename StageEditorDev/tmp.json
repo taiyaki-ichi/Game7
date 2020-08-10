@@ -48,6 +48,22 @@
           "FloatData1": 118,
           "StringData0": "left",
           "StringData1": "right"
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": -146,
+          "FloatData1": 101,
+          "FloatData2": -289,
+          "FloatData3": 198,
+          "FloatData4": -322,
+          "FloatData5": 161
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": 143,
+          "FloatData1": 14,
+          "FloatData2": -141,
+          "FloatData3": 101
         }
       ],
       "SceneName": "1"
