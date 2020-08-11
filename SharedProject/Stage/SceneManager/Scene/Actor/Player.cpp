@@ -15,6 +15,11 @@ namespace Stage
 		mAnimation.AddAnimation({ "../Assets/Player/run001.png","../Assets/Player/run002.png" ,"../Assets/Player/run003.png","../Assets/Player/run002.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/up.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/down.png" });
+		mAnimation.AddAnimation({ "../Assets/Player/stay001.png" ,"../Assets/to-mei.png" });
+		mAnimation.AddAnimation({ "../Assets/Player/run001.png","../Assets/to-mei.png","../Assets/Player/run002.png" ,"../Assets/to-mei.png",
+			"../Assets/Player/run003.png","../Assets/to-mei.png","../Assets/Player/run002.png" ,"../Assets/to-mei.png" });
+		mAnimation.AddAnimation({ "../Assets/Player/up.png","../Assets/to-mei.png" });
+		mAnimation.AddAnimation({ "../Assets/Player/down.png","../Assets/to-mei.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/death.png" });
 		mAnimation.SetScale(0.1f);
 		mAnimation.SetDrawOrder(50);

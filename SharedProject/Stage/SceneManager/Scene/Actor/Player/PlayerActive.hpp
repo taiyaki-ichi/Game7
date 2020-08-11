@@ -21,6 +21,8 @@ namespace Stage::PlayerState
 		//アニメーションへの参照
 		GameLib::DrawAnimation* mAnimation;
 
+		int mInvincibleCnt;
+
 	public:
 		Active(GameLib::DrawAnimation* anim);
 		virtual ~Active() = default;
@@ -48,5 +50,8 @@ namespace Stage::PlayerState
 
 		//落下し下かどうか
 		void CheckFallDeath();
+
+		//ダメージを受けた時
+		void SufferDamage();
 	};
 }

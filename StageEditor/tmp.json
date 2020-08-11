@@ -22,10 +22,9 @@
           "FloatData1": 30.666666030883789
         },
         {
-          "ActorName": "Goal",
-          "FloatData0": 120,
-          "FloatData1": 231,
-          "StringData0": "down"
+          "ActorName": "Toge",
+          "FloatData0": 139,
+          "FloatData1": 45
         }
       ],
       "SceneName": "1"

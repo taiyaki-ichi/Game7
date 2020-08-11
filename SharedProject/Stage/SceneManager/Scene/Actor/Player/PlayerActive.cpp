@@ -23,6 +23,7 @@ namespace Stage::PlayerState
 		, mCollider{}
 		, mPhysicsModel{ anim->GetPosition(),GameLib::Vector2{0.f,0.f},0.1f,0.f }
 		, mJumpFlag{ 0 }
+		, mInvincibleCnt{-1}
 	{
 		using namespace GameLib;
 
@@ -106,7 +107,10 @@ namespace Stage::PlayerState
 		};
 
 		auto hitEnemyStrength = [this](const GameLib::Collider& c) {
-			UpFlag(PlayerFlag::DEATH_FLAG);
+			//UpFlag(PlayerFlag::DEATH_FLAG);
+			if (mInvincibleCnt < 0)
+				SufferDamage();
+			
 		};
 
 		auto hitGravituBox = [this](const GameLib::Collider& c) {
@@ -123,7 +127,7 @@ namespace Stage::PlayerState
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
 		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
 		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
-		mCollider.AddHitFunction("TogeStrength", hitEnemyStrength);
+		mCollider.AddHitFunction("TogeBody", hitEnemyStrength);
 		mCollider.AddHitFunction("GravityBox", std::move(hitGravituBox));
 		mCollider.AddHitFunction("Goal", std::move(hitGoal));
 
@@ -135,6 +139,13 @@ namespace Stage::PlayerState
 		//std::cout << (mFlags & ON_GROUND_FLAG);
 
 		//std::cout << "player active pos1: " << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
+		//std::cout << mInvincibleCnt << "\n";
+		if (mInvincibleCnt > 0)
+			mInvincibleCnt--;
+		if (mInvincibleCnt == 0) {
+			mCollider.SetNameTag("Player");
+			mInvincibleCnt--;
+		}
 
 		CheckFallDeath();
 
@@ -235,19 +246,27 @@ namespace Stage::PlayerState
 
 		float horizonPowerDir = GetDir4DirectionSize(power, Dir4::Right);
 		float verticalDir = GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Up);
+		int channel;
 		if (!CheckFlag(PlayerFlag::ON_GROUND_FLAG) && verticalDir < 0.f)
-			mAnimation->SetChannel(3);
+			channel = 3;
 		else if (!CheckFlag(PlayerFlag::ON_GROUND_FLAG) && verticalDir > 0.f)
-			mAnimation->SetChannel(2);
+			channel = 2;
 		else if (horizonPowerDir == 0.f)
-			mAnimation->SetChannel(0);
+			channel = 0;
 		else
-			mAnimation->SetChannel(1);
+			channel = 1;
+
+		if (mInvincibleCnt > 0)
+			channel += 4;
+		
+		mAnimation->SetChannel(channel);
 
 		if (horizonPowerDir > 0.f)
 			mAnimation->SetHorizontalFlip(false);
 		else if (horizonPowerDir < 0.f)
 			mAnimation->SetHorizontalFlip(true);
+
+		//std::cout << mAnimation->GetChannel()<<"\n";
 	}
 
 	void Active::CheckFallDeath()
@@ -259,5 +278,10 @@ namespace Stage::PlayerState
 
 	}
 
+	void Active::SufferDamage()
+	{
+		mCollider.SetNameTag("");
+		mInvincibleCnt = PlayerParam::INVINCIBLE_TIME;
+	}
 
 }

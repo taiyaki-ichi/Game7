@@ -10,7 +10,7 @@ namespace Stage::PlayerState
 		:StateBase{}
 		, mAnimation{ anim }
 	{
-		mAnimation->SetChannel(4);
+		mAnimation->SetChannel(8);
 	}
 	Stage::StateBase<char>* Death::Update()
 	{
