@@ -9,6 +9,8 @@
 #include"PlayerFlag.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"PlayerDeath.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
+#include"Stage/WindowSize.hpp"
 
 #include<iostream>
 
@@ -134,6 +136,8 @@ namespace Stage::PlayerState
 
 		//std::cout << "player active pos1: " << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
 
+		CheckFallDeath();
+
 		if (CheckFlag(PlayerFlag::DEATH_FLAG))
 			return new Death{ mAnimation };
 
@@ -246,7 +250,14 @@ namespace Stage::PlayerState
 			mAnimation->SetHorizontalFlip(true);
 	}
 
+	void Active::CheckFallDeath()
+	{
+		auto pos = GameLib::Affine(mPhysicsModel.mPosition, GameLib::Viewport::GetPos(), GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
 
+		if (GetDir4DirectionSize(pos, Dir4::Down) > WindowSize::HEIGHT / 2.f + PlayerParam::FALL_DEATH_LINE)
+			UpFlag(PlayerFlag::DEATH_FLAG);
+
+	}
 
 
 }

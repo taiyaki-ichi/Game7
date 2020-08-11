@@ -46,5 +46,7 @@ namespace Stage::PlayerState
 		//ƒpƒ[‚ğˆø”‚ÉŒü‚«‚ğ•Ï‚¦‚é
 		void UpdateAnimation(GameLib::Vector2 && power);
 
+		//—‰º‚µ‰º‚©‚Ç‚¤‚©
+		void CheckFallDeath();
 	};
 }
