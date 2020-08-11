@@ -25,6 +25,11 @@
           "ActorName": "Toge",
           "FloatData0": 139,
           "FloatData1": 45
+        },
+        {
+          "ActorName": "Diamond",
+          "FloatData0": -48,
+          "FloatData1": 69
         }
       ],
       "SceneName": "1"

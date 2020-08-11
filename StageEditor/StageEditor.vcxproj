@@ -156,6 +156,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CircleBeeEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\DiamondEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GoalEdiot.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBox2Editor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBox4Editor.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\CircleBeeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\DiamondEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GoalEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GravityBox2Editor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GravityBox4Editor.hpp" />
