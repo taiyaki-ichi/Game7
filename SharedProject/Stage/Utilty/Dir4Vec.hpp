@@ -1,5 +1,6 @@
 #pragma once
 #include<utility>
+#include<string>
 
 namespace Stage
 {
@@ -26,4 +27,28 @@ namespace Stage
 			,mSize(size)
 		{}
 	};
+
+	inline Dir4 StringToDir4(const std::string& str)
+	{
+		if (str == "right")
+			return Dir4::Right;
+		else if (str == "left")
+			return Dir4::Left;
+		else if (str == "up")
+			return Dir4::Up;
+		else
+			return Dir4::Down;
+	}
+
+	inline std::string Dir4ToString(const Dir4& dir)
+	{
+		if (dir == Dir4::Right)
+			return "right";
+		else if (dir == Dir4::Left)
+			return "left";
+		else if (dir == Dir4::Up)
+			return  "up";
+		else
+			return "down";
+	}
 }

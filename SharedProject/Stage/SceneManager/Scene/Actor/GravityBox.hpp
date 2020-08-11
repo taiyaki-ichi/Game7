@@ -22,7 +22,7 @@ namespace Stage
 		int mCoolDownCnt;
 
 		//‚±‚ÌƒtƒŒ[ƒ€‚ÌŠÔ‚Í‹N“®‚³‚¹‚È‚¢
-		constexpr static float COOLDOWN_TIME = 30;
+		constexpr static int COOLDOWN_TIME = 30;
 
 		GameLib::Vector2 mPosition;
 		float mRotation;

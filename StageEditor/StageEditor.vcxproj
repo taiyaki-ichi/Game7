@@ -156,6 +156,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CircleBeeEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GoalEdiot.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBox2Editor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBox4Editor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\CircleBeeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\GoalEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GravityBox2Editor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GravityBox4Editor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
@@ -189,6 +191,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\StraightBeeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TogeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\Utility\StringDataCheker.hpp" />
     <ClInclude Include="SceneEditor\BeginPolicy.hpp" />
     <ClInclude Include="SceneEditor\CreateActorEditor.hpp" />
     <ClInclude Include="SceneEditor\SceneEditor.hpp" />

@@ -10,32 +10,6 @@
           "FloatData3": -332
         },
         {
-          "ActorName": "Ground",
-          "FloatData0": 262,
-          "FloatData1": -57,
-          "FloatData2": 323,
-          "FloatData3": 358
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 286,
-          "FloatData1": 330,
-          "FloatData2": -120,
-          "FloatData3": 291
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": -21,
-          "FloatData1": -51,
-          "FloatData2": -90,
-          "FloatData3": 313
-        },
-        {
-          "ActorName": "Player",
-          "FloatData0": 210,
-          "FloatData1": 97
-        },
-        {
           "ActorName": "Camera",
           "FloatData0": -663.33367919921875,
           "FloatData1": -523.3336181640625,
@@ -43,27 +17,15 @@
           "FloatData3": 603.33367919921875
         },
         {
-          "ActorName": "GravityBox4",
-          "FloatData0": 106,
-          "FloatData1": 118,
-          "StringData0": "left",
-          "StringData1": "right"
+          "ActorName": "Player",
+          "FloatData0": -288,
+          "FloatData1": 30.666666030883789
         },
         {
-          "ActorName": "CircleBee",
-          "FloatData0": -146,
-          "FloatData1": 101,
-          "FloatData2": -289,
-          "FloatData3": 198,
-          "FloatData4": -322,
-          "FloatData5": 161
-        },
-        {
-          "ActorName": "StraightBee",
-          "FloatData0": 143,
-          "FloatData1": 14,
-          "FloatData2": -141,
-          "FloatData3": 101
+          "ActorName": "Goal",
+          "FloatData0": 178,
+          "FloatData1": 230,
+          "StringData0": "right"
         }
       ],
       "SceneName": "1"

@@ -9,6 +9,7 @@
 #include"Actor/Triple.hpp"
 #include"Actor/Toge.hpp"
 #include"Actor/Bee.hpp"
+#include"Actor/Goal.hpp"
 
 namespace Stage
 {
@@ -25,7 +26,8 @@ namespace Stage
 			{"Toge",[](Scene* scene) {return new Toge{scene}; }},
 			{"StraightBee",[](Scene* scene) {return new Bee{scene}; }},
 			{"CircleBee",[](Scene* scene) {return new Bee{scene}; }},
-			{"GuruWarp",[](Scene* scene) {return new GuruWarp{scene}; }}
+			{"GuruWarp",[](Scene* scene) {return new GuruWarp{scene}; }},
+			{"Goal",[](Scene* scene) {return new Goal{scene}; }},
 
 		};
 
