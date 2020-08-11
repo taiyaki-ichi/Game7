@@ -25,6 +25,7 @@
     <ClCompile Include="StartActor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GoalEdiot.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\DiamondEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\BlinderEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera\EditorCamera.hpp" />
@@ -54,5 +55,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\GoalEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Utility\StringDataCheker.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\DiamondEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\BlinderEditor.hpp" />
   </ItemGroup>
 </Project>

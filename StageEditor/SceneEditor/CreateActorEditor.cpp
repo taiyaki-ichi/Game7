@@ -13,6 +13,7 @@
 #include"ActorEditor/StraightBeeEditor.hpp"
 #include"ActorEditor/GoalEditor.hpp"
 #include"ActorEditor/DiamondEditor.hpp"
+#include"ActorEditor/BlinderEditor.hpp"
 
 
 namespace StageEditor
@@ -33,6 +34,10 @@ namespace StageEditor
 			{"StraightBee",[](GameLib::Actor* actor) {return new StraightBeeEditor{actor}; }},
 			{"Goal",[](GameLib::Actor* actor) {return new GoalEditor{actor}; }},
 			{"Diamond",[](GameLib::Actor* actor) {return new DiamondEditor{actor}; }},
+			{"Blinder",[](GameLib::Actor* actor) {return new BlinderEditor{actor}; }},
+
+
+
 		};
 	}
 

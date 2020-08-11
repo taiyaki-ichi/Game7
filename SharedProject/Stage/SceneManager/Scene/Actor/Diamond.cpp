@@ -17,8 +17,6 @@ namespace Stage
 			SetState(GameLib::Actor::State::Dead);
 		};
 
-		//PLayer‘¤‚©‚çDead‚³‚·‚©
-		//‚±‚Ì‚Ü‚Ü‚¾‚Æ–³“GŽžŠÔ‚ÌŽž“üŽè‚Å‚«‚È‚¢
 		mCollider.AddHitFunction("Player", std::move(hitPlayer));
 		mCollider.SetWidthAndHeith(DiamondParam::WIDTH, DiamondParam::HEIGHT);
 		mCollider.SetScale(DiamondParam::SCALE);

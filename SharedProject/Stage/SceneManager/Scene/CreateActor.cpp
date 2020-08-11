@@ -11,6 +11,7 @@
 #include"Actor/Bee.hpp"
 #include"Actor/Goal.hpp"
 #include"Actor/Diamond.hpp"
+#include"Actor/Blinder.hpp"
 
 namespace Stage
 {
@@ -30,6 +31,7 @@ namespace Stage
 			{"GuruWarp",[](Scene* scene) {return new GuruWarp{scene}; }},
 			{"Goal",[](Scene* scene) {return new Goal{scene}; }},
 			{"Diamond",[](Scene* scene) {return new Diamond{scene}; }},
+			{"Blinder",[](Scene* scene) {return new Blinder{scene}; }},
 
 		};
 
