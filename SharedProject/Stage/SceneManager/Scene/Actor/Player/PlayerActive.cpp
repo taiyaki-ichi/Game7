@@ -11,19 +11,21 @@
 #include"PlayerDeath.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Stage/WindowSize.hpp"
+#include"Life/Life.hpp"
 
 #include<iostream>
 
 namespace Stage::PlayerState
 {
 
-	Active::Active(GameLib::DrawAnimation* anim)
+	Active::Active(GameLib::DrawAnimation* anim, Stage::Life* life)
 		:StateBase{}
 		, mAnimation{ anim }
 		, mCollider{}
 		, mPhysicsModel{ anim->GetPosition(),GameLib::Vector2{0.f,0.f},0.1f,0.f }
 		, mJumpFlag{ 0 }
 		, mInvincibleCnt{-1}
+		, mLife{life}
 	{
 		using namespace GameLib;
 
@@ -108,8 +110,10 @@ namespace Stage::PlayerState
 
 		auto hitEnemyStrength = [this](const GameLib::Collider& c) {
 			//UpFlag(PlayerFlag::DEATH_FLAG);
-			if (mInvincibleCnt < 0)
+			if (mInvincibleCnt < 0) {
 				SufferDamage();
+				mLife->Damage();
+			}
 			
 		};
 
@@ -148,6 +152,9 @@ namespace Stage::PlayerState
 		}
 
 		CheckFallDeath();
+
+		if (mLife->IsLifeZero())
+			UpFlag(PlayerFlag::DEATH_FLAG);
 
 		if (CheckFlag(PlayerFlag::DEATH_FLAG))
 			return new Death{ mAnimation };

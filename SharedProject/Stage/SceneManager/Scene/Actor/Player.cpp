@@ -1,15 +1,17 @@
 #include"Player.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"Player/PlayerActive.hpp"
+#include"Player/Life/Life.hpp"
 
 namespace Stage
 {
 	GameLib::Vector2 Player::mPosition{};
 
 	Player::Player(GameLib::Actor* sceneManager)
-		:ActorBase{ sceneManager ,-10}
+		:ActorBase{ sceneManager ,10}
 		, mAnimation{}
 		, mStateManager{nullptr}
+		, mLife{nullptr}
 	{
 		mAnimation.AddAnimation({ "../Assets/Player/stay001.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/run001.png","../Assets/Player/run002.png" ,"../Assets/Player/run003.png","../Assets/Player/run002.png" });
@@ -25,7 +27,9 @@ namespace Stage
 		mAnimation.SetDrawOrder(50);
 		mAnimation.SetAnimationFPS(20);
 
-		
+		//‰¼
+		//Player‚æ‚èŒã‚ÉXV‚µ‚ÄƒJƒƒ‰‚Ì‰e‹¿‚ğó‚¯‚½‚­‚È‚¢
+		mLife = new Life{ sceneManager };
 	}
 
 	void Player::Update()
@@ -52,7 +56,7 @@ namespace Stage
 	void Player::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
 		mAnimation.SetPosition(data[0]);
-		mStateManager.SetStartState(new PlayerState::Active{ &mAnimation });
+		mStateManager.SetStartState(new PlayerState::Active{ &mAnimation ,mLife });
 		
 	}
 

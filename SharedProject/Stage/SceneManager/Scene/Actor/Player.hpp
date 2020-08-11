@@ -6,14 +6,16 @@
 
 namespace Stage
 {
+	class Life;
 
 	class Player : public ActorBase
 	{
 		GameLib::DrawAnimation mAnimation;
 		PlayerState::Manager mStateManager;
 
-
 		static GameLib::Vector2 mPosition;
+
+		Life* mLife;
 
 	public:
 		Player(GameLib::Actor* scene);

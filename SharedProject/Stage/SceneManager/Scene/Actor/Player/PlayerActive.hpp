@@ -8,8 +8,14 @@ namespace GameLib
 	class DrawAnimation;
 }
 
+namespace Stage
+{
+	class Life;
+}
+
 namespace Stage::PlayerState
 {
+
 	class Active : public StateBase
 	{
 		GameLib::Collider mCollider;
@@ -23,8 +29,10 @@ namespace Stage::PlayerState
 
 		int mInvincibleCnt;
 
+		Stage::Life* mLife;
+
 	public:
-		Active(GameLib::DrawAnimation* anim);
+		Active(GameLib::DrawAnimation* anim,Stage::Life* life);
 		virtual ~Active() = default;
 
 		Stage::StateBase<char>* Update() override;
