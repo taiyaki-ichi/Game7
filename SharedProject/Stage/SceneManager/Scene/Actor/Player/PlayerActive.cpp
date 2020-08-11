@@ -61,6 +61,7 @@ namespace Stage::PlayerState
 				mJumpFlag = 1;
 			}
 
+			//A,D‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚Æ‚«‚È‚Ç‚Í–€C‚Ì‰e‹¿‚È‚µ
 			if ((InputState::GetState(Key::A) == ButtonState::None &&
 				InputState::GetState(Key::D) == ButtonState::None) ||
 				(InputState::GetState(Key::A) == ButtonState::Held &&
@@ -80,6 +81,7 @@ namespace Stage::PlayerState
 				}
 			}
 
+			//ƒS[ƒ‹‚Ì‚ÍŠÈ’P‚É~‚Ü‚é‚æ‚¤‚É
 			if (CheckFlag(PlayerFlag::GOAL_FLAG)) {
 				if (Gravity::GetDir4() == Dir4::Up || Gravity::GetDir4() == Dir4::Down)
 					mPhysicsModel.Friction(0.8f, 1.f);

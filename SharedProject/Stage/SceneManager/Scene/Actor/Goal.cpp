@@ -2,6 +2,7 @@
 #include"Goal/GoalParam.hpp"
 #include"Stage/Utilty/Geometry.hpp"
 #include"Stage/Utilty/Dir4Vec.hpp"
+#include"Goal/Kira.hpp"
 
 namespace Stage
 {
@@ -10,6 +11,7 @@ namespace Stage
 		, mTexture{ "../Assets/Object/Goal/diamond.png" }
 		, mCollider{"Goal"}
 		, mFallDir{Dir4::Down}
+		, mKiraCnt{0}
 	{
 		mCollider.SetWidthAndHeith(GoalParam::COLLIDER_WIDTH, GoalParam::COLLIDER_HEIGHT);
 		mCollider.SetScale(GoalParam::SCALE);
@@ -41,6 +43,12 @@ namespace Stage
 		mTexture.SetPosition(pos);
 
 		mCollider.SetPosition(pos + GetFallDirVec() * GoalParam::COLLIDER_ADJUST_DOWN_SIZE);
+
+		mKiraCnt++;
+		if (mKiraCnt >= GoalParam::GENARATE_KIRA_TIME) {
+			new Kira{ this,pos };
+			mKiraCnt = 0;
+		}
 	}
 
 	void Goal::BeginWorking()

@@ -15,6 +15,8 @@ namespace Stage
 
 		GameLib::Vector2 GetFallDirVec();
 
+		int mKiraCnt;
+
 	public:
 		Goal(GameLib::Actor*);
 		virtual ~Goal() = default;
