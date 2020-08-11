@@ -23,17 +23,11 @@ namespace Stage
 
 	public:
 
-		constexpr static char CLEAR_FLAG = 0b1;
-		constexpr static char MISS_FLAG = 0b10;
-
-
 		SceneManager(GameLib::Actor* stage);
 		virtual ~SceneManager() = default;
 
 		//PLayerÇÃÉèÅ[Év
 		void CustomizeUpdate()override;
-
-		char GetFlags();
 
 		void CreateScene(std::vector<std::vector<ActorInfo>>&& stageData);
 
@@ -43,6 +37,8 @@ namespace Stage
 		const GameLib::Vector2& GetPlayerPos() const;
 
 		void Warp(WarpBase* prevWarpBase, const std::string& nextNameTag);
+
+		bool CheckFlag(char);
 
 	};
 }

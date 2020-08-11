@@ -4,6 +4,8 @@
 #include"Scene/Actor/WarpBase.hpp"
 #include"StageSceneChanger.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
+#include"Scene/Actor/Player/PlayerFlag.hpp"
+#include"SceneManagerFlag.hpp"
 
 namespace Stage
 {
@@ -21,10 +23,10 @@ namespace Stage
 	void SceneManager::CustomizeUpdate()
 	{
 		//std::cout << "scene manager player pos: " << mPlayer->GetPosition().x << "\n";
-	}
-	char SceneManager::GetFlags()
-	{
-		return mFlags;
+		if (mPlayer->CheckFlag(PlayerFlag::DEATH_MOTION_FINISH_FLAG))
+			mFlags |= SceneManagerFlag::MISS_FLAG;
+		if (mPlayer->CheckFlag(PlayerFlag::GOAL_FLAG))
+			mFlags |= SceneManagerFlag::CLEAR_FLAG;
 	}
 	void SceneManager::CreateScene(std::vector<std::vector<ActorInfo>>&& stageData)
 	{
@@ -66,4 +68,8 @@ namespace Stage
 
 	}
 
+	bool SceneManager::CheckFlag(char flag)
+	{
+		return mFlags & flag;
+	}
 }

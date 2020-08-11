@@ -7,6 +7,9 @@
 #include"GameLib/include/Math/Vector2Func.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"GameLib/include/CollisionDetection/CollisionDetectionSetting.hpp"
+#include"SceneManager/SceneManagerFlag.hpp"
+#include"StageFlag.hpp"
+
 
 #include"BackGround/CreateBackGround.hpp"
 
@@ -27,12 +30,11 @@ namespace Stage
 	void Stage::CustomizeUpdate()
 	{
 
-		char flag = mSceneManager->GetFlags();
-		if (flag & SceneManager::CLEAR_FLAG)
-			mFlags |= CLEAR_FLAG;
-		if (flag & SceneManager::MISS_FLAG)
-			mFlags |= MISS_FLAG;
-
+		if (mSceneManager->CheckFlag(SceneManagerFlag::CLEAR_FLAG))
+			mFlags |= StageFlag::CLEAR_FLAG;
+		if (mSceneManager->CheckFlag(SceneManagerFlag::MISS_FLAG))
+			mFlags |= StageFlag::MISS_FLAG;
+		
 		if (GameLib::InputState::GetState(GameLib::Key::P) == GameLib::ButtonState::Pressed) {
 			new Pause{ this ,mSceneManager };
 		}
@@ -45,12 +47,13 @@ namespace Stage
 
 	}
 
-	char Stage::GetFlags() const
-	{
-		return mFlags;
-	}
 	void Stage::ReturnToTitle()
 	{
-		mFlags |= RETURN_TO_TITLE_FLAG;
+		mFlags |= StageFlag::RETURN_TO_TITLE_FLAG;;
+	}
+
+	bool Stage::CheckFlag(char flag)
+	{
+		return mFlags & flag;
 	}
 }

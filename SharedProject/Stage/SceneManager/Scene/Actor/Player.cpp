@@ -77,4 +77,7 @@ namespace Stage
 		mStateManager.ResetPotentialPower();
 	}
 
+	bool Player::CheckFlag(char f) {
+		return mStateManager.CheckFlag(f);
+	}
 }

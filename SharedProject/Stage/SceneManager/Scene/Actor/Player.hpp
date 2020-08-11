@@ -36,6 +36,6 @@ namespace Stage
 		//速度などのリセット
 		void ResetPotentialPower();
 
-	
+		bool CheckFlag(char);
 	};
 }
