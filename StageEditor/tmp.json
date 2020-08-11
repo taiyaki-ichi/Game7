@@ -23,9 +23,9 @@
         },
         {
           "ActorName": "Goal",
-          "FloatData0": 178,
-          "FloatData1": 230,
-          "StringData0": "right"
+          "FloatData0": 120,
+          "FloatData1": 231,
+          "StringData0": "down"
         }
       ],
       "SceneName": "1"

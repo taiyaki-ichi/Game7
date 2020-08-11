@@ -80,6 +80,13 @@ namespace Stage::PlayerState
 				}
 			}
 
+			if (CheckFlag(PlayerFlag::GOAL_FLAG)) {
+				if (Gravity::GetDir4() == Dir4::Up || Gravity::GetDir4() == Dir4::Down)
+					mPhysicsModel.Friction(0.8f, 1.f);
+				else
+					mPhysicsModel.Friction(1.f, 0.8f);
+			}
+
 			AdjustCollider();
 			mAnimation->SetPosition(mPhysicsModel.mPosition);
 		};
@@ -105,11 +112,16 @@ namespace Stage::PlayerState
 				ResetPotentialPower();
 		};
 
+		auto hitGoal = [this](const GameLib::Collider& c) {
+			UpFlag(PlayerFlag::GOAL_FLAG);
+		};
+
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
 		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
 		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("TogeStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("GravityBox", std::move(hitGravituBox));
+		mCollider.AddHitFunction("Goal", std::move(hitGoal));
 
 	}
 
@@ -178,24 +190,28 @@ namespace Stage::PlayerState
 		else
 			power += Gravity::GetVector2();
 
-		//ヨコの力
-		if (InputState::GetState(Key::A) == ButtonState::Pressed ||
-			InputState::GetState(Key::A) == ButtonState::Held) {
-			power += GetVector2(Dir4::Left, PlayerParam::RUN_POWER);
-		}
-		if (InputState::GetState(Key::D) == ButtonState::Pressed ||
-			InputState::GetState(Key::D) == ButtonState::Held)
-			power += GetVector2(Dir4::Right, PlayerParam::RUN_POWER);
+		//ゴールしたら動けない
+		if (!CheckFlag(PlayerFlag::GOAL_FLAG))
+		{
+			//ヨコの力
+			if (InputState::GetState(Key::A) == ButtonState::Pressed ||
+				InputState::GetState(Key::A) == ButtonState::Held) {
+				power += GetVector2(Dir4::Left, PlayerParam::RUN_POWER);
+			}
+			if (InputState::GetState(Key::D) == ButtonState::Pressed ||
+				InputState::GetState(Key::D) == ButtonState::Held)
+				power += GetVector2(Dir4::Right, PlayerParam::RUN_POWER);
 
-		//ジャンプ
-		if (InputState::GetState(Key::Space) == ButtonState::Pressed &&
-			(mJumpFlag > 0)) {
+			//ジャンプ
+			if (InputState::GetState(Key::Space) == ButtonState::Pressed &&
+				(mJumpFlag > 0)) {
 
-			auto v = GetDir4Vec(mPhysicsModel.mVelocity);
-			float rate = std::abs(v.mSize) / PlayerParam::MAX_HORIZON_SPEED;
-			power += GetVector2(Dir4::Up, (PlayerParam::JUMP_POWER_MAX - PlayerParam::JUMP_POWER_MIN) * rate + PlayerParam::JUMP_POWER_MIN);
+				auto v = GetDir4Vec(mPhysicsModel.mVelocity);
+				float rate = std::abs(v.mSize) / PlayerParam::MAX_HORIZON_SPEED;
+				power += GetVector2(Dir4::Up, (PlayerParam::JUMP_POWER_MAX - PlayerParam::JUMP_POWER_MIN) * rate + PlayerParam::JUMP_POWER_MIN);
 
-			mJumpFlag = 0;
+				mJumpFlag = 0;
+			}
 		}
 
 		//std::cout << "power: "<<power.x << "," << power.y << "\n";
