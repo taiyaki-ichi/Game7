@@ -1,7 +1,8 @@
 #pragma once
 #include"GameLib/include/Actor/RootActor.hpp"
-#include"Stage/Stage.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
+
+#include"StageSelect/HexMap.hpp"
 
 namespace dev
 {
@@ -11,7 +12,7 @@ namespace dev
 		StartActor()
 			:GameLib::RootActor{}
 		{
-			new Stage::Stage{ this,"../Data/Stage/bbb.json" };
+			new Game::StageSelect::HexMap{ this };
 			GameLib::Collider::SetIsDebug(true);
 		}
 
