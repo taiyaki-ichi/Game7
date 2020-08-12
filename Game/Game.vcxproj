@@ -149,12 +149,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
     <ClCompile Include="StageSelect\HexChip.cpp" />
+    <ClCompile Include="StageSelect\LevelDisplay\LevelDisplay.cpp" />
     <ClCompile Include="StageSelect\StageSelect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
     <ClInclude Include="StageSelect\HexChip.hpp" />
     <ClInclude Include="StageSelect\HexMapParam.hpp" />
+    <ClInclude Include="StageSelect\LevelDisplay\LevelDisplay.hpp" />
     <ClInclude Include="StageSelect\PairVec.hpp" />
     <ClInclude Include="StageSelect\StageData.hpp" />
     <ClInclude Include="StageSelect\StageSelect.hpp" />

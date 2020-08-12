@@ -5,6 +5,7 @@
 #include"ChoiceIcon.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
+#include"LevelDisplay/LevelDisplay.hpp"
 
 namespace Game::StageSelect
 {
@@ -12,6 +13,8 @@ namespace Game::StageSelect
 		:GameLib::Actor{ actor }
 		, mStageData{ data }
 		, mChoiceIcon{nullptr}
+		, mStageFileName{""}
+		, mLevelDisplay{nullptr}
 	{
 		for (const auto& d : gStageInfo)
 			new HexChip{ this,ToVector2(d.first),"../Assets/StageSelect/batu_hex.png",-1 };
@@ -29,11 +32,25 @@ namespace Game::StageSelect
 		new HexChip{ this,ToVector2(std::make_pair(0,0)),"../Assets/StageSelect/hex.png" };
 
 		mChoiceIcon = new ChoiceIcon{ this };
+		mLevelDisplay = new LevelDisplay{ this };
 	}
 
 	void StageSelect::CustomizeUpdate()
 	{
 		UpdateChoiceIcon();
+
+		auto iter = gStageInfo.find(mChoiceIcon->GetPosition());
+		if (iter != gStageInfo.end()) {
+
+			mLevelDisplay->SetLevelString(iter->second.mLevel);
+
+			if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
+				mStageFileName = iter->second.mFileName;
+		}
+		else
+			mLevelDisplay->SetLevelString("-");
+
+		mLevelDisplay->AdjustPos();
 	}
 
 	void StageSelect::UpdateChoiceIcon()

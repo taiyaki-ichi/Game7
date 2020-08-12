@@ -6,12 +6,17 @@
 namespace Game::StageSelect
 {
 	class ChoiceIcon;
+	class LevelDisplay;
 
 	class StageSelect : public GameLib::Actor
 	{
 		std::map<PairVec, int> mStageData;
 
 		ChoiceIcon* mChoiceIcon;
+
+		std::string mStageFileName;
+
+		LevelDisplay* mLevelDisplay;
 
 	public:
 		//Gameがロードしたクリアの情報に基づいてマップ生成
@@ -20,6 +25,9 @@ namespace Game::StageSelect
 		virtual ~StageSelect() = default;
 
 		void CustomizeUpdate() override;
+
+
+		std::string GoStage();
 
 	private:
 		//位置の変更

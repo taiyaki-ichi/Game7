@@ -5,6 +5,7 @@
     <ClCompile Include="StageSelect\HexChip.cpp" />
     <ClCompile Include="StageSelect\StageSelect.cpp" />
     <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
+    <ClCompile Include="StageSelect\LevelDisplay\LevelDisplay.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -14,5 +15,6 @@
     <ClInclude Include="StageSelect\PairVec.hpp" />
     <ClInclude Include="StageSelect\StageSelect.hpp" />
     <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
+    <ClInclude Include="StageSelect\LevelDisplay\LevelDisplay.hpp" />
   </ItemGroup>
 </Project>
