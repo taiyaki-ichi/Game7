@@ -13,37 +13,46 @@ namespace Game::StageSelect
 		, mPlayerIcon{nullptr}
 	{
 		mMap.emplace(std::make_pair(0,0), StageData{"",StageState::Clear});
-		mMap.emplace(std::make_pair(1, 0), StageData{"",StageState::Open});
-		mMap.emplace(std::make_pair(2, 0), StageData{"",StageState::Close});
+		mMap.emplace(std::make_pair(1, 0), StageData{"",StageState::Clear});
+		mMap.emplace(std::make_pair(2, 0), StageData{"",StageState::Open});
 		mMap.emplace(std::make_pair(3, 0), StageData{"",StageState::Close });
-		mMap.emplace(std::make_pair(1, 1), StageData{ "",StageState::Close });
-		mMap.emplace(std::make_pair(2, -1), StageData{ "",StageState::Close });
+		mMap.emplace(std::make_pair(1, 1), StageData{ "",StageState::Open });
+		mMap.emplace(std::make_pair(2, -1), StageData{ "",StageState::Open });
 
 		new DrawHexMap{ this,mMap };
 
 		mPlayerIcon = new PlayerIcon{ this };
-		mPlayerIcon->SetPosision(GameLib::Vector2{ 0.f,0.f });
+		
 	}
 
 	void HexMap::CustomizeUpdate()
 	{
+		UpdateIconPos();
+	}
+
+	void HexMap::UpdateIconPos()
+	{
 		auto pos = mPlayerIcon->GetPosition();
-		GameLib::Viewport::SetPos(pos);
+		GameLib::Viewport::SetPos(ToVector2(pos));
 		if (GameLib::InputState::GetState(GameLib::Key::E) == GameLib::ButtonState::Pressed)
-			pos += HexMapParam::UNIT_Y;
+			pos = AddPair(pos, DIR_E_PAIR);
 		if (GameLib::InputState::GetState(GameLib::Key::D) == GameLib::ButtonState::Pressed)
-			pos += HexMapParam::UNIT_X;
+			pos = AddPair(pos, DIR_D_PAIR);
 		if (GameLib::InputState::GetState(GameLib::Key::X) == GameLib::ButtonState::Pressed)
-			pos += HexMapParam::UNIT_X - HexMapParam::UNIT_Y;
+			pos = AddPair(pos, DIR_X_PAIR);
 
 		if (GameLib::InputState::GetState(GameLib::Key::Z) == GameLib::ButtonState::Pressed)
-			pos -= HexMapParam::UNIT_Y;
+			pos = AddPair(pos, DIR_Z_PAIR);
 		if (GameLib::InputState::GetState(GameLib::Key::A) == GameLib::ButtonState::Pressed)
-			pos -= HexMapParam::UNIT_X;
+			pos = AddPair(pos, DIR_A_PAIR);
 		if (GameLib::InputState::GetState(GameLib::Key::W) == GameLib::ButtonState::Pressed)
-			pos -= HexMapParam::UNIT_X - HexMapParam::UNIT_Y;
-		mPlayerIcon->SetPosision(pos);
-		
+			pos = AddPair(pos, DIR_W_PAIR);
 
+		auto iter = mMap.find(pos);
+		if (iter != mMap.end())
+		{
+			if (iter->second.mStageState != StageState::Close)
+				mPlayerIcon->SetPosision(pos);
+		}
 	}
 }

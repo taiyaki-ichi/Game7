@@ -27,5 +27,8 @@ namespace Game::StageSelect
 		void CustomizeUpdate() override;
 
 
+	private:
+		void UpdateIconPos();
+
 	};
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/Draw/DrawTexture.hpp"
+#include"PairVec.hpp"
 
 namespace Game::StageSelect
 {
@@ -8,7 +9,7 @@ namespace Game::StageSelect
 	{
 		GameLib::DrawTexture mTexture;
 
-		GameLib::Vector2 mPosition;
+		PairVec mPairPos;
 		int mCnt;
 
 	public:
@@ -16,8 +17,8 @@ namespace Game::StageSelect
 
 		void CustomizeUpdate() override;
 
-		void SetPosision(const GameLib::Vector2&);
-		const GameLib::Vector2& GetPosition() const;
+		void SetPosision(const PairVec&);
+		const PairVec& GetPosition() const;
 	};
 
 }

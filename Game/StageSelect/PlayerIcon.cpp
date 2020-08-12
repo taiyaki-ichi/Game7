@@ -7,7 +7,7 @@ namespace Game::StageSelect
 	PlayerIcon::PlayerIcon(GameLib::Actor* actor)
 		:GameLib::Actor{ actor }
 		, mTexture{ "../Assets/StageSelect/icon.png" }
-		, mPosition{}
+		, mPairPos{}
 		, mCnt{0}
 	{
 		mTexture.SetScale(HexMapParam::ICON_SCALE);
@@ -18,18 +18,18 @@ namespace Game::StageSelect
 		//mTexture.SetPosition(GameLib::InputState::GetMousePos() + GameLib::Vector2{ 0.f,HexMapParam::ICON_TEXTURE_ADJUST_Y });
 		auto adjust = std::sin(mCnt / 20.f) * GameLib::Vector2{ 0.f,HexMapParam::ICON_MOVE_LENGHT / 2.f };
 		adjust += GameLib::Vector2{ 0.f,HexMapParam::ICON_TEXTURE_ADJUST_Y };
-		mTexture.SetPosition(mPosition + adjust);
+		mTexture.SetPosition(ToVector2(mPairPos) + adjust);
 		mCnt++;
 	}
 
-	void PlayerIcon::SetPosision(const GameLib::Vector2& pos)
+	void PlayerIcon::SetPosision(const PairVec& pos)
 	{
-		mPosition = pos;
+		mPairPos = pos;
 	}
 
-	const GameLib::Vector2& PlayerIcon::GetPosition() const
+	const PairVec& PlayerIcon::GetPosition() const
 	{
-		return mPosition;
+		return mPairPos;
 	}
 
 }

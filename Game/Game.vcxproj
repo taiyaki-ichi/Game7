@@ -157,6 +157,7 @@
     <ClInclude Include="StageSelect\HexChip.hpp" />
     <ClInclude Include="StageSelect\HexMap.hpp" />
     <ClInclude Include="StageSelect\HexMapParam.hpp" />
+    <ClInclude Include="StageSelect\PairVec.hpp" />
     <ClInclude Include="StageSelect\PlayerIcon.hpp" />
     <ClInclude Include="StageSelect\StageData.hpp" />
     <ClInclude Include="StartActor.hpp" />

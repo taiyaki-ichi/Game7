@@ -15,5 +15,6 @@
     <ClInclude Include="StageSelect\HexMapParam.hpp" />
     <ClInclude Include="StageSelect\HexChip.hpp" />
     <ClInclude Include="StageSelect\PlayerIcon.hpp" />
+    <ClInclude Include="StageSelect\PairVec.hpp" />
   </ItemGroup>
 </Project>
