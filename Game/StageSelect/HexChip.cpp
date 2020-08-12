@@ -3,9 +3,9 @@
 
 namespace Game::StageSelect
 {
-	HexChip::HexChip(GameLib::Actor* actor,GameLib::Vector2&& pos)
+	HexChip::HexChip(GameLib::Actor* actor,GameLib::Vector2&& pos, std::string&& fileName)
 		:GameLib::Actor{ actor }
-		, mTexture{ "../Assets/StageSelect/hex.png" }
+		, mTexture{ std::move(fileName) }
 	{
 		mTexture.SetPosition(std::move(pos));
 		mTexture.SetScale(HexMapParam::TEXTURE_SCALE);

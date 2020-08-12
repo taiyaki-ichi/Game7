@@ -5,6 +5,7 @@
     <ClCompile Include="StageSelect\DrawHexMap.cpp" />
     <ClCompile Include="StageSelect\HexMap.cpp" />
     <ClCompile Include="StageSelect\HexChip.cpp" />
+    <ClCompile Include="StageSelect\PlayerIcon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -14,5 +15,6 @@
     <ClInclude Include="StageSelect\DrawHexMap.hpp" />
     <ClInclude Include="StageSelect\HexMapParam.hpp" />
     <ClInclude Include="StageSelect\HexChip.hpp" />
+    <ClInclude Include="StageSelect\PlayerIcon.hpp" />
   </ItemGroup>
 </Project>

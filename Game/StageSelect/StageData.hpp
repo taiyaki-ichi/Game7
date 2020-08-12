@@ -14,10 +14,11 @@ namespace Game::StageSelect
 	struct StageData
 	{
 		std::string mFileName;
-		//StageState mStageState;
+		StageState mStageState;
 
-		StageData(std::string a)
-			:mFileName{a}
+		StageData(const std::string& fileName,StageState&& state)
+			:mFileName{fileName}
+			, mStageState{state}
 		{}
 
 	};

@@ -4,12 +4,14 @@
 
 namespace Game::StageSelect
 {
-	class HexChip : GameLib::Actor
+	class PlayerIcon : public GameLib::Actor
 	{
 		GameLib::DrawTexture mTexture;
 
 	public:
-		HexChip(GameLib::Actor*, GameLib::Vector2&&,std::string&&);
+		PlayerIcon(GameLib::Actor*);
+
+		void CustomizeUpdate() override;
 	};
 
 }

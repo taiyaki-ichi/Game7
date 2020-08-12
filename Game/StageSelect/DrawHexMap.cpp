@@ -12,11 +12,6 @@ namespace Game::StageSelect
 	{
 		const auto unitX = GameLib::Vector2{ HexMapParam::HEX_LENGTH * HexMapParam::TEXTURE_SCALE,0.f };
 		const auto unitY = GameLib::Vector2::Rotation(unitX, GameLib::PI / 3.f);
-		//const auto unitZ = GameLib::Vector2::Rotation(unitX, -GameLib::PI / 3.f);
-
-		//std::cout << "x: " << unitX.x << "," << unitX.y << "\n";
-		//std::cout << "y: " << unitY.x << "," << unitY.y << "\n";
-		//std::cout << "z: " << unitZ.x << "," << unitZ.y << "\n";
 
 		for (auto& d : data)
 		{
@@ -25,7 +20,16 @@ namespace Game::StageSelect
 			std::cout << hex.GetX() << "," << hex.GetY() << "\n";
 			auto pos = hex.GetX() * unitX + hex.GetY() * unitY;
 			//std::cout << pos.x << "," << pos.y << "\n";
-			new HexChip{ this,std::move(pos) };
+			
+			std::string fileName;
+			if (d.second.mStageState == StageState::Clear)
+				fileName = std::string{ "../Assets/StageSelect/clear_hex.png" };
+			else if (d.second.mStageState == StageState::Close)
+				fileName = std::string{ "../Assets/StageSelect/batu_hex.png" };
+			else
+				fileName = std::string{ "../Assets/StageSelect/hex.png" };
+
+			new HexChip{ this,std::move(pos) ,std::move(fileName) };
 		}
 
 	}

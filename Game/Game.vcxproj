@@ -150,6 +150,7 @@
     <ClCompile Include="StageSelect\DrawHexMap.cpp" />
     <ClCompile Include="StageSelect\HexChip.cpp" />
     <ClCompile Include="StageSelect\HexMap.cpp" />
+    <ClCompile Include="StageSelect\PlayerIcon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StageSelect\DrawHexMap.hpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="StageSelect\HexChip.hpp" />
     <ClInclude Include="StageSelect\HexMap.hpp" />
     <ClInclude Include="StageSelect\HexMapParam.hpp" />
+    <ClInclude Include="StageSelect\PlayerIcon.hpp" />
     <ClInclude Include="StageSelect\StageData.hpp" />
     <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
