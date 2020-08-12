@@ -22,5 +22,7 @@ namespace Stage
 		void Heal();
 
 		bool IsLifeZero();
+
+		void AdjustPos();
 	};
 }

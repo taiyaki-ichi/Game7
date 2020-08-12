@@ -27,9 +27,7 @@ namespace Stage
 		mAnimation.SetDrawOrder(50);
 		mAnimation.SetAnimationFPS(20);
 
-		//‰¼
-		//Player‚æ‚èŒã‚ÉXV‚µ‚ÄƒJƒƒ‰‚Ì‰e‹¿‚ğó‚¯‚½‚­‚È‚¢
-		mLife = new Life{ sceneManager };
+		mLife = new Life{ this };
 	}
 
 	void Player::Update()
@@ -37,6 +35,7 @@ namespace Stage
 		mStateManager.Update();
 		mPosition = mAnimation.GetPosition();
 		//std::cout <<"player pos:"<< mPosition.x << "," << mPosition.y << "\n";
+		mLife->AdjustPos();
 	}
 
 	void Player::BeginWorking()

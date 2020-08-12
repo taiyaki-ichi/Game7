@@ -21,10 +21,7 @@ namespace Stage
 
 	void Life::CustomizeUpdate()
 	{
-		auto pos = GameLib::Viewport::GetPos();
-		mTexture.SetPosition(pos + LifeParam::ADJUST_POSITION);
-		mNumText.SetPosition(pos + LifeParam::ADJUST_POSITION + LifeParam::ADJUST_NUM_POS);
-
+		AdjustPos();
 		mNumText.SetText(std::to_string(mLifeNum));
 	}
 
@@ -42,5 +39,12 @@ namespace Stage
 	bool Life::IsLifeZero()
 	{
 		return mLifeNum == 0;
+	}
+
+	void Life::AdjustPos()
+	{
+		auto pos = GameLib::Viewport::GetPos();
+		mTexture.SetPosition(pos + LifeParam::ADJUST_POSITION);
+		mNumText.SetPosition(pos + LifeParam::ADJUST_POSITION + LifeParam::ADJUST_NUM_POS);
 	}
 }
