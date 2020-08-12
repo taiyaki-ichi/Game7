@@ -7,6 +7,8 @@
 #include"SceneEditor/CreateActorEditor.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Camera/EditorCamera.hpp"
+#include"SceneEditor/ActorEditor/PlayerEditor.hpp"
+
 
 namespace StageEditor
 {
@@ -52,6 +54,7 @@ namespace StageEditor
 		}
 		std::cout << "\n";
 
+		std::cout << "Player Num: " << PlayerEditor::GetNum() << "\n";
 		
 		std::cout << ">";
 

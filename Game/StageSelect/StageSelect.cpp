@@ -74,5 +74,8 @@ namespace Game::StageSelect
 		auto iter = mStageData.find(pos);
 		if (iter != mStageData.end())
 			mChoiceIcon->SetPosision(pos);
+
+		if (pos.first == 0 && pos.second == 0)
+			mChoiceIcon->SetPosision(pos);
 	}
 }

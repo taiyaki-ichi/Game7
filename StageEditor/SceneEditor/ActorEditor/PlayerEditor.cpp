@@ -3,6 +3,9 @@
 
 namespace StageEditor
 {
+
+	int PlayerEditor::mCnt = 0;
+
 	PlayerEditor::PlayerEditor(GameLib::Actor* actor)
 		:ActorEditorBase{ actor ,"Player",1,0}
 		, mTexture{"../Assets/Player/stay001.png"}
@@ -10,6 +13,13 @@ namespace StageEditor
 		mTexture.SetScale(Stage::PlayerParam::SCALE);
 		mCollider.SetWidthAndHeith(Stage::PlayerParam::WIDTH, Stage::PlayerParam::HEIGHT);
 		mCollider.SetScale(Stage::PlayerParam::SCALE);
+
+		mCnt++;
+	}
+
+	PlayerEditor::~PlayerEditor()
+	{
+		mCnt--;
 	}
 
 
@@ -30,5 +40,10 @@ namespace StageEditor
 	void PlayerEditor::BeginToRest()
 	{
 		mTexture.SetIsAutoDrawing(false);
+	}
+
+	int PlayerEditor::GetNum()
+	{
+		return mCnt;
 	}
 }
