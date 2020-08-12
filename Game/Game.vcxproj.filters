@@ -9,7 +9,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
-    <ClInclude Include="StageSelect\Hex.hpp" />
     <ClInclude Include="StageSelect\StageData.hpp" />
     <ClInclude Include="StageSelect\HexMap.hpp" />
     <ClInclude Include="StageSelect\DrawHexMap.hpp" />

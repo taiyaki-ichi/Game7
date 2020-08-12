@@ -154,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StageSelect\DrawHexMap.hpp" />
-    <ClInclude Include="StageSelect\Hex.hpp" />
     <ClInclude Include="StageSelect\HexChip.hpp" />
     <ClInclude Include="StageSelect\HexMap.hpp" />
     <ClInclude Include="StageSelect\HexMapParam.hpp" />

@@ -8,6 +8,7 @@ namespace Game::StageSelect
 		:GameLib::Actor{ actor }
 		, mTexture{ "../Assets/StageSelect/icon.png" }
 		, mPosition{}
+		, mCnt{0}
 	{
 		mTexture.SetScale(HexMapParam::ICON_SCALE);
 	}

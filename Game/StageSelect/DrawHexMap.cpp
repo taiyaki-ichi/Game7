@@ -1,7 +1,6 @@
 #include"DrawHexMap.hpp"
 #include"HexMapParam.hpp"
 #include"GameLib/include/Math/Numbers.hpp"
-#include"Hex.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
 #include"HexChip.hpp"
 
@@ -14,9 +13,8 @@ namespace Game::StageSelect
 		for (auto& d : data)
 		{
 			//std::cout <<"d"<< d.first.first << "," << d.first.second << "\n";
-			auto hex = ToHex(d.first);
 			//std::cout << hex.GetX() << "," << hex.GetY() << "\n";
-			auto pos = hex.GetX() * HexMapParam::UNIT_X + hex.GetY() * HexMapParam::UNIT_Y;
+			auto pos = d.first.first * HexMapParam::UNIT_X + d.first.second * HexMapParam::UNIT_Y;
 			//std::cout << pos.x << "," << pos.y << "\n";
 			
 			std::string fileName;
