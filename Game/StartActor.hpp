@@ -2,7 +2,7 @@
 #include"GameLib/include/Actor/RootActor.hpp"
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 
-#include"StageSelect/HexMap.hpp"
+#include"StageSelect/StageSelect.hpp"
 
 namespace dev
 {
@@ -12,7 +12,8 @@ namespace dev
 		StartActor()
 			:GameLib::RootActor{}
 		{
-			new Game::StageSelect::HexMap{ this };
+			//new Game::StageSelect::HexMap{ this };
+			new Game::StageSelect::StageSelect{ this };
 			GameLib::Collider::SetIsDebug(true);
 		}
 

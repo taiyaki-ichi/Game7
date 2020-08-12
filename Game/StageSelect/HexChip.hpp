@@ -9,7 +9,7 @@ namespace Game::StageSelect
 		GameLib::DrawTexture mTexture;
 
 	public:
-		HexChip(GameLib::Actor*, GameLib::Vector2&&,std::string&&);
+		HexChip(GameLib::Actor*, GameLib::Vector2&&, std::string&&, int drawOrder = 0);
 	};
 
 }

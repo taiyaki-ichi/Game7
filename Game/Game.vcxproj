@@ -147,19 +147,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="StageSelect\DrawHexMap.cpp" />
+    <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
     <ClCompile Include="StageSelect\HexChip.cpp" />
-    <ClCompile Include="StageSelect\HexMap.cpp" />
-    <ClCompile Include="StageSelect\PlayerIcon.cpp" />
+    <ClCompile Include="StageSelect\StageSelect.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StageSelect\DrawHexMap.hpp" />
+    <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
     <ClInclude Include="StageSelect\HexChip.hpp" />
-    <ClInclude Include="StageSelect\HexMap.hpp" />
     <ClInclude Include="StageSelect\HexMapParam.hpp" />
     <ClInclude Include="StageSelect\PairVec.hpp" />
-    <ClInclude Include="StageSelect\PlayerIcon.hpp" />
     <ClInclude Include="StageSelect\StageData.hpp" />
+    <ClInclude Include="StageSelect\StageSelect.hpp" />
     <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -3,11 +3,12 @@
 
 namespace Game::StageSelect
 {
-	HexChip::HexChip(GameLib::Actor* actor,GameLib::Vector2&& pos, std::string&& fileName)
+	HexChip::HexChip(GameLib::Actor* actor,GameLib::Vector2&& pos, std::string&& fileName,int darwOrder)
 		:GameLib::Actor{ actor }
 		, mTexture{ std::move(fileName) }
 	{
 		mTexture.SetPosition(std::move(pos));
 		mTexture.SetScale(HexMapParam::TEXTURE_SCALE);
+		mTexture.SetDrawOrder(darwOrder);
 	}
 }

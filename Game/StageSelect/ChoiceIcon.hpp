@@ -5,7 +5,7 @@
 
 namespace Game::StageSelect
 {
-	class PlayerIcon : public GameLib::Actor
+	class ChoiceIcon : public GameLib::Actor
 	{
 		GameLib::DrawTexture mTexture;
 
@@ -13,7 +13,7 @@ namespace Game::StageSelect
 		int mCnt;
 
 	public:
-		PlayerIcon(GameLib::Actor*);
+		ChoiceIcon(GameLib::Actor*);
 
 		void CustomizeUpdate() override;
 

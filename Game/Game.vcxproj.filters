@@ -2,19 +2,17 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="StageSelect\DrawHexMap.cpp" />
-    <ClCompile Include="StageSelect\HexMap.cpp" />
     <ClCompile Include="StageSelect\HexChip.cpp" />
-    <ClCompile Include="StageSelect\PlayerIcon.cpp" />
+    <ClCompile Include="StageSelect\StageSelect.cpp" />
+    <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
     <ClInclude Include="StageSelect\StageData.hpp" />
-    <ClInclude Include="StageSelect\HexMap.hpp" />
-    <ClInclude Include="StageSelect\DrawHexMap.hpp" />
     <ClInclude Include="StageSelect\HexMapParam.hpp" />
     <ClInclude Include="StageSelect\HexChip.hpp" />
-    <ClInclude Include="StageSelect\PlayerIcon.hpp" />
     <ClInclude Include="StageSelect\PairVec.hpp" />
+    <ClInclude Include="StageSelect\StageSelect.hpp" />
+    <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
   </ItemGroup>
 </Project>
