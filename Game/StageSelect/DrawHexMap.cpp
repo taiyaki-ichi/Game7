@@ -10,15 +10,13 @@ namespace Game::StageSelect
 	DrawHexMap::DrawHexMap(GameLib::Actor* actor,const std::map<std::pair<int,int>,StageData>& data)
 		:GameLib::Actor{ actor }
 	{
-		const auto unitX = GameLib::Vector2{ HexMapParam::HEX_LENGTH * HexMapParam::TEXTURE_SCALE,0.f };
-		const auto unitY = GameLib::Vector2::Rotation(unitX, GameLib::PI / 3.f);
 
 		for (auto& d : data)
 		{
 			//std::cout <<"d"<< d.first.first << "," << d.first.second << "\n";
 			auto hex = ToHex(d.first);
-			std::cout << hex.GetX() << "," << hex.GetY() << "\n";
-			auto pos = hex.GetX() * unitX + hex.GetY() * unitY;
+			//std::cout << hex.GetX() << "," << hex.GetY() << "\n";
+			auto pos = hex.GetX() * HexMapParam::UNIT_X + hex.GetY() * HexMapParam::UNIT_Y;
 			//std::cout << pos.x << "," << pos.y << "\n";
 			
 			std::string fileName;

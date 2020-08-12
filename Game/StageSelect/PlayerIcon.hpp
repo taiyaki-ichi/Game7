@@ -8,10 +8,16 @@ namespace Game::StageSelect
 	{
 		GameLib::DrawTexture mTexture;
 
+		GameLib::Vector2 mPosition;
+		int mCnt;
+
 	public:
 		PlayerIcon(GameLib::Actor*);
 
 		void CustomizeUpdate() override;
+
+		void SetPosision(const GameLib::Vector2&);
+		const GameLib::Vector2& GetPosition() const;
 	};
 
 }
