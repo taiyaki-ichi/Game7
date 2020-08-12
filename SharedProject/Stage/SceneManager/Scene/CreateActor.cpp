@@ -10,7 +10,7 @@
 #include"Actor/Toge.hpp"
 #include"Actor/Bee.hpp"
 #include"Actor/Goal.hpp"
-#include"Actor/Diamond.hpp"
+#include"Actor/Gem.hpp"
 #include"Actor/Blinder.hpp"
 
 namespace Stage
@@ -30,7 +30,7 @@ namespace Stage
 			{"CircleBee",[](Scene* scene) {return new Bee{scene}; }},
 			{"GuruWarp",[](Scene* scene) {return new GuruWarp{scene}; }},
 			{"Goal",[](Scene* scene) {return new Goal{scene}; }},
-			{"Diamond",[](Scene* scene) {return new Diamond{scene}; }},
+			{"Gem",[](Scene* scene) {return new Gem{scene}; }},
 			{"Blinder",[](Scene* scene) {return new Blinder{scene}; }},
 
 		};

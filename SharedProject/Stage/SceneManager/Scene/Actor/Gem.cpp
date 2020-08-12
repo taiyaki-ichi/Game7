@@ -1,16 +1,16 @@
-#include"Diamond.hpp"
-#include"Diamond/DiamondParam.hpp"
+#include"Gem.hpp"
+#include"Gem/GemParam.hpp"
 
 namespace Stage
 {
-	Diamond::Diamond(GameLib::Actor* actor)
+	Gem::Gem(GameLib::Actor* actor)
 		:ActorBase{actor}
 		, mAnim{}
 		, mCollider{ "Diamond" }
 	{
 		mAnim.AddAnimation({ "../Assets/Item/Diamond/001.png","../Assets/Item/Diamond/002.png" ,"../Assets/Item/Diamond/004.png",
 			"../Assets/Item/Diamond/003.png" });
-		mAnim.SetScale(DiamondParam::SCALE);
+		mAnim.SetScale(GemParam::SCALE);
 		mAnim.SetAnimationFPS(10.f);
 
 		auto hitPlayer = [this](const GameLib::Collider& c) {
@@ -18,29 +18,29 @@ namespace Stage
 		};
 
 		mCollider.AddHitFunction("Player", std::move(hitPlayer));
-		mCollider.SetWidthAndHeith(DiamondParam::WIDTH, DiamondParam::HEIGHT);
-		mCollider.SetScale(DiamondParam::SCALE);
+		mCollider.SetWidthAndHeith(GemParam::WIDTH, GemParam::HEIGHT);
+		mCollider.SetScale(GemParam::SCALE);
 		mCollider.SetColor({ 0,255,0,255 });
 	}
 
-	void Diamond::Update()
+	void Gem::Update()
 	{
 		mAnim.Update();
 	}
 
-	void Diamond::BeginWorking()
+	void Gem::BeginWorking()
 	{
 		mAnim.SetIsAutoDrawing(true);
 		mCollider.Active();
 	}
 
-	void Diamond::BeginToRest()
+	void Gem::BeginToRest()
 	{
 		mAnim.SetIsAutoDrawing(false);
 		mCollider.Pause();
 	}
 
-	void Diamond::LoadPosData(std::vector<GameLib::Vector2>&& data)
+	void Gem::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
 		mAnim.SetPosition(data[0]);
 		mCollider.SetPosition(std::move(data[0]));

@@ -4,12 +4,12 @@
 
 namespace StageEditor
 {
-	class DiamondEditor : public ActorEditorBase
+	class GemEditor : public ActorEditorBase
 	{
 		GameLib::DrawTexture mTexture;
 
 	public:
-		DiamondEditor(GameLib::Actor*);
+		GemEditor(GameLib::Actor*);
 
 		void Update() override;
 

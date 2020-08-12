@@ -2,7 +2,7 @@
 
 namespace Stage
 {
-	namespace DiamondParam
+	namespace GemParam
 	{
 		constexpr float WIDTH = 250.f;
 		constexpr float HEIGHT = 400.f;

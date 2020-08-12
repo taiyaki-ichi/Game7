@@ -5,14 +5,14 @@
 
 namespace Stage
 {
-	class Diamond : public ActorBase
+	class Gem : public ActorBase
 	{
 		GameLib::DrawAnimation mAnim;
 		GameLib::Collider mCollider;
 
 	public:
-		Diamond(GameLib::Actor*);
-		virtual ~Diamond() = default;
+		Gem(GameLib::Actor*);
+		virtual ~Gem() = default;
 
 		void Update() override;
 

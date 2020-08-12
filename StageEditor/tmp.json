@@ -34,6 +34,11 @@
           "FloatData1": 196,
           "FloatData2": 371,
           "FloatData3": 468
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -28,
+          "FloatData1": 70
         }
       ],
       "SceneName": "1"
