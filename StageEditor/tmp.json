@@ -39,6 +39,12 @@
           "ActorName": "Gem",
           "FloatData0": -28,
           "FloatData1": 70
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": -139,
+          "FloatData1": 109,
+          "StringData0": "1"
         }
       ],
       "SceneName": "1"

@@ -8,6 +8,7 @@
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"Camera/EditorCamera.hpp"
 #include"SceneEditor/ActorEditor/PlayerEditor.hpp"
+#include"SceneEditor/ActorEditor/TearGemEditor.hpp"
 
 
 namespace StageEditor
@@ -55,7 +56,14 @@ namespace StageEditor
 		std::cout << "\n";
 
 		std::cout << "Player Num: " << PlayerEditor::GetNum() << "\n";
+		std::cout << "TearGem Number: ";
+		for (const auto& num : TearGemEditor::GetNumbers())
+			//”ŽšˆÈŠO‚È‚çDead‚È‚Ì‚ÅPrint‚µ‚È‚¢
+			if (num == "1" || num == "2" || num == "3")
+				std::cout << num << " ";
+		std::cout << "\n";
 		
+		std::cout << "\n";
 		std::cout << ">";
 
 

@@ -14,6 +14,7 @@
 #include"ActorEditor/GoalEditor.hpp"
 #include"ActorEditor/GemEditor.hpp"
 #include"ActorEditor/BlinderEditor.hpp"
+#include"ActorEditor/TearGemEditor.hpp"
 
 
 namespace StageEditor
@@ -35,6 +36,7 @@ namespace StageEditor
 			{"Goal",[](GameLib::Actor* actor) {return new GoalEditor{actor}; }},
 			{"Gem",[](GameLib::Actor* actor) {return new GemEditor{actor}; }},
 			{"Blinder",[](GameLib::Actor* actor) {return new BlinderEditor{actor}; }},
+			{"TearGem",[](GameLib::Actor* actor) {return new TearGemEditor{actor}; }},
 
 
 

@@ -106,6 +106,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerStateBase.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerStateManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\TearGem.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\TearGem\TearGemParam.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeActive.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeParam.hpp" />
@@ -189,6 +191,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\PlayerDeath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\StageActorBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\TearGem.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple.cpp" />
