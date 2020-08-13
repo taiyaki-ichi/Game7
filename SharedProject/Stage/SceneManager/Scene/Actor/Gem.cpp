@@ -6,7 +6,7 @@ namespace Stage
 	Gem::Gem(GameLib::Actor* actor)
 		:ActorBase{actor}
 		, mAnim{}
-		, mCollider{ "Diamond" }
+		, mCollider{ "Gem" }
 	{
 		mAnim.AddAnimation({ "../Assets/Item/Diamond/001.png","../Assets/Item/Diamond/002.png" ,"../Assets/Item/Diamond/004.png",
 			"../Assets/Item/Diamond/003.png" });
@@ -17,6 +17,7 @@ namespace Stage
 			SetState(GameLib::Actor::State::Dead);
 		};
 
+		mCollider.AddHitFunction("InvinciblePlayer", hitPlayer);
 		mCollider.AddHitFunction("Player", std::move(hitPlayer));
 		mCollider.SetWidthAndHeith(GemParam::WIDTH, GemParam::HEIGHT);
 		mCollider.SetScale(GemParam::SCALE);

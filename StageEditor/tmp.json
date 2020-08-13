@@ -20,6 +20,39 @@
           "ActorName": "Player",
           "FloatData0": -288,
           "FloatData1": 30.666666030883789
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -120,
+          "FloatData1": 38
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -56,
+          "FloatData1": 39
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 11,
+          "FloatData1": 39
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 103,
+          "FloatData1": 52,
+          "StringData0": "1"
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 202,
+          "FloatData1": 47,
+          "StringData0": "3"
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 152,
+          "FloatData1": 111,
+          "StringData0": "2"
         }
       ],
       "SceneName": "1"

@@ -8,7 +8,7 @@ namespace Stage
 		, mTexture{ "../Assets/Item/Gem/tear.png" }
 		, mPosition{}
 		, mNumber{}
-		, mCollider{"TearGem"}
+		, mCollider{""}
 		, mCnt{0}
 	{
 		mTexture.SetScale(TearGemParam::SCALE);
@@ -16,6 +16,13 @@ namespace Stage
 		mCollider.SetScale(TearGemParam::SCALE);
 		mCollider.SetWidthAndHeith(TearGemParam::WIDTH, TearGemParam::HEIDHT);
 		mCollider.SetColor({ 0,255,0,255 });
+
+		auto hitPlayer = [this](const GameLib::Collider& c) {
+			SetState(GameLib::Actor::State::Dead);
+		};
+
+		mCollider.AddHitFunction("InvinciblePlayer", hitPlayer);
+		mCollider.AddHitFunction("Player", std::move(hitPlayer));
 	}
 
 	void TearGem::Update()
@@ -51,6 +58,8 @@ namespace Stage
 			mNumber = 2;
 		else if (data[0] == "3")
 			mNumber = 3;
+
+		mCollider.SetNameTag("TearGem" + data[0]);
 	}
 
 }

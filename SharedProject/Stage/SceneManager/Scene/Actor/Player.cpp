@@ -61,7 +61,7 @@ namespace Stage
 	void Player::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
 		mAnimation.SetPosition(data[0]);
-		mStateManager.SetStartState(new PlayerState::Active{ &mAnimation ,mLife });
+		mStateManager.SetStartState(new PlayerState::Active{ &mAnimation ,mLife ,mItemNum });
 		
 	}
 

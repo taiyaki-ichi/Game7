@@ -12,13 +12,14 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Stage/WindowSize.hpp"
 #include"Life/Life.hpp"
+#include"ItemNum/ItemNum.hpp"
 
 #include<iostream>
 
 namespace Stage::PlayerState
 {
 
-	Active::Active(GameLib::DrawAnimation* anim, Stage::Life* life)
+	Active::Active(GameLib::DrawAnimation* anim, Stage::Life* life,Stage::ItemNum* itemNum)
 		:StateBase{}
 		, mAnimation{ anim }
 		, mCollider{}
@@ -26,6 +27,7 @@ namespace Stage::PlayerState
 		, mJumpFlag{ 0 }
 		, mInvincibleCnt{-1}
 		, mLife{life}
+		, mItemNum{itemNum}
 	{
 		using namespace GameLib;
 
@@ -128,12 +130,32 @@ namespace Stage::PlayerState
 			UpFlag(PlayerFlag::GOAL_FLAG);
 		};
 
+		auto hitGem = [this](const GameLib::Collider& c) {
+			mItemNum->AddGem();
+		};
+
+		auto hitTearGem1= [this](const GameLib::Collider& c) {
+			mItemNum->AddTearGem(1);
+		};
+
+		auto hitTearGem2 = [this](const GameLib::Collider& c) {
+			mItemNum->AddTearGem(2);
+		};
+
+		auto hitTearGem3 = [this](const GameLib::Collider& c) {
+			mItemNum->AddTearGem(3);
+		};
+
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
 		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
 		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("TogeBody", hitEnemyStrength);
 		mCollider.AddHitFunction("GravityBox", std::move(hitGravituBox));
 		mCollider.AddHitFunction("Goal", std::move(hitGoal));
+		mCollider.AddHitFunction("Gem", std::move(hitGem));
+		mCollider.AddHitFunction("TearGem1", std::move(hitTearGem1));
+		mCollider.AddHitFunction("TearGem2", std::move(hitTearGem2));
+		mCollider.AddHitFunction("TearGem3", std::move(hitTearGem3));
 
 	}
 
@@ -287,7 +309,7 @@ namespace Stage::PlayerState
 
 	void Active::SufferDamage()
 	{
-		mCollider.SetNameTag("");
+		mCollider.SetNameTag("InvinciblePlayer");
 		mInvincibleCnt = PlayerParam::INVINCIBLE_TIME;
 	}
 

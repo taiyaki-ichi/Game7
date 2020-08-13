@@ -11,6 +11,7 @@ namespace GameLib
 namespace Stage
 {
 	class Life;
+	class ItemNum;
 }
 
 namespace Stage::PlayerState
@@ -30,9 +31,10 @@ namespace Stage::PlayerState
 		int mInvincibleCnt;
 
 		Stage::Life* mLife;
+		Stage::ItemNum* mItemNum;
 
 	public:
-		Active(GameLib::DrawAnimation* anim,Stage::Life* life);
+		Active(GameLib::DrawAnimation* anim,Stage::Life* life,Stage::ItemNum* itemNum);
 		virtual ~Active() = default;
 
 		Stage::StateBase<char>* Update() override;
