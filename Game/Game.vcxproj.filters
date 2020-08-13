@@ -16,5 +16,6 @@
     <ClInclude Include="StageSelect\StageSelect.hpp" />
     <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
     <ClInclude Include="StageSelect\LevelDisplay\LevelDisplay.hpp" />
+    <ClInclude Include="StageSelect\StageSelectFlag.hpp" />
   </ItemGroup>
 </Project>

@@ -160,6 +160,7 @@
     <ClInclude Include="StageSelect\PairVec.hpp" />
     <ClInclude Include="StageSelect\StageData.hpp" />
     <ClInclude Include="StageSelect\StageSelect.hpp" />
+    <ClInclude Include="StageSelect\StageSelectFlag.hpp" />
     <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
