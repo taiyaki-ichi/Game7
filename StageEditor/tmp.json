@@ -20,31 +20,6 @@
           "ActorName": "Player",
           "FloatData0": -288,
           "FloatData1": 30.666666030883789
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 47,
-          "FloatData1": -38,
-          "FloatData2": 372,
-          "FloatData3": 196
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 47,
-          "FloatData1": 196,
-          "FloatData2": 371,
-          "FloatData3": 468
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": -28,
-          "FloatData1": 70
-        },
-        {
-          "ActorName": "TearGem",
-          "FloatData0": -139,
-          "FloatData1": 109,
-          "StringData0": "1"
         }
       ],
       "SceneName": "1"

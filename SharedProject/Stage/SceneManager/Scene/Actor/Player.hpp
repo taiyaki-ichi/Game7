@@ -7,6 +7,7 @@
 namespace Stage
 {
 	class Life;
+	class ItemNum;
 
 	class Player : public ActorBase
 	{
@@ -16,6 +17,7 @@ namespace Stage
 		static GameLib::Vector2 mPosition;
 
 		Life* mLife;
+		ItemNum* mItemNum;
 
 	public:
 		Player(GameLib::Actor* scene);

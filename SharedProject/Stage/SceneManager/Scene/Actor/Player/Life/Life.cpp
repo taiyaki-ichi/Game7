@@ -5,11 +5,12 @@
 
 namespace Stage
 {
-	Life::Life(GameLib::Actor* actor)
+	Life::Life(GameLib::Actor* actor,const GameLib::Vector2& adjust)
 		:GameLib::Actor{actor,200}
 		, mTexture{"../Assets/Player/Life/board.png"}
 		, mNumText{ "../Assets/Font/mplus-1c-black.ttf" }
 		, mLifeNum{ 3 }
+		, mAdjust{adjust}
 	{
 		mTexture.SetScale(LifeParam::SCALE);
 		mTexture.SetDrawOrder(LifeParam::LIFE_BOARD_DRAWORDER);
@@ -44,7 +45,7 @@ namespace Stage
 	void Life::AdjustPos()
 	{
 		auto pos = GameLib::Viewport::GetPos();
-		mTexture.SetPosition(pos + LifeParam::ADJUST_POSITION);
-		mNumText.SetPosition(pos + LifeParam::ADJUST_POSITION + LifeParam::ADJUST_NUM_POS);
+		mTexture.SetPosition(pos + mAdjust);
+		mNumText.SetPosition(pos + mAdjust + LifeParam::ADJUST_NUM_POS);
 	}
 }

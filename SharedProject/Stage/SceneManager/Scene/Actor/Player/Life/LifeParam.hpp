@@ -7,7 +7,7 @@ namespace Stage
 {
 	namespace LifeParam
 	{
-		const GameLib::Vector2 ADJUST_POSITION = { -WindowSize::WIDTH / 2.f + 50.f,WindowSize::HEIGHT / 2.f - 50 };
+
 		constexpr float SCALE = 0.1f;
 
 		constexpr GameLib::Font::Size NUM_SIZE = GameLib::Font::Size::Size_36;

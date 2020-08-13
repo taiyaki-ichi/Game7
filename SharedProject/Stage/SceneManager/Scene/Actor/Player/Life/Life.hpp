@@ -12,8 +12,10 @@ namespace Stage
 
 		int mLifeNum;
 
+		GameLib::Vector2 mAdjust;
+
 	public:
-		Life(GameLib::Actor*);
+		Life(GameLib::Actor*,const GameLib::Vector2&);
 		virtual ~Life() = default;
 
 		void CustomizeUpdate() override;

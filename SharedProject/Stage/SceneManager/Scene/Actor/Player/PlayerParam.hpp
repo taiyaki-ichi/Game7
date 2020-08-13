@@ -1,5 +1,6 @@
 #pragma once
-
+#include"GameLib/include/Math/Vector2.hpp"
+#include"Stage/WindowSize.hpp"
 
 namespace Stage
 {
@@ -24,5 +25,9 @@ namespace Stage
 		constexpr float WIDTH = 250.f;
 		constexpr float HEIGHT = 500.f;
 		constexpr float SCALE = 0.1f;
+
+		const GameLib::Vector2 LIFE_POSITION = { -WindowSize::WIDTH / 2.f + 50.f,WindowSize::HEIGHT / 2.f - 50 };
+		const GameLib::Vector2 ITEMNUM_POSITION = { WindowSize::WIDTH / 2.f - 50.f,WindowSize::HEIGHT / 2.f - 30 };
+
 	}
 }

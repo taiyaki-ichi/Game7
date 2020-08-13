@@ -2,6 +2,8 @@
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"Player/PlayerActive.hpp"
 #include"Player/Life/Life.hpp"
+#include"Player/PlayerParam.hpp"
+#include"Player/ItemNum/ItemNum.hpp"
 
 namespace Stage
 {
@@ -12,6 +14,7 @@ namespace Stage
 		, mAnimation{}
 		, mStateManager{nullptr}
 		, mLife{nullptr}
+		,mItemNum{nullptr}
 	{
 		mAnimation.AddAnimation({ "../Assets/Player/stay001.png" });
 		mAnimation.AddAnimation({ "../Assets/Player/run001.png","../Assets/Player/run002.png" ,"../Assets/Player/run003.png","../Assets/Player/run002.png" });
@@ -27,7 +30,9 @@ namespace Stage
 		mAnimation.SetDrawOrder(50);
 		mAnimation.SetAnimationFPS(20);
 
-		mLife = new Life{ this };
+		mLife = new Life{ this ,PlayerParam::LIFE_POSITION };
+		mItemNum = new ItemNum{ this,PlayerParam::ITEMNUM_POSITION,5,10 };
+		
 	}
 
 	void Player::Update()
@@ -36,6 +41,7 @@ namespace Stage
 		mPosition = mAnimation.GetPosition();
 		//std::cout <<"player pos:"<< mPosition.x << "," << mPosition.y << "\n";
 		mLife->AdjustPos();
+		mItemNum->AdjustPos();
 	}
 
 	void Player::BeginWorking()
