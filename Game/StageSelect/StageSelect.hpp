@@ -4,6 +4,7 @@
 #include<map>
 #include"Stage/SceneManager/Scene/Actor/Player/ItemNum/GemDisplay.hpp"
 #include"Stage/SceneManager/Scene/Actor/Player/ItemNum/LifeDisplay.hpp"
+#include"TearGemDisplay.hpp"
 
 namespace Game::StageSelect
 {
@@ -13,16 +14,15 @@ namespace Game::StageSelect
 	class StageSelect : public GameLib::Actor
 	{
 		std::map<PairVec, unsigned char> mStageState;
-		PairVec mNowPos;
 
 		ChoiceIcon* mChoiceIcon;
-
-		std::string mStageFileName;
 
 		LevelDisplay* mLevelDisplay;
 
 		Stage::LifeDisplay mLifeDisplay;
 		Stage::GemDisplay mGemDisplay;
+
+		TearGemDisplay mTearGemDisplay;
 
 	public:
 		//Gameがロードしたクリアの情報に基づいてマップ生成
@@ -39,5 +39,9 @@ namespace Game::StageSelect
 	private:
 		//位置の変更
 		void UpdateChoiceIcon();
+
+		//Iconの更新後呼び出し
+		void UpdateTearGemDisplay();
+
 	};
 }

@@ -6,6 +6,7 @@
     <ClCompile Include="StageSelect\StageSelect.cpp" />
     <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
     <ClCompile Include="StageSelect\LevelDisplay\LevelDisplay.cpp" />
+    <ClCompile Include="StageSelect\TearGemDisplay.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StartActor.hpp" />
@@ -17,5 +18,7 @@
     <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
     <ClInclude Include="StageSelect\LevelDisplay\LevelDisplay.hpp" />
     <ClInclude Include="StageSelect\StageSelectFlag.hpp" />
+    <ClInclude Include="StageSelect\TearGemDisplay.hpp" />
+    <ClInclude Include="StageSelect\TearGemDisplayParam.hpp" />
   </ItemGroup>
 </Project>

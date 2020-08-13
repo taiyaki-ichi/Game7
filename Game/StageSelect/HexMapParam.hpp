@@ -19,6 +19,8 @@ namespace Game::StageSelect
 
 		const GameLib::Vector2 LIFE_NUM_POSITION = { Stage::WindowSize::WIDTH / 2.f - 70.f,Stage::WindowSize::HEIGHT / 2.f - 25.f };
 		const GameLib::Vector2 GEM_NUM_POSITION = LIFE_NUM_POSITION + GameLib::Vector2{ 0.f,-35.f };
+
+		const GameLib::Vector2 TEARGEM_DISPLAY_POSITON = { 0.f,-Stage::WindowSize::HEIGHT / 2.f + 50.f };
 		
 	}
 }

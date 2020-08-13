@@ -13,12 +13,11 @@ namespace Game::StageSelect
 	StageSelect::StageSelect(GameLib::Actor* actor, const std::map<PairVec, unsigned char>& data, const PairVec& nowPos, int lifeNum, int gemNum)
 		:GameLib::Actor{ actor }
 		, mStageState{data}
-		, mNowPos{nowPos}
 		, mChoiceIcon{ nullptr }
-		, mStageFileName{ "" }
 		, mLevelDisplay{ nullptr }
 		, mLifeDisplay{HexMapParam::LIFE_NUM_POSITION,lifeNum}
 		, mGemDisplay{HexMapParam::GEM_NUM_POSITION,gemNum}
+		, mTearGemDisplay{HexMapParam::TEARGEM_DISPLAY_POSITON}
 	{
 		for (const auto& d : gStageInfo)
 			new HexChip{ this,ToVector2(d.first),"../Assets/StageSelect/batu_hex.png",-1 };
@@ -37,20 +36,26 @@ namespace Game::StageSelect
 		new HexChip{ this,ToVector2(std::make_pair(0,0)),"../Assets/StageSelect/hex.png" };
 
 		mChoiceIcon = new ChoiceIcon{ this };
+		mChoiceIcon->SetPosision(nowPos);
 		mLevelDisplay = new LevelDisplay{ this };
+
+		mTearGemDisplay.NotDrawing();
 	}
 
 	void StageSelect::CustomizeUpdate()
 	{
 		UpdateChoiceIcon();
 
+
+
 		auto iter = gStageInfo.find(mChoiceIcon->GetPosition());
 		if (iter != gStageInfo.end()) {
 
 			mLevelDisplay->SetLevelString(iter->second.mLevel);
 
-			if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
-				mStageFileName = iter->second.mFileName;
+
+			//if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
+			
 		}
 		else
 			mLevelDisplay->SetLevelString("-");
@@ -58,6 +63,8 @@ namespace Game::StageSelect
 		mLevelDisplay->AdjustPos();
 		mLifeDisplay.AdjustPos();
 		mGemDisplay.AdjustPos();
+
+		UpdateTearGemDisplay();
 	}
 
 	void StageSelect::UpdateChoiceIcon()
@@ -79,10 +86,34 @@ namespace Game::StageSelect
 			pos = AddPair(pos, DIR_W_PAIR);
 
 		auto iter = mStageState.find(pos);
-		if (iter != mStageState.end())
+		if (iter != mStageState.end()) 
 			mChoiceIcon->SetPosision(pos);
+		else
+			mTearGemDisplay.NotDrawing();
 
 		if (pos.first == 0 && pos.second == 0)
 			mChoiceIcon->SetPosision(pos);
 	}
+
+	void StageSelect::UpdateTearGemDisplay()
+	{
+		auto iconPos = mChoiceIcon->GetPosition();
+		auto iter = mStageState.find(iconPos);
+		if (iter != mStageState.end())
+		{
+			mTearGemDisplay.SetFrame();
+			if (iter->second & StageSelectFlag::TEARGEM1_FLAG)
+				mTearGemDisplay.SetTearGem(1);
+			if (iter->second & StageSelectFlag::TEARGEM2_FLAG)
+				mTearGemDisplay.SetTearGem(2);
+			if (iter->second & StageSelectFlag::TEARGEM3_FLAG)
+				mTearGemDisplay.SetTearGem(3);
+		}
+		else
+			mTearGemDisplay.NotDrawing();
+
+		mTearGemDisplay.AdjustPos();
+	}
+
+
 }
