@@ -3,6 +3,7 @@
 #include"GameLib/include/Math/Vector2.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"Player/PlayerStateManager.hpp"
+#include"Player/ItemNum/ItemNumData.hpp"
 
 namespace Stage
 {
@@ -39,5 +40,7 @@ namespace Stage
 		void ResetPotentialPower();
 
 		bool CheckFlag(char);
+
+		ItemNumData GetItemNumData();
 	};
 }

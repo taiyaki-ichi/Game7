@@ -5,6 +5,7 @@
 #include"GemDisplay.hpp"
 #include"LifeDisplay.hpp"
 #include"TearDisplay.hpp"
+#include"ItemNumData.hpp"
 
 namespace Stage
 {
@@ -19,7 +20,6 @@ namespace Stage
 		GemDisplay mGemDisplay;
 		TearDisplay mTearDisplay;
 
-
 	public:
 		//pos,lifeNum,GemNum
 		ItemNum(GameLib::Actor*,const GameLib::Vector2&, int, int);
@@ -31,5 +31,7 @@ namespace Stage
 		void AddTearGem(int);
 
 		void AdjustPos();
+
+		ItemNumData GetItemNumData();
 	};
 }

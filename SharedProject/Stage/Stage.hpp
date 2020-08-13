@@ -1,6 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include<string>
+#include"SceneManager/Scene/Actor/Player/ItemNum/ItemNumData.hpp"
 
 namespace Stage
 {
@@ -28,5 +29,8 @@ namespace Stage
 		void ReturnToTitle();
 
 		bool CheckFlag(char);
+
+		//クリア時に呼び出し集計
+		ItemNumData GetItemNumData();
 	};
 }

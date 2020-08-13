@@ -74,4 +74,9 @@ namespace Stage
 	{
 		return mFlags & flag;
 	}
+
+	ItemNumData SceneManager::GetItemNumData()
+	{
+		return mPlayer->GetItemNumData();
+	}
 }

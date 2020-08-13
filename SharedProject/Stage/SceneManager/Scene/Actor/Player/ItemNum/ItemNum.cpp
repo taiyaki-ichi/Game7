@@ -38,4 +38,9 @@ namespace Stage
 		mLifeDisplay.AdjustPos();
 		mTearDisplay.AdjustPos();
 	}
+
+	ItemNumData ItemNum::GetItemNumData()
+	{
+		return { mLifeCnt,mGemCnt };
+	}
 }

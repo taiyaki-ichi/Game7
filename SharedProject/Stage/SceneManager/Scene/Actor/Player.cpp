@@ -85,4 +85,9 @@ namespace Stage
 	bool Player::CheckFlag(char f) {
 		return mStateManager.CheckFlag(f);
 	}
+
+	ItemNumData Player::GetItemNumData()
+	{
+		return mItemNum->GetItemNumData();
+	}
 }

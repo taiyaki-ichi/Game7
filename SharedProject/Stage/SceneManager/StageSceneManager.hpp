@@ -3,6 +3,7 @@
 #include<vector>
 #include"Scene/ActorInfo.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
+#include"Scene/Actor/Player/ItemNum/ItemNumData.hpp"
 
 namespace Stage
 {
@@ -39,6 +40,8 @@ namespace Stage
 		void Warp(WarpBase* prevWarpBase, const std::string& nextNameTag);
 
 		bool CheckFlag(char);
+
+		ItemNumData GetItemNumData();
 
 	};
 }
