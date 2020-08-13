@@ -56,9 +56,9 @@ namespace Stage
 		return stringData;
 	}
 
-	SceneManager* LoadStage(Stage* stage, std::string&& fileName)
+	SceneManager* LoadStage(Stage* stage, std::string&& fileName, int playerLifeNum, int playerGemNum)
 	{
-		auto sceneManagerPtr = new SceneManager{ stage };
+		auto sceneManagerPtr = new SceneManager{ stage ,playerLifeNum,playerGemNum };
 
 		picojson::value v;
 		if (!OpenFile(std::move(fileName), v))

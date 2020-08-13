@@ -20,7 +20,7 @@ namespace Stage
 		ItemNum* mItemNum;
 
 	public:
-		Player(GameLib::Actor* scene);
+		Player(GameLib::Actor* scene,int lifeNum,int gemNum);
 		virtual ~Player() = default;
 
 		void Update() override;

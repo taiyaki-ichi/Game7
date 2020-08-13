@@ -23,7 +23,7 @@ namespace Stage
 
 	public:
 
-		SceneManager(GameLib::Actor* stage);
+		SceneManager(GameLib::Actor* stage,int playerLifeNum,int playerGemNum);
 		virtual ~SceneManager() = default;
 
 		//PLayer‚Ìƒ[ƒv

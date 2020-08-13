@@ -16,12 +16,12 @@
 namespace Stage
 {
 
-	Stage::Stage(GameLib::Actor* game,std::string&& fileName)
+	Stage::Stage(GameLib::Actor* game, std::string&& fileName, int playerLifeNum, int playerGemNum )
 		:GameLib::Actor{ game }
 		, mSceneManager{ nullptr }
 		, mFlags{0}
 	{
-		mSceneManager = LoadStage(this, std::move(fileName));
+		mSceneManager = LoadStage(this, std::move(fileName), playerLifeNum, playerGemNum);
 		Gravity::Reset();
 
 		BackGround::CreateSharpTreeForest(this);

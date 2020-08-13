@@ -10,13 +10,15 @@
 namespace Stage
 {
 
-	SceneManager::SceneManager(GameLib::Actor* stage)
+	SceneManager::SceneManager(GameLib::Actor* stage, int playerLifeNum, int playerGemNum)
 		:GameLib::Actor{stage}
 		, mWarpBases{}
 		, mFlags{0}
 		, mPlayer{nullptr}
 	{
-		mPlayer = new Player{ this };
+
+
+		mPlayer = new Player{ this ,playerLifeNum,playerGemNum };
 	}
 
 

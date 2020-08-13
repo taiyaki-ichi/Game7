@@ -9,7 +9,7 @@ namespace Stage
 {
 	GameLib::Vector2 Player::mPosition{};
 
-	Player::Player(GameLib::Actor* sceneManager)
+	Player::Player(GameLib::Actor* sceneManager,int lifeNum,int gemNum)
 		:ActorBase{ sceneManager ,10}
 		, mAnimation{}
 		, mStateManager{nullptr}
@@ -31,7 +31,7 @@ namespace Stage
 		mAnimation.SetAnimationFPS(20);
 
 		mLife = new Life{ this ,PlayerParam::LIFE_POSITION };
-		mItemNum = new ItemNum{ this,PlayerParam::ITEMNUM_POSITION,5,10 };
+		mItemNum = new ItemNum{ this,PlayerParam::ITEMNUM_POSITION,lifeNum,gemNum };
 		
 	}
 
