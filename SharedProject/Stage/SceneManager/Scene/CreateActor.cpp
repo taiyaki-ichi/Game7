@@ -13,6 +13,7 @@
 #include"Actor/Gem.hpp"
 #include"Actor/Blinder.hpp"
 #include"Actor/TearGem.hpp"
+#include"Actor/Frog.hpp"
 
 namespace Stage
 {
@@ -34,6 +35,7 @@ namespace Stage
 			{"Gem",[](Scene* scene) {return new Gem{scene}; }},
 			{"Blinder",[](Scene* scene) {return new Blinder{scene}; }},
 			{"TearGem",[](Scene* scene) {return new TearGem{scene}; }},
+			{"Frog",[](Scene* scene) {return new Frog{scene}; }},
 
 		};
 

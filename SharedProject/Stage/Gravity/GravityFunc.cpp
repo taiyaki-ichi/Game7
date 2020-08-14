@@ -85,4 +85,14 @@ namespace Stage
 		if (isRotaion)
 			model.mRotation = Gravity::GetRotation();
 	}
+
+	GameLib::Vector2 GetDirSizeSetVector2(const GameLib::Vector2& vec, const Dir4& dir, float size)
+	{
+		auto result = vec;
+		float prevDirSize = GetDir4DirectionSize(vec, dir);
+		result += GetVector2(dir, -prevDirSize);
+		result += GetVector2(dir, size);
+
+		return result;
+	}
 }

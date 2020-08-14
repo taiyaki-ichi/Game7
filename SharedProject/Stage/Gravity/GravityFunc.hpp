@@ -26,6 +26,7 @@ namespace Stage
 	//isRotetio‚Íd—Í‚Ì‰ñ“]‚ğ”½‰f‚³‚¹‚é‚©‚Ç‚¤‚©B•‚‚¢‚Ä‚¢‚é•¨‘Ì‚È‚Ç‚Ífalse
 	void UpdatePhysicsModelWithGravity(PhysicsModel& model, const GameLib::Vector2& power, float horizonMaxSpeed = -1.f, float virticalMaxSpeed = -1.f, bool isRotaion = true);
 
-
+	//vec‚©‚çdir‚ÌŒü‚«‚ª‘å‚«‚³size‚É•ÏX‚³‚ê‚½Vector2‚ğ•Ô‚·
+	GameLib::Vector2 GetDirSizeSetVector2(const GameLib::Vector2& vec, const Dir4& dir, float size);
 
 }

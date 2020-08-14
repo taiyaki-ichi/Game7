@@ -27,6 +27,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\BlinderEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GemEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TearGemEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\FrogEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera\EditorCamera.hpp" />
@@ -58,5 +59,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\BlinderEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GemEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TearGemEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\FrogEditor.hpp" />
   </ItemGroup>
 </Project>
