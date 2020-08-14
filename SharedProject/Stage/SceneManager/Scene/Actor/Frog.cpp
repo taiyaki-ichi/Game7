@@ -43,7 +43,7 @@ namespace Stage
 		mAnim.SetPosition(data[0]);
 
 		float x = GameLib::GetDistanceY(data[0], data[1]);
-		float jumpSpeed = x / FrogParam::JUMP_TIME - (-Gravity::GetDir4Vec().mSize) * FrogParam::JUMP_TIME / 2.f;
+		float jumpSpeed = std::sqrt(2.f * Gravity::GetDir4Vec().mSize * x);
 
 		mStateManager.SetStartState(new FrogState::Active{ &mAnim,jumpSpeed });
 	}

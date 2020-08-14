@@ -65,15 +65,19 @@ namespace Stage
 			mStrength.AddHitFunction("Ground", std::move(strengthHitGround));
 		}
 
+		
 		bool Active::UpdateOrNot()
 		{
 			auto pos = mPhysicsModel.mPosition;
-			return IsInScope(pos, WindowSize::WIDTH + 200.f, WindowSize::WIDTH + 200.f);
+			return IsInScope(pos, WindowSize::WIDTH + 400.f, WindowSize::WIDTH + 400.f);
 		}
+		
 
 		StateBase<>* Active::Update()
 		{
 			UpdatePhysicsModelWithGravity(mPhysicsModel, Gravity::GetVector2(), -1.f, -1.f);
+
+			//std::cout << mPhysicsModel.mVelocity.x << "," << mPhysicsModel.mVelocity.y << "\n";
 
 			if (mCnt == FrogParam::STAY_TIME)
 			{
