@@ -3,7 +3,7 @@
 #include"GameLib/include/Draw/DrawTexture.hpp"
 #include"PairVec.hpp"
 
-namespace Game::StageSelect
+namespace Game
 {
 	class ChoiceIcon : public GameLib::Actor
 	{

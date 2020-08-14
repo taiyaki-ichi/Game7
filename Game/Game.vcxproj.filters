@@ -1,24 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="StageSelect\HexChip.cpp" />
-    <ClCompile Include="StageSelect\StageSelect.cpp" />
+    <ClCompile Include="StageSelect\DataDisplay\StringDisplay.cpp" />
+    <ClCompile Include="StageSelect\DataDisplay\TearGemDisplay.cpp" />
+    <ClCompile Include="StageSelect\HexChip\HexChip.cpp" />
     <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
-    <ClCompile Include="StageSelect\LevelDisplay\LevelDisplay.cpp" />
-    <ClCompile Include="StageSelect\TearGemDisplay.cpp" />
+    <ClCompile Include="StageSelect\StageSelect.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StartActor.hpp" />
-    <ClInclude Include="StageSelect\StageData.hpp" />
-    <ClInclude Include="StageSelect\HexMapParam.hpp" />
-    <ClInclude Include="StageSelect\HexChip.hpp" />
+    <ClInclude Include="StageSelect\DataDisplay\StringDisplay.hpp" />
+    <ClInclude Include="StageSelect\DataDisplay\TearGemDisplay.hpp" />
+    <ClInclude Include="StageSelect\DataDisplay\TearGemDisplayParam.hpp" />
+    <ClInclude Include="StageSelect\HexChip\HexChip.hpp" />
+    <ClInclude Include="StageSelect\HexChip\HexChipParam.hpp" />
+    <ClInclude Include="StageSelect\HexChip\ToVector2.hpp" />
+    <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
     <ClInclude Include="StageSelect\PairVec.hpp" />
     <ClInclude Include="StageSelect\StageSelect.hpp" />
-    <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
-    <ClInclude Include="StageSelect\LevelDisplay\LevelDisplay.hpp" />
-    <ClInclude Include="StageSelect\StageSelectFlag.hpp" />
-    <ClInclude Include="StageSelect\TearGemDisplay.hpp" />
-    <ClInclude Include="StageSelect\TearGemDisplayParam.hpp" />
+    <ClInclude Include="StageSelect\StageSelectParam.hpp" />
+    <ClInclude Include="StageSelect\StageStateFlag.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="StageData.hpp" />
+    <ClInclude Include="StageStateFlag.hpp" />
+    <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
 </Project>

@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{84a0801b-bf74-415b-95af-34ca061aacc5}</ProjectGuid>
+    <ProjectGuid>{e2ec4b3c-f497-43c1-a3ed-05acc770bd41}</ProjectGuid>
     <RootNamespace>Game</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -148,22 +148,26 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
-    <ClCompile Include="StageSelect\HexChip.cpp" />
-    <ClCompile Include="StageSelect\LevelDisplay\LevelDisplay.cpp" />
+    <ClCompile Include="StageSelect\DataDisplay\StringDisplay.cpp" />
+    <ClCompile Include="StageSelect\DataDisplay\TearGemDisplay.cpp" />
+    <ClCompile Include="StageSelect\HexChip\HexChip.cpp" />
     <ClCompile Include="StageSelect\StageSelect.cpp" />
-    <ClCompile Include="StageSelect\TearGemDisplay.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="StageData.hpp" />
     <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
-    <ClInclude Include="StageSelect\HexChip.hpp" />
-    <ClInclude Include="StageSelect\HexMapParam.hpp" />
-    <ClInclude Include="StageSelect\LevelDisplay\LevelDisplay.hpp" />
+    <ClInclude Include="StageSelect\DataDisplay\StringDisplay.hpp" />
+    <ClInclude Include="StageSelect\DataDisplay\TearGemDisplay.hpp" />
+    <ClInclude Include="StageSelect\DataDisplay\TearGemDisplayParam.hpp" />
+    <ClInclude Include="StageSelect\HexChip\HexChip.hpp" />
+    <ClInclude Include="StageSelect\HexChip\HexChipParam.hpp" />
+    <ClInclude Include="StageSelect\HexChip\ToVector2.hpp" />
     <ClInclude Include="StageSelect\PairVec.hpp" />
-    <ClInclude Include="StageSelect\StageData.hpp" />
     <ClInclude Include="StageSelect\StageSelect.hpp" />
-    <ClInclude Include="StageSelect\StageSelectFlag.hpp" />
-    <ClInclude Include="StageSelect\TearGemDisplay.hpp" />
-    <ClInclude Include="StageSelect\TearGemDisplayParam.hpp" />
+    <ClInclude Include="StageSelect\StageSelectParam.hpp" />
+    <ClInclude Include="StageSelect\StageStateFlag.hpp" />
+    <ClInclude Include="StageStateFlag.hpp" />
     <ClInclude Include="StartActor.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

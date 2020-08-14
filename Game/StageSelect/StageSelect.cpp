@@ -1,119 +1,142 @@
 #include"StageSelect.hpp"
-#include"HexChip.hpp"
-#include"StageData.hpp"
-#include"PairVec.hpp"
+#include"StageSelectParam.hpp"
+#include"StageStateFlag.hpp"
+#include"HexChip/HexChip.hpp"
 #include"ChoiceIcon.hpp"
-#include"GameLib/include/Viewport/Viewport.hpp"
+#include"PairVec.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
-#include"LevelDisplay/LevelDisplay.hpp"
-#include"StageSelectFlag.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
+#include"HexChip/ToVector2.hpp"
 
-namespace Game::StageSelect
+namespace Game
 {
-	StageSelect::StageSelect(GameLib::Actor* actor, const std::map<PairVec, unsigned char>& data, const PairVec& nowPos, int lifeNum, int gemNum)
-		:GameLib::Actor{ actor }
-		, mStageState{data}
-		, mChoiceIcon{ nullptr }
-		, mLevelDisplay{ nullptr }
-		, mLifeDisplay{HexMapParam::LIFE_NUM_POSITION,lifeNum}
-		, mGemDisplay{HexMapParam::GEM_NUM_POSITION,gemNum}
-		, mTearGemDisplay{HexMapParam::TEARGEM_DISPLAY_POSITON}
+	StageSelect::StageSelect(GameLib::Actor* actor, const std::map<std::pair<int, int>, unsigned char>& saveData,
+		const std::map<std::pair<int, int>, std::vector<std::string>>& stageData,
+		std::pair<int, int>&& nowPos, int lifeNum, int gemNum)
+		:GameLib::Actor{actor}
+		, mStageData{}
+		, mChoiceIcon{nullptr}
+		, mStageNameDisplay{StageSelectParam::STAGENAME_DISPLAY_POSITION,GameLib::Font::Size::Size_48}
+		, mStageLevelDisplay{StageSelectParam::LEVEL_DISPLAY_POSITION,GameLib::Font::Size::Size_36}
+		, mTearGemDisplay{StageSelectParam::TEARGEM_DIPLAY_POSITION}
+		, mGemDisplay{ StageSelectParam::GEM_NUM_POSITION,gemNum }
+		, mLifeDisplay{ StageSelectParam::LIFE_NUM_POSITION,lifeNum }
 	{
-		for (const auto& d : gStageInfo)
-			new HexChip{ this,ToVector2(d.first),"../Assets/StageSelect/batu_hex.png",-1 };
+		auto stageDataIter = stageData.begin();
+		auto saveDataIter = saveData.begin();
 
-		for (const auto& d : mStageState)
+		while (stageDataIter != stageData.end())
 		{
-			std::string fileName{};
-			if (d.second & StageSelectFlag::CLEAR_FLAG)
-				fileName = "../Assets/StageSelect/clear_hex.png";
-			else if (d.second & StageSelectFlag::OPEN_FLAG)
-				fileName = "../Assets/StageSelect/circle_hex.png";
+			//特殊なマスの場合
+			if (stageDataIter->second.size() == 1)
+			{
+				//仮
+				if (stageDataIter->second[0] == "start")
+					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/hex.png" };
+				else if (stageDataIter->second[0] == "save")
+					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/hex.png" };
+				else if (stageDataIter->second[0] == "title")
+					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/hex.png" };
 
-			new HexChip{ this,ToVector2(d.first),std::move(fileName) };
+				//特別なマスは必ず通れるので追加
+				mStageData.emplace(stageDataIter->first, std::make_pair(stageDataIter->second, saveDataIter->second));
+
+			}
+			//そのステージの進捗情報がsaveDataに記載されている場合
+			else if (stageDataIter->first == saveDataIter->first)
+			{
+				if (saveDataIter->second & StageStateFlag::CLEAR_FLAG)
+					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/clear_hex.png" };
+				else //if(saveDataIter->second & StageSelectFlag::OPEN_FLAG)
+					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/circle_hex.png" };
+
+				//saveDataに記載されているということは通れるので追加
+				mStageData.emplace(stageDataIter->first, std::make_pair(stageDataIter->second, saveDataIter->second));
+				saveDataIter++;
+			}
+			else
+			{
+				new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/batu_hex.png" };
+			}
+
+			stageDataIter++;
 		}
 
-		new HexChip{ this,ToVector2(std::make_pair(0,0)),"../Assets/StageSelect/hex.png" };
-
 		mChoiceIcon = new ChoiceIcon{ this };
-		mChoiceIcon->SetPosision(nowPos);
-		mLevelDisplay = new LevelDisplay{ this };
+		//nowPOsが有効な値でなかった時の保険
+		mChoiceIcon->SetPosision(std::make_pair(0, 0));
+		CheckposAndUpdateDisplay(std::move(nowPos));
 
-		mTearGemDisplay.NotDrawing();
+		AdjustDisplayPos();
 	}
 
 	void StageSelect::CustomizeUpdate()
 	{
-		UpdateChoiceIcon();
-
-
-
-		auto iter = gStageInfo.find(mChoiceIcon->GetPosition());
-		if (iter != gStageInfo.end()) {
-
-			mLevelDisplay->SetLevelString(iter->second.mLevel);
-
-
-			//if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
-			
-		}
-		else
-			mLevelDisplay->SetLevelString("-");
-
-		mLevelDisplay->AdjustPos();
-		mLifeDisplay.AdjustPos();
-		mGemDisplay.AdjustPos();
-
-		UpdateTearGemDisplay();
-	}
-
-	void StageSelect::UpdateChoiceIcon()
-	{
 		auto pos = mChoiceIcon->GetPosition();
 		GameLib::Viewport::SetPos(ToVector2(pos));
+		auto addPairVec = GetPairVecPerFrame();
+		if (addPairVec != NON_DIR)
+		{
+			pos = AddPair(pos, addPairVec);
+			CheckposAndUpdateDisplay(std::move(pos));
+		}
+
+		AdjustDisplayPos();
+	}
+
+	const PairVec& StageSelect::GetPairVecPerFrame()
+	{
 		if (GameLib::InputState::GetState(GameLib::Key::E) == GameLib::ButtonState::Pressed)
-			pos = AddPair(pos, DIR_E_PAIR);
+			return DIR_E_PAIR;
 		if (GameLib::InputState::GetState(GameLib::Key::D) == GameLib::ButtonState::Pressed)
-			pos = AddPair(pos, DIR_D_PAIR);
+			return DIR_D_PAIR;
 		if (GameLib::InputState::GetState(GameLib::Key::X) == GameLib::ButtonState::Pressed)
-			pos = AddPair(pos, DIR_X_PAIR);
+			return DIR_X_PAIR;
 
 		if (GameLib::InputState::GetState(GameLib::Key::Z) == GameLib::ButtonState::Pressed)
-			pos = AddPair(pos, DIR_Z_PAIR);
+			return DIR_Z_PAIR;
 		if (GameLib::InputState::GetState(GameLib::Key::A) == GameLib::ButtonState::Pressed)
-			pos = AddPair(pos, DIR_A_PAIR);
+			return DIR_A_PAIR;
 		if (GameLib::InputState::GetState(GameLib::Key::W) == GameLib::ButtonState::Pressed)
-			pos = AddPair(pos, DIR_W_PAIR);
+			return DIR_W_PAIR;
 
-		auto iter = mStageState.find(pos);
-		if (iter != mStageState.end()) 
-			mChoiceIcon->SetPosision(pos);
-		else
-			mTearGemDisplay.NotDrawing();
-
-		if (pos.first == 0 && pos.second == 0)
-			mChoiceIcon->SetPosision(pos);
+		return NON_DIR;
 	}
 
-	void StageSelect::UpdateTearGemDisplay()
+	void StageSelect::CheckposAndUpdateDisplay(std::pair<int, int>&& pos)
 	{
-		auto iconPos = mChoiceIcon->GetPosition();
-		auto iter = mStageState.find(iconPos);
-		if (iter != mStageState.end())
+		auto iter = mStageData.find(pos);
+		if (iter != mStageData.end())
 		{
-			mTearGemDisplay.SetFrame();
-			if (iter->second & StageSelectFlag::TEARGEM1_FLAG)
-				mTearGemDisplay.SetTearGem(1);
-			if (iter->second & StageSelectFlag::TEARGEM2_FLAG)
-				mTearGemDisplay.SetTearGem(2);
-			if (iter->second & StageSelectFlag::TEARGEM3_FLAG)
-				mTearGemDisplay.SetTearGem(3);
-		}
-		else
-			mTearGemDisplay.NotDrawing();
+			if (iter->second.first.size() == 1)
+			{
+				mStageNameDisplay.SetText(iter->second.first[0]);
+				mStageLevelDisplay.SetText("");
+				mTearGemDisplay.NotDrawing();
+			}
+			else
+			{
+				mStageNameDisplay.SetText(iter->second.first[2]);
+				mStageLevelDisplay.SetText("level : " + iter->second.first[1]);
+				mTearGemDisplay.SetFrame();
+				if (iter->second.second & StageStateFlag::TEARGEM1_FLAG)
+					mTearGemDisplay.SetTearGem(1);
+				if (iter->second.second & StageStateFlag::TEARGEM2_FLAG)
+					mTearGemDisplay.SetTearGem(2);
+				if (iter->second.second & StageStateFlag::TEARGEM3_FLAG)
+					mTearGemDisplay.SetTearGem(3);
+			}
 
-		mTearGemDisplay.AdjustPos();
+			mChoiceIcon->SetPosision(pos);
+		}
 	}
 
-
+	void StageSelect::AdjustDisplayPos()
+	{
+		mStageNameDisplay.AdjustPos();
+		mStageLevelDisplay.AdjustPos();
+		mGemDisplay.AdjustPos();
+		mTearGemDisplay.AdjustPos();
+		mLifeDisplay.AdjustPos();
+	}
 }
