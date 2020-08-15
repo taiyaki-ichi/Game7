@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RectCurtain\RectCurtain.cpp" />
     <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
     <ClCompile Include="StageSelect\DataDisplay\StringDisplay.cpp" />
     <ClCompile Include="StageSelect\DataDisplay\TearGemDisplay.cpp" />
@@ -156,6 +157,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="RectCurtain\RectCurtain.hpp" />
+    <ClInclude Include="RectCurtain\RectCurtainParam.hpp" />
     <ClInclude Include="StageData.hpp" />
     <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
     <ClInclude Include="StageSelect\DataDisplay\StringDisplay.hpp" />

@@ -21,6 +21,7 @@ namespace Game
 		, mTearGemDisplay{StageSelectParam::TEARGEM_DIPLAY_POSITION}
 		, mGemDisplay{ StageSelectParam::GEM_NUM_POSITION,gemNum }
 		, mLifeDisplay{ StageSelectParam::LIFE_NUM_POSITION,lifeNum }
+		, mChoiceIconStopFlag{false}
 	{
 		auto stageDataIter = stageData.begin();
 		auto saveDataIter = saveData.begin();
@@ -72,15 +73,17 @@ namespace Game
 
 	void StageSelect::CustomizeUpdate()
 	{
-		auto pos = mChoiceIcon->GetPosition();
-		GameLib::Viewport::SetPos(ToVector2(pos));
-		auto addPairVec = GetPairVecPerFrame();
-		if (addPairVec != NON_DIR)
+		if (!mChoiceIconStopFlag)
 		{
-			pos = AddPair(pos, addPairVec);
-			CheckposAndUpdateDisplay(std::move(pos));
+			auto pos = mChoiceIcon->GetPosition();
+			GameLib::Viewport::SetPos(ToVector2(pos));
+			auto addPairVec = GetPairVecPerFrame();
+			if (addPairVec != NON_DIR)
+			{
+				pos = AddPair(pos, addPairVec);
+				CheckposAndUpdateDisplay(std::move(pos));
+			}
 		}
-
 		AdjustDisplayPos();
 	}
 
@@ -143,5 +146,10 @@ namespace Game
 	const PairVec& StageSelect::GetChoicePos() const 
 	{
 		return mChoiceIcon->GetPosition();
+	}
+
+	void StageSelect::ChoiceIconStop()
+	{
+		mChoiceIconStopFlag = true;
 	}
 }

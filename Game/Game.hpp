@@ -11,6 +11,7 @@ namespace Game
 {
 	class Title;
 	class StageSelect;
+	class RectCurtain;
 
 	class Game : public GameLib::Actor
 	{
@@ -23,6 +24,8 @@ namespace Game
 		void UpdateTitle();
 		void UpdateStageSelect();
 		void UpdateStage();
+
+		RectCurtain* mRectCurtain;
 
 		//ゲームのデータたち
 		std::map<std::pair<int, int>, unsigned char> mSaveData;

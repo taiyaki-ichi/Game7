@@ -2,6 +2,7 @@
 #include"GameLib/include/Actor/Actor.hpp"
 #include<string>
 #include"SceneManager/Scene/Actor/Player/ItemNum/ItemNumData.hpp"
+#include"GameLib/include/Math/Vector2.hpp"
 
 namespace Stage
 {

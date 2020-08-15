@@ -33,6 +33,7 @@ namespace Game
 		Stage::GemDisplay mGemDisplay;
 		Stage::LifeDisplay mLifeDisplay;
 
+		bool mChoiceIconStopFlag;
 
 	public:
 		//2つのmapからmStageDataを作成しながらマップを描写していく
@@ -45,6 +46,8 @@ namespace Game
 
 		//Spaceが押されたときGameから呼び出される
 		const std::pair<int, int>& GetChoicePos()const;
+
+		void ChoiceIconStop();
 
 
 	private:

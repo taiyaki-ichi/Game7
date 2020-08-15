@@ -8,6 +8,7 @@
     <ClCompile Include="StageSelect\StageSelect.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="RectCurtain\RectCurtain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StageSelect\DataDisplay\StringDisplay.hpp" />
@@ -25,5 +26,7 @@
     <ClInclude Include="StageData.hpp" />
     <ClInclude Include="StageStateFlag.hpp" />
     <ClInclude Include="StartActor.hpp" />
+    <ClInclude Include="RectCurtain\RectCurtain.hpp" />
+    <ClInclude Include="RectCurtain\RectCurtainParam.hpp" />
   </ItemGroup>
 </Project>

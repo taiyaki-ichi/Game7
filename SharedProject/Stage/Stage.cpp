@@ -61,4 +61,5 @@ namespace Stage
 	{
 		return mSceneManager->GetItemNumData();
 	}
+
 }
