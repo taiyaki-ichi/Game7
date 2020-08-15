@@ -38,9 +38,9 @@ namespace Stage
 				auto gravityDir4 = Gravity::GetDir4();
 				GameLib::Vector2 adjust;
 				if (gravityDir4 == Dir4::Down || gravityDir4 == Dir4::Up)
-					adjust = GetParallelRectAdjustVec(mBody, c, MAX_SPEED / 2.f, Gravity::GetSize() / 2.f);
+					adjust = GetParallelRectAdjustVec(mBody, c, Gravity::GetSize() ,0.f);
 				else
-					adjust = GetParallelRectAdjustVec(mBody, c, Gravity::GetSize() / 2.f, MAX_SPEED / 2.f);
+					adjust = GetParallelRectAdjustVec(mBody, c, 0.f,Gravity::GetSize() );
 				mPhysicsModel.mPosition += adjust;
 
 				auto dir4Adjust = GetDir4Vec(adjust);
