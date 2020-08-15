@@ -20,7 +20,8 @@ namespace Stage
 		Player* mPlayer;
 
 		char mFlags;
-
+		
+		int mCnt;
 
 	public:
 

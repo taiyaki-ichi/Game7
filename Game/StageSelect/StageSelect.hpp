@@ -40,7 +40,7 @@ namespace Game
 		StageSelect(GameLib::Actor*, 
 			const std::map<std::pair<int, int>, unsigned char>&,
 			const std::map<std::pair<int, int>, std::vector<std::string>>&,
-			std::pair<int, int>&& nowPos,int lifeNum, int gemNum);
+			const std::pair<int, int>& nowPos,int lifeNum, int gemNum);
 
 		void CustomizeUpdate() override;
 
@@ -54,7 +54,7 @@ namespace Game
 		const std::pair<int,int>& GetPairVecPerFrame();
 
 		//posをチェックし有効な値の場合choiceIconの位置を変更、Displayの値を書きカエル
-		void CheckposAndUpdateDisplay(std::pair<int,int>&& pos);
+		void CheckposAndUpdateDisplay(const std::pair<int,int>& pos);
 
 		//DisplayたちのAdjustPosを呼び出す
 		void AdjustDisplayPos();

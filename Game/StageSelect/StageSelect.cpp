@@ -12,7 +12,7 @@ namespace Game
 {
 	StageSelect::StageSelect(GameLib::Actor* actor, const std::map<std::pair<int, int>, unsigned char>& saveData,
 		const std::map<std::pair<int, int>, std::vector<std::string>>& stageData,
-		std::pair<int, int>&& nowPos, int lifeNum, int gemNum)
+		const std::pair<int, int>& nowPos, int lifeNum, int gemNum)
 		:GameLib::Actor{actor}
 		, mStageData{}
 		, mChoiceIcon{nullptr}
@@ -66,7 +66,7 @@ namespace Game
 		mChoiceIcon = new ChoiceIcon{ this };
 		//nowPOs‚ª—LŒø‚È’l‚Å‚È‚©‚Á‚½Žž‚Ì•ÛŒ¯
 		mChoiceIcon->SetPosision(std::make_pair(0, 0));
-		CheckposAndUpdateDisplay(std::move(nowPos));
+		CheckposAndUpdateDisplay(nowPos);
 
 		AdjustDisplayPos();
 	}
@@ -106,7 +106,7 @@ namespace Game
 		return NON_DIR;
 	}
 
-	void StageSelect::CheckposAndUpdateDisplay(std::pair<int, int>&& pos)
+	void StageSelect::CheckposAndUpdateDisplay(const std::pair<int, int>& pos)
 	{
 		auto iter = mStageData.find(pos);
 		if (iter != mStageData.end())

@@ -30,7 +30,7 @@ namespace Stage
 	void ItemNum::AddTearGem(int num)
 	{
 		mTearDisplay.Get(num);
-		mTearGemCnt[num] = true;
+		mTearGemCnt[num - 1] = true;
 	}
 	
 	void ItemNum::AdjustPos()

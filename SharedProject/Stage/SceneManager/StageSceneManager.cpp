@@ -6,6 +6,7 @@
 #include"GameLib/include/InputState/InputState.hpp"
 #include"Scene/Actor/Player/PlayerFlag.hpp"
 #include"SceneManagerFlag.hpp"
+#include"StageSceneManagerParam.hpp"
 
 namespace Stage
 {
@@ -15,6 +16,7 @@ namespace Stage
 		, mWarpBases{}
 		, mFlags{0}
 		, mPlayer{nullptr}
+		, mCnt{-1}
 	{
 
 
@@ -27,8 +29,13 @@ namespace Stage
 		//std::cout << "scene manager player pos: " << mPlayer->GetPosition().x << "\n";
 		if (mPlayer->CheckFlag(PlayerFlag::DEATH_MOTION_FINISH_FLAG))
 			mFlags |= SceneManagerFlag::MISS_FLAG;
-		if (mPlayer->CheckFlag(PlayerFlag::GOAL_FLAG))
+		if (mPlayer->CheckFlag(PlayerFlag::GOAL_FLAG) && mCnt == -1)
+			mCnt = 0;
+		if (mCnt >= SceneManagerParam::GOAL_MOVIE_TIME)
 			mFlags |= SceneManagerFlag::CLEAR_FLAG;
+
+		if (mCnt >= 0)
+			mCnt++;
 	}
 	void SceneManager::CreateScene(std::vector<std::vector<ActorInfo>>&& stageData)
 	{

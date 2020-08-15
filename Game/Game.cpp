@@ -29,7 +29,7 @@ namespace Game
 		mRectCurtain = new RectCurtain{ this };
 
 		//仮
-		mStageSelect = new StageSelect{ this,mSaveData,gStageData,std::make_pair(0,0),mPlayerLifeNum,mPlayerLifeNum };
+		mStageSelect = new StageSelect{ this,mSaveData,gStageData,std::make_pair(0,0),mPlayerLifeNum,mPlayerGemNum };
 
 	}
 
@@ -99,6 +99,21 @@ namespace Game
 			mPlayerLifeNum = item.mLifeNum;
 			mPlayerGemNum = item.mGemNum;
 
+			//セーブデータの更新
+			//クリア情報
+			unsigned char flag{ 0 };
+			flag |= StageStateFlag::OPEN_FLAG;
+			flag |= StageStateFlag::CLEAR_FLAG;
+			if (item.mTearGemCnt[0])
+				flag |= StageStateFlag::TEARGEM1_FLAG;
+			if (item.mTearGemCnt[1])
+				flag |= StageStateFlag::TEARGEM2_FLAG;
+			if (item.mTearGemCnt[2])
+				flag |= StageStateFlag::TEARGEM3_FLAG;
+			mSaveData.insert_or_assign(mPosition, flag);
+
+			//新しくいける場所
+			//すでにデータが存在する場合、挿入しない
 			auto iter1 = gStageData.find(AddPair(mPosition, DIR_E_PAIR));
 			if (iter1 != gStageData.end())
 				mSaveData.emplace(iter1->first, StageStateFlag::OPEN_FLAG);
@@ -111,7 +126,30 @@ namespace Game
 			if (iter3 != gStageData.end())
 				mSaveData.emplace(iter3->first, StageStateFlag::OPEN_FLAG);
 
+		}
+		else if (mRectCurtain->IsOpen() && mStage->CheckFlag(Stage::StageFlag::MISS_FLAG))
+		{
+			mRectCurtain->Close();
 
+			auto item = mStage->GetItemNumData();
+			mPlayerLifeNum = item.mLifeNum;
+			mPlayerGemNum = item.mGemNum;
+
+			mPlayerLifeNum--;
+		}
+		else if (mRectCurtain->IsOpen() && mStage->CheckFlag(Stage::StageFlag::RETURN_TO_TITLE_FLAG))
+		{
+			mRectCurtain->Close();
+		}
+
+		if (mRectCurtain->IsClose())
+		{
+			mStage->SetState(GameLib::Actor::State::Dead);
+			mStage = nullptr;
+
+			mStageSelect = new StageSelect{ this,mSaveData,gStageData,mPosition,mPlayerLifeNum,mPlayerGemNum };
+			
+			mRectCurtain->Open();
 		}
 	}
 
