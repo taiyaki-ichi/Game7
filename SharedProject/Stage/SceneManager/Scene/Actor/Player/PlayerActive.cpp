@@ -38,10 +38,12 @@ namespace Stage::PlayerState
 
 		auto hitGround = [this](const GameLib::Collider& c) {
 			GameLib::Vector2 adjust{};
+
+			//GravityˆÈ‰º‚ÌX‚ğØ‚èÌ‚Äˆø‚Á‚©‚©‚è‚ğ‚È‚­‚·
 			if (Gravity::GetDir4() == Dir4::Down || Gravity::GetDir4() == Dir4::Up)
-				adjust = GetParallelRectAdjustVec(mCollider, c, 0.f, 0.5f);
+				adjust = GetParallelRectAdjustVec(mCollider, c, 1.f, 0.f);
 			else
-				adjust = GetParallelRectAdjustVec(mCollider, c, 0.5f, 0.f);
+				adjust = GetParallelRectAdjustVec(mCollider, c, 0.f, 1.f);
 			auto dir4Vec = GetDir4Vec(adjust);
 
 			//std::cout << "c wigth: " << c.GetWidth() << "\n";
@@ -92,6 +94,7 @@ namespace Stage::PlayerState
 				}
 			}
 
+			/*
 			//ƒS[ƒ‹‚Ì‚ÍŠÈ’P‚É~‚Ü‚é‚æ‚¤‚É
 			if (CheckFlag(PlayerFlag::GOAL_FLAG)) {
 				if (Gravity::GetDir4() == Dir4::Up || Gravity::GetDir4() == Dir4::Down)
@@ -99,6 +102,7 @@ namespace Stage::PlayerState
 				else
 					mPhysicsModel.Friction(1.f, 0.8f);
 			}
+			*/
 
 			AdjustCollider();
 			mAnimation->SetPosition(mPhysicsModel.mPosition);
@@ -208,6 +212,9 @@ namespace Stage::PlayerState
 			
 		//std::cout << "player active pos2: " << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
 
+		if (CheckFlag(PlayerFlag::GOAL_FLAG)) {
+			mPhysicsModel.Friction(0.9f, 0.9f);
+		}
 
 		return this;
 	}

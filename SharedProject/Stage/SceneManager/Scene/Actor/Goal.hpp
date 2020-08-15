@@ -13,8 +13,6 @@ namespace Stage
 
 		Dir4 mFallDir;
 
-		GameLib::Vector2 GetFallDirVec();
-
 		int mKiraCnt;
 
 	public:

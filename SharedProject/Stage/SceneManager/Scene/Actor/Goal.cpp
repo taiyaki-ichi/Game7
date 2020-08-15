@@ -20,33 +20,14 @@ namespace Stage
 
 		mTexture.SetScale(GoalParam::SCALE);
 		mTexture.SetDrawOrder(-1);
-
-		auto hitGround = [this](const GameLib::Collider& c) {
-			auto adjsut = GetParallelRectAdjustVec(mCollider, c);
-
-			auto pos = mCollider.GetPosition();
-			pos += adjsut;
-			mCollider.SetPosition(pos);
-
-			mTexture.SetPosition(pos - GetFallDirVec() * GoalParam::COLLIDER_ADJUST_DOWN_SIZE);
-		};
-
-		mCollider.AddHitFunction("Ground", std::move(hitGround));
 	}
 
 	void Goal::Update()
 	{
-		auto pos = mTexture.GetPosition();
-
-		pos += GetFallDirVec() * GoalParam::GRAVITY;
-
-		mTexture.SetPosition(pos);
-
-		mCollider.SetPosition(pos + GetFallDirVec() * GoalParam::COLLIDER_ADJUST_DOWN_SIZE);
-
+	
 		mKiraCnt++;
 		if (mKiraCnt >= GoalParam::GENARATE_KIRA_TIME) {
-			new Kira{ this,pos };
+			new Kira{ this,mTexture.GetPosition() };
 			mKiraCnt = 0;
 		}
 	}
@@ -73,29 +54,27 @@ namespace Stage
 		mFallDir = StringToDir4(data[0]);
 
 		float rot = 0.f;
-		if (data[0] == "right")
+		if (data[0] == "right") {
 			rot = GameLib::PI / 2.f;
-		else if (data[0] == "up")
+			mFallDir = Dir4::Right;
+		}
+		else if (data[0] == "up") {
 			rot = GameLib::PI;
-		else if (data[0] == "left")
+			mFallDir = Dir4::Up;
+		}
+		else if (data[0] == "left") {
 			rot = GameLib::PI * 3.f / 2.f;
+			mFallDir = Dir4::Left;
+		}
+		else
+			mFallDir = Dir4::Down;
 
 		mTexture.SetRotation(rot);
 		mCollider.SetRotation(rot);
-	}
 
-	GameLib::Vector2 Goal::GetFallDirVec()
-	{
-		GameLib::Vector2 vecDir{};
-		if (mFallDir == Dir4::Right)
-			vecDir = GameLib::Vector2{ 1.f,0.f };
-		else if (mFallDir == Dir4::Left)
-			vecDir = GameLib::Vector2{ -1.f,0.f };
-		else if (mFallDir == Dir4::Up)
-			vecDir = GameLib::Vector2{ 0.f,1.f };
-		else
-			vecDir = GameLib::Vector2{ 0.f,-1.f };
+		auto pos = mTexture.GetPosition();
+		pos += GameLib::Vector2::Rotation(GameLib::Vector2{ 0.f,-GoalParam::COLLIDER_ADJUST_DOWN_SIZE }, rot);
+		mCollider.SetPosition(pos);
 
-		return vecDir;
 	}
 }
