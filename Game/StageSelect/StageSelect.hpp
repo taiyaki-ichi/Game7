@@ -8,11 +8,17 @@
 #include"Stage/SceneManager/Scene/Actor/Player/ItemNum/GemDisplay.hpp"
 #include"Stage/SceneManager/Scene/Actor/Player/ItemNum/LifeDisplay.hpp"
 
+namespace Stage
+{
+	class GemDisplay;
+	class LifeDisplay;
+}
+
 namespace Game
 {
 	class ChoiceIcon;
 
-	class StageSelect : GameLib::Actor
+	class StageSelect : public GameLib::Actor
 	{
 		//座標からステージのデータであるstringとクリア状況を示すchar
 		std::map<std::pair<int, int>, std::pair<std::vector<std::string>, unsigned char>> mStageData;
@@ -38,7 +44,7 @@ namespace Game
 		void CustomizeUpdate() override;
 
 		//Spaceが押されたときGameから呼び出される
-		const std::pair<int,int>& GetChoicePos();
+		const std::pair<int, int>& GetChoicePos()const;
 
 
 	private:

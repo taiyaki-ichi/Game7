@@ -2,17 +2,21 @@
 #include"GameLib/include/Actor/Actor.hpp"
 #include<map>
 
+namespace Stage
+{
+	class Stage;
+}
+
 namespace Game
 {
 	class Title;
 	class StageSelect;
-	class Stage;
 
 	class Game : public GameLib::Actor
 	{
 		Title* mTitle;
 		StageSelect* mStageSelect;
-		Stage* mStage;
+		Stage::Stage* mStage;
 
 		//nullptr‚¶‚á‚ ‚È‚¢‚â‚Â‚ğŒÄ‚Ño‚·
 		//‚ ‚ñ‚Ü‚è‚æ‚­‚È‚³‚»‚¤
@@ -33,8 +37,10 @@ namespace Game
 		//Game‚ª¶¬‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚é‚©‚È
 		bool Load();
 
+	public:
+		Game(GameLib::Actor*);
+		virtual ~Game() = default;
 
-
-
+		void CustomizeUpdate() override;
 	};
 }

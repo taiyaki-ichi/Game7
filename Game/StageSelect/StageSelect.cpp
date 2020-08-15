@@ -139,4 +139,9 @@ namespace Game
 		mTearGemDisplay.AdjustPos();
 		mLifeDisplay.AdjustPos();
 	}
+
+	const PairVec& StageSelect::GetChoicePos() const 
+	{
+		return mChoiceIcon->GetPosition();
+	}
 }

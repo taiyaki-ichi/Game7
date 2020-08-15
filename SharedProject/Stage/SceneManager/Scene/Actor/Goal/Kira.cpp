@@ -20,12 +20,16 @@ namespace Stage
 		std::uniform_real_distribution<> x, y;
 
 		if (Gravity::GetDir4() == Dir4::Up || Gravity::GetDir4() == Dir4::Down) {
-			x = std::uniform_real_distribution<>{ center.x - GoalParam::KiraParam::GENERATE_WIDTH / 2.f,center.x + GoalParam::KiraParam::GENERATE_WIDTH / 2.f };
-			y= std::uniform_real_distribution<>{ center.y - GoalParam::KiraParam::GENERATE_HEIGHT / 2.f,center.y + GoalParam::KiraParam::GENERATE_HEIGHT / 2.f };
+			x = std::uniform_real_distribution<>{ static_cast<double>(center.x - GoalParam::KiraParam::GENERATE_WIDTH / 2.f),
+				static_cast<double>(center.x + GoalParam::KiraParam::GENERATE_WIDTH / 2.f )};
+			y = std::uniform_real_distribution<>{ static_cast<double>(center.y - GoalParam::KiraParam::GENERATE_HEIGHT / 2.f),
+				static_cast<double>(center.y + GoalParam::KiraParam::GENERATE_HEIGHT / 2.f )};
 		}
 		else {
-			x = std::uniform_real_distribution<>{ center.y - GoalParam::KiraParam::GENERATE_WIDTH / 2.f,center.y + GoalParam::KiraParam::GENERATE_WIDTH / 2.f };
-			y = std::uniform_real_distribution<>{ center.x - GoalParam::KiraParam::GENERATE_HEIGHT / 2.f,center.x + GoalParam::KiraParam::GENERATE_HEIGHT / 2.f };
+			x = std::uniform_real_distribution<>{ static_cast<double>(center.y - GoalParam::KiraParam::GENERATE_WIDTH / 2.f),
+				static_cast<double>(center.y + GoalParam::KiraParam::GENERATE_WIDTH / 2.f )};
+			y = std::uniform_real_distribution<>{ static_cast<double>(center.x - GoalParam::KiraParam::GENERATE_HEIGHT / 2.f),
+				static_cast<double>(center.x + GoalParam::KiraParam::GENERATE_HEIGHT / 2.f) };
 		}
 
 		mTexture.SetPosition(GameLib::Vector2{ static_cast<float>(x(gEngine)),static_cast<float>(y(gEngine)) });

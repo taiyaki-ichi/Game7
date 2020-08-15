@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StageSelect\ChoiceIcon.cpp" />
     <ClCompile Include="StageSelect\DataDisplay\StringDisplay.cpp" />
