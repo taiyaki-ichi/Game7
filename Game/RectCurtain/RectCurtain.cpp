@@ -33,7 +33,7 @@ namespace Game
 			}
 		}
 		mRect.SetWidthAndHeight(Stage::WindowSize::WIDTH, h);
-		mRect.SetPosition({ GameLib::Viewport::GetPos().x,Stage::WindowSize::HEIGHT / 2.f - h / 2.f });
+		mRect.SetPosition(GameLib::Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f - h / 2.f } + GameLib::Viewport::GetPos());
 	}
 
 	bool RectCurtain::IsOpen()
