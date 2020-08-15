@@ -30,10 +30,67 @@
         },
         {
           "ActorName": "Camera",
-          "FloatData0": 1076.66748046875,
-          "FloatData1": -640.00048828125,
-          "FloatData2": -670.00048828125,
-          "FloatData3": 790.0006103515625
+          "FloatData0": -663.3338623046875,
+          "FloatData1": 850.0006103515625,
+          "FloatData2": 4780.00146484375,
+          "FloatData3": -590.0006103515625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 794.00006103515625,
+          "FloatData1": -106.00003051757813,
+          "FloatData2": 1424.000244140625,
+          "FloatData3": -594.00018310546875
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 1214.0001220703125,
+          "FloatData1": -50.000011444091797
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1396.0001220703125,
+          "FloatData1": -26.000005722045898,
+          "FloatData2": 1862.0001220703125,
+          "FloatData3": -588.00018310546875
+        },
+        {
+          "ActorName": "Toge",
+          "FloatData0": 1613.333740234375,
+          "FloatData1": 43.333354949951172
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1846.6668701171875,
+          "FloatData1": 40.000022888183594,
+          "FloatData2": 2140.000244140625,
+          "FloatData3": -590.0003662109375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2326.666748046875,
+          "FloatData1": 43.333354949951172,
+          "FloatData2": 2686.6669921875,
+          "FloatData3": -586.6669921875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2666.6669921875,
+          "FloatData1": 106.66672515869141,
+          "FloatData2": 2990.000244140625,
+          "FloatData3": -590.0003662109375
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 2843.333740234375,
+          "FloatData1": 163.33343505859375
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 87,
+          "FloatData1": 70,
+          "FloatData2": 260,
+          "FloatData3": 34
         }
       ],
       "SceneName": "1"

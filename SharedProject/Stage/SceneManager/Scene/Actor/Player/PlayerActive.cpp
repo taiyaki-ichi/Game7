@@ -146,6 +146,14 @@ namespace Stage::PlayerState
 			mItemNum->AddTearGem(3);
 		};
 
+		auto hitThroughFloor = [this,hitGround](const GameLib::Collider& c) {
+			auto adjust = GetParallelRectAdjustVec(mCollider, c, 0.5f);
+			auto dir4Vec = GetDir4Vec(adjust);
+			if (dir4Vec.mDir4 == Dir4::Up && GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Down) > 0.f)
+				hitGround(c);
+		};
+
+		mCollider.AddHitFunction("ThroughFloor", hitThroughFloor);
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
 		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
 		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
