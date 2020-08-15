@@ -31,15 +31,22 @@ namespace Stage
 	{
 		float x = GameLib::GetDistanceX(data[0], data[1]);
 		int num = std::round(x / static_cast<float>(PoleParam::RADIUSE*2.f));
+
+		float dir;
+		if (data[0].x < data[1].x)
+			dir = 1.f;
+		else
+			dir = -1.f;
+
 		for (int i = 0; i < num; i++)
 		{
-			auto pos = data[0] + GameLib::Vector2{ PoleParam::RADIUSE + i * PoleParam::RADIUSE*2.f ,0.f };
+			auto pos = data[0] + GameLib::Vector2{ (PoleParam::RADIUSE + i * PoleParam::RADIUSE * 2.f) * dir ,0.f };
 			mPole.emplace_back(new Pole{ this,std::move(pos) });
 		}
 
 		float w = static_cast<float>(num) * PoleParam::RADIUSE * 2.f;
 		mCollider.SetWidthAndHeith(w, PoleParam::RADIUSE);
-		mCollider.SetPosition(data[0] + GameLib::Vector2{ w / 2.f,0.f });
+		mCollider.SetPosition(data[0] + GameLib::Vector2{ w / 2.f,0.f }*dir);
 		mCollider.SetColor({ 0,0,0,255 });
 
 	}

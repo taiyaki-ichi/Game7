@@ -48,6 +48,8 @@ namespace Stage
 	void TearGem::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
 		mPosition = std::move(data[0]);
+		mCollider.SetPosition(data[0]);
+		mTexture.SetPosition(data[0]);
 	}
 
 	void TearGem::LoadStringData(std::vector<std::string>&& data)

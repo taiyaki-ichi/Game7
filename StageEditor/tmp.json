@@ -3,11 +3,6 @@
     {
       "ActorsData": [
         {
-          "ActorName": "Player",
-          "FloatData0": -288,
-          "FloatData1": 30.666666030883789
-        },
-        {
           "ActorName": "Ground",
           "FloatData0": 350.00003051757813,
           "FloatData1": 61.666675567626953,
@@ -86,14 +81,267 @@
           "FloatData1": 163.33343505859375
         },
         {
+          "ActorName": "Ground",
+          "FloatData0": 2981.53857421875,
+          "FloatData1": 280.76922607421875,
+          "FloatData2": 3256.923095703125,
+          "FloatData3": -594.61541748046875
+        },
+        {
           "ActorName": "ThroughFloor",
-          "FloatData0": 87,
-          "FloatData1": 70,
-          "FloatData2": 260,
-          "FloatData3": 34
+          "FloatData0": 2979.23046875,
+          "FloatData1": 210.76924133300781,
+          "FloatData2": 2848.46142578125,
+          "FloatData3": 212.30770874023438
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 2750,
+          "FloatData1": 342.5001220703125,
+          "StringData0": "1"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3457.5,
+          "FloatData1": -25.000015258789063,
+          "FloatData2": 3975,
+          "FloatData3": -591.25
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3973.75,
+          "FloatData1": -26.250001907348633,
+          "FloatData2": 4191.25,
+          "FloatData3": -588.74993896484375
+        },
+        {
+          "ActorName": "Toge",
+          "FloatData0": 3957.499755859375,
+          "FloatData1": 36.250003814697266
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3457.5,
+          "FloatData1": -103.75,
+          "FloatData2": 3256.25,
+          "FloatData3": -593.75
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3257,
+          "FloatData1": 249,
+          "FloatData2": 3549,
+          "FloatData3": 57
+        },
+        {
+          "ActorName": "Blinder",
+          "FloatData0": 3230,
+          "FloatData1": 87,
+          "FloatData2": 3548,
+          "FloatData3": -140
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 3549,
+          "FloatData1": 117,
+          "FloatData2": 3750,
+          "FloatData3": 101
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 3315,
+          "FloatData1": -45,
+          "StringData0": "aaa",
+          "StringData1": "bbb"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4586,
+          "FloatData1": 92,
+          "FloatData2": 4809,
+          "FloatData3": -591
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4797,
+          "FloatData1": 583,
+          "FloatData2": 4928,
+          "FloatData3": -587
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 4698,
+          "FloatData1": 181,
+          "StringData0": "ccc",
+          "StringData1": "ddd"
+        },
+        {
+          "ActorName": "Player",
+          "FloatData0": -109,
+          "FloatData1": 27
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4278,
+          "FloatData1": 24,
+          "FloatData2": 4506,
+          "FloatData3": -593
         }
       ],
       "SceneName": "1"
+    },
+    {
+      "ActorsData": [
+        {
+          "ActorName": "Ground",
+          "FloatData0": -388,
+          "FloatData1": -79,
+          "FloatData2": 384,
+          "FloatData3": -420
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -382,
+          "FloatData1": 313,
+          "FloatData2": 394,
+          "FloatData3": 573
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 380.0001220703125,
+          "FloatData1": -412.50027465820313,
+          "FloatData2": 792.500244140625,
+          "FloatData3": 575.00006103515625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -375.0001220703125,
+          "FloatData1": 562.5001220703125,
+          "FloatData2": -695.00018310546875,
+          "FloatData3": -420.00027465820313
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 265.55557250976563,
+          "FloatData1": 18.888885498046875,
+          "StringData0": "bbb",
+          "StringData1": "aaa"
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": -280.00003051757813,
+          "FloatData1": 90,
+          "StringData0": "2"
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -790.000244140625,
+          "FloatData1": -497.5001220703125,
+          "FloatData2": 895.00030517578125,
+          "FloatData3": 702.500244140625
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 10,
+          "FloatData1": 20
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -143,
+          "FloatData1": 15
+        }
+      ],
+      "SceneName": "2"
+    },
+    {
+      "ActorsData": [
+        {
+          "ActorName": "Ground",
+          "FloatData0": -302,
+          "FloatData1": -49,
+          "FloatData2": 237,
+          "FloatData3": -303
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 235,
+          "FloatData1": 43,
+          "FloatData2": 387,
+          "FloatData3": -303
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 487,
+          "FloatData1": -75,
+          "FloatData2": 662,
+          "FloatData3": -76
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 568,
+          "FloatData1": -17,
+          "StringData0": "3"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 735,
+          "FloatData1": 111,
+          "FloatData2": 892,
+          "FloatData3": -306
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -378,
+          "FloatData1": -301,
+          "FloatData2": 2420.00146484375,
+          "FloatData3": 1130.0010986328125
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": -23,
+          "FloatData1": 207,
+          "StringData0": "ddd",
+          "StringData1": "ccc"
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 498,
+          "FloatData1": 46,
+          "FloatData2": 670,
+          "FloatData3": 45
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 855,
+          "FloatData1": 153
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 890,
+          "FloatData1": 65,
+          "FloatData2": 1162,
+          "FloatData3": -303
+        },
+        {
+          "ActorName": "Toge",
+          "FloatData0": 1066,
+          "FloatData1": 121
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1161,
+          "FloatData1": 43,
+          "FloatData2": 1818,
+          "FloatData3": -301
+        },
+        {
+          "ActorName": "Goal",
+          "FloatData0": 1514,
+          "FloatData1": 301,
+          "StringData0": "down"
+        }
+      ],
+      "SceneName": "3"
     }
   ]
 }

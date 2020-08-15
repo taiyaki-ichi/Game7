@@ -8,7 +8,7 @@ namespace StageEditor
 		:ActorEditorBase{ actor,"ThroughFloor",2,0 }
 		, mRect{}
 	{
-		mRect.SetColor({ 70, 70, 70, 255 });
+		mRect.SetColor({ 100, 100, 100, 255 });
 	}
 
 	void ThroughFloorEditor::Update()

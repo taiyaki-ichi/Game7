@@ -37,7 +37,11 @@ namespace Stage::PlayerState
 		AdjustCollider();
 
 		auto hitGround = [this](const GameLib::Collider& c) {
-			auto adjust = GetParallelRectAdjustVec(mCollider, c, 0.5f);
+			GameLib::Vector2 adjust{};
+			if (Gravity::GetDir4() == Dir4::Down || Gravity::GetDir4() == Dir4::Up)
+				adjust = GetParallelRectAdjustVec(mCollider, c, 0.f, 0.5f);
+			else
+				adjust = GetParallelRectAdjustVec(mCollider, c, 0.5f, 0.f);
 			auto dir4Vec = GetDir4Vec(adjust);
 
 			//std::cout << "c wigth: " << c.GetWidth() << "\n";
