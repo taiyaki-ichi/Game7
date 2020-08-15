@@ -8,7 +8,7 @@ namespace Game
 	const std::map<std::pair<int, int>, std::vector<std::string>> gStageData =
 	{
 		{std::make_pair(1,0),{"stage001","easy","n‚Ü‚è‚ÌX"}},
-		{std::make_pair(2,0),{"stage001","easy","’ê‚È‚µ‚ÌÀ"}},
+		{std::make_pair(2,0),{"stage001","easy","‚ ‚ ‚ ‚ ‚ "}},
 		{std::make_pair(3,0),{"stage001","nomal","‚ ‚ ‚ ‚ ‚ "}},
 		{std::make_pair(4,0),{"stage001","nomal","‚ ‚ ‚ ‚ ‚ "}},
 		{std::make_pair(5,0),{"stage001","nomal","‚ ‚ ‚ ‚ "}},
