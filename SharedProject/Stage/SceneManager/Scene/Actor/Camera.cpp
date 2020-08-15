@@ -33,13 +33,13 @@ namespace Stage
 			mRight = data[0].x;
 		}
 
-		if (data[0].x < data[1].y) {
-			mBottom = data[0].x;
+		if (data[0].y < data[1].y) {
+			mBottom = data[0].y;
 			mTop = data[1].y;
 		}
 		else {
 			mBottom = data[1].y;
-			mTop = data[0].x;
+			mTop = data[0].y;
 		}
 	}
 
