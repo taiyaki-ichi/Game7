@@ -6,6 +6,10 @@
 #include"StageSelect/HexChip/ToVector2.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"RectCurtain/RectCurtain.hpp"
+#include"Stage/Stage.hpp"
+#include"Stage/StageFlag.hpp"
+#include"StageSelect/PairVec.hpp"
+#include"StageStateFlag.hpp"
 
 namespace Game
 {
@@ -15,7 +19,7 @@ namespace Game
 		, mStageSelect{nullptr}
 		, mStage{nullptr}
 		, mSaveData{}
-		, mPlayerLifeNum{0}
+		, mPlayerLifeNum{5}
 		, mPlayerGemNum{ 0 }
 		, mPosition{ std::make_pair(0,0) }
 		, mRectCurtain{nullptr}
@@ -25,7 +29,7 @@ namespace Game
 		mRectCurtain = new RectCurtain{ this };
 
 		//‰¼
-		mStageSelect = new StageSelect{ this,mSaveData,gStageData,std::make_pair(0,0),5,5 };
+		mStageSelect = new StageSelect{ this,mSaveData,gStageData,std::make_pair(0,0),mPlayerLifeNum,mPlayerLifeNum };
 
 	}
 
@@ -78,7 +82,7 @@ namespace Game
 				mStageSelect->SetState(GameLib::Actor::State::Dead);
 				mStageSelect = nullptr;
 
-				mStage = new ::Stage::Stage{ this,"../Data/Stage/" + iter->second[0] + ".json" };
+				mStage = new ::Stage::Stage{ this,"../Data/Stage/" + iter->second[0] + ".json" ,mPlayerLifeNum,mPlayerGemNum };
 
 				mRectCurtain->Open();
 			}
@@ -87,7 +91,28 @@ namespace Game
 
 	void Game::UpdateStage()
 	{
+		if (mRectCurtain->IsOpen() && mStage->CheckFlag(Stage::StageFlag::CLEAR_FLAG))
+		{
+			mRectCurtain->Close();
 
+			auto item = mStage->GetItemNumData();
+			mPlayerLifeNum = item.mLifeNum;
+			mPlayerGemNum = item.mGemNum;
+
+			auto iter1 = gStageData.find(AddPair(mPosition, DIR_E_PAIR));
+			if (iter1 != gStageData.end())
+				mSaveData.emplace(iter1->first, StageStateFlag::OPEN_FLAG);
+
+			auto iter2 = gStageData.find(AddPair(mPosition, DIR_D_PAIR));
+			if (iter2 != gStageData.end())
+				mSaveData.emplace(iter2->first, StageStateFlag::OPEN_FLAG);
+
+			auto iter3 = gStageData.find(AddPair(mPosition, DIR_X_PAIR));
+			if (iter3 != gStageData.end())
+				mSaveData.emplace(iter3->first, StageStateFlag::OPEN_FLAG);
+
+
+		}
 	}
 
 

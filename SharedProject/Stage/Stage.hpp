@@ -20,7 +20,7 @@ namespace Stage
 
 	public:
 
-		Stage(GameLib::Actor* game, std::string&& stageDataFileName, int playerLifeNum = 5, int playerGemNum = 10);
+		Stage(GameLib::Actor* game, std::string&& stageDataFileName, int playerLifeNum=5, int playerGemNum=10);
 		virtual ~Stage() = default;
 
 		//Pause‚Ì¶¬

@@ -2,7 +2,7 @@
 
 namespace Game
 {
-	namespace StageSelectFlag
+	namespace StageStateFlag
 	{
 		constexpr unsigned char OPEN_FLAG = 0b1;
 		constexpr unsigned char CLEAR_FLAG = 0b10;

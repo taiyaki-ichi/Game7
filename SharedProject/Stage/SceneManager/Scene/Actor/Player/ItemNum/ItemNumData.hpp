@@ -1,4 +1,5 @@
 #pragma once
+#include<array>
 
 namespace Stage
 {
@@ -6,6 +7,9 @@ namespace Stage
 	struct ItemNumData {
 		int mLifeNum;
 		int mGemNum;
-		ItemNumData(int life, int gem) :mLifeNum{ life }, mGemNum{ gem }{};
+		std::array<bool, 3> mTearGemCnt;
+		ItemNumData(int life, int gem,const std::array<bool, 3>& tear)
+			:mLifeNum{ life }, mGemNum{ gem }, mTearGemCnt{tear}
+		{};
 	};
 }
