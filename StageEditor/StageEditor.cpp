@@ -9,6 +9,8 @@
 #include"Camera/EditorCamera.hpp"
 #include"SceneEditor/ActorEditor/PlayerEditor.hpp"
 #include"SceneEditor/ActorEditor/TearGemEditor.hpp"
+#include"SceneEditor/ActorEditor/GemEditor.hpp"
+#include"GameLib/include/InputState/InputState.hpp"
 
 
 namespace StageEditor
@@ -62,6 +64,7 @@ namespace StageEditor
 			if (num == "1" || num == "2" || num == "3")
 				std::cout << num << " ";
 		std::cout << "\n";
+		std::cout << "Gem Num: " << GemEditor::GetNum() << "\n";
 		
 		std::cout << "\n";
 		std::cout << ">";

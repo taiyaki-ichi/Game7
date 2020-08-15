@@ -3,6 +3,8 @@
 
 namespace StageEditor
 {
+	int GemEditor::mCnt = 0;
+
 	GemEditor::GemEditor(GameLib::Actor* actor)
 		:ActorEditorBase{ actor,"Gem",1,0 }
 		, mTexture{ "../Assets/Item/Diamond/002.png" }
@@ -11,6 +13,13 @@ namespace StageEditor
 
 		mCollider.SetWidthAndHeith(Stage::GemParam::WIDTH, Stage::GemParam::HEIGHT);
 		mCollider.SetScale(Stage::GemParam::SCALE);
+
+		mCnt++;
+	}
+
+	GemEditor::~GemEditor()
+	{
+		mCnt--;
 	}
 
 	void GemEditor::Update()
@@ -27,5 +36,10 @@ namespace StageEditor
 	void GemEditor::BeginToRest()
 	{
 		mTexture.SetIsAutoDrawing(false);
+	}
+
+	int GemEditor::GetNum()
+	{
+		return mCnt;
 	}
 }

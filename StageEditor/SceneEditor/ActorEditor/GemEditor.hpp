@@ -8,12 +8,17 @@ namespace StageEditor
 	{
 		GameLib::DrawTexture mTexture;
 
+		static int mCnt;
+
 	public:
 		GemEditor(GameLib::Actor*);
+		virtual ~GemEditor();
 
 		void Update() override;
 
 		void BeginWorking() override;
 		void BeginToRest() override;
+
+		static int GetNum();
 	};
 }
