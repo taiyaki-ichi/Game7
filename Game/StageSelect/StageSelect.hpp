@@ -1,12 +1,13 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
-#include<map>
+#include<unordered_map>
 #include<vector>
 #include<string>
 #include"DataDisplay/StringDisplay.hpp"
 #include"DataDisplay/TearGemDisplay.hpp"
 #include"Stage/SceneManager/Scene/Actor/Player/ItemNum/GemDisplay.hpp"
 #include"Stage/SceneManager/Scene/Actor/Player/ItemNum/LifeDisplay.hpp"
+#include"HexVec.hpp"
 
 namespace Stage
 {
@@ -21,7 +22,7 @@ namespace Game
 	class StageSelect : public GameLib::Actor
 	{
 		//座標からステージのデータであるstringとクリア状況を示すchar
-		std::map<std::pair<int, int>, std::pair<std::vector<std::string>, unsigned char>> mStageData;
+		std::unordered_map<HexVec, std::pair<std::vector<std::string>, unsigned char>> mStageData;
 
 		//現在位置を表現
 		ChoiceIcon* mChoiceIcon;
@@ -38,23 +39,23 @@ namespace Game
 	public:
 		//2つのmapからmStageDataを作成しながらマップを描写していく
 		StageSelect(GameLib::Actor*, 
-			const std::map<std::pair<int, int>, unsigned char>&,
-			const std::map<std::pair<int, int>, std::vector<std::string>>&,
-			const std::pair<int, int>& nowPos,int lifeNum, int gemNum);
+			const std::unordered_map<HexVec, unsigned char>&,
+			const std::unordered_map<HexVec, std::vector<std::string>>&,
+			const HexVec& nowPos,int lifeNum, int gemNum);
 
 		void CustomizeUpdate() override;
 
 		//Spaceが押されたときGameから呼び出される
-		const std::pair<int, int>& GetChoicePos()const;
+		const HexVec& GetChoicePos()const;
 
 		void ChoiceIconStop();
 
 
 	private:
-		const std::pair<int,int>& GetPairVecPerFrame();
+		const HexVec& GetPairVecPerFrame();
 
 		//posをチェックし有効な値の場合choiceIconの位置を変更、Displayの値を書きカエル
-		void CheckposAndUpdateDisplay(const std::pair<int,int>& pos);
+		void CheckposAndUpdateDisplay(const HexVec& pos);
 
 		//DisplayたちのAdjustPosを呼び出す
 		void AdjustDisplayPos();

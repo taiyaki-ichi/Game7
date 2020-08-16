@@ -3,16 +3,15 @@
 #include"StageStateFlag.hpp"
 #include"HexChip/HexChip.hpp"
 #include"ChoiceIcon.hpp"
-#include"PairVec.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"HexChip/ToVector2.hpp"
 
 namespace Game
 {
-	StageSelect::StageSelect(GameLib::Actor* actor, const std::map<std::pair<int, int>, unsigned char>& saveData,
-		const std::map<std::pair<int, int>, std::vector<std::string>>& stageData,
-		const std::pair<int, int>& nowPos, int lifeNum, int gemNum)
+	StageSelect::StageSelect(GameLib::Actor* actor, const std::unordered_map<HexVec, unsigned char>& saveData,
+		const std::unordered_map<HexVec, std::vector<std::string>>& stageData,
+		const HexVec& nowPos, int lifeNum, int gemNum)
 		:GameLib::Actor{actor}
 		, mStageData{}
 		, mChoiceIcon{nullptr}
@@ -23,6 +22,42 @@ namespace Game
 		, mLifeDisplay{ StageSelectParam::LIFE_NUM_POSITION,lifeNum }
 		, mChoiceIconStopFlag{false}
 	{
+
+		for (const auto& stageDataTmp : stageData)
+		{
+			auto saveDataIter = saveData.find(stageDataTmp.first);
+			//特別なマスの場合
+			if (stageDataTmp.second.size() == 1)
+			{
+				//仮
+				if (stageDataTmp.second[0] == "start")
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/hex.png" };
+				else if (stageDataTmp.second[0] == "save")
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/hex.png" };
+				else if (stageDataTmp.second[0] == "title")
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/hex.png" };
+
+				//特別なマスは必ず通れるので追加
+				mStageData.emplace(stageDataTmp.first, std::make_pair(stageDataTmp.second, saveDataIter->second));
+			}
+			//saveDataが存在する場合、つまり進むことできる通常のマス
+			else if (saveDataIter != saveData.end())
+			{
+				if (saveDataIter->second & StageStateFlag::CLEAR_FLAG)
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/clear_hex.png" };
+				else //if(saveDataIter->second & StageSelectFlag::OPEN_FLAG)
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/circle_hex.png" };
+
+				//saveDataに記載されているということは通れるので追加
+				mStageData.emplace(stageDataTmp.first, std::make_pair(stageDataTmp.second, saveDataIter->second));
+			}
+			//クリアできてない進むことができないマス
+			else
+			{
+				new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/batu_hex.png" };
+			}
+		}
+		/*
 		auto stageDataIter = stageData.begin();
 		auto saveDataIter = saveData.begin();
 
@@ -62,10 +97,10 @@ namespace Game
 
 			stageDataIter++;
 		}
-
+		*/
 		mChoiceIcon = new ChoiceIcon{ this };
 		//nowPOsが有効な値でなかった時の保険
-		mChoiceIcon->SetPosision(std::make_pair(0, 0));
+		mChoiceIcon->SetPosision({ 0,0 });
 		CheckposAndUpdateDisplay(nowPos);
 
 		AdjustDisplayPos();
@@ -76,37 +111,37 @@ namespace Game
 		if (!mChoiceIconStopFlag)
 		{
 			auto pos = mChoiceIcon->GetPosition();
-			GameLib::Viewport::SetPos(ToVector2(pos));
+			GameLib::Viewport::SetPos(ToVector2(pos.x, pos.y));
 			auto addPairVec = GetPairVecPerFrame();
-			if (addPairVec != NON_DIR)
+			if (addPairVec != HexVec{0,0})
 			{
-				pos = AddPair(pos, addPairVec);
+				pos = pos + addPairVec;
 				CheckposAndUpdateDisplay(std::move(pos));
 			}
 		}
 		AdjustDisplayPos();
 	}
 
-	const PairVec& StageSelect::GetPairVecPerFrame()
+	const HexVec& StageSelect::GetPairVecPerFrame()
 	{
 		if (GameLib::InputState::GetState(GameLib::Key::E) == GameLib::ButtonState::Pressed)
-			return DIR_E_PAIR;
+			return DIR_E;
 		if (GameLib::InputState::GetState(GameLib::Key::D) == GameLib::ButtonState::Pressed)
-			return DIR_D_PAIR;
+			return DIR_D;
 		if (GameLib::InputState::GetState(GameLib::Key::X) == GameLib::ButtonState::Pressed)
-			return DIR_X_PAIR;
+			return DIR_X;
 
 		if (GameLib::InputState::GetState(GameLib::Key::Z) == GameLib::ButtonState::Pressed)
-			return DIR_Z_PAIR;
+			return DIR_Z;
 		if (GameLib::InputState::GetState(GameLib::Key::A) == GameLib::ButtonState::Pressed)
-			return DIR_A_PAIR;
+			return DIR_A;
 		if (GameLib::InputState::GetState(GameLib::Key::W) == GameLib::ButtonState::Pressed)
-			return DIR_W_PAIR;
+			return DIR_W;
 
-		return NON_DIR;
+		return { 0,0 };
 	}
 
-	void StageSelect::CheckposAndUpdateDisplay(const std::pair<int, int>& pos)
+	void StageSelect::CheckposAndUpdateDisplay(const HexVec& pos)
 	{
 		auto iter = mStageData.find(pos);
 		if (iter != mStageData.end())
@@ -143,7 +178,7 @@ namespace Game
 		mLifeDisplay.AdjustPos();
 	}
 
-	const PairVec& StageSelect::GetChoicePos() const 
+	const HexVec& StageSelect::GetChoicePos() const 
 	{
 		return mChoiceIcon->GetPosition();
 	}

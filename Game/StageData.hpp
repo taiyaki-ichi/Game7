@@ -1,28 +1,23 @@
 #pragma once
-#include<map>
+#include<unordered_map>
 #include<vector>
 #include<string>
+#include"StageSelect/HexVec.hpp"
 
 namespace Game
 {
-	const std::map<std::pair<int, int>, std::vector<std::string>> gStageData =
+	const std::unordered_map<HexVec, std::vector<std::string>> gStageData =
 	{
-		{std::make_pair(1,0),{"stage001","easy","énÇ‹ÇËÇÃêX"}},
-		{std::make_pair(2,0),{"stage001","easy","Ç†Ç†Ç†Ç†Ç†"}},
-		{std::make_pair(3,0),{"stage001","nomal","Ç†Ç†Ç†Ç†Ç†"}},
-		{std::make_pair(4,0),{"stage001","nomal","Ç†Ç†Ç†Ç†Ç†"}},
-		{std::make_pair(5,0),{"stage001","nomal","Ç†Ç†Ç†Ç†"}},
+		{{1,0},{"stage001","easy","énÇ‹ÇËÇÃêX"}},
+		{{2,0},{"stage001","easy","Ç†Ç†Ç†Ç†Ç†"}},
+		{{3,0},{"stage001","nomal","Ç†Ç†Ç†Ç†Ç†"}},
+		{{4,0},{"stage001","nomal","Ç†Ç†Ç†Ç†Ç†"}},
+		{{5,0},{"stage001","nomal","Ç†Ç†Ç†Ç†"}},
 
-		{std::make_pair(-1,1),{"save"}},
-		{std::make_pair(0,-1),{"title"}},
-		{std::make_pair(0,0),{"start"}},
+		{{-1,1},{"save"}},
+		{{0,-1},{"title"}},
+		{{0,0},{"start"}},
 	};
 
-	//
-	const std::map<std::pair<int, int>, std::vector<std::string>> gSpecialStageData =
-	{
-		{std::make_pair(-1,1),{"save"}},
-		{std::make_pair(0,-1),{"title"}},
-		{std::make_pair(0,0),{"start"}},
-	};
+	
 }

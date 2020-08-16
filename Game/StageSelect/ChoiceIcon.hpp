@@ -1,7 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/Draw/DrawTexture.hpp"
-#include"PairVec.hpp"
+#include"HexVec.hpp"
 
 namespace Game
 {
@@ -9,7 +9,7 @@ namespace Game
 	{
 		GameLib::DrawTexture mTexture;
 
-		PairVec mPairPos;
+		HexVec mPos;
 		int mCnt;
 
 	public:
@@ -17,8 +17,8 @@ namespace Game
 
 		void CustomizeUpdate() override;
 
-		void SetPosision(const PairVec&);
-		const PairVec& GetPosition() const;
+		void SetPosision(const HexVec&);
+		const HexVec& GetPosition() const;
 	};
 
 }

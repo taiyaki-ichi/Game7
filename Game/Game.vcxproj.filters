@@ -18,7 +18,6 @@
     <ClInclude Include="StageSelect\HexChip\HexChipParam.hpp" />
     <ClInclude Include="StageSelect\HexChip\ToVector2.hpp" />
     <ClInclude Include="StageSelect\ChoiceIcon.hpp" />
-    <ClInclude Include="StageSelect\PairVec.hpp" />
     <ClInclude Include="StageSelect\StageSelect.hpp" />
     <ClInclude Include="StageSelect\StageSelectParam.hpp" />
     <ClInclude Include="StageSelect\StageStateFlag.hpp" />

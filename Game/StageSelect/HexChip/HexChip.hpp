@@ -4,13 +4,12 @@
 
 namespace Game
 {
-	class HexChip : GameLib::Actor
+	class HexChip : public GameLib::Actor
 	{
 		GameLib::DrawTexture mTexture;
 
 	public:
-
-		HexChip(GameLib::Actor*, const std::pair<int, int>&, std::string&&, int drawOrder = 0);
+		HexChip(GameLib::Actor*, int, int, std::string&&, int drawOrder = 0);
 
 	};
 

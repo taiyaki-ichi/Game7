@@ -1,6 +1,7 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
-#include<map>
+#include<unordered_map>
+#include"StageSelect/HexVec.hpp"
 
 namespace Stage
 {
@@ -20,7 +21,7 @@ namespace Game
 		Stage::Stage* mStage;
 
 		//nullptrじゃあないやつを呼び出す
-		//あんまりよくなさそう
+		//あんまりよくなさげ
 		void UpdateTitle();
 		void UpdateStageSelect();
 		void UpdateStage();
@@ -28,11 +29,11 @@ namespace Game
 		RectCurtain* mRectCurtain;
 
 		//ゲームのデータたち
-		std::map<std::pair<int, int>, unsigned char> mSaveData;
+		std::unordered_map<HexVec, unsigned char> mSaveData;
 		int mPlayerLifeNum;
 		int mPlayerGemNum;
 		//StageSelectでSpaceが押されたとき更新
-		std::pair<int, int> mPosition;
+		HexVec mPosition;
 
 		//ファイルに書き込み、基本的にStageSelectから呼ばれると思う
 		bool Save();

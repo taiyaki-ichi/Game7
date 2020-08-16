@@ -8,7 +8,6 @@
 #include"RectCurtain/RectCurtain.hpp"
 #include"Stage/Stage.hpp"
 #include"Stage/StageFlag.hpp"
-#include"StageSelect/PairVec.hpp"
 #include"StageStateFlag.hpp"
 
 namespace Game
@@ -21,7 +20,7 @@ namespace Game
 		, mSaveData{}
 		, mPlayerLifeNum{5}
 		, mPlayerGemNum{ 0 }
-		, mPosition{ std::make_pair(0,0) }
+		, mPosition{ 0,0 }
 		, mRectCurtain{nullptr}
 	{
 		Load();
@@ -29,7 +28,7 @@ namespace Game
 		mRectCurtain = new RectCurtain{ this };
 
 		//仮
-		mStageSelect = new StageSelect{ this,mSaveData,gStageData,std::make_pair(0,0),mPlayerLifeNum,mPlayerGemNum };
+		mStageSelect = new StageSelect{ this,mSaveData,gStageData,mPosition,mPlayerLifeNum,mPlayerGemNum };
 
 	}
 
@@ -46,9 +45,11 @@ namespace Game
 	bool Game::Load()
 	{
 		//仮
-		mSaveData.emplace(std::make_pair(1, 0), 0b1);
+		mSaveData.emplace(HexVec{ 1,0 }, 0b1);
 		//mSaveData.emplace(std::make_pair(2, 0), 0b10110);
 		//mSaveData.emplace(std::make_pair(3, 0), 0b1);
+
+		return true;
 	}
 
 	bool Game::Save()
@@ -114,15 +115,15 @@ namespace Game
 
 			//新しくいける場所
 			//すでにデータが存在する場合、挿入しない
-			auto iter1 = gStageData.find(AddPair(mPosition, DIR_E_PAIR));
+			auto iter1 = gStageData.find(mPosition + DIR_E);
 			if (iter1 != gStageData.end())
 				mSaveData.emplace(iter1->first, StageStateFlag::OPEN_FLAG);
 
-			auto iter2 = gStageData.find(AddPair(mPosition, DIR_D_PAIR));
+			auto iter2 = gStageData.find(mPosition + DIR_D);
 			if (iter2 != gStageData.end())
 				mSaveData.emplace(iter2->first, StageStateFlag::OPEN_FLAG);
 
-			auto iter3 = gStageData.find(AddPair(mPosition, DIR_X_PAIR));
+			auto iter3 = gStageData.find(mPosition + DIR_X);
 			if (iter3 != gStageData.end())
 				mSaveData.emplace(iter3->first, StageStateFlag::OPEN_FLAG);
 

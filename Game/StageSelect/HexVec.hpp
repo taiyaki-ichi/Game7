@@ -26,9 +26,23 @@ namespace Game
 		}
 	};
 
-	bool operator==(const HexVec& l, const HexVec& r) {
+	inline bool operator==(const HexVec& l, const HexVec& r) {
 		return l.x == r.x && l.y == r.y;
 	}
+
+	inline bool operator!=(const HexVec& l, const HexVec& r) {
+		return !(r == l);
+	}
+
+	const HexVec DIR_E = { 0,1 };
+	const HexVec DIR_D = { 1,0 };
+	const HexVec DIR_X = { 1,-1 };
+	const HexVec DIR_W = { -1,1 };
+	const HexVec DIR_A = { -1,0 };
+	const HexVec DIR_Z = { 0,-1 };
+
+
+
 }
 
 namespace std

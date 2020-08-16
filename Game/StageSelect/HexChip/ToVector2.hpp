@@ -5,8 +5,8 @@
 
 namespace Game
 {
-	inline GameLib::Vector2 ToVector2(const std::pair<int, int>& pairVec)
+	inline GameLib::Vector2 ToVector2(int x,int y)
 	{
-		return static_cast<float>(pairVec.first) * HexChipParam::UNIT_X + static_cast<float>(pairVec.second) * HexChipParam::UNIT_Y;
+		return static_cast<float>(x) * HexChipParam::UNIT_X + static_cast<float>(y) * HexChipParam::UNIT_Y;
 	}
 }

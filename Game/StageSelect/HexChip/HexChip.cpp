@@ -4,23 +4,15 @@
 
 namespace Game
 {
-	HexChip::HexChip(GameLib::Actor* actor, const std::pair<int, int>& pairPos, std::string&& fileName, int darwOrder)
+
+	HexChip::HexChip(GameLib::Actor* actor, int x, int y, std::string&& fileName, int drawOrder)
 		:GameLib::Actor{ actor }
 		, mTexture{ std::move(fileName) }
 	{
-		mTexture.SetPosition(ToVector2(pairPos));
+		mTexture.SetPosition(ToVector2(x, y));
 		mTexture.SetScale(HexChipParam::TEXTURE_SCALE);
-		mTexture.SetDrawOrder(darwOrder);
+		mTexture.SetDrawOrder(drawOrder);
 
-		/*
-		if (type == Type::BlackCircle)
-			mTexture.SetTexture("../Assets/StageSelect/circle_hex.png");
-		else if(type==Type::Circle)
-			mTexture.SetTexture("../Assets/StageSelect/clear_hex.png");
-		else if(type==Type::Cross)
-			mTexture.SetTexture("../Assets/StageSelect/batu_hex.png");
-		else
-			mTexture.SetTexture("../Assets/StageSelect/hex.png");
-			*/
 	}
+
 }
