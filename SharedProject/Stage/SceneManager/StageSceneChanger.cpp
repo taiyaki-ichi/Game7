@@ -29,21 +29,28 @@ namespace Stage
 		{
 			mCnt++;
 
-			if (mCnt > BLACK_TIME)
+			//1フレームだけ動かしてそれぞれの位置を更新
+			if (mCnt == 1)
 			{
-
 				auto prevScenePtr = static_cast<Scene*>(mPrevWarp->GetOwner());
 				prevScenePtr->BeginToRest();
 
 				auto nextScenePtr = static_cast<Scene*>(mNextWarp->GetOwner());
 				nextScenePtr->BeginWorking();
-				nextScenePtr->SetState(GameLib::Actor::State::Pause);
 
 				mPlayer->SetPosition(mNextWarp->GetPosition());
-				mPlayer->SetState(GameLib::Actor::State::Pause);
 
 				nextScenePtr->AdjustCameraPosiotion();
+			}
+			else if (mCnt == 2)
+			{
+				auto nextScenePtr = static_cast<Scene*>(mNextWarp->GetOwner());
+				nextScenePtr->SetState(GameLib::Actor::State::Pause);
 
+				mPlayer->SetState(GameLib::Actor::State::Pause);
+			}
+			else if (mCnt > BLACK_TIME)
+			{
 				mCircleCurtain.TurnBright(mNextWarp->GetPosition());
 			}
 		}
