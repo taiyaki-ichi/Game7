@@ -28,5 +28,6 @@
     <ClInclude Include="StartActor.hpp" />
     <ClInclude Include="RectCurtain\RectCurtain.hpp" />
     <ClInclude Include="RectCurtain\RectCurtainParam.hpp" />
+    <ClInclude Include="StageSelect\HexVec.hpp" />
   </ItemGroup>
 </Project>

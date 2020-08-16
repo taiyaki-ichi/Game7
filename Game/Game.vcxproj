@@ -167,6 +167,7 @@
     <ClInclude Include="StageSelect\HexChip\HexChip.hpp" />
     <ClInclude Include="StageSelect\HexChip\HexChipParam.hpp" />
     <ClInclude Include="StageSelect\HexChip\ToVector2.hpp" />
+    <ClInclude Include="StageSelect\HexVec.hpp" />
     <ClInclude Include="StageSelect\PairVec.hpp" />
     <ClInclude Include="StageSelect\StageSelect.hpp" />
     <ClInclude Include="StageSelect\StageSelectParam.hpp" />
