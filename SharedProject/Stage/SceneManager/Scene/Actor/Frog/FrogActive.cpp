@@ -33,8 +33,8 @@ namespace Stage
 			mWeakness.SetColor({ 0,255,0,255 });
 
 
-			auto weaknessHitGround = [this](const GameLib::Collider& c) {
-				auto adjust = GetParallelRectAdjustVec(mWeakness, c);
+			auto strengthHitGround = [this](const GameLib::Collider& c) {
+				auto adjust = GetParallelRectAdjustVec(mStrength, c);
 				auto adjustDir4Vec = GetDir4Vec(adjust);
 				if (adjustDir4Vec.mDir4 == Dir4::Up) {
 					UpFlag(FrogFlag::ON_GROUND_FLAG);
@@ -51,8 +51,8 @@ namespace Stage
 
 			};
 
-			auto strengthHitGround = [this](const GameLib::Collider& c) {
-				auto adjust = GetParallelRectAdjustVec(mStrength, c);
+			auto wHitGround = [this](const GameLib::Collider& c) {
+				auto adjust = GetParallelRectAdjustVec(mWeakness, c);
 				auto adjustDir4Vec = GetDir4Vec(adjust);
 				if (adjustDir4Vec.mDir4 == Dir4::Down)
 					mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, Dir4::Up, 0.f);
@@ -69,7 +69,7 @@ namespace Stage
 				UpFlag(FrogFlag::FLAD_DEATH_FLAG);
 			};
 
-			mWeakness.AddHitFunction("Ground", std::move(weaknessHitGround));
+			mWeakness.AddHitFunction("Ground", std::move(wHitGround));
 			mStrength.AddHitFunction("Ground", std::move(strengthHitGround));
 			mWeakness.AddHitFunction("Player", std::move(hitPlayer));
 
@@ -80,8 +80,9 @@ namespace Stage
 		bool Active::UpdateOrNot()
 		{
 			auto pos = mPhysicsModel.mPosition;
-			return IsInScope(pos, WindowSize::WIDTH + 400.f, WindowSize::WIDTH + 400.f);
+			return IsInScope(pos, WindowSize::WIDTH + 300.f, WindowSize::WIDTH + 300.f);
 		}
+		
 		
 
 		StateBase<>* Active::Update()
@@ -137,10 +138,10 @@ namespace Stage
 		{
 			using namespace FrogParam;
 
-			mWeakness.SetPosition(mPhysicsModel.mPosition + GetVector2(Dir4::Down, HEIGHT * COLLIDER_WEAKNESS_RATE * SCALE / 2.f));
+			mWeakness.SetPosition(mPhysicsModel.mPosition + GetVector2(Dir4::Up, HEIGHT * COLLIDER_WEAKNESS_RATE * SCALE / 2.f));
 			mWeakness.SetRotation(mPhysicsModel.mRotation);
 
-			mStrength.SetPosition(mPhysicsModel.mPosition + GetVector2(Dir4::Up, HEIGHT * COLLIDER_STRENGTH_RATE * SCALE / 2.f));
+			mStrength.SetPosition(mPhysicsModel.mPosition + GetVector2(Dir4::Down, HEIGHT * COLLIDER_STRENGTH_RATE * SCALE / 2.f));
 			mStrength.SetRotation(mPhysicsModel.mRotation);
 		}
 	}

@@ -184,6 +184,7 @@ namespace Stage::PlayerState
 		mCollider.AddHitFunction("TearGem2", std::move(hitTearGem2));
 		mCollider.AddHitFunction("TearGem3", std::move(hitTearGem3));
 		mCollider.AddHitFunction("FrogWeakness", hitEnemyWeakness);
+		mCollider.AddHitFunction("FrogStrength", hitEnemyStrength);
 
 	}
 
