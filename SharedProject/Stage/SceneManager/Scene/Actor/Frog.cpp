@@ -3,6 +3,7 @@
 #include"GameLib/include/Math/Vector2Func.hpp"
 #include"Stage/Gravity/Gravity.hpp"
 #include"Frog/FrogActive.hpp"
+#include"Frog/FrogFlag.hpp"
 
 namespace Stage
 {
@@ -24,6 +25,9 @@ namespace Stage
 	{
 		mAnim.Update();
 		mStateManager.Update();
+
+		if (mStateManager.CheckFlag(FrogFlag::DEATH_MOTION_END_FLAD))
+			SetState(GameLib::Actor::State::Dead);
 	}
 
 	void Frog::BeginWorking()

@@ -15,6 +15,10 @@ namespace Stage
 		constexpr int JUMP_TIME = 60;
 		constexpr int STAY_TIME = 60;
 
+		constexpr float FLATDEATH_ADJUST_Y = -15.f;
+
+		constexpr int FLAT_MOTION_TIME = 30;
+
 
 	}
 }

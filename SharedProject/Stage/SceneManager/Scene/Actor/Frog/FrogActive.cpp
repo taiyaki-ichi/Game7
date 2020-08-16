@@ -7,6 +7,7 @@
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"Stage/WindowSize.hpp"
 #include"Stage/Utilty/IsInScope.hpp"
+#include"Stage/Utilty/State/DeathTimerState.hpp"
 
 namespace Stage
 {
@@ -63,8 +64,16 @@ namespace Stage
 				AdjustAnim();
 			};
 
+			auto hitPlayer = [this](const GameLib::Collider& c)
+			{
+				UpFlag(FrogFlag::FLAD_DEATH_FLAG);
+			};
+
 			mWeakness.AddHitFunction("Ground", std::move(weaknessHitGround));
 			mStrength.AddHitFunction("Ground", std::move(strengthHitGround));
+			mWeakness.AddHitFunction("Player", std::move(hitPlayer));
+
+			AdjustColliders();
 		}
 
 		
@@ -77,6 +86,11 @@ namespace Stage
 
 		StateBase<>* Active::Update()
 		{
+			if (CheckFlag(FrogFlag::FLAD_DEATH_FLAG)) {
+				auto pos = mPhysicsModel.mPosition + GameLib::Vector2{ 0.f,FrogParam::FLATDEATH_ADJUST_Y };
+				return new DeathTimerState<>{ mAnim,3, std::move(pos),FrogParam::FLAT_MOTION_TIME,FrogFlag::DEATH_MOTION_END_FLAD };
+			}
+
 			UpdatePhysicsModelWithGravity(mPhysicsModel, Gravity::GetVector2(), -1.f, -1.f);
 
 			//std::cout << mPhysicsModel.mVelocity.x << "," << mPhysicsModel.mVelocity.y << "\n";
