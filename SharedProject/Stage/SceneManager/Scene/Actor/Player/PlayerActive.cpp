@@ -65,7 +65,15 @@ namespace Stage::PlayerState
 			if (dir4Vec.mSize > 0.f && dir4Vec.mDir4 == Dir4::Up) {
 				UpFlag(PlayerFlag::ON_GROUND_FLAG);
 				mJumpFlag = 1;
-				adjust += c.GetRerativePos();
+
+				//AD‚ª‰Ÿ‚³‚ê‚¢‚Ä‚¢‚é‚Æ‚«‚ÍƒˆƒR‚ÌŒü‚«‚É‚Í•â³‚µ‚È‚¢
+				if (InputState::GetState(Key::A) == ButtonState::None &&
+					InputState::GetState(Key::D) == ButtonState::None)
+					adjust += c.GetRerativePos();
+				else
+				{
+					adjust += GetDirSizeSetVector2(c.GetRerativePos(), Dir4::Right, 0.f);
+				}
 				//std::cout << c.GetRerativePos().x << "," << c.GetRerativePos().y << "\n";
 			}
 

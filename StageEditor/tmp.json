@@ -15,13 +15,6 @@
           "FloatData1": 57
         },
         {
-          "ActorName": "Camera",
-          "FloatData0": -357,
-          "FloatData1": 454,
-          "FloatData2": 2956.6689453125,
-          "FloatData3": -416.666748046875
-        },
-        {
           "ActorName": "Ground",
           "FloatData0": 332,
           "FloatData1": 47,
@@ -127,6 +120,66 @@
           "FloatData1": 171,
           "FloatData2": 2626,
           "FloatData3": 420
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -408.88894653320313,
+          "FloatData1": 517.77789306640625,
+          "FloatData2": 5194.4443359375,
+          "FloatData3": -477.77789306640625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2802.222412109375,
+          "FloatData1": 135.55558776855469,
+          "FloatData2": 2982.22216796875,
+          "FloatData3": -533.33349609375
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2888.88916015625,
+          "FloatData1": 166.66667175292969,
+          "FloatData2": 2886.666748046875,
+          "FloatData3": 492.22222900390625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2974.44482421875,
+          "FloatData1": 191.11112976074219,
+          "FloatData2": 3148.888916015625,
+          "FloatData3": -531.11114501953125
+        },
+        {
+          "ActorName": "MoveGround",
+          "FloatData0": 3205.5556640625,
+          "FloatData1": -26.666656494140625,
+          "FloatData2": 3373.33349609375,
+          "FloatData3": -50.000003814697266,
+          "FloatData4": 3288.88916015625,
+          "FloatData5": 353.3333740234375
+        },
+        {
+          "ActorName": "MoveGround",
+          "FloatData0": 3426.666748046875,
+          "FloatData1": 77.777778625488281,
+          "FloatData2": 3600.000244140625,
+          "FloatData3": 58.888889312744141,
+          "FloatData4": 3512.222412109375,
+          "FloatData5": 398.88888549804688
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 3512.222412109375,
+          "FloatData1": 116.66666412353516,
+          "FloatData2": 3511.111328125,
+          "FloatData3": 416.66668701171875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3707.778076171875,
+          "FloatData1": 222.22224426269531,
+          "FloatData2": 4150,
+          "FloatData3": -533.33331298828125
         }
       ],
       "SceneName": "1"
