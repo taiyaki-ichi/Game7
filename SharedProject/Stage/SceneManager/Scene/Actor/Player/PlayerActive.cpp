@@ -62,17 +62,20 @@ namespace Stage::PlayerState
 			std::cout << "\n";
 			*/
 
+			if (dir4Vec.mSize > 0.f && dir4Vec.mDir4 == Dir4::Up) {
+				UpFlag(PlayerFlag::ON_GROUND_FLAG);
+				mJumpFlag = 1;
+				adjust += c.GetRerativePos();
+				//std::cout << c.GetRerativePos().x << "," << c.GetRerativePos().y << "\n";
+			}
+
+
 			mPhysicsModel.mPosition += adjust;
 
 			if (adjust.x * mPhysicsModel.mVelocity.x < 0.f)
 				mPhysicsModel.mVelocity.x = 0.f;
 			else if (adjust.y * mPhysicsModel.mVelocity.y < 0.f)
 				mPhysicsModel.mVelocity.y = 0.f;
-
-			if (dir4Vec.mSize > 0.f && dir4Vec.mDir4 == Dir4::Up) {
-				UpFlag(PlayerFlag::ON_GROUND_FLAG);
-				mJumpFlag = 1;
-			}
 
 			//A,D‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚Æ‚«‚È‚Ç‚Í–€ŽC‚Ì‰e‹¿‚È‚µ
 			if ((InputState::GetState(Key::A) == ButtonState::None &&

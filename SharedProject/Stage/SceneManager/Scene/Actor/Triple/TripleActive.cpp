@@ -41,12 +41,13 @@ namespace Stage
 					adjust = GetParallelRectAdjustVec(mBody, c, Gravity::GetSize() ,0.f);
 				else
 					adjust = GetParallelRectAdjustVec(mBody, c, 0.f,Gravity::GetSize() );
-				mPhysicsModel.mPosition += adjust;
 
 				auto dir4Adjust = GetDir4Vec(adjust);
 				auto velocityDr4 = GetDir4Vec(mPhysicsModel.mVelocity);
-				if (dir4Adjust.mDir4 == Dir4::Up)
+				if (dir4Adjust.mDir4 == Dir4::Up) {
 					mPhysicsModel.mVelocity += GetVector2(Dir4::Up, velocityDr4.mSize);
+					adjust += c.GetRerativePos();
+				}
 				else if (dir4Adjust.mDir4 == Dir4::Right && velocityDr4.mDir4 == Dir4::Left) {
 					mPhysicsModel.mVelocity = GetHolizonalFlippedVector2(mPhysicsModel.mVelocity);
 					mDir4 = Dir4::Right;
@@ -55,6 +56,8 @@ namespace Stage
 					mPhysicsModel.mVelocity = GetHolizonalFlippedVector2(mPhysicsModel.mVelocity);
 					mDir4 = Dir4::Left;
 				}
+
+				mPhysicsModel.mPosition += adjust;
 
 				ReflectAnimation();
 				ReflectCollider();

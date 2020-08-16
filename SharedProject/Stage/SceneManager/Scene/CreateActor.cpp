@@ -15,6 +15,7 @@
 #include"Actor/TearGem.hpp"
 #include"Actor/Frog.hpp"
 #include"Actor/ThroughFloor.hpp"
+#include"Actor/MoveGround.hpp"
 
 namespace Stage
 {
@@ -37,7 +38,8 @@ namespace Stage
 			{"Blinder",[](Scene* scene) {return new Blinder{scene}; }},
 			{"TearGem",[](Scene* scene) {return new TearGem{scene}; }},
 			{"Frog",[](Scene* scene) {return new Frog{scene}; }},
-			{"ThroughFloor",[](Scene* scene) {return new ThroughFloor{scene}; }}
+			{"ThroughFloor",[](Scene* scene) {return new ThroughFloor{scene}; }},
+			{"MoveGround",[](Scene* scene) {return new MoveGround{scene}; }}
 
 		};
 

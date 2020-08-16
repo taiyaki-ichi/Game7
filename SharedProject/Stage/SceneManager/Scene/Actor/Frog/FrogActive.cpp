@@ -39,6 +39,8 @@ namespace Stage
 					UpFlag(FrogFlag::ON_GROUND_FLAG);
 					if (GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Up) < 0.f)
 						mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, Dir4::Up, 0.f);
+
+					adjust += c.GetRerativePos();
 				}
 
 				mPhysicsModel.mPosition += adjust;

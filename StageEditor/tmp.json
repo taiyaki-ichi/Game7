@@ -281,6 +281,24 @@
           "ActorName": "Gem",
           "FloatData0": 4482,
           "FloatData1": 150
+        },
+        {
+          "ActorName": "MoveGround",
+          "FloatData0": 4,
+          "FloatData1": 128,
+          "FloatData2": 216,
+          "FloatData3": 91,
+          "FloatData4": 112,
+          "FloatData5": 300
+        },
+        {
+          "ActorName": "MoveGround",
+          "FloatData0": 572,
+          "FloatData1": 139,
+          "FloatData2": 714,
+          "FloatData3": 119,
+          "FloatData4": 939,
+          "FloatData5": 131
         }
       ],
       "SceneName": "1"

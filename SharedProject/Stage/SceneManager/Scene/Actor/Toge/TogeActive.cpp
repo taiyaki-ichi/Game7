@@ -27,12 +27,15 @@ namespace Stage
 			auto hitGround = [this](const GameLib::Collider& c) {
 				auto adjust = GetParallelRectAdjustVec(mCollider, c);
 				//std::cout << "adjust: " << adjust.x << "," << adjust.y << "\n";
-				mPhysicsModel.mPosition += adjust;
 
 				auto adjustDir4Vec = GetDir4Vec(adjust);
 
-				if (adjustDir4Vec.mDir4 == Dir4::Up)
+				if (adjustDir4Vec.mDir4 == Dir4::Up) {
 					mPhysicsModel.mVelocity = GameLib::Vector2{};
+					adjust += c.GetRerativePos();
+				}
+
+				mPhysicsModel.mPosition += adjust;
 
 				ReflectAnimation();
 				ReflectCollider();
