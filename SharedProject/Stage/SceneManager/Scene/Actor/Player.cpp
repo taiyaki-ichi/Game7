@@ -32,6 +32,8 @@ namespace Stage
 
 		mLife = new Life{ this ,PlayerParam::LIFE_POSITION };
 		mItemNum = new ItemNum{ this,PlayerParam::ITEMNUM_POSITION,lifeNum,gemNum };
+
+		mPosition = { 0.f,0.f };
 		
 	}
 

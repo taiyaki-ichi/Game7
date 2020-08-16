@@ -67,7 +67,7 @@ namespace Game
 		if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
 		{
 			auto iter = gStageData.find(mStageSelect->GetChoicePos());
-			if (iter != gStageData.end())
+			if (iter != gStageData.end() && iter->second.size() == 3)
 			{
 				mPosition = iter->first;
 				mStageSelect->ChoiceIconStop();

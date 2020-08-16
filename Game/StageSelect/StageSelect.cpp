@@ -57,47 +57,7 @@ namespace Game
 				new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/batu_hex.png" };
 			}
 		}
-		/*
-		auto stageDataIter = stageData.begin();
-		auto saveDataIter = saveData.begin();
 
-		while (stageDataIter != stageData.end())
-		{
-			//特殊なマスの場合
-			if (stageDataIter->second.size() == 1)
-			{
-				//仮
-				if (stageDataIter->second[0] == "start")
-					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/hex.png" };
-				else if (stageDataIter->second[0] == "save")
-					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/hex.png" };
-				else if (stageDataIter->second[0] == "title")
-					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/hex.png" };
-
-				//特別なマスは必ず通れるので追加
-				mStageData.emplace(stageDataIter->first, std::make_pair(stageDataIter->second, saveDataIter->second));
-
-			}
-			//そのステージの進捗情報がsaveDataに記載されている場合
-			else if (stageDataIter->first == saveDataIter->first)
-			{
-				if (saveDataIter->second & StageStateFlag::CLEAR_FLAG)
-					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/clear_hex.png" };
-				else //if(saveDataIter->second & StageSelectFlag::OPEN_FLAG)
-					new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/circle_hex.png" };
-
-				//saveDataに記載されているということは通れるので追加
-				mStageData.emplace(stageDataIter->first, std::make_pair(stageDataIter->second, saveDataIter->second));
-				saveDataIter++;
-			}
-			else
-			{
-				new HexChip{ this,stageDataIter->first,"../Assets/StageSelect/batu_hex.png" };
-			}
-
-			stageDataIter++;
-		}
-		*/
 		mChoiceIcon = new ChoiceIcon{ this };
 		//nowPOsが有効な値でなかった時の保険
 		mChoiceIcon->SetPosision({ 0,0 });
