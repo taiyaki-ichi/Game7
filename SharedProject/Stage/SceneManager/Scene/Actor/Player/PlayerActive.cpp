@@ -121,12 +121,15 @@ namespace Stage::PlayerState
 
 
 		auto hitEnemyWeakness = [this](const GameLib::Collider& c) {
-			float upSize = GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Up);
-			//敵を踏んだら少しジャンプ
-			mPhysicsModel.mVelocity += GetVector2(Dir4::Up, -upSize + 3.f);
+			if (mCollider.GetNameTag() == "Player")
+			{
+				float upSize = GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Up);
+				//敵を踏んだら少しジャンプ
+				mPhysicsModel.mVelocity += GetVector2(Dir4::Up, -upSize + 3.f);
 
-			//4フレームの間はジャンプできる
-			mJumpFlag = 4;
+				//4フレームの間はジャンプできる
+				mJumpFlag = 4;
+			}
 		};
 
 		auto hitEnemyStrength = [this](const GameLib::Collider& c) {
@@ -185,7 +188,8 @@ namespace Stage::PlayerState
 		mCollider.AddHitFunction("TearGem3", std::move(hitTearGem3));
 		mCollider.AddHitFunction("FrogWeakness", hitEnemyWeakness);
 		mCollider.AddHitFunction("FrogStrength", hitEnemyStrength);
-
+		mCollider.AddHitFunction("CarrotStrength", hitEnemyStrength);
+		mCollider.AddHitFunction("CarrotWeakness", hitEnemyWeakness);
 	}
 
 	Stage::StateBase<char>* Active::Update()

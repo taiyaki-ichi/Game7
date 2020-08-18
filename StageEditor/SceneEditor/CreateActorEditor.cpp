@@ -18,7 +18,7 @@
 #include"ActorEditor/FrogEditor.hpp"
 #include"ActorEditor/ThroughFloorEditor.hpp"
 #include"ActorEditor/MoveGroundEditor.hpp"
-
+#include"ActorEditor/CarrotEditor.hpp"
 
 namespace StageEditor
 {
@@ -43,6 +43,7 @@ namespace StageEditor
 			{"Frog",[](GameLib::Actor* actor) {return new FrogEditor{actor}; }},
 			{"ThroughFloor",[](GameLib::Actor* actor) {return new ThroughFloorEditor{actor}; }},
 			{"MoveGround",[](GameLib::Actor* actor) {return new MoveGroundEditor{actor}; }},
+			{"Carrot",[](GameLib::Actor* actor) {return new CarrotEditor{actor}; }},
 
 
 
