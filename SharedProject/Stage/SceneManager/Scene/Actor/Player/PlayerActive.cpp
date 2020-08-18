@@ -175,6 +175,11 @@ namespace Stage::PlayerState
 				hitGround(c);
 		};
 
+		auto hitDoguCurse = [this](const GameLib::Collider& c)
+		{
+			mPhysicsModel.Friction(0.5f, 0.5f);
+		};
+
 		mCollider.AddHitFunction("ThroughFloor", hitThroughFloor);
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
 		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
@@ -190,6 +195,7 @@ namespace Stage::PlayerState
 		mCollider.AddHitFunction("FrogStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("CarrotStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("CarrotWeakness", hitEnemyWeakness);
+		mCollider.AddHitFunction("DoguCurse", std::move(hitDoguCurse));
 	}
 
 	Stage::StateBase<char>* Active::Update()

@@ -24,14 +24,14 @@
           "FloatData3": 45
         },
         {
-          "ActorName": "Carrot",
-          "FloatData0": 227,
-          "FloatData1": 21
-        },
-        {
           "ActorName": "Player",
           "FloatData0": -312,
           "FloatData1": 85
+        },
+        {
+          "ActorName": "Dogu",
+          "FloatData0": 256,
+          "FloatData1": 50
         }
       ],
       "SceneName": "1"

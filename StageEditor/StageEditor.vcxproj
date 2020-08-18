@@ -158,6 +158,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\CarrotEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CircleBeeEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\DoguEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\FrogEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GemEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GoalEdiot.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\CircleBeeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\DoguEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\FrogEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GemEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GoalEditor.hpp" />

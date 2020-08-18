@@ -17,6 +17,7 @@
 #include"Actor/ThroughFloor.hpp"
 #include"Actor/MoveGround.hpp"
 #include"Actor/Carrot.hpp"
+#include"Actor/Dogu.hpp"
 
 namespace Stage
 {
@@ -41,7 +42,8 @@ namespace Stage
 			{"Frog",[](Scene* scene) {return new Frog{scene}; }},
 			{"ThroughFloor",[](Scene* scene) {return new ThroughFloor{scene}; }},
 			{"MoveGround",[](Scene* scene) {return new MoveGround{scene}; }},
-			{"Carrot",[](Scene* scene) {return new Carrot{scene}; }}
+			{"Carrot",[](Scene* scene) {return new Carrot{scene}; }},
+			{"Dogu",[](Scene* scene) {return new Dogu{scene}; }}
 
 
 		};

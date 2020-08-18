@@ -31,6 +31,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\ThroughFloorEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\MoveGroundEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CarrotEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\DoguEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera\EditorCamera.hpp" />
@@ -66,5 +67,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\ThroughFloorEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\MoveGroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CarrotEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\DoguEditor.hpp" />
   </ItemGroup>
 </Project>
