@@ -50,7 +50,7 @@ namespace Stage
 		bool Active::UpdateOrNot()
 		{
 			auto pos = mPhysicsModel.mPosition;
-			return IsInScope(pos, WindowSize::WIDTH + 200.f, WindowSize::WIDTH + 200.f);
+			return IsInScope(pos, WindowSize::WIDTH + 100.f, WindowSize::WIDTH + 100.f);
 		}
 		
 		StateBase<>* Active::Update()
