@@ -4,6 +4,7 @@
 #include"Stage/Utilty/Dir4Vec.hpp"
 #include"Goal/Kira.hpp"
 
+
 namespace Stage
 {
 	Goal::Goal(GameLib::Actor* actor)
