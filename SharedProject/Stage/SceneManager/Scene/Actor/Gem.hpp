@@ -14,6 +14,7 @@ namespace Stage
 		Gem(GameLib::Actor*);
 		virtual ~Gem() = default;
 
+		bool UpdateOrNot() override;
 		void Update() override;
 
 		void BeginWorking() override;

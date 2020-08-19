@@ -1,5 +1,6 @@
 #include"TearGem.hpp"
 #include"TearGem/TearGemParam.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
 
 namespace Stage
 {
@@ -25,12 +26,22 @@ namespace Stage
 		mCollider.AddHitFunction("Player", std::move(hitPlayer));
 	}
 
+	bool TearGem::UpdateOrNot()
+	{
+		return true;
+	}
+
 	void TearGem::Update()
 	{
+	
 		auto adjust = std::sin(mCnt / 30.f) * GameLib::Vector2{ 0.f, TearGemParam::MOVE_LENGTH_Y };
 		mTexture.SetPosition(mPosition + adjust);
 		mCollider.SetPosition(mPosition + adjust + GameLib::Vector2{ 0.f,TearGemParam::COLLIDER_ADJUST_Y });
 		mCnt++;
+		
+
+		mTexture.SetRotation(GameLib::Viewport::GetRotation());
+		mCollider.SetRotation(GameLib::Viewport::GetRotation());
 	}
 
 	void TearGem::BeginWorking()

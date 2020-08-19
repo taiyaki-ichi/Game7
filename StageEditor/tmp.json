@@ -56,13 +56,6 @@
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 1860,
-          "FloatData1": -83,
-          "FloatData2": 2044,
-          "FloatData3": -7
-        },
-        {
-          "ActorName": "Ground",
           "FloatData0": 2024,
           "FloatData1": -24,
           "FloatData2": 2201,
@@ -429,6 +422,13 @@
           "ActorName": "Gem",
           "FloatData0": 5447,
           "FloatData1": -215
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1860,
+          "FloatData1": -76,
+          "FloatData2": 2054,
+          "FloatData3": 15
         }
       ],
       "SceneName": "1"

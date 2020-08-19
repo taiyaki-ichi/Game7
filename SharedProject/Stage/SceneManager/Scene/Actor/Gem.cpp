@@ -1,5 +1,6 @@
 #include"Gem.hpp"
 #include"Gem/GemParam.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
 
 namespace Stage
 {
@@ -24,9 +25,16 @@ namespace Stage
 		mCollider.SetColor({ 0,255,0,255 });
 	}
 
+	bool Gem::UpdateOrNot()
+	{
+		return true;
+	}
+
 	void Gem::Update()
 	{
 		mAnim.Update();
+		mAnim.SetRotation(GameLib::Viewport::GetRotation());
+		mCollider.SetRotation(GameLib::Viewport::GetRotation());
 	}
 
 	void Gem::BeginWorking()

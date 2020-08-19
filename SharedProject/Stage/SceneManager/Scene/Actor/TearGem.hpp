@@ -19,6 +19,7 @@ namespace Stage
 	public:
 		TearGem(GameLib::Actor*);
 
+		bool UpdateOrNot() override;
 		void Update() override;
 
 		void BeginWorking() override;
