@@ -61,6 +61,8 @@ namespace Stage
 			//std::cout << "a";
 		}
 
+
+
 		StateBase<>* Active::Update()
 		{
 			//std::cout << mPhysicsModel.mVelocity.x << "," << mPhysicsModel.mVelocity.y << "\n";

@@ -132,16 +132,6 @@
         },
         {
           "ActorName": "Carrot",
-          "FloatData0": 3797,
-          "FloatData1": 346
-        },
-        {
-          "ActorName": "Carrot",
-          "FloatData0": 3936,
-          "FloatData1": 344
-        },
-        {
-          "ActorName": "Carrot",
           "FloatData0": 4058,
           "FloatData1": 340
         },
@@ -151,43 +141,57 @@
           "FloatData1": 339
         },
         {
-          "ActorName": "Camera",
-          "FloatData0": 4740,
-          "FloatData1": -754,
-          "FloatData2": -489.99993896484375,
-          "FloatData3": 519.99993896484375
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 3460,
-          "FloatData1": 292,
-          "FloatData2": 3059,
-          "FloatData3": 558
+          "ActorName": "GravityBox2",
+          "FloatData0": 3250,
+          "FloatData1": 149,
+          "StringData0": "up"
         },
         {
           "ActorName": "Player",
-          "FloatData0": 3258,
-          "FloatData1": 58
+          "FloatData0": -122,
+          "FloatData1": -32
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 3389,
-          "FloatData1": -10,
-          "FloatData2": 3453,
-          "FloatData3": 319
+          "FloatData0": 4253,
+          "FloatData1": 389,
+          "FloatData2": 4345,
+          "FloatData3": 331
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 3142,
-          "FloatData1": -0,
-          "FloatData2": 3094,
-          "FloatData3": 312
+          "FloatData0": 4332,
+          "FloatData1": 346,
+          "FloatData2": 4472,
+          "FloatData3": 236
         },
         {
-          "ActorName": "GravityBox2",
-          "FloatData0": 3264,
-          "FloatData1": 145,
-          "StringData0": "right"
+          "ActorName": "Ground",
+          "FloatData0": 4557,
+          "FloatData1": 269,
+          "FloatData2": 4720,
+          "FloatData3": 166
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4692,
+          "FloatData1": 186,
+          "FloatData2": 4837,
+          "FloatData3": 88
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -452.14627075195313,
+          "FloatData1": -725.00079345703125,
+          "FloatData2": 8682.8544921875,
+          "FloatData3": 929.9993896484375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3040.18505859375,
+          "FloatData1": 297.33279418945313,
+          "FloatData2": 3450.18505859375,
+          "FloatData3": 967.33270263671875
         }
       ],
       "SceneName": "1"

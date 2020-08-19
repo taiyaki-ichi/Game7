@@ -16,9 +16,12 @@ namespace Stage
 			GameLib::DrawAnimation* mAnim;
 			GameLib::Collider mCollider;
 
+			GameLib::Vector2 mPower;
+
 		public:
 			Stay(GameLib::DrawAnimation*);
 
+			bool UpdateOrNot() override;
 			StateBase<>* Update() override;
 
 			void BeginWorking() override;

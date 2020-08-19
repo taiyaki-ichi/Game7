@@ -14,8 +14,8 @@ namespace StageEditor
 	{
 		using namespace GameLib;
 
+		float scale = Viewport::GetScale();
 		if (InputState::GetState(Key::Period) == ButtonState::Held) {
-			float scale = Viewport::GetScale();
 			scale -= 0.05f;
 			if (scale < 0.f)
 				scale = 0.f;
@@ -26,30 +26,29 @@ namespace StageEditor
 
 		if (InputState::GetState(Key::Up) == ButtonState::Held) {
 			auto pos = Viewport::GetPos();
-			pos.y += 10.f;
+			pos.y += 10.f / scale;
 			Viewport::SetPos(pos);
 		}
 
 		if (InputState::GetState(Key::Down) == ButtonState::Held) {
 			auto pos = Viewport::GetPos();
-			pos.y -= 10.f;
+			pos.y -= 10.f / scale;
 			Viewport::SetPos(pos);
 		}
 
 		if (InputState::GetState(Key::Right) == ButtonState::Held) {
 			auto pos = Viewport::GetPos();
-			pos.x += 10.f;
+			pos.x += 10.f / scale;
 			Viewport::SetPos(pos);
 		}
 
 		if (InputState::GetState(Key::Left) == ButtonState::Held) {
 			auto pos = Viewport::GetPos();
-			pos.x -= 10.f;
+			pos.x -= 10.f / scale;
 			Viewport::SetPos(pos);
 		}
 
 		CollisionDetectionSetting::SetPos(Viewport::GetPos());
-		float scale = GameLib::Viewport::GetScale();
 		GameLib::CollisionDetectionSetting::SetWidth(Stage::WindowSize::WIDTH * 2.f / scale);
 		GameLib::CollisionDetectionSetting::SetHeight(Stage::WindowSize::HEIGHT * 2.f / scale);
 	}

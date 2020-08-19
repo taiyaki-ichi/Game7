@@ -5,6 +5,10 @@
 #include"Stage/SceneManager/Scene/Actor/Player.hpp"
 #include"CarrotActive.hpp"
 #include"Stage/Gravity/Gravity.hpp"
+#include"Stage/Gravity/GravityFunc.hpp"
+#include"Stage/Utilty/IsInScope.hpp"
+#include"Stage/WindowSize.hpp"
+
 
 namespace Stage
 {
@@ -14,6 +18,7 @@ namespace Stage
 			:StateBase<>{}
 			, mAnim{ anim }
 			, mCollider{}
+			, mPower{}
 		{
 			mCollider.SetScale(CarrotParam::SCALE);
 			mCollider.SetWidthAndHeith(CarrotParam::WIDTH, CarrotParam::HEIGHT);
@@ -21,6 +26,10 @@ namespace Stage
 			auto hitGround = [this](const GameLib::Collider& c)
 			{
 				auto adjustVec = GetParallelRectAdjustVec(mCollider, c);
+
+				if (GetDir4DirectionSize(adjustVec, Dir4::Up) > 0.f)
+					mPower = GetDirSizeSetVector2(mPower, Dir4::Up, 0.f);
+
 				auto pos = mCollider.GetPosition();
 				pos += adjustVec;
 
@@ -35,6 +44,14 @@ namespace Stage
 
 		}
 
+
+		bool Stay::UpdateOrNot()
+		{
+			auto pos = mAnim->GetPosition();
+			return IsInScope(pos, WindowSize::WIDTH, WindowSize::WIDTH);
+		}
+
+
 		StateBase<>* Stay::Update()
 		{
 			auto myPos = mCollider.GetPosition();
@@ -42,7 +59,9 @@ namespace Stage
 			if ((playerPos - myPos).Length() < CarrotParam::ACTIVE_RANGE)
 				return new Active{ mAnim };
 
-			myPos += Gravity::GetVector2();
+			mPower += Gravity::GetVector2();
+
+			myPos += mPower;
 			mCollider.SetPosition(myPos);
 			mAnim->SetPosition(myPos);
 
