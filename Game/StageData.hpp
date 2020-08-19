@@ -9,8 +9,8 @@ namespace Game
 	const std::unordered_map<HexVec, std::vector<std::string>> gStageData =
 	{
 		{{1,0},{"stage001","easy","始まりの森"}},
-		{{2,0},{"stage002","easy","あああああ"}},
-		{{3,0},{"stage001","nomal","あああああ"}},
+		{{2,0},{"stage002","easy","カエルと動く地面"}},
+		{{3,0},{"stage003","nomal","にんじんとりんご"}},
 		{{4,0},{"stage001","nomal","あああああ"}},
 		{{5,0},{"stage001","nomal","ああああ"}},
 
