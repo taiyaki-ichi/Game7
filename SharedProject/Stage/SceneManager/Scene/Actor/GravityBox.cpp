@@ -161,12 +161,14 @@ namespace Stage
 	{
 		mCollider.Active();
 		mCollider2.Active();
+		mTexture.SetIsAutoDrawing(true);
 		mApple->BeginWorking();
 	}
 	void GravityBox::BeginToRest()
 	{
 		mCollider.Pause();
 		mCollider2.Pause();
+		mTexture.SetIsAutoDrawing(false);
 		mApple->BeginToRest();
 	}
 	void GravityBox::LoadPosData(std::vector<GameLib::Vector2>&& data)
