@@ -45,7 +45,10 @@ namespace Stage
 	void Life::AdjustPos()
 	{
 		auto pos = GameLib::Viewport::GetPos();
-		mTexture.SetPosition(pos + mAdjust);
-		mNumText.SetPosition(pos + mAdjust + LifeParam::ADJUST_NUM_POS);
+		mTexture.SetPosition( GameLib::Vector2::Rotation(pos + mAdjust, -GameLib::Viewport::GetRotation()));
+		mNumText.SetPosition(GameLib::Vector2::Rotation(pos + mAdjust + LifeParam::ADJUST_NUM_POS, -GameLib::Viewport::GetRotation()));
+
+		mTexture.SetRotation(GameLib::Viewport::GetRotation());
+		
 	}
 }

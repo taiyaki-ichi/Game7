@@ -34,9 +34,14 @@ namespace Stage
 	void TearDisplay::AdjustPos()
 	{
 		auto center = GameLib::Viewport::GetPos();
-		mTexture2.SetPosition(center + mAdjustPos);
-		mTexture1.SetPosition(center + mAdjustPos + GameLib::Vector2{ -ItemNumParam::TEAR_DISPLAY_LENGTH_X,0.f });
-		mTexture3.SetPosition(center + mAdjustPos + GameLib::Vector2{ ItemNumParam::TEAR_DISPLAY_LENGTH_X,0.f });
+		float rot = GameLib::Viewport::GetRotation();
+		mTexture2.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos, -rot));
+		mTexture1.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos + GameLib::Vector2{ -ItemNumParam::TEAR_DISPLAY_LENGTH_X,0.f }, -rot));
+		mTexture3.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos + GameLib::Vector2{ ItemNumParam::TEAR_DISPLAY_LENGTH_X,0.f }, -rot));
+
+		mTexture1.SetRotation(rot);
+		mTexture2.SetRotation(rot);
+		mTexture3.SetRotation(rot);
 
 	}
 }

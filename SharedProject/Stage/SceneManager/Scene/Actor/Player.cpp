@@ -39,9 +39,11 @@ namespace Stage
 
 	void Player::Update()
 	{
+
 		mStateManager.Update();
 		mPosition = mAnimation.GetPosition();
 		//std::cout <<"player pos:"<< mPosition.x << "," << mPosition.y << "\n";
+
 		mLife->AdjustPos();
 		mItemNum->AdjustPos();
 	}

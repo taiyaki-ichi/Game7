@@ -32,8 +32,11 @@ namespace Stage
 	void GemDisplay::AdjustPos()
 	{
 		auto center = GameLib::Viewport::GetPos();
-		mTexture.SetPosition(center + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_ICON_ADJUST_X,0.f });
-		mNum.SetPosition(center + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_NUM_ADJUST_X,0.f });
-		mKakeru.SetPosition(center + mAdjustPos);
+		float rot = GameLib::Viewport::GetRotation();
+		mTexture.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_ICON_ADJUST_X,0.f },-rot));
+		mNum.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_NUM_ADJUST_X,0.f }, -rot));
+		mKakeru.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos, -rot));
+
+		mTexture.SetRotation(rot);
 	}
 }
