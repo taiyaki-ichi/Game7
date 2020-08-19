@@ -6,6 +6,8 @@
 #include"GravityBox/Apple.hpp"
 #include"Player.hpp"
 #include"GravityBox/GravityBoxParam.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
+#include"Stage/SceneManager/Scene/Actor/Player.hpp"
 
 namespace Stage
 {
@@ -52,7 +54,6 @@ namespace Stage
 
 				Gravity::SetDir4(mNextDir);
 
-				//これじゃダメ！
 				int dir = static_cast<int>(mNextDir) + mDeltaRotDir;
 				while (dir > 3)
 					dir -= 4;
@@ -62,12 +63,15 @@ namespace Stage
 
 				//回転終了判定に引っかからないようにするため
 				//最初は余分に足しておく
+				
+				/*
 				float rot = GameLib::Viewport::GetRotation();
 				if (mRotationCnt > 0)
 					rot += GravityBoxParam::CAMERA_DELTA_ROT;
 				else
 					rot -= GravityBoxParam::CAMERA_DELTA_ROT;
 				GameLib::Viewport::SetRotation(rot);
+				*/
 
 				mRotation = GameLib::Viewport::GetRotation();
 				mPosition = GameLib::Viewport::GetPos();
@@ -79,6 +83,8 @@ namespace Stage
 
 				//Collder1とPlayerが当たった時点でCollider2とは判定をさせない
 				mCollider2.SetNameTag("");
+
+				//GameLib::Viewport::SetScale(0.05f);
 			}
 		};
 
@@ -94,7 +100,7 @@ namespace Stage
 		if (mCoolDownCnt > 0)
 			mCoolDownCnt--;
 
-
+		//std::cout << mRotationCnt << "\n";
 		if (mRotationCnt != 0) {
 			float rot = GameLib::Viewport::GetRotation();
 			//std::cout << "rot: " << rot << "\n";
@@ -106,34 +112,48 @@ namespace Stage
 			else
 				rot -= GravityBoxParam::CAMERA_DELTA_ROT;
 
+			/*
 			while (rot < 0.f)
 				rot += GameLib::PI * 2.f;
 			while (rot >= GameLib::PI * 2.f)
 				rot -= GameLib::PI * 2.f;
+			std::cout << "rot2: " << rot << "\n";
+			*/
+			for (int i = 0; i < 5; i++) {
+				//std::cout << "abs " << i << " : " << std::abs(rot - GameLib::PI / 2.f * i) << "\n";
 
-			for (int i = 0; i < 4; i++) {
-				if (std::abs(rot - GameLib::PI / 2.f * i) <= GravityBoxParam::CAMERA_DELTA_ROT) {
+				if (std::abs(rot - GameLib::PI / 2.f * static_cast<float>(i)) <= GravityBoxParam::CAMERA_DELTA_ROT/2.f) {
+
+					if (i == 0 && mRotationCnt < 0)
+						rot = 0.f;
+					else if (i == 4 && mRotationCnt > 0)
+						rot = GameLib::PI * 2.f;
+					else
+						rot = GameLib::PI / 2.f * i;
+
 					if (mRotationCnt > 0)
 						mRotationCnt--;
 					else
 						mRotationCnt++;
 
-					rot = GameLib::PI / 2.f * i;
-
 					if (mRotationCnt == 0) {
-						Gravity::FinishRotation();
+
 						mApple->Fall(mNextDir);
 						mCollider2.SetNameTag("Ground");
 
-						mCoolDownCnt = COOLDOWN_TIME;;
+						mCoolDownCnt = COOLDOWN_TIME;
+
+						Gravity::FinishRotation();
 					}
 
 				}
 			}
 
+			
 			GameLib::Viewport::SetPos(GameLib::Vector2::Rotation(mPosition, -rot + mRotation));
 			GameLib::Viewport::SetRotation(rot);
 
+			//std::cout << "\n";
 		}
 
 	}

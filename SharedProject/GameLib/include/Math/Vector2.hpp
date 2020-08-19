@@ -118,10 +118,7 @@ namespace GameLib
 
 		static Vector2 Rotation(const Vector2& a, float rot)
 		{
-			if (rot == 0.f)
-				return Vector2(a);
-			if (a.x == 0.f && a.y == 0.f)
-				return Vector2(a);
+
 			float x = a.x * std::cos(rot) - a.y * std::sin(rot);
 			float y = a.x * std::sin(rot) + a.y * std::cos(rot);
 			return Vector2(x, y);

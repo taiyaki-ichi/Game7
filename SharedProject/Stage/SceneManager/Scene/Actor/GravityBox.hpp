@@ -31,6 +31,8 @@ namespace Stage
 		//1or-1
 		int mDeltaRotDir;
 
+	
+
 	public:
 		//dirNum‚Í2‚©4
 		GravityBox(GameLib::Actor* scene,int dirNum);

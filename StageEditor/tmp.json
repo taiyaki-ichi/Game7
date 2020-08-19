@@ -4,34 +4,190 @@
       "ActorsData": [
         {
           "ActorName": "Ground",
-          "FloatData0": -338,
-          "FloatData1": -15,
-          "FloatData2": 380,
-          "FloatData3": -259
+          "FloatData0": -307,
+          "FloatData1": -93,
+          "FloatData2": 376,
+          "FloatData3": -807
         },
         {
           "ActorName": "Ground",
-          "FloatData0": -286,
-          "FloatData1": -20,
-          "FloatData2": -342,
-          "FloatData3": 37
+          "FloatData0": 359,
+          "FloatData1": -46,
+          "FloatData2": 799,
+          "FloatData3": -796
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 721,
+          "FloatData1": -15
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 376,
-          "FloatData1": -18,
-          "FloatData2": 310,
-          "FloatData3": 45
+          "FloatData0": 773,
+          "FloatData1": -70,
+          "FloatData2": 909,
+          "FloatData3": 14
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 894,
+          "FloatData1": -9,
+          "FloatData2": 1108,
+          "FloatData3": 88
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1096,
+          "FloatData1": 12,
+          "FloatData2": 1343,
+          "FloatData3": -103
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1326,
+          "FloatData1": -61,
+          "FloatData2": 1585,
+          "FloatData3": -167
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 1534,
+          "FloatData1": -31
+        },
+        {
+          "ActorName": "Toge",
+          "FloatData0": 1183,
+          "FloatData1": 76
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1695,
+          "FloatData1": -67,
+          "FloatData2": 1886,
+          "FloatData3": -163
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1860,
+          "FloatData1": -83,
+          "FloatData2": 2044,
+          "FloatData3": -7
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2024,
+          "FloatData1": -24,
+          "FloatData2": 2201,
+          "FloatData3": 62
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 2081,
+          "FloatData1": 92
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 2164,
+          "FloatData1": 97
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2384,
+          "FloatData1": -121,
+          "FloatData2": 2549,
+          "FloatData3": -209
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2532,
+          "FloatData1": -134,
+          "FloatData2": 2710,
+          "FloatData3": -43
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2688,
+          "FloatData1": -59,
+          "FloatData2": 2874,
+          "FloatData3": 19
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 2820,
+          "FloatData1": 53
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3048,
+          "FloatData1": 5,
+          "FloatData2": 3446,
+          "FloatData3": -791
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3619,
+          "FloatData1": 481,
+          "FloatData2": 4265,
+          "FloatData3": 377
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 3797,
+          "FloatData1": 346
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 3936,
+          "FloatData1": 344
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 4058,
+          "FloatData1": 340
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 4184,
+          "FloatData1": 339
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": 4740,
+          "FloatData1": -754,
+          "FloatData2": -489.99993896484375,
+          "FloatData3": 519.99993896484375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3460,
+          "FloatData1": 292,
+          "FloatData2": 3059,
+          "FloatData3": 558
         },
         {
           "ActorName": "Player",
-          "FloatData0": -312,
-          "FloatData1": 85
+          "FloatData0": 3258,
+          "FloatData1": 58
         },
         {
-          "ActorName": "Dogu",
-          "FloatData0": 256,
-          "FloatData1": 50
+          "ActorName": "Ground",
+          "FloatData0": 3389,
+          "FloatData1": -10,
+          "FloatData2": 3453,
+          "FloatData3": 319
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3142,
+          "FloatData1": -0,
+          "FloatData2": 3094,
+          "FloatData3": 312
+        },
+        {
+          "ActorName": "GravityBox2",
+          "FloatData0": 3264,
+          "FloatData1": 145,
+          "StringData0": "right"
         }
       ],
       "SceneName": "1"
