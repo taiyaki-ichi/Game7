@@ -24,6 +24,7 @@ namespace Stage
 		Player(GameLib::Actor* scene,int lifeNum,int gemNum);
 		virtual ~Player() = default;
 
+		bool UpdateOrNot() override;
 		void Update() override;
 
 		void BeginWorking() override;

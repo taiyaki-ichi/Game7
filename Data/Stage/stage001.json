@@ -470,10 +470,9 @@
           "FloatData3": -301
         },
         {
-          "ActorName": "Goal",
+          "ActorName": "DownGoal",
           "FloatData0": 1514,
-          "FloatData1": 301,
-          "StringData0": "down"
+          "FloatData1": 301
         },
         {
           "ActorName": "Ground",

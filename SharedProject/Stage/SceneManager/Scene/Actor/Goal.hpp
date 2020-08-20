@@ -16,7 +16,7 @@ namespace Stage
 		int mKiraCnt;
 
 	public:
-		Goal(GameLib::Actor*);
+		Goal(GameLib::Actor*,Dir4&&);
 		virtual ~Goal() = default;
 
 		void Update() override;
@@ -25,7 +25,6 @@ namespace Stage
 		void BeginToRest() override;
 
 		void LoadPosData(std::vector<GameLib::Vector2>&&) override;
-		void LoadStringData(std::vector<std::string>&&) override;
 
 	};
 }

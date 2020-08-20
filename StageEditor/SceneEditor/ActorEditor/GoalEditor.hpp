@@ -9,13 +9,11 @@ namespace StageEditor
 		GameLib::DrawTexture mTexture;
 
 	public:
-		GoalEditor(GameLib::Actor*);
+		GoalEditor(GameLib::Actor*,std::string&&);
 
 		void Update() override;
 
 		void BeginWorking() override;
 		void BeginToRest() override;
-
-		void PrintStringDataInfo() override;
 	};
 }

@@ -317,10 +317,9 @@
           "FloatData3": 732
         },
         {
-          "ActorName": "Goal",
+          "ActorName": "DownGoal",
           "FloatData0": 6570,
-          "FloatData1": 711,
-          "StringData0": "down"
+          "FloatData1": 711
         },
         {
           "ActorName": "TearGem",

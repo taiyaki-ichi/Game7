@@ -4,6 +4,7 @@
 #include"Player/Life/Life.hpp"
 #include"Player/PlayerParam.hpp"
 #include"Player/ItemNum/ItemNum.hpp"
+#include"Stage/Gravity/Gravity.hpp"
 
 namespace Stage
 {
@@ -37,12 +38,19 @@ namespace Stage
 		
 	}
 
+	bool Player::UpdateOrNot()
+	{
+		return true;
+	}
+
 	void Player::Update()
 	{
-
-		mStateManager.Update();
-		mPosition = mAnimation.GetPosition();
-		//std::cout <<"player pos:"<< mPosition.x << "," << mPosition.y << "\n";
+		if (!Gravity::IsRotation())
+		{
+			mStateManager.Update();
+			mPosition = mAnimation.GetPosition();
+			//std::cout <<"player pos:"<< mPosition.x << "," << mPosition.y << "\n";
+		}
 
 		mLife->AdjustPos();
 		mItemNum->AdjustPos();

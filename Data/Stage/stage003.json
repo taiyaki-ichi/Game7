@@ -538,10 +538,9 @@
           "FloatData3": 1966.6671142578125
         },
         {
-          "ActorName": "Goal",
+          "ActorName": "RightGoal",
           "FloatData0": 1103.3330078125,
-          "FloatData1": 1693.3338623046875,
-          "StringData0": "right"
+          "FloatData1": 1693.3338623046875
         },
         {
           "ActorName": "Ground",
