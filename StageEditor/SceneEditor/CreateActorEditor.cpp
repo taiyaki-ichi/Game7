@@ -20,6 +20,9 @@
 #include"ActorEditor/MoveGroundEditor.hpp"
 #include"ActorEditor/CarrotEditor.hpp"
 #include"ActorEditor/DoguEditor.hpp"
+#include"ActorEditor/TrampolineEditor.hpp"
+
+
 
 namespace StageEditor
 {
@@ -49,8 +52,10 @@ namespace StageEditor
 			{"MoveGround",[](GameLib::Actor* actor) {return new MoveGroundEditor{actor}; }},
 			{"Carrot",[](GameLib::Actor* actor) {return new CarrotEditor{actor}; }},
 			{"Dogu",[](GameLib::Actor* actor) {return new DoguEditor{actor}; }},
-
-
+			{"UpTrampoline",[](GameLib::Actor* actor) {return new TrampolineEditor{actor,"Up"}; }},
+			{"DownTrampoline",[](GameLib::Actor* actor) {return new TrampolineEditor{actor,"Down"}; }},
+			{"RightTrampoline",[](GameLib::Actor* actor) {return new TrampolineEditor{actor,"Right"}; }},
+			{"LeftTrampoline",[](GameLib::Actor* actor) {return new TrampolineEditor{actor,"Left"}; }},
 
 		};
 	}

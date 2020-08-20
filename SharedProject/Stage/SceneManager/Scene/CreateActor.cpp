@@ -18,6 +18,7 @@
 #include"Actor/MoveGround.hpp"
 #include"Actor/Carrot.hpp"
 #include"Actor/Dogu.hpp"
+#include"Actor/Trampoline.hpp"
 
 namespace Stage
 {
@@ -46,7 +47,12 @@ namespace Stage
 			{"ThroughFloor",[](Scene* scene) {return new ThroughFloor{scene}; }},
 			{"MoveGround",[](Scene* scene) {return new MoveGround{scene}; }},
 			{"Carrot",[](Scene* scene) {return new Carrot{scene}; }},
-			{"Dogu",[](Scene* scene) {return new Dogu{scene}; }}
+			{"Dogu",[](Scene* scene) {return new Dogu{scene}; }},
+			{"RightTrampoline",[](Scene* scene) {return new Trampoline{scene,Dir4::Right}; }},
+			{"LeftTrampoline",[](Scene* scene) {return new Trampoline{scene,Dir4::Left}; }},
+			{"UpTrampoline",[](Scene* scene) {return new Trampoline{scene,Dir4::Up}; }},
+			{"DownTrampoline",[](Scene* scene) {return new Trampoline{scene,Dir4::Down}; }},
+
 
 
 		};

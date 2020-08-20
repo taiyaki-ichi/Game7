@@ -62,7 +62,8 @@ namespace StageEditor
 						i++;
 					}
 
-					ptr->SetData(std::move(floatData), std::move(stringData));
+					if (ptr)
+						ptr->SetData(std::move(floatData), std::move(stringData));
 
 				}
 

@@ -13,6 +13,7 @@
 #include"Stage/WindowSize.hpp"
 #include"Life/Life.hpp"
 #include"ItemNum/ItemNum.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
 
 #include<iostream>
 
@@ -180,6 +181,51 @@ namespace Stage::PlayerState
 			mPhysicsModel.Friction(0.5f, 0.5f);
 		};
 
+		auto hitTrampoline = [this,hitGround](Dir4&& dir, const GameLib::Collider& c)
+		{
+
+			auto adjust = GetParallelRectAdjustVec(mCollider, c);
+			auto adjustDir4Vec = GetDir4Vec(adjust);
+			auto adjustDir4VecDir4 = adjustDir4Vec.mDir4;
+
+			hitGround(c);
+
+			int dirNum = static_cast<int>(dir) - static_cast<int>(Gravity::GetDir4());
+			if (dirNum > 3)
+				dirNum -= 4;
+			if (dirNum < 0)
+				dirNum += 4;
+
+			auto adjustDir = static_cast<Dir4>(dirNum);
+			if ( adjustDir4VecDir4== adjustDir) {
+				mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, adjustDir, 0.f);
+				mPhysicsModel.mVelocity += GetVector2(adjustDir, TrampolineParam::PLAYER_POWER);
+				mJumpFlag = 3;
+			}
+		};
+		
+		auto hitUpT = [this, hitTrampoline](const GameLib::Collider& c)
+		{
+			hitTrampoline(Dir4::Up, c);
+		};
+		auto hitDonwT = [this, hitTrampoline](const GameLib::Collider& c)
+		{
+			hitTrampoline(Dir4::Down, c);
+		};
+		auto hitRightT = [this, hitTrampoline](const GameLib::Collider& c)
+		{
+			hitTrampoline(Dir4::Right, c);
+		};
+		auto hitLeftT = [this, hitTrampoline](const GameLib::Collider& c)
+		{
+			hitTrampoline(Dir4::Left, c);
+		};
+
+
+		mCollider.AddHitFunction("DownTrampoline", hitDonwT);
+		mCollider.AddHitFunction("UpTrampoline", hitUpT);
+		mCollider.AddHitFunction("RightTrampoline", hitRightT);
+		mCollider.AddHitFunction("LeftTrampoline", hitLeftT);
 		mCollider.AddHitFunction("ThroughFloor", hitThroughFloor);
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
 		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
