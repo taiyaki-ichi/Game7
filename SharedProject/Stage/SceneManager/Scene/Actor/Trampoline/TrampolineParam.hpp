@@ -8,7 +8,7 @@ namespace Stage
 		constexpr float WIDTH = 700.f;
 		constexpr float HEIGHT = 100.f;
 
-		constexpr float PLAYER_POWER = 30.f;
+		constexpr float PLAYER_POWER = 20.f;
 		constexpr float ENEMY_POWER = 15.f;
 	}
 }

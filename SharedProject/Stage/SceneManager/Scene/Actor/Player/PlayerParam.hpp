@@ -9,7 +9,8 @@ namespace Stage
 	{
 		//Active
 		constexpr float MAX_HORIZON_SPEED = 8.f;
-		constexpr float MAX_VERTICAL_SPEED = 21.f;
+		//constexpr float MAX_VERTICAL_SPEED = 21.f;
+		constexpr float MAX_VERTICAL_SPEED = 25.f;
 		constexpr float JUMP_POWER_MAX = 17.f;
 		constexpr float JUMP_POWER_MIN = 14.f;
 		constexpr float RUN_POWER = 0.3f;

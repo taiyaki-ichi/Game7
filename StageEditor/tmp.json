@@ -15,33 +15,16 @@
           "FloatData1": -11
         },
         {
+          "ActorName": "UpTrampoline",
+          "FloatData0": 210,
+          "FloatData1": -31
+        },
+        {
           "ActorName": "Camera",
-          "FloatData0": -490.769287109375,
-          "FloatData1": -355.3846435546875,
-          "FloatData2": 529.2308349609375,
-          "FloatData3": 400.00006103515625
-        },
-        {
-          "ActorName": "GravityBox4",
-          "FloatData0": -0,
-          "FloatData1": 84.761917114257813,
-          "StringData0": "right",
-          "StringData1": "right"
-        },
-        {
-          "ActorName": "LeftTrampoline",
-          "FloatData0": 238.09527587890625,
-          "FloatData1": 105.71429443359375
-        },
-        {
-          "ActorName": "DownTrampoline",
-          "FloatData0": 18,
-          "FloatData1": 316
-        },
-        {
-          "ActorName": "RightTrampoline",
-          "FloatData0": -208,
-          "FloatData1": 107
+          "FloatData0": -413.3333740234375,
+          "FloatData1": -338.3333740234375,
+          "FloatData2": 483.33340454101563,
+          "FloatData3": 1130.000244140625
         }
       ],
       "SceneName": "1"
