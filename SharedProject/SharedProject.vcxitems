@@ -138,6 +138,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeActive.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Toge\TogeParam.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Trampoline.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Trampoline\HitTrampoline.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Trampoline\TrampolineParam.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Triple\TripleActive.hpp" />

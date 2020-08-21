@@ -6,6 +6,8 @@
 #include"Stage/Utilty/IsInScope.hpp"
 #include"Stage/WindowSize.hpp"
 #include"Stage/Gravity/Gravity.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/HitTrampoline.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
 
 namespace Stage
 {
@@ -41,7 +43,29 @@ namespace Stage
 				ReflectCollider();
 			};
 
+			auto hitT = [this, hitGround](Dir4&& dir, const GameLib::Collider& c) {
+				auto v = hitTrampoline(mPhysicsModel.mVelocity, mCollider, std::move(dir), c, TrampolineParam::ENEMY_POWER);
+				hitGround(c);
+				mPhysicsModel.mVelocity = v;
+			};
+			auto hitUpT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Up, c);
+			};
+			auto hitDonwT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Down, c);
+			};
+			auto hitRightT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Right, c);
+			};
+			auto hitLeftT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Left, c);
+			};
+
 			mCollider.AddHitFunction("Ground", std::move(hitGround));
+			mCollider.AddHitFunction("UpTrampoline", std::move(hitUpT));
+			mCollider.AddHitFunction("DonwTrampoline",std::move(hitDonwT));
+			mCollider.AddHitFunction("RightTrampoline", std::move(hitRightT));
+			mCollider.AddHitFunction("LeftTrampoline", std::move(hitLeftT));
 
 			ReflectAnimation();
 			ReflectCollider();
@@ -58,7 +82,9 @@ namespace Stage
 			//std::cout << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
 
 			mPhysicsModel.mScale = TogeParam::SCALE_CENTER + TogeParam::SCALE_RADIUS * std::sin(mCnt / 100.f);
-			mPhysicsModel.Update(Gravity::GetVector2());
+
+			//kari
+			UpdatePhysicsModelWithGravity(mPhysicsModel, Gravity::GetVector2(), 20. - 1.f, false);
 
 			ReflectAnimation();
 			ReflectCollider();

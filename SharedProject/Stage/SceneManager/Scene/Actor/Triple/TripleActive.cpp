@@ -7,6 +7,8 @@
 #include"TripleFlatDeath.hpp"
 #include"Stage/Utilty/IsInScope.hpp"
 #include"Stage/WindowSize.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/HitTrampoline.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
 
 namespace Stage
 {
@@ -34,13 +36,13 @@ namespace Stage
 			mWeakness.SetScale(SCALE);
 			mStrength.SetScale(SCALE);
 
-			mBody.AddHitFunction("Ground", [this](const GameLib::Collider& c) {
+			auto hitGround = [this](const GameLib::Collider& c) {
 				auto gravityDir4 = Gravity::GetDir4();
 				GameLib::Vector2 adjust;
 				if (gravityDir4 == Dir4::Down || gravityDir4 == Dir4::Up)
-					adjust = GetParallelRectAdjustVec(mBody, c, Gravity::GetSize() ,0.f);
+					adjust = GetParallelRectAdjustVec(mBody, c, Gravity::GetSize(), 0.f);
 				else
-					adjust = GetParallelRectAdjustVec(mBody, c, 0.f,Gravity::GetSize() );
+					adjust = GetParallelRectAdjustVec(mBody, c, 0.f, Gravity::GetSize());
 
 				auto dir4Adjust = GetDir4Vec(adjust);
 				auto velocityDr4 = GetDir4Vec(mPhysicsModel.mVelocity);
@@ -61,13 +63,57 @@ namespace Stage
 
 				ReflectAnimation();
 				ReflectCollider();
-			});
+			};
 
 			auto flatDeathFunc = [this](const GameLib::Collider& c) {
 				mFlatDeathFlag = true;
 			};
 
+			auto hitT = [this, hitGround](Dir4&& dir, const GameLib::Collider& myC,const GameLib::Collider& c)
+			{
+				auto v = hitTrampoline(mPhysicsModel.mVelocity, myC, std::move(dir), c, TrampolineParam::ENEMY_POWER);
+				hitGround(c);
+				mPhysicsModel.mVelocity = v;
+			};
+
+			auto bodyHitUpT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Up, mBody, c);
+			};
+			auto bodyHitDownT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Down,mBody, c);
+			};
+			auto bodyHitRightT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Right,mBody, c);
+			};
+			auto bodyHitLeftT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Left,mBody, c);
+			};
+			
+			auto weaknessHitUpT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Up, mWeakness, c);
+			};
+			auto weaknessHitDonwT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Down, mWeakness, c);
+			};
+			auto weaknessHitRightT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Right, mWeakness, c);
+			};
+			auto weaknessHitLeftT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Left, mWeakness, c);
+			};
+
+
+			mBody.AddHitFunction("UpTrampoline", std::move(bodyHitUpT));
+			mBody.AddHitFunction("DonwTrampoline", std::move(bodyHitDownT));
+			mBody.AddHitFunction("RightTrampoline", std::move(bodyHitRightT));
+			mBody.AddHitFunction("LeftTrampoline", std::move(bodyHitLeftT));
+			mBody.AddHitFunction("Ground",hitGround);
+			mWeakness.AddHitFunction("Ground", hitGround);
 			mWeakness.AddHitFunction("Player", flatDeathFunc);
+			mWeakness.AddHitFunction("UpTrampoline", std::move(weaknessHitUpT));
+			mWeakness.AddHitFunction("DownTrampoline", std::move(weaknessHitDonwT));
+			mWeakness.AddHitFunction("RightTrampoline", std::move(weaknessHitRightT));
+			mWeakness.AddHitFunction("LeftTrampoline", std::move(weaknessHitLeftT));
 
 			ReflectAnimation();
 			ReflectCollider();

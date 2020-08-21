@@ -3,28 +3,80 @@
     {
       "ActorsData": [
         {
-          "ActorName": "Ground",
-          "FloatData0": -341,
-          "FloatData1": -71,
-          "FloatData2": 336,
-          "FloatData3": -262
-        },
-        {
           "ActorName": "Player",
           "FloatData0": 2,
           "FloatData1": -11
         },
         {
+          "ActorName": "Ground",
+          "FloatData0": -350.90914916992188,
+          "FloatData1": -110.90910339355469,
+          "FloatData2": 561.81829833984375,
+          "FloatData3": -1294.5457763671875
+        },
+        {
           "ActorName": "UpTrampoline",
-          "FloatData0": 210,
-          "FloatData1": -31
+          "FloatData0": 345.45458984375,
+          "FloatData1": -74.545402526855469
         },
         {
           "ActorName": "Camera",
-          "FloatData0": -413.3333740234375,
-          "FloatData1": -338.3333740234375,
-          "FloatData2": 483.33340454101563,
-          "FloatData3": 1130.000244140625
+          "FloatData0": -746.66741943359375,
+          "FloatData1": -880.00091552734375,
+          "FloatData2": 1126.6678466796875,
+          "FloatData3": 820.0008544921875
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 406.15390014648438,
+          "FloatData1": 27.692312240600586
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": -6,
+          "FloatData1": -74
+        },
+        {
+          "ActorName": "LeftTrampoline",
+          "FloatData0": 533.33349609375,
+          "FloatData1": 122.22225952148438
+        },
+        {
+          "ActorName": "LeftTrampoline",
+          "FloatData0": 533.33349609375,
+          "FloatData1": 475.55569458007813
+        },
+        {
+          "ActorName": "DownTrampoline",
+          "FloatData0": 333.33340454101563,
+          "FloatData1": 673.33355712890625
+        },
+        {
+          "ActorName": "DownTrampoline",
+          "FloatData0": -20.000005722045898,
+          "FloatData1": 673.33355712890625
+        },
+        {
+          "ActorName": "RightTrampoline",
+          "FloatData0": -217.77784729003906,
+          "FloatData1": 475.55569458007813
+        },
+        {
+          "ActorName": "RightTrampoline",
+          "FloatData0": -217.77784729003906,
+          "FloatData1": 126.66670989990234
+        },
+        {
+          "ActorName": "GravityBox4",
+          "FloatData0": 162.22227478027344,
+          "FloatData1": 308.88897705078125,
+          "StringData0": "left",
+          "StringData1": "left"
+        },
+        {
+          "ActorName": "Toge",
+          "FloatData0": 339,
+          "FloatData1": 45
         }
       ],
       "SceneName": "1"

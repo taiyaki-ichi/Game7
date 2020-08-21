@@ -14,6 +14,7 @@
 #include"Life/Life.hpp"
 #include"ItemNum/ItemNum.hpp"
 #include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/HitTrampoline.hpp"
 
 #include<iostream>
 
@@ -181,6 +182,7 @@ namespace Stage::PlayerState
 			mPhysicsModel.Friction(0.5f, 0.5f);
 		};
 
+		/*
 		auto hitTrampoline = [this,hitGround](Dir4&& dir, const GameLib::Collider& c)
 		{
 
@@ -203,29 +205,38 @@ namespace Stage::PlayerState
 				mJumpFlag = 3;
 			}
 		};
-		
-		auto hitUpT = [this, hitTrampoline](const GameLib::Collider& c)
+		*/
+
+		auto hitT = [this,hitGround](Dir4&& dir, const GameLib::Collider& c)
 		{
-			hitTrampoline(Dir4::Up, c);
+			auto v = hitTrampoline(mPhysicsModel.mVelocity, mCollider, std::move(dir), c, TrampolineParam::PLAYER_POWER);
+			hitGround(c);
+			mPhysicsModel.mVelocity = v;
+			mJumpFlag = 3;
 		};
-		auto hitDonwT = [this, hitTrampoline](const GameLib::Collider& c)
+
+		auto hitUpT = [this,hitT](const GameLib::Collider& c)
 		{
-			hitTrampoline(Dir4::Down, c);
+			hitT(Dir4::Up, c);
 		};
-		auto hitRightT = [this, hitTrampoline](const GameLib::Collider& c)
+		auto hitDonwT = [this, hitT](const GameLib::Collider& c)
 		{
-			hitTrampoline(Dir4::Right, c);
+			hitT(Dir4::Down, c);
 		};
-		auto hitLeftT = [this, hitTrampoline](const GameLib::Collider& c)
+		auto hitRightT = [this, hitT](const GameLib::Collider& c)
 		{
-			hitTrampoline(Dir4::Left, c);
+			hitT(Dir4::Right, c);
+		};
+		auto hitLeftT = [this, hitT](const GameLib::Collider& c)
+		{
+			hitT(Dir4::Left, c);
 		};
 
 
-		mCollider.AddHitFunction("DownTrampoline", hitDonwT);
-		mCollider.AddHitFunction("UpTrampoline", hitUpT);
-		mCollider.AddHitFunction("RightTrampoline", hitRightT);
-		mCollider.AddHitFunction("LeftTrampoline", hitLeftT);
+		mCollider.AddHitFunction("DownTrampoline", std::move(hitDonwT));
+		mCollider.AddHitFunction("UpTrampoline", std::move(hitUpT));
+		mCollider.AddHitFunction("RightTrampoline", std::move(hitRightT));
+		mCollider.AddHitFunction("LeftTrampoline", std::move(hitLeftT));
 		mCollider.AddHitFunction("ThroughFloor", hitThroughFloor);
 		mCollider.AddHitFunction("Ground", std::move(hitGround));
 		mCollider.AddHitFunction("TripleWeakness", hitEnemyWeakness);
