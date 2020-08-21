@@ -8,6 +8,8 @@
 #include"Stage/WindowSize.hpp"
 #include"Stage/Utilty/IsInScope.hpp"
 #include"Stage/Utilty/State/DeathTimerState.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/HitTrampoline.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
 
 namespace Stage
 {
@@ -69,9 +71,55 @@ namespace Stage
 				UpFlag(FrogFlag::FLAD_DEATH_FLAG);
 			};
 
+			auto weaknessHitT = [this, wHitGround](Dir4&& dir, const GameLib::Collider& c) {
+				auto v = hitTrampoline(mPhysicsModel.mVelocity, mWeakness, std::move(dir), c, TrampolineParam::ENEMY_POWER);
+				wHitGround(c);
+				mPhysicsModel.mVelocity = v;
+			};
+			auto wHitUpT = [this, weaknessHitT](const GameLib::Collider& c) {
+				weaknessHitT(Dir4::Up, c);
+			};
+			auto wHitDownT = [this, weaknessHitT](const GameLib::Collider& c) {
+				weaknessHitT(Dir4::Down, c);
+			};
+			auto wHitRightT = [this, weaknessHitT](const GameLib::Collider& c) {
+				weaknessHitT(Dir4::Right, c);
+			};
+			auto wHitLeftT = [this, weaknessHitT](const GameLib::Collider& c) {
+				weaknessHitT(Dir4::Left, c);
+			};
+
+			auto sHitT = [this, strengthHitGround](Dir4&& dir, const GameLib::Collider& c) {
+				auto v = hitTrampoline(mPhysicsModel.mVelocity, mStrength, std::move(dir), c, TrampolineParam::ENEMY_POWER);
+				strengthHitGround(c);
+				mPhysicsModel.mVelocity = v;
+			};
+			auto sHitUpT = [this, sHitT](const GameLib::Collider& c) {
+				sHitT(Dir4::Up, c);
+			};
+			auto sHitDownT = [this, sHitT](const GameLib::Collider& c) {
+				sHitT(Dir4::Down, c);
+			};
+			auto sHitRightT = [this, sHitT](const GameLib::Collider& c) {
+				sHitT(Dir4::Right, c);
+			};
+			auto sHitLeftT = [this, sHitT](const GameLib::Collider& c) {
+				sHitT(Dir4::Left, c);
+			};
+
 			mWeakness.AddHitFunction("Ground", std::move(wHitGround));
 			mStrength.AddHitFunction("Ground", std::move(strengthHitGround));
 			mWeakness.AddHitFunction("Player", std::move(hitPlayer));
+
+			mWeakness.AddHitFunction("UpTrampoline", std::move(wHitUpT));
+			mWeakness.AddHitFunction("DownTrampoline", std::move(wHitDownT));
+			mWeakness.AddHitFunction("RightTrampoline", std::move(wHitRightT));
+			mWeakness.AddHitFunction("LeftTrampoline", std::move(wHitLeftT));
+
+			mStrength.AddHitFunction("UpTrampoline", std::move(sHitUpT));
+			mStrength.AddHitFunction("DownTrampoline", std::move(sHitDownT));
+			mStrength.AddHitFunction("RightTrampoline", std::move(sHitRightT));
+			mStrength.AddHitFunction("LeftTrampoline", std::move(sHitLeftT));
 
 			AdjustColliders();
 		}

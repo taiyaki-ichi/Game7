@@ -27,11 +27,6 @@
           "FloatData3": 820.0008544921875
         },
         {
-          "ActorName": "Triple",
-          "FloatData0": 406.15390014648438,
-          "FloatData1": 27.692312240600586
-        },
-        {
           "ActorName": "UpTrampoline",
           "FloatData0": -6,
           "FloatData1": -74
@@ -74,9 +69,11 @@
           "StringData1": "left"
         },
         {
-          "ActorName": "Toge",
-          "FloatData0": 339,
-          "FloatData1": 45
+          "ActorName": "Frog",
+          "FloatData0": 375,
+          "FloatData1": 23,
+          "FloatData2": 341,
+          "FloatData3": 195
         }
       ],
       "SceneName": "1"
