@@ -8,6 +8,8 @@
 #include"Stage/Utilty/Geometry.hpp"
 #include"CarrotFlag.hpp"
 #include"Stage/Utilty/State/DeathTimerState.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/HitTrampoline.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
 
 namespace Stage
 {
@@ -51,9 +53,31 @@ namespace Stage
 				UpFlag(CarrotFlag::FLATDETH_FLAG);
 			};
 
-			mStrength.AddHitFunction("Ground",std::move(hitGround));
+			auto hitT = [this, hitGround](Dir4&& dir, const GameLib::Collider& c) {
+				auto v = hitTrampoline(mPhysicsModel.mVelocity, mStrength, std::move(dir), c, TrampolineParam::ENEMY_POWER);
+				hitGround(c);
+				mPhysicsModel.mVelocity = v;
+			};
+			auto hitUpT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Up, c);
+			};
+			auto hitDownT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Down, c);
+			};
+			auto hitRightT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Right, c);
+			};
+			auto hitLeftT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Left, c);
+			};
 
+			mStrength.AddHitFunction("Ground",std::move(hitGround));
 			mWeakness.AddHitFunction("Player", std::move(hitPlayer));
+
+			mStrength.AddHitFunction("UpTrampoline", std::move(hitUpT));
+			mStrength.AddHitFunction("DownTrampoline", std::move(hitDownT));
+			mStrength.AddHitFunction("RightTrampoline", std::move(hitRightT));
+			mStrength.AddHitFunction("LeftTrampoline", std::move(hitLeftT));
 
 			AdjustAnim();
 			AdjustColliders();

@@ -8,7 +8,8 @@
 #include"Stage/Gravity/GravityFunc.hpp"
 #include"Stage/Utilty/IsInScope.hpp"
 #include"Stage/WindowSize.hpp"
-
+#include"Stage/SceneManager/Scene/Actor/Trampoline/HitTrampoline.hpp"
+#include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
 
 namespace Stage
 {
@@ -37,8 +38,31 @@ namespace Stage
 				mAnim->SetPosition(std::move(pos));
 			};
 
+			auto hitT = [this, hitGround](Dir4&& dir, const GameLib::Collider& c) {
+				auto v = hitTrampoline(mPower, mCollider, std::move(dir), c, TrampolineParam::ENEMY_POWER);
+				hitGround(c);
+				mPower = v;
+			};
+			auto hitUpT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Up, c);
+			};
+			auto hitDownT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Down, c);
+			};
+			auto hitRightT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Right, c);
+			};
+			auto hitLeftT = [this, hitT](const GameLib::Collider& c) {
+				hitT(Dir4::Left, c);
+			};
+
 			mCollider.AddHitFunction("Ground", std::move(hitGround));
 			mCollider.SetPosition(mAnim->GetPosition());
+
+			mCollider.AddHitFunction("UpTrampoline", std::move(hitUpT));
+			mCollider.AddHitFunction("DownTrampoline", std::move(hitDownT));
+			mCollider.AddHitFunction("RightTrampoline", std::move(hitRightT));
+			mCollider.AddHitFunction("LeftTrampoline", std::move(hitLeftT));
 
 			mAnim->SetChannel(0);
 
@@ -48,7 +72,7 @@ namespace Stage
 		bool Stay::UpdateOrNot()
 		{
 			auto pos = mAnim->GetPosition();
-			return IsInScope(pos, WindowSize::WIDTH, WindowSize::WIDTH);
+			return IsInScope(pos, WindowSize::WIDTH + 50.f, WindowSize::WIDTH + 50.f);
 		}
 
 

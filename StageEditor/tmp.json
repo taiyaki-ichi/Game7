@@ -69,11 +69,19 @@
           "StringData1": "left"
         },
         {
-          "ActorName": "Frog",
-          "FloatData0": 375,
-          "FloatData1": 23,
-          "FloatData2": 341,
-          "FloatData3": 195
+          "ActorName": "Carrot",
+          "FloatData0": 121,
+          "FloatData1": 39
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 295,
+          "FloatData1": 38
+        },
+        {
+          "ActorName": "Carrot",
+          "FloatData0": 414,
+          "FloatData1": 37
         }
       ],
       "SceneName": "1"
