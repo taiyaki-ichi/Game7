@@ -101,6 +101,63 @@
           "FloatData1": 300.7691650390625,
           "FloatData2": 2422.307861328125,
           "FloatData3": 528.46148681640625
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": 3080.180419921875,
+          "FloatData1": 283.75003051757813
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3337.680419921875,
+          "FloatData1": 383.75,
+          "FloatData2": 3600.180419921875,
+          "FloatData3": -1173.75
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": 3468,
+          "FloatData1": 514,
+          "FloatData2": 3304,
+          "FloatData3": 511,
+          "FloatData4": 3304,
+          "FloatData5": 454
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": 3837,
+          "FloatData1": 341
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4070,
+          "FloatData1": 485,
+          "FloatData2": 4365,
+          "FloatData3": -795
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": 3971,
+          "FloatData1": 682,
+          "FloatData2": 3714,
+          "FloatData3": 687
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": 4539,
+          "FloatData1": 429
+        },
+        {
+          "ActorName": "DownTrampoline",
+          "FloatData0": 4542,
+          "FloatData1": 643
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4655,
+          "FloatData1": 273,
+          "FloatData2": 5074,
+          "FloatData3": -642
         }
       ],
       "SceneName": "1"

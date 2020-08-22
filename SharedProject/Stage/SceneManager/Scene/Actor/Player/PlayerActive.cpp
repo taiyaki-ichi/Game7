@@ -210,9 +210,11 @@ namespace Stage::PlayerState
 		auto hitT = [this,hitGround](Dir4&& dir, const GameLib::Collider& c)
 		{
 			auto v = hitTrampoline(mPhysicsModel.mVelocity, mCollider, std::move(dir), c, TrampolineParam::PLAYER_POWER);
-			hitGround(c);
 			mPhysicsModel.mVelocity = v;
-			mJumpFlag = 3;
+			hitGround(c);
+			if (GetDir4DirectionSize(v, Dir4::Up) > 0.f) {
+				mJumpFlag = 3;
+			}
 		};
 
 		auto hitUpT = [this,hitT](const GameLib::Collider& c)
