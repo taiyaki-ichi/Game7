@@ -6,7 +6,7 @@
 namespace StageEditor
 {
 	GoalEditor::GoalEditor(GameLib::Actor* actor,std::string&& dir)
-		:ActorEditorBase{ actor,"Goal",1,0 }
+		:ActorEditorBase{ actor,dir+"Goal",1,0 }
 		, mTexture{ "../Assets/Object/Goal/diamond.png" }
 	{
 		mCollider.SetWidthAndHeith(Stage::GoalParam::COLLIDER_WIDTH, Stage::GoalParam::COLLIDER_HEIGHT);
