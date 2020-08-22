@@ -3,11 +3,6 @@
     {
       "ActorsData": [
         {
-          "ActorName": "Player",
-          "FloatData0": 2,
-          "FloatData1": -11
-        },
-        {
           "ActorName": "Ground",
           "FloatData0": -350.90914916992188,
           "FloatData1": -110.90910339355469,
@@ -15,73 +10,97 @@
           "FloatData3": -1294.5457763671875
         },
         {
+          "ActorName": "Player",
+          "FloatData0": -137.77781677246094,
+          "FloatData1": -55.555572509765625
+        },
+        {
           "ActorName": "UpTrampoline",
-          "FloatData0": 345.45458984375,
-          "FloatData1": -74.545402526855469
+          "FloatData0": 262.2222900390625,
+          "FloatData1": -84.444465637207031
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 537.64715576171875,
+          "FloatData1": 184.70588684082031,
+          "FloatData2": 929.411865234375,
+          "FloatData3": -987.05908203125
         },
         {
           "ActorName": "Camera",
-          "FloatData0": -746.66741943359375,
-          "FloatData1": -880.00091552734375,
-          "FloatData2": 1126.6678466796875,
-          "FloatData3": 820.0008544921875
+          "FloatData0": -1346.6690673828125,
+          "FloatData1": -1423.3348388671875,
+          "FloatData2": 6980,
+          "FloatData3": 2679.999755859375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 920.00042724609375,
+          "FloatData1": 111.42861938476563,
+          "FloatData2": 1200.0006103515625,
+          "FloatData3": -1202.8575439453125
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1194.7265625,
+          "FloatData1": 33.62640380859375,
+          "FloatData2": 2096.26611328125,
+          "FloatData3": -1200.2205810546875
         },
         {
           "ActorName": "UpTrampoline",
-          "FloatData0": -6,
-          "FloatData1": -74
+          "FloatData0": 1373.18896484375,
+          "FloatData1": 58.241790771484375
         },
         {
-          "ActorName": "LeftTrampoline",
-          "FloatData0": 533.33349609375,
-          "FloatData1": 122.22225952148438
+          "ActorName": "UpTrampoline",
+          "FloatData0": 1723.356201171875,
+          "FloatData1": 58.308666229248047
         },
         {
-          "ActorName": "LeftTrampoline",
-          "FloatData0": 533.33349609375,
-          "FloatData1": 475.55569458007813
+          "ActorName": "Toge",
+          "FloatData0": 1621.6168212890625,
+          "FloatData1": 154.83042907714844
         },
         {
-          "ActorName": "DownTrampoline",
-          "FloatData0": 333.33340454101563,
-          "FloatData1": 673.33355712890625
+          "ActorName": "Toge",
+          "FloatData0": 986,
+          "FloatData1": 167
         },
         {
-          "ActorName": "DownTrampoline",
-          "FloatData0": -20.000005722045898,
-          "FloatData1": 673.33355712890625
+          "ActorName": "Ground",
+          "FloatData0": 2063.84619140625,
+          "FloatData1": 128.46153259277344,
+          "FloatData2": 2314.615478515625,
+          "FloatData3": -1203.8470458984375
         },
         {
-          "ActorName": "RightTrampoline",
-          "FloatData0": -217.77784729003906,
-          "FloatData1": 475.55569458007813
+          "ActorName": "Ground",
+          "FloatData0": 2306.9228515625,
+          "FloatData1": 226.92304992675781,
+          "FloatData2": 2548.461181640625,
+          "FloatData3": -1211.5394287109375
         },
         {
-          "ActorName": "RightTrampoline",
-          "FloatData0": -217.77784729003906,
-          "FloatData1": 126.66670989990234
+          "ActorName": "Ground",
+          "FloatData0": 2537.691650390625,
+          "FloatData1": 313.076904296875,
+          "FloatData2": 2829.9990234375,
+          "FloatData3": -1213.078125
         },
         {
-          "ActorName": "GravityBox4",
-          "FloatData0": 162.22227478027344,
-          "FloatData1": 308.88897705078125,
-          "StringData0": "left",
-          "StringData1": "left"
+          "ActorName": "StraightBee",
+          "FloatData0": 2173.0771484375,
+          "FloatData1": 196.15370178222656,
+          "FloatData2": 2170.000244140625,
+          "FloatData3": 528.46148681640625
         },
         {
-          "ActorName": "Carrot",
-          "FloatData0": 121,
-          "FloatData1": 39
-        },
-        {
-          "ActorName": "Carrot",
-          "FloatData0": 295,
-          "FloatData1": 38
-        },
-        {
-          "ActorName": "Carrot",
-          "FloatData0": 414,
-          "FloatData1": 37
+          "ActorName": "StraightBee",
+          "FloatData0": 2422.307861328125,
+          "FloatData1": 300.7691650390625,
+          "FloatData2": 2422.307861328125,
+          "FloatData3": 528.46148681640625
         }
       ],
       "SceneName": "1"

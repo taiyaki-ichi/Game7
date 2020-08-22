@@ -4,6 +4,8 @@
 #include"Stage/Gravity/GravityFunc.hpp"
 #include"Stage/Utilty/AdjustRot.hpp"
 #include"Stage/Gravity/Gravity.hpp"
+#include"BeeFlag.hpp"
+#include"BeeFallDeath.hpp"
 
 namespace Stage
 {
@@ -28,13 +30,20 @@ namespace Stage
 			mStrength.SetScale(SCALE);
 			mStrength.SetWidthAndHeith(WIDTH, HEIGHT* STRENGTH_RATE);
 			mWeakness.SetColor({ 0,0,255,255 });
+
+			auto hitPlayer = [this](const GameLib::Collider& c) {
+				UpFlag(BeeFlag::FALLDEATH_FLAG);
+			};
+			mWeakness.AddHitFunction("Player", std::move(hitPlayer));
 		}
 
 		StateBase<>* StraightActive::Update()
 		{
 
-			float rot = mCnt / 50.f;
-			auto pos = mCenter + std::cos(rot) * mRadiusVec;
+			if (CheckFlag(BeeFlag::FALLDEATH_FLAG))
+				return new FallDeath{ mAnim };
+
+			auto pos = mCenter + std::cos(mCnt / BeeParam::ROT_PER_CNT) * mRadiusVec;
 			mAnim->SetPosition(pos);
 
 			using namespace BeeParam;
@@ -43,7 +52,7 @@ namespace Stage
 			mStrength.SetPosition(pos + GetVector2(Dir4::Down, HEIGHT * STRENGTH_RATE * SCALE));
 			mStrength.SetRotation(Gravity::GetRotation());
 
-			rot = AdjustRot(rot);
+			float rot = AdjustRot(mCnt / BeeParam::ROT_PER_CNT);
 			if (rot < GameLib::PI)
 				mAnim->SetRotation(-std::atan2(mRadiusVec.x, mRadiusVec.y) + GameLib::PI / 2.f);
 			else

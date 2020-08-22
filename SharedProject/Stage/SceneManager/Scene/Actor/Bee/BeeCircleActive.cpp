@@ -2,6 +2,8 @@
 #include"BeeParam.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"Stage/Gravity/GravityFunc.hpp"
+#include"BeeFlag.hpp"
+#include"BeeFallDeath.hpp"
 
 namespace Stage
 {
@@ -27,12 +29,20 @@ namespace Stage
 			mStrength.SetScale(SCALE);
 			mStrength.SetWidthAndHeith(WIDTH, HEIGHT* STRENGTH_RATE);
 			mWeakness.SetColor({ 0,0,255,255 });
+
+			auto hitPlayer = [this](const GameLib::Collider& c) {
+				UpFlag(BeeFlag::FALLDEATH_FLAG);
+			};
+
+			mWeakness.AddHitFunction("Player", std::move(hitPlayer));
 		}
 
 		StateBase<>* CircleActive::Update()
 		{
-			float rate = 0.03f;
-			auto adjust = GameLib::Vector2::Rotation(mRadiusVec, mCnt * rate * mDir);
+			if (CheckFlag(BeeFlag::FALLDEATH_FLAG))
+				return new FallDeath{ mAnim };
+			
+			auto adjust = GameLib::Vector2::Rotation(mRadiusVec, mCnt / BeeParam::ROT_PER_CNT * mDir);
 			auto pos = mCenter + adjust;
 
 			mAnim->SetPosition(pos);

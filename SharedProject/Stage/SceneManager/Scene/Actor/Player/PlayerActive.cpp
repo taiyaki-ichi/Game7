@@ -253,6 +253,8 @@ namespace Stage::PlayerState
 		mCollider.AddHitFunction("CarrotStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("CarrotWeakness", hitEnemyWeakness);
 		mCollider.AddHitFunction("DoguCurse", std::move(hitDoguCurse));
+		mCollider.AddHitFunction("BeeWeakness", hitEnemyWeakness);
+		mCollider.AddHitFunction("BeeStrength", hitEnemyStrength);
 	}
 
 	Stage::StateBase<char>* Active::Update()

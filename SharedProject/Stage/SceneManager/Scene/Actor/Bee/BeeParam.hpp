@@ -11,7 +11,15 @@ namespace Stage
 		constexpr float WEAKNESS_RATE = 0.5f;
 		constexpr float STRENGTH_RATE = 0.5f;
 
+		constexpr float ROT_PER_CNT = 30.f;
+
 		//CircleActive
 		constexpr float ROT_DISTANCE = 2.f;
+
+		//‰æ–Ê‚©‚ç‚±‚Ìƒ‰ƒCƒ“‚ğ‰z‚¦‚½‚çI‚í‚è
+		constexpr float FALL_MOTION_FINISH_LINE = 50.f;
+
+		constexpr float FALL_SPEED = 3.f;
+		constexpr float FALL_ROT = 0.1f;
 	}
 }
