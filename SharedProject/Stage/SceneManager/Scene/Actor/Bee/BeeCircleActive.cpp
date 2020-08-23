@@ -18,7 +18,7 @@ namespace Stage
 			, mDir{dir}
 			, mCnt{0}
 			, mWeakness{ "BeeWeakness" }
-			, mStrength{ "BeeStrangth" }
+			, mStrength{ "BeeStrength" }
 		{
 			using namespace BeeParam;
 
@@ -28,7 +28,7 @@ namespace Stage
 
 			mStrength.SetScale(SCALE);
 			mStrength.SetWidthAndHeith(WIDTH, HEIGHT* STRENGTH_RATE);
-			mWeakness.SetColor({ 0,0,255,255 });
+			mStrength.SetColor({ 0,0,255,255 });
 
 			auto hitPlayer = [this](const GameLib::Collider& c) {
 				UpFlag(BeeFlag::FALLDEATH_FLAG);
