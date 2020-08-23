@@ -152,7 +152,6 @@ namespace Stage::PlayerState
 
 		auto hitGoal = [this](const GameLib::Collider& c) {
 			UpFlag(PlayerFlag::GOAL_FLAG);
-			std::cout << "z";
 		};
 
 		auto hitGem = [this](const GameLib::Collider& c) {

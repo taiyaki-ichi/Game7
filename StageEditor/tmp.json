@@ -442,6 +442,11 @@
           "ActorName": "Player",
           "FloatData0": 1146,
           "FloatData1": -83
+        },
+        {
+          "ActorName": "DownGoal",
+          "FloatData0": 1429.9998779296875,
+          "FloatData1": 132.50004577636719
         }
       ],
       "SceneName": "3"

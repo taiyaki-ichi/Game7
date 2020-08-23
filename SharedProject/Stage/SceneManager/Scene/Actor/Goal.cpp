@@ -33,10 +33,6 @@ namespace Stage
 		mTexture.SetRotation(rot);
 		mCollider.SetRotation(rot);
 
-		auto pos = mTexture.GetPosition();
-		pos += GameLib::Vector2::Rotation(GameLib::Vector2{ 0.f,-GoalParam::COLLIDER_ADJUST_DOWN_SIZE }, rot);
-		mCollider.SetPosition(pos);
-
 	}
 
 	void Goal::Update()
@@ -64,6 +60,9 @@ namespace Stage
 	void Goal::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
 		mTexture.SetPosition(data[0]);
+		float rot = mTexture.GetRotation();
+		auto adjust = GameLib::Vector2::Rotation(GameLib::Vector2{ 0.f,-GoalParam::COLLIDER_ADJUST_DOWN_SIZE }, rot);
+		mCollider.SetPosition(data[0] + adjust);
 	}
 
 }
