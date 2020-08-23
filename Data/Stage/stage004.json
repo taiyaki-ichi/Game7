@@ -443,6 +443,31 @@
           "ActorName": "Gem",
           "FloatData0": 6128,
           "FloatData1": 408
+        },
+        {
+          "ActorName": "Player",
+          "FloatData0": -449,
+          "FloatData1": -27
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -964,
+          "FloatData1": 63
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -996,
+          "FloatData1": 21
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -929,
+          "FloatData1": 18
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -964,
+          "FloatData1": -17
         }
       ],
       "SceneName": "1"
@@ -581,13 +606,6 @@
         },
         {
           "ActorName": "ThroughFloor",
-          "FloatData0": -334,
-          "FloatData1": 1402,
-          "FloatData2": -404,
-          "FloatData3": 1403
-        },
-        {
-          "ActorName": "ThroughFloor",
           "FloatData0": 17,
           "FloatData1": 2039,
           "FloatData2": -911,
@@ -709,11 +727,6 @@
           "FloatData3": 1974
         },
         {
-          "ActorName": "Player",
-          "FloatData0": -101.33314514160156,
-          "FloatData1": 50.665111541748047
-        },
-        {
           "ActorName": "Gem",
           "FloatData0": 110,
           "FloatData1": 125
@@ -752,6 +765,13 @@
           "ActorName": "Gem",
           "FloatData0": 35,
           "FloatData1": 245
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": -332,
+          "FloatData1": 1400,
+          "FloatData2": -504,
+          "FloatData3": 1395
         }
       ],
       "SceneName": "2"
