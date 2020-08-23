@@ -196,20 +196,6 @@
           "FloatData3": -669
         },
         {
-          "ActorName": "Camera",
-          "FloatData0": 6499.99951171875,
-          "FloatData1": -359.99996948242188,
-          "FloatData2": -289.99972534179688,
-          "FloatData3": 990
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": -297.27505493164063,
-          "FloatData1": -121.81814575195313,
-          "FloatData2": -362.72958374023438,
-          "FloatData3": 752.72723388671875
-        },
-        {
           "ActorName": "Ground",
           "FloatData0": 6339.60693359375,
           "FloatData1": 279.67910766601563,
@@ -229,6 +215,234 @@
           "FloatData1": 393,
           "StringData0": "aaa",
           "StringData1": "bbb"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -303.33343505859375,
+          "FloatData1": -73.333358764648438,
+          "FloatData2": -1058.3338623046875,
+          "FloatData3": -1288.3343505859375
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -1020.0013427734375,
+          "FloatData1": 986.66796875,
+          "FloatData2": 6493.345703125,
+          "FloatData3": -346.66732788085938
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -1030.909423828125,
+          "FloatData1": -87.272758483886719,
+          "FloatData2": -1101.8184814453125,
+          "FloatData3": 523.636474609375
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 262.50003051757813,
+          "FloatData1": 176.25001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 325.00003051757813,
+          "FloatData1": 176.25001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 392.50003051757813,
+          "FloatData1": 176.25001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 202.50003051757813,
+          "FloatData1": 176.25001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 136.25001525878906,
+          "FloatData1": 175.00001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 167.50001525878906,
+          "FloatData1": 235.00001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 228.75001525878906,
+          "FloatData1": 235.00001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 293.75003051757813,
+          "FloatData1": 236.25001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 361.25003051757813,
+          "FloatData1": 238.75001525878906
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 897.50006103515625,
+          "FloatData1": 305.00003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 952.50006103515625,
+          "FloatData1": 321.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1010.0000610351563,
+          "FloatData1": 307.50003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1257.5001220703125,
+          "FloatData1": 378.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1326.2501220703125,
+          "FloatData1": 378.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1398.7501220703125,
+          "FloatData1": 378.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1477.5001220703125,
+          "FloatData1": 376.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1563.7501220703125,
+          "FloatData1": 376.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1648.7501220703125,
+          "FloatData1": 376.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1741.25,
+          "FloatData1": 376.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1825,
+          "FloatData1": 380.00003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2302.500244140625,
+          "FloatData1": 308.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2356.250244140625,
+          "FloatData1": 311.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2258.750244140625,
+          "FloatData1": 268.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2501.250244140625,
+          "FloatData1": 361.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2545.00048828125,
+          "FloatData1": 400.00006103515625
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2595.00048828125,
+          "FloatData1": 401.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3017.5,
+          "FloatData1": 616.25
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3062.500244140625,
+          "FloatData1": 657.5
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3107.500244140625,
+          "FloatData1": 616.25
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3062.500244140625,
+          "FloatData1": 575
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 3827.500244140625,
+          "FloatData1": 758.75006103515625,
+          "StringData0": "1"
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 4771.25048828125,
+          "FloatData1": 561.25006103515625,
+          "StringData0": "2"
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5069.98583984375,
+          "FloatData1": 415.83331298828125
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5114.15234375,
+          "FloatData1": 445
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5167.48583984375,
+          "FloatData1": 435.83331298828125
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5404.98974609375,
+          "FloatData1": 475
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5456.65625,
+          "FloatData1": 474.16665649414063
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5357.4892578125,
+          "FloatData1": 439.16665649414063
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 6034,
+          "FloatData1": 407
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 6081,
+          "FloatData1": 444
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 6128,
+          "FloatData1": 408
         }
       ],
       "SceneName": "1"
@@ -373,11 +587,6 @@
           "FloatData3": 1403
         },
         {
-          "ActorName": "UpTrampoline",
-          "FloatData0": -428,
-          "FloatData1": 1733
-        },
-        {
           "ActorName": "ThroughFloor",
           "FloatData0": 17,
           "FloatData1": 2039,
@@ -390,6 +599,159 @@
           "FloatData1": 2159,
           "StringData0": "ccc",
           "StringData1": "ddd"
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 24,
+          "FloatData1": 771
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 24,
+          "FloatData1": 838
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 24,
+          "FloatData1": 902
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 25,
+          "FloatData1": 963
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 70,
+          "FloatData1": 929
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 105,
+          "FloatData1": 893
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -18,
+          "FloatData1": 931
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -53,
+          "FloatData1": 887
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 442,
+          "FloatData1": 1431
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 78,
+          "FloatData1": 1570
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 385,
+          "FloatData1": 1700
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 101,
+          "FloatData1": 1823
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 430,
+          "FloatData1": 1951
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": -158,
+          "FloatData1": 1817,
+          "StringData0": "3"
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": -556,
+          "FloatData1": 1718
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": -160,
+          "FloatData1": 1805,
+          "FloatData2": -248,
+          "FloatData3": 1803,
+          "FloatData4": -240,
+          "FloatData5": 1765
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": -159,
+          "FloatData1": 1803,
+          "FloatData2": -25,
+          "FloatData3": 1868,
+          "FloatData4": -72,
+          "FloatData5": 1924
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": -406,
+          "FloatData1": 1995,
+          "FloatData2": -694,
+          "FloatData3": 1996
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": -696,
+          "FloatData1": 1975,
+          "FloatData2": -406,
+          "FloatData3": 1974
+        },
+        {
+          "ActorName": "Player",
+          "FloatData0": -101.33314514160156,
+          "FloatData1": 50.665111541748047
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 110,
+          "FloatData1": 125
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 110,
+          "FloatData1": 181
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 110,
+          "FloatData1": 237
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 110,
+          "FloatData1": 294
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 151,
+          "FloatData1": 275
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 190,
+          "FloatData1": 248
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 72,
+          "FloatData1": 269
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 35,
+          "FloatData1": 245
         }
       ],
       "SceneName": "2"
@@ -439,14 +801,29 @@
           "FloatData3": 502.00094604492188
         },
         {
-          "ActorName": "Player",
-          "FloatData0": 1146,
-          "FloatData1": -83
+          "ActorName": "DownGoal",
+          "FloatData0": 1086.6669921875,
+          "FloatData1": 123.33335113525391
         },
         {
-          "ActorName": "DownGoal",
-          "FloatData0": 1429.9998779296875,
-          "FloatData1": 132.50004577636719
+          "ActorName": "Gem",
+          "FloatData0": 474,
+          "FloatData1": -54
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 507,
+          "FloatData1": -12
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 542,
+          "FloatData1": -55
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 506,
+          "FloatData1": -94
         }
       ],
       "SceneName": "3"

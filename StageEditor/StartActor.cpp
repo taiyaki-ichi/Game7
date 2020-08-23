@@ -18,7 +18,7 @@ namespace StageEditor
 	{
 		if (mStageEditor&&mStageEditor->GetCheckFlag())
 		{
-			//GameLib::Collider::SetIsDebug(false);
+			GameLib::Collider::SetIsDebug(false);
 
 			mStageEditor->SetState(GameLib::Actor::State::Dead);
 			mStageEditor = nullptr;
