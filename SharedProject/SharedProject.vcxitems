@@ -159,6 +159,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\StageFlag.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\AdjustRot.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Dir4Vec.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\DrawFlameRect.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\IsInScope.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Utilty\PhysicsModel.hpp" />
@@ -255,6 +256,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneChanger\CircleCurtain.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\StageSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Stage.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Utilty\DrawFlameRect.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Utilty\Geometry.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\Utilty\IsInScope.cpp" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
+#include"Utilty/DrawFlameRect.hpp"
 
 namespace Stage
 {
@@ -9,6 +10,7 @@ namespace Stage
 	{
 		//‰æ‘œ‚È‚Ç‚Ì•\Ž¦
 
+		DrawFlameRect mFlameRect;
 
 		SceneManager* mSceneManager;
 
