@@ -32,49 +32,16 @@ namespace Stage
 
 	void GemDisplay::AdjustPos()
 	{
-		/*
-		auto center = GameLib::Viewport::GetPos();
-		float rot = GameLib::Viewport::GetRotation();
-		mTexture.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_ICON_ADJUST_X,0.f },-rot));
-		mNum.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_NUM_ADJUST_X,0.f }, -rot));
-		mKakeru.SetPosition(GameLib::Vector2::Rotation(center + mAdjustPos, -rot));
-		*/
 
-		float viewRot = AdjustRot(GameLib::Viewport::GetRotation());
-		int i = 0;
-		for (; i < 4; i++)
-		{
-			if (std::abs(GameLib::PI / 2.f * static_cast<float>(i) - viewRot) < 0.01f)
-			{
-				GameLib::Vector2 pos = GameLib::Viewport::GetPos();
-				float rot = GameLib::Viewport::GetRotation();
+		GameLib::Vector2 pos = GameLib::Viewport::GetPos();
+		float rot = AdjustRot(GameLib::Viewport::GetRotation());
 
-				float dir = 1.f;
-				if (i == 1 || i == 3)
-					dir = -1.f;
+		mTexture.SetPosition(GameLib::Vector2::Rotation(pos + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_ICON_ADJUST_X,0.f }, rot));
+		mNum.SetPosition(GameLib::Vector2::Rotation(pos + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_NUM_ADJUST_X,0.f }, rot));
+		mKakeru.SetPosition(GameLib::Vector2::Rotation(pos + mAdjustPos, rot));
 
-				mTexture.SetIsAutoDrawing(true);
-				mNum.SetIsAutoDrawing(true);
-				mKakeru.SetIsAutoDrawing(true);
+		mTexture.SetRotation(rot);
 
-				mTexture.SetPosition(GameLib::Vector2::Rotation(pos + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_ICON_ADJUST_X,0.f }, -rot * dir));
-				mNum.SetPosition(GameLib::Vector2::Rotation(pos + mAdjustPos + GameLib::Vector2{ ItemNumParam::GEM_NUM_ADJUST_X,0.f }, -rot * dir));
-				mKakeru.SetPosition(GameLib::Vector2::Rotation(pos + mAdjustPos, -rot * dir));
-
-				mTexture.SetRotation(rot);
-
-				break;
-			}
-		}
-
-		if (i == 4)
-		{
-			mTexture.SetIsAutoDrawing(false);
-			mNum.SetIsAutoDrawing(false);
-			mKakeru.SetIsAutoDrawing(false);
-		}
-
-
-	
+		
 	}
 }
