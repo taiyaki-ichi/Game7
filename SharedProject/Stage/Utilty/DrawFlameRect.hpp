@@ -23,6 +23,9 @@ namespace Stage
 		void SetRectColor(GameLib::Color&&);
 		void SetFlameColor(GameLib::Color&&);
 
+		float GetWidth() const;
+		float GetHeight() const;
+
 		void SetPosition(const GameLib::Vector2&);
 		const GameLib::Vector2& GetPosition() const;
 	};

@@ -69,5 +69,13 @@ namespace Stage
 		return mRect.GetPosition();
 	}
 
+	float DrawFlameRect::GetWidth() const
+	{
+		return mRect.GetWidth();
+	}
 
+	float DrawFlameRect::GetHeight() const
+	{
+		return mRect.GetHeight();
+	}
 }
