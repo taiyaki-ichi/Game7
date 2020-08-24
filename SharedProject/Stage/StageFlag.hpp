@@ -4,8 +4,8 @@ namespace Stage
 {
 	namespace StageFlag
 	{
-		constexpr static char CLEAR_FLAG = 0b1;
-		constexpr static char MISS_FLAG = 0b10;
-		constexpr static char RETURN_TO_TITLE_FLAG = 0b100;
+		constexpr unsigned char CLEAR_FLAG = 0b1;
+		constexpr unsigned char MISS_FLAG = 0b10;
+		constexpr unsigned char RETURN_STAGESELECT_FLAG = 0b100;
 	}
 }

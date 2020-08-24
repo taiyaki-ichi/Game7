@@ -4,6 +4,7 @@
 #include"SceneManager/StageSceneManager.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Utilty/CursorButton.hpp"
+#include"Pause/PauseParam.h"
 
 namespace Stage
 {
@@ -11,35 +12,51 @@ namespace Stage
 		:GameLib::Actor{stage}
 		, mSceneManager{sceneManager}
 		, mFlameRect{50}
-		, mText{ "../Assets/Font/mplus-1c-black.ttf" }
+		, mResumeButton{nullptr}
+		, mResumeText{ "../Assets/Font/mplus-1c-black.ttf" }
+		, mReturnStageSelectButton{nullptr}
+		, mReturnStageSelectText{ "../Assets/Font/mplus-1c-black.ttf" }
 	{
 		mSceneManager->SetState(GameLib::Actor::State::Pause);
-		mFlameRect.SetWidthAndHeight(500.f, 400.f);
+
+
+		mFlameRect.SetWidthAndHeight(PauseParam::WINDOW_WIDTH, PauseParam::WINDOW_HEIGHT);
 		mFlameRect.SetPosition(GameLib::Viewport::GetPos());
-		mFlameRect.SetFlameWidth(20.f);
+		mFlameRect.SetFlameWidth(PauseParam::WINDOW_FLAME_WIDTH);
 
-		mText.SetText("aaa\naaaa\naaaaa\n");
-		mText.SetPosition(GameLib::Viewport::GetPos());
-		mText.SetDrawOrder(51);
+		mResumeButton = new CursorButton{ this,60 };
+		mResumeButton->SetWidthAndHeight(PauseParam::BUTTON_WIDTH, PauseParam::BUTTON_HEIGHT);
+		mResumeButton->SetPosition(GameLib::Viewport::GetPos() + PauseParam::RESUME_BUTTON_ADJUST);
 
-		auto ptr = new CursorButton{ this,60 };
-		ptr->SetWidthAndHeight(50.f, 50.f);
-		ptr->SetPosition(GameLib::Viewport::GetPos());
+		mResumeText.SetText("ゲームに戻る");
+		mResumeText.SetPosition(GameLib::Viewport::GetPos() + PauseParam::RESUME_BUTTON_ADJUST);
+		mResumeText.SetDrawOrder(62);
+
+		mReturnStageSelectButton = new CursorButton{ this,60 };
+		mReturnStageSelectButton->SetWidthAndHeight(PauseParam::BUTTON_WIDTH, PauseParam::BUTTON_HEIGHT);
+		mReturnStageSelectButton->SetPosition(GameLib::Viewport::GetPos() + PauseParam::RETURN_TITLE_BUTTON_ADJUST);
+
+		mReturnStageSelectText.SetText("セレクトに戻る");
+		mReturnStageSelectText.SetPosition(GameLib::Viewport::GetPos() + PauseParam::RETURN_TITLE_BUTTON_ADJUST);
+		mReturnStageSelectText.SetDrawOrder(62);
+
 	}
 	void Pause::CustomizeUpdate()
 	{
-		//仮
-		if( (GameLib::InputState::GetState(GameLib::Key::Q) == GameLib::ButtonState::Pressed)||
-			(GameLib::InputState::GetState(GameLib::Key::P) == GameLib::ButtonState::Pressed) ){
+		if (GameLib::InputState::GetState(GameLib::Key::P) == GameLib::ButtonState::Pressed) {
 			mSceneManager->SetState(GameLib::Actor::State::Active);
 			SetState(GameLib::Actor::State::Dead);
 		}
 
-		if (GameLib::InputState::GetState(GameLib::Key::T) == GameLib::ButtonState::Pressed) {
-			auto stagePtr = static_cast<Stage*>(mOwner);
-			stagePtr->ReturnToTitle();
+		if (mResumeButton->IsClicked())
+		{
+			mSceneManager->SetState(GameLib::Actor::State::Active);
 			SetState(GameLib::Actor::State::Dead);
 		}
-		
+
+		if (mReturnStageSelectButton->IsClicked())
+		{
+			mSceneManager->ReturnStageSelect();
+		}
 	}
 }

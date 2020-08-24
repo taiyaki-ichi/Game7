@@ -34,6 +34,8 @@ namespace Stage
 			mFlags |= StageFlag::CLEAR_FLAG;
 		if (mSceneManager->CheckFlag(SceneManagerFlag::MISS_FLAG))
 			mFlags |= StageFlag::MISS_FLAG;
+		if (mSceneManager->CheckFlag(SceneManagerFlag::RETURN_STAGESELECT_FLAG))
+			mFlags |= StageFlag::RETURN_STAGESELECT_FLAG;
 		
 		if (GameLib::InputState::GetState(GameLib::Key::P) == GameLib::ButtonState::Pressed) {
 			new Pause{ this ,mSceneManager };
@@ -45,11 +47,6 @@ namespace Stage
 		//std::cout << pos.x << "," << pos.y << "\n";
 		GameLib::CollisionDetectionSetting::SetPos(pos);
 
-	}
-
-	void Stage::ReturnToTitle()
-	{
-		mFlags |= StageFlag::RETURN_TO_TITLE_FLAG;;
 	}
 
 	bool Stage::CheckFlag(char flag)

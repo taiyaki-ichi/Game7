@@ -16,7 +16,7 @@ namespace Stage
 		//Pauseの時とか
 		SceneManager* mSceneManager;
 
-		char mFlags;
+		unsigned char mFlags;
 
 	public:
 
@@ -25,9 +25,6 @@ namespace Stage
 
 		//Pauseの生成
 		void CustomizeUpdate() override;
-
-		//Pauseからの通知用,フラグを立てる
-		void ReturnToTitle();
 
 		bool CheckFlag(char);
 

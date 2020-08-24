@@ -19,7 +19,7 @@ namespace Stage
 
 		Player* mPlayer;
 
-		char mFlags;
+		unsigned char mFlags;
 		
 		int mCnt;
 
@@ -43,6 +43,9 @@ namespace Stage
 		bool CheckFlag(char);
 
 		ItemNumData GetItemNumData();
+
+		//Pause‚©‚çŒÄ‚Ño‚³‚ê‚é
+		void ReturnStageSelect();
 
 	};
 }

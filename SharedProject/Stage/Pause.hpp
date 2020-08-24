@@ -6,6 +6,7 @@
 namespace Stage
 {
 	class SceneManager;
+	class CursorButton;
 
 	class Pause : GameLib::Actor
 	{
@@ -15,7 +16,11 @@ namespace Stage
 
 		SceneManager* mSceneManager;
 
-		GameLib::DrawFontText mText;
+		CursorButton* mResumeButton;
+		GameLib::DrawFontText mResumeText;
+
+		CursorButton* mReturnStageSelectButton;
+		GameLib::DrawFontText mReturnStageSelectText;
 
 	public:
 

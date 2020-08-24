@@ -76,6 +76,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Gravity\GravityFunc.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\LoadStage.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Pause.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\Pause\PauseParam.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\SceneManagerFlag.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\ActorInfo.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Bee.hpp" />

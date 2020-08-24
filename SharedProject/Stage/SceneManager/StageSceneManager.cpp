@@ -86,4 +86,9 @@ namespace Stage
 	{
 		return mPlayer->GetItemNumData();
 	}
+
+	void SceneManager::ReturnStageSelect()
+	{
+		mFlags |= SceneManagerFlag::RETURN_STAGESELECT_FLAG;
+	}
 }
