@@ -33,7 +33,7 @@ namespace Stage
 
 	void Dogu::LoadPosData(std::vector<GameLib::Vector2>&& data)
 	{
-		std::cout << "daat[0]: " << data[0].x << "," << data[0].y << "\n";
+		//std::cout << "daat[0]: " << data[0].x << "," << data[0].y << "\n";
 		mAnim.SetPosition(data[0]);
 		mStateManager.SetStartState(new DoguState::Stay{ &mAnim });
 	}
