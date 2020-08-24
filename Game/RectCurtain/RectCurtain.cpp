@@ -56,6 +56,7 @@ namespace Game
 	void RectCurtain::Open()
 	{
 		mState = 1;
+
 		using namespace GameLib;
 		mRect.SetRotation(Viewport::GetRotation());
 		auto adjust = Vector2::Rotation(Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f - RectCurtainParam::MAX_HEIGHT / 2.f }, -Viewport::GetRotation());
@@ -66,6 +67,7 @@ namespace Game
 	void RectCurtain::Close()
 	{
 		mState = -1;
+
 		using namespace GameLib;
 		mRect.SetRotation(Viewport::GetRotation());
 		auto adjust = Vector2::Rotation(Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f }, -Viewport::GetRotation());

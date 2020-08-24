@@ -161,7 +161,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\DoguEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\FrogEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GemEditor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\GoalEdiot.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GoalEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBox2Editor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GravityBox4Editor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />

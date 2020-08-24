@@ -23,7 +23,6 @@
     <ClCompile Include="SaveFunc.cpp" />
     <ClCompile Include="StageEditor.cpp" />
     <ClCompile Include="StartActor.cpp" />
-    <ClCompile Include="SceneEditor\ActorEditor\GoalEdiot.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\BlinderEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GemEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TearGemEditor.cpp" />
@@ -33,6 +32,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\CarrotEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\DoguEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TrampolineEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\GoalEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera\EditorCamera.hpp" />

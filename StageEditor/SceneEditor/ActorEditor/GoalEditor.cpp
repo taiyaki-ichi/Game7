@@ -24,11 +24,11 @@ namespace StageEditor
 		mStringData.SetDataCecker(std::move(stringDataChecker));
 
 		float rot = 0.f;
-		if (dir == "right")
+		if (dir == "Right")
 			rot = GameLib::PI / 2.f;
-		else if (dir == "up")
+		else if (dir == "Up")
 			rot = GameLib::PI;
-		else if (dir == "left")
+		else if (dir == "Left")
 			rot = GameLib::PI * 3.f / 2.f;
 
 		mTexture.SetRotation(rot);
