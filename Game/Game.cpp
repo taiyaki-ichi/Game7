@@ -138,13 +138,17 @@ namespace Game
 
 			mPlayerLifeNum--;
 		}
-		else if (mRectCurtain->IsOpen() && mStage->CheckFlag(Stage::StageFlag::RETURN_TO_TITLE_FLAG))
+		else if (mRectCurtain->IsOpen() && mStage->CheckFlag(Stage::StageFlag::RETURN_STAGESELECT_FLAG))
 		{
 			mRectCurtain->Close();
 		}
 
 		if (mRectCurtain->IsClose())
 		{
+			//GameLib::Viewport::SetPos(GameLib::Vector2{});
+			GameLib::Viewport::SetRotation(0.f);
+			GameLib::Viewport::SetScale(1.f);
+
 			mStage->SetState(GameLib::Actor::State::Dead);
 			mStage = nullptr;
 

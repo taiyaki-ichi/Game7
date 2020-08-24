@@ -5,6 +5,7 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Utilty/CursorButton.hpp"
 #include"Pause/PauseParam.h"
+#include"SceneManager/SceneManagerFlag.hpp"
 
 namespace Stage
 {
@@ -48,7 +49,7 @@ namespace Stage
 			SetState(GameLib::Actor::State::Dead);
 		}
 
-		if (mResumeButton->IsClicked())
+		if (!mSceneManager->CheckFlag(SceneManagerFlag::RETURN_STAGESELECT_FLAG) && mResumeButton->IsClicked())
 		{
 			mSceneManager->SetState(GameLib::Actor::State::Active);
 			SetState(GameLib::Actor::State::Dead);
