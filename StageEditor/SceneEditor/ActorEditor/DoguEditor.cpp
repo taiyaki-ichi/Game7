@@ -21,11 +21,11 @@ namespace StageEditor
 
 	void DoguEditor::BeginWorking()
 	{
-		mCollider.Active();
+		mTexture.SetIsAutoDrawing(true);
 	}
 
 	void DoguEditor::BeginToRest()
 	{
-		mCollider.Pause();
+		mTexture.SetIsAutoDrawing(false);
 	}
 }
