@@ -2,6 +2,7 @@
 #include"RectCurtainParam.hpp"
 #include"Stage/WindowSize.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
 
 namespace Game
 {
@@ -14,6 +15,7 @@ namespace Game
 		mRect.SetWidthAndHeight(Stage::WindowSize::WIDTH, 0.f);
 		mRect.SetPosition({ GameLib::Viewport::GetPos().x,Stage::WindowSize::HEIGHT / 2.f });
 		mRect.SetDrawOrder(100);
+		mRect.SetRotation(GameLib::Viewport::GetRotation());
 	}
 
 	void RectCurtain::CustomizeUpdate()
@@ -33,7 +35,12 @@ namespace Game
 			}
 		}
 		mRect.SetWidthAndHeight(Stage::WindowSize::WIDTH, h);
-		mRect.SetPosition(GameLib::Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f - h / 2.f } + GameLib::Viewport::GetPos());
+
+		using namespace GameLib;
+		mRect.SetRotation(Viewport::GetRotation());
+		auto adjust = Vector2::Rotation(Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f - h / 2.f }, -Viewport::GetRotation());
+		auto pos = AffineInv(adjust, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
+		mRect.SetPosition(std::move(pos));
 	}
 
 	bool RectCurtain::IsOpen()
@@ -49,11 +56,21 @@ namespace Game
 	void RectCurtain::Open()
 	{
 		mState = 1;
+		using namespace GameLib;
+		mRect.SetRotation(Viewport::GetRotation());
+		auto adjust = Vector2::Rotation(Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f - RectCurtainParam::MAX_HEIGHT / 2.f }, -Viewport::GetRotation());
+		auto pos = AffineInv(adjust, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
+		mRect.SetPosition(std::move(pos));
 	}
 
 	void RectCurtain::Close()
 	{
 		mState = -1;
+		using namespace GameLib;
+		mRect.SetRotation(Viewport::GetRotation());
+		auto adjust = Vector2::Rotation(Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f }, -Viewport::GetRotation());
+		auto pos = AffineInv(adjust, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
+		mRect.SetPosition(std::move(pos));
 	}
 	
 }
