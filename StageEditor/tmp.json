@@ -30,15 +30,36 @@
         },
         {
           "ActorName": "Player",
-          "FloatData0": -183.63667297363281,
-          "FloatData1": 43.636394500732422
+          "FloatData0": 528.88909912109375,
+          "FloatData1": 37.777793884277344
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 637.778076171875,
+          "FloatData1": -24.444456100463867,
+          "FloatData2": 686.6669921875,
+          "FloatData3": 260.0001220703125
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 662.2225341796875,
+          "FloatData1": 228.88899230957031,
+          "FloatData2": 355.55572509765625,
+          "FloatData3": 271.11123657226563
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 413.33352661132813,
+          "FloatData1": 240.00010681152344,
+          "FloatData2": 368.8890380859375,
+          "FloatData3": -33.333347320556641
         },
         {
           "ActorName": "Camera",
-          "FloatData0": -534.22265625,
-          "FloatData1": -256.88919067382813,
-          "FloatData2": 1329.778564453125,
-          "FloatData3": 1175.11181640625
+          "FloatData0": -584.00042724609375,
+          "FloatData1": -428.00027465820313,
+          "FloatData2": 1244.000732421875,
+          "FloatData3": 1192.0008544921875
         }
       ],
       "SceneName": "1"
