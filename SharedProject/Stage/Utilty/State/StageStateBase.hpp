@@ -8,7 +8,7 @@ namespace Stage
 	class StateManager;
 
 	//XV‚·‚é‚©‚µ‚È‚¢‚©‚ğ×‚©‚­’²®‚µ‚½‚¢‚Ì‚ÅActor‚©‚ç”h¶‚³‚¹‚È‚¢
-	template<typename T=char>
+	template<typename T=unsigned char>
 	class StateBase
 	{
 		T mFlags;

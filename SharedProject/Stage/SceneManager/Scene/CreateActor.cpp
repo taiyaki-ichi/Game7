@@ -19,6 +19,7 @@
 #include"Actor/Carrot.hpp"
 #include"Actor/Dogu.hpp"
 #include"Actor/Trampoline.hpp"
+#include"Actor/Mai.hpp"
 
 namespace Stage
 {
@@ -52,6 +53,10 @@ namespace Stage
 			{"LeftTrampoline",[](Scene* scene) {return new Trampoline{scene,Dir4::Left}; }},
 			{"UpTrampoline",[](Scene* scene) {return new Trampoline{scene,Dir4::Up}; }},
 			{"DownTrampoline",[](Scene* scene) {return new Trampoline{scene,Dir4::Down}; }},
+			{"UpMai",[](Scene* scene) {return new Mai{scene,Dir4::Up}; }},
+			{"RightMai",[](Scene* scene) {return new Mai{scene,Dir4::Right}; }},
+			{"LeftMai",[](Scene* scene) {return new Mai{scene,Dir4::Left}; }},
+			{"DownMai",[](Scene* scene) {return new Mai{scene,Dir4::Down}; }},
 
 
 

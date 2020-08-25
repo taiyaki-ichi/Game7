@@ -124,4 +124,14 @@ namespace GameLib
 		return mScale;
 	}
 
+	bool DrawTexture::GetHorizontalFlip() const noexcept
+	{
+		return mHorizontalFlip;
+	}
+
+	bool DrawTexture::GetVerticalFlip() const noexcept
+	{
+		return mVerticalFlip;
+	}
+
 }

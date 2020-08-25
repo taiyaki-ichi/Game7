@@ -7,7 +7,7 @@ namespace Stage
 	template<typename T>
 	class StateBase;
 
-	template<typename T=char>
+	template<typename T=unsigned char>
 	class StateManager 
 	{
 		bool mIsWorking;

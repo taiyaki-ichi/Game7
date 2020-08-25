@@ -7,7 +7,7 @@
 
 namespace Stage
 {
-	template<typename T>
+	template<typename T=unsigned char>
 	class FallState : public StateBase<T>
 	{
 		GameLib::DrawAnimation* mAnim;
@@ -21,7 +21,7 @@ namespace Stage
 		T mFlag;
 
 	public:
-		FallState(GameLib::DrawAnimation* anim,T fallFlag,float speed,float deltaRot,float deathLine,T flag,int channel=-1)
+		FallState(GameLib::DrawAnimation* anim,float speed,float deltaRot,float deathLine,T flag,int channel=-1)
 			:StateBase<T>{}
 			, mAnim{anim}
 			, mSpeed{ speed }
@@ -48,9 +48,13 @@ namespace Stage
 			auto viewPos = pos - GameLib::Viewport::GetPos();
 			float viewDownSize = GetDir4DirectionSize(viewPos, Dir4::Down);
 			if (viewDownSize > WindowSize::HEIGHT / 2.f + mDeathLine)
-				UpFlag(mFlag);
+				this->UpFlag(mFlag);
+
+			return this;
 		}
 
+		void BeginWorking() override {};
+		void BeginToRest() override {};
 
 	};
 }

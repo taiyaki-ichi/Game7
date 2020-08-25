@@ -4,7 +4,7 @@
 
 namespace Stage
 {
-	template<typename T=char>
+	template<typename T=unsigned char>
 	class DeathTimerState : public StateBase<T>
 	{
 		const int mDeatTime;
