@@ -20,6 +20,7 @@
 #include"Actor/Dogu.hpp"
 #include"Actor/Trampoline.hpp"
 #include"Actor/Mai.hpp"
+#include"Actor/TogeBlock.hpp"
 
 namespace Stage
 {
@@ -57,6 +58,7 @@ namespace Stage
 			{"RightMai",[](Scene* scene) {return new Mai{scene,Dir4::Right}; }},
 			{"LeftMai",[](Scene* scene) {return new Mai{scene,Dir4::Left}; }},
 			{"DownMai",[](Scene* scene) {return new Mai{scene,Dir4::Down}; }},
+			{"TogeBlock",[](Scene* scene) {return new TogeBlock{scene}; }},
 
 
 

@@ -22,7 +22,7 @@
 #include"ActorEditor/DoguEditor.hpp"
 #include"ActorEditor/TrampolineEditor.hpp"
 #include"ActorEditor/MaiEditor.hpp"
-
+#include"ActorEditor/TogeBlockEditor.hpp"
 
 
 namespace StageEditor
@@ -61,6 +61,7 @@ namespace StageEditor
 			{"RightMai",[](GameLib::Actor* actor) {return new MaiEditor{actor,"Right"}; }},
 			{"LeftMai",[](GameLib::Actor* actor) {return new MaiEditor{actor,"Left"}; }},
 			{"UpMai",[](GameLib::Actor* actor) {return new MaiEditor{actor,"Up"}; }},
+			{"TogeBlock",[](GameLib::Actor* actor) {return new TogeBlockEditor{actor}; }},
 
 		};
 	}

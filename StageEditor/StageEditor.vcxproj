@@ -172,6 +172,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\StraightBeeEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TearGemEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ThroughFloorEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\TogeBlockEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TogeEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TrampolineEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TripleEditor.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\StraightBeeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TearGemEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ThroughFloorEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\TogeBlockEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TogeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TrampolineEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TripleEditor.hpp" />

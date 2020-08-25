@@ -3,45 +3,9 @@
     {
       "ActorsData": [
         {
-          "ActorName": "Ground",
-          "FloatData0": -244,
-          "FloatData1": -170,
-          "FloatData2": 155,
-          "FloatData3": -263
-        },
-        {
           "ActorName": "Player",
           "FloatData0": -203,
           "FloatData1": -127
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 153,
-          "FloatData1": -169,
-          "FloatData2": 425,
-          "FloatData3": -382
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 87,
-          "FloatData1": 158,
-          "FloatData2": 236,
-          "FloatData3": 52
-        },
-        {
-          "ActorName": "RightMai",
-          "FloatData0": 53,
-          "FloatData1": 118
-        },
-        {
-          "ActorName": "LeftMai",
-          "FloatData0": 270,
-          "FloatData1": 111
-        },
-        {
-          "ActorName": "LeftMai",
-          "FloatData0": 460,
-          "FloatData1": -204
         },
         {
           "ActorName": "Camera",
@@ -49,9 +13,89 @@
           "FloatData1": -496.66677856445313,
           "FloatData2": 670.00018310546875,
           "FloatData3": 345.5556640625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -331.42874145507813,
+          "FloatData1": -180.00007629394531,
+          "FloatData2": 408.57159423828125,
+          "FloatData3": -308.57156372070313
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 403.07696533203125,
+          "FloatData1": -184.61541748046875,
+          "FloatData2": 281.53848266601563,
+          "FloatData3": 356.92312622070313
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 124.61540222167969,
+          "FloatData1": -36.923084259033203,
+          "StringData0": "aaa",
+          "StringData1": "bbb"
+        },
+        {
+          "ActorName": "TogeBlock",
+          "FloatData0": -51,
+          "FloatData1": -89
         }
       ],
       "SceneName": "1"
+    },
+    {
+      "ActorsData": [
+        {
+          "ActorName": "Ground",
+          "FloatData0": -208,
+          "FloatData1": -103,
+          "FloatData2": 297,
+          "FloatData3": -179
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 292,
+          "FloatData1": -107,
+          "FloatData2": 212,
+          "FloatData3": 288
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 157,
+          "FloatData1": -56,
+          "StringData0": "bbb",
+          "StringData1": "aaa"
+        },
+        {
+          "ActorName": "GravityBox4",
+          "FloatData0": 51,
+          "FloatData1": 32,
+          "StringData0": "left",
+          "StringData1": "left"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -80,
+          "FloatData1": -111,
+          "FloatData2": -165,
+          "FloatData3": 211
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 232,
+          "FloatData1": 208,
+          "FloatData2": -206,
+          "FloatData3": 268
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -348.3333740234375,
+          "FloatData1": -270.00003051757813,
+          "FloatData2": 428.33340454101563,
+          "FloatData3": 445.00009155273438
+        }
+      ],
+      "SceneName": "2"
     }
   ]
 }
