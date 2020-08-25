@@ -17,7 +17,7 @@ namespace Stage
 
 		constexpr float SPEED = 6.f;
 
-		constexpr float DEATH_LINE = 20.f;
+		constexpr float DEATH_LINE = 100.f;
 
 		constexpr float FALL_SPEED = 3.f;
 		constexpr float FALL_DELTAROT = 0.1f;

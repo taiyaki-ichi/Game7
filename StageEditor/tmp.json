@@ -15,9 +15,40 @@
           "FloatData1": -127
         },
         {
-          "ActorName": "DownMai",
-          "FloatData0": 120,
-          "FloatData1": -134
+          "ActorName": "Ground",
+          "FloatData0": 153,
+          "FloatData1": -169,
+          "FloatData2": 425,
+          "FloatData3": -382
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 87,
+          "FloatData1": 158,
+          "FloatData2": 236,
+          "FloatData3": 52
+        },
+        {
+          "ActorName": "RightMai",
+          "FloatData0": 53,
+          "FloatData1": 118
+        },
+        {
+          "ActorName": "LeftMai",
+          "FloatData0": 270,
+          "FloatData1": 111
+        },
+        {
+          "ActorName": "LeftMai",
+          "FloatData0": 460,
+          "FloatData1": -204
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -430.00015258789063,
+          "FloatData1": -496.66677856445313,
+          "FloatData2": 670.00018310546875,
+          "FloatData3": 345.5556640625
         }
       ],
       "SceneName": "1"

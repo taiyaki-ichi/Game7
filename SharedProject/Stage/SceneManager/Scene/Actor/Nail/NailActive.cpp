@@ -3,6 +3,7 @@
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"NailFlag.hpp"
 #include"Stage/Utilty/State/FallState.hpp"
+#include"Stage/Utilty/IsInScope.hpp"
 
 namespace Stage
 {
@@ -37,7 +38,9 @@ namespace Stage
 			auto hitPlayerW = [this](const GameLib::Collider& c) {
 				UpFlag(NailFlag::FALL_FLAG);
 			};
+
 			mWeakness.AddHitFunction("Player", std::move(hitPlayerW));
+
 		}
 
 		StateBase<>* Active::Update()
@@ -46,8 +49,11 @@ namespace Stage
 
 			if (CheckFlag(NailFlag::FALL_FLAG)) {
 				mAnim->SetDrawOrder(1);
-				return new FallState<>{ mAnim,NailParam::FALL_SPEED,NailParam::FALL_DELTAROT,20.f,NailFlag::DEATH_FLAG };
+				return new FallState<>{ mAnim,NailParam::FALL_SPEED,NailParam::FALL_DELTAROT,NailParam::DEATH_LINE,NailFlag::DEATH_FLAG };
 			}
+
+			if (!IsInScope(mAnim->GetPosition(), WindowSize::WIDTH + NailParam::DEATH_LINE, WindowSize::WIDTH + NailParam::DEATH_LINE))
+				UpFlag(NailFlag::DEATH_FLAG);
 
 			GameLib::Vector2 v{ -NailParam::SPEED,0.f };
 			v = GameLib::Vector2::Rotation(v, mAnim->GetRotation());
@@ -84,6 +90,9 @@ namespace Stage
 			GameLib::Vector2 adjustW{ WEAKNESS_ADJUST_RIGHT,0.f };
 			adjustW = GameLib::Vector2::Rotation(adjustW, rot);
 			mWeakness.SetPosition(pos + adjustW);
+
+			mWeakness.SetRotation(rot);
+			mStrength.SetRotation(rot);
 		}
 	}
 }

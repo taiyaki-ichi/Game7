@@ -1,6 +1,7 @@
 #include"Nail.hpp"
 #include"Nail/NailParam.hpp"
 #include"Nail/NailActive.hpp"
+#include"Nail/NailFlag.hpp"
 
 namespace Stage
 {
@@ -11,7 +12,7 @@ namespace Stage
 	{
 		mAnim.SetScale(NailParam::SCALE);
 		mAnim.AddAnimation({ "../Assets/Enemy/Nail/001.png" });
-		mAnim.SetDrawOrder(-1);
+		//mAnim.SetDrawOrder(-1);
 		mAnim.SetPosition(pos);
 
 		mStateManager.SetStartState(new NailState::Active{ &mAnim,std::move(dir) });
@@ -21,6 +22,9 @@ namespace Stage
 	{
 		mAnim.Update();
 		mStateManager.Update();
+
+		if (mStateManager.CheckFlag(NailFlag::DEATH_FLAG))
+			SetState(GameLib::Actor::State::Dead);
 	}
 
 	void Nail::BeginWorking()
