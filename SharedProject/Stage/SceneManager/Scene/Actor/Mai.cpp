@@ -2,6 +2,8 @@
 #include"Mai/MaiParam.hpp"
 #include"GameLib/include/Math/Numbers.hpp"
 #include"Mai/MaiStay.hpp"
+#include"Nail.hpp"
+#include"Mai/MaiFlag.hpp"
 
 namespace Stage
 {
@@ -41,6 +43,22 @@ namespace Stage
 	{
 		mAnim.Update();
 		mStateManager.Update();
+
+		if (mStateManager.CheckFlag(MaiFlag::LAUNCH_NAIL_FLAG))
+		{
+			int dirNum = static_cast<int>(mGroundDir);
+			if (mAnim.GetHorizontalFlip())
+				dirNum++;
+			else
+				dirNum--;
+
+			if (dirNum > 3)
+				dirNum -= 4;
+			if (dirNum < 0)
+				dirNum += 4;
+
+			new Nail{ mOwner,static_cast<Dir4>(dirNum) ,mAnim.GetPosition() };
+		}
 	}
 
 	void Mai::BeginWorking()

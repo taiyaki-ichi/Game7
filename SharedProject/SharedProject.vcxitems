@@ -123,6 +123,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\MoveGround.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\MoveGround\MoveGroundParam.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Nail.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Nail\NailActive.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Nail\NailFlag.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Nail\NailParam.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\ItemNum\GemDisplay.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\ItemNum\ItemNum.hpp" />
@@ -244,6 +247,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Mai\MaiLaunch.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Mai\MaiStay.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\MoveGround.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Nail.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Nail\NailActive.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\ItemNum\GemDisplay.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Stage\SceneManager\Scene\Actor\Player\ItemNum\ItemNum.cpp" />

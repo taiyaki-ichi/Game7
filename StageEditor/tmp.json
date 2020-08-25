@@ -3,11 +3,6 @@
     {
       "ActorsData": [
         {
-          "ActorName": "Player",
-          "FloatData0": -110,
-          "FloatData1": -20
-        },
-        {
           "ActorName": "Ground",
           "FloatData0": -244,
           "FloatData1": -170,
@@ -15,9 +10,14 @@
           "FloatData3": -263
         },
         {
+          "ActorName": "Player",
+          "FloatData0": -203,
+          "FloatData1": -127
+        },
+        {
           "ActorName": "DownMai",
-          "FloatData0": 88,
-          "FloatData1": -135
+          "FloatData0": 120,
+          "FloatData1": -134
         }
       ],
       "SceneName": "1"
