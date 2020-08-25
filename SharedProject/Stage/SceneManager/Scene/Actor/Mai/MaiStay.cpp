@@ -6,6 +6,7 @@
 #include"MaiLaunch.hpp"
 #include"MaiFlag.hpp"
 #include"Stage/Utilty/State/FallState.hpp"
+#include"Stage/Utilty/IsInScope.hpp"
 
 namespace Stage
 {
@@ -32,7 +33,7 @@ namespace Stage
 
 		bool Stay::UpdateOrNot()
 		{
-			return true;
+			return IsInScope(mAnim->GetPosition(), WindowSize::WIDTH + MaiParam::ACTIVE_LINE, WindowSize::WIDTH + MaiParam::ACTIVE_LINE);
 		}
 
 		StateBase<>* Stay::Update()

@@ -19,5 +19,6 @@ namespace Stage
 		constexpr float FALL_DEATH_SPEED = 2.5f;
 		constexpr float FALL_DEATH_DELTAROT = -0.1f;
 
+		constexpr float ACTIVE_LINE = 100.f;
 	}
 }
