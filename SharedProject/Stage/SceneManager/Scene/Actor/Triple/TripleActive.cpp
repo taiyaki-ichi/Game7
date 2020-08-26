@@ -102,6 +102,8 @@ namespace Stage
 				hitT(Dir4::Left, mWeakness, c);
 			};
 
+			mBody.AddHitFunction("TogeBlock", hitGround);
+			mWeakness.AddHitFunction("TogeBlock", hitGround);
 
 			mBody.AddHitFunction("UpTrampoline", std::move(bodyHitUpT));
 			mBody.AddHitFunction("DonwTrampoline", std::move(bodyHitDownT));

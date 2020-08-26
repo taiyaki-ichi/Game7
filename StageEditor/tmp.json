@@ -37,8 +37,18 @@
         },
         {
           "ActorName": "TogeBlock",
-          "FloatData0": -51,
-          "FloatData1": -89
+          "FloatData0": 9,
+          "FloatData1": -156
+        },
+        {
+          "ActorName": "TogeBlock",
+          "FloatData0": 57,
+          "FloatData1": -156
+        },
+        {
+          "ActorName": "TogeBlock",
+          "FloatData0": -39,
+          "FloatData1": -156
         }
       ],
       "SceneName": "1"

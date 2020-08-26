@@ -234,7 +234,12 @@ namespace Stage::PlayerState
 			hitT(Dir4::Left, c);
 		};
 
+		auto hitTogeBlock = [this, hitGround,hitEnemyStrength](const GameLib::Collider& c) {
+			hitEnemyStrength(c);
+			hitGround(c);
+		};
 
+		mCollider.AddHitFunction("TogeBlock", std::move(hitTogeBlock));
 		mCollider.AddHitFunction("DownTrampoline", std::move(hitDonwT));
 		mCollider.AddHitFunction("UpTrampoline", std::move(hitUpT));
 		mCollider.AddHitFunction("RightTrampoline", std::move(hitRightT));

@@ -35,7 +35,7 @@ namespace Stage
 			mWeakness.SetColor({ 0,255,0,255 });
 
 
-			auto strengthHitGround = [this](const GameLib::Collider& c) {
+			auto wHitGround = [this](const GameLib::Collider& c) {
 				auto adjust = GetParallelRectAdjustVec(mStrength, c);
 				auto adjustDir4Vec = GetDir4Vec(adjust);
 				if (adjustDir4Vec.mDir4 == Dir4::Up) {
@@ -53,12 +53,11 @@ namespace Stage
 
 			};
 
-			auto wHitGround = [this](const GameLib::Collider& c) {
+			auto sHitGround = [this](const GameLib::Collider& c) {
 				auto adjust = GetParallelRectAdjustVec(mWeakness, c);
 				auto adjustDir4Vec = GetDir4Vec(adjust);
 				if (adjustDir4Vec.mDir4 == Dir4::Down)
 					mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, Dir4::Up, 0.f);
-
 
 				mPhysicsModel.mPosition += adjust;
 
@@ -89,9 +88,9 @@ namespace Stage
 				weaknessHitT(Dir4::Left, c);
 			};
 
-			auto sHitT = [this, strengthHitGround](Dir4&& dir, const GameLib::Collider& c) {
+			auto sHitT = [this, sHitGround](Dir4&& dir, const GameLib::Collider& c) {
 				auto v = hitTrampoline(mPhysicsModel.mVelocity, mStrength, std::move(dir), c, TrampolineParam::ENEMY_POWER);
-				strengthHitGround(c);
+				sHitGround(c);
 				mPhysicsModel.mVelocity = v;
 			};
 			auto sHitUpT = [this, sHitT](const GameLib::Collider& c) {
@@ -107,8 +106,10 @@ namespace Stage
 				sHitT(Dir4::Left, c);
 			};
 
+			mWeakness.AddHitFunction("TogeBlock", wHitGround);
 			mWeakness.AddHitFunction("Ground", std::move(wHitGround));
-			mStrength.AddHitFunction("Ground", std::move(strengthHitGround));
+			mStrength.AddHitFunction("TogeBlock", sHitGround);
+			mStrength.AddHitFunction("Ground", std::move(sHitGround));
 			mWeakness.AddHitFunction("Player", std::move(hitPlayer));
 
 			mWeakness.AddHitFunction("UpTrampoline", std::move(wHitUpT));

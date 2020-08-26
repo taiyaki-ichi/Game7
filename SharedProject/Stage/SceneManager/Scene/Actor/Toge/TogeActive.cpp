@@ -61,6 +61,7 @@ namespace Stage
 				hitT(Dir4::Left, c);
 			};
 
+			mCollider.AddHitFunction("TogeBlock", hitGround);
 			mCollider.AddHitFunction("Ground", std::move(hitGround));
 			mCollider.AddHitFunction("UpTrampoline", std::move(hitUpT));
 			mCollider.AddHitFunction("DonwTrampoline",std::move(hitDonwT));

@@ -71,6 +71,7 @@ namespace Stage
 				hitT(Dir4::Left, c);
 			};
 
+			mStrength.AddHitFunction("TogeBlock", hitGround);
 			mStrength.AddHitFunction("Ground",std::move(hitGround));
 			mWeakness.AddHitFunction("Player", std::move(hitPlayer));
 
