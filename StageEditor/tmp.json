@@ -8,52 +8,40 @@
           "FloatData1": -127
         },
         {
+          "ActorName": "Ground",
+          "FloatData0": -343.3333740234375,
+          "FloatData1": -186.66668701171875,
+          "FloatData2": 383.33340454101563,
+          "FloatData3": -691.666748046875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 360.00009155273438,
+          "FloatData1": -123.33335113525391,
+          "FloatData2": 1490.00048828125,
+          "FloatData3": -693.33331298828125
+        },
+        {
+          "ActorName": "DownMai",
+          "FloatData0": 1146.66796875,
+          "FloatData1": -89.565200805664063
+        },
+        {
+          "ActorName": "TogeBlock",
+          "FloatData0": 336.23187255859375,
+          "FloatData1": -163.47825622558594
+        },
+        {
           "ActorName": "Camera",
-          "FloatData0": -430.00015258789063,
-          "FloatData1": -496.66677856445313,
-          "FloatData2": 670.00018310546875,
-          "FloatData3": 345.5556640625
+          "FloatData0": -553.33416748046875,
+          "FloatData1": -615.0006103515625,
+          "FloatData2": 1456.66796875,
+          "FloatData3": 2245.00244140625
         },
         {
-          "ActorName": "Ground",
-          "FloatData0": -331.42874145507813,
-          "FloatData1": -180.00007629394531,
-          "FloatData2": 408.57159423828125,
-          "FloatData3": -308.57156372070313
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 403.07696533203125,
-          "FloatData1": -184.61541748046875,
-          "FloatData2": 281.53848266601563,
-          "FloatData3": 356.92312622070313
-        },
-        {
-          "ActorName": "GuruWarp",
-          "FloatData0": 124.61540222167969,
-          "FloatData1": -36.923084259033203,
-          "StringData0": "aaa",
-          "StringData1": "bbb"
-        },
-        {
-          "ActorName": "TogeBlock",
-          "FloatData0": 9,
-          "FloatData1": -156
-        },
-        {
-          "ActorName": "TogeBlock",
-          "FloatData0": 57,
-          "FloatData1": -156
-        },
-        {
-          "ActorName": "TogeBlock",
-          "FloatData0": -39,
-          "FloatData1": -156
-        },
-        {
-          "ActorName": "UpGoal",
-          "FloatData0": -96,
-          "FloatData1": -223
+          "ActorName": "DownMai",
+          "FloatData0": 667.27313232421875,
+          "FloatData1": -90.000007629394531
         }
       ],
       "SceneName": "1"

@@ -5,10 +5,10 @@ namespace Stage
 	namespace NailParam
 	{
 		constexpr float WEAKNESS_WIDTH = 580.f;
-		constexpr float WEAKNES_HEIGHT = 200.f;
+		constexpr float WEAKNES_HEIGHT = 280.f;
 
-		constexpr float STRENGTH_WIDTH = 20.f;
-		constexpr float STRENGTH_HEIGHT = 100.f;
+		constexpr float STRENGTH_WIDTH = 70.f;
+		constexpr float STRENGTH_HEIGHT = 80.f;
 
 		constexpr float SCALE = 0.06f;
 
@@ -17,7 +17,7 @@ namespace Stage
 
 		constexpr float SPEED = 6.f;
 
-		constexpr float DEATH_LINE = 100.f;
+		constexpr float DEATH_LINE = 300.f;
 
 		constexpr float FALL_SPEED = 3.f;
 		constexpr float FALL_DELTAROT = 0.1f;

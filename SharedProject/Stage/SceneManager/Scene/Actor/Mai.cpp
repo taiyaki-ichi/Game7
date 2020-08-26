@@ -28,6 +28,7 @@ namespace Stage
 
 		mAnim.SetScale(MaiParam::SCALE);
 		mAnim.SetAnimationFPS(10);
+		mAnim.SetDrawOrder(1);
 
 		if (mGroundDir == Dir4::Right)
 			mAnim.SetRotation(GameLib::PI / 2.f);
