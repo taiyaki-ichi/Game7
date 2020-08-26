@@ -30,11 +30,11 @@ namespace Stage
 
 	inline Dir4 StringToDir4(const std::string& str)
 	{
-		if (str == "right")
+		if (str == "Right")
 			return Dir4::Right;
-		else if (str == "left")
+		else if (str == "Left")
 			return Dir4::Left;
-		else if (str == "up")
+		else if (str == "Up")
 			return Dir4::Up;
 		else
 			return Dir4::Down;
@@ -43,13 +43,13 @@ namespace Stage
 	inline std::string Dir4ToString(const Dir4& dir)
 	{
 		if (dir == Dir4::Right)
-			return "right";
+			return "Right";
 		else if (dir == Dir4::Left)
-			return "left";
+			return "Left";
 		else if (dir == Dir4::Up)
-			return  "up";
+			return  "Up";
 		else
-			return "down";
+			return "Down";
 	}
 
 }
