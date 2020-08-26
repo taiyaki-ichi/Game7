@@ -35,8 +35,11 @@ namespace Stage
 
 	void Nail::BeginToRest()
 	{
-		mAnim.SetIsAutoDrawing(false);
-		mStateManager.BeginToRest();
+		//mAnim.SetIsAutoDrawing(false);
+		//mStateManager.BeginToRest();
+
+		//ƒV[ƒ“‚ª•Ï‚í‚é‚Æ‚«‚É‘¶İ‚µ‚Ä‚¢‚éNail‚Ííœ
+		SetState(GameLib::Actor::State::Dead);
 	}
 
 }

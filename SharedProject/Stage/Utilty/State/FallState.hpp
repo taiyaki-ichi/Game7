@@ -4,6 +4,7 @@
 #include"Stage/Gravity/GravityFunc.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"Stage/WindowSize.hpp"
+#include"Stage/Utilty/IsInScope.hpp"
 
 namespace Stage
 {
@@ -44,10 +45,8 @@ namespace Stage
 			float rot = mAnim->GetRotation();
 			rot += mDeltaRot;
 			mAnim->SetRotation(rot);
-
-			auto viewPos = pos - GameLib::Viewport::GetPos();
-			float viewDownSize = GetDir4DirectionSize(viewPos, Dir4::Down);
-			if (viewDownSize > WindowSize::HEIGHT / 2.f + mDeathLine)
+			
+			if(!IsInScope(pos,WindowSize::WIDTH+mDeathLine,WindowSize::WIDTH+mDeathLine))
 				this->UpFlag(mFlag);
 
 			return this;
