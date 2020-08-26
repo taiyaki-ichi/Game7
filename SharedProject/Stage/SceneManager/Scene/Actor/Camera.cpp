@@ -71,7 +71,7 @@ namespace Stage
 		{
 
 			auto playerPos = Player::GetPosition();
-			playerPos = GameLib::Vector2::Rotation(std::move(playerPos), -Gravity::GetRotation());
+			playerPos = GameLib::Vector2::Rotation(std::move(playerPos), -Viewport::GetRotation());
 			auto cameraPos = GameLib::Viewport::GetPos();
 
 			//std::cout << "Player pos: " << playerPos.x << "," << playerPos.y << "\n";
@@ -82,9 +82,7 @@ namespace Stage
 				cameraPos.y = playerPos.y + WindowSize::HEIGHT / 2.f - MARGIN_Y;
 			if (cameraPos.y + WindowSize::HEIGHT / 2.f - MARGIN_Y < playerPos.y)
 				cameraPos.y = playerPos.y - WindowSize::HEIGHT / 2.f + MARGIN_Y;
-
-
-
+				
 			float yokoMargin, tateMargin;
 			float left, right, top, bottom;
 
@@ -120,8 +118,8 @@ namespace Stage
 				yokoMargin = WindowSize::HEIGHT / 2.f;
 				tateMargin = WindowSize::WIDTH / 2.f;
 
-				left = mBottom;
-				right = mTop;
+				left = -mTop;
+				right = -mBottom;
 				bottom = mLeft;
 				top = mRight;
 			}

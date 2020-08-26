@@ -109,7 +109,8 @@ namespace Stage
 	void GravityBox::Update()
 	{
 
-		if (mCoolDownCnt == 10)
+		//appleが5フレームで待機位置につく
+		if (mCoolDownCnt == 6)
 			mApple->Fall(mNextDir);
 		
 		if (mCoolDownCnt > 0)
