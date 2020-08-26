@@ -151,7 +151,12 @@ namespace Stage::PlayerState
 		};
 
 		auto hitGoal = [this](const GameLib::Collider& c) {
-			UpFlag(PlayerFlag::GOAL_FLAG);
+			auto name = c.GetNameTag();
+			if ((name == "DownGoal" && Gravity::GetDir4() == Dir4::Down) ||
+				(name == "RightGoal" && Gravity::GetDir4() == Dir4::Right) ||
+				(name == "LeftGoal" && Gravity::GetDir4() == Dir4::Left) ||
+				(name == "UpGoal" && Gravity::GetDir4() == Dir4::Up))
+				UpFlag(PlayerFlag::GOAL_FLAG);
 		};
 
 		auto hitGem = [this](const GameLib::Collider& c) {
@@ -250,7 +255,10 @@ namespace Stage::PlayerState
 		mCollider.AddHitFunction("TripleStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("TogeBody", hitEnemyStrength);
 		mCollider.AddHitFunction("GravityBox", std::move(hitGravituBox));
-		mCollider.AddHitFunction("Goal", std::move(hitGoal));
+		mCollider.AddHitFunction("DownGoal", hitGoal);
+		mCollider.AddHitFunction("UpGoal", hitGoal);
+		mCollider.AddHitFunction("RightGoal", hitGoal);
+		mCollider.AddHitFunction("LeftGoal", hitGoal);
 		mCollider.AddHitFunction("Gem", std::move(hitGem));
 		mCollider.AddHitFunction("TearGem1", std::move(hitTearGem1));
 		mCollider.AddHitFunction("TearGem2", std::move(hitTearGem2));

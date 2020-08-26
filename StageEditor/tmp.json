@@ -49,6 +49,11 @@
           "ActorName": "TogeBlock",
           "FloatData0": -39,
           "FloatData1": -156
+        },
+        {
+          "ActorName": "UpGoal",
+          "FloatData0": -96,
+          "FloatData1": -223
         }
       ],
       "SceneName": "1"

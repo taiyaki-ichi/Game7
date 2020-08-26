@@ -10,7 +10,7 @@ namespace Stage
 	Goal::Goal(GameLib::Actor* actor,Dir4&& dir)
 		:ActorBase{actor}
 		, mTexture{ "../Assets/Object/Goal/diamond.png" }
-		, mCollider{"Goal"}
+		, mCollider{Dir4ToString(dir)+"Goal"}
 		, mFallDir{std::move(dir)}
 		, mKiraCnt{0}
 	{
