@@ -1,5 +1,5 @@
 #include"MaiStay.hpp"
-#include"MaiColliderSetting.hpp"
+#include"MaiAdjustCollider.hpp"
 #include"GameLib/include/Draw/DrawAnimation.hpp"
 #include"Stage/SceneManager/Scene/Actor/Player.hpp"
 #include"GameLib/include/Math/Vector2Func.hpp"
@@ -20,7 +20,7 @@ namespace Stage
 			, mGroundDir4{}
 			, mCnt{0}
 		{
-			ColliderSetting(mStrength, mWeakness, mAnim->GetPosition(), mGroundDir4);
+			AdjustCollider(mStrength, mWeakness, mAnim->GetPosition());
 			mAnim->SetChannel(0);
 
 			auto hitPlayerW = [this](const GameLib::Collider& c) {
@@ -53,6 +53,8 @@ namespace Stage
 				mAnim->SetHorizontalFlip(true);
 			else
 				mAnim->SetHorizontalFlip(false);
+
+			AdjustCollider(mStrength, mWeakness, mAnim->GetPosition());
 
 			return this;
 		}

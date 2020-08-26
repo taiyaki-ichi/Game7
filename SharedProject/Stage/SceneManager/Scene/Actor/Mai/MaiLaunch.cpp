@@ -3,7 +3,7 @@
 #include"MaiParam.hpp"
 #include"MaiFlag.hpp"
 #include"MaiStay.hpp"
-#include"MaiColliderSetting.hpp"
+#include"MaiAdjustCollider.hpp"
 #include"Stage/Utilty/State/FallState.hpp"
 
 namespace Stage
@@ -19,7 +19,7 @@ namespace Stage
 			, mWeakness{}
 		{
 			mAnim->SetChannel(1);
-			ColliderSetting(mStrength, mWeakness, mAnim->GetPosition(), mGroundDir4);
+			AdjustCollider(mStrength, mWeakness, mAnim->GetPosition());
 
 			auto hitPlayerW = [this](const GameLib::Collider& c) {
 				UpFlag(MaiFlag::FALL_DEATH);
@@ -46,6 +46,7 @@ namespace Stage
 
 			mCnt++;
 
+			AdjustCollider(mStrength, mWeakness, mAnim->GetPosition());
 
 			return this;
 		}
