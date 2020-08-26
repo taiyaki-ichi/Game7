@@ -106,8 +106,11 @@ namespace Stage
 				top = -mBottom;
 			}
 			else if (Gravity::GetDir4() == Dir4::Right) {
-				yokoMargin = WindowSize::HEIGHT / 2.f;
-				tateMargin = WindowSize::WIDTH / 2.f;
+				//yokoMargin = WindowSize::HEIGHT / 2.f;
+				//tateMargin = WindowSize::WIDTH / 2.f;
+
+				yokoMargin = WindowSize::WIDTH / 2.f;
+				tateMargin = WindowSize::HEIGHT / 2.f;
 
 				left = mBottom;
 				right = mTop;
@@ -115,8 +118,11 @@ namespace Stage
 				top = -mLeft;
 			}
 			else {
-				yokoMargin = WindowSize::HEIGHT / 2.f;
-				tateMargin = WindowSize::WIDTH / 2.f;
+				//yokoMargin = WindowSize::HEIGHT / 2.f;
+				//tateMargin = WindowSize::WIDTH / 2.f;
+
+				yokoMargin = WindowSize::WIDTH / 2.f;
+				tateMargin = WindowSize::HEIGHT / 2.f;
 
 				left = -mTop;
 				right = -mBottom;
