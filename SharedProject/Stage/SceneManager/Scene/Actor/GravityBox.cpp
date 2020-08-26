@@ -21,7 +21,7 @@ namespace Stage
 		, mPosition{}
 		, mTexture{(dirNum==4)?"../Assets/Object/GravityBox/box4.png": "../Assets/Object/GravityBox/box2.png" }
 		, mApple{nullptr}
-		, mNextDir{Dir4::Left}
+		, mNextDir{Dir4::Up}
 		, mDeltaRotDir{1}
 		, mCoolDownCnt{0}
 	{

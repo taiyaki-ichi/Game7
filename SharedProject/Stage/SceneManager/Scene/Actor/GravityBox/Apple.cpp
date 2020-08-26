@@ -37,7 +37,7 @@ namespace Stage
 
 		
 		//pos‚ªCenter‚ð’´‚¦‚Ä‚µ‚Ü‚í‚È‚¢‚æ‚¤‚É
-		if ((pos - mCenter).Length() < MOVE_SPEED)
+		if ((pos - mCenter).Length() <= MOVE_SPEED/2.f)
 		{
 			pos = mCenter;
 			mVelocity = GameLib::Vector2{ 0.f,0.f };

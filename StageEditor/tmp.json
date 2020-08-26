@@ -78,13 +78,6 @@
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 1405,
-          "FloatData1": 729,
-          "FloatData2": 1922,
-          "FloatData3": 920
-        },
-        {
-          "ActorName": "Ground",
           "FloatData0": 1456,
           "FloatData1": 1081,
           "FloatData2": 1919,
@@ -103,13 +96,6 @@
           "FloatData1": 724,
           "FloatData2": 1046,
           "FloatData3": 996.00006103515625
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 1061.999755859375,
-          "FloatData1": 1088,
-          "FloatData2": 867.99981689453125,
-          "FloatData3": 1370
         },
         {
           "ActorName": "Ground",
@@ -137,6 +123,37 @@
           "FloatData0": 1252.9412841796875,
           "FloatData1": 512.941162109375,
           "StringData0": "left"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1492.72607421875,
+          "FloatData1": 627.2728271484375,
+          "FloatData2": 1914.54443359375,
+          "FloatData3": 965.45465087890625
+        },
+        {
+          "ActorName": "DownMai",
+          "FloatData0": 1497.5745849609375,
+          "FloatData1": 1261.211669921875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1124.2403564453125,
+          "FloatData1": 1127.8782958984375,
+          "FloatData2": 848.24029541015625,
+          "FloatData3": 1327.8782958984375
+        },
+        {
+          "ActorName": "UpMai",
+          "FloatData0": 1044.2403564453125,
+          "FloatData1": 1090.544921875
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 1231,
+          "FloatData1": 1623,
+          "StringData0": "ccc",
+          "StringData1": "ddd"
         }
       ],
       "SceneName": "1"
@@ -194,6 +211,310 @@
         }
       ],
       "SceneName": "2"
+    },
+    {
+      "ActorsData": [
+        {
+          "ActorName": "Ground",
+          "FloatData0": -500,
+          "FloatData1": 500,
+          "FloatData2": -180,
+          "FloatData3": -500
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -500,
+          "FloatData1": -500,
+          "FloatData2": 500,
+          "FloatData3": -180
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 500,
+          "FloatData1": -500,
+          "FloatData2": 180,
+          "FloatData3": 500
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 500,
+          "FloatData1": 500,
+          "FloatData2": -500,
+          "FloatData3": 180
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": -140,
+          "FloatData1": -140,
+          "StringData0": "leftrot",
+          "StringData1": "left"
+        },
+        {
+          "ActorName": "GravityBox4",
+          "FloatData0": 0,
+          "FloatData1": 0,
+          "StringData0": "left",
+          "StringData1": "left"
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -400,
+          "FloatData1": -300,
+          "FloatData2": 400,
+          "FloatData3": 300
+        }
+      ],
+      "SceneName": "leftrot"
+    },
+    {
+      "ActorsData": [
+        {
+          "ActorName": "Ground",
+          "FloatData0": -500,
+          "FloatData1": 500,
+          "FloatData2": -180,
+          "FloatData3": -500
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -500,
+          "FloatData1": -500,
+          "FloatData2": 500,
+          "FloatData3": -180
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 500,
+          "FloatData1": -500,
+          "FloatData2": 180,
+          "FloatData3": 500
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 500,
+          "FloatData1": 500,
+          "FloatData2": -500,
+          "FloatData3": 180
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 140,
+          "FloatData1": -140,
+          "StringData0": "rightrot",
+          "StringData1": "right"
+        },
+        {
+          "ActorName": "GravityBox4",
+          "FloatData0": 0,
+          "FloatData1": 0,
+          "StringData0": "left",
+          "StringData1": "left"
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -400,
+          "FloatData1": -300,
+          "FloatData2": 400,
+          "FloatData3": 300
+        }
+      ],
+      "SceneName": "rightrot"
+    },
+    {
+      "ActorsData": [
+        {
+          "ActorName": "Ground",
+          "FloatData0": -318,
+          "FloatData1": -98,
+          "FloatData2": 316,
+          "FloatData3": -585
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 292.00009155273438,
+          "FloatData1": -120.00003051757813,
+          "FloatData2": 566.0001220703125,
+          "FloatData3": 78.000022888183594
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -298.00009155273438,
+          "FloatData1": -118.00002288818359,
+          "FloatData2": -548.0001220703125,
+          "FloatData3": 74.000022888183594
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 554.0001220703125,
+          "FloatData1": 64.000022888183594,
+          "FloatData2": 706.00018310546875,
+          "FloatData3": 322.00009155273438
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -536.0001220703125,
+          "FloatData1": 62.000022888183594,
+          "FloatData2": -680.0001220703125,
+          "FloatData3": 326.00009155273438
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -231.4285888671875,
+          "FloatData1": 884.28564453125,
+          "FloatData2": -370.00006103515625,
+          "FloatData3": 1055.7142333984375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -461.42868041992188,
+          "FloatData1": 679.99993896484375,
+          "FloatData2": -537.1429443359375,
+          "FloatData3": 548.57135009765625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 364.2857666015625,
+          "FloatData1": 904.28570556640625,
+          "FloatData2": 462.85720825195313,
+          "FloatData3": 805.7142333984375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 440.00006103515625,
+          "FloatData1": 821.42852783203125,
+          "FloatData2": 500.00006103515625,
+          "FloatData3": 578.57135009765625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 518.57147216796875,
+          "FloatData1": 549.99993896484375,
+          "FloatData2": 584.2857666015625,
+          "FloatData3": 314.28561401367188
+        },
+        {
+          "ActorName": "Dogu",
+          "FloatData0": 408.57147216796875,
+          "FloatData1": 719.99993896484375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 380.0001220703125,
+          "FloatData1": 888.88909912109375,
+          "FloatData2": 317.77789306640625,
+          "FloatData3": 1051.1114501953125
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 331.111083984375,
+          "FloatData1": 1041.1102294921875,
+          "FloatData2": 230,
+          "FloatData3": 1197.77685546875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 242.22222900390625,
+          "FloatData1": 1184.443603515625,
+          "FloatData2": 147.77780151367188,
+          "FloatData3": 1338.887939453125
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -245.55545043945313,
+          "FloatData1": 1045.5546875,
+          "FloatData2": -157.77767944335938,
+          "FloatData3": 1163.3323974609375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -167.77769470214844,
+          "FloatData1": 1154.443603515625,
+          "FloatData2": -55.555488586425781,
+          "FloatData3": 1341.1102294921875
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -771.11102294921875,
+          "FloatData1": 1303.8880615234375,
+          "FloatData2": 918.88885498046875,
+          "FloatData3": -301.11190795898438
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 427.77789306640625,
+          "FloatData1": 196.1112060546875,
+          "StringData0": "right",
+          "StringData1": "rightrot"
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": -407.77783203125,
+          "FloatData1": 191.66673278808594,
+          "StringData0": "left",
+          "StringData1": "leftrot"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -474,
+          "FloatData1": 669,
+          "FloatData2": -397,
+          "FloatData3": 812
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -567,
+          "FloatData1": 317,
+          "FloatData2": -634,
+          "FloatData3": 487
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -527,
+          "FloatData1": 560,
+          "FloatData2": -590,
+          "FloatData3": 468
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -359,
+          "FloatData1": 896,
+          "FloatData2": -420,
+          "FloatData3": 790
+        },
+        {
+          "ActorName": "Dogu",
+          "FloatData0": -313,
+          "FloatData1": 717
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -58,
+          "FloatData1": 1340,
+          "FloatData2": 160,
+          "FloatData3": 1310
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 44,
+          "FloatData1": 1223,
+          "StringData0": "ddd",
+          "StringData1": "ccc"
+        },
+        {
+          "ActorName": "GravityBox2",
+          "FloatData0": 49.999996185302734,
+          "FloatData1": 29.999849319458008,
+          "StringData0": "up"
+        },
+        {
+          "ActorName": "GravityBox4",
+          "FloatData0": -83,
+          "FloatData1": 30,
+          "StringData0": "left",
+          "StringData1": "left"
+        }
+      ],
+      "SceneName": "3"
     }
   ]
 }
