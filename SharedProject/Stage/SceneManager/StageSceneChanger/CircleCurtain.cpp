@@ -69,10 +69,14 @@ namespace Stage
 			}
 			mCircle.SetRadius(r);
 		}
+	
 
-		mRect.SetPosition(GameLib::Viewport::GetPos());
+		float rot = GameLib::Viewport::GetRotation();
+		auto center = GameLib::Viewport::GetPos();
+
+		mRect.SetPosition(GameLib::Vector2::Rotation(center, rot));
 		mRect.SetScale(1.f / GameLib::Viewport::GetScale());
-		mRect.SetRotation(GameLib::Viewport::GetRotation());
+		mRect.SetRotation(rot);
 	}
 
 	void CircleCurtain::Draw()
