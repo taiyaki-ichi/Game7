@@ -22,26 +22,68 @@
           "FloatData3": -693.33331298828125
         },
         {
-          "ActorName": "DownMai",
-          "FloatData0": 1146.66796875,
-          "FloatData1": -89.565200805664063
-        },
-        {
           "ActorName": "TogeBlock",
           "FloatData0": 336.23187255859375,
           "FloatData1": -163.47825622558594
         },
         {
-          "ActorName": "Camera",
-          "FloatData0": -553.33416748046875,
-          "FloatData1": -615.0006103515625,
-          "FloatData2": 1456.66796875,
-          "FloatData3": 2245.00244140625
-        },
-        {
           "ActorName": "DownMai",
           "FloatData0": 667.27313232421875,
           "FloatData1": -90.000007629394531
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -406.668701171875,
+          "FloatData1": -530,
+          "FloatData2": 2553.335693359375,
+          "FloatData3": 2016.670166015625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1437.7764892578125,
+          "FloatData1": -143.33238220214844,
+          "FloatData2": 1922.220947265625,
+          "FloatData3": 632.22308349609375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1466.665283203125,
+          "FloatData1": -134.44349670410156,
+          "FloatData2": 1922.220947265625,
+          "FloatData3": -694.4434814453125
+        },
+        {
+          "ActorName": "DownMai",
+          "FloatData0": 990.75604248046875,
+          "FloatData1": -88.946426391601563
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 1438.12548828125,
+          "FloatData1": 11.053554534912109,
+          "FloatData2": 1209.7044677734375,
+          "FloatData3": 12.106186866760254
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 1247.5992431640625,
+          "FloatData1": 168.9482421875,
+          "StringData0": "aaa",
+          "StringData1": "bbb"
+        },
+        {
+          "ActorName": "GravityBox4",
+          "FloatData0": 852.861328125,
+          "FloatData1": 27.89564323425293,
+          "StringData0": "right",
+          "StringData1": "right"
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 1322,
+          "FloatData1": -123,
+          "FloatData2": 1315,
+          "FloatData3": 138
         }
       ],
       "SceneName": "1"

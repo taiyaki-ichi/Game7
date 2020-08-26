@@ -16,21 +16,44 @@ namespace StageEditor
 		if (mPosData.GetDataNum() == 2)
 		{
 			float x = GameLib::GetDistanceX(mPosData[0], mPosData[1]);
-			int num = std::round(x / static_cast<float>(Stage::PoleParam::RADIUSE * 2.f));
-			float w = num * Stage::PoleParam::RADIUSE * 2.f;
-			float h = Stage::PoleParam::RADIUSE;
+			float y = GameLib::GetDistanceY(mPosData[0], mPosData[1]);
 
-			GameLib::Vector2 c{};
-			if (mPosData[0].x < mPosData[1].x)
-				c = mPosData[0] + GameLib::Vector2{ w/2.f,0.f };
+			if (x >= y)
+			{
+				int num = std::round(x / static_cast<float>(Stage::PoleParam::RADIUSE * 2.f));
+				float w = num * Stage::PoleParam::RADIUSE * 2.f;
+				float h = Stage::PoleParam::RADIUSE;
+
+				GameLib::Vector2 c{};
+				if (mPosData[0].x < mPosData[1].x)
+					c = mPosData[0] + GameLib::Vector2{ w / 2.f,0.f };
+				else
+					c = mPosData[0] - GameLib::Vector2{ w / 2.f,0.f };
+
+				mRect.SetWidthAndHeight(w, h);
+				mCollider.SetWidthAndHeith(w, h);
+
+				mRect.SetPosition(c);
+				mCollider.SetPosition(c);
+			}
 			else
-				c = mPosData[0] - GameLib::Vector2{ w/2.f,0.f };
+			{
+				int num = std::round(y / static_cast<float>(Stage::PoleParam::RADIUSE * 2.f));
+				float w = num * Stage::PoleParam::RADIUSE * 2.f;
+				float h = Stage::PoleParam::RADIUSE;
 
-			mRect.SetWidthAndHeight(w, h);
-			mCollider.SetWidthAndHeith(w, h);
+				GameLib::Vector2 c{};
+				if (mPosData[0].y < mPosData[1].y)
+					c = mPosData[0] + GameLib::Vector2{ 0.f,w / 2.f };
+				else
+					c = mPosData[0] - GameLib::Vector2{ 0.f,w / 2.f };
 
-			mRect.SetPosition(c);
-			mCollider.SetPosition(c);
+				mRect.SetWidthAndHeight( h,w);
+				mCollider.SetWidthAndHeith( h,w);
+
+				mRect.SetPosition(c);
+				mCollider.SetPosition(c);
+			}
 
 		}
 	}
