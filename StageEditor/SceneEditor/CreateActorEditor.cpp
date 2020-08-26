@@ -23,6 +23,7 @@
 #include"ActorEditor/TrampolineEditor.hpp"
 #include"ActorEditor/MaiEditor.hpp"
 #include"ActorEditor/TogeBlockEditor.hpp"
+#include"ActorEditor/CycleLiftEditor.hpp"
 
 
 namespace StageEditor
@@ -62,6 +63,7 @@ namespace StageEditor
 			{"LeftMai",[](GameLib::Actor* actor) {return new MaiEditor{actor,"Left"}; }},
 			{"UpMai",[](GameLib::Actor* actor) {return new MaiEditor{actor,"Up"}; }},
 			{"TogeBlock",[](GameLib::Actor* actor) {return new TogeBlockEditor{actor}; }},
+			{"CycleLift",[](GameLib::Actor* actor) {return new CycleLiftEditor{actor}; }},
 
 		};
 	}

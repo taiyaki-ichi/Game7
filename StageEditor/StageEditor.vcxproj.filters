@@ -35,6 +35,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\GoalEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\MaiEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TogeBlockEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\CycleLiftEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera\EditorCamera.hpp" />
@@ -74,5 +75,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\TrampolineEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\MaiEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TogeBlockEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\CycleLiftEditor.hpp" />
   </ItemGroup>
 </Project>

@@ -157,6 +157,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\CameraEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CarrotEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\CircleBeeEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\CycleLiftEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\Data\PosData.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\DoguEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\FrogEditor.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\CameraEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CarrotEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\CircleBeeEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\CycleLiftEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\Data.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\Data\PosData.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\DoguEditor.hpp" />

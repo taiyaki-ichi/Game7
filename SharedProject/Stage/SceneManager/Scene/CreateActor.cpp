@@ -21,6 +21,7 @@
 #include"Actor/Trampoline.hpp"
 #include"Actor/Mai.hpp"
 #include"Actor/TogeBlock.hpp"
+#include"Actor/CycleLift.hpp"
 
 namespace Stage
 {
@@ -59,6 +60,7 @@ namespace Stage
 			{"LeftMai",[](Scene* scene) {return new Mai{scene,Dir4::Left}; }},
 			{"DownMai",[](Scene* scene) {return new Mai{scene,Dir4::Down}; }},
 			{"TogeBlock",[](Scene* scene) {return new TogeBlock{scene}; }},
+			{"CycleLift",[](Scene* scene) {return new CycleLift{scene}; }},
 
 
 

@@ -444,6 +444,12 @@
           "ActorName": "Gem",
           "FloatData0": 1190,
           "FloatData1": 2085
+        },
+        {
+          "ActorName": "CycleLift",
+          "FloatData0": 48,
+          "FloatData1": -37,
+          "StringData0": "false"
         }
       ],
       "SceneName": "1"
