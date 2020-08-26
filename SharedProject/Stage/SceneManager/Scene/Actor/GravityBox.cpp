@@ -45,6 +45,7 @@ namespace Stage
 
 				mRotationCnt = static_cast<int>(mNextDir) - static_cast<int>(Gravity::GetDir4());
 
+			
 				while (mRotationCnt <= -2)
 					mRotationCnt += 4;
 				while (mRotationCnt > 2)
@@ -61,30 +62,40 @@ namespace Stage
 					dir += 4;
 				mNextDir = static_cast<Dir4>(dir);
 
-				//回転終了判定に引っかからないようにするため
-				//最初は余分に足しておく
-				
-				/*
-				float rot = GameLib::Viewport::GetRotation();
-				if (mRotationCnt > 0)
-					rot += GravityBoxParam::CAMERA_DELTA_ROT;
+					if (mRotationCnt != 0)
+					{
+
+					//回転終了判定に引っかからないようにするため
+					//最初は余分に足しておく
+
+					/*
+					float rot = GameLib::Viewport::GetRotation();
+					if (mRotationCnt > 0)
+						rot += GravityBoxParam::CAMERA_DELTA_ROT;
+					else
+						rot -= GravityBoxParam::CAMERA_DELTA_ROT;
+					GameLib::Viewport::SetRotation(rot);
+					*/
+
+					mRotation = GameLib::Viewport::GetRotation();
+					mPosition = GameLib::Viewport::GetPos();
+
+					Gravity::StartRotation();
+
+					mApple->GoCenter();
+					mApple->Rotation();
+
+					//Collder1とPlayerが当たった時点でCollider2とは判定をさせない
+					mCollider2.SetNameTag("");
+
+					//GameLib::Viewport::SetScale(0.05f);
+				}
 				else
-					rot -= GravityBoxParam::CAMERA_DELTA_ROT;
-				GameLib::Viewport::SetRotation(rot);
-				*/
-
-				mRotation = GameLib::Viewport::GetRotation();
-				mPosition = GameLib::Viewport::GetPos();
-
-				Gravity::StartRotation();
-
-				mApple->GoCenter();
-				mApple->Rotation();
-
-				//Collder1とPlayerが当たった時点でCollider2とは判定をさせない
-				mCollider2.SetNameTag("");
-
-				//GameLib::Viewport::SetScale(0.05f);
+				{
+					mApple->GoCenter();
+					mApple->Rotation();
+					mCoolDownCnt = COOLDOWN_TIME;
+				}
 			}
 		};
 
@@ -97,6 +108,10 @@ namespace Stage
 	}
 	void GravityBox::Update()
 	{
+
+		if (mCoolDownCnt == 10)
+			mApple->Fall(mNextDir);
+		
 		if (mCoolDownCnt > 0)
 			mCoolDownCnt--;
 
@@ -138,7 +153,7 @@ namespace Stage
 
 					if (mRotationCnt == 0) {
 
-						mApple->Fall(mNextDir);
+						//mApple->Fall(mNextDir);
 						mCollider2.SetNameTag("Ground");
 
 						mCoolDownCnt = COOLDOWN_TIME;
