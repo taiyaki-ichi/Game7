@@ -35,7 +35,7 @@ namespace Stage
 			mWeakness.SetColor({ 0,255,0,255 });
 
 
-			auto wHitGround = [this](const GameLib::Collider& c) {
+			auto sHitGround = [this](const GameLib::Collider& c) {
 				auto adjust = GetParallelRectAdjustVec(mStrength, c);
 				auto adjustDir4Vec = GetDir4Vec(adjust);
 				if (adjustDir4Vec.mDir4 == Dir4::Up) {
@@ -53,7 +53,7 @@ namespace Stage
 
 			};
 
-			auto sHitGround = [this](const GameLib::Collider& c) {
+			auto wHitGround = [this](const GameLib::Collider& c) {
 				auto adjust = GetParallelRectAdjustVec(mWeakness, c);
 				auto adjustDir4Vec = GetDir4Vec(adjust);
 				if (adjustDir4Vec.mDir4 == Dir4::Down)

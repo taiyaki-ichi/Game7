@@ -67,6 +67,13 @@
           "FloatData1": 316,
           "FloatData2": 206,
           "FloatData3": 294
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 160,
+          "FloatData1": 11,
+          "FloatData2": 155,
+          "FloatData3": 236
         }
       ],
       "SceneName": "1"
