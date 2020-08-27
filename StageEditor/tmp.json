@@ -172,21 +172,6 @@
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 565,
-          "FloatData1": 98
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 621,
-          "FloatData1": 100
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 667,
-          "FloatData1": 51
-        },
-        {
-          "ActorName": "Gem",
           "FloatData0": 1042,
           "FloatData1": 72
         },
@@ -309,6 +294,23 @@
           "ActorName": "Gem",
           "FloatData0": 4532,
           "FloatData1": 142
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 452.63156127929688,
+          "FloatData1": 74.736854553222656,
+          "FloatData2": 702.10528564453125,
+          "FloatData3": 48.421051025390625
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 648,
+          "FloatData1": 129
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 516,
+          "FloatData1": 124
         }
       ],
       "SceneName": "1"

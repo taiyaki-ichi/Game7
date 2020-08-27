@@ -106,6 +106,14 @@ namespace Stage
 				sHitT(Dir4::Left, c);
 			};
 
+			auto hitThrough = [this, sHitGround](const GameLib::Collider& c) {
+				auto ad = GetParallelRectAdjustVec(mStrength, c);
+				if (GetDir4DirectionSize(ad, Dir4::Up) > 0.f)
+					sHitGround(c);
+			};
+
+			mStrength.AddHitFunction("ThroughFloor", std::move(hitThrough));
+
 			mWeakness.AddHitFunction("TogeBlock", wHitGround);
 			mWeakness.AddHitFunction("Ground", std::move(wHitGround));
 			mStrength.AddHitFunction("TogeBlock", sHitGround);
