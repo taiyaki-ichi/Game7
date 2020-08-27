@@ -82,7 +82,7 @@ namespace Stage
 		{
 			//std::cout << mPhysicsModel.mPosition.x << "," << mPhysicsModel.mPosition.y << "\n";
 
-			mPhysicsModel.mScale = TogeParam::SCALE_CENTER + TogeParam::SCALE_RADIUS * std::sin(mCnt / 100.f);
+			mPhysicsModel.mScale = TogeParam::SCALE_CENTER + TogeParam::SCALE_RADIUS * std::sin(mCnt * TogeParam::ROT_PER_FRAME);
 
 			//kari
 			UpdatePhysicsModelWithGravity(mPhysicsModel, Gravity::GetVector2(), 20. - 1.f, false);

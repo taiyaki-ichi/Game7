@@ -10,5 +10,7 @@ namespace Stage
 		constexpr float SCALE_CENTER = 0.15f;
 		constexpr float SCALE_RADIUS = 0.05f;
 
+		constexpr float ROT_PER_FRAME = 0.02f;
+
 	}
 }
