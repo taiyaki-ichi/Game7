@@ -19,6 +19,7 @@ namespace Stage::BackGround
 		float mMoveRateX;
 		float mMoveRateY;
 
+	protected:
 		//ここポインタにしてアニメーションを入れられるようにしてもいいな
 		GameLib::DrawTexture mTexture;
 
@@ -30,6 +31,7 @@ namespace Stage::BackGround
 
 		void SetMarginXY(float x, float y);
 		void SetPosition(GameLib::Vector2&& pos);
+		const GameLib::Vector2& GetPosition() const;
 
 	protected:
 		//派生クラスのコンストラクタ内で使う予定

@@ -42,4 +42,7 @@ namespace Stage::BackGround
 		mTexture.SetPosition(AdjustPos(mPosition, mMarginX, mMarginY, mMoveRateX, mMoveRateY));
 	}
 
+	const GameLib::Vector2& ObjectBase::GetPosition() const {
+		return mPosition;
+	}
 }

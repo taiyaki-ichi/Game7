@@ -15,11 +15,60 @@
           "FloatData1": -254.54550170898438
         },
         {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 22,
+          "FloatData1": -197,
+          "FloatData2": 236,
+          "FloatData3": -205
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 21,
+          "FloatData1": -62,
+          "FloatData2": 252,
+          "FloatData3": -69
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 21,
+          "FloatData1": 75,
+          "FloatData2": 284,
+          "FloatData3": 53
+        },
+        {
           "ActorName": "Camera",
-          "FloatData0": -676.6669921875,
-          "FloatData1": -900.000244140625,
-          "FloatData2": 850.0006103515625,
-          "FloatData3": 220.0003662109375
+          "FloatData0": -791.428955078125,
+          "FloatData1": -914.2861328125,
+          "FloatData2": 1925.7147216796875,
+          "FloatData3": 302.8572998046875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 679.99993896484375,
+          "FloatData1": -735.00018310546875,
+          "FloatData2": 2115.00146484375,
+          "FloatData3": -965.00042724609375
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 703.75,
+          "FloatData1": -609.99993896484375,
+          "FloatData2": 955,
+          "FloatData3": -627.5
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 703.75,
+          "FloatData1": -468.75003051757813,
+          "FloatData2": 880,
+          "FloatData3": -483.75003051757813
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 707.5,
+          "FloatData1": -346.24996948242188,
+          "FloatData2": 857.49993896484375,
+          "FloatData3": -355
         }
       ],
       "SceneName": "1"
