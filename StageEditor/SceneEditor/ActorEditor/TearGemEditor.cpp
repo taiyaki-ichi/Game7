@@ -77,4 +77,9 @@ namespace StageEditor
 	{
 		return mNumbers;
 	}
+
+	void TearGemEditor::ResetNumbers()
+	{
+		mNumbers.clear();
+	}
 }

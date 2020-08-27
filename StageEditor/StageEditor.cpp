@@ -90,6 +90,8 @@ namespace StageEditor
 			prevScene.second->SetState(GameLib::Actor::State::Dead);
 		mSceneEditors.clear();
 
+		TearGemEditor::ResetNumbers();
+
 		LoadStageData(this, std::move(fileName));
 
 		mCamera->Reset();

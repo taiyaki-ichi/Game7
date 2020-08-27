@@ -22,5 +22,6 @@ namespace StageEditor
 		void PrintStringDataInfo() override;
 
 		static const std::vector<std::string>& GetNumbers();
+		static void ResetNumbers();
 	};
 }
