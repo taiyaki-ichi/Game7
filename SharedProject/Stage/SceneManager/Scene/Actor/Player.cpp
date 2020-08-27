@@ -102,4 +102,10 @@ namespace Stage
 	{
 		return mItemNum->GetItemNumData();
 	}
+
+	void Player::AdjustItemDisplay()
+	{
+		mLife->AdjustPos();
+		mItemNum->AdjustPos();
+	}
 }

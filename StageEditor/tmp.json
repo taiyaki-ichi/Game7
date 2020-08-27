@@ -27,11 +27,6 @@
           "FloatData1": -163.47825622558594
         },
         {
-          "ActorName": "DownMai",
-          "FloatData0": 667.27313232421875,
-          "FloatData1": -90.000007629394531
-        },
-        {
           "ActorName": "Ground",
           "FloatData0": 1437.7764892578125,
           "FloatData1": -143.33238220214844,
@@ -44,11 +39,6 @@
           "FloatData1": -134.44349670410156,
           "FloatData2": 1922.220947265625,
           "FloatData3": -694.4434814453125
-        },
-        {
-          "ActorName": "DownMai",
-          "FloatData0": 990.75604248046875,
-          "FloatData1": -88.946426391601563
         },
         {
           "ActorName": "Ground",
@@ -447,9 +437,18 @@
         },
         {
           "ActorName": "CycleLift",
-          "FloatData0": 48,
-          "FloatData1": -37,
-          "StringData0": "false"
+          "FloatData0": 1110,
+          "FloatData1": 63,
+          "StringData0": "true"
+        },
+        {
+          "ActorName": "MoveGround",
+          "FloatData0": 932,
+          "FloatData1": -57,
+          "FloatData2": 802,
+          "FloatData3": -1,
+          "FloatData4": 556,
+          "FloatData5": -29
         }
       ],
       "SceneName": "1"

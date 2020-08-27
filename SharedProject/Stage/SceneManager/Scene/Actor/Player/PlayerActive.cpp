@@ -88,6 +88,7 @@ namespace Stage::PlayerState
 				mPhysicsModel.mVelocity.y = 0.f;
 
 			//A,D‚ª‰Ÿ‚³‚ê‚Ä‚¢‚é‚Æ‚«‚È‚Ç‚Í–€ŽC‚Ì‰e‹¿‚È‚µ
+			/*
 			if ((InputState::GetState(Key::A) == ButtonState::None &&
 				InputState::GetState(Key::D) == ButtonState::None) ||
 				(InputState::GetState(Key::A) == ButtonState::Held &&
@@ -97,7 +98,17 @@ namespace Stage::PlayerState
 				(InputState::GetState(Key::D) == ButtonState::Held &&
 					GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Left) > 0.f
 					))
+					*/
 
+			//AD‚ª‰Ÿ‚³‚ê‚Ä‚¢‚È‚¢A‚Ü‚½A•ûŒü“]Š·‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚é‚Æ‚«‚É–€ŽC
+			if ((InputState::GetState(Key::A) == ButtonState::None &&
+				InputState::GetState(Key::D) == ButtonState::None)||
+				(InputState::GetState(Key::A) == ButtonState::Held &&
+					GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Right) > 0.f) ||
+				(InputState::GetState(Key::D) == ButtonState::Held &&
+					GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Left) > 0.f
+					))
+					
 			{
 				if (dir4Vec.mDir4 == Dir4::Up) {
 					if (Gravity::GetDir4() == Dir4::Up || Gravity::GetDir4() == Dir4::Down)
@@ -146,7 +157,8 @@ namespace Stage::PlayerState
 		auto hitGravituBox = [this](const GameLib::Collider& c) {
 			auto adjust = GetParallelRectAdjustVec(mCollider, c);
 			auto dir4Adjust = GetDir4Vec(std::move(adjust));
-			if (dir4Adjust.mDir4 == Dir4::Down)
+			
+			if (dir4Adjust.mDir4 == Dir4::Down || Gravity::IsRotation())
 				ResetPotentialPower();
 		};
 

@@ -38,9 +38,10 @@ namespace Stage
 				auto nextScenePtr = static_cast<Scene*>(mNextWarp->GetOwner());
 				nextScenePtr->BeginWorking();
 
+				//位置、カメラ、Itemの表示の順で更新
 				mPlayer->SetPosition(mNextWarp->GetPosition());
-
 				nextScenePtr->AdjustCameraPosiotion();
+				mPlayer->AdjustItemDisplay();
 			}
 			else if (mCnt == 2)
 			{

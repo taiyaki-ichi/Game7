@@ -43,5 +43,7 @@ namespace Stage
 		bool CheckFlag(char);
 
 		ItemNumData GetItemNumData();
+
+		void AdjustItemDisplay();
 	};
 }
