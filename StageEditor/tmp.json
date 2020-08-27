@@ -74,6 +74,39 @@
           "FloatData1": 11,
           "FloatData2": 155,
           "FloatData3": 236
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": -26,
+          "FloatData1": 122,
+          "FloatData2": -26,
+          "FloatData3": 269
+        },
+        {
+          "ActorName": "CycleLift",
+          "FloatData0": -204,
+          "FloatData1": 442,
+          "StringData0": "false"
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 14,
+          "FloatData1": 629,
+          "FloatData2": 353,
+          "FloatData3": 630
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 794,
+          "FloatData1": 54,
+          "FloatData2": 789,
+          "FloatData3": 303
+        },
+        {
+          "ActorName": "CycleLift",
+          "FloatData0": 637,
+          "FloatData1": 316,
+          "StringData0": "true"
         }
       ],
       "SceneName": "1"
