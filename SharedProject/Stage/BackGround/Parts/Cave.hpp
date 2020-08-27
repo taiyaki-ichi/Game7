@@ -14,6 +14,8 @@ namespace Stage
 		GameLib::DrawRect mRect5;
 		GameLib::DrawRect mRect6;
 
+		GameLib::DrawRect mRectCenter;
+
 	public:
 		Cave(GameLib::Actor*);
 

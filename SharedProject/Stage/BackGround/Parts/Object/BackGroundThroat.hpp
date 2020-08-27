@@ -3,21 +3,24 @@
 
 namespace Stage::BackGround
 {
-	class Throat140 : public ObjectBase
+
+	class Throat230 : public ObjectBase
 	{
 	public:
-		Throat140(GameLib::Actor*, bool isUpsideDown = false);
+		Throat230(GameLib::Actor*, bool isUpsideDown = false);
 	};
 
-	class Throat120 : public ObjectBase
+	class Throat180 : public ObjectBase
 	{
 	public:
-		Throat120(GameLib::Actor*, bool isUpsideDown = false);
+		Throat180(GameLib::Actor*, bool isUpsideDown = false);
 	};
 
-	class Throat100 : public ObjectBase
+	class Throat130 : public ObjectBase
 	{
 	public:
-		Throat100(GameLib::Actor*, bool isUpsideDown = false);
+		Throat130(GameLib::Actor*, bool isUpsideDown = false);
 	};
+
+
 }

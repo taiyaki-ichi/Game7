@@ -55,27 +55,26 @@ namespace Stage::BackGround
 		constexpr int num100 = 3;
 		constexpr int num140 = 2;
 
-		constexpr float MarginX = 50.f;
+		constexpr float MarginX = 80.f;
 		constexpr float MarginX140 = 100.f;
 
-		CreateSlideObjects<Throat120>(actor, num120, MarginX, -10.f);
-		CreateSlideObjects<Throat100>(actor, num100, MarginX, 10.f);
-		CreateSlideObjects<Throat140>(actor, num140, MarginX140, -150.f);
+		CreateSlideObjects<Throat180>(actor, num120, MarginX, -10.f);
+		CreateSlideObjects<Throat130>(actor, num100, MarginX, 15.f);
+		CreateSlideObjects<Throat230>(actor, num140, MarginX140, -135.f);
 
 		float w = MarginX * 2.f + WindowSize::WIDTH;
 		float w140 = MarginX140 * 2.f + WindowSize::WIDTH;
 
-		auto bg120 = CreateSlideObjects<Throat120>(actor, num120, MarginX, 10.f, true);
+		auto bg120 = CreateSlideObjects<Throat180>(actor, num120, MarginX, 10.f, true);
 		for (auto tmp : bg120)
 			tmp->SetPosition(tmp->GetPosition() + GameLib::Vector2{ w / static_cast<float>(num120) / 2.f ,0.f });
-		auto bg100 = CreateSlideObjects<Throat100>(actor, num100, MarginX, -10.f, true);
-		for(auto tmp : bg100)
+		auto bg100 = CreateSlideObjects<Throat130>(actor, num100, MarginX, -15.f, true);
+		for (auto tmp : bg100)
 			tmp->SetPosition(tmp->GetPosition() + GameLib::Vector2{ w / static_cast<float>(num100) / 2.f ,0.f });
 
-		auto bg140 = CreateSlideObjects<Throat140>(actor, num140, MarginX140,150.f, true);
+		auto bg140 = CreateSlideObjects<Throat230>(actor, num140, MarginX140, 135.f, true);
 		for (auto tmp : bg140)
 			tmp->SetPosition(tmp->GetPosition() + GameLib::Vector2{ w140 / static_cast<float>(num140) / 2.f ,0.f });
-
 	}
 
 }
