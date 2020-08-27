@@ -14,4 +14,6 @@ namespace Stage::BackGround
 	void CreateIndianVillage(GameLib::Actor* owner);
 
 	void CreateSanctuary(GameLib::Actor* onwer);
+
+	void CreateCreepyCave(GameLib::Actor*);
 }

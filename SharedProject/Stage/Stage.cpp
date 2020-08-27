@@ -24,7 +24,8 @@ namespace Stage
 		mSceneManager = LoadStage(this, std::move(fileName), playerLifeNum, playerGemNum);
 		Gravity::Reset();
 
-		BackGround::CreateSharpTreeForest(this);
+		//BackGround::CreateSharpTreeForest(this);
+		BackGround::CreateCreepyCave(this);
 	}
 
 	void Stage::CustomizeUpdate()

@@ -5,6 +5,7 @@
 #include"Parts/Object/CreateSlideObjects.hpp"
 #include"Parts/Object/BackGroundTotemPole.hpp"
 #include"Parts/Object/BackGroundTemple.hpp"
+#include"Parts/Cave.hpp"
 
 namespace Stage::BackGround
 {
@@ -44,4 +45,10 @@ namespace Stage::BackGround
 		CreateSlideObjects<Temple180>(owner, 4, 150.f, 130.f);
 		CreateSlideObjects<Temple130>(owner, 4, 160.f, 35.f);
 	}
+
+	void CreateCreepyCave(GameLib::Actor* actor)
+	{
+		new Cave{ actor };
+	}
+
 }
