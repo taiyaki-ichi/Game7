@@ -23,6 +23,7 @@
 #include"Actor/TogeBlock.hpp"
 #include"Actor/CycleLift.hpp"
 #include"Actor/MoveLift.hpp"
+#include"Actor/HeadBlock.hpp"
 
 namespace Stage
 {
@@ -63,6 +64,8 @@ namespace Stage
 			{"TogeBlock",[](Scene* scene) {return new TogeBlock{scene}; }},
 			{"CycleLift",[](Scene* scene) {return new CycleLift{scene}; }},
 			{"MoveLift",[](Scene* scene) {return new MoveLift{scene}; }},
+			{"HeadBlock",[](Scene* scene) {return new HeadBlock{scene}; }},
+			
 
 
 

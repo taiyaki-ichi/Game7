@@ -303,14 +303,19 @@
           "FloatData3": 48.421051025390625
         },
         {
-          "ActorName": "Triple",
-          "FloatData0": 648,
-          "FloatData1": 129
+          "ActorName": "HeadBlock",
+          "FloatData0": 286,
+          "FloatData1": 56
         },
         {
-          "ActorName": "Triple",
-          "FloatData0": 516,
-          "FloatData1": 124
+          "ActorName": "HeadBlock",
+          "FloatData0": 330,
+          "FloatData1": 73
+        },
+        {
+          "ActorName": "HeadBlock",
+          "FloatData0": 373,
+          "FloatData1": 93
         }
       ],
       "SceneName": "1"

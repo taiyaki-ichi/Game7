@@ -167,6 +167,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\GravityBox4Editor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GroundEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\GuruWarpEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\HeadBlockEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\MaiEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\MoveGroundEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\MoveLiftEditor.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\GravityBox4Editor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\GuruWarpEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\HeadBlockEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\MaiEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\MoveGroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\MoveLiftEditor.hpp" />
