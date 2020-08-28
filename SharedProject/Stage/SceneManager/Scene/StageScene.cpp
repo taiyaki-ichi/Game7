@@ -46,7 +46,6 @@ namespace Stage
 			BeginToRest();
 	}
 
-	
 
 	void Scene::AdjustCameraPosiotion()
 	{
