@@ -11,6 +11,7 @@
     <ClCompile Include="RectCurtain\RectCurtain.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="LoadSaveFunc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScene\StageSelect\DataDisplay\StringDisplay.hpp" />
@@ -33,5 +34,6 @@
     <ClInclude Include="RectCurtain\RectCurtainParam.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="StageData.hpp" />
+    <ClInclude Include="LoadSaveFunc.hpp" />
   </ItemGroup>
 </Project>

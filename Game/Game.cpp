@@ -7,6 +7,7 @@
 #include"GameScene/GameStage.hpp"
 #include"GameScene/StageSelect.hpp"
 #include"GameScene/StageStateFlag.hpp"
+#include"LoadSaveFunc.hpp"
 
 namespace Game
 {
@@ -16,7 +17,7 @@ namespace Game
 		, mGameData{}
 		, mRectCurtain{ nullptr }
 	{
-		mGameData = Load();
+		mGameData = LoadGameData();
 
 		//タイトルから
 		//kari
@@ -34,7 +35,7 @@ namespace Game
 		if (mNowScene->CheckFlag(SceneFlag::SAVE_FLAG))
 		{
 			mGameData = mNowScene->GetGameData();
-			Save(mGameData);
+			SaveGameData(mGameData);
 		}
 		//シーンを変更するフラグのどれかが立っており、カーテンが開いているなら
 		//現在のシーンを止めて、カーテンを閉める
@@ -64,20 +65,6 @@ namespace Game
 
 			mRectCurtain->Open();
 		}
-	}
-
-	GameData Game::Load()
-	{
-		//kari
-		//
-		//
-		//
-		return { {0,0},5,0,{{{1,0},0b1}} };
-	}
-
-	void Game::Save(const GameData& data)
-	{
-
 	}
 
 	void Game::GoStage()

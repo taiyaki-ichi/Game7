@@ -24,10 +24,6 @@ namespace Game
 		void CustomizeUpdate() override;
 
 	private:
-		//セーブデータ
-		//これメンバにする必要がない
-		GameData Load();
-		void Save(const GameData&);
 
 		//StageChangeFlagが立った時の処理
 		void GoStage();

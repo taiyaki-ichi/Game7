@@ -154,6 +154,7 @@
     <ClCompile Include="GameScene\StageSelect\DataDisplay\StringDisplay.cpp" />
     <ClCompile Include="GameScene\StageSelect\DataDisplay\TearGemDisplay.cpp" />
     <ClCompile Include="GameScene\StageSelect\HexChip\HexChip.cpp" />
+    <ClCompile Include="LoadSaveFunc.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RectCurtain\RectCurtain.cpp" />
   </ItemGroup>
@@ -175,6 +176,7 @@
     <ClInclude Include="GameScene\StageSelect\StageSelectParam.hpp" />
     <ClInclude Include="GameScene\StageStateFlag.hpp" />
     <ClInclude Include="GameScene\Utility\HexVec.hpp" />
+    <ClInclude Include="LoadSaveFunc.hpp" />
     <ClInclude Include="RectCurtain\RectCurtain.hpp" />
     <ClInclude Include="RectCurtain\RectCurtainParam.hpp" />
     <ClInclude Include="StageData.hpp" />

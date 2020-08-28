@@ -11,9 +11,9 @@ namespace Game
 		HexVec mNowPos;
 		int mPlayerLifeNum;
 		int mPlayerGemNum;
-		std::unordered_map<HexVec, unsigned int> mSaveData;
+		std::unordered_map<HexVec, unsigned char> mSaveData;
 
-		GameData(const HexVec& pos,int life,int gem, const std::unordered_map<HexVec, unsigned int>& saveData)
+		GameData(const HexVec& pos,int life,int gem, const std::unordered_map<HexVec, unsigned char>& saveData)
 			:mNowPos{pos}
 			, mPlayerLifeNum{life}
 			, mPlayerGemNum{gem}
