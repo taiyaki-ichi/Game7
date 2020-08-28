@@ -8,14 +8,14 @@ namespace Game
 		int x;
 		int y;
 
-		HexVec(int inX,int inY)
-			:x{inX}
-			, y{inY}
+		HexVec(int inX, int inY)
+			:x{ inX }
+			, y{ inY }
 		{}
 
 		HexVec()
-			:x{0}
-			, y{0}
+			:x{ 0 }
+			, y{ 0 }
 		{}
 
 		HexVec operator+(const HexVec& h) {

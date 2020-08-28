@@ -7,9 +7,9 @@
 namespace Game
 {
 	RectCurtain::RectCurtain(GameLib::Actor* actor)
-		:GameLib::Actor{ actor ,100}
+		:GameLib::Actor{ actor ,100 }
 		, mRect{}
-		, mState{0}
+		, mState{ 0 }
 	{
 		mRect.SetColor({ 0,0,0,255 });
 		mRect.SetWidthAndHeight(Stage::WindowSize::WIDTH, 0.f);
@@ -74,5 +74,5 @@ namespace Game
 		auto pos = AffineInv(adjust, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
 		mRect.SetPosition(std::move(pos));
 	}
-	
+
 }

@@ -1,7 +1,6 @@
 #pragma once
 #include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/Draw/DrawTexture.hpp"
-#include"HexVec.hpp"
 
 namespace Game
 {
@@ -9,7 +8,9 @@ namespace Game
 	{
 		GameLib::DrawTexture mTexture;
 
-		HexVec mPos;
+		int mPosX;
+		int mPosY;
+
 		int mCnt;
 
 	public:
@@ -17,8 +18,7 @@ namespace Game
 
 		void CustomizeUpdate() override;
 
-		void SetPosision(const HexVec&);
-		const HexVec& GetPosition() const;
+		void SetPosision(int x,int y);
 	};
 
 }

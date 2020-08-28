@@ -1,50 +1,42 @@
 #pragma once
-#include"GameLib/include/Actor/Actor.hpp"
-#include<unordered_map>
-#include"StageSelect/HexVec.hpp"
-
-namespace Stage
-{
-	class Stage;
-}
+#include"GameLib/include/Actor/RootActor.hpp"
+#include"GameScene/GameData.hpp"
 
 namespace Game
 {
-	class Title;
-	class StageSelect;
+	class SceneBase;
 	class RectCurtain;
 
-	class Game : public GameLib::Actor
+	class Game : public GameLib::RootActor
 	{
-		Title* mTitle;
-		StageSelect* mStageSelect;
-		Stage::Stage* mStage;
+		//現在のシーン
+		SceneBase* mNowScene;
 
-		//nullptrじゃあないやつを呼び出す
-		//あんまりよくなさげ
-		void UpdateTitle();
-		void UpdateStageSelect();
-		void UpdateStage();
+		//記録
+		GameData mGameData;
 
+		//シーン遷移用
 		RectCurtain* mRectCurtain;
 
-		//ゲームのデータたち
-		std::unordered_map<HexVec, unsigned char> mSaveData;
-		int mPlayerLifeNum;
-		int mPlayerGemNum;
-		//StageSelectでSpaceが押されたとき更新
-		HexVec mPosition;
-
-		//ファイルに書き込み、基本的にStageSelectから呼ばれると思う
-		bool Save();
-
-		//Gameが生成されたときに呼び出されるかな
-		bool Load();
-
 	public:
-		Game(GameLib::Actor*);
-		virtual ~Game() = default;
+		Game();
 
 		void CustomizeUpdate() override;
+
+	private:
+		//セーブデータ
+		//これメンバにする必要がない
+		GameData Load();
+		void Save(const GameData&);
+
+		//StageChangeFlagが立った時の処理
+		void GoStage();
+		void GoTitle();
+		void GoStageSelect();
+		void StageClear();
+		void MissStage();
+		
+
+
 	};
 }

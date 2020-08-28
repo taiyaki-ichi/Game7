@@ -1,162 +1,144 @@
 #include"Game.hpp"
-#include"StageSelect/StageSelect.hpp"
-#include"StageData.hpp"
-#include"GameLib/include/InputState/InputState.hpp"
-#include"Stage/Stage.hpp"
-#include"StageSelect/HexChip/ToVector2.hpp"
-#include"GameLib/include/Viewport/Viewport.hpp"
+#include"GameScene/GameSceneFlag.hpp"
 #include"RectCurtain/RectCurtain.hpp"
-#include"Stage/Stage.hpp"
-#include"Stage/StageFlag.hpp"
-#include"StageStateFlag.hpp"
+#include"GameScene/GameSceneBase.hpp"
+#include"StageData.hpp"
+#include"GameScene/StageDataParam.hpp"
+#include"GameScene/GameStage.hpp"
+#include"GameScene/StageSelect.hpp"
+#include"GameScene/StageStateFlag.hpp"
 
 namespace Game
 {
-	Game::Game(GameLib::Actor* actor)
-		:GameLib::Actor{actor}
-		, mTitle{nullptr}
-		, mStageSelect{nullptr}
-		, mStage{nullptr}
-		, mSaveData{}
-		, mPlayerLifeNum{5}
-		, mPlayerGemNum{ 0 }
-		, mPosition{ 0,0 }
-		, mRectCurtain{nullptr}
+	Game::Game()
+		:RootActor{}
+		, mNowScene{ nullptr }
+		, mGameData{}
+		, mRectCurtain{ nullptr }
 	{
-		Load();
+		mGameData = Load();
+
+		//タイトルから
+		//kari
+		//
+		//
+		//
+		//
+		mNowScene = new StageSelect{ this,mGameData,gStageData };
 
 		mRectCurtain = new RectCurtain{ this };
-
-		//仮
-		mStageSelect = new StageSelect{ this,mSaveData,gStageData,mPosition,mPlayerLifeNum,mPlayerGemNum };
-
 	}
 
 	void Game::CustomizeUpdate()
 	{
-		if (mTitle)
-			UpdateTitle();
-		else if (mStageSelect)
-			UpdateStageSelect();
-		else if (mStage)
-			UpdateStage();
-	}
-
-	bool Game::Load()
-	{
-		//仮
-		mSaveData.emplace(HexVec{ 1,0 }, 0b1);
-		//mSaveData.emplace(std::make_pair(2, 0), 0b10110);
-		//mSaveData.emplace(std::make_pair(3, 0), 0b1);
-
-		return true;
-	}
-
-	bool Game::Save()
-	{
-
-	}
-
-	void Game::UpdateTitle()
-	{
-
-	}
-
-	void Game::UpdateStageSelect()
-	{
-		if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
+		if (mNowScene->CheckFlag(SceneFlag::SAVE_FLAG))
 		{
-			auto iter = gStageData.find(mStageSelect->GetChoicePos());
-			if (iter != gStageData.end() && iter->second.size() == 3)
-			{
-				mPosition = iter->first;
-				mStageSelect->ChoiceIconStop();
-				mRectCurtain->Close();
-			}
-
+			mGameData = mNowScene->GetGameData();
+			Save(mGameData);
 		}
-		else if (mRectCurtain->IsClose())
+		//シーンを変更するフラグのどれかが立っており、カーテンが開いているなら
+		//現在のシーンを止めて、カーテンを閉める
+		else if (mNowScene->CheckFlag() && mRectCurtain->IsOpen())
 		{
-			auto iter = gStageData.find(mPosition);
-			if (iter != gStageData.end())
-			{
-				mStageSelect->SetState(GameLib::Actor::State::Dead);
-				mStageSelect = nullptr;
-
-				mStage = new ::Stage::Stage{ this,"../Data/Stage/" + iter->second[0] + ".json" ,mPlayerLifeNum,mPlayerGemNum };
-
-				mRectCurtain->Open();
-			}
-		}
-	}
-
-	void Game::UpdateStage()
-	{
-		if (mRectCurtain->IsOpen() && mStage->CheckFlag(Stage::StageFlag::CLEAR_FLAG))
-		{
-			mRectCurtain->Close();
-
-			auto item = mStage->GetItemNumData();
-			mPlayerLifeNum = item.mLifeNum;
-			mPlayerGemNum = item.mGemNum;
-
-			//セーブデータの更新
-			//クリア情報
-			unsigned char flag{ 0 };
-			flag |= StageStateFlag::OPEN_FLAG;
-			flag |= StageStateFlag::CLEAR_FLAG;
-			if (item.mTearGemCnt[0])
-				flag |= StageStateFlag::TEARGEM1_FLAG;
-			if (item.mTearGemCnt[1])
-				flag |= StageStateFlag::TEARGEM2_FLAG;
-			if (item.mTearGemCnt[2])
-				flag |= StageStateFlag::TEARGEM3_FLAG;
-			mSaveData.insert_or_assign(mPosition, flag);
-
-			//新しくいける場所
-			//すでにデータが存在する場合、挿入しない
-			auto iter1 = gStageData.find(mPosition + DIR_E);
-			if (iter1 != gStageData.end())
-				mSaveData.emplace(iter1->first, StageStateFlag::OPEN_FLAG);
-
-			auto iter2 = gStageData.find(mPosition + DIR_D);
-			if (iter2 != gStageData.end())
-				mSaveData.emplace(iter2->first, StageStateFlag::OPEN_FLAG);
-
-			auto iter3 = gStageData.find(mPosition + DIR_X);
-			if (iter3 != gStageData.end())
-				mSaveData.emplace(iter3->first, StageStateFlag::OPEN_FLAG);
-
-		}
-		else if (mRectCurtain->IsOpen() && mStage->CheckFlag(Stage::StageFlag::MISS_FLAG))
-		{
-			mRectCurtain->Close();
-
-			auto item = mStage->GetItemNumData();
-			mPlayerLifeNum = item.mLifeNum;
-			mPlayerGemNum = item.mGemNum;
-
-			mPlayerLifeNum--;
-		}
-		else if (mRectCurtain->IsOpen() && mStage->CheckFlag(Stage::StageFlag::RETURN_STAGESELECT_FLAG))
-		{
+			mNowScene->SetState(GameLib::Actor::State::Pause);
 			mRectCurtain->Close();
 		}
 
+		//カーテンが閉じられたときシーンを変えカーテンあける
+		//GameDataの行進が必要な際はそうする
 		if (mRectCurtain->IsClose())
 		{
-			//GameLib::Viewport::SetPos(GameLib::Vector2{});
-			GameLib::Viewport::SetRotation(0.f);
-			GameLib::Viewport::SetScale(1.f);
+			mNowScene->SetState(GameLib::Actor::State::Dead);
 
-			mStage->SetState(GameLib::Actor::State::Dead);
-			mStage = nullptr;
+			using namespace SceneFlag;
+			if (mNowScene->CheckFlag(GO_STAGE_FLAG))
+				GoStage();
+			else if (mNowScene->CheckFlag(STAGE_CLAER_FLAG))
+				StageClear();
+			else if (mNowScene->CheckFlag(STAGE_MISS_FLAG))
+				MissStage();
+			else if (mNowScene->CheckFlag(GO_STAGESELECT_FLAG))
+				GoStageSelect();
+			else
+				GoTitle();
 
-			mStageSelect = new StageSelect{ this,mSaveData,gStageData,mPosition,mPlayerLifeNum,mPlayerGemNum };
-			
 			mRectCurtain->Open();
 		}
 	}
 
+	GameData Game::Load()
+	{
+		//kari
+		//
+		//
+		//
+		return { {0,0},5,0,{{{1,0},0b1}} };
+	}
 
+	void Game::Save(const GameData& data)
+	{
+
+	}
+
+	void Game::GoStage()
+	{
+		mGameData.mNowPos = mNowScene->GetGameData().mNowPos;
+		auto iter = gStageData.find(mGameData.mNowPos);
+		//一応
+		if (iter != gStageData.end() && iter->second.size() == StageDataParam::STAGE_STRING_NUM)
+		{
+			mNowScene = new GameStage{ this,mGameData,iter->second[0] };
+		}
+
+	}
+
+	void Game::GoTitle()
+	{
+
+	
+	}
+
+	void Game::GoStageSelect()
+	{
+		mNowScene = new StageSelect{ this,mGameData,gStageData };
+	}
+
+	void Game::StageClear()
+	{
+		mGameData = mNowScene->GetGameData();
+		
+		//クリアした場合最大3方向へ行けるようになるようセーブデータを変更
+		for (auto& adHexVec : { DIR_E,DIR_D,DIR_X })
+		{
+			auto pos = mGameData.mNowPos + adHexVec;
+			auto iter = gStageData.find(pos);
+			if (iter != gStageData.end())
+				mGameData.mSaveData.insert({ pos, StageStateFlag::OPEN_FLAG });
+		}
+
+		mNowScene = new StageSelect{ this,mGameData,gStageData };
+	}
+
+	void Game::MissStage()
+	{
+		//残機を減らす作業はStageSceneでやる
+		mGameData = mNowScene->GetGameData();
+
+		//残機がなくなったらゲームおーば
+		if (mGameData.mPlayerLifeNum == 0)
+		{
+			mGameData.mPlayerLifeNum = START_PLAYER_LIFE_NUM;
+			mGameData.mPlayerGemNum = 0;
+			mGameData.mSaveData.clear();
+
+			//ge-muオーバー
+			//
+			//
+		}
+		else 
+			mNowScene = new StageSelect{ this,mGameData,gStageData };
+		
+	}
+
+	
 }
