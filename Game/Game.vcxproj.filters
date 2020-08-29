@@ -15,6 +15,7 @@
     <ClCompile Include="GameScene\TitleScene.cpp" />
     <ClCompile Include="GameScene\TitleScene\Button.cpp" />
     <ClCompile Include="GameScene\TitleScene\Kakko.cpp" />
+    <ClCompile Include="GameScene\TitleScene\TitleLogo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScene\StageSelect\DataDisplay\StringDisplay.hpp" />
@@ -45,5 +46,7 @@
     <ClInclude Include="GameScene\TitleScene\Kakko.hpp" />
     <ClInclude Include="GameScene\TitleScene\ButtonParam.hpp" />
     <ClInclude Include="GameScene\TitleScene\KakkoParam.hpp" />
+    <ClInclude Include="GameScene\TitleScene\TitleLogo.hpp" />
+    <ClInclude Include="GameScene\TitleScene\TitleLogoParam.hpp" />
   </ItemGroup>
 </Project>

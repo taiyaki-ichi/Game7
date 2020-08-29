@@ -3,6 +3,7 @@
 #include"TitleScene/Button.hpp"
 #include"TitleScene/CursorPos.hpp"
 #include"GameLib/include/Draw/DrawFontText.hpp"
+#include"TitleScene/TitleLogo.hpp"
 
 namespace Game
 {
@@ -19,6 +20,8 @@ namespace Game
 		GameLib::DrawFontText mD;
 
 		Kakko* mKakko;
+
+		TitleLogo mTitleLogo;
 
 	public:
 		TitleScene(GameLib::Actor*,const GameData&);

@@ -17,5 +17,7 @@ namespace Game
 
 		constexpr float KAKKO_ADJUST = 20.f;
 
+		const GameLib::Vector2 TITLELOGO_POS{ 0.f,150.f };
+
 	}
 }

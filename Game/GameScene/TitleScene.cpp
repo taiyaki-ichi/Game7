@@ -14,6 +14,7 @@ namespace Game
 		, mA{ "../Assets/Font/mplus-1c-black.ttf" }
 		, mD{ "../Assets/Font/mplus-1c-black.ttf" }
 		, mKakko{nullptr}
+		, mTitleLogo{TitleSceneParam::TITLELOGO_POS}
 	{
 		using namespace TitleSceneParam;
 

@@ -157,6 +157,7 @@
     <ClCompile Include="GameScene\TitleScene.cpp" />
     <ClCompile Include="GameScene\TitleScene\Button.cpp" />
     <ClCompile Include="GameScene\TitleScene\Kakko.cpp" />
+    <ClCompile Include="GameScene\TitleScene\TitleLogo.cpp" />
     <ClCompile Include="LoadSaveFunc.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RectCurtain\RectCurtain.cpp" />
@@ -184,6 +185,8 @@
     <ClInclude Include="GameScene\TitleScene\CursorPos.hpp" />
     <ClInclude Include="GameScene\TitleScene\Kakko.hpp" />
     <ClInclude Include="GameScene\TitleScene\KakkoParam.hpp" />
+    <ClInclude Include="GameScene\TitleScene\TitleLogo.hpp" />
+    <ClInclude Include="GameScene\TitleScene\TitleLogoParam.hpp" />
     <ClInclude Include="GameScene\TitleScene\TitleSceneParam.hpp" />
     <ClInclude Include="GameScene\Utility\HexVec.hpp" />
     <ClInclude Include="LoadSaveFunc.hpp" />
