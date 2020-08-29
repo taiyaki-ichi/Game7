@@ -12,6 +12,7 @@
 #include"GameLib/include/Viewport/Viewport.hpp"
 #include"TemporaryMessage/TemporaryMessage.hpp"
 #include"GameParam.hpp"
+#include"GameScene/GameOverScene.hpp"
 
 namespace Game
 {
@@ -122,13 +123,9 @@ namespace Game
 		//残機がなくなったらゲームおーば
 		if (mGameData.mPlayerLifeNum == 0)
 		{
-			mGameData.mPlayerLifeNum = START_PLAYER_LIFE_NUM;
-			mGameData.mPlayerGemNum = 0;
-			mGameData.mSaveData.clear();
+			mGameData = START_GAMEDATA;
 
-			//ge-muオーバー
-			//
-			//
+			mNowScene = new GameOverScene{ this,mGameData };
 		}
 		else 
 			mNowScene = new StageSelect{ this,mGameData,gStageData };

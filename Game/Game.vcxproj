@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameScene\GameOverScene.cpp" />
     <ClCompile Include="GameScene\GameSceneBase.cpp" />
     <ClCompile Include="GameScene\GameStage.cpp" />
     <ClCompile Include="GameScene\StageSelect.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameParam.hpp" />
     <ClInclude Include="GameScene\GameData.hpp" />
+    <ClInclude Include="GameScene\GameOverScene.hpp" />
     <ClInclude Include="GameScene\GameSceneBase.hpp" />
     <ClInclude Include="GameScene\GameSceneFlag.hpp" />
     <ClInclude Include="GameScene\GameStage.hpp" />
