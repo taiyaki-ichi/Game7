@@ -6,7 +6,6 @@
 
 namespace Game
 {
-
 	const std::unordered_map<HexVec, std::vector<std::string>> gStageData =
 	{
 		{{1,0},{"stage001","easy","n‚Ü‚è‚ÌX"}},
@@ -22,6 +21,5 @@ namespace Game
 		{{0,-1},{"title"}},
 		{{0,0},{"start"}},
 	};
-
 
 }

@@ -8,6 +8,8 @@
 #include"GameScene/StageSelect.hpp"
 #include"GameScene/StageStateFlag.hpp"
 #include"LoadSaveFunc.hpp"
+#include"StartGameData.hpp"
+#include"GameScene/TitleScene.hpp"
 
 namespace Game
 {
@@ -19,13 +21,7 @@ namespace Game
 	{
 		mGameData = LoadGameData();
 
-		//ƒ^ƒCƒgƒ‹‚©‚ç
-		//kari
-		//
-		//
-		//
-		//
-		mNowScene = new StageSelect{ this,mGameData,gStageData };
+		mNowScene = new TitleScene{ this,mGameData };
 
 		mRectCurtain = new RectCurtain{ this };
 	}
@@ -60,6 +56,8 @@ namespace Game
 				MissStage();
 			else if (mNowScene->CheckFlag(GO_STAGESELECT_FLAG))
 				GoStageSelect();
+			else if (mNowScene->CheckFlag(GO_STAGESELECT_FROM_ZERO_FLAG))
+				GoStageSelectFromZero();
 			else
 				GoTitle();
 
@@ -127,5 +125,10 @@ namespace Game
 		
 	}
 
+	void Game::GoStageSelectFromZero()
+	{
+		mGameData = START_GAMEDATA;
+		mNowScene = new StageSelect{ this,mGameData,gStageData };
+	}
 	
 }

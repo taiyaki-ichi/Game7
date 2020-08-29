@@ -12,6 +12,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="LoadSaveFunc.cpp" />
+    <ClCompile Include="GameScene\TitleScene.cpp" />
+    <ClCompile Include="GameScene\TitleScene\Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScene\StageSelect\DataDisplay\StringDisplay.hpp" />
@@ -35,5 +37,10 @@
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="StageData.hpp" />
     <ClInclude Include="LoadSaveFunc.hpp" />
+    <ClInclude Include="GameScene\TitleScene.hpp" />
+    <ClInclude Include="GameScene\TitleScene\Button.hpp" />
+    <ClInclude Include="GameScene\TitleScene\CursorPos.hpp" />
+    <ClInclude Include="GameScene\TitleScene\TitleSceneParam.hpp" />
+    <ClInclude Include="StartGameData.hpp" />
   </ItemGroup>
 </Project>

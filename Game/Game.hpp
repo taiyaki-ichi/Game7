@@ -26,11 +26,13 @@ namespace Game
 	private:
 
 		//StageChangeFlag‚ª—§‚Á‚½‚Ìˆ—
+		//‚­‚»‚¢
 		void GoStage();
 		void GoTitle();
 		void GoStageSelect();
 		void StageClear();
 		void MissStage();
+		void GoStageSelectFromZero();
 		
 
 

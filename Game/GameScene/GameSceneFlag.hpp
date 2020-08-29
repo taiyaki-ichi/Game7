@@ -14,5 +14,7 @@ namespace Game
 		constexpr unsigned int STAGE_MISS_FLAG = 0b10000;
 
 		constexpr unsigned int SAVE_FLAG = 0b100000;
+
+		constexpr unsigned int GO_STAGESELECT_FROM_ZERO_FLAG = 0b1000000;
 	}
 }

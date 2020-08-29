@@ -154,6 +154,8 @@
     <ClCompile Include="GameScene\StageSelect\DataDisplay\StringDisplay.cpp" />
     <ClCompile Include="GameScene\StageSelect\DataDisplay\TearGemDisplay.cpp" />
     <ClCompile Include="GameScene\StageSelect\HexChip\HexChip.cpp" />
+    <ClCompile Include="GameScene\TitleScene.cpp" />
+    <ClCompile Include="GameScene\TitleScene\Button.cpp" />
     <ClCompile Include="LoadSaveFunc.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RectCurtain\RectCurtain.cpp" />
@@ -175,11 +177,16 @@
     <ClInclude Include="GameScene\StageSelect\HexChip\ToVector2.hpp" />
     <ClInclude Include="GameScene\StageSelect\StageSelectParam.hpp" />
     <ClInclude Include="GameScene\StageStateFlag.hpp" />
+    <ClInclude Include="GameScene\TitleScene.hpp" />
+    <ClInclude Include="GameScene\TitleScene\Button.hpp" />
+    <ClInclude Include="GameScene\TitleScene\CursorPos.hpp" />
+    <ClInclude Include="GameScene\TitleScene\TitleSceneParam.hpp" />
     <ClInclude Include="GameScene\Utility\HexVec.hpp" />
     <ClInclude Include="LoadSaveFunc.hpp" />
     <ClInclude Include="RectCurtain\RectCurtain.hpp" />
     <ClInclude Include="RectCurtain\RectCurtainParam.hpp" />
     <ClInclude Include="StageData.hpp" />
+    <ClInclude Include="StartGameData.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

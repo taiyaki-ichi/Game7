@@ -1,5 +1,6 @@
 #include"LoadSaveFunc.hpp"
 #include <fstream>
+#include"StartGameData.hpp"
 
 namespace Game
 {
@@ -15,7 +16,7 @@ namespace Game
 
 		//ƒtƒ@ƒCƒ‹‚ª–³Œø‚Ìê‡
 		if (!file)
-			return { {0,0},5,0,{{{1,0},0b1}} };
+			return START_GAMEDATA;
 		
 		GameData result;
 
