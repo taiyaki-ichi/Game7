@@ -161,9 +161,11 @@
     <ClCompile Include="LoadSaveFunc.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RectCurtain\RectCurtain.cpp" />
+    <ClCompile Include="TemporaryMessage\TemporaryMessage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="GameParam.hpp" />
     <ClInclude Include="GameScene\GameData.hpp" />
     <ClInclude Include="GameScene\GameSceneBase.hpp" />
     <ClInclude Include="GameScene\GameSceneFlag.hpp" />
@@ -193,6 +195,7 @@
     <ClInclude Include="RectCurtain\RectCurtain.hpp" />
     <ClInclude Include="RectCurtain\RectCurtainParam.hpp" />
     <ClInclude Include="StageData.hpp" />
+    <ClInclude Include="TemporaryMessage\TemporaryMessage.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
