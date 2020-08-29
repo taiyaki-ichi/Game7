@@ -24,4 +24,6 @@ namespace Game
 			:mNowPos{}, mPlayerLifeNum{}, mPlayerGemNum{}, mSaveData{}
 		{}
 	};
+
+	const GameData START_GAMEDATA{ {0,0},5,0,{{{1,0},0b1}} };
 }

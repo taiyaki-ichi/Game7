@@ -8,8 +8,8 @@
 #include"GameScene/StageSelect.hpp"
 #include"GameScene/StageStateFlag.hpp"
 #include"LoadSaveFunc.hpp"
-#include"StartGameData.hpp"
 #include"GameScene/TitleScene.hpp"
+#include"GameLib/include/Viewport/Viewport.hpp"
 
 namespace Game
 {
@@ -45,6 +45,10 @@ namespace Game
 		//GameDataの行進が必要な際はそうする
 		if (mRectCurtain->IsClose())
 		{
+			GameLib::Viewport::SetPos({ 0.f,0.f });
+			GameLib::Viewport::SetRotation(0.f);
+			GameLib::Viewport::SetScale(1.f);
+
 			mNowScene->SetState(GameLib::Actor::State::Dead);
 
 			using namespace SceneFlag;
@@ -79,8 +83,7 @@ namespace Game
 
 	void Game::GoTitle()
 	{
-
-	
+		mNowScene = new TitleScene{ this,mGameData };
 	}
 
 	void Game::GoStageSelect()
