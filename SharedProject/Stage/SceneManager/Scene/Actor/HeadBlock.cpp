@@ -41,12 +41,14 @@ namespace Stage
 	void HeadBlock::BeginWorking()
 	{
 		mAnim.SetIsAutoDrawing(true);
+		mRect.SetIsAutoDrawing(true);
 		mStateManager.BeginWorking();
 	}
 
 	void HeadBlock::BeginToRest()
 	{
 		mAnim.SetIsAutoDrawing(false);
+		mRect.SetIsAutoDrawing(false);
 		mStateManager.BeginToRest();
 	}
 
