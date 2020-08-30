@@ -33,7 +33,7 @@ namespace Stage
 
 			auto hitPlayer = [this](const GameLib::Collider& c) {
 				auto ad = GetParallelRectAdjustVec(mCollider, c);
-				if (GetDir4DirectionSize(ad, Dir4::Down) > 0.f)
+				//if (GetDir4DirectionSize(ad, Dir4::Down) > 0.f)
 					UpFlag(HeadBlockFlag::ON_PLAYER_FLAG);
 			};
 
@@ -56,7 +56,7 @@ namespace Stage
 				mAnim->SetChannel(0);
 
 			if (mCnt >= PLAYER_RIDE_TIME)
-				return new FallState<>{ mAnim,FALL_SPEED,FALL_ROT,FALL_DEATH_LINE,2 };
+				return new FallState<>{ mAnim,FALL_SPEED,FALL_ROT,FALL_DEATH_LINE,HeadBlockFlag::DEATH_FLAG, 2 };
 
 			float h = HEIGHT * SCALE * static_cast<float>(mCnt) / static_cast<float>(PLAYER_RIDE_TIME);
 			mRect.SetWidthAndHeight(WIDTH * SCALE, h);
