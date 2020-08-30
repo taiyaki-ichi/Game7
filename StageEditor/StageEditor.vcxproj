@@ -172,6 +172,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\MoveGroundEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\MoveLiftEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\PlayerEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\StandEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\StraightBeeEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\TearGemEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\ThroughFloorEditor.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="SceneEditor\ActorEditor\MoveGroundEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\MoveLiftEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\PlayerEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\StandEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\StraightBeeEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\TearGemEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\ThroughFloorEditor.hpp" />

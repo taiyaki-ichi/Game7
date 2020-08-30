@@ -24,6 +24,7 @@
 #include"Actor/CycleLift.hpp"
 #include"Actor/MoveLift.hpp"
 #include"Actor/HeadBlock.hpp"
+#include"Actor/Stand.hpp"
 
 namespace Stage
 {
@@ -65,7 +66,10 @@ namespace Stage
 			{"CycleLift",[](Scene* scene) {return new CycleLift{scene}; }},
 			{"MoveLift",[](Scene* scene) {return new MoveLift{scene}; }},
 			{"HeadBlock",[](Scene* scene) {return new HeadBlock{scene}; }},
-			
+			{"RightStand",[](Scene* scene) {return new Stand{scene,Dir4::Right}; }},
+			{"LeftStand",[](Scene* scene) {return new Stand{scene,Dir4::Left}; }},
+			{"UpStand",[](Scene* scene) {return new Stand{scene,Dir4::Up}; }},
+			{"DownStand",[](Scene* scene) {return new Stand{scene,Dir4::Down}; }},
 
 
 

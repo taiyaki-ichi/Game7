@@ -256,6 +256,13 @@ namespace Stage::PlayerState
 			hitGround(c);
 		};
 
+		auto hitSpore = [this](const GameLib::Collider& c) {
+			auto v = c.GetRerativePos();
+			v.Normalize();
+			mPhysicsModel.mVelocity += v * PlayerParam::HIT_SPORE_SPEED;
+		};
+
+		mCollider.AddHitFunction("Spore", std::move(hitSpore));
 		mCollider.AddHitFunction("TogeBlock", std::move(hitTogeBlock));
 		mCollider.AddHitFunction("DownTrampoline", std::move(hitDonwT));
 		mCollider.AddHitFunction("UpTrampoline", std::move(hitUpT));
@@ -286,6 +293,7 @@ namespace Stage::PlayerState
 		mCollider.AddHitFunction("MaiWeakness", hitEnemyWeakness);
 		mCollider.AddHitFunction("NailStrength", hitEnemyStrength);
 		mCollider.AddHitFunction("NailWeakness", hitEnemyWeakness);
+		mCollider.AddHitFunction("Stand", hitEnemyWeakness);
 	}
 
 	Stage::StateBase<char>* Active::Update()

@@ -38,6 +38,7 @@
     <ClCompile Include="SceneEditor\ActorEditor\CycleLiftEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\MoveLiftEditor.cpp" />
     <ClCompile Include="SceneEditor\ActorEditor\HeadBlockEditor.cpp" />
+    <ClCompile Include="SceneEditor\ActorEditor\StandEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera\EditorCamera.hpp" />
@@ -80,5 +81,6 @@
     <ClInclude Include="SceneEditor\ActorEditor\CycleLiftEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\MoveLiftEditor.hpp" />
     <ClInclude Include="SceneEditor\ActorEditor\HeadBlockEditor.hpp" />
+    <ClInclude Include="SceneEditor\ActorEditor\StandEditor.hpp" />
   </ItemGroup>
 </Project>

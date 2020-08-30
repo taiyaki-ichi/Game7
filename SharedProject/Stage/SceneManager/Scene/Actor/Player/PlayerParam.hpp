@@ -19,6 +19,8 @@ namespace Stage
 		constexpr float FALL_DEATH_LINE = 100.f;
 		constexpr int INVINCIBLE_TIME = 40;
 
+		constexpr float HIT_SPORE_SPEED = 0.5f;
+
 		//Death
 		constexpr static int DEATH_CNT = 180;
 
@@ -29,6 +31,8 @@ namespace Stage
 
 		const GameLib::Vector2 LIFE_POSITION = { -WindowSize::WIDTH / 2.f + 50.f,WindowSize::HEIGHT / 2.f - 50 };
 		const GameLib::Vector2 ITEMNUM_POSITION = { WindowSize::WIDTH / 2.f - 70.f,WindowSize::HEIGHT / 2.f - 25 };
+
+		
 
 	}
 }
