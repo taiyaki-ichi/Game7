@@ -25,6 +25,7 @@
 #include"Actor/MoveLift.hpp"
 #include"Actor/HeadBlock.hpp"
 #include"Actor/Stand.hpp"
+#include"Actor/IceGround.hpp"
 
 namespace Stage
 {
@@ -70,6 +71,7 @@ namespace Stage
 			{"LeftStand",[](Scene* scene) {return new Stand{scene,Dir4::Left}; }},
 			{"UpStand",[](Scene* scene) {return new Stand{scene,Dir4::Up}; }},
 			{"DownStand",[](Scene* scene) {return new Stand{scene,Dir4::Down}; }},
+			{"IceGround",[](Scene* scene) {return new IceGround{scene}; }},
 
 
 

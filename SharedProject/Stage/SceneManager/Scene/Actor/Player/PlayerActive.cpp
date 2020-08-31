@@ -43,10 +43,13 @@ namespace Stage::PlayerState
 			GameLib::Vector2 adjust{};
 
 			//Gravity以下のXを切り捨て引っかかりをなくす
+			//これだと歩いているときは引っかからないがジャンプしたときひっかっかる、うーん
 			if (Gravity::GetDir4() == Dir4::Down || Gravity::GetDir4() == Dir4::Up)
 				adjust = GetParallelRectAdjustVec(mCollider, c, 1.f, 0.f);
 			else
 				adjust = GetParallelRectAdjustVec(mCollider, c, 0.f, 1.f);
+				
+				
 			auto dir4Vec = GetDir4Vec(adjust);
 
 			//std::cout << "c wigth: " << c.GetWidth() << "\n";
@@ -83,10 +86,11 @@ namespace Stage::PlayerState
 
 			mPhysicsModel.mPosition += adjust;
 
-			if (adjust.x * mPhysicsModel.mVelocity.x < 0.f)
-				mPhysicsModel.mVelocity.x = 0.f;
-			else if (adjust.y * mPhysicsModel.mVelocity.y < 0.f)
-				mPhysicsModel.mVelocity.y = 0.f;
+			if (dir4Vec.mDir4 == Dir4::Up || dir4Vec.mDir4 == Dir4::Down)
+				mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, Dir4::Up, 0.f);
+			else
+				mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, Dir4::Right, 0.f);
+
 
 			//A,Dが押されているときなどは摩擦の影響なし
 			/*
@@ -200,31 +204,6 @@ namespace Stage::PlayerState
 			mPhysicsModel.Friction(0.5f, 0.5f);
 		};
 
-		/*
-		auto hitTrampoline = [this,hitGround](Dir4&& dir, const GameLib::Collider& c)
-		{
-
-			auto adjust = GetParallelRectAdjustVec(mCollider, c);
-			auto adjustDir4Vec = GetDir4Vec(adjust);
-			auto adjustDir4VecDir4 = adjustDir4Vec.mDir4;
-
-			hitGround(c);
-
-			int dirNum = static_cast<int>(dir) - static_cast<int>(Gravity::GetDir4());
-			if (dirNum > 3)
-				dirNum -= 4;
-			if (dirNum < 0)
-				dirNum += 4;
-
-			auto adjustDir = static_cast<Dir4>(dirNum);
-			if ( adjustDir4VecDir4== adjustDir) {
-				mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, adjustDir, 0.f);
-				mPhysicsModel.mVelocity += GetVector2(adjustDir, TrampolineParam::PLAYER_POWER);
-				mJumpFlag = 3;
-			}
-		};
-		*/
-
 		auto hitT = [this,hitGround](Dir4&& dir, const GameLib::Collider& c)
 		{
 			auto v = hitTrampoline(mPhysicsModel.mVelocity, mCollider, std::move(dir), c, TrampolineParam::PLAYER_POWER);
@@ -263,6 +242,21 @@ namespace Stage::PlayerState
 			mPhysicsModel.mVelocity += v * PlayerParam::HIT_SPORE_SPEED;
 		};
 
+		auto hitIceGround = [this, hitGround](const GameLib::Collider& c) {
+			auto prevAdjust = GetParallelRectAdjustVec(mCollider, c);
+			auto prevV = mPhysicsModel.mVelocity;
+
+			hitGround(c);
+
+			if (GetDir4DirectionSize(prevAdjust, Dir4::Up) > 0.f)
+			{
+				float v = GetDir4DirectionSize(prevV, Dir4::Right);
+				mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, Dir4::Right, v);
+			}
+		};
+
+
+		mCollider.AddHitFunction("IceGround", std::move(hitIceGround));
 		mCollider.AddHitFunction("Spore", std::move(hitSpore));
 		mCollider.AddHitFunction("TogeBlock", std::move(hitTogeBlock));
 		mCollider.AddHitFunction("DownTrampoline", std::move(hitDonwT));
@@ -441,12 +435,7 @@ namespace Stage::PlayerState
 
 	void Active::CheckFallDeath()
 	{
-		/*
-		auto pos = GameLib::Affine(mPhysicsModel.mPosition, GameLib::Viewport::GetPos(), GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
 
-		if (GetDir4DirectionSize(pos, Dir4::Down) > WindowSize::HEIGHT / 2.f + PlayerParam::FALL_DEATH_LINE)
-			UpFlag(PlayerFlag::DEATH_FLAG);
-			*/
 
 		auto pos = mPhysicsModel.mPosition;
 		if(!IsInScope(pos,WindowSize::WIDTH+PlayerParam::FALL_DEATH_LINE, WindowSize::WIDTH + PlayerParam::FALL_DEATH_LINE))

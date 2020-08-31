@@ -27,6 +27,11 @@
 #include"ActorEditor/MoveLiftEditor.hpp"
 #include"ActorEditor/HeadBlockEditor.hpp"
 #include"ActorEditor/StandEditor.hpp"
+#include"ActorEditor/IceGroundEditor.hpp"
+
+
+
+
 
 namespace StageEditor
 {
@@ -72,6 +77,10 @@ namespace StageEditor
 			{"LeftStand",[](GameLib::Actor* actor) {return new StandEditor{actor,"Left"}; }},
 			{"UpStand",[](GameLib::Actor* actor) {return new StandEditor{actor,"Up"}; }},
 			{"DownStand",[](GameLib::Actor* actor) {return new StandEditor{actor,"Down"}; }},
+			{"IceGround",[](GameLib::Actor* actor) {return new IceGroundEditor{actor}; }},
+
+
+
 
 		};
 	}
