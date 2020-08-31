@@ -3,7 +3,7 @@
 #include"Stage/Utilty/Geometry.hpp"
 #include"Stage/Utilty/Dir4Vec.hpp"
 #include"Goal/Kira.hpp"
-
+#include"Goal/GoalText.hpp"
 
 namespace Stage
 {
@@ -13,6 +13,7 @@ namespace Stage
 		, mCollider{Dir4ToString(dir)+"Goal"}
 		, mFallDir{std::move(dir)}
 		, mKiraCnt{0}
+		, mGoalTextFlag{true}
 	{
 		mCollider.SetWidthAndHeith(GoalParam::COLLIDER_WIDTH, GoalParam::COLLIDER_HEIGHT);
 		mCollider.SetScale(GoalParam::SCALE);
@@ -33,11 +34,19 @@ namespace Stage
 		mTexture.SetRotation(rot);
 		mCollider.SetRotation(rot);
 
+		auto hitPlayer = [this](const GameLib::Collider& c) {
+			if (mGoalTextFlag) {
+				new GoalText{ this };
+				mGoalTextFlag = false;
+			}
+		};
+
+		mCollider.AddHitFunction("Player", std::move(hitPlayer));
+
 	}
 
 	void Goal::Update()
 	{
-	
 		mKiraCnt++;
 		if (mKiraCnt >= GoalParam::GENARATE_KIRA_TIME) {
 			new Kira{ this,mTexture.GetPosition() };

@@ -3,31 +3,76 @@
     {
       "ActorsData": [
         {
-          "ActorName": "Ground",
-          "FloatData0": -372,
-          "FloatData1": -158,
-          "FloatData2": 366,
-          "FloatData3": -197
-        },
-        {
           "ActorName": "Player",
           "FloatData0": -200,
           "FloatData1": -107
         },
         {
-          "ActorName": "DownStand",
-          "FloatData0": 106,
-          "FloatData1": -120
+          "ActorName": "Ground",
+          "FloatData0": -362,
+          "FloatData1": -171,
+          "FloatData2": 198,
+          "FloatData3": -1125
         },
         {
-          "ActorName": "RightStand",
-          "FloatData0": 201,
-          "FloatData1": -35
+          "ActorName": "Ground",
+          "FloatData0": 179,
+          "FloatData1": -117,
+          "FloatData2": 812,
+          "FloatData3": -1121
+        },
+        {
+          "ActorName": "DownStand",
+          "FloatData0": 466,
+          "FloatData1": -78
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -555.71435546875,
+          "FloatData1": -615.71453857421875,
+          "FloatData2": 6818.568359375,
+          "FloatData3": 1055.7147216796875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 723.1431884765625,
+          "FloatData1": 215.52369689941406,
+          "FloatData2": 588.47650146484375,
+          "FloatData3": 332.85702514648438
+        },
+        {
+          "ActorName": "UpStand",
+          "FloatData0": 656.47650146484375,
+          "FloatData1": 178.19035339355469
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 244,
+          "FloatData1": 96,
+          "FloatData2": 136,
+          "FloatData3": 209
         },
         {
           "ActorName": "LeftStand",
-          "FloatData0": -100,
-          "FloatData1": 23
+          "FloatData0": 281,
+          "FloatData1": 153
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 747,
+          "FloatData1": 77,
+          "FloatData2": 824,
+          "FloatData3": -12
+        },
+        {
+          "ActorName": "RightStand",
+          "FloatData0": 708,
+          "FloatData1": 36
+        },
+        {
+          "ActorName": "DownGoal",
+          "FloatData0": 101,
+          "FloatData1": 84
         }
       ],
       "SceneName": "1"

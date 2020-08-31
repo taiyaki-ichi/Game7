@@ -15,6 +15,8 @@ namespace Stage
 
 		int mKiraCnt;
 
+		bool mGoalTextFlag;
+
 	public:
 		Goal(GameLib::Actor*,Dir4&&);
 		virtual ~Goal() = default;

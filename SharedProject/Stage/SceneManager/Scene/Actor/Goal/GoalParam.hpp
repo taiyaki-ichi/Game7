@@ -22,5 +22,7 @@ namespace Stage
 			constexpr float DEATH_TIME = 40.f;
 			constexpr float DELTA_SCALE = 0.006f;
 		}
+
+
 	}
 }
