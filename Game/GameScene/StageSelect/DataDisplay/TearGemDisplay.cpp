@@ -13,6 +13,10 @@ namespace Game
 		mTexture1.SetScale(TearGemDisplayParam::SCALE);
 		mTexture2.SetScale(TearGemDisplayParam::SCALE);
 		mTexture3.SetScale(TearGemDisplayParam::SCALE);
+
+		mTexture1.SetDrawOrder(50);
+		mTexture2.SetDrawOrder(50);
+		mTexture3.SetDrawOrder(50);
 	}
 
 	void TearGemDisplay::NotDrawing()

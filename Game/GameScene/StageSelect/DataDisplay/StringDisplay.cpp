@@ -11,6 +11,7 @@ namespace Game
 		mText.SetText("");
 		mText.SetSize(std::move(size));
 		mText.SetPosition(GameLib::Viewport::GetPos() + mAdjustVec);
+		mText.SetDrawOrder(50);
 	}
 
 	void StringDisplay::SetText(const std::string& str)
