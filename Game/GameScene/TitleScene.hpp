@@ -1,13 +1,18 @@
 #pragma once
 #include"GameSceneBase.hpp"
-#include"TitleScene/Button.hpp"
+#include"TitleScene/SelectButton.hpp"
 #include"TitleScene/CursorPos.hpp"
 #include"GameLib/include/Draw/DrawFontText.hpp"
 #include"TitleScene/TitleLogo.hpp"
 
-namespace Game
+namespace Stage
 {
 	class Kakko;
+}
+
+namespace Game
+{
+	//class Kakko;
 
 	class TitleScene : public SceneBase
 	{
@@ -19,7 +24,7 @@ namespace Game
 		GameLib::DrawFontText mA;
 		GameLib::DrawFontText mD;
 
-		Kakko* mKakko;
+		Stage::Kakko* mKakko;
 
 		TitleLogo mTitleLogo;
 

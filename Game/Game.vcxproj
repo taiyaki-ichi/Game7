@@ -156,8 +156,7 @@
     <ClCompile Include="GameScene\StageSelect\DataDisplay\TearGemDisplay.cpp" />
     <ClCompile Include="GameScene\StageSelect\HexChip\HexChip.cpp" />
     <ClCompile Include="GameScene\TitleScene.cpp" />
-    <ClCompile Include="GameScene\TitleScene\Button.cpp" />
-    <ClCompile Include="GameScene\TitleScene\Kakko.cpp" />
+    <ClCompile Include="GameScene\TitleScene\SelectButton.cpp" />
     <ClCompile Include="GameScene\TitleScene\TitleLogo.cpp" />
     <ClCompile Include="LoadSaveFunc.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -184,11 +183,9 @@
     <ClInclude Include="GameScene\StageSelect\StageSelectParam.hpp" />
     <ClInclude Include="GameScene\StageStateFlag.hpp" />
     <ClInclude Include="GameScene\TitleScene.hpp" />
-    <ClInclude Include="GameScene\TitleScene\Button.hpp" />
+    <ClInclude Include="GameScene\TitleScene\SelectButton.hpp" />
     <ClInclude Include="GameScene\TitleScene\ButtonParam.hpp" />
     <ClInclude Include="GameScene\TitleScene\CursorPos.hpp" />
-    <ClInclude Include="GameScene\TitleScene\Kakko.hpp" />
-    <ClInclude Include="GameScene\TitleScene\KakkoParam.hpp" />
     <ClInclude Include="GameScene\TitleScene\TitleLogo.hpp" />
     <ClInclude Include="GameScene\TitleScene\TitleLogoParam.hpp" />
     <ClInclude Include="GameScene\TitleScene\TitleSceneParam.hpp" />

@@ -19,5 +19,8 @@ namespace Game
 
 		const GameLib::Vector2 TITLELOGO_POS{ 0.f,150.f };
 
+		constexpr float KAKKO_MOVE_LENGTH = 4.f;
+		constexpr float KAKKO_TEXTURE_SCALE = 0.05f;
+
 	}
 }

@@ -2,7 +2,7 @@
 #include"TitleScene/TitleSceneParam.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"GameSceneFlag.hpp"
-#include"TitleScene/Kakko.hpp"
+#include"Stage/Utilty/Kakko.hpp"
 
 namespace Game
 {
@@ -38,9 +38,11 @@ namespace Game
 		mD.SetText("D");
 		mD.SetSize(GameLib::Font::Size::Size_36);
 
-		mKakko = new Kakko{ this };
+		mKakko = new Stage::Kakko{ this };
 		mKakko->SetWidthAndHeight(BUTTON_WIDTH + KAKKO_ADJUST, BUTTON_HEIGHT + KAKKO_ADJUST);
 		mKakko->SetPosition(A_BUTTON_ADJUST);
+		mKakko->SetMoveLength(KAKKO_MOVE_LENGTH);
+		mKakko->SetTextureScale(KAKKO_TEXTURE_SCALE);
 	}
 
 	void TitleScene::CustomizeUpdate()

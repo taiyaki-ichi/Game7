@@ -2,25 +2,28 @@
 #include"KakkoParam.hpp"
 #include"GameLib/include/Math/Numbers.hpp"
 
-namespace Game
+namespace Stage
 {
 	Kakko::Kakko(GameLib::Actor* actor)
-		:GameLib::Actor{actor}
+		:GameLib::Actor{ actor }
 		, mPosition{}
 		, mWidth{}
 		, mHeight{}
 		, mCnt{}
-		, mTexture1{"../Assets/TitleScene/kakko.png"}
+		, mTexture1{ "../Assets/TitleScene/kakko.png" }
 		, mTexture2{ "../Assets/TitleScene/kakko.png" }
 		, mTexture3{ "../Assets/TitleScene/kakko.png" }
 		, mTexture4{ "../Assets/TitleScene/kakko.png" }
+		, mMoveLength{}
 	{
 		using namespace KakkoParam;
 
+		/*
 		mTexture1.SetScale(TEXTURE_SCALE);
 		mTexture2.SetScale(TEXTURE_SCALE);
 		mTexture3.SetScale(TEXTURE_SCALE);
 		mTexture4.SetScale(TEXTURE_SCALE);
+		*/
 
 		mTexture2.SetRotation(GameLib::PI / 2.f);
 		mTexture3.SetRotation(GameLib::PI);
@@ -30,7 +33,7 @@ namespace Game
 	void Kakko::CustomizeUpdate()
 	{
 		auto posAdjust = GameLib::Vector2{ mWidth / 2.f,mHeight / 2.f };
-		auto xy = KakkoParam::MOVE_LENGTH * std::sin(mCnt * KakkoParam::ROT_PER_FLAME);
+		auto xy = mMoveLength * std::sin(mCnt * KakkoParam::ROT_PER_FLAME);
 		auto moveAdjust = GameLib::Vector2{ xy,xy };
 
 		auto updateTexture = [this, &posAdjust, &moveAdjust](GameLib::DrawTexture& texture)
@@ -58,5 +61,16 @@ namespace Game
 		mPosition = pos;
 	}
 
+	void Kakko::SetMoveLength(float l)
+	{
+		mMoveLength = l;
+	}
 
+	void Kakko::SetTextureScale(float scale)
+	{
+		mTexture1.SetScale(scale);
+		mTexture2.SetScale(scale);
+		mTexture3.SetScale(scale);
+		mTexture4.SetScale(scale);
+	}
 }
