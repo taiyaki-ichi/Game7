@@ -102,7 +102,6 @@ namespace Game
 	void Game::StageClear()
 	{
 		mGameData = mNowScene->GetGameData();
-		
 		//クリアした場合最大3方向へ行けるようになるようセーブデータを変更
 		for (auto& adHexVec : { DIR_E,DIR_D,DIR_X })
 		{
