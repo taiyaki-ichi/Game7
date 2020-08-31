@@ -12,6 +12,9 @@ namespace Stage
 		mOutsiedeRect.SetColor({ 0,0,0,255 });
 		mOutsiedeRect.SetIsFill(true);
 
+		mInsideRect.SetPosition(pos);
+		mOutsiedeRect.SetPosition(pos);
+
 	}
 
 	void Button::SetWidthAndHeightAndFlameWidth(float w, float h, float flameW)
@@ -29,4 +32,10 @@ namespace Stage
 	{
 		mInsideRect.SetColor({ 255,255,255,255 });
 	}
+
+	const GameLib::Vector2& Button::GetPosition() const
+	{
+		return mOutsiedeRect.GetPosition();
+	}
+
 }

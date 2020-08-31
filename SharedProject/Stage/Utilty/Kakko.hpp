@@ -22,7 +22,7 @@ namespace Stage
 		float mMoveLength;
 
 	public:
-		Kakko(GameLib::Actor*);
+		Kakko(GameLib::Actor*, int drawOrder = 0);
 
 		void CustomizeUpdate() override;
 

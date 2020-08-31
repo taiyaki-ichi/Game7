@@ -2,11 +2,12 @@
 #include"GameLib/include/Actor/Actor.hpp"
 #include"Utilty/DrawFlameRect.hpp"
 #include"GameLib/include/Draw/DrawFontText.hpp"
+#include"Utilty/Button.hpp"
 
 namespace Stage
 {
 	class SceneManager;
-	class CursorButton;
+	class Kakko;
 
 	class Pause : GameLib::Actor
 	{
@@ -16,11 +17,25 @@ namespace Stage
 
 		SceneManager* mSceneManager;
 
-		CursorButton* mResumeButton;
+		Button mResumeButton;
 		GameLib::DrawFontText mResumeText;
 
-		CursorButton* mReturnStageSelectButton;
+		Button mReturnStageSelectButton;
 		GameLib::DrawFontText mReturnStageSelectText;
+
+		enum class Position
+		{
+			Resume,
+			ReturnSelect
+		};
+		Position mPosition;
+
+		Kakko* mKakko;
+
+		GameLib::DrawFontText mPauseText;
+
+		GameLib::DrawFontText mA;
+		GameLib::DrawFontText mD;
 
 	public:
 

@@ -15,5 +15,7 @@ namespace Stage
 
 		void ChangeDark();
 		void ChangeWhite();
+
+		const GameLib::Vector2& GetPosition() const;
 	};
 }

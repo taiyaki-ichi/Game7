@@ -4,7 +4,7 @@
 
 namespace Stage
 {
-	Kakko::Kakko(GameLib::Actor* actor)
+	Kakko::Kakko(GameLib::Actor* actor,int drawOder)
 		:GameLib::Actor{ actor }
 		, mPosition{}
 		, mWidth{}
@@ -28,24 +28,33 @@ namespace Stage
 		mTexture2.SetRotation(GameLib::PI / 2.f);
 		mTexture3.SetRotation(GameLib::PI);
 		mTexture4.SetRotation(GameLib::PI / 2.f * 3.f);
+
+		mTexture1.SetDrawOrder(drawOder);
+		mTexture2.SetDrawOrder(drawOder);
+		mTexture3.SetDrawOrder(drawOder);
+		mTexture4.SetDrawOrder(drawOder);
 	}
 
 	void Kakko::CustomizeUpdate()
 	{
-		auto posAdjust = GameLib::Vector2{ mWidth / 2.f,mHeight / 2.f };
+	
 		auto xy = mMoveLength * std::sin(mCnt * KakkoParam::ROT_PER_FLAME);
 		auto moveAdjust = GameLib::Vector2{ xy,xy };
 
-		auto updateTexture = [this, &posAdjust, &moveAdjust](GameLib::DrawTexture& texture)
+		auto updateTexture = [this, &moveAdjust](GameLib::DrawTexture& texture,GameLib::Vector2&& adjust)
 		{
 			float rot = texture.GetRotation();
-			texture.SetPosition(mPosition + GameLib::Vector2::Rotation(posAdjust, rot) + GameLib::Vector2::Rotation(moveAdjust, rot));
+			texture.SetPosition(mPosition + adjust + GameLib::Vector2::Rotation(moveAdjust, rot));
 		};
 
-		updateTexture(mTexture1);
-		updateTexture(mTexture2);
-		updateTexture(mTexture3);
-		updateTexture(mTexture4);
+		auto adjust1 = GameLib::Vector2{ mWidth / 2.f,mHeight / 2.f };
+		updateTexture(mTexture1, std::move(adjust1));
+		auto adjust2 = GameLib::Vector2{ -mWidth / 2.f,mHeight / 2.f };
+		updateTexture(mTexture2, std::move(adjust2));
+		auto adjust3 = GameLib::Vector2{ -mWidth / 2.f,-mHeight / 2.f };
+		updateTexture(mTexture3, std::move(adjust3));
+		auto adjust4 = GameLib::Vector2{ mWidth / 2.f,-mHeight / 2.f };
+		updateTexture(mTexture4, std::move(adjust4));
 
 		mCnt++;
 	}
