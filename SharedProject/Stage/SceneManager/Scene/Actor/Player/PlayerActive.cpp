@@ -15,6 +15,7 @@
 #include"ItemNum/ItemNum.hpp"
 #include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
 #include"Stage/SceneManager/Scene/Actor/Trampoline/HitTrampoline.hpp"
+#include"Stage/Utilty/IsInScope.hpp"
 
 #include<iostream>
 
@@ -440,9 +441,15 @@ namespace Stage::PlayerState
 
 	void Active::CheckFallDeath()
 	{
+		/*
 		auto pos = GameLib::Affine(mPhysicsModel.mPosition, GameLib::Viewport::GetPos(), GameLib::Viewport::GetRotation(), GameLib::Viewport::GetScale());
 
 		if (GetDir4DirectionSize(pos, Dir4::Down) > WindowSize::HEIGHT / 2.f + PlayerParam::FALL_DEATH_LINE)
+			UpFlag(PlayerFlag::DEATH_FLAG);
+			*/
+
+		auto pos = mPhysicsModel.mPosition;
+		if(!IsInScope(pos,WindowSize::WIDTH+PlayerParam::FALL_DEATH_LINE, WindowSize::WIDTH + PlayerParam::FALL_DEATH_LINE))
 			UpFlag(PlayerFlag::DEATH_FLAG);
 
 	}
