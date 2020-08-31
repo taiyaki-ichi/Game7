@@ -68,11 +68,6 @@
           "ActorName": "RightStand",
           "FloatData0": 708,
           "FloatData1": 36
-        },
-        {
-          "ActorName": "DownGoal",
-          "FloatData0": 101,
-          "FloatData1": 84
         }
       ],
       "SceneName": "1"

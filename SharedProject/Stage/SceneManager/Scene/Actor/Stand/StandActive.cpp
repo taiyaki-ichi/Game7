@@ -5,6 +5,7 @@
 #include"GameLib/include/Math/Numbers.hpp"
 #include"StandDown.hpp"
 #include"StandFlag.hpp"
+#include"GameLib/include/Math/Vector2Func.hpp"
 
 namespace Stage
 {
@@ -51,16 +52,17 @@ namespace Stage
 			
 			if (0.f < rot && rot < GameLib::PI) {
 				mHeadAnim->SetHorizontalFlip(true);
-				mBodyAnim->SetHorizontalFlip(true);
 			}
 			else {
 				mHeadAnim->SetHorizontalFlip(false);
-				mBodyAnim->SetHorizontalFlip(false);
 				rot += GameLib::PI;
-
 			}
-			
 			mHeadAnim->SetRotation(-rot + GameLib::PI / 2.f);
+
+			if (GameLib::IsClockwise(mBodyAnim->GetPosition(), mHeadAnim->GetPosition(), Player::GetPosition()))
+				mBodyAnim->SetHorizontalFlip(false);
+			else
+				mBodyAnim->SetHorizontalFlip(true);
 
 			mCollider.SetRotation(mHeadAnim->GetRotation());
 
