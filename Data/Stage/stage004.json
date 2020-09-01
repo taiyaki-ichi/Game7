@@ -713,20 +713,6 @@
           "FloatData5": 1924
         },
         {
-          "ActorName": "StraightBee",
-          "FloatData0": -406,
-          "FloatData1": 1995,
-          "FloatData2": -694,
-          "FloatData3": 1996
-        },
-        {
-          "ActorName": "StraightBee",
-          "FloatData0": -696,
-          "FloatData1": 1975,
-          "FloatData2": -406,
-          "FloatData3": 1974
-        },
-        {
           "ActorName": "Gem",
           "FloatData0": 110,
           "FloatData1": 125
@@ -772,6 +758,20 @@
           "FloatData1": 1400,
           "FloatData2": -504,
           "FloatData3": 1395
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": -384,
+          "FloatData1": 2011,
+          "FloatData2": -724,
+          "FloatData3": 2011
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": -725,
+          "FloatData1": 2010,
+          "FloatData2": -375,
+          "FloatData3": 2010
         }
       ],
       "SceneName": "2"
