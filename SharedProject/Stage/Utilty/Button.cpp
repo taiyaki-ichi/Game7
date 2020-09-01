@@ -2,7 +2,7 @@
 
 namespace Stage
 {
-	Button::Button(const GameLib::Vector2& pos, int drawOrder)
+	Button::Button(int drawOrder)
 		:mInsideRect{ drawOrder }
 		, mOutsiedeRect{ drawOrder - 1 }
 	{
@@ -11,16 +11,24 @@ namespace Stage
 
 		mOutsiedeRect.SetColor({ 0,0,0,255 });
 		mOutsiedeRect.SetIsFill(true);
-
-		mInsideRect.SetPosition(pos);
-		mOutsiedeRect.SetPosition(pos);
-
 	}
 
 	void Button::SetWidthAndHeightAndFlameWidth(float w, float h, float flameW)
 	{
 		mOutsiedeRect.SetWidthAndHeight(w, h);
 		mInsideRect.SetWidthAndHeight(w - flameW, h - flameW);
+	}
+
+	void Button::SetPosition(const GameLib::Vector2& pos)
+	{
+		mInsideRect.SetPosition(pos);
+		mOutsiedeRect.SetPosition(pos);
+	}
+
+	void Button::SetRotation(float rot)
+	{
+		mInsideRect.SetRotation(rot);
+		mOutsiedeRect.SetRotation(rot);
 	}
 
 	void Button::ChangeDark()

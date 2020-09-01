@@ -13,9 +13,9 @@ namespace Stage
 		:GameLib::Actor{stage}
 		, mSceneManager{sceneManager}
 		, mFlameRect{50}
-		, mResumeButton{PauseParam::RESUME_BUTTON_ADJUST+GameLib::Viewport::GetPos(),60}
+		, mResumeButton{60}
 		, mResumeText{ "../Assets/Font/mplus-1c-black.ttf" }
-		, mReturnStageSelectButton{PauseParam::RETURN_TITLE_BUTTON_ADJUST+GameLib::Viewport::GetPos(),60}
+		, mReturnStageSelectButton{60}
 		, mReturnStageSelectText{ "../Assets/Font/mplus-1c-black.ttf" }
 		, mPosition{Position::Resume}
 		, mKakko{nullptr}
@@ -33,6 +33,7 @@ namespace Stage
 
 		mResumeButton.SetWidthAndHeightAndFlameWidth(BUTTON_WIDTH, BUTTON_HEIGHT, BUTTON_FLAMEWIDTH);
 		mResumeButton.ChangeDark();
+		mResumeButton.SetPosition(PauseParam::RESUME_BUTTON_ADJUST + GameLib::Viewport::GetPos());
 
 		mResumeText.SetText("ゲームに戻る");
 		mResumeText.SetPosition(GameLib::Viewport::GetPos() + PauseParam::RESUME_BUTTON_ADJUST);
@@ -40,6 +41,7 @@ namespace Stage
 
 		mReturnStageSelectButton.SetWidthAndHeightAndFlameWidth(BUTTON_WIDTH, BUTTON_HEIGHT, BUTTON_FLAMEWIDTH);
 		mReturnStageSelectButton.ChangeWhite();
+		mReturnStageSelectButton.SetPosition(PauseParam::RETURN_TITLE_BUTTON_ADJUST + GameLib::Viewport::GetPos());
 
 		mReturnStageSelectText.SetText("セレクトに戻る");
 		mReturnStageSelectText.SetPosition(GameLib::Viewport::GetPos() + PauseParam::RETURN_TITLE_BUTTON_ADJUST);

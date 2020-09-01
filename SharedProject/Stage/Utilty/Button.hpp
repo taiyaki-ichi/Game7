@@ -9,9 +9,11 @@ namespace Stage
 		GameLib::DrawRect mOutsiedeRect;
 
 	public:
-		Button(const GameLib::Vector2&, int drawOrder = 0);
+		Button(int drawOrder = 0);
 
 		void SetWidthAndHeightAndFlameWidth(float, float, float);
+		void SetPosition(const GameLib::Vector2&);
+		void SetRotation(float);
 
 		void ChangeDark();
 		void ChangeWhite();
