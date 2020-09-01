@@ -647,13 +647,6 @@
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 1378,
-          "FloatData1": 458,
-          "FloatData2": 1125,
-          "FloatData3": 313
-        },
-        {
-          "ActorName": "Ground",
           "FloatData0": 496,
           "FloatData1": 515,
           "FloatData2": 153,
@@ -661,26 +654,10 @@
         },
         {
           "ActorName": "Blinder",
-          "FloatData0": 1126,
-          "FloatData1": 318,
-          "FloatData2": 1378,
-          "FloatData3": 43
-        },
-        {
-          "ActorName": "Blinder",
           "FloatData0": 154,
           "FloatData1": 352,
           "FloatData2": 496,
           "FloatData3": -99
-        },
-        {
-          "ActorName": "MoveGround",
-          "FloatData0": 1029,
-          "FloatData1": 466,
-          "FloatData2": 820,
-          "FloatData3": 499,
-          "FloatData4": 595,
-          "FloatData5": 486
         },
         {
           "ActorName": "Blinder",
@@ -809,6 +786,26 @@
           "ActorName": "Gem",
           "FloatData0": 543,
           "FloatData1": 636
+        },
+        {
+          "ActorName": "CycleLift",
+          "FloatData0": 738.18194580078125,
+          "FloatData1": 492.72735595703125,
+          "StringData0": "false"
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1371.8394775390625,
+          "FloatData1": 451.45462036132813,
+          "FloatData2": 1012.8394775390625,
+          "FloatData3": 310.45462036132813
+        },
+        {
+          "ActorName": "Blinder",
+          "FloatData0": 1371.665771484375,
+          "FloatData1": 318.01272583007813,
+          "FloatData2": 1012.6658935546875,
+          "FloatData3": 76.45330810546875
         }
       ],
       "SceneName": "2"
