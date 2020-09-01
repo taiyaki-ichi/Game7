@@ -4,570 +4,470 @@
       "ActorsData": [
         {
           "ActorName": "Ground",
-          "FloatData0": -378.46163940429688,
-          "FloatData1": -216.92312622070313,
-          "FloatData2": 598.4615478515625,
-          "FloatData3": -1566.155029296875
+          "FloatData0": -350.90914916992188,
+          "FloatData1": -110.90910339355469,
+          "FloatData2": 561.81829833984375,
+          "FloatData3": -1294.5457763671875
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": 262.2222900390625,
+          "FloatData1": -84.444465637207031
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 551.79486083984375,
-          "FloatData1": -141.79501342773438,
-          "FloatData2": 1285.1285400390625,
-          "FloatData3": -1566.2408447265625
-        },
-        {
-          "ActorName": "Dogu",
-          "FloatData0": 594.01708984375,
-          "FloatData1": -75.128387451171875
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 1194.666259765625,
-          "FloatData1": -145.33332824707031,
-          "FloatData2": 925.3328857421875,
-          "FloatData3": 524
+          "FloatData0": 537.64715576171875,
+          "FloatData1": 184.70588684082031,
+          "FloatData2": 929.411865234375,
+          "FloatData3": -987.05908203125
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 1281.3328857421875,
-          "FloatData1": -232.00003051757813,
-          "FloatData2": 1797.3338623046875,
-          "FloatData3": -1556
+          "FloatData0": 920.00042724609375,
+          "FloatData1": 111.42861938476563,
+          "FloatData2": 1200.0006103515625,
+          "FloatData3": -1202.8575439453125
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 1683,
-          "FloatData1": -245,
-          "FloatData2": 1595,
-          "FloatData3": -148
+          "FloatData0": 1194.7265625,
+          "FloatData1": 33.62640380859375,
+          "FloatData2": 2096.26611328125,
+          "FloatData3": -1200.2205810546875
         },
         {
-          "ActorName": "Blinder",
-          "FloatData0": 1683,
-          "FloatData1": -235,
-          "FloatData2": 1442,
-          "FloatData3": 539
+          "ActorName": "UpTrampoline",
+          "FloatData0": 1373.18896484375,
+          "FloatData1": 58.241790771484375
         },
         {
-          "ActorName": "Ground",
-          "FloatData0": 2006,
-          "FloatData1": -313,
-          "FloatData2": 2529,
-          "FloatData3": -1139
+          "ActorName": "UpTrampoline",
+          "FloatData0": 1723.356201171875,
+          "FloatData1": 58.308666229248047
         },
         {
-          "ActorName": "Blinder",
-          "FloatData0": 2006,
-          "FloatData1": -322,
-          "FloatData2": 2294,
-          "FloatData3": -155
+          "ActorName": "Toge",
+          "FloatData0": 1621.6168212890625,
+          "FloatData1": 154.83042907714844
         },
         {
-          "ActorName": "Ground",
-          "FloatData0": 2679,
-          "FloatData1": -276,
-          "FloatData2": 3029,
-          "FloatData3": -494
+          "ActorName": "Toge",
+          "FloatData0": 986,
+          "FloatData1": 167
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 2681,
-          "FloatData1": -674,
-          "FloatData2": 3029,
-          "FloatData3": -1125
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 3029,
-          "FloatData1": -481,
-          "FloatData2": 2681,
-          "FloatData3": -689
+          "FloatData0": 2063.84619140625,
+          "FloatData1": 128.46153259277344,
+          "FloatData2": 2314.615478515625,
+          "FloatData3": -1203.8470458984375
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 3462,
-          "FloatData1": -611,
-          "FloatData2": 3140,
-          "FloatData3": -1119
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 3462,
-          "FloatData1": -613,
-          "FloatData2": 3140,
-          "FloatData3": -322
+          "FloatData0": 2306.9228515625,
+          "FloatData1": 226.92304992675781,
+          "FloatData2": 2548.461181640625,
+          "FloatData3": -1211.5394287109375
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 3557,
-          "FloatData1": -562,
-          "FloatData2": 4343,
-          "FloatData3": -1111
+          "FloatData0": 2537.691650390625,
+          "FloatData1": 313.076904296875,
+          "FloatData2": 2829.9990234375,
+          "FloatData3": -1213.078125
         },
         {
-          "ActorName": "Gem",
-          "FloatData0": 3784,
-          "FloatData1": -388
+          "ActorName": "StraightBee",
+          "FloatData0": 2173.0771484375,
+          "FloatData1": 196.15370178222656,
+          "FloatData2": 2170.000244140625,
+          "FloatData3": 528.46148681640625
         },
         {
-          "ActorName": "Gem",
-          "FloatData0": 3919,
-          "FloatData1": -445
+          "ActorName": "StraightBee",
+          "FloatData0": 2422.307861328125,
+          "FloatData1": 300.7691650390625,
+          "FloatData2": 2422.307861328125,
+          "FloatData3": 528.46148681640625
         },
         {
-          "ActorName": "Gem",
-          "FloatData0": 4041,
-          "FloatData1": -373
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 4180,
-          "FloatData1": -457
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 3816,
-          "FloatData1": -417,
-          "FloatData2": 3756,
-          "FloatData3": -357
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 3950,
-          "FloatData1": -481,
-          "FloatData2": 3890,
-          "FloatData3": -410
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 4082,
-          "FloatData1": -409,
-          "FloatData2": 4005,
-          "FloatData3": -336
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 4221,
-          "FloatData1": -489,
-          "FloatData2": 4143,
-          "FloatData3": -423
+          "ActorName": "UpTrampoline",
+          "FloatData0": 3080.180419921875,
+          "FloatData1": 283.75003051757813
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 4329,
-          "FloatData1": -492,
-          "FloatData2": 4530,
-          "FloatData3": -1111
+          "FloatData0": 3337.680419921875,
+          "FloatData1": 383.75,
+          "FloatData2": 3600.180419921875,
+          "FloatData3": -1173.75
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": 3468,
+          "FloatData1": 514,
+          "FloatData2": 3304,
+          "FloatData3": 511,
+          "FloatData4": 3304,
+          "FloatData5": 454
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": 3837,
+          "FloatData1": 341
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 4500,
-          "FloatData1": -427,
-          "FloatData2": 4661,
-          "FloatData3": -1111
+          "FloatData0": 4070,
+          "FloatData1": 485,
+          "FloatData2": 4365,
+          "FloatData3": -795
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": 3971,
+          "FloatData1": 682,
+          "FloatData2": 3714,
+          "FloatData3": 687
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": 4539,
+          "FloatData1": 429
+        },
+        {
+          "ActorName": "DownTrampoline",
+          "FloatData0": 4542,
+          "FloatData1": 643
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 4652,
-          "FloatData1": -354,
-          "FloatData2": 4836,
-          "FloatData3": -1110
+          "FloatData0": 4655,
+          "FloatData1": 273,
+          "FloatData2": 5074,
+          "FloatData3": -642
         },
         {
-          "ActorName": "Triple",
-          "FloatData0": 4603,
-          "FloatData1": -389
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 4835,
-          "FloatData1": -484,
-          "FloatData2": 5224,
-          "FloatData3": -1109
+          "ActorName": "CircleBee",
+          "FloatData0": 5064,
+          "FloatData1": 379,
+          "FloatData2": 4937,
+          "FloatData3": 243,
+          "FloatData4": 4892,
+          "FloatData5": 293
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 4957,
-          "FloatData1": -308,
-          "FloatData2": 5022,
-          "FloatData3": -369
+          "FloatData0": 5190,
+          "FloatData1": 320,
+          "FloatData2": 5358,
+          "FloatData3": -632
         },
         {
-          "ActorName": "Gem",
-          "FloatData0": 4387,
-          "FloatData1": -356
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 4720,
-          "FloatData1": -235
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 4422,
-          "FloatData1": -393,
-          "FloatData2": 4352,
-          "FloatData3": -325
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 4761,
-          "FloatData1": -267,
-          "FloatData2": 4680,
-          "FloatData3": -203
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 4510,
-          "FloatData1": -260,
-          "FloatData2": 4596,
-          "FloatData3": -300
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 5076,
-          "FloatData1": -274,
-          "FloatData2": 5146,
-          "FloatData3": -326
+          "ActorName": "CircleBee",
+          "FloatData0": 5289,
+          "FloatData1": 371,
+          "FloatData2": 5115,
+          "FloatData3": 365,
+          "FloatData4": 5126,
+          "FloatData5": 327
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 5192,
-          "FloatData1": -274,
-          "FloatData2": 5278,
-          "FloatData3": -330
+          "FloatData0": 5476,
+          "FloatData1": 350,
+          "FloatData2": 5629,
+          "FloatData3": -623
         },
         {
-          "ActorName": "Blinder",
-          "FloatData0": 4846,
-          "FloatData1": -231,
-          "FloatData2": 4909,
-          "FloatData3": -303
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 4880,
-          "FloatData1": -271
+          "ActorName": "CircleBee",
+          "FloatData0": 5551,
+          "FloatData1": 555,
+          "FloatData2": 5387,
+          "FloatData3": 478,
+          "FloatData4": 5371,
+          "FloatData5": 510
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 5222,
-          "FloatData1": -519,
-          "FloatData2": 5546,
-          "FloatData3": -1112
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 5366,
-          "FloatData1": -380
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 5328,
-          "FloatData1": -341,
-          "FloatData2": 5406,
-          "FloatData3": -413
+          "FloatData0": 5762,
+          "FloatData1": 281,
+          "FloatData2": 6349,
+          "FloatData3": -669
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 5414,
-          "FloatData1": -235,
-          "FloatData2": 5479,
-          "FloatData3": -306
+          "FloatData0": 6339.60693359375,
+          "FloatData1": 279.67910766601563,
+          "FloatData2": 6519.6064453125,
+          "FloatData3": -340.32089233398438
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 5527,
-          "FloatData1": -479,
-          "FloatData2": 5672,
-          "FloatData3": -1111
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 5106,
-          "FloatData1": -116,
-          "FloatData2": 5170,
-          "FloatData3": -172
-        },
-        {
-          "ActorName": "Triple",
-          "FloatData0": 5565,
-          "FloatData1": -437
-        },
-        {
-          "ActorName": "Dogu",
-          "FloatData0": 4096,
-          "FloatData1": -487
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 5827,
-          "FloatData1": -467,
-          "FloatData2": 6108,
-          "FloatData3": -500
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 2010.00439453125,
-          "FloatData1": -1140.0006103515625,
-          "FloatData2": 2530.004638671875,
-          "FloatData3": -1550.000732421875
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 2683.337890625,
-          "FloatData1": -1110.0001220703125,
-          "FloatData2": 3026.671142578125,
-          "FloatData3": -1586.6669921875
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 3143.33935546875,
-          "FloatData1": -1101.6668701171875,
-          "FloatData2": 3461.672607421875,
-          "FloatData3": -1578.3336181640625
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 3558.34326171875,
-          "FloatData1": -1093.33349609375,
-          "FloatData2": 5669.99560546875,
-          "FloatData3": -1586.666259765625
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 5662.85107421875,
-          "FloatData1": -1520.001220703125,
-          "FloatData2": 6485.708984375,
-          "FloatData3": -1585.7154541015625
-        },
-        {
-          "ActorName": "Camera",
-          "FloatData0": -309.54135131835938,
-          "FloatData1": 440.95181274414063,
-          "FloatData2": 6459.3359375,
-          "FloatData3": -1554.6036376953125
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 6470.447265625,
-          "FloatData1": -1539.048095703125,
-          "FloatData2": 6530.44677734375,
-          "FloatData3": 225.39628601074219
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": -329.54104614257813,
-          "FloatData1": -230.15919494628906,
-          "FloatData2": -380.65219116210938,
-          "FloatData3": 385.39630126953125
+          "FloatData0": 6511.37109375,
+          "FloatData1": 274.97332763671875,
+          "FloatData2": 6547.841796875,
+          "FloatData3": 1009.0909423828125
         },
         {
           "ActorName": "GuruWarp",
-          "FloatData0": 6366,
-          "FloatData1": -1391,
+          "FloatData0": 6330,
+          "FloatData1": 393,
           "StringData0": "aaa",
           "StringData1": "bbb"
         },
         {
-          "ActorName": "Player",
-          "FloatData0": -67,
-          "FloatData1": -162
+          "ActorName": "Ground",
+          "FloatData0": -303.33343505859375,
+          "FloatData1": -73.333358764648438,
+          "FloatData2": -1058.3338623046875,
+          "FloatData3": -1288.3343505859375
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -1020.0013427734375,
+          "FloatData1": 986.66796875,
+          "FloatData2": 6493.345703125,
+          "FloatData3": -346.66732788085938
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -1030.909423828125,
+          "FloatData1": -87.272758483886719,
+          "FloatData2": -1101.8184814453125,
+          "FloatData3": 523.636474609375
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 554,
-          "FloatData1": -36
+          "FloatData0": 262.50003051757813,
+          "FloatData1": 176.25001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 605,
-          "FloatData1": -38
+          "FloatData0": 325.00003051757813,
+          "FloatData1": 176.25001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 505,
-          "FloatData1": -75
+          "FloatData0": 392.50003051757813,
+          "FloatData1": 176.25001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1056,
-          "FloatData1": 54
+          "FloatData0": 202.50003051757813,
+          "FloatData1": 176.25001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1055,
-          "FloatData1": -11
+          "FloatData0": 136.25001525878906,
+          "FloatData1": 175.00001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1096,
-          "FloatData1": 21
+          "FloatData0": 167.50001525878906,
+          "FloatData1": 235.00001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1016,
-          "FloatData1": 22
+          "FloatData0": 228.75001525878906,
+          "FloatData1": 235.00001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1914,
-          "FloatData1": -103
+          "FloatData0": 293.75003051757813,
+          "FloatData1": 236.25001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 2026,
-          "FloatData1": -119
+          "FloatData0": 361.25003051757813,
+          "FloatData1": 238.75001525878906
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1970,
-          "FloatData1": -101
+          "FloatData0": 897.50006103515625,
+          "FloatData1": 305.00003051757813
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 2595,
-          "FloatData1": -143
+          "FloatData0": 952.50006103515625,
+          "FloatData1": 321.25003051757813
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 2649,
-          "FloatData1": -162
+          "FloatData0": 1010.0000610351563,
+          "FloatData1": 307.50003051757813
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 2538,
-          "FloatData1": -167
+          "FloatData0": 1257.5001220703125,
+          "FloatData1": 378.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1326.2501220703125,
+          "FloatData1": 378.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1398.7501220703125,
+          "FloatData1": 378.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1477.5001220703125,
+          "FloatData1": 376.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1563.7501220703125,
+          "FloatData1": 376.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1648.7501220703125,
+          "FloatData1": 376.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1741.25,
+          "FloatData1": 376.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1825,
+          "FloatData1": 380.00003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2302.500244140625,
+          "FloatData1": 308.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2356.250244140625,
+          "FloatData1": 311.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2258.750244140625,
+          "FloatData1": 268.75003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2501.250244140625,
+          "FloatData1": 361.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2545.00048828125,
+          "FloatData1": 400.00006103515625
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2595.00048828125,
+          "FloatData1": 401.25003051757813
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3017.5,
+          "FloatData1": 616.25
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3062.500244140625,
+          "FloatData1": 657.5
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3107.500244140625,
+          "FloatData1": 616.25
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3062.500244140625,
+          "FloatData1": 575
         },
         {
           "ActorName": "TearGem",
-          "FloatData0": 2761,
-          "FloatData1": -614,
+          "FloatData0": 3827.500244140625,
+          "FloatData1": 758.75006103515625,
           "StringData0": "1"
         },
         {
-          "ActorName": "Gem",
-          "FloatData0": 3101,
-          "FloatData1": -185
+          "ActorName": "TearGem",
+          "FloatData0": 4771.25048828125,
+          "FloatData1": 561.25006103515625,
+          "StringData0": "2"
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 3051,
-          "FloatData1": -185
+          "FloatData0": 5069.98583984375,
+          "FloatData1": 415.83331298828125
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 3152,
-          "FloatData1": -215
+          "FloatData0": 5114.15234375,
+          "FloatData1": 445
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 2996,
-          "FloatData1": -636
+          "FloatData0": 5167.48583984375,
+          "FloatData1": 435.83331298828125
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 2945,
-          "FloatData1": -637
+          "FloatData0": 5404.98974609375,
+          "FloatData1": 475
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 2894,
-          "FloatData1": -638
+          "FloatData0": 5456.65625,
+          "FloatData1": 474.16665649414063
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 2845,
-          "FloatData1": -638
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 3516,
-          "FloatData1": -459
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 3576,
-          "FloatData1": -459
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 3465,
-          "FloatData1": -489
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 6288,
-          "FloatData1": -1484
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 6238,
-          "FloatData1": -1484
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 6186,
-          "FloatData1": -1486
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 6133,
-          "FloatData1": -1487
-        },
-        {
-          "ActorName": "Gem",
-          "FloatData0": 6086,
-          "FloatData1": -1488
+          "FloatData0": 5357.4892578125,
+          "FloatData1": 439.16665649414063
         },
         {
           "ActorName": "Gem",
           "FloatData0": 6034,
-          "FloatData1": -1489
+          "FloatData1": 407
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 5979,
-          "FloatData1": -1487
+          "FloatData0": 6081,
+          "FloatData1": 444
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 5930,
-          "FloatData1": -1488
+          "FloatData0": 6128,
+          "FloatData1": 408
+        },
+        {
+          "ActorName": "Player",
+          "FloatData0": -449,
+          "FloatData1": -27
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 5877,
-          "FloatData1": -1487
+          "FloatData0": -964,
+          "FloatData1": 63
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 5826,
-          "FloatData1": -1487
+          "FloatData0": -996,
+          "FloatData1": 21
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 5774,
-          "FloatData1": -1487
+          "FloatData0": -929,
+          "FloatData1": 18
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 5712,
-          "FloatData1": -1486
-        },
-        {
-          "ActorName": "TearGem",
-          "FloatData0": 5374,
-          "FloatData1": -45,
-          "StringData0": "2"
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 5402,
-          "FloatData1": -95,
-          "FloatData2": 5348,
-          "FloatData3": -6
+          "FloatData0": -964,
+          "FloatData1": -17
         }
       ],
       "SceneName": "1"
@@ -576,236 +476,302 @@
       "ActorsData": [
         {
           "ActorName": "Ground",
-          "FloatData0": -247,
-          "FloatData1": -76,
-          "FloatData2": 233,
-          "FloatData3": -1074
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 212,
-          "FloatData1": -12,
-          "FloatData2": 528,
-          "FloatData3": -1075
-        },
-        {
-          "ActorName": "Dogu",
-          "FloatData0": 435,
-          "FloatData1": 29
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 524,
-          "FloatData1": 41,
-          "FloatData2": 974,
-          "FloatData3": -1075
-        },
-        {
-          "ActorName": "Toge",
-          "FloatData0": 786,
-          "FloatData1": 100
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 964,
-          "FloatData1": 88,
-          "FloatData2": 1452,
-          "FloatData3": -1077
-        },
-        {
-          "ActorName": "Triple",
-          "FloatData0": 1281,
-          "FloatData1": 125
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 1440,
-          "FloatData1": 160,
-          "FloatData2": 1634,
-          "FloatData3": -1077
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 1623,
-          "FloatData1": 223,
-          "FloatData2": 1838,
-          "FloatData3": -1076
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 1830,
-          "FloatData1": 283,
-          "FloatData2": 2032,
-          "FloatData3": -1075
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 1682,
-          "FloatData1": 389,
-          "FloatData2": 1482,
-          "FloatData3": 345
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 496,
-          "FloatData1": 515,
-          "FloatData2": 153,
-          "FloatData3": 344
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 154,
-          "FloatData1": 352,
-          "FloatData2": 496,
-          "FloatData3": -99
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 1482.58154296875,
-          "FloatData1": 349.35488891601563,
-          "FloatData2": 1681.9365234375,
-          "FloatData3": 135.80644226074219
-        },
-        {
-          "ActorName": "Dogu",
-          "FloatData0": 1507.7423095703125,
-          "FloatData1": 431.93600463867188
+          "FloatData0": -347,
+          "FloatData1": -14,
+          "FloatData2": 350,
+          "FloatData3": -765
         },
         {
           "ActorName": "GuruWarp",
-          "FloatData0": 290.32061767578125,
-          "FloatData1": 637.74249267578125,
-          "StringData0": "ccc",
-          "StringData1": "ddd"
-        },
-        {
-          "ActorName": "Camera",
-          "FloatData0": -217.14291381835938,
-          "FloatData1": 768.57183837890625,
-          "FloatData2": 2005.7154541015625,
-          "FloatData3": -197.14295959472656
-        },
-        {
-          "ActorName": "GuruWarp",
-          "FloatData0": -48.285736083984375,
-          "FloatData1": 215.42866516113281,
+          "FloatData0": -182,
+          "FloatData1": 111,
           "StringData0": "bbb",
           "StringData1": "aaa"
         },
         {
-          "ActorName": "Ground",
-          "FloatData0": -226.28573608398438,
-          "FloatData1": -81.571357727050781,
-          "FloatData2": -282.28573608398438,
-          "FloatData3": 736.42864990234375
+          "ActorName": "UpTrampoline",
+          "FloatData0": 124,
+          "FloatData1": 11
+        },
+        {
+          "ActorName": "Camera",
+          "FloatData0": -897.14324951171875,
+          "FloatData1": -431.42877197265625,
+          "FloatData2": 805.71466064453125,
+          "FloatData3": 4245.7197265625
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": -191,
+          "FloatData1": 283
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 2018.71435546875,
-          "FloatData1": 276.42868041992188,
-          "FloatData2": 2060.71435546875,
-          "FloatData3": 698.42864990234375
+          "FloatData0": -14,
+          "FloatData1": 622,
+          "FloatData2": 178,
+          "FloatData3": 586
+        },
+        {
+          "ActorName": "DownTrampoline",
+          "FloatData0": -195,
+          "FloatData1": 718
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": 246,
+          "FloatData1": 822
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": 234,
+          "FloatData1": 156,
+          "FloatData2": 232,
+          "FloatData3": 493
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": -314,
+          "FloatData1": 411,
+          "FloatData2": -312,
+          "FloatData3": 619
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 17,
+          "FloatData1": 1375,
+          "FloatData2": 55,
+          "FloatData3": 2044
+        },
+        {
+          "ActorName": "UpTrampoline",
+          "FloatData0": -158,
+          "FloatData1": 1425
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": -470,
+          "FloatData1": 1282,
+          "FloatData2": 518,
+          "FloatData3": 1294
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 298,
+          "FloatData1": 1387,
+          "FloatData2": 455,
+          "FloatData3": 1385
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 55,
+          "FloatData1": 1530,
+          "FloatData2": 231,
+          "FloatData3": 1515
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 236,
+          "FloatData1": 1657,
+          "FloatData2": 395,
+          "FloatData3": 1664
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 89,
+          "FloatData1": 1777,
+          "FloatData2": 271,
+          "FloatData3": 1761
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 259,
+          "FloatData1": 1907,
+          "FloatData2": 434,
+          "FloatData3": 1889
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 54,
+          "FloatData1": 2039,
+          "FloatData2": 766,
+          "FloatData3": 2032
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 166,
+          "FloatData1": 1175,
+          "FloatData2": 332,
+          "FloatData3": 1181
+        },
+        {
+          "ActorName": "ThroughFloor",
+          "FloatData0": 17,
+          "FloatData1": 2039,
+          "FloatData2": -911,
+          "FloatData3": 2027
+        },
+        {
+          "ActorName": "GuruWarp",
+          "FloatData0": 39,
+          "FloatData1": 2159,
+          "StringData0": "ccc",
+          "StringData1": "ddd"
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 199,
-          "FloatData1": 75
+          "FloatData0": 24,
+          "FloatData1": 771
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 249,
-          "FloatData1": 75
+          "FloatData0": 24,
+          "FloatData1": 838
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 527,
-          "FloatData1": 131
+          "FloatData0": 24,
+          "FloatData1": 902
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 574,
-          "FloatData1": 134
+          "FloatData0": 25,
+          "FloatData1": 963
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 976,
-          "FloatData1": 176
+          "FloatData0": 70,
+          "FloatData1": 929
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1024,
-          "FloatData1": 177
+          "FloatData0": 105,
+          "FloatData1": 893
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1454,
-          "FloatData1": 261
+          "FloatData0": -18,
+          "FloatData1": 931
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": -53,
+          "FloatData1": 887
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 442,
+          "FloatData1": 1431
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 78,
+          "FloatData1": 1570
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 385,
+          "FloatData1": 1700
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 101,
+          "FloatData1": 1823
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 430,
+          "FloatData1": 1951
         },
         {
           "ActorName": "TearGem",
-          "FloatData0": 1881,
-          "FloatData1": 533,
+          "FloatData0": -158,
+          "FloatData1": 1817,
           "StringData0": "3"
         },
         {
-          "ActorName": "Gem",
-          "FloatData0": 1969,
-          "FloatData1": 318
+          "ActorName": "UpTrampoline",
+          "FloatData0": -556,
+          "FloatData1": 1718
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": -160,
+          "FloatData1": 1805,
+          "FloatData2": -248,
+          "FloatData3": 1803,
+          "FloatData4": -240,
+          "FloatData5": 1765
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": -159,
+          "FloatData1": 1803,
+          "FloatData2": -25,
+          "FloatData3": 1868,
+          "FloatData4": -72,
+          "FloatData5": 1924
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": -406,
+          "FloatData1": 1995,
+          "FloatData2": -694,
+          "FloatData3": 1996
+        },
+        {
+          "ActorName": "StraightBee",
+          "FloatData0": -696,
+          "FloatData1": 1975,
+          "FloatData2": -406,
+          "FloatData3": 1974
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1924,
-          "FloatData1": 318
+          "FloatData0": 110,
+          "FloatData1": 125
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1435,
-          "FloatData1": 556
+          "FloatData0": 110,
+          "FloatData1": 181
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1387,
-          "FloatData1": 555
+          "FloatData0": 110,
+          "FloatData1": 237
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1079,
-          "FloatData1": 605
+          "FloatData0": 110,
+          "FloatData1": 294
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 1030,
-          "FloatData1": 604
+          "FloatData0": 151,
+          "FloatData1": 275
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 489,
-          "FloatData1": 636
+          "FloatData0": 190,
+          "FloatData1": 248
         },
         {
           "ActorName": "Gem",
-          "FloatData0": 543,
-          "FloatData1": 636
+          "FloatData0": 72,
+          "FloatData1": 269
         },
         {
-          "ActorName": "CycleLift",
-          "FloatData0": 738.18194580078125,
-          "FloatData1": 492.72735595703125,
-          "StringData0": "false"
+          "ActorName": "Gem",
+          "FloatData0": 35,
+          "FloatData1": 245
         },
         {
-          "ActorName": "Ground",
-          "FloatData0": 1371.8394775390625,
-          "FloatData1": 451.45462036132813,
-          "FloatData2": 1012.8394775390625,
-          "FloatData3": 310.45462036132813
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 1371.665771484375,
-          "FloatData1": 318.01272583007813,
-          "FloatData2": 1012.6658935546875,
-          "FloatData3": 76.45330810546875
+          "ActorName": "ThroughFloor",
+          "FloatData0": -332,
+          "FloatData1": 1400,
+          "FloatData2": -504,
+          "FloatData3": 1395
         }
       ],
       "SceneName": "2"
@@ -814,57 +780,70 @@
       "ActorsData": [
         {
           "ActorName": "Ground",
-          "FloatData0": -300,
-          "FloatData1": -81,
-          "FloatData2": 167,
-          "FloatData3": -696
+          "FloatData0": -338,
+          "FloatData1": -187,
+          "FloatData2": 893,
+          "FloatData3": -1139
         },
         {
           "ActorName": "GuruWarp",
-          "FloatData0": -45,
-          "FloatData1": 174,
+          "FloatData0": 83,
+          "FloatData1": 156,
           "StringData0": "ddd",
           "StringData1": "ccc"
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 163,
-          "FloatData1": -117,
-          "FloatData2": 1004,
-          "FloatData3": -991
-        },
-        {
-          "ActorName": "Blinder",
-          "FloatData0": 149,
-          "FloatData1": -33,
-          "FloatData2": 517,
-          "FloatData3": -140
-        },
-        {
-          "ActorName": "DownGoal",
-          "FloatData0": 811,
-          "FloatData1": 136
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 1002,
-          "FloatData1": -119,
-          "FloatData2": 1421,
-          "FloatData3": -991
+          "FloatData0": 848,
+          "FloatData1": -135,
+          "FloatData2": 2645,
+          "FloatData3": -1096
         },
         {
           "ActorName": "Camera",
-          "FloatData0": 1530,
-          "FloatData1": -438.57095336914063,
-          "FloatData2": -270.00103759765625,
-          "FloatData3": 412.85812377929688
+          "FloatData0": -300.00360107421875,
+          "FloatData1": 513.33526611328125,
+          "FloatData2": 2613.333984375,
+          "FloatData3": -920.00018310546875
         },
         {
           "ActorName": "Ground",
-          "FloatData0": -284.85760498046875,
-          "FloatData1": -88.856475830078125,
-          "FloatData2": -339.52426147460938,
-          "FloatData3": 349.81027221679688
+          "FloatData0": -321.33444213867188,
+          "FloatData1": -217.99897766113281,
+          "FloatData2": -439.33444213867188,
+          "FloatData3": 468.0009765625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2630.665283203125,
+          "FloatData1": -147.99896240234375,
+          "FloatData2": 2708.665283203125,
+          "FloatData3": 502.00094604492188
+        },
+        {
+          "ActorName": "DownGoal",
+          "FloatData0": 1086.6669921875,
+          "FloatData1": 123.33335113525391
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 474,
+          "FloatData1": -54
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 507,
+          "FloatData1": -12
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 542,
+          "FloatData1": -55
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 506,
+          "FloatData1": -94
         }
       ],
       "SceneName": "3"

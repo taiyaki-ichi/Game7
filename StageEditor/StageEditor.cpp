@@ -94,6 +94,11 @@ namespace StageEditor
 
 		LoadStageData(this, std::move(fileName));
 
+		if (mSceneEditors.size() > 0)
+			mNowSceneEditor = mSceneEditors.begin()->second;
+		else
+			mNowSceneEditor = nullptr;
+
 		mCamera->Reset();
 	}
 
