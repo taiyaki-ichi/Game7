@@ -86,10 +86,18 @@ namespace Stage::PlayerState
 
 			mPhysicsModel.mPosition += adjust;
 
+			//これじゃあうまく動かないので下の採用
+			/*
 			if (dir4Vec.mDir4 == Dir4::Up || dir4Vec.mDir4 == Dir4::Down)
 				mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, Dir4::Up, 0.f);
 			else
 				mPhysicsModel.mVelocity = GetDirSizeSetVector2(mPhysicsModel.mVelocity, Dir4::Right, 0.f);
+				*/
+			//補正のベクトルの要素と速度の要素が逆向きの場合0.fに
+			if (mPhysicsModel.mVelocity.x * adjust.x < 0.f)
+				mPhysicsModel.mVelocity.x = 0.f;
+			if (mPhysicsModel.mVelocity.y * adjust.y < 0.f)
+				mPhysicsModel.mVelocity.y = 0.f;
 
 
 			//A,Dが押されているときなどは摩擦の影響なし
