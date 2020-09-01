@@ -3,37 +3,194 @@
     {
       "ActorsData": [
         {
-          "ActorName": "Ground",
-          "FloatData0": -155,
-          "FloatData1": -181,
-          "FloatData2": 677,
-          "FloatData3": -312
-        },
-        {
           "ActorName": "Player",
           "FloatData0": -25,
           "FloatData1": -126
         },
         {
           "ActorName": "Camera",
-          "FloatData0": -200,
-          "FloatData1": -246,
-          "FloatData2": 1820.000732421875,
-          "FloatData3": 740.00030517578125
+          "FloatData0": -450.00048828125,
+          "FloatData1": -1155.001220703125,
+          "FloatData2": 13540.009765625,
+          "FloatData3": 2120.000732421875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": -274.66607666015625,
+          "FloatData1": -194.66584777832031,
+          "FloatData2": 506.66720581054688,
+          "FloatData3": -1221.331787109375
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 382.50054931640625,
+          "FloatData1": -164.9991455078125,
+          "FloatData2": 371.667236328125,
+          "FloatData3": 2.5008735656738281
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 483.33389282226563,
+          "FloatData1": -153.33247375488281,
+          "FloatData2": 886.6668701171875,
+          "FloatData3": -1220.8319091796875
         },
         {
           "ActorName": "IceGround",
-          "FloatData0": 656,
-          "FloatData1": -155,
-          "FloatData2": 1077,
-          "FloatData3": -239
+          "FloatData0": 868.3328857421875,
+          "FloatData1": -199.16583251953125,
+          "FloatData2": 1316.6668701171875,
+          "FloatData3": -309.99917602539063
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1289.1668701171875,
+          "FloatData1": -161.66583251953125,
+          "FloatData2": 1575.001220703125,
+          "FloatData3": -1194.9990234375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1558,
+          "FloatData1": -142,
+          "FloatData2": 1818,
+          "FloatData3": -1196
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 1709,
+          "FloatData1": -104
         },
         {
           "ActorName": "IceGround",
-          "FloatData0": 829,
-          "FloatData1": -172,
-          "FloatData2": 993,
-          "FloatData3": -27
+          "FloatData0": 1809,
+          "FloatData1": -179,
+          "FloatData2": 2186,
+          "FloatData3": -285
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2310,
+          "FloatData1": -113,
+          "FloatData2": 2561,
+          "FloatData3": -1246
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2551,
+          "FloatData1": -160,
+          "FloatData2": 2834,
+          "FloatData3": -1243
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2821,
+          "FloatData1": -85,
+          "FloatData2": 3182,
+          "FloatData3": -1248
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2617,
+          "FloatData1": -133,
+          "FloatData2": 2618,
+          "FloatData3": 79
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2892,
+          "FloatData1": -58,
+          "FloatData2": 2890,
+          "FloatData3": 169
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3171,
+          "FloatData1": -186,
+          "FloatData2": 3464,
+          "FloatData3": -1247
+        },
+        {
+          "ActorName": "IceGround",
+          "FloatData0": 3463.52001953125,
+          "FloatData1": -196.34144592285156,
+          "FloatData2": 3164.007568359375,
+          "FloatData3": -129.51214599609375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3459.613037109375,
+          "FloatData1": -165.12191772460938,
+          "FloatData2": 3683.999755859375,
+          "FloatData3": -1246.5859375
+        },
+        {
+          "ActorName": "IceGround",
+          "FloatData0": 3463.64990234375,
+          "FloatData1": -165.17538452148438,
+          "FloatData2": 3683.925048828125,
+          "FloatData3": -107.0931396484375
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3683.6513671875,
+          "FloatData1": -130.92877197265625,
+          "FloatData2": 3805.2958984375,
+          "FloatData3": -1193.6727294921875
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3936,
+          "FloatData1": -103,
+          "FloatData2": 4425,
+          "FloatData3": -1259
+        },
+        {
+          "ActorName": "IceGround",
+          "FloatData0": 4083,
+          "FloatData1": -113,
+          "FloatData2": 4354,
+          "FloatData3": -32
+        },
+        {
+          "ActorName": "IceGround",
+          "FloatData0": 4520,
+          "FloatData1": 65,
+          "FloatData2": 4750,
+          "FloatData3": 9
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4422,
+          "FloatData1": -199,
+          "FloatData2": 4781,
+          "FloatData3": -1258
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4773,
+          "FloatData1": -157,
+          "FloatData2": 5088,
+          "FloatData3": -1250
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 5016,
+          "FloatData1": -120
+        },
+        {
+          "ActorName": "IceGround",
+          "FloatData0": 4410,
+          "FloatData1": -216,
+          "FloatData2": 4634,
+          "FloatData3": -146
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 5067.99951171875,
+          "FloatData1": -124,
+          "FloatData2": 5738,
+          "FloatData3": -1246.0001220703125
         }
       ],
       "SceneName": "1"

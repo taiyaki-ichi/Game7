@@ -34,7 +34,7 @@ namespace Stage
 
 	IceGround::IceGround(GameLib::Actor* actor)
 		:ActorBase{actor}
-		, mTexture{}
+		, mTexture{-1}
 		, mIceGroundCollider{}
 	{
 		

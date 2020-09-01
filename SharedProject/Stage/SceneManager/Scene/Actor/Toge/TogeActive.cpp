@@ -67,8 +67,11 @@ namespace Stage
 					hitGround(c);
 			};
 
+
+
 			mCollider.AddHitFunction("ThroughFloor", std::move(hitThrough));
 
+			mCollider.AddHitFunction("IceGround", hitGround);
 			mCollider.AddHitFunction("TogeBlock", hitGround);
 			mCollider.AddHitFunction("Ground", std::move(hitGround));
 			mCollider.AddHitFunction("UpTrampoline", std::move(hitUpT));

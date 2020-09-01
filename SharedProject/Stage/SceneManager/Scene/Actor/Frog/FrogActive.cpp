@@ -114,6 +114,9 @@ namespace Stage
 
 			mStrength.AddHitFunction("ThroughFloor", std::move(hitThrough));
 
+			mStrength.AddHitFunction("IceGround", sHitGround);
+			mWeakness.AddHitFunction("IceGround", wHitGround);
+
 			mWeakness.AddHitFunction("TogeBlock", wHitGround);
 			mWeakness.AddHitFunction("Ground", std::move(wHitGround));
 			mStrength.AddHitFunction("TogeBlock", sHitGround);

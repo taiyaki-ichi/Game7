@@ -111,7 +111,8 @@ namespace Stage
 			mBody.AddHitFunction("ThroughFloor", std::move(hitThrough));
 
 			mBody.AddHitFunction("TogeBlock", hitGround);
-			mWeakness.AddHitFunction("TogeBlock", hitGround);
+
+			mBody.AddHitFunction("IceGround", hitGround);
 
 			mBody.AddHitFunction("UpTrampoline", std::move(bodyHitUpT));
 			mBody.AddHitFunction("DonwTrampoline", std::move(bodyHitDownT));
