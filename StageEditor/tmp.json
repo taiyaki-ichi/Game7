@@ -3,79 +3,504 @@
     {
       "ActorsData": [
         {
-          "ActorName": "GravityBox4",
-          "FloatData0": 109,
-          "FloatData1": -25,
-          "StringData0": "right",
-          "StringData1": "right"
+          "ActorName": "Ground",
+          "FloatData0": -315,
+          "FloatData1": -6,
+          "FloatData2": 338,
+          "FloatData3": -538
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 353,
-          "FloatData1": -194,
-          "FloatData2": 732,
-          "FloatData3": 430
+          "FloatData0": 332,
+          "FloatData1": 47,
+          "FloatData2": 824,
+          "FloatData3": -541
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 753,
+          "FloatData1": 89
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 823,
+          "FloatData1": -23,
+          "FloatData2": 1102,
+          "FloatData3": -541
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1100,
+          "FloatData1": -538,
+          "FloatData2": 1410,
+          "FloatData3": 297
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1410,
+          "FloatData1": 142,
+          "FloatData2": 1846,
+          "FloatData3": -539
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1991,
+          "FloatData1": 322,
+          "FloatData2": 2243,
+          "FloatData3": -541
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 1410,
+          "FloatData1": 231,
+          "FloatData2": 1469,
+          "FloatData3": 142
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2242,
+          "FloatData1": 253,
+          "FloatData2": 2401,
+          "FloatData3": -540
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2400,
+          "FloatData1": 193,
+          "FloatData2": 2550,
+          "FloatData3": -542
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2550,
+          "FloatData1": 139,
+          "FloatData2": 2706,
+          "FloatData3": -538
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2326,
+          "FloatData1": 284,
+          "FloatData2": 2328,
+          "FloatData3": 423
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2476,
+          "FloatData1": 223,
+          "FloatData2": 2477,
+          "FloatData3": 421
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2628,
+          "FloatData1": 171,
+          "FloatData2": 2626,
+          "FloatData3": 420
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2802.222412109375,
+          "FloatData1": 135.55558776855469,
+          "FloatData2": 2982.22216796875,
+          "FloatData3": -533.33349609375
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2888.88916015625,
+          "FloatData1": 166.66667175292969,
+          "FloatData2": 2886.666748046875,
+          "FloatData3": 492.22222900390625
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 2974.44482421875,
+          "FloatData1": 191.11112976074219,
+          "FloatData2": 3148.888916015625,
+          "FloatData3": -531.11114501953125
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3674,
+          "FloatData1": 235,
+          "FloatData2": 3914,
+          "FloatData3": -508
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3912,
+          "FloatData1": 164,
+          "FloatData2": 4405,
+          "FloatData3": -510
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4398,
+          "FloatData1": 493,
+          "FloatData2": 4611,
+          "FloatData3": -509
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 4002.499755859375,
+          "FloatData1": 197.49998474121094,
+          "FloatData2": 4008.749755859375,
+          "FloatData3": 452.5
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 4172.5,
+          "FloatData1": 193.74998474121094,
+          "FloatData2": 4173.75,
+          "FloatData3": 626.25
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 4341.25,
+          "FloatData1": 201.24998474121094,
+          "FloatData2": 4342.5,
+          "FloatData3": 736.25
+        },
+        {
+          "ActorName": "Toge",
+          "FloatData0": 4719,
+          "FloatData1": 465
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4851,
+          "FloatData1": 450,
+          "FloatData2": 5017,
+          "FloatData3": -460
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 5196,
+          "FloatData1": 424,
+          "FloatData2": 5328,
+          "FloatData3": -424
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 5064,
+          "FloatData1": 315,
+          "FloatData2": 5072,
+          "FloatData3": 610
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 5141,
+          "FloatData1": 314,
+          "FloatData2": 5143,
+          "FloatData3": 651
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 5324,
+          "FloatData1": 486,
+          "FloatData2": 5504,
+          "FloatData3": -425
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 5451,
+          "FloatData1": 525
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 5649,
+          "FloatData1": 424,
+          "FloatData2": 5873,
+          "FloatData3": -393
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 6051,
+          "FloatData1": 455,
+          "FloatData2": 7086,
+          "FloatData3": -394
         },
         {
           "ActorName": "Camera",
-          "FloatData0": -1263.3350830078125,
-          "FloatData1": -1220.001708984375,
-          "FloatData2": 2296.668701171875,
-          "FloatData3": 1806.6683349609375
+          "FloatData0": 7139,
+          "FloatData1": -302,
+          "FloatData2": -318,
+          "FloatData3": 850
         },
         {
           "ActorName": "Player",
-          "FloatData0": -174.70597839355469,
-          "FloatData1": -117.64712524414063
+          "FloatData0": -86,
+          "FloatData1": 52
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 418,
-          "FloatData1": 404,
-          "FloatData2": 567,
-          "FloatData3": 1109
-        },
-        {
-          "ActorName": "RightGoal",
-          "FloatData0": 161,
-          "FloatData1": 879
-        },
-        {
-          "ActorName": "GravityBox2",
-          "FloatData0": -182,
-          "FloatData1": -20,
-          "StringData0": "left"
+          "FloatData0": -312,
+          "FloatData1": -10,
+          "FloatData2": -396,
+          "FloatData3": -535
         },
         {
           "ActorName": "Ground",
-          "FloatData0": -302,
-          "FloatData1": -179,
-          "FloatData2": -460,
-          "FloatData3": 558
-        },
-        {
-          "ActorName": "LeftGoal",
-          "FloatData0": -50,
-          "FloatData1": 467
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": -316,
-          "FloatData1": -165,
-          "FloatData2": 225,
-          "FloatData3": -357
-        },
-        {
-          "ActorName": "Ground",
-          "FloatData0": 184,
-          "FloatData1": -451,
-          "FloatData2": 821,
-          "FloatData3": -582
+          "FloatData0": -323,
+          "FloatData1": -12,
+          "FloatData2": -356,
+          "FloatData3": 732
         },
         {
           "ActorName": "DownGoal",
-          "FloatData0": 643,
-          "FloatData1": -198
+          "FloatData0": 6570,
+          "FloatData1": 711
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 1801,
+          "FloatData1": 210,
+          "StringData0": "1"
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 2473,
+          "FloatData1": 493,
+          "StringData0": "2"
+        },
+        {
+          "ActorName": "TearGem",
+          "FloatData0": 5104,
+          "FloatData1": 134,
+          "StringData0": "3"
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 362,
+          "FloatData1": 152
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 306,
+          "FloatData1": 152
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 256,
+          "FloatData1": 110
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1071,
+          "FloatData1": 21
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1022,
+          "FloatData1": 20
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 967,
+          "FloatData1": 21
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1724,
+          "FloatData1": 184
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1668,
+          "FloatData1": 183
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1607,
+          "FloatData1": 183
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1947,
+          "FloatData1": 491
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2004,
+          "FloatData1": 466
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 1887,
+          "FloatData1": 465
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2327,
+          "FloatData1": 461
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 2392,
+          "FloatData1": 509
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 4257,
+          "FloatData1": 204
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 4086,
+          "FloatData1": 204
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 4345,
+          "FloatData1": 653
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 4396,
+          "FloatData1": 623
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 4299,
+          "FloatData1": 619
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 4719,
+          "FloatData1": 649
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 4798,
+          "FloatData1": 628
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 4646,
+          "FloatData1": 625
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5100,
+          "FloatData1": 594
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5170,
+          "FloatData1": 576
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5035,
+          "FloatData1": 566
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5575,
+          "FloatData1": 620
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5520,
+          "FloatData1": 619
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5634,
+          "FloatData1": 580
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5875,
+          "FloatData1": 571
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 5940,
+          "FloatData1": 608
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 6018,
+          "FloatData1": 609
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 1037,
+          "FloatData1": 73,
+          "FloatData2": 1037,
+          "FloatData3": 373
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 1542,
+          "FloatData1": 317,
+          "FloatData2": 1902,
+          "FloatData3": 317
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 4036,
+          "FloatData1": 269,
+          "FloatData2": 4327,
+          "FloatData3": 496
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 3307,
+          "FloatData1": 158,
+          "FloatData2": 3522,
+          "FloatData3": -477
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 3596,
+          "FloatData1": 53,
+          "FloatData2": 3596,
+          "FloatData3": 353
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 3594,
+          "FloatData1": 106,
+          "FloatData2": 3598,
+          "FloatData3": 338
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 3230,
+          "FloatData1": 101,
+          "FloatData2": 3230,
+          "FloatData3": 471
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3230,
+          "FloatData1": 433
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3230,
+          "FloatData1": 371
+        },
+        {
+          "ActorName": "Gem",
+          "FloatData0": 3229,
+          "FloatData1": 312
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 4723,
+          "FloatData1": 376,
+          "FloatData2": 4723,
+          "FloatData3": 676
+        },
+        {
+          "ActorName": "MoveLift",
+          "FloatData0": 5106,
+          "FloatData1": 58,
+          "FloatData2": 5106,
+          "FloatData3": 508
         }
       ],
       "SceneName": "1"
