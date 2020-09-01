@@ -140,7 +140,12 @@ namespace Stage
 		bool Active::UpdateOrNot()
 		{
 			auto pos = mPhysicsModel.mPosition;
-			return IsInScope(pos, WindowSize::WIDTH + 20.f, WindowSize::WIDTH + 20.f);
+			float w = WindowSize::WIDTH + 20.f;
+			float h = WindowSize::HEIGHT * 3.f;
+			if (Gravity::GetDir4() == Dir4::Right || Gravity::GetDir4() == Dir4::Left)
+				std::swap(w, h);
+
+			return IsInScope(pos, w, h);
 		}
 		
 		
@@ -152,7 +157,8 @@ namespace Stage
 				return new DeathTimerState<>{ mAnim,3, std::move(pos),FrogParam::FLAT_MOTION_TIME,FrogFlag::DEATH_MOTION_END_FLAD };
 			}
 
-			UpdatePhysicsModelWithGravity(mPhysicsModel, Gravity::GetVector2(), -1.f, -1.f);
+			//MoveLihtのタテが50、それをだいたい超えないように、仮で25
+			UpdatePhysicsModelWithGravity(mPhysicsModel, Gravity::GetVector2(), 25.f, 25.f);
 
 			//std::cout << mPhysicsModel.mVelocity.x << "," << mPhysicsModel.mVelocity.y << "\n";
 
