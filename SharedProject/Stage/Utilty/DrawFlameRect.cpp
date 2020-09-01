@@ -51,6 +51,13 @@ namespace Stage
 		mFlame.SetColor(std::move(c));
 	}
 
+	void DrawFlameRect::SetRotation(float rot)
+	{
+		mRect.SetRotation(rot);
+		mFlame.SetRotation(rot);
+		mBlank.SetRotation(rot);
+	}
+
 	void DrawFlameRect::SetRectColor(GameLib::Color&& c)
 	{
 		mRect.SetColor(std::move(c));

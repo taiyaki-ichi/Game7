@@ -22,6 +22,7 @@ namespace Stage
 		void SetWidthAndHeight(float, float);
 		void SetRectColor(GameLib::Color&&);
 		void SetFlameColor(GameLib::Color&&);
+		void SetRotation(float);
 
 		float GetWidth() const;
 		float GetHeight() const;

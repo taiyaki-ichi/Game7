@@ -12,6 +12,8 @@ namespace Stage
 		float mWidth;
 		float mHeight;
 
+		float mRot;
+
 		int mCnt;
 
 		GameLib::DrawTexture mTexture1;
@@ -28,8 +30,12 @@ namespace Stage
 
 		void SetWidthAndHeight(float, float);
 		void SetPosition(const GameLib::Vector2&);
+		void SetRotation(float);
 
 		void SetTextureScale(float);
 		void SetMoveLength(float);
+
+	private:
+		void SetTexturesRot();
 	};
 }

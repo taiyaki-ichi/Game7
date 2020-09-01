@@ -9,6 +9,9 @@
 
 namespace Stage
 {
+
+	int Pause::mNum = 0;
+
 	Pause::Pause(GameLib::Actor* stage, SceneManager* sceneManager)
 		:GameLib::Actor{stage}
 		, mSceneManager{sceneManager}
@@ -27,24 +30,31 @@ namespace Stage
 
 		using namespace PauseParam;
 
+		float rot = GameLib::Viewport::GetRotation();
+
+		using GameLib::Vector2;
+
 		mFlameRect.SetWidthAndHeight(WINDOW_WIDTH, WINDOW_HEIGHT);
-		mFlameRect.SetPosition(GameLib::Viewport::GetPos());
+		mFlameRect.SetPosition(Vector2::Rotation(GameLib::Viewport::GetPos(),rot));
 		mFlameRect.SetFlameWidth(WINDOW_FLAME_WIDTH);
+		mFlameRect.SetRotation(rot);
 
 		mResumeButton.SetWidthAndHeightAndFlameWidth(BUTTON_WIDTH, BUTTON_HEIGHT, BUTTON_FLAMEWIDTH);
 		mResumeButton.ChangeDark();
-		mResumeButton.SetPosition(PauseParam::RESUME_BUTTON_ADJUST + GameLib::Viewport::GetPos());
+		mResumeButton.SetPosition(Vector2::Rotation(PauseParam::RESUME_BUTTON_ADJUST + GameLib::Viewport::GetPos(), rot));
+		mResumeButton.SetRotation(rot);
 
 		mResumeText.SetText("ゲームに戻る");
-		mResumeText.SetPosition(GameLib::Viewport::GetPos() + PauseParam::RESUME_BUTTON_ADJUST);
+		mResumeText.SetPosition(Vector2::Rotation(GameLib::Viewport::GetPos() + PauseParam::RESUME_BUTTON_ADJUST, rot));
 		mResumeText.SetDrawOrder(62);
 
 		mReturnStageSelectButton.SetWidthAndHeightAndFlameWidth(BUTTON_WIDTH, BUTTON_HEIGHT, BUTTON_FLAMEWIDTH);
 		mReturnStageSelectButton.ChangeWhite();
-		mReturnStageSelectButton.SetPosition(PauseParam::RETURN_TITLE_BUTTON_ADJUST + GameLib::Viewport::GetPos());
+		mReturnStageSelectButton.SetPosition(Vector2::Rotation(PauseParam::RETURN_TITLE_BUTTON_ADJUST + GameLib::Viewport::GetPos(), rot));
+		mReturnStageSelectButton.SetRotation(rot);
 
 		mReturnStageSelectText.SetText("セレクトに戻る");
-		mReturnStageSelectText.SetPosition(GameLib::Viewport::GetPos() + PauseParam::RETURN_TITLE_BUTTON_ADJUST);
+		mReturnStageSelectText.SetPosition(Vector2::Rotation(GameLib::Viewport::GetPos() + PauseParam::RETURN_TITLE_BUTTON_ADJUST, rot));
 		mReturnStageSelectText.SetDrawOrder(62);
 
 		mKakko = new Kakko{ this ,65};
@@ -52,28 +62,32 @@ namespace Stage
 		mKakko->SetMoveLength(KAKKO_MOVE_LENGTH);
 		mKakko->SetWidthAndHeight(KAKKO_WIDTH, KAKKO_HEIGHT);
 		mKakko->SetPosition(mResumeButton.GetPosition());
+		mKakko->SetRotation(rot);
 
 		mPauseText.SetText("ポーズ");
 		mPauseText.SetSize(GameLib::Font::Size::Size_36);
-		mPauseText.SetPosition(PauseParam::PAUSE_TEXT_ADJUST + GameLib::Viewport::GetPos());
+		mPauseText.SetPosition(Vector2::Rotation(PauseParam::PAUSE_TEXT_ADJUST + GameLib::Viewport::GetPos(), rot));
 		mPauseText.SetDrawOrder(65);
 
 		mA.SetText("A");
 		mA.SetDrawOrder(65);
-		mA.SetPosition(mResumeButton.GetPosition() + BUTTON_KEY_TEXT_ADJUST);
+		mA.SetPosition(mResumeButton.GetPosition() + Vector2::Rotation(BUTTON_KEY_TEXT_ADJUST, rot));
 
 		mD.SetText("D");
 		mD.SetDrawOrder(65);
-		mD.SetPosition(mReturnStageSelectButton.GetPosition() + BUTTON_KEY_TEXT_ADJUST);
+		mD.SetPosition(mReturnStageSelectButton.GetPosition() + Vector2::Rotation(BUTTON_KEY_TEXT_ADJUST, rot));
+
+		mNum++;
 
 	}
+
+	Pause::~Pause()
+	{
+		mNum--;
+	}
+
 	void Pause::CustomizeUpdate()
 	{
-		//Pが押されるとPauseが生成されるため、重複しないようにする処理
-		if (GameLib::InputState::GetState(GameLib::Key::P) == GameLib::ButtonState::Pressed) {
-			mSceneManager->SetState(GameLib::Actor::State::Active);
-			SetState(GameLib::Actor::State::Dead);
-		}
 
 		if (!mSceneManager->CheckFlag(SceneManagerFlag::RETURN_STAGESELECT_FLAG) && mPosition==Position::Resume&&
 			GameLib::InputState::GetState(GameLib::Key::Space)==GameLib::ButtonState::Pressed)
@@ -103,17 +117,10 @@ namespace Stage
 			mPosition = Position::Resume;
 		}
 
-		/*
-		if (!mSceneManager->CheckFlag(SceneManagerFlag::RETURN_STAGESELECT_FLAG) && mResumeButton->IsClicked())
-		{
-			mSceneManager->SetState(GameLib::Actor::State::Active);
-			SetState(GameLib::Actor::State::Dead);
-		}
+	}
 
-		if (mReturnStageSelectButton->IsClicked())
-		{
-			mSceneManager->ReturnStageSelect();
-		}
-		*/
+	int Pause::GetNum()
+	{
+		return mNum;
 	}
 }

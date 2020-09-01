@@ -15,6 +15,7 @@ namespace Stage
 		, mTexture3{ "../Assets/TitleScene/kakko.png" }
 		, mTexture4{ "../Assets/TitleScene/kakko.png" }
 		, mMoveLength{}
+		, mRot{}
 	{
 		using namespace KakkoParam;
 
@@ -25,9 +26,7 @@ namespace Stage
 		mTexture4.SetScale(TEXTURE_SCALE);
 		*/
 
-		mTexture2.SetRotation(GameLib::PI / 2.f);
-		mTexture3.SetRotation(GameLib::PI);
-		mTexture4.SetRotation(GameLib::PI / 2.f * 3.f);
+		SetTexturesRot();
 
 		mTexture1.SetDrawOrder(drawOder);
 		mTexture2.SetDrawOrder(drawOder);
@@ -38,6 +37,8 @@ namespace Stage
 	void Kakko::CustomizeUpdate()
 	{
 	
+		SetTexturesRot();
+
 		auto xy = mMoveLength * std::sin(mCnt * KakkoParam::ROT_PER_FLAME);
 		auto moveAdjust = GameLib::Vector2{ xy,xy };
 
@@ -47,13 +48,13 @@ namespace Stage
 			texture.SetPosition(mPosition + adjust + GameLib::Vector2::Rotation(moveAdjust, rot));
 		};
 
-		auto adjust1 = GameLib::Vector2{ mWidth / 2.f,mHeight / 2.f };
+		auto adjust1 = GameLib::Vector2::Rotation({ mWidth / 2.f,mHeight / 2.f }, mRot);
 		updateTexture(mTexture1, std::move(adjust1));
-		auto adjust2 = GameLib::Vector2{ -mWidth / 2.f,mHeight / 2.f };
+		auto adjust2 = GameLib::Vector2::Rotation({ -mWidth / 2.f,mHeight / 2.f }, mRot);
 		updateTexture(mTexture2, std::move(adjust2));
-		auto adjust3 = GameLib::Vector2{ -mWidth / 2.f,-mHeight / 2.f };
+		auto adjust3 = GameLib::Vector2::Rotation({ -mWidth / 2.f,-mHeight / 2.f }, mRot);
 		updateTexture(mTexture3, std::move(adjust3));
-		auto adjust4 = GameLib::Vector2{ mWidth / 2.f,-mHeight / 2.f };
+		auto adjust4 = GameLib::Vector2::Rotation({ mWidth / 2.f,-mHeight / 2.f }, mRot);
 		updateTexture(mTexture4, std::move(adjust4));
 
 		mCnt++;
@@ -81,5 +82,18 @@ namespace Stage
 		mTexture2.SetScale(scale);
 		mTexture3.SetScale(scale);
 		mTexture4.SetScale(scale);
+	}
+
+	void Kakko::SetRotation(float rot)
+	{
+		mRot = rot;
+	}
+
+	void Kakko::SetTexturesRot()
+	{
+		mTexture1.SetRotation(mRot);
+		mTexture2.SetRotation(GameLib::PI / 2.f + mRot);
+		mTexture3.SetRotation(GameLib::PI + mRot);
+		mTexture4.SetRotation(GameLib::PI / 2.f * 3.f + mRot);
 	}
 }

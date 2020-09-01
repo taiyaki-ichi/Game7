@@ -37,12 +37,16 @@ namespace Stage
 		GameLib::DrawFontText mA;
 		GameLib::DrawFontText mD;
 
+		static int mNum;
+
 	public:
 
 		Pause(GameLib::Actor* stage,SceneManager* sceneManager);
-		virtual ~Pause() = default;
+		virtual ~Pause();
 
 		void CustomizeUpdate() override;
+
+		static int GetNum();
 
 	};
 }
