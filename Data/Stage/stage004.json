@@ -103,15 +103,6 @@
           "FloatData3": -1173.75
         },
         {
-          "ActorName": "CircleBee",
-          "FloatData0": 3468,
-          "FloatData1": 514,
-          "FloatData2": 3304,
-          "FloatData3": 511,
-          "FloatData4": 3304,
-          "FloatData5": 454
-        },
-        {
           "ActorName": "UpTrampoline",
           "FloatData0": 3837,
           "FloatData1": 341
@@ -142,35 +133,10 @@
         },
         {
           "ActorName": "Ground",
-          "FloatData0": 4655,
-          "FloatData1": 273,
-          "FloatData2": 5074,
-          "FloatData3": -642
-        },
-        {
-          "ActorName": "CircleBee",
-          "FloatData0": 5064,
-          "FloatData1": 379,
-          "FloatData2": 4937,
-          "FloatData3": 243,
-          "FloatData4": 4892,
-          "FloatData5": 293
-        },
-        {
-          "ActorName": "Ground",
           "FloatData0": 5190,
           "FloatData1": 320,
           "FloatData2": 5358,
           "FloatData3": -632
-        },
-        {
-          "ActorName": "CircleBee",
-          "FloatData0": 5289,
-          "FloatData1": 371,
-          "FloatData2": 5115,
-          "FloatData3": 365,
-          "FloatData4": 5126,
-          "FloatData5": 327
         },
         {
           "ActorName": "Ground",
@@ -178,15 +144,6 @@
           "FloatData1": 350,
           "FloatData2": 5629,
           "FloatData3": -623
-        },
-        {
-          "ActorName": "CircleBee",
-          "FloatData0": 5551,
-          "FloatData1": 555,
-          "FloatData2": 5387,
-          "FloatData3": 478,
-          "FloatData4": 5371,
-          "FloatData5": 510
         },
         {
           "ActorName": "Ground",
@@ -468,6 +425,40 @@
           "ActorName": "Gem",
           "FloatData0": -964,
           "FloatData1": -17
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": 3461,
+          "FloatData1": 581,
+          "FloatData2": 3476,
+          "FloatData3": 423,
+          "FloatData4": 3427,
+          "FloatData5": 423
+        },
+        {
+          "ActorName": "Ground",
+          "FloatData0": 4713.68408203125,
+          "FloatData1": 306.31588745117188,
+          "FloatData2": 5040,
+          "FloatData3": -483.15789794921875
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": 5284.212890625,
+          "FloatData1": 385.26327514648438,
+          "FloatData2": 5170.52880859375,
+          "FloatData3": 311.57904052734375,
+          "FloatData4": 5146.318359375,
+          "FloatData5": 343.15798950195313
+        },
+        {
+          "ActorName": "CircleBee",
+          "FloatData0": 5548.423828125,
+          "FloatData1": 417.89483642578125,
+          "FloatData2": 5409.4765625,
+          "FloatData3": 394.7369384765625,
+          "FloatData4": 5400.00244140625,
+          "FloatData5": 442.10537719726563
         }
       ],
       "SceneName": "1"
