@@ -78,20 +78,6 @@
           "FloatData3": -1248
         },
         {
-          "ActorName": "Frog",
-          "FloatData0": 2617,
-          "FloatData1": -133,
-          "FloatData2": 2618,
-          "FloatData3": 79
-        },
-        {
-          "ActorName": "Frog",
-          "FloatData0": 2892,
-          "FloatData1": -58,
-          "FloatData2": 2890,
-          "FloatData3": 169
-        },
-        {
           "ActorName": "Ground",
           "FloatData0": 3171,
           "FloatData1": -186,
@@ -172,13 +158,6 @@
           "FloatData1": -124,
           "FloatData2": 5738,
           "FloatData3": -1246.0001220703125
-        },
-        {
-          "ActorName": "Frog",
-          "FloatData0": 302,
-          "FloatData1": -167,
-          "FloatData2": 307,
-          "FloatData3": 58
         },
         {
           "ActorName": "GuruWarp",
@@ -335,6 +314,27 @@
           "ActorName": "Gem",
           "FloatData0": 5026.45263671875,
           "FloatData1": -69.411781311035156
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 299,
+          "FloatData1": -156,
+          "FloatData2": 290,
+          "FloatData3": 68
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2630,
+          "FloatData1": -115,
+          "FloatData2": 2620,
+          "FloatData3": 110
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2872,
+          "FloatData1": -46,
+          "FloatData2": 2869,
+          "FloatData3": 159
         }
       ],
       "SceneName": "1"
@@ -396,20 +396,6 @@
           "FloatData1": -264.74880981445313,
           "FloatData2": 2963.8193359375,
           "FloatData3": -166.89164733886719
-        },
-        {
-          "ActorName": "Frog",
-          "FloatData0": 2736.67822265625,
-          "FloatData1": -136.89164733886719,
-          "FloatData2": 2736.67822265625,
-          "FloatData3": 84.536949157714844
-        },
-        {
-          "ActorName": "Frog",
-          "FloatData0": 2595.360107421875,
-          "FloatData1": -138.4300537109375,
-          "FloatData2": 2612.283203125,
-          "FloatData3": -12.276208877563477
         },
         {
           "ActorName": "IceGround",
@@ -494,16 +480,6 @@
           "FloatData1": -376,
           "FloatData2": 5502,
           "FloatData3": -895
-        },
-        {
-          "ActorName": "Triple",
-          "FloatData0": 4723,
-          "FloatData1": -392
-        },
-        {
-          "ActorName": "Triple",
-          "FloatData0": 4335,
-          "FloatData1": -471
         },
         {
           "ActorName": "GuruWarp",
@@ -680,6 +656,30 @@
           "ActorName": "Gem",
           "FloatData0": 4938,
           "FloatData1": -298
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2635,
+          "FloatData1": -131,
+          "FloatData2": 2649,
+          "FloatData3": 115
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 2744,
+          "FloatData1": -131,
+          "FloatData2": 2736,
+          "FloatData3": 27
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 4354,
+          "FloatData1": -465
+        },
+        {
+          "ActorName": "Triple",
+          "FloatData0": 4766,
+          "FloatData1": -378
         }
       ],
       "SceneName": "2"
@@ -857,13 +857,6 @@
           "FloatData1": 25
         },
         {
-          "ActorName": "Frog",
-          "FloatData0": 1078,
-          "FloatData1": 47,
-          "FloatData2": 1078,
-          "FloatData3": 357
-        },
-        {
           "ActorName": "Gem",
           "FloatData0": 301.42861938476563,
           "FloatData1": 284.28579711914063
@@ -952,6 +945,13 @@
           "ActorName": "Gem",
           "FloatData0": 3052.189697265625,
           "FloatData1": 104.21056365966797
+        },
+        {
+          "ActorName": "Frog",
+          "FloatData0": 986,
+          "FloatData1": 66,
+          "FloatData2": 991,
+          "FloatData3": 245
         }
       ],
       "SceneName": "3"
