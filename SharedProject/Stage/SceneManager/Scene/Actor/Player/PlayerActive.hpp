@@ -33,8 +33,11 @@ namespace Stage::PlayerState
 		Stage::Life* mLife;
 		Stage::ItemNum* mItemNum;
 
+		//ƒJƒƒ‰‚ÌˆÊ’u‚ğHitGround“à‚Å’²®‚µ‚½‚¢‚ª‚½‚ß
+		GameLib::Actor* mPlayer;
+
 	public:
-		Active(GameLib::DrawAnimation* anim,Stage::Life* life,Stage::ItemNum* itemNum);
+		Active(GameLib::DrawAnimation* anim,Stage::Life* life,Stage::ItemNum* itemNum,GameLib::Actor*);
 		virtual ~Active() = default;
 
 		Stage::StateBase<char>* Update() override;

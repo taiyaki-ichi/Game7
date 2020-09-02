@@ -41,6 +41,8 @@ namespace Stage
 
 		if (mCnt >= 0)
 			mCnt++;
+
+		
 	}
 	void SceneManager::CreateScene(std::vector<std::vector<ActorInfo>>&& stageData)
 	{

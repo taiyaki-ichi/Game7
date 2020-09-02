@@ -12,7 +12,6 @@ namespace Stage
 		:GameLib::Actor{ manager }
 		, mCamera{nullptr}
 	{
-
 	}
 
 	void Scene::CreateActors(std::vector<ActorInfo>&& actorInfos, Player* player)

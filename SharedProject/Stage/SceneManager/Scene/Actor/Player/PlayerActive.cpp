@@ -16,13 +16,15 @@
 #include"Stage/SceneManager/Scene/Actor/Trampoline/TrampolineParam.hpp"
 #include"Stage/SceneManager/Scene/Actor/Trampoline/HitTrampoline.hpp"
 #include"Stage/Utilty/IsInScope.hpp"
+#include"Stage/SceneManager/Scene/Actor/Player.hpp"
+#include"Stage/SceneManager/Scene/StageScene.hpp"
 
 #include<iostream>
 
 namespace Stage::PlayerState
 {
 
-	Active::Active(GameLib::DrawAnimation* anim, Stage::Life* life,Stage::ItemNum* itemNum)
+	Active::Active(GameLib::DrawAnimation* anim, Stage::Life* life,Stage::ItemNum* itemNum,GameLib::Actor* actor)
 		:StateBase{}
 		, mAnimation{ anim }
 		, mCollider{}
@@ -31,6 +33,7 @@ namespace Stage::PlayerState
 		, mInvincibleCnt{-1}
 		, mLife{life}
 		, mItemNum{itemNum}
+		, mPlayer{actor}
 	{
 		using namespace GameLib;
 
@@ -44,10 +47,21 @@ namespace Stage::PlayerState
 
 			//Gravity以下のXを切り捨て引っかかりをなくす
 			//これだと歩いているときは引っかからないがジャンプしたときひっかっかる、うーん
+			/*
 			if (Gravity::GetDir4() == Dir4::Down || Gravity::GetDir4() == Dir4::Up)
 				adjust = GetParallelRectAdjustVec(mCollider, c, 1.f, 0.f);
 			else
 				adjust = GetParallelRectAdjustVec(mCollider, c, 0.f, 1.f);
+				*/
+
+			//Playerのヨコ方向によって
+			float speed = std::abs(GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Right));
+			float speedRate = speed / PlayerParam::MAX_HORIZON_SPEED;
+			if (Gravity::GetDir4() == Dir4::Down || Gravity::GetDir4() == Dir4::Up)
+				adjust = GetParallelRectAdjustVec(mCollider, c, 1.f*speedRate, 0.f);
+			else
+				adjust = GetParallelRectAdjustVec(mCollider, c, 0.f, 1.f*speedRate);
+				
 				
 				
 			auto dir4Vec = GetDir4Vec(adjust);
@@ -143,6 +157,14 @@ namespace Stage::PlayerState
 
 			AdjustCollider();
 			mAnimation->SetPosition(mPhysicsModel.mPosition);
+
+			/*
+			auto player = static_cast<Player*>(mPlayer);
+			player->SetPosition(mAnimation->GetPosition());
+			auto scene = static_cast<Scene*>(mPlayer->GetOwner());
+			scene->AdjustCameraPosiotion();
+			*/
+			
 		};
 
 
@@ -443,8 +465,6 @@ namespace Stage::PlayerState
 
 	void Active::CheckFallDeath()
 	{
-
-
 		auto pos = mPhysicsModel.mPosition;
 		if(!IsInScope(pos,WindowSize::WIDTH+PlayerParam::FALL_DEATH_LINE, WindowSize::WIDTH + PlayerParam::FALL_DEATH_LINE))
 			UpFlag(PlayerFlag::DEATH_FLAG);

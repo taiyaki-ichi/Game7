@@ -8,7 +8,7 @@
 namespace Stage
 {
 	Camera::Camera(GameLib::Actor* scene)
-		:ActorBase{ scene }
+		:ActorBase{ scene ,0}
 		, mLeft{}
 		, mTop{}
 		, mRight{}
@@ -143,9 +143,8 @@ namespace Stage
 
 
 			//std::cout << cameraPos.x << "," << cameraPos.y << "\n";
+
 			GameLib::Viewport::SetPos(std::move(cameraPos));
-
-
 		}
 
 		
