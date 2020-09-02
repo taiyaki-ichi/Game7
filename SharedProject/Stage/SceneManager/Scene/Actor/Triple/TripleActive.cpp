@@ -104,7 +104,7 @@ namespace Stage
 
 			auto hitThrough = [this, hitGround](const GameLib::Collider& c) {
 				auto ad = GetParallelRectAdjustVec(mBody, c);
-				if (GetDir4DirectionSize(ad, Dir4::Up))
+				if (GetDir4DirectionSize(ad, Dir4::Up) > 0.f)
 					hitGround(c);
 			};
 
