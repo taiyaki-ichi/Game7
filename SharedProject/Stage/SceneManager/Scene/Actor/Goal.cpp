@@ -4,6 +4,7 @@
 #include"Stage/Utilty/Dir4Vec.hpp"
 #include"Goal/Kira.hpp"
 #include"Goal/GoalText.hpp"
+#include"Stage/Gravity/Gravity.hpp"
 
 namespace Stage
 {
@@ -35,7 +36,8 @@ namespace Stage
 		mCollider.SetRotation(rot);
 
 		auto hitPlayer = [this](const GameLib::Collider& c) {
-			if (mGoalTextFlag) {
+
+			if (mGoalTextFlag&&mFallDir==Gravity::GetDir4()) {
 				new GoalText{ this };
 				mGoalTextFlag = false;
 			}
