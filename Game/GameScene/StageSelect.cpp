@@ -23,6 +23,8 @@ namespace Game
 		, mGemDisplay{ StageSelectParam::GEM_NUM_POSITION,gameData.mPlayerGemNum }
 		, mLifeDisplay{ StageSelectParam::LIFE_NUM_POSITION,gameData.mPlayerLifeNum }
 		,mMoveKeyAssist{nullptr}
+		, mSave{ "../Assets/Font/mplus-1c-black.ttf" }
+		,mReturenTitle{ "../Assets/Font/mplus-1c-black.ttf" }
 	{
 
 		for (const auto& stageDataTmp : mStageData)
@@ -63,6 +65,13 @@ namespace Game
 		mMoveKeyAssist = new MoveKeyAssist{ this,1 };
 		mMoveKeyAssist->SetPosition(StageSelectParam::MOVEKEYASSIST_POSITION);
 
+		mSave.SetPosition(StageSelectParam::SAVE_POSITION);
+		mSave.SetSize(GameLib::Font::Size::Size_36);
+		mSave.SetDrawOrder(10);
+		mReturenTitle.SetPosition(StageSelectParam::RETURN_TITLE_POSITION);
+		mReturenTitle.SetSize(GameLib::Font::Size::Size_36);
+		mReturenTitle.SetDrawOrder(10);
+
 		AdjustDisplayPos();
 	}
 
@@ -74,6 +83,17 @@ namespace Game
 		auto pos = mGameData.mNowPos;
 		GameLib::Viewport::SetPos(ToVector2(pos.x, pos.y));
 
+		if (mGameData.mNowPos == HexVec{ 0,0 })
+		{
+			mSave.SetText("セーブする");
+			mReturenTitle.SetText("タイトルにもどる");
+		}
+		else
+		{
+			mSave.SetText("");
+			mReturenTitle.SetText("");
+		}
+
 		auto addPairVec = GetPairVecPerFrame();
 		//0,0は絶対進める
 		if (addPairVec != HexVec{ 0,0 })
@@ -81,6 +101,7 @@ namespace Game
 			pos = pos + addPairVec;
 			CheckposAndUpdateDisplay(pos);
 		}
+
 
 		AdjustDisplayPos();
 
@@ -115,7 +136,9 @@ namespace Game
 		//stringのvectorのサイズが１の時は特別なマス、必ず通れる
 		if (stageDataIter != mStageData.end() && stageDataIter->second.size() == 1)
 		{
-			mStageNameDisplay.SetText(stageDataIter->second[0]);
+			//mStageNameDisplay.SetText(stageDataIter->second[0]);
+
+			mStageNameDisplay.SetText("");
 			mStageLevelDisplay.SetText("");
 			mTearGemDisplay.NotDrawing();
 

@@ -32,6 +32,9 @@ namespace Game
 
 		MoveKeyAssist* mMoveKeyAssist;
 
+		GameLib::DrawFontText mSave;
+		GameLib::DrawFontText mReturenTitle;
+
 	public:
 		//GameData‚Ì‚Ù‚©‚ÉStageData‚ðGame‚©‚ç‚à‚ç‚¤
 		StageSelect(GameLib::Actor*,const GameData&,
