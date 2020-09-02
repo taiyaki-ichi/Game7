@@ -209,21 +209,22 @@ namespace StageEditor
 
 	void StageEditor::Help()
 	{
-		std::cout << "\n\ncommand list\n";
-		std::cout << " add scene SCENE_NAME\n";
-		std::cout << " remove scene SCENE_NAME\n";
-		std::cout << " change scene SCENE_NAME\n";
-		std::cout << " save as FILE_NAME\n";
-		std::cout << " load FILE_NAME\n";
-		std::cout << " save\n";
-		std::cout << " check\n";
+		std::cout << "\n\ncommand list\n\n";
+		std::cout << "add scene SCENE_NAME\n";
+		std::cout << "remove scene SCENE_NAME\n";
+		std::cout << "change scene SCENE_NAME\n";
+		std::cout << "save as FILE_NAME\n";
+		std::cout << "load FILE_NAME\n";
+		std::cout << "save\n";
+		std::cout << "check\n";
 
+		std::cout << "\n";
 
 		auto names = GetAllActorEditorName();
 		for (auto& name : names)
 			std::cout << name << "\n";
 
-		std::cout << "\n";
+		std::cout << "\n\n";
 		std::cout << ">";
 	}
 
