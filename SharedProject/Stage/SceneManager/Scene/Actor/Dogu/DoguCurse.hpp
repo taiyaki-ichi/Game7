@@ -15,7 +15,6 @@ namespace Stage
 		{
 			GameLib::DrawAnimation* mAnim;
 			GameLib::Collider mCurseCollider;
-			GameLib::Collider mBodyCollider;
 
 			int mCnt;
 
