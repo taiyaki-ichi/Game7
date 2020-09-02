@@ -8,6 +8,7 @@
 #include"StageSelect/HexChip/ToVector2.hpp"
 #include"GameSceneFlag.hpp"
 #include"StageDataParam.hpp"
+#include"StageSelect/MoveKeyAssist.hpp"
 
 namespace Game
 {
@@ -21,6 +22,7 @@ namespace Game
 		, mTearGemDisplay{ StageSelectParam::TEARGEM_DIPLAY_POSITION }
 		, mGemDisplay{ StageSelectParam::GEM_NUM_POSITION,gameData.mPlayerGemNum }
 		, mLifeDisplay{ StageSelectParam::LIFE_NUM_POSITION,gameData.mPlayerLifeNum }
+		,mMoveKeyAssist{nullptr}
 	{
 
 		for (const auto& stageDataTmp : mStageData)
@@ -31,11 +33,13 @@ namespace Game
 			{
 				//仮
 				if (stageDataTmp.second[0] == "start")
-					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/hex.png" };
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/start.png" };
 				else if (stageDataTmp.second[0] == "save")
 					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/hex.png" };
 				else if (stageDataTmp.second[0] == "title")
 					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/hex.png" };
+				else if (stageDataTmp.second[0] == "goal")
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/goal2.png" };
 
 			}
 			//saveDataが存在する場合、つまり進むことできる通常のマス
@@ -55,6 +59,9 @@ namespace Game
 
 		mChoiceIcon = new ChoiceIcon{ this };
 		CheckposAndUpdateDisplay(mGameData.mNowPos);
+
+		mMoveKeyAssist = new MoveKeyAssist{ this,1 };
+		mMoveKeyAssist->SetPosition(StageSelectParam::MOVEKEYASSIST_POSITION);
 
 		AdjustDisplayPos();
 	}
@@ -142,6 +149,7 @@ namespace Game
 		mGemDisplay.AdjustPos();
 		mTearGemDisplay.AdjustPos();
 		mLifeDisplay.AdjustPos();
+		mMoveKeyAssist->AdjustPosition();
 	}
 
 	void StageSelect::PressedSpace()

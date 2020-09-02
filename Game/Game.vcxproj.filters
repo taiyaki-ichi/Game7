@@ -17,6 +17,8 @@
     <ClCompile Include="TemporaryMessage\TemporaryMessage.cpp" />
     <ClCompile Include="GameScene\GameOverScene.cpp" />
     <ClCompile Include="GameScene\TitleScene\SelectButton.cpp" />
+    <ClCompile Include="GameScene\StageSelect\MoveKeyAssist\KeyHex.cpp" />
+    <ClCompile Include="GameScene\StageSelect\MoveKeyAssist.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScene\StageSelect\DataDisplay\StringDisplay.hpp" />
@@ -50,5 +52,9 @@
     <ClInclude Include="GameParam.hpp" />
     <ClInclude Include="GameScene\GameOverScene.hpp" />
     <ClInclude Include="GameScene\TitleScene\SelectButton.hpp" />
+    <ClInclude Include="GameScene\StageSelect\MoveKeyAssist.hpp" />
+    <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\KeyHex.hpp" />
+    <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\KeyHexParam.hpp" />
+    <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\MoveKeyAssistParam.hpp" />
   </ItemGroup>
 </Project>

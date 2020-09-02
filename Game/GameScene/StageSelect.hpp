@@ -13,6 +13,7 @@
 namespace Game
 {
 	class ChoiceIcon;
+	class MoveKeyAssist;
 
 	class StageSelect : public SceneBase
 	{
@@ -28,6 +29,8 @@ namespace Game
 
 		::Stage::GemDisplay mGemDisplay;
 		::Stage::LifeDisplay mLifeDisplay;
+
+		MoveKeyAssist* mMoveKeyAssist;
 
 	public:
 		//GameData‚Ì‚Ù‚©‚ÉStageData‚ðGame‚©‚ç‚à‚ç‚¤

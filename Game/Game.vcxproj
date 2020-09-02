@@ -155,6 +155,8 @@
     <ClCompile Include="GameScene\StageSelect\DataDisplay\StringDisplay.cpp" />
     <ClCompile Include="GameScene\StageSelect\DataDisplay\TearGemDisplay.cpp" />
     <ClCompile Include="GameScene\StageSelect\HexChip\HexChip.cpp" />
+    <ClCompile Include="GameScene\StageSelect\MoveKeyAssist.cpp" />
+    <ClCompile Include="GameScene\StageSelect\MoveKeyAssist\KeyHex.cpp" />
     <ClCompile Include="GameScene\TitleScene.cpp" />
     <ClCompile Include="GameScene\TitleScene\SelectButton.cpp" />
     <ClCompile Include="GameScene\TitleScene\TitleLogo.cpp" />
@@ -180,6 +182,10 @@
     <ClInclude Include="GameScene\StageSelect\HexChip\HexChip.hpp" />
     <ClInclude Include="GameScene\StageSelect\HexChip\HexChipParam.hpp" />
     <ClInclude Include="GameScene\StageSelect\HexChip\ToVector2.hpp" />
+    <ClInclude Include="GameScene\StageSelect\MoveKeyAssist.hpp" />
+    <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\KeyHex.hpp" />
+    <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\KeyHexParam.hpp" />
+    <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\MoveKeyAssistParam.hpp" />
     <ClInclude Include="GameScene\StageSelect\StageSelectParam.hpp" />
     <ClInclude Include="GameScene\StageStateFlag.hpp" />
     <ClInclude Include="GameScene\TitleScene.hpp" />
