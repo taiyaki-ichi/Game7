@@ -29,7 +29,7 @@ namespace Stage::BackGround
 		:ObjectBase{ actor,"../Assets/BackGround/tree2-230.png" ,-210 }
 	{
 		SetScale(0.3f);
-		SetMoveRateXY(0.95f, 0.95f);
+		SetMoveRateXY(0.95f, 0.9f);
 	}
 
 	RoundTree180::RoundTree180(GameLib::Actor* actor)
