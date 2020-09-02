@@ -133,17 +133,38 @@ namespace Game
 		auto saveDataIter = mGameData.mSaveData.find(pos);
 		auto stageDataIter = mStageData.find(pos);
 
-		//stringのvectorのサイズが１の時は特別なマス、必ず通れる
+		//stringのvectorのサイズが１の時は特別なマス
 		if (stageDataIter != mStageData.end() && stageDataIter->second.size() == 1)
 		{
 			//mStageNameDisplay.SetText(stageDataIter->second[0]);
 
-			mStageNameDisplay.SetText("");
-			mStageLevelDisplay.SetText("");
-			mTearGemDisplay.NotDrawing();
+			//goalの場合
+			if (stageDataIter->second[0] == "goal")
+			{
+				auto prevPos = HexVec{ pos.x - 1,pos.y };
+				auto prevStageDataIter = mGameData.mSaveData.find(prevPos);
 
-			mChoiceIcon->SetPosision(pos.x, pos.y);
-			mGameData.mNowPos = pos;
+				//goalの一つ前の椅子にあるステージがクリア済みなら通れる
+				if (prevStageDataIter != mGameData.mSaveData.end() && prevStageDataIter->second & StageStateFlag::CLEAR_FLAG)
+				{
+					mStageNameDisplay.SetText("");
+					mStageLevelDisplay.SetText("");
+					mTearGemDisplay.NotDrawing();
+
+					mChoiceIcon->SetPosision(pos.x, pos.y);
+					mGameData.mNowPos = pos;
+				}
+			}
+			//goal以外の場合は基本通れる
+			else
+			{
+				mStageNameDisplay.SetText("");
+				mStageLevelDisplay.SetText("");
+				mTearGemDisplay.NotDrawing();
+
+				mChoiceIcon->SetPosision(pos.x, pos.y);
+				mGameData.mNowPos = pos;
+			}
 		}
 		//セーブデータに記載されている
 		//つまり、クリアしたか進むことができるかの時
