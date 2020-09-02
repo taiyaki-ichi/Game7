@@ -3,6 +3,7 @@
 #include<string>
 #include"SceneManager/Scene/Actor/Player/ItemNum/ItemNumData.hpp"
 #include"GameLib/include/Math/Vector2.hpp"
+#include"BackGroundType.hpp"
 
 namespace Stage
 {
@@ -20,7 +21,7 @@ namespace Stage
 
 	public:
 
-		Stage(GameLib::Actor* game, std::string&& stageDataFileName, int playerLifeNum=5, int playerGemNum=10);
+		Stage(GameLib::Actor* game, std::string&& stageDataFileName, int playerLifeNum = 5, int playerGemNum = 10,const BackGroundType& bgType = BackGroundType::SharpTreeForest);
 		virtual ~Stage() = default;
 
 		//PauseÇÃê∂ê¨

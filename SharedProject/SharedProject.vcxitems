@@ -63,6 +63,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Time.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\Window.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Json\picojson.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGroundType.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\CreateBackGround.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Cave.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Stage\BackGround\Parts\Horizon.hpp" />

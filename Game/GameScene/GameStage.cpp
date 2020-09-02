@@ -6,12 +6,12 @@
 
 namespace Game
 {
-	GameStage::GameStage(GameLib::Actor* actor,const GameData& gameData,const std::string& stageName)
+	GameStage::GameStage(GameLib::Actor* actor,const GameData& gameData,const std::string& stageName,Stage::BackGroundType&& bgType)
 		:SceneBase{ actor,gameData }
 		, mStage{ nullptr }
 	{
 		mStage = new ::Stage::Stage{ this,"../Data/Stage/" + stageName + ".json",
-			mGameData.mPlayerLifeNum,mGameData.mPlayerGemNum };
+			mGameData.mPlayerLifeNum,mGameData.mPlayerGemNum ,bgType };
 	}
 
 	void GameStage::CustomizeUpdate()

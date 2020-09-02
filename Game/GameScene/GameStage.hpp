@@ -1,5 +1,6 @@
 #pragma once
 #include"GameSceneBase.hpp"
+#include"Stage/BackGroundType.hpp"
 
 namespace Stage
 {
@@ -13,7 +14,7 @@ namespace Game
 		Stage::Stage* mStage;
 
 	public:
-		GameStage(GameLib::Actor*, const GameData&, const std::string& fileName);
+		GameStage(GameLib::Actor*, const GameData&, const std::string& fileName,Stage::BackGroundType&&);
 
 		void CustomizeUpdate() override;
 	};

@@ -84,7 +84,11 @@ namespace Game
 		//ˆê‰ž
 		if (iter != gStageData.end() && iter->second.size() == StageDataParam::STAGE_STRING_NUM)
 		{
-			mNowScene = new GameStage{ this,mGameData,iter->second[0] };
+			auto bgType = Stage::BackGroundType::None;
+			auto bgIter = gStageBackGroundType.find(iter->second[0]);
+			if (bgIter != gStageBackGroundType.end())
+				bgType = bgIter->second;
+			mNowScene = new GameStage{ this,mGameData,iter->second[0] ,std::move(bgType) };
 		}
 
 	}

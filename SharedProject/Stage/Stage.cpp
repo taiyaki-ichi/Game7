@@ -16,7 +16,7 @@
 namespace Stage
 {
 
-	Stage::Stage(GameLib::Actor* game, std::string&& fileName, int playerLifeNum, int playerGemNum )
+	Stage::Stage(GameLib::Actor* game, std::string&& fileName, int playerLifeNum, int playerGemNum ,const BackGroundType& bgType)
 		:GameLib::Actor{ game }
 		, mSceneManager{ nullptr }
 		, mFlags{0}
@@ -24,8 +24,17 @@ namespace Stage
 		mSceneManager = LoadStage(this, std::move(fileName), playerLifeNum, playerGemNum);
 		Gravity::Reset();
 
-		BackGround::CreateSharpTreeForest(this);
-		//BackGround::CreateCreepyCave(this);
+		if (bgType == BackGroundType::SharpTreeForest)
+			BackGround::CreateSharpTreeForest(this);
+		else if (bgType == BackGroundType::RoundTreeForest)
+			BackGround::CreateRoundTreeForest(this);
+		else if (bgType == BackGroundType::Sanctuary)
+			BackGround::CreateSanctuary(this);
+		else if (bgType == BackGroundType::IndianVilleage)
+			BackGround::CreateIndianVillage(this);
+		else if (bgType == BackGroundType::CreepyCave)
+			BackGround::CreateCreepyCave(this);
+			
 	}
 
 	void Stage::CustomizeUpdate()

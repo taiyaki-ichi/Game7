@@ -3,6 +3,7 @@
 #include<vector>
 #include<string>
 #include"GameScene/Utility/HexVec.hpp"
+#include"Stage/BackGroundType.hpp"
 
 namespace Game
 {
@@ -29,5 +30,23 @@ namespace Game
 		{{0,0},{"start"}},
 		{{9,0},{"goal"}},
 	};
+
+	std::unordered_map<std::string, Stage::BackGroundType> gStageBackGroundType =
+	{
+		{"stage007",Stage::BackGroundType::RoundTreeForest},
+		{"stage001",Stage::BackGroundType::RoundTreeForest},
+		{"stage002",Stage::BackGroundType::SharpTreeForest},
+		{"stage010",Stage::BackGroundType::IndianVilleage},
+		{"stage011",Stage::BackGroundType::IndianVilleage},
+		{"stage013",Stage::BackGroundType::RoundTreeForest},
+		{"stage009",Stage::BackGroundType::RoundTreeForest},
+		{"stage005",Stage::BackGroundType::Sanctuary},
+		{"stage008",Stage::BackGroundType::SharpTreeForest},
+		{"stage006",Stage::BackGroundType::Sanctuary},
+		{"stage004",Stage::BackGroundType::SharpTreeForest},
+		{"stage003",Stage::BackGroundType::CreepyCave},
+		{"stage014",Stage::BackGroundType::CreepyCave},
+		{"stage012",Stage::BackGroundType::RoundTreeForest},
+	}; 
 
 }

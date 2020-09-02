@@ -60,7 +60,7 @@ namespace Stage::BackGround
 
 		CreateSlideObjects<Throat180>(actor, num120, MarginX, -10.f);
 		CreateSlideObjects<Throat130>(actor, num100, MarginX, 15.f);
-		CreateSlideObjects<Throat230>(actor, num140, MarginX140, -135.f);
+		//CreateSlideObjects<Throat230>(actor, num140, MarginX140, -135.f);
 
 		float w = MarginX * 2.f + WindowSize::WIDTH;
 		float w140 = MarginX140 * 2.f + WindowSize::WIDTH;
@@ -72,9 +72,11 @@ namespace Stage::BackGround
 		for (auto tmp : bg100)
 			tmp->SetPosition(tmp->GetPosition() + GameLib::Vector2{ w / static_cast<float>(num100) / 2.f ,0.f });
 
+		/*
 		auto bg140 = CreateSlideObjects<Throat230>(actor, num140, MarginX140, 135.f, true);
 		for (auto tmp : bg140)
 			tmp->SetPosition(tmp->GetPosition() + GameLib::Vector2{ w140 / static_cast<float>(num140) / 2.f ,0.f });
+			*/
 	}
 
 }
