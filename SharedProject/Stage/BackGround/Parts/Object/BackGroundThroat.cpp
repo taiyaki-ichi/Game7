@@ -13,7 +13,7 @@ namespace Stage::BackGround
 	}
 
 	Throat180::Throat180(GameLib::Actor* actor, bool isUpsideDown)
-		:ObjectBase{ actor,"../Assets/BackGround/throat-180.png" ,-90 }
+		:ObjectBase{ actor,"../Assets/BackGround/throat-180.png" ,-160 }
 	{
 		SetScale(0.5f);
 		SetMoveRateXY(0.5f, 0.8f);
@@ -22,7 +22,7 @@ namespace Stage::BackGround
 	}
 
 	Throat130::Throat130(GameLib::Actor* actor, bool isUpsideDown)
-		:ObjectBase{ actor,"../Assets/BackGround/throat-130.png" ,-140 }
+		:ObjectBase{ actor,"../Assets/BackGround/throat-130.png" ,-190 }
 	{
 		SetScale(0.3f);
 		SetMoveRateXY(0.7f, 0.9f);
