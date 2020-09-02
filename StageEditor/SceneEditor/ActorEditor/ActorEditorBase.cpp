@@ -15,7 +15,8 @@ namespace StageEditor
 		, mCollider{}
 	{
 		auto deathFunc = [this](const GameLib::Collider& c) {
-			if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
+			if ((GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)&&
+				(mPosData.IsOK()&&mStringData.IsOK()))
 				SetState(GameLib::Actor::State::Dead);
 		};
 		mCollider.AddHitFunction("Cursor", std::move(deathFunc));

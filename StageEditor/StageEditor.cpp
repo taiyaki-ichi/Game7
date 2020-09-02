@@ -154,7 +154,6 @@ namespace StageEditor
 				std::system("cls");
 			else
 				mConsoleMessage->RunGetMessageThread();
-
 		}
 	}
 
