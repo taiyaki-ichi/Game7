@@ -51,7 +51,7 @@ namespace Game
 		if (GameLib::InputState::GetState(GameLib::Key::Space) == GameLib::ButtonState::Pressed)
 		{
 			if (mCursorPos == CursorPos::ButtonA)
-				UpFlag(SceneFlag::GO_STAGESELECT_FLAG);
+				UpFlag(SceneFlag::GO_STAGESELECT_FROM_TITLE_FLAG);
 			else if (mCursorPos == CursorPos::ButtonD)
 				UpFlag(SceneFlag::GO_STAGESELECT_FROM_ZERO_FLAG);
 		}
@@ -76,6 +76,7 @@ namespace Game
 			mKakko->SetPosition(TitleSceneParam::D_BUTTON_ADJUST);
 		}
 
+		
 	}
 
 }

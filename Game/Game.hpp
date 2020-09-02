@@ -30,6 +30,7 @@ namespace Game
 		void GoStage();
 		void GoTitle();
 		void GoStageSelect();
+		void GoStageSelectFromTitle();
 		void StageClear();
 		void MissStage();
 		void GoStageSelectFromZero();

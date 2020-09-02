@@ -24,6 +24,7 @@ namespace Game
 	{
 		mGameData = LoadGameData();
 
+		std::cout << "1: " << mGameData.mPlayerLifeNum << "\n";
 		mNowScene = new TitleScene{ this,mGameData };
 
 		mRectCurtain = new RectCurtain{ this };
@@ -70,6 +71,8 @@ namespace Game
 				GoStageSelect();
 			else if (mNowScene->CheckFlag(GO_STAGESELECT_FROM_ZERO_FLAG))
 				GoStageSelectFromZero();
+			else if (mNowScene->CheckFlag(GO_STAGESELECT_FROM_TITLE_FLAG))
+				GoStageSelectFromTitle();
 			else
 				GoTitle();
 
@@ -95,11 +98,19 @@ namespace Game
 
 	void Game::GoTitle()
 	{
+		mGameData = mNowScene->GetGameData();
 		mNowScene = new TitleScene{ this,mGameData };
 	}
 
 	void Game::GoStageSelect()
 	{
+		mNowScene = new StageSelect{ this,mGameData,gStageData };
+	}
+
+	void Game::GoStageSelectFromTitle()
+	{
+		mGameData = mNowScene->GetGameData();
+		mGameData.mNowPos = { 0,0 };
 		mNowScene = new StageSelect{ this,mGameData,gStageData };
 	}
 
