@@ -37,9 +37,9 @@ namespace Game
 				if (stageDataTmp.second[0] == "start")
 					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/start.png" };
 				else if (stageDataTmp.second[0] == "save")
-					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/hex.png" };
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/save.png" };
 				else if (stageDataTmp.second[0] == "title")
-					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/hex.png" };
+					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/return.png" };
 				else if (stageDataTmp.second[0] == "goal")
 					new HexChip{ this,stageDataTmp.first.x,stageDataTmp.first.y,"../Assets/StageSelect/goal2.png" };
 

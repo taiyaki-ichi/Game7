@@ -24,7 +24,6 @@ namespace Game
 	{
 		mGameData = LoadGameData();
 
-		std::cout << "1: " << mGameData.mPlayerLifeNum << "\n";
 		mNowScene = new TitleScene{ this,mGameData };
 
 		mRectCurtain = new RectCurtain{ this };
