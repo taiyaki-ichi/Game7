@@ -11,6 +11,8 @@ namespace Stage::PlayerState
 		, mAnimation{ anim }
 	{
 		mAnimation->SetChannel(8);
+
+		UpFlag(PlayerFlag::DEATH_FLAG);
 	}
 	Stage::StateBase<char>* Death::Update()
 	{

@@ -47,7 +47,9 @@ namespace Stage
 		if (mSceneManager->CheckFlag(SceneManagerFlag::RETURN_STAGESELECT_FLAG))
 			mFlags |= StageFlag::RETURN_STAGESELECT_FLAG;
 		
-		if (GameLib::InputState::GetState(GameLib::Key::P) == GameLib::ButtonState::Pressed&&Pause::GetNum()==0) {
+		if (GameLib::InputState::GetState(GameLib::Key::P) == GameLib::ButtonState::Pressed&&Pause::GetNum()==0&&
+			!mSceneManager->CheckFlag(SceneManagerFlag::PLAYER_CLEAR_MOTION_FLAG)&&
+			!mSceneManager->CheckFlag(SceneManagerFlag::PLAYER_DEATH_MOTION_FLAG)) {
 			new Pause{ this ,mSceneManager };
 		}
 

@@ -34,6 +34,11 @@ namespace Stage
 		if (mCnt >= SceneManagerParam::GOAL_MOVIE_TIME)
 			mFlags |= SceneManagerFlag::CLEAR_FLAG;
 
+		if (mPlayer->CheckFlag(PlayerFlag::GOAL_FLAG))
+			mFlags |= SceneManagerFlag::PLAYER_CLEAR_MOTION_FLAG;
+		if (mPlayer->CheckFlag(PlayerFlag::DEATH_FLAG))
+			mFlags |= SceneManagerFlag::PLAYER_DEATH_MOTION_FLAG;
+
 		if (mCnt >= 0)
 			mCnt++;
 	}
