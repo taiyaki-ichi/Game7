@@ -3,7 +3,6 @@
 #include"StageData.hpp"
 #include"GameScene/StageDataParam.hpp"
 
-#include"GameScene/StageStateFlag.hpp"
 
 namespace Game
 {
@@ -26,9 +25,9 @@ namespace Game
 	{
 		std::ifstream file(FILE_NAME, std::ios::binary | std::ios::in);
 
-		//ファイルが無効の場合
+		//ファイルが存在しない場合
 		if (!file)
-			return START_GAMEDATA;
+			return {};
 		
 		GameData result;
 

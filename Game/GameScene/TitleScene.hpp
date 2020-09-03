@@ -32,7 +32,7 @@ namespace Game
 		StarDisplay mStarDisplay;
 
 	public:
-		TitleScene(GameLib::Actor*,const GameData&,int starNum);
+		TitleScene(GameLib::Actor*, const GameData&, int starNum);
 
 		void CustomizeUpdate() override;
 	};

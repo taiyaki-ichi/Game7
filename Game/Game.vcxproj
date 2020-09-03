@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameScene\FromZeroTitleScene.cpp" />
     <ClCompile Include="GameScene\GameClearScene.cpp" />
     <ClCompile Include="GameScene\ClearScene\ClearScenePartsBase.cpp" />
     <ClCompile Include="GameScene\ClearScene\GameClearParts.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="GameScene\ClearScene\IsSaveParam.hpp" />
     <ClInclude Include="GameScene\ClearScene\IsSaveParts.hpp" />
     <ClInclude Include="GameScene\ClearScene\SavedParts.hpp" />
+    <ClInclude Include="GameScene\FromZeroTitleScene.hpp" />
     <ClInclude Include="GameScene\GameClearScene.hpp" />
     <ClInclude Include="GameScene\ClearScene\ClearSceneFlag.hpp" />
     <ClInclude Include="GameScene\ClearScene\ClearScenePartsBase.hpp" />
@@ -202,6 +204,7 @@
     <ClInclude Include="GameScene\StageSelect\StageSelectParam.hpp" />
     <ClInclude Include="GameScene\StageStateFlag.hpp" />
     <ClInclude Include="GameScene\TitleScene.hpp" />
+    <ClInclude Include="GameScene\TitleScene\FromZeroTitleSceneParam.hpp" />
     <ClInclude Include="GameScene\TitleScene\SelectButton.hpp" />
     <ClInclude Include="GameScene\TitleScene\ButtonParam.hpp" />
     <ClInclude Include="GameScene\TitleScene\CursorPos.hpp" />

@@ -13,6 +13,7 @@
 #include"GameParam.hpp"
 #include"GameScene/GameOverScene.hpp"
 #include"GameScene/GameClearScene.hpp"
+#include"GameScene/FromZeroTitleScene.hpp"
 
 namespace Game
 {
@@ -24,7 +25,16 @@ namespace Game
 	{
 		mGameData = LoadGameData();
 
-		mNowScene = new TitleScene{ this,mGameData ,GetStarNum() };
+		//セーブデータがまだ作られていない場合
+		if (mGameData.mSaveData.size() == 0)
+		{
+			mGameData = START_GAMEDATA;
+			mNowScene = new FromZeroTitleScene{ this,mGameData };
+		}
+		else
+		{
+			mNowScene = new TitleScene{ this,mGameData ,GetStarNum() };
+		}
 
 		mRectCurtain = new RectCurtain{ this };
 	}
