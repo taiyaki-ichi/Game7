@@ -1,19 +1,18 @@
-#include<iostream>
-#include<string>
 #include<memory>
-#include<random>
 #include"GameLib/include/App.hpp"
 #include"Game.hpp"
 #include"Stage/WindowSize.hpp"
 
 #include<Windows.h>
 
+/*
 #include <stdlib.h>
 #include <crtdbg.h>
 #define malloc(X) _malloc_dbg(X,_NORMAL_BLOCK,__FILE__,__LINE__) 
 #define new ::new(_NORMAL_BLOCK, __FILE__, __LINE__)
 
 //デバック用
+
 int main() 
 {
 
@@ -26,6 +25,7 @@ int main()
 	return 0;
 
 }
+*/
 
 
 int CALLBACK WinMain(
