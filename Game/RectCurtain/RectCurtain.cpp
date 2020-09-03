@@ -38,8 +38,10 @@ namespace Game
 
 		using namespace GameLib;
 		mRect.SetRotation(Viewport::GetRotation());
-		auto adjust = Vector2::Rotation(Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f - h / 2.f }, -Viewport::GetRotation());
-		auto pos = AffineInv(adjust, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
+		//auto adjust = Vector2::Rotation(Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f - h / 2.f }, -Viewport::GetRotation());
+		//auto pos = AffineInv(adjust, Viewport::GetPos(), -Viewport::GetRotation(), Viewport::GetScale());
+
+		auto pos = Vector2::Rotation(Viewport::GetPos() + Vector2{ 0.f,Stage::WindowSize::HEIGHT / 2.f - h / 2.f }, Viewport::GetRotation());
 		mRect.SetPosition(std::move(pos));
 	}
 

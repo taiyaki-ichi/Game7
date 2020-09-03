@@ -13,7 +13,7 @@ namespace Game
 		constexpr auto ISSAVE_FONT_SIZE = GameLib::Font::Size::Size_36;
 
 		constexpr float BUTTON_WIDTH = 100.f;
-		constexpr float BUTTON_HEIGHT = 80.f;
+		constexpr float BUTTON_HEIGHT = 60.f;
 		constexpr float BUTTOB_FLAME_WIDTH = 10.f;
 
 		constexpr auto HAI_IIE_FONT_SIZE = GameLib::Font::Size::Size_24;
