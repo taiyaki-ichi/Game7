@@ -10,7 +10,6 @@
 #include"LoadSaveFunc.hpp"
 #include"GameScene/TitleScene.hpp"
 #include"GameLib/include/Viewport/Viewport.hpp"
-#include"TemporaryMessage/TemporaryMessage.hpp"
 #include"GameParam.hpp"
 #include"GameScene/GameOverScene.hpp"
 #include"GameScene/GameClearScene.hpp"
@@ -36,11 +35,6 @@ namespace Game
 		{
 			mGameData = mNowScene->GetGameData();
 			SaveGameData(mGameData);
-
-			auto ptr = new TemporaryMessage{ this,GameParam::SAVE_MESSAGE_TIME };
-			ptr->SetPosition(GameParam::SAVE_MESSAGE_POS);
-			ptr->SetSize(GameLib::Font::Size::Size_48);
-			ptr->SetText("セーブかんりょう！");
 		}
 		//シーンを変更するフラグのどれかが立っており、カーテンが開いているなら
 		//現在のシーンを止めて、カーテンを閉める

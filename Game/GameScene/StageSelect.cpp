@@ -210,6 +210,8 @@ namespace Game
 			else if (stageDataIter->second.size() == 1 && stageDataIter->second[0] == "save")
 			{
 				UpFlag(SceneFlag::SAVE_FLAG);
+				//mStageNameDisplay.SetText("セーブかんりょう！");
+				mStageLevelDisplay.SetText("セーブかんりょう！");
 			}
 			else if (stageDataIter->second.size() == 1 && stageDataIter->second[0] == "title")
 			{
