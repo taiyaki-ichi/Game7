@@ -57,7 +57,9 @@ namespace Stage::PlayerState
 			//Playerのヨコ方向によって値を変更
 			//こうしないとカメラがぶれる
 			float speed = std::abs(GetDir4DirectionSize(mPhysicsModel.mVelocity, Dir4::Right));
-			float speedRate = speed / PlayerParam::MAX_HORIZON_SPEED;
+			//float speedRate = speed / PlayerParam::MAX_HORIZON_SPEED;
+			//
+			float speedRate = (speed < 0.5f) ? 0.f : 1.f;
 			if (Gravity::GetDir4() == Dir4::Down || Gravity::GetDir4() == Dir4::Up)
 				adjust = GetParallelRectAdjustVec(mCollider, c, 1.f*speedRate, 0.f);
 			else
