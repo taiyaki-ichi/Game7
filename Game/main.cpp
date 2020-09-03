@@ -7,7 +7,6 @@
 
 /*
 //デバック用
-
 #include <stdlib.h>
 #include <crtdbg.h>
 #define malloc(X) _malloc_dbg(X,_NORMAL_BLOCK,__FILE__,__LINE__) 
@@ -21,12 +20,9 @@ int main()
 	auto app = GameLib::CreatAppPtr({ "game",Stage::WindowSize::WIDTH,Stage::WindowSize::HEIGHT });
 	app->Start<Game::Game>();
 
-
 	return 0;
-
 }
 */
-
 
 int CALLBACK WinMain(
 	_In_ HINSTANCE hInstance,
