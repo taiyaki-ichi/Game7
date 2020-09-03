@@ -4,6 +4,7 @@
 #include"TitleScene/CursorPos.hpp"
 #include"GameLib/include/Draw/DrawFontText.hpp"
 #include"TitleScene/TitleLogo.hpp"
+#include"TitleScene/StarDisplay.hpp"
 
 namespace Stage
 {
@@ -28,8 +29,10 @@ namespace Game
 
 		TitleLogo mTitleLogo;
 
+		StarDisplay mStarDisplay;
+
 	public:
-		TitleScene(GameLib::Actor*,const GameData&);
+		TitleScene(GameLib::Actor*,const GameData&,int starNum);
 
 		void CustomizeUpdate() override;
 	};

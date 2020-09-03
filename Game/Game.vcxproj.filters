@@ -23,6 +23,7 @@
     <ClCompile Include="GameScene\ClearScene\IsSaveParts.cpp" />
     <ClCompile Include="GameScene\ClearScene\SavedParts.cpp" />
     <ClCompile Include="GameScene\GameClearScene.cpp" />
+    <ClCompile Include="GameScene\TitleScene\StarDisplay.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScene\StageSelect\DataDisplay\StringDisplay.hpp" />
@@ -67,5 +68,7 @@
     <ClInclude Include="GameScene\ClearScene\IsSaveParts.hpp" />
     <ClInclude Include="GameScene\ClearScene\IsSaveParam.hpp" />
     <ClInclude Include="GameScene\ClearScene\SavedParts.hpp" />
+    <ClInclude Include="GameScene\TitleScene\StarDisplay.hpp" />
+    <ClInclude Include="GameScene\TitleScene\StardisplayParam.hpp" />
   </ItemGroup>
 </Project>

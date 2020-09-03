@@ -22,5 +22,7 @@ namespace Game
 		constexpr float KAKKO_MOVE_LENGTH = 4.f;
 		constexpr float KAKKO_TEXTURE_SCALE = 0.05f;
 
+		const GameLib::Vector2 STAR_DISPLAY_ADJUST{ 0.f,-75.f };
+
 	}
 }

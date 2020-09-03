@@ -7,6 +7,7 @@
 
 namespace Game
 {
+
 	const std::unordered_map<HexVec, std::vector<std::string>> gStageData =
 	{
 		{{1,0},{"stage007","easy","‚©‚ñ‚½‚ñŒ´‚Á‚Ï"}},
@@ -31,7 +32,7 @@ namespace Game
 		{{9,0},{"goal"}},
 	};
 
-	std::unordered_map<std::string, Stage::BackGroundType> gStageBackGroundType =
+	const std::unordered_map<std::string, Stage::BackGroundType> gStageBackGroundType =
 	{
 		{"stage007",Stage::BackGroundType::RoundTreeForest},
 		{"stage001",Stage::BackGroundType::RoundTreeForest},

@@ -1,5 +1,9 @@
 #include"LoadSaveFunc.hpp"
 #include <fstream>
+#include"StageData.hpp"
+#include"GameScene/StageDataParam.hpp"
+
+#include"GameScene/StageStateFlag.hpp"
 
 namespace Game
 {
@@ -8,6 +12,15 @@ namespace Game
 		constexpr char FILE_NAME[] = "../Data/save.bin";
 	}
 
+	//有効なセーブデータかどうか
+	bool CheckStageData(const HexVec& vec)
+	{
+		auto iter = gStageData.find(vec);
+		if (iter != gStageData.end() && iter->second.size() == StageDataParam::STAGE_STRING_NUM)
+			return true;
+		else
+			return false;
+	}
 
 	GameData LoadGameData()
 	{
@@ -31,7 +44,10 @@ namespace Game
 		{
 			file >> y;
 			file >> flag;
-			result.mSaveData.insert_or_assign({ x,y }, flag);
+
+			auto pos = HexVec{ x,y };
+			if (CheckStageData(pos))
+				result.mSaveData.insert_or_assign(std::move(pos), flag);
 		}
 
 		file.close();

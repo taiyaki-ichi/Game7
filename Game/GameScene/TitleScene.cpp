@@ -6,7 +6,7 @@
 
 namespace Game
 {
-	TitleScene::TitleScene(GameLib::Actor* actor,const GameData& gameData)
+	TitleScene::TitleScene(GameLib::Actor* actor,const GameData& gameData,int starNum)
 		:SceneBase{actor,gameData}
 		, mButtonA{TitleSceneParam::A_BUTTON_ADJUST}
 		, mButtonD{TitleSceneParam::D_BUTTON_ADJUST}
@@ -15,6 +15,7 @@ namespace Game
 		, mD{ "../Assets/Font/mplus-1c-black.ttf" }
 		, mKakko{nullptr}
 		, mTitleLogo{TitleSceneParam::TITLELOGO_POS}
+		, mStarDisplay{1}
 	{
 		using namespace TitleSceneParam;
 
@@ -43,6 +44,10 @@ namespace Game
 		mKakko->SetPosition(A_BUTTON_ADJUST);
 		mKakko->SetMoveLength(KAKKO_MOVE_LENGTH);
 		mKakko->SetTextureScale(KAKKO_TEXTURE_SCALE);
+
+		mStarDisplay.SetPosition(A_BUTTON_ADJUST + STAR_DISPLAY_ADJUST);
+		mStarDisplay.SetStarNum(starNum);
+
 	}
 
 	void TitleScene::CustomizeUpdate()

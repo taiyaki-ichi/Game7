@@ -24,7 +24,7 @@ namespace Game
 	{
 		mGameData = LoadGameData();
 
-		mNowScene = new TitleScene{ this,mGameData };
+		mNowScene = new TitleScene{ this,mGameData ,GetStarNum() };
 
 		mRectCurtain = new RectCurtain{ this };
 	}
@@ -95,7 +95,9 @@ namespace Game
 	void Game::GoTitle()
 	{
 		mGameData = mNowScene->GetGameData();
-		mNowScene = new TitleScene{ this,mGameData };
+
+		int starNum = GetStarNum();
+		mNowScene = new TitleScene{ this,mGameData ,starNum };
 	}
 
 	void Game::GoStageSelect()
@@ -153,4 +155,35 @@ namespace Game
 		mNowScene = new ClearScene{ this,mGameData };
 	}
 	
+	int Game::GetStarNum()
+	{
+		bool gameClearFlag = true;
+		bool allStageClearFlag = true;
+		bool allTeargemGetflag = true;
+
+		HexVec lastStagePos{};
+		for (const auto& stageData : gStageData)
+			if (stageData.second.size() == 1 && stageData.second[0] == "goal")
+				lastStagePos = HexVec{ stageData.first.x - 1,stageData.first.y };
+
+		for (const auto& data : mGameData.mSaveData)
+		{
+			if (!(data.second & StageStateFlag::CLEAR_FLAG)) 
+				allStageClearFlag = false;
+			if (!(data.second & (StageStateFlag::TEARGEM1_FLAG | StageStateFlag::TEARGEM2_FLAG | StageStateFlag::TEARGEM3_FLAG)))
+				allTeargemGetflag = false;
+			if (data.first == lastStagePos && !(data.second & StageStateFlag::CLEAR_FLAG))
+				gameClearFlag = false;
+		}
+
+		int starNum = 0;
+		if (allTeargemGetflag && allStageClearFlag && gameClearFlag)
+			starNum = 3;
+		else if (allStageClearFlag && gameClearFlag)
+			starNum = 2;
+		else if (gameClearFlag)
+			starNum = 1;
+
+		return starNum;
+	}
 }

@@ -36,6 +36,9 @@ namespace Game
 		void GoStageSelectFromZero();
 		void GoGameClear();
 
+		//TitleScene—p
+		int GetStarNum();
+
 
 	};
 }
