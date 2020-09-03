@@ -15,10 +15,10 @@ namespace Stage
 	Pause::Pause(GameLib::Actor* stage, SceneManager* sceneManager)
 		:GameLib::Actor{stage}
 		, mSceneManager{sceneManager}
-		, mFlameRect{50}
-		, mResumeButton{60}
+		, mFlameRect{250}
+		, mResumeButton{260}
 		, mResumeText{ "../Assets/Font/mplus-1c-black.ttf" }
-		, mReturnStageSelectButton{60}
+		, mReturnStageSelectButton{260}
 		, mReturnStageSelectText{ "../Assets/Font/mplus-1c-black.ttf" }
 		, mPosition{Position::Resume}
 		, mKakko{nullptr}
@@ -46,7 +46,7 @@ namespace Stage
 
 		mResumeText.SetText("ゲームに戻る");
 		mResumeText.SetPosition(Vector2::Rotation(GameLib::Viewport::GetPos() + PauseParam::RESUME_BUTTON_ADJUST, rot));
-		mResumeText.SetDrawOrder(62);
+		mResumeText.SetDrawOrder(262);
 
 		mReturnStageSelectButton.SetWidthAndHeightAndFlameWidth(BUTTON_WIDTH, BUTTON_HEIGHT, BUTTON_FLAMEWIDTH);
 		mReturnStageSelectButton.ChangeWhite();
@@ -55,9 +55,9 @@ namespace Stage
 
 		mReturnStageSelectText.SetText("セレクトに戻る");
 		mReturnStageSelectText.SetPosition(Vector2::Rotation(GameLib::Viewport::GetPos() + PauseParam::RETURN_TITLE_BUTTON_ADJUST, rot));
-		mReturnStageSelectText.SetDrawOrder(62);
+		mReturnStageSelectText.SetDrawOrder(262);
 
-		mKakko = new Kakko{ this ,65};
+		mKakko = new Kakko{ this ,265};
 		mKakko->SetTextureScale(KAKKO_TEXTURE_SCALE);
 		mKakko->SetMoveLength(KAKKO_MOVE_LENGTH);
 		mKakko->SetWidthAndHeight(KAKKO_WIDTH, KAKKO_HEIGHT);
@@ -67,14 +67,14 @@ namespace Stage
 		mPauseText.SetText("ポーズ");
 		mPauseText.SetSize(GameLib::Font::Size::Size_36);
 		mPauseText.SetPosition(Vector2::Rotation(PauseParam::PAUSE_TEXT_ADJUST + GameLib::Viewport::GetPos(), rot));
-		mPauseText.SetDrawOrder(65);
+		mPauseText.SetDrawOrder(265);
 
 		mA.SetText("A");
-		mA.SetDrawOrder(65);
+		mA.SetDrawOrder(265);
 		mA.SetPosition(mResumeButton.GetPosition() + Vector2::Rotation(BUTTON_KEY_TEXT_ADJUST, rot));
 
 		mD.SetText("D");
-		mD.SetDrawOrder(65);
+		mD.SetDrawOrder(265);
 		mD.SetPosition(mReturnStageSelectButton.GetPosition() + Vector2::Rotation(BUTTON_KEY_TEXT_ADJUST, rot));
 
 		mNum++;
