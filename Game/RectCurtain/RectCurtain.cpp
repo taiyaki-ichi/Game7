@@ -14,7 +14,7 @@ namespace Game
 		mRect.SetColor({ 0,0,0,255 });
 		mRect.SetWidthAndHeight(Stage::WindowSize::WIDTH, 0.f);
 		mRect.SetPosition({ GameLib::Viewport::GetPos().x,Stage::WindowSize::HEIGHT / 2.f });
-		mRect.SetDrawOrder(100);
+		mRect.SetDrawOrder(300);
 		mRect.SetRotation(GameLib::Viewport::GetRotation());
 	}
 

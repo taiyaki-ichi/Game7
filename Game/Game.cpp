@@ -157,7 +157,7 @@ namespace Game
 	
 	int Game::GetStarNum()
 	{
-		bool gameClearFlag = true;
+		bool gameClearFlag = false;
 		bool allStageClearFlag = true;
 		bool allTeargemGetflag = true;
 
@@ -172,8 +172,8 @@ namespace Game
 				allStageClearFlag = false;
 			if (!(data.second & (StageStateFlag::TEARGEM1_FLAG | StageStateFlag::TEARGEM2_FLAG | StageStateFlag::TEARGEM3_FLAG)))
 				allTeargemGetflag = false;
-			if (data.first == lastStagePos && !(data.second & StageStateFlag::CLEAR_FLAG))
-				gameClearFlag = false;
+			if (data.first == lastStagePos && (data.second & StageStateFlag::CLEAR_FLAG))
+				gameClearFlag = true;
 		}
 
 		int starNum = 0;

@@ -8,8 +8,8 @@ namespace Stage
 		constexpr float HEIGHT = 600.f;
 		constexpr float SCALE = 0.1f;
 		//çÇÇ≥ÇêËÇﬂÇÈäÑçá
-		constexpr float WEAKNESS_RATE = 1.f / 3.f;
-		constexpr float STRENGTH_RATE = 2.f / 3.f;
+		constexpr float WEAKNESS_RATE = 1.f / 2.f;
+		constexpr float STRENGTH_RATE = 1.f / 2.f;
 
 		constexpr float COLLIDER_ADJUST_Y = 4.f;
 
