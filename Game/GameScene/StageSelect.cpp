@@ -215,6 +215,10 @@ namespace Game
 			{
 				UpFlag(SceneFlag::GO_TITLE_FLAG);
 			}
+			else if (stageDataIter->second.size() == 1 && stageDataIter->second[0] == "goal")
+			{
+				UpFlag(SceneFlag::GO_GAME_CLEAR_FLAG);
+			}
 		}
 	}
 

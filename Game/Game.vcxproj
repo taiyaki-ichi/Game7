@@ -147,6 +147,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameScene\GameClearScene.cpp" />
+    <ClCompile Include="GameScene\ClearScene\ClearScenePartsBase.cpp" />
+    <ClCompile Include="GameScene\ClearScene\GameClearParts.cpp" />
+    <ClCompile Include="GameScene\ClearScene\IsSaveParts.cpp" />
+    <ClCompile Include="GameScene\ClearScene\SavedParts.cpp" />
     <ClCompile Include="GameScene\GameOverScene.cpp" />
     <ClCompile Include="GameScene\GameSceneBase.cpp" />
     <ClCompile Include="GameScene\GameStage.cpp" />
@@ -168,6 +173,14 @@
   <ItemGroup>
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="GameParam.hpp" />
+    <ClInclude Include="GameScene\ClearScene\GameClearParts.hpp" />
+    <ClInclude Include="GameScene\ClearScene\GameClearPartsParam.hpp" />
+    <ClInclude Include="GameScene\ClearScene\IsSaveParam.hpp" />
+    <ClInclude Include="GameScene\ClearScene\IsSaveParts.hpp" />
+    <ClInclude Include="GameScene\ClearScene\SavedParts.hpp" />
+    <ClInclude Include="GameScene\GameClearScene.hpp" />
+    <ClInclude Include="GameScene\ClearScene\ClearSceneFlag.hpp" />
+    <ClInclude Include="GameScene\ClearScene\ClearScenePartsBase.hpp" />
     <ClInclude Include="GameScene\GameData.hpp" />
     <ClInclude Include="GameScene\GameOverScene.hpp" />
     <ClInclude Include="GameScene\GameSceneBase.hpp" />

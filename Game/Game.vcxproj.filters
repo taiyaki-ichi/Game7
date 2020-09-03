@@ -19,6 +19,11 @@
     <ClCompile Include="GameScene\TitleScene\SelectButton.cpp" />
     <ClCompile Include="GameScene\StageSelect\MoveKeyAssist\KeyHex.cpp" />
     <ClCompile Include="GameScene\StageSelect\MoveKeyAssist.cpp" />
+    <ClCompile Include="GameScene\ClearScene\ClearScenePartsBase.cpp" />
+    <ClCompile Include="GameScene\ClearScene\GameClearParts.cpp" />
+    <ClCompile Include="GameScene\ClearScene\IsSaveParts.cpp" />
+    <ClCompile Include="GameScene\ClearScene\SavedParts.cpp" />
+    <ClCompile Include="GameScene\GameClearScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScene\StageSelect\DataDisplay\StringDisplay.hpp" />
@@ -56,5 +61,13 @@
     <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\KeyHex.hpp" />
     <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\KeyHexParam.hpp" />
     <ClInclude Include="GameScene\StageSelect\MoveKeyAssist\MoveKeyAssistParam.hpp" />
+    <ClInclude Include="GameScene\GameClearScene.hpp" />
+    <ClInclude Include="GameScene\ClearScene\ClearSceneFlag.hpp" />
+    <ClInclude Include="GameScene\ClearScene\ClearScenePartsBase.hpp" />
+    <ClInclude Include="GameScene\ClearScene\GameClearParts.hpp" />
+    <ClInclude Include="GameScene\ClearScene\GameClearPartsParam.hpp" />
+    <ClInclude Include="GameScene\ClearScene\IsSaveParts.hpp" />
+    <ClInclude Include="GameScene\ClearScene\IsSaveParam.hpp" />
+    <ClInclude Include="GameScene\ClearScene\SavedParts.hpp" />
   </ItemGroup>
 </Project>

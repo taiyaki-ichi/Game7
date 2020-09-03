@@ -34,7 +34,7 @@ namespace Game
 		void StageClear();
 		void MissStage();
 		void GoStageSelectFromZero();
-		
+		void GoGameClear();
 
 
 	};

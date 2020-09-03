@@ -18,5 +18,7 @@ namespace Game
 		constexpr unsigned int GO_STAGESELECT_FROM_ZERO_FLAG = 0b1000000;
 
 		constexpr unsigned int GO_STAGESELECT_FROM_TITLE_FLAG = 0b10000000;
+
+		constexpr unsigned int GO_GAME_CLEAR_FLAG = 0b100000000;
 	}
 }

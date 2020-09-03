@@ -13,6 +13,7 @@
 #include"TemporaryMessage/TemporaryMessage.hpp"
 #include"GameParam.hpp"
 #include"GameScene/GameOverScene.hpp"
+#include"GameScene/GameClearScene.hpp"
 
 namespace Game
 {
@@ -72,6 +73,8 @@ namespace Game
 				GoStageSelectFromZero();
 			else if (mNowScene->CheckFlag(GO_STAGESELECT_FROM_TITLE_FLAG))
 				GoStageSelectFromTitle();
+			else if (mNowScene->CheckFlag(GO_GAME_CLEAR_FLAG))
+				GoGameClear();
 			else
 				GoTitle();
 
@@ -149,6 +152,11 @@ namespace Game
 	{
 		mGameData = START_GAMEDATA;
 		mNowScene = new StageSelect{ this,mGameData,gStageData };
+	}
+
+	void Game::GoGameClear()
+	{
+		mNowScene = new ClearScene{ this,mGameData };
 	}
 	
 }
