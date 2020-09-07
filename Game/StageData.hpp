@@ -45,8 +45,8 @@ namespace Game
 		{"stage008",Stage::BackGroundType::SharpTreeForest},
 		{"stage006",Stage::BackGroundType::Sanctuary},
 		{"stage004",Stage::BackGroundType::SharpTreeForest},
-		{"stage003",Stage::BackGroundType::CreepyCave},
-		{"stage014",Stage::BackGroundType::CreepyCave},
+		{"stage003",Stage::BackGroundType::Sanctuary},
+		{"stage014",Stage::BackGroundType::RoundTreeForest},
 		{"stage012",Stage::BackGroundType::RoundTreeForest},
 	}; 
 
