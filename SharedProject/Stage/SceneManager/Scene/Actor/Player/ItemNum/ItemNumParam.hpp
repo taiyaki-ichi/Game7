@@ -24,7 +24,8 @@ namespace Stage
 		constexpr float LIFE_ICON_ADJUST_X = -30.f;
 		constexpr float LIFE_NUM_ADJUST_X = 30.f;
 
-		constexpr int GEM_MAX_NUM = 100;
+		constexpr int GEM_MAX_NUM = 50;
+		constexpr int MAX_LIFE_NUM = 99;
 
 		constexpr int DRAWORDER = 50;
 	}

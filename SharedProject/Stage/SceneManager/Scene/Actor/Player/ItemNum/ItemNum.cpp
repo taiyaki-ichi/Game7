@@ -21,6 +21,9 @@ namespace Stage
 		if (mGemCnt == ItemNumParam::GEM_MAX_NUM) {
 			mGemCnt = 0;
 			mLifeCnt++;
+
+			if (mLifeCnt > ItemNumParam::MAX_LIFE_NUM)
+				ItemNumParam::MAX_LIFE_NUM;
 		}
 
 		mGemDisplay.SetNum(mGemCnt);
