@@ -1,3 +1,4 @@
+
 #include<memory>
 #include"GameLib/include/App.hpp"
 #include"Game.hpp"
@@ -24,6 +25,7 @@ int main()
 }
 */
 
+
 int CALLBACK WinMain(
 	_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
@@ -36,3 +38,4 @@ int CALLBACK WinMain(
 
 	return 0;
 }
+
