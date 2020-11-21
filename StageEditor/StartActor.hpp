@@ -1,5 +1,5 @@
 #pragma once
-#include"GameLib/include/Actor/RootActor.hpp"
+#include"GameLib/include/Actor/Actor.hpp"
 
 namespace Stage
 {
@@ -10,14 +10,14 @@ namespace StageEditor
 {
 	class StageEditor;
 
-	class StartActor :public GameLib::RootActor
+	class StartActor :public GameLib::Actor
 	{
 
 		StageEditor* mStageEditor;
 		Stage::Stage* mStage;
 
 	public:
-		StartActor();
+		StartActor(GameLib::Actor*);
 
 		void CustomizeUpdate() override;
 	};

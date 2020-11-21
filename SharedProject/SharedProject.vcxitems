@@ -17,7 +17,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\Actor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\ActorPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\ActorsManager.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\RootActor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\App.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\Collider.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\CollisionDetectionSetting.hpp" />
@@ -235,7 +234,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\Keyboard.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\Mouse.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Resource\ResourceManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\RootActor.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Event.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Graphics.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Windows\src\Input.cpp" />

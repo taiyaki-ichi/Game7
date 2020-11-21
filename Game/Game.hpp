@@ -1,5 +1,5 @@
 #pragma once
-#include"GameLib/include/Actor/RootActor.hpp"
+#include"GameLib/include/Actor/Actor.hpp"
 #include"GameScene/GameData.hpp"
 
 namespace Game
@@ -7,7 +7,7 @@ namespace Game
 	class SceneBase;
 	class RectCurtain;
 
-	class Game : public GameLib::RootActor
+	class Game : public GameLib::Actor
 	{
 		//åªç›ÇÃÉVÅ[Éì
 		SceneBase* mNowScene;
@@ -19,7 +19,7 @@ namespace Game
 		RectCurtain* mRectCurtain;
 
 	public:
-		Game();
+		Game(GameLib::Actor*);
 
 		void CustomizeUpdate() override;
 

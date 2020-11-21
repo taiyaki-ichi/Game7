@@ -17,8 +17,8 @@
 
 namespace Game
 {
-	Game::Game()
-		:RootActor{}
+	Game::Game(GameLib::Actor* actor)
+		:GameLib::Actor{actor}
 		, mNowScene{ nullptr }
 		, mGameData{}
 		, mRectCurtain{ nullptr }

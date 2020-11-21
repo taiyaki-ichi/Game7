@@ -18,7 +18,7 @@ namespace GameLib
 
 	private:
 
-		void StartImpl(RootActor* rootActor) override;
+		void StartImpl(Actor* rootActor) override;
 
 		bool mIsRunning;
 
@@ -26,7 +26,7 @@ namespace GameLib
 		void GameLoop();
 		void Shutdown();
 
-		RootActor* mRootActor;
+		Actor* mRootActor;
 
 		unsigned long mTime;
 		unsigned long mWaitTime;

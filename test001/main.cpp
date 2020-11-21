@@ -1,18 +1,18 @@
 
-#include"GameLib/include/Actor/RootActor.hpp"
+#include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/include/Draw/DrawTexture.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"GameLib/include/App.hpp"
 
 using namespace GameLib;
 
-class MyActor : public RootActor
+class MyActor : public Actor
 {
 	DrawTexture mTexture;
 
 public:
-	MyActor()
-		:RootActor{}
+	MyActor(Actor* actor)
+		:Actor{actor}
 		, mTexture{ "../Assets/Player/icon.png" }
 	{
 		mTexture.SetScale(0.1f);
@@ -23,8 +23,6 @@ public:
 		mTexture.SetPosition(InputState::GetMousePos());
 	}
 };
-
-//developtest
 
 
 int main()

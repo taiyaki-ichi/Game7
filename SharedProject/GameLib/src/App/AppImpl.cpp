@@ -4,7 +4,7 @@
 #include"GameLib/src/Windows/Graphics.hpp"
 #include"GameLib/src/Windows/Input.hpp"
 #include"GameLib/src/Windows/Event.hpp"
-#include"GameLib/include/Actor/RootActor.hpp"
+#include"GameLib/include/Actor/Actor.hpp"
 #include"GameLib/src/Draw/Manager/DrawManager.hpp"
 #include"GameLib/include/Resource/ResourceManager.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
@@ -34,7 +34,7 @@ namespace GameLib
 			delete mRootActor;
 	}
 
-	void AppImpl::StartImpl(RootActor* rootActor)
+	void AppImpl::StartImpl(Actor* rootActor)
 	{
 		mRootActor = rootActor;
 

@@ -6,8 +6,8 @@
 
 namespace StageEditor
 {
-	StartActor::StartActor()
-		:GameLib::RootActor{}
+	StartActor::StartActor(GameLib::Actor* actor)
+		:GameLib::Actor{actor}
 		, mStageEditor{nullptr}
 		, mStage{nullptr}
 	{

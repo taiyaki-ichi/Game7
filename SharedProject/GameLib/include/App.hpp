@@ -2,7 +2,7 @@
 #include<string>
 #include<memory>
 #include<type_traits>
-#include"Actor/RootActor.hpp"
+#include"Actor/Actor.hpp"
 namespace GameLib
 {
 	struct WindowData {
@@ -21,17 +21,23 @@ namespace GameLib
 		virtual ~App() = default;
 
 		//RootActorの型を渡しAppスタート
+		//StartActorのコンストラクタの第一引数はActor*固定
 		template<typename StartActor,typename ...Args>
 		void Start(Args&& ...args) {
 			//RootActorを継承してなければえっらー
-			static_assert(std::is_base_of_v<RootActor,StartActor>, "RootActor is not base of StartActor");
+			static_assert(std::is_base_of_v<Actor,StartActor>, "Actor is not base of StartActor");
 
-			RootActor* rootActor = new StartActor(std::forward<Args>(args)...);
+			//ルートアクタ
+			Actor* rootActor = new Actor{ nullptr };
+
+			//クライアントのルートアクタ
+			new StartActor(rootActor, std::forward<Args>(args)...);
+
 			StartImpl(rootActor);
 		}
 
 	private:
-		virtual void StartImpl(RootActor* rootActor) = 0;
+		virtual void StartImpl(Actor* rootActor) = 0;
 	};
 
 	constexpr float DEFAULT_FPS = 60.f;
