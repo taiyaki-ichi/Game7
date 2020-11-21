@@ -24,6 +24,9 @@ public:
 	}
 };
 
+
+
+
 int main()
 {
 	auto app = GameLib::CreatAppPtr({ "sample",500.f,500.f });
