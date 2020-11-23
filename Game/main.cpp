@@ -6,7 +6,7 @@
 
 #include<Windows.h>
 
-/*
+
 //デバック用
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -23,7 +23,8 @@ int main()
 
 	return 0;
 }
-*/
+
+/*
 
 
 int CALLBACK WinMain(
@@ -38,4 +39,5 @@ int CALLBACK WinMain(
 
 	return 0;
 }
+*/
 

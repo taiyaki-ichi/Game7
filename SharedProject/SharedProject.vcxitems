@@ -14,6 +14,14 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionDetectionLib\include\policy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionDetectionLib\include\traits.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionDetectionLib\include\tree.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionDetectionLib\src\default_collision_detection_policy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionDetectionLib\src\morton_number.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionDetectionLib\src\space_cell.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionDetectionLib\src\tree_impl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CollisionDetectionLib\src\utility.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\Actor.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\ActorPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Actor\ActorsManager.hpp" />
@@ -44,13 +52,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\include\Viewport\Viewport.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\App\AppImpl.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\ColliderManager.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\CollisionDetectinPolicy.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\CollisionDetectionSettingImpl.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\CollsionDetectionData.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\LinerObject.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\MortonNumber.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\SpaceCell.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\SpaceDivisionTree.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\Policy.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\Traits.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\Manager\DrawManager.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\Manager\DrawPolicy.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameLib\src\InputState\Keyboard.hpp" />
@@ -216,10 +219,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\include\CollisionDetection\CollisionDetectionSetting.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\include\Viewport\Viewport.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\App\AppImpl.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\Collider.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\ColliderManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\CollisionDetectionSettingImpl.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\src\MortonNumber.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\Collider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\CollisionDetection\ColliderManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\CustomizeDrawBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameLib\src\Draw\DrawBase.cpp" />

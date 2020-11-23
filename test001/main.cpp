@@ -3,6 +3,9 @@
 #include"GameLib/include/Draw/DrawTexture.hpp"
 #include"GameLib/include/InputState/InputState.hpp"
 #include"GameLib/include/App.hpp"
+#include"GameLib/include/Draw/DrawAnimation.hpp"
+#include"GameLib/include/CollisionDetection/Collider.hpp"
+#include"GameLib/src/CollisionDetection/ColliderManager.hpp"
 
 using namespace GameLib;
 
@@ -24,6 +27,32 @@ public:
 	}
 };
 
+
+/*
+class Player : public Actor
+{
+	//メンバ
+	DrawAnimation mAnimation;
+	Collider mCollider;
+
+	
+};
+
+//コライダーのコンストラクタ
+
+Collider::Collider(...)
+{
+	ColliderManager::Add(this);
+	...
+}
+
+Collider::~Collider()
+{
+	ColliderManager::Remove(this);
+	...
+}
+
+*/
 
 int main()
 {

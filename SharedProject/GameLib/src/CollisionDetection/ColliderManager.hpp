@@ -1,23 +1,19 @@
 #pragma once
 #include<memory>
-#include<list>
+#include<vector>
 #include<cmath>
-#include"LinerObject.hpp"
-
 #include<iostream>
+#include"CollisionDetectionLib/include/tree.hpp"
+#include"Traits.hpp"
 
 namespace GameLib
 {
-	template<typename T>
-	class SpaceDivisionTree;
-
 	class Collider;
-	struct SwitchDrawing;
 
 	class ColliderManager
 	{
 	private:
-		static std::list<LinerObject<Collider>> mColliders;
+		static std::vector<Collider*> mColliders;
 
 	public:
 
@@ -25,7 +21,7 @@ namespace GameLib
 
 		static void Remove(Collider* collder);
 
-		static void RegistSpaceDivisionTree(SpaceDivisionTree<Collider>& tree);
+		static void TreeRegist(collision_detection::tree<Collider>& tree);
 
 		static void SetAllIsDrawing(bool b);
 

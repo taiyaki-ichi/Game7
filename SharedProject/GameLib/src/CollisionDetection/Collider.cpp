@@ -1,7 +1,6 @@
 #include"GameLib/include/CollisionDetection/Collider.hpp"
 #include"GameLib/include/Draw/DrawLine.hpp"
 #include"GameLib/src/CollisionDetection/ColliderManager.hpp"
-#include "..\..\..\include\CollisionDetection\Collider.hpp"
 
 
 namespace GameLib
@@ -13,7 +12,7 @@ namespace GameLib
 		mDrawRect.Set(mPosition, mScale, mRotation);
 		mDrawRect.SetWidthAndHeight(mWidth, mHeigth);
 	}
-	Collider::Collider(std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot,Color&& color )
+	Collider::Collider(std::string&& nameTag, const Vector2& pos, float width, float heigth, float scale, float rot, Color&& color)
 		: mNameTag(std::move(nameTag))
 		, mPosition(pos)
 		, mWidth(width)
@@ -21,9 +20,9 @@ namespace GameLib
 		, mScale(scale)
 		, mRotation(rot)
 		, mDrawRect{ COLLIDER_DRAWORDER }
-		, mDoCollisionDetection{true}
+		, mDoCollisionDetection{ true }
 		, mRerativePos{}
-		, mPrevPos{pos}
+		, mPrevPos{ pos }
 	{
 		SetDrawRect();
 		mDrawRect.SetIsFill(false);

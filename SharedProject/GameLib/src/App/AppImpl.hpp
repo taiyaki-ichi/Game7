@@ -1,13 +1,13 @@
 #pragma once
 #include<string>
-#include<memory>
 #include"GameLib/include/App.hpp"
+#include"GameLib/src/CollisionDetection/Traits.hpp"
+#include"GameLib/src/CollisionDetection/Policy.hpp"
+#include"CollisionDetectionLib/include/tree.hpp"
 
 namespace GameLib
 {
 
-	template<typename T>
-	class SpaceDivisionTree;
 	class Collider;
 
 	class AppImpl : public App
@@ -31,9 +31,12 @@ namespace GameLib
 		unsigned long mTime;
 		unsigned long mWaitTime;
 
-		std::unique_ptr<SpaceDivisionTree<Collider>> mSpaceDivisionTree;
+		collision_detection::tree<Collider> mTree;
 
 		unsigned long mSumTime;
 		int mCnt;
+
+		//当たり判定を行う木の基本情報のセット
+		void SetTree();
 	};
 }
